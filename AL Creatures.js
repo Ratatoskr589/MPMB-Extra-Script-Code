@@ -10,15 +10,22 @@ Effect: This file adds new creatures that are specially made for AL into the she
 //The Sea Lion code was deleted from GoS but still appears on a Beastmaster NPC. The code for Arctic Stink Squirrel, Chwinga Squidling, Gelatinous Ice Cube, Snowy Owlbear Cub was made by Nod_Hero. It was added here to collect the extra creatures in one place.
 
 //Complete: DDCE, House of Lament Premiere, S0-S9, S9 DM Rewards (no vehicles), Holiday Events
-//WIP: Fai Chen's/Certs, CCCs, S10 (Through 10-9), DC-POA, DRW
+//WIP: Fai Chen's/Certs, S10 (Through 10-9), DC-POA, DRW
 
 var iFileName = "AL Creatures.js";
 RequiredSheetVersion(13);
 
 // Define the source
-SourceList.FC = {
+SourceList["AL:FC"] = {
     name : "Fai Chen & Other Certs",
-    abbreviation : "FC",
+    abbreviation : "AL:FC",
+    group : "Adventurers League",
+    date : "Various"
+};
+
+SourceList["AL:SE"] = {
+    name : "AL Special Events (Opens & Premieres)",
+    abbreviation : "AL:SE",
     group : "Adventurers League",
     date : "Various"
 };
@@ -46,22 +53,22 @@ SourceList["AL"] = {
 	date : "Various"
 };
 
-SourceList.LN = {  //Liar's Night and Wandering Monsters
+SourceList["AL:LN"] = {  //Liar's Night and Wandering Monsters
     name : "AL Holiday Events - Liar's Night",
-    abbreviation : "LN",
+    abbreviation : "AL:LN",
     group : "Adventurers League",
     date : "Various"
 };
 
-SourceList.ALDMS9 = {  //Season 9 DM Rewards (Several of these are from BG:Dia, but cannot normally be used by players)
+SourceList.ALDMs9 = {  //Season 9 DM Rewards (Several of these are from BG:DiA, but cannot normally be used by players)
     name : "AL Season 9 DM Rewards",
-    abbreviation : "ALDMS9",
+    abbreviation : "ALDMs9",
     group : "Adventurers League",
     date : "2019/09/16"
 };
 
 
-//Creatures
+//Creatures - here because I needed the pre-errata version
 CreatureList["sea lion"] = {
 	name : "Sea Lion",
 	source : ["GoS", 252],
@@ -106,6 +113,43 @@ CreatureList["sea lion"] = {
 		description : "The sea lion makes three attacks: one with its bite and two with its claws."
 	}]
 }
+
+//Here because I'm tired of manually looking up the stats for my Horns of Valhalla
+CreatureList["berserker"] = {
+	name : "Berserker",
+	header : "Summon",
+	source : ["SRD",""],
+	size : 3, //medium
+	type : "Humanoid",
+	subtype : "",
+	alignment : "Any chaotic alignment",
+	ac : 13,
+	hp : 67,
+	hd : [9, 8],
+	speed : "30 ft",
+	scores : [16, 12, 17, 9, 22, 9],
+	senses : "",
+	passivePerception : 10,
+	languages : "Any one language (usually Common)",
+	challengeRating : "2",
+	proficiencyBonus : 2,
+	attacksAction : 1,
+	attacks : [{
+		name : "Greataxe",
+		ability : 1,
+		damage : [1, 12, "slashing"],
+		range : "Melee (5 ft)",
+		description : ""
+	}],
+	traits : [{
+		name : "Reckless",
+		description : "At the start of its turn, the berserker can gain advantage on all melee weapon attack rolls during that turn, but attack rolls against it have advantage until the start of its next turn."
+	}, {
+		name : "Summoned Spirit",
+		description : "This warrior spirit was summoned from Ysgard by a Horn of Valhalla."
+	}]
+}
+
 
 /* Arctic Stink Squirrel
 This cuddly little brute makes a playful (if alarming) companion. 
@@ -292,7 +336,7 @@ CreatureList["snowy owlbear cub"] = {
 //The result of magical experimentation, this cute critter makes a great animal companion. It has the statistics of a panther, though it can cast the blur spell once per day.
 CreatureList["mini displacer beast"] = {
 		name : "Mini Displacer Beast",
-		source : ["FC",2020],
+		source : ["AL:FC",2020],
 		size : 3, //Medium
 		type : "Beast",
 		companion : "companion",
@@ -343,7 +387,7 @@ CreatureList["mini displacer beast"] = {
 //This rare breed of arctic goat roams the mountains near Icewind Dale and makes an adorable animal companion or familiar. It has the statistics of a goat, but is size small.
 CreatureList["mini arctic goat"] = {
 		name : "Mini Arctic Goat",
-		source : ["FC",2020],
+		source : ["AL:FC",2020],
 		size : 4, //Small
 		type : "Beast",
 		companion : "familiar",
@@ -432,8 +476,8 @@ CreatureList["quasit (familiar variant)"] = {
 		actions : [{
 			name : "Invisibility",
 			description : "As an action, the quasit magically turns invisible until it attacks, or until its concentration ends (as if concentrating on a spell). Any equipment the quasit wears or carries is invisible with it."
-		}]
-	}
+		}],
+}
 	
 //Only usable with the Gift of Golden Wings Story Award. Singing or reciting the lyrics to Golden Wings takes one minute. If a good-aligned character casts find familiar after making a successful DC 15 Charisma (Performance) check, they may summon a celestial gold pseudodragon to serve as their familiar. This creature is lawful good and abandons the character if they ever willingly harm a celestial.
 CreatureList["celestial gold pseudodragon"] = {
@@ -486,11 +530,53 @@ CreatureList["celestial gold pseudodragon"] = {
 			description : "The pseudodragon can magically communicate simple ideas, emotions, and images telepathically with any creature within 100 ft of it that can understand a language."
 		}],
 	}
+
+//Story award from CCC-SQC-2-1
+CreatureList["the crazy squirrel"] = {
+	name : "The Crazy Squirrel",
+	source : [["AL","CCC"]],
+	size : 5, //Tiny
+	type : "Beast",
+	subtype : "",
+	companion : "familiar",
+	alignment : "Unaligned",
+	ac : 12,
+	hp : 2,
+	hd : [1, 4],
+	speed : "40 ft, climb 30 ft",
+	scores : [3, 15, 10, 3, 12, 7],
+	saves : ["", "", "", "", "", ""],
+	skills : {
+		"perception" : 3,
+		"stealth" : 4
+		},
+	senses : "Adv. on Wis (Perception) checks using smell",
+	passivePerception : 13,
+	languages : "",
+	challengeRating : "0",
+	proficiencyBonus : 2,
+	attacksAction : 1,
+	attacks : [{
+		name : "Claws",
+		ability : 2,
+		damage : [1, "", "slashing"],
+		range : "Melee (5 ft)",
+		description : "",
+		modifiers : ["Str", "", false]
+		}],
+	traits : [{
+		name : "Special notes",
+		description : "Clad in shiny plate armor, this adorable squirrel is often seen holding what appears to be an acorn. However, upon closer inspection, one will notice it is holding a 20-sided-die. The Crazy Squirrel has proficiency in all gaming sets, and the shiny plate armor has no effect on its AC."
+		}, {
+		name : "Keen Smell",
+		description : "The crazy squirrel has advantage on Wisdom (Perception) checks that rely on smell."
+		}]
+}
 	
 //Special cert from the House of Lament premier. Only usable in Mist Hunters adventures.
 CreatureList["penumbra (gremishka)"] = {
 		name : "Penumbra (Gremishka)",
-		source : ["FC",2020],
+		source : ["AL:SE","HoL"],
 		size : 5, //Tiny
 		type : "Monstrosity",
 		subtype : "",
@@ -530,7 +616,7 @@ CreatureList["penumbra (gremishka)"] = {
 //Season 9 DM Reward Options
 CreatureList["imp courier"] = {
 	name : "Imp Courier",
-		source : [["ALDMS9"]],
+		source : [["ALDMs9"]],
 		size : 5, //Tiny
 		type : "Fiend",
 		subtype : "devil",
@@ -563,7 +649,7 @@ CreatureList["imp courier"] = {
 			range : "Melee (5 ft)",
 			description : "Target also takes 3d6 poison damage, half on a DC 11 Constitution saving throw"
 		}],
-		traits : 
+		traits : [{
 			name : "Description",
 			description : "Specializing in delivery, and employee of the century three times running, this imp was a star employee of the Infernal Revenue Service."
 		}, {
@@ -581,7 +667,7 @@ CreatureList["imp courier"] = {
 
 CreatureList["imp toady"] = {
 	name : "Imp Toady",
-		source : [["ALDMS9"]],
+		source : [["ALDMs9"]],
 		size : 5, //Tiny
 		type : "Fiend",
 		subtype : "devil",
@@ -632,7 +718,7 @@ CreatureList["imp toady"] = {
 	
 CreatureList["infernal pseudodragon"] = {
 		name : "Infernal Pseudodragon",
-		source : [["ALDMS9"]],
+		source : [["ALDMs9"]],
 		size : 5, //Tiny
 		type : "Dragon",
 		companion : "familiar",
@@ -683,7 +769,7 @@ CreatureList["infernal pseudodragon"] = {
 	
 CreatureList["bone whelk"] = {
 		name : "Bone Whelk",
-		source : [["ALDMS9"]],
+		source : [["ALDMs9"]],
 		size : 2, //Large
 		type : "Monstrosity",
 		companion : "mount",
@@ -718,7 +804,7 @@ CreatureList["bone whelk"] = {
 
 CreatureList["hellwasp"] = {
 		name : "Hellwasp",
-		source : [["ALDMS9"]],
+		source : [["ALDMs9"]],
 		size : 2, //Large
 		type : "Fiend",
 		companion : "mount",
@@ -760,7 +846,7 @@ CreatureList["hellwasp"] = {
 //Wandering Monster/Liar's Night rewards from past AL seasons
 CreatureList["candy corn calico cat"] = {
 		name : "Candy Corn Calico Cat",
-		source : [["LN",2020]],
+		source : [["AL:LN",2020]],
 		size : 5, //Tiny
 		type : "Construct",
 		companion : "familiar",
@@ -799,7 +885,7 @@ CreatureList["candy corn calico cat"] = {
 	
 CreatureList["foxwere"] = {
 		name : "Foxwere",
-		source : [["LN",2020]],
+		source : [["AL:LN",2020]],
 		size : 3, //Medium
 		type : "Beast",
 		companion : "familiar",
@@ -832,7 +918,7 @@ CreatureList["foxwere"] = {
 		}, {
 			name : "Shapechanging",
 			description : "Selûne transformed a fox to serve as your guide. Now, as a foxwere, they have two forms, fox (true form) and fox-humanoid hybrid (only on a full moon).\n   The foxwere does not control their transformations. Every full moon, the foxwere instantly polymorphs into their fox-humanoid hybrid form. Their statistics are the same in each form. They revert into their true form when the moon is not full or if they die."
-		}]
+		}],
 		actions : [{
 			name : "Selûne's Light.",
 			description : "A silvery beam of moonlight instantaneously shines down in a 5-foot-radius, 40-foot-high cylinder centered on a point within60 feet. A creature within this area makes a DC12 Constitution saving throw. It takes 4 (1d8)radiant damage on a failed save or half as muchdamage on a successful one. A shapechangermakes its saving throw with disadvantage. If itfails, it also instantly reverts to its original form."
@@ -841,7 +927,7 @@ CreatureList["foxwere"] = {
 	
 CreatureList["fritter the 7-legged spider"] = {
 		name : "Fritter the 7-legged Spider",
-		source : [["LN",2019]],
+		source : [["AL:LN",2019]],
 		size : 2, //Large
 		type : "Beast",
 		companion : "mount",
@@ -895,7 +981,7 @@ CreatureList["fritter the 7-legged spider"] = {
 	
 CreatureList["marzipan, the skeletal warhorse"] = {
 		name : "Marzipan, the Skeletal Warhorse",
-		source : [["LN",2018]],
+		source : [["AL:LN",2018]],
 		size : 2, //Large
 		type : "Undead",
 		companion : "mount",
@@ -928,3 +1014,10 @@ CreatureList["marzipan, the skeletal warhorse"] = {
 			description : "If the horse moves at least 20 ft straight toward a creature and then hits it with a hooves attack on the same turn, that target must succeed on a DC 14 Strength saving throw or be knocked prone. If the target is prone, the horse can make another attack with its hooves against it as a bonus action."
 		}]
 	}
+	
+	
+/*	"the runt (ccc-tarot2-9)" : {
+		name : "The Runt (CCC-TAROT2-9)",
+		source : [["AL","CCC"]],
+		description : "You’ve befriended the runt of the litter, Ember. This cat has jet black fur with streaks of campfire orange and is warm to the touch, a nod to its elemental origins. Ember loves to pounce at Dancing Lights, and will chase ranged spells. Ember has the statistics of a cat.",
+	},CCC-SQC-3-1 through 3-3, and 2-1 all have squirrel pets, CCC-ELF-04, TRI-13, 5=01*/  

@@ -18,7 +18,7 @@ var iFileName = "AL Flavored Armor.js";
 RequiredSheetVersion(13);
 
 // Define the source
-SourceList["AL"] = {
+SourceList.AL = {
 	name : "AL Modules",
 	abbreviation : "AL",
 	group : "Adventurers League",
@@ -32,7 +32,7 @@ MagicItemsList["al adamantine/mithral armor"] = {
 		type : "armor (medium or heavy)",
 		rarity : "uncommon",
 		allowDuplicates : true,				
-	choices : ["Adamantine Armor (DDAL0-1)","Adamantine Chain Shirt (DDEP5-2)","Durgeddin's Unbreakable Auspice (DDEP6-1)","Mithral Splint (DDAL5-4)","Mithral Plate (DDHC-MORD-01)"],		
+	choices : ["Adamantine Armor (DDAL0-1)","Adamantine Chain (CCC-SALT1-1)","Adamantine Chain Shirt (CCC-BMG-MOON3-2)","Adamantine Chain Shirt (CCC-PDXAGE-1-1)","Adamantine Chain Shirt (DDEP5-2)","Durgeddin's Unbreakable Auspice, Adamantine Plate (DDEP6-1)","Mithral Scale Mail (CCC-ODFC2-1)","Mithral Breastplate (CCC-BMG MOON16-2)","Mithral Half Plate (CCC-GLIP-1-3)","Armor of Insults, Mithral Splint (CCC-GSP-OOZE1-1)","Mithral Splint (DDAL5-4)","Mithral Plate (DDHC-MORD-01)"],	
 		"adamantine armor (ddal0-1)" : {
 			name: "Adamantine Armor (DDAL0-1)",
 			source : [["AL","S0"]],
@@ -45,6 +45,54 @@ MagicItemsList["al adamantine/mithral armor"] = {
 			descriptionChange : ["prefix", "armor"],
 			excludeCheck : function (inObjKey, inObj) {
 				return !(/medium|heavy/i).test(inObj.type) || (/hide/i).test(inObj.name);
+				},
+			}
+		},
+		"adamantine chain (ccc-salt1-1)" : {
+			name: "Adamantine Armor (CCC-SALT1-1)",
+			source : [["AL","CCC"]],
+			magicItemTable : "F",
+			description : "This careworn adamantine armor shows signs of elvish craftsmanship, with the links forming patterns of leaves. A successful DC 10 Intelligence (Religion) check indicates that the leaf patterns are similar to those worn by the Guardians of Arvandor, scouts of Solonor Thelandira. While you're wearing it, any critical hit against you becomes a normal hit.",
+			descriptionFull : "This careworn adamantine armor shows signs of elvish craftsmanship, with the links forming patterns of leaves. A successful DC 10 Intelligence (Religion) check indicates that the leaf patterns are similar to those worn by the Guardians of Arvandor, scouts of Solonor Thelandira. This suit of armor is reinforced with adamantine, one of the hardest substances in existence. While you're wearing it, any critical hit against you becomes a normal hit.",
+			chooseGear : {
+			type : "armor",
+			prefixOrSuffix : "brackets",
+			itemName1stPage : ["suffix", "Adamantine"],
+			descriptionChange : ["replace", "armor"],
+			excludeCheck : function (inObjKey, inObj) {
+				return !(/chain/i).test(inObj.name);
+				},
+			}
+		},
+		"adamantine chain shirt (ccc-bmg-moon3-2)" : {
+			name: "Adamantine Armor (CCC-BMG-MOON3-2)",
+			source : [["AL","CCC"]],
+			magicItemTable : "F",
+			description : "This chain shirt has no signs of age. It gleams brightly, showing off the fine runework that contains Bronwyn Rookoath’s personal emblem. It's reinforced with adamantine & while you're wearing it, any critical hit against you becomes a normal hit.",
+			descriptionFull : "This chain shirt shows no signs of its age, but gleams brightly, showing off the fine runework that contains Bronwyn Rookoath’s personal emblem.\n   This suit of armor is reinforced with adamantine, one of the hardest substances in existence. While you're wearing it, any critical hit against you becomes a normal hit.",
+			chooseGear : {
+			type : "armor",
+			prefixOrSuffix : "brackets",
+			itemName1stPage : ["suffix", "Adamantine"],
+			descriptionChange : ["prefix", "armor"],
+			excludeCheck : function (inObjKey, inObj) {
+				return !(/chain shirt/i).test(inObj.name);
+				},
+			}
+		},
+		"adamantine chain shirt (ccc-pdxage-1-1)" : {
+			name: "Adamantine Armor (CCC-PDXAGE-1-1)",
+			source : [["AL","CCC"]],
+			magicItemTable : "F",
+			description : "This magical chain shirt is crafted from adamantine, and is made with superb dwarf craftsmanship. While you're wearing it, any critical hit against you becomes a normal hit.",
+			descriptionFull : "This magical chain shirt is crafted from adamantine, and is made with superb dwarf craftsmanship. This suit of armor is reinforced with adamantine, one of the hardest substances in existence. While you're wearing it, any critical hit against you becomes a normal hit.",
+			chooseGear : {
+			type : "armor",
+			prefixOrSuffix : "brackets",
+			itemName1stPage : ["suffix", "Adamantine"],
+			descriptionChange : ["prefix", "armor"],
+			excludeCheck : function (inObjKey, inObj) {
+				return !(/chain shirt/i).test(inObj.name);
 				},
 			}
 		},
@@ -64,7 +112,7 @@ MagicItemsList["al adamantine/mithral armor"] = {
 				},
 			}
 		},
-		"durgeddin's unbreakable auspice (ddep6-1)" : {
+		"durgeddin's unbreakable auspice, adamantine plate (ddep6-1)" : {
 			name: "Durgeddin's Unbreakable Auspice",
 			source : [["AL","S6"]],
 			magicItemTable : "H",
@@ -76,6 +124,67 @@ MagicItemsList["al adamantine/mithral armor"] = {
 			excludeCheck : function (inObjKey, inObj) {
 				return (/medium/i).test(inObj.type) || !(/plate/i).test(inObj.name);
 				},
+			}
+		},
+	"mithral scale mail (ccc-odfc2-1)" : {
+		name : "Mithral Scale Mail (CCC-ODFC2-1)",
+		source : [["AL","CCC"]],
+		magicItemTable : "B",
+		description : "This armor is made from small, 1-inch mithral spikes that are carved with abyssal runes for carousing, celebration & drink. It includes a neck piece resembling a spiked dog collar. You develop a desire to party all night & sleep all day. Mithral is a light, flexible metal & this scale mail doesn't impose disadv. on stealth checks.",
+		descriptionFull : "Each scale of this armor is made with small, 1-inch mithral spikes, and it includes a neck piece resembling a spiked dog collar. Each spike is carved with abyssal runes for carousing, celebration, and drink. The wearer develops a desire to party all night and sleep all day.\n   Mithral is a light, flexible metal. A mithral chain shirt or breastplate can be worn under normal clothes. If the armor normally imposes disadvantage on Dexterity (Stealth) checks or has a Strength requirement, the mithral version of the armor doesn't.",
+			chooseGear : {
+			type : "armor",
+			prefixOrSuffix : "brackets",
+			descriptionChange : ["replace", "armor"],
+			itemName1stPage : ["suffix", "Mithral"],
+			excludeCheck : function (inObjKey, inObj) {
+				return !(/scale mail/i).test(inObj.name);
+					},
+			}
+		},
+	"mithral breastplate (ccc-bmg moon16-2)" : {
+		name : "Mithral Armor (CCC-BMG MOON16-2)",
+		source : [["AL","CCC"]],
+		magicItemTable : "B",
+		description : "The metal of this mithral breastplate is engraved to look like feathers. The front of the armor is adorned with the raised image of a raging swan with its head back and beak open, ready to strike. Mithral is a light, flexible metal and this breastplate can be worn under normal clothes.",
+		descriptionFull : "The metal of this mithral breastplate is engraved to look like feathers. The front of the armor is adorned with the raised image of a raging swan with its head back and beak open, ready to strike. Mithral is a light, flexible metal. A mithral chain shirt or breastplate can be worn under normal clothes. If the armor normally imposes disadvantage on Dexterity (Stealth) checks or has a Strength requirement, the mithral version of the armor doesn't.",
+			chooseGear : {
+			type : "armor",
+			prefixOrSuffix : "brackets",
+			itemName1stPage : ["suffix", "Mithral"],
+			excludeCheck : function (inObjKey, inObj) {
+				return !(/breastplate/i).test(inObj.name);
+					},
+			}
+		},
+	"mithral half plate (ccc-glip-1-3)" : {
+		name : "Mithral Armor (CCC-GLIP-1-3)",
+		source : [["AL","CCC"]],
+		magicItemTable : "B",
+		description : "This armor is obviously Githyanki in design. It is ornamented with tassels, ribbons, and bone fragments. Mithral is a light, flexible metal, and this half plate doesn't impose disadv. on Dex (Stealth) checks.",
+		descriptionFull : "This armor is obviously Githyanki in design. It is ornamented with tassels, ribbons, and bone fragments. Mithral is a light, flexible metal. A mithral chain shirt or breastplate can be worn under normal clothes. If the armor normally imposes disadvantage on Dexterity (Stealth) checks or has a Strength requirement, the mithral version of the armor doesn't.",
+			chooseGear : {
+			type : "armor",
+			prefixOrSuffix : "brackets",
+			itemName1stPage : ["suffix", "Mithral"],
+			excludeCheck : function (inObjKey, inObj) {
+				return !(/half plate/i).test(inObj.name);
+					},
+			}
+		},
+	"armor of insults, mithral splint (ccc-gsp-ooze1-1)" : {
+		name : "Mithral Armor of Insults (CCC-GSP-OOZE1-1)",
+		source : [["AL","CCC"]],
+		magicItemTable : "B",
+		description : "This splint armor was crafted with the finest materials by dwarves for elves. Despite the near-flawless craftsmanship, the smiths purposely added one design flaw as a prank: when the armor is struck, the voices of the dwarves who forged it berate the wearer. Mithral is a light, flexible metal, and this splint doesn't impose disadv. on Dex (Stealth) checks or require 15 Str.",
+		descriptionFull : "This set of splint armor was crafted with only the finest materials by dwarves for elves. However, despite the craftsmanship being near-flawless, the dwarves who forged the armor purposely made one design flaw as a prank: When struck, the armor emits the voice of the dwarves who forged the armor, berating its wearer. Mithral is a light, flexible metal. A mithral chain shirt or breastplate can be worn under normal clothes. If the armor normally imposes disadvantage on Dexterity (Stealth) checks or has a Strength requirement, the mithral version of the armor doesn't.",
+			chooseGear : {
+			type : "armor",
+			prefixOrSuffix : "brackets",
+			itemName1stPage : ["suffix", "Mithral"],
+			excludeCheck : function (inObjKey, inObj) {
+				return !(/splint/i).test(inObj.name);
+					},
 			}
 		},
 	"mithral splint (ddal5-4)" : {
@@ -127,7 +236,7 @@ MagicItemsList["al armor +1 or +2"] = {
 		"\n  I\t  +3\tHalf Plate, Leather, Plate" +
 		"\n  I\t  +3\tSpiked Armor, Splint, Studded Leather",
 		allowDuplicates : true,
-		choices : ["+1 Leather (DDEP7-1)","+1 Breastplate (DDAL0-1)","+1 Half Plate (CCC-TRI-06)", "+1 Half Plate (DDEP4)","Shroud of the Mourning Warrior, +1 Scale Mail (DDAL5-13)","+1 Splint (DDEX1-12)","+1 Splint (DDAL5-4)", "+2 Half Plate (DDEP7-2)"],
+		choices : ["+1 Leather (DDEP7-1)","+1 Studded Leather (CCC-BMG-21 HULB2-3)","+1 Breastplate (DDAL0-1)","+1 Half Plate (CCC-TRI-6)", "+1 Half Plate (DDEP4)","Shroud of the Mourning Warrior, +1 Scale Mail (DDAL5-13)","+1 Splint (DDEX1-12)","+1 Splint (DDAL5-4)","+2 Studded Leather (CCC-TRI-23)","+2 Half Plate (DDEP7-2)", "+2 Stone Plate (CCC-JGD-1)"],
 		"+1 leather (ddep7-1)" : {
 			name : "+1 (DDEP7-1)",
 			source : [["AL","S7"]],
@@ -143,6 +252,24 @@ MagicItemsList["al armor +1 or +2"] = {
 			descriptionChange : ["replace", "armor"],
 			excludeCheck : function (inObjKey, inObj) {
 				return !(/leather/i).test(inObj.name)|| (/studded leather/i).test(inObj.name);
+					},
+			},
+		},
+		"+1 studded leather (ccc-bmg-21 hulb2-3)" : {
+			name : "+1 (CCC-BMG-21 HULB2-3)",
+			source : [["AL","CCC"]],
+			rarity : "rare",
+			magicItemTable : "H",
+			allowDuplicates : true,
+			description : "This armor is superbly padded & reinforced for cold environments; it counts as cold-weather gear and is uncomfortable in hot climates. The armor grants a +1 bonus to AC while worn.",
+			descriptionFull : "This armor is superbly padded and reinforced for cold environments; as such, it counts as cold-weather gear and is more than a little uncomfortable in hot climates. This armor grants a +1 bonus to AC while worn.",
+			chooseGear : {
+			type : "armor",
+			prefixOrSuffix : "prefix",
+			itemName1stPage : ["prefix", "+1"],
+			descriptionChange : ["replace", "armor"],
+			excludeCheck : function (inObjKey, inObj) {
+				return !(/studded leather/i).test(inObj.name);
 					},
 			},
 		},
@@ -163,8 +290,8 @@ MagicItemsList["al armor +1 or +2"] = {
 					},
 			},
 		},
-		"+1 half plate (ccc-tri-06)" : {
-			name : "+1 (CCC-TRI-06)",
+		"+1 half plate (ccc-tri-6)" : {
+			name : "+1 (CCC-TRI-6)",
 			source : [["AL","CCC"]],
 			rarity : "rare",
 			magicItemTable : "I",
@@ -246,6 +373,23 @@ MagicItemsList["al armor +1 or +2"] = {
 					},
 				}
 			},
+		"+2 studded leather (ccc-tri-23)" : {
+			name : "+2 (CCC-TRI-23)",
+			source : [["AL","CCC"]],
+			rarity : "very rare",
+			magicItemTable : "I",
+			allowDuplicates : true,
+			description : "This set of magical sky blue armor once belonged to a cloud giant resident of Skyelinjeheim. It resizes to fit its wearer, and images of translucent white clouds drift slowly across its surface. This armor grants a +2 bonus to AC while worn.",
+			chooseGear : {
+			type : "armor",
+			prefixOrSuffix : "prefix",
+			itemName1stPage : ["suffix", "+2"],
+			descriptionChange : ["replace", "armor"],
+			excludeCheck : function (inObjKey, inObj) {
+				return !(/studded leather/i).test(inObj.name);
+					},
+			},
+		},
 		"+2 half plate (ddep7-2)" : {
 			name : "+2 (DDEP7-2)",
 			source : [["AL","S7"]],
@@ -264,13 +408,33 @@ MagicItemsList["al armor +1 or +2"] = {
 					},
 			},
 		},
+		"+2 stone plate (ccc-jgd-1)" : {
+			name : "+2 (CCC-JGD-01)",
+			source : [["AL","CCC"]],
+			rarity : "very rare",
+			magicItemTable : "I",
+			allowDuplicates : true,
+			description : "This suit of plate armor was created by Cultists of the Black Earth and is fashioned from slabs of stone. The armor resizes to fit its wearer & grants a +2 bonus to AC while worn.",
+			descriptionFull : "This suit of plate armor was created by Cultists of the Black Earth and is fashioned from slabs of stone (instead of metal). The armor resizes to fit its wearer. This armor grants a +2 bonus to AC while worn.",
+			languageProfs : ["Dwarvish"],
+			chooseGear : {
+			type : "armor",
+			prefixOrSuffix : "prefix",
+			itemName1stPage : ["prefix", "+2 (Stone)"],
+			descriptionChange : ["replace", "armor"],
+			excludeCheck : function (inObjKey, inObj) {
+				return (/medium/i).test(inObj.type) || !(/plate/i).test(inObj.name);
+				},
+			},
+		},
 }
 
 MagicItemsList["al armor (common)"] = {
 		name : "AL Armor (Common)",
 		allowDuplicates : true,
 		rarity : "common",
-	choices : ["Cast-Off Breastplate (DC-POA-HAG-SF4)","Flurried Furs (DDAL0-4)","Smoldering Studded Leather (DDAL10-0)","Smokin' Hot Leather (DC-POA-LEGIT-SV-02)","Wintergreen Guard (DC-POA-LEGIT-SV-01)"],
+		magicItemTable : "?",
+	choices : ["Cast-Off Breastplate (DC-POA-HAG-SF4)","Flurried Furs (DDAL0-4)","Smokin' Hot Leather (DC-POA-LEGIT-SV-02)","Smoldering Studded Leather (DDAL10-0)","Stygian Scale Mail (CCC-GSP2-2)","Wintergreen Guard (DC-POA-LEGIT-SV-01)"],
 	"cast-off breastplate (dc-poa-hag-sf4)" : {
 		name : "Cast-Off",
 		source : [["AL","S10"]],
@@ -299,8 +463,26 @@ MagicItemsList["al armor (common)"] = {
 		prefixOrSuffix : "suffix",
 		descriptionChange : ["replace", "armor"],
 		itemName1stPage : ["suffix", "Flurried"],
+		excludeCheck : function (inObjKey, inObj) {
+				return !(/medium|light/i).test(inObj.type);
+				},
 		}
 	},	
+	"smokin' hot leather (dc-poa-legit-sv-02)" : {
+			name : "Smokin' Hot Armor, Smoldering",
+			source : [["AL","S10"]],
+			type : "armor (light)",
+			description : "An offensively pink suit of armor. It's been enchanted to emit pink-tinted rose-scented smoke. Pink spikes have been placed wherever it was possible, and in several places where it wasn't. Violently pink fur lines its insides, just how many pink bears had to die for this abomination?",
+			chooseGear : {
+			type : "armor",
+			prefixOrSuffix : "suffix",
+			descriptionChange : ["prefix", "armor"],
+			itemName1stPage : ["suffix", "Smoldering"],
+			excludeCheck : function (inObjKey, inObj) {
+				return !(/studded leather/i).test(inObj.name);
+					},
+				},
+			},
 	"smoldering studded leather (ddal10-0)" : {
 			name : "Smoldering",
 			source : [["AL","S10"]],
@@ -316,18 +498,19 @@ MagicItemsList["al armor (common)"] = {
 					},
 				},
 			},
-	"smokin' hot leather (dc-poa-legit-sv-02)" : {
-			name : "Smokin' Hot Armor, Smoldering",
-			source : [["AL","S10"]],
-			type : "armor (light)",
-			description : "An offensively pink suit of armor. It's been enchanted to emit pink-tinted rose-scented smoke. Pink spikes have been placed wherever it was possible, and in several places where it wasn't. Violently pink fur lines its insides, just how many pink bears had to die for this abomination?",
+	"stygian scale mail (ccc-gsp2-2)" : {
+			name : "Smoldering Armor, Stygian",
+			source : [["AL","CCC"]],
+			type : "armor (medium)",
+			description : "This light blue, ice-like armor with a closed helm is light but durable. When exposed to air, the humidity around the armor condenses into tiny droplets, becoming visible wisps of mist-like vapor. A copy of the Nightsong Clan's infernal contract is engraved all over the armor, reminding you to search for the soul of Rem Nightsong & bring it to the Nine Hells.",
+			descriptionFull : "This light blue, ice-like armor with a closed helm is light but durable. When exposed to air, the humidity around the armor condenses into tiny droplets, becoming visible wisps of mist-like vapor. A copy of the Nightsong Clan's infernal contract is engraved all over the armor, reminding its wearer to search for the soul of Rem Nightsong and bring it to the Nine Hells.\n   Wisps of harmless, odorless smoke rise from this armor while it is worn.",
 			chooseGear : {
 			type : "armor",
 			prefixOrSuffix : "suffix",
-			descriptionChange : ["prefix", "armor"],
-			itemName1stPage : ["suffix", "Smoldering"],
+			descriptionChange : ["replace", "armor"],
+			itemName1stPage : ["suffix", "Stygian"],
 			excludeCheck : function (inObjKey, inObj) {
-				return !(/studded leather/i).test(inObj.name);
+				return !(/scale mail/i).test(inObj.name);
 					},
 				},
 			},
@@ -352,7 +535,7 @@ MagicItemsList["al armor (common)"] = {
 MagicItemsList["al armor (other)"] = {
 		name : "AL Armor (Other)",
 		allowDuplicates : true,
-	choices : ["Chardalyn Breastplate (DDAL10-5)","Demon Armor (DDEX3-16)","Efreeti Chain (DDAL7-15)","Glamoured Studded Leather (DDAL4-9)","Glamoured Studded Leather (DDAL8-11)","Glamoured Studded Leather (DDAL9-6)","Half Plate of Poison Resist. (DDEX3-11)","Mariner's Breastplate (CCC-AETHER-1-2)","Plate Armor of Etherealness (DDAL8-16)","Red Dragon Scale Mail (DDEP5-1)","Red Dragon Scale Mail (DDAL9-15)","Studded Leather of Fire Resis. (DDAL0-11C)"],
+	choices : ["Chardalyn Breastplate (DDAL10-5)","Demon Armor (DDEX3-16)","Efreeti Chain (DDAL7-15)","Elven Chain (CCC-SQC-2-2)","Glamoured Studded Leather (DDAL4-9)","Glamoured Studded Leather (DDAL8-11)","Glamoured Studded Leather (DDAL9-6)","Half Plate of Poison Resist. (DDEX3-11)","Mariner's Breastplate (CCC-AETHER-1-2)","Plate Armor of Etherealness (DDAL8-16)","Red Dragon Scale Mail (DDEP5-1)","Red Dragon Scale Mail (DDAL9-15)","Studded Leather of Fire Resis. (DDAL0-11C)"],
 	"chardalyn breastplate (ddal10-5)" : {
 			name : "of Necrotic Resistance (DDAL10-5)",
 			source : [["AL","S10"]],
@@ -389,7 +572,7 @@ MagicItemsList["al armor (other)"] = {
 		armorOptions : [{
 			regExpSearch : /^(?=.*demon)(?=.*armor).*$/i,
 			name : "Demon Armor",
-			source: [["SRD", 218], ["D", 165]],
+			source: [["SRD", 218], ["D", 165] ["AL","S3"]],
 			type : "heavy",
 			ac : 19,
 			stealthdis : true,
@@ -401,7 +584,7 @@ MagicItemsList["al armor (other)"] = {
 			baseWeapon : "unarmed strike",
 			regExpSearch : /^(?=.*demon)(?=.*armor)(?=.*claws).*$/i,
 			name : "Demon Armor Claws",
-			source: [["SRD", 218], ["D", 165]],
+			source: [["SRD", 218], ["D", 165] ["AL","S3"]],
 			damage : [1, 8, "slashing"],
 			modifiers : [1, 1]
 		}]
@@ -422,12 +605,31 @@ MagicItemsList["al armor (other)"] = {
 		armorOptions : [{
 			regExpSearch : /^(?=.*efreeti)(?=.*chain).*$/i,
 			name : "Efreeti Chain",
-			source: ["D", 167],
+			source: [["D", 167], ["AL","S7"]],
 			type : "heavy",
 			ac : 19,
 			stealthdis : true,
 			weight : 55,
 			strReq : 13
+		}]
+	},
+	"elven chain (ccc-sqc-2-2)" : {
+		name : "Elven Chain (CCC-SQC-2-2)",
+		source : [["AL","CCC"]],
+		type : "armor (chain shirt)",
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "This chain shirt is made of magically hardened sandalwood that smells like incense at all times. You gain a +1 bonus to AC while you wear it & are considered proficient even if you lack proficiency with medium armor.",
+		descriptionFull : "This shirt is made of magically hardened sandalwood that smells like incense at all times. You gain a +1 bonus to AC while you wear this armor. You are considered proficient with this armor even if you lack proficiency with medium armor.",
+		weight : 20,
+		armorAdd : "Elven Chain",
+		armorOptions : [{
+			regExpSearch : /^(?=.*elven)(?=.*chain).*$/i,
+			name : "Elven Chain (Sandalwood)",
+			source : [["SRD", 220], ["D", 168] ["AL","CCC"]],
+			type : "medium",
+			ac : 14,
+			weight : 20
 		}]
 	},
 	"glamoured studded leather (ddal4-9)" : {
@@ -442,7 +644,7 @@ MagicItemsList["al armor (other)"] = {
 		armorOptions : {
 			regExpSearch : /^(?=.*glamou?r)(?=.*(studded|studs))(?=.*leather).*$/i,
 			name : "Glamoured Studded Leather",
-			source : [["SRD", 224], ["D", 172]],
+			source : [["SRD", 224], ["D", 172] ["AL","S4"]],
 			type : "light",
 			ac : 13,
 			weight : 13
@@ -461,7 +663,7 @@ MagicItemsList["al armor (other)"] = {
 		armorOptions : {
 			regExpSearch : /^(?=.*glamou?r)(?=.*(studded|studs))(?=.*leather).*$/i,
 			name : "Glamoured Studded Leather",
-			source : [["SRD", 224], ["D", 172]],
+			source : [["SRD", 224], ["D", 172] ["AL","S8"]],
 			type : "light",
 			ac : 13,
 			weight : 13
@@ -480,7 +682,7 @@ MagicItemsList["al armor (other)"] = {
 		armorOptions : {
 			regExpSearch : /^(?=.*glamou?r)(?=.*(studded|studs))(?=.*leather).*$/i,
 			name : "Glamoured Studded Leather",
-			source : [["SRD", 224], ["D", 172]],
+			source : [["SRD", 224], ["D", 172] ["AL","S9"]],
 			type : "light",
 			ac : 13,
 			weight : 13
@@ -543,7 +745,7 @@ MagicItemsList["al armor (other)"] = {
 		armorOptions : {
 			regExpSearch : /^(?=.*plate)(?=.*etherealness).*$/i,
 			name : "Plate Armor of Etherealness",
-			source : [["SRD", 233], ["D", 185]],
+			source : [["SRD", 233], ["D", 185] ["AL","S8"]],
 			type : "heavy",
 			ac : 18,
 			stealthdis : true,
@@ -645,7 +847,7 @@ MagicItemsList["al shields, +1, +2, or +3"] = {
 		type : "shield",
 		descriptionFull : "While holding this shield, you have a bonus to AC. This bonus is in addition to the shield's normal bonus to AC. The bonus is determined by the rarity of the shield: uncommon (+1), rare (+2), or very rare (+3).",
 		allowDuplicates : true,
-		choices : ["+1 Shield (DDEX3-5)", "Wall of Teeth +2 (DDEX2-14)", "+3 Shield (very rare)"],
+		choices : ["+1 Shield (DDEX3-5)","Shield of the Moon +1 (CCC-TAROT1-2)","Wall of Teeth +2 (DDEX2-14)","Yata Mirror +2 (CCC-ANIME1-2)","Aegis of the Raven Queen +3 (CCC-BWM-3)","Miltiades’s Shield +3 (CCC-BMG-13 PHLAN1-1)"],
 		"+1 shield (ddex3-5)" : {
 			name : "Shield +1 (DDEX3-5)",
 			source : [["AL","S3"]],
@@ -655,8 +857,19 @@ MagicItemsList["al shields, +1, +2, or +3"] = {
 			allowDuplicates : true,
 			shieldAdd : "+1 Shield"
 		},
+		"shield of the moon +1 (ccc-tarot1-2)" : {
+			name : "Shield of the Moon +1 (CCC-TAROT1-2)",
+			source : [["AL","CCC"]],
+			rarity : "uncommon",
+			magicItemTable : "F",
+			description : "This shield is painted to resemble the moon. While equipped, you can use a bonus action to make it glow with a soft moonlight in a 20-ft radius. No colors can be discerned in the moonlight so all objects show up as shades of grey. While holding this shield, you have a +1 bonus to AC in addition to its normal AC bonus",
+			descriptionFull : "This shield is painted to resemble The Moon. While equipped the bearer can use a bonus action to cause the shield to glow with a soft moonlight. This soft white light extends 20 ft. No colors can be discerned in the moonlight, and all objects show up as shades of grey. While holding this shield, you have a +1 bonus to AC in addition to the shield's normal AC bonus",
+			allowDuplicates : true,
+			action : [["bonus action", "Shield of the Moon (Glow)"]],
+			shieldAdd : "+1 Shield (Moon)"
+		},
 		"wall of teeth +2 (ddex2-14)" : {
-			name : "Wall of Teeth +2 (DDEX2-14)",
+			name : "Wall of Teeth, Shield +2 (DDEX2-14)",
 			source : [["AL","S2"]],
 			rarity : "rare",
 			magicItemTable : "G",
@@ -664,13 +877,32 @@ MagicItemsList["al shields, +1, +2, or +3"] = {
 			allowDuplicates : true,
 			shieldAdd : "+2 Shield (Wall of Teeth)"
 		},
-		"+3 shield (very rare)" : {
-			name : "Shield +3",
+		"yata mirror +2 (ccc-anime1-2)" : {
+			name : "Yata Mirror, Shield +2 (CCC-ANIME1-2)",
+			source : [["AL","CCC"]],
+			rarity : "rare",
+			magicItemTable : "G",
+			description : "The Yata Mirror is an ancient relic created by those who created the Guardians. This shield is endowed with magic that changes its characteristics to absorb damage from attacks. While wielding the polished silver disc, it becomes translucent and grants a +2 bonus to your AC in addition to the shield's normal AC bonus.",
+			allowDuplicates : true,
+			shieldAdd : "+2 Shield (Yata Mirror)"
+		},
+		"aegis of the raven queen +3 (ccc-bwm-3)" : {
+			name : "Aegis of the Raven Queen, Shield +3 (CCC-BWM-3)",
 			rarity : "very rare",
 			magicItemTable : "H",
-			description : "While holding this shield, I have a +3 bonus to AC. This bonus is in addition to the shield's normal bonus to AC.",
+			description : "This shield appears as a shroud of shadow w/ the symbol of the Raven Queen glowing in dim red light. While holding it, nonmagical flames w/i 30 ft are extinguished as the shadow lashes out at the flame. The shield encourages you to lack pity for those who suffer & die, for death is the natural end. You gain a +3 bonus to AC in addition to the shield's normal AC bonus.",
+			descriptionFull : "This shield appears as a shroud of shadow with the symbol of the Raven Queen glowing in dim red light. While holding this shield, nonmagical flames are extinguished within 30 feet of you as the shadow lashes out at the flame. The shield encourages you to hold no pity for those who suffer and die, for death is the natural end of life.\n   While holding this shield, you gain a +3 bonus to AC. This bonus is in addition to the shield's normal bonus to AC.",
 			allowDuplicates : true,
-			shieldAdd : "+3 Shield"
+			shieldAdd : "+3 Shield (Raven Queen)"
+		},
+		"miltiades’s shield +3 (ccc-bmg-13 phlan1-1)" : {
+			name : "Miltiades’s Shield +3 (CCC-BMG-13 PHLAN1-1)",
+			rarity : "very rare",
+			magicItemTable : "H",
+			description : "This shield is decorated w/ symbols of service & fealty. The shield empathically encourages service to others & whenever the bearer considers performing a selfish act, the shield enhances pangs of conscience. While holding this shield, you gain a +3 bonus to AC in addition to the shield's normal AC bonus.",
+			descriptionFull : "This shield is decorated with symbols of service and fealty. The shield empathically encourages service to others and whenever the bearer considers performing a selfish act, the shield enhances pangs of conscience. While holding this shield, you gain a +3 bonus to AC. This bonus is in addition to the shield's normal bonus to AC.",
+			allowDuplicates : true,
+			shieldAdd : "+3 Shield (Miltiades)"
 		},
 	}
 	
@@ -679,7 +911,7 @@ MagicItemsList["al shields (other)"] = {
 		allowDuplicates : true,
 		type : "shield",
 		weight : 6,
-	choices : ["Animated Shield (DDEP5-2)","Animated Shield (DDEP8-3)","Arrow-Catching Shield (DDAL9-8)","Sentinel Shield (DDEX2-12)","Spellguard Shield (DDEP7-2)","Spellguard Shield (DDAL-DRWEP02)"],
+	choices : ["Animated Shield (DDEP5-2)","Animated Shield (DDEP8-3)","Arrow-Catching Shield (CCC-GLIP-2-1)","Arrow-Catching Shield (DDAL9-8)","Sentinel Shield (CCC-BMG MOON11-1)","Sentinel Shield (CCC-WWC-7)","Sentinel Shield (DDAL-CGB)","Sentinel Shield (DDEX2-12)","Spellguard Shield (CCC-ROZK1-3)","Spellguard Shield (DDEP7-2)","Spellguard Shield (DDAL-DRWEP02)","Warden, Spellguard Shield (CCC-ODFC1-3)"],
 	"animated shield (ddep5-2)" : {  // contains contributions by Larry Hoy
 		name : "Animated Shield (DDEP5-2)",
 		source : [["AL","S5"]],
@@ -702,18 +934,63 @@ MagicItemsList["al shields (other)"] = {
 		action : [["bonus action", "Animated Shield"]],
 		shieldAdd : "Animated Shield"
 	},
+	"arrow-catching shield (ccc-glip-2-1)" : { // contains contributions by Larry Hoy
+		name : "Arrow-Catching Shield (CCC-GLIP-2-1)",
+		source : [["AL","S9"]],
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "This bronze-inlaid shield bears the marching dragon symbol of the Kroth Magg hobgoblin clan. While wielding it, you gain an additional +2 bonus to AC against ranged attacks (not calculated in 1st page AC). When an attacker makes a ranged atk against a target w/i 5 ft of you, you can become the target of the atk as a reaction.",
+		descriptionFull : "This bronze-inlaid shield bears the marching dragon symbol of the Kroth Magg hobgoblin clan.\n   You gain a +2 bonus to AC against ranged attacks while you wield this shield. This bonus is in addition to the shield's normal bonus to AC. In addition, whenever an attacker makes a ranged attack against a target within 5 feet of you, you can use your reaction to become the target of the attack instead.",
+		attunement : true,
+		weight : 6,
+		action : [["reaction", "Arrow-Catching Shield"]],
+		shieldAdd : "Arrow-Catching Shield (+\u200A2 vs. ranged)"
+	},
 	"arrow-catching shield (ddal9-8)" : { // contains contributions by Larry Hoy
 		name : "Arrow-Catching Shield (DDAL9-8)",
 		source : [["AL","S9"]],
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "This round, metal shield is decorated w/ braids of hair from the unicorn Zhalruban & emblazoned w/ the insignia of the Hellriders. While wielding it, you gain an additional +2 bonus to AC against ranged attacks (not calculated in 1st page AC). Also, when an attacker makes a ranged atk against a target w/i 5 ft of you, you can become the target of the atk as a reaction. When you do this, the shield pulses with magic.",
+		description : "This round, metal shield is decorated w/ braids of hair from the unicorn Zhalruban & emblazoned w/ the insignia of the Hellriders. While wielding it, you gain an additional +2 bonus to AC against ranged attacks (not calculated in 1st page AC). If an attacker makes a ranged atk against a target w/i 5 ft of you, you can become the target of the atk as a reaction. When you do this, the shield pulses with magic.",
 		descriptionFull : "This round, metal shield is decorated with braids of hair from the unicorn Zhalruban and emblazoned with the insignia of the Hellriders on the boss of the shield. The boss itself pulses with magic when the shield attracts ranged attacks.\n   You gain a +2 bonus to AC against ranged attacks while you wield this shield. This bonus is in addition to the shield's normal bonus to AC. In addition, whenever an attacker makes a ranged attack against a target within 5 feet of you, you can use your reaction to become the target of the attack instead.",
 		attunement : true,
 		weight : 6,
 		action : [["reaction", "Arrow-Catching Shield"]],
 		shieldAdd : "Arrow-Catching Shield (+\u200A2 vs. ranged)"
 	},
+	"sentinel shield (ccc-bmg moon11-1)" : {
+		name : "Sentinel Shield (CCC-BMG MOON11-1)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		shieldAdd : "Sentinel Shield",
+		advantages : [["Initiative", true], ["Perception", true]],
+		vision : [["Adv. on Perception checks", 0]],
+		description: "This shield is emblazoned with a symbol of an eye. Whenever it grants adv. on a roll, the eye on the front squints & the shield says “hmmmm” in a deep gravelly voice that is audible to within 30 ft. While holding this shield, you have adv. on initiative rolls & Wisdom (Perception) checks.",
+		descriptionFull: "Whenever the Sentinel Shield grants advantage on a roll, the eye on the front squints, and the shield says “hmmmm” in a deep gravelly voice that is audible to anyone within 30 feet. While holding this shield, you have advantage on initiative rolls and Wisdom (Perception) checks. The shield is emblazoned with a symbol of an eye."
+		},
+	"sentinel shield (ccc-wwc-7)" : {
+		name : "Sentinel Shield (CCC-WWC-7)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		shieldAdd : "Sentinel Shield",
+		advantages : [["Initiative", true], ["Perception", true]],
+		vision : [["Adv. on Perception checks", 0]],
+		description: "The shield is emblazoned with a flaming sword, the holy symbol of the warrior god, Tempus. While holding this shield, you have advantage on initiative rolls & Wisdom (Perception) checks.",
+		descriptionFull: "The shield is emblazoned with a flaming sword, which is the holy symbol of the warrior god Tempus.\n   While holding this shield, you have advantage on initiative rolls and Wisdom (Perception) checks. The shield is emblazoned with a symbol of an eye."
+		},
+	"sentinel shield (ddal-cgb)" : {
+		name : "Sentinel Shield (DDAL-CGB)",
+		source : [["AL","CGB"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		shieldAdd : "Sentinel Shield",
+		advantages : [["Initiative", true], ["Perception", true]],
+		vision : [["Adv. on Perception checks", 0]],
+		description: "This shield is emblazoned with a symbol of an eye & glows faintly when a giant is within 120 ft. While holding the shield, you have advantage on initiative rolls & Wisdom (Perception) checks.",
+		descriptionFull: "This shield bears the symbol of a large eye and glows faintly when any giant is within 120 feet of it.\n   While holding this shield, you have advantage on initiative rolls and Wisdom (Perception) checks. The shield is emblazoned with a symbol of an eye."
+		},
 	"sentinel shield (ddex2-12)" : {
 		name : "Sentinel Shield (DDEX2-12)",
 		source : [["AL","S2"]],
@@ -722,8 +999,20 @@ MagicItemsList["al shields (other)"] = {
 		shieldAdd : "Sentinel Shield",
 		advantages : [["Initiative", true], ["Perception", true]],
 		vision : [["Adv. on Perception checks", 0]],
-		description: "This oblong shield has an obvious eye motif with several eyes on its surface that occasionally blink. While holding this shield, you have advantage on initiative rolls and Wisdom (Perception) checks. The shield is emblazoned with a symbol of an eye."
+		description: "This oblong shield has an obvious eye motif with several eyes on its surface that occasionally blink. While holding this shield, you have adv. on initiative rolls & Wisdom (Perception) checks.",
+		descriptionFull: "This oblong shield has an obvious eye motif with several eyes on its surface that occasionally blink. While holding this shield, you have advantage on initiative rolls and Wisdom (Perception) checks. The shield is emblazoned with a symbol of an eye."
 		},
+	"spellguard shield (ccc-rozk1-3)" : {
+		name : "Spellguard Shield (CCC-ROZK1-3)",
+		source : [["AL","CCC"]],
+		rarity : "very rare",
+		magicItemTable : "H",
+		description : "This steel shield is embossed with a longsword wrapped in thorny vines that ends in roses in full bloom. The enamel coloring the roses is still vibrant. While holding this shield, you have advantage on saving throws against spells and other magical effects, and spell attacks have disadvantage against you.",
+		attunement : true,
+		weight : 6,
+		shieldAdd : "Spellguard Shield",
+		savetxt : { adv_vs : ["spells", "magical effects"] }
+	},
 	"spellguard shield (ddep7-2)" : {
 		name : "Spellguard Shield (DDEP7-2)",
 		source : [["AL","S7"]],
@@ -742,6 +1031,18 @@ MagicItemsList["al shields (other)"] = {
 		magicItemTable : "H",
 		description : "This tower shield is made of hundreds of interlocking humanoid bones, dipped in a shimmering silver resin. When you are targeted by a spell, the bones vibrate gently & emit deep ominous chanting in ancient Oman, lasting for 1d6 rounds. While holding this shield, you have adv. on saves against spells & other magical effects, & spell atks have disadv. against you.",
 		descriptionFull : "This tower shield is made of hundreds of interlocking humanoid bones, dipped in a shimmering silver resin. When you are targeted by a spell, the bones vibrate gently and emit deep, ominous chanting in ancient Oman, lasting for 1d6 rounds. While holding this shield, you have advantage on saving throws against spells and other magical effects, and spell attacks have disadvantage against you.",
+		attunement : true,
+		weight : 6,
+		shieldAdd : "Spellguard Shield",
+		savetxt : { adv_vs : ["spells", "magical effects"] }
+	},
+	"warden, spellguard shield (ccc-odfc1-3)" : {
+		name : "Warden, Spellguard Shield (CCC-ODFC1-3)",
+		source : [["AL","CCC"]],
+		rarity : "very rare",
+		magicItemTable : "H",
+		description : "Created by Brinora for her husband, Richard, this shield is made of multicolored glass. It appears fragile, but is as strong as a regular shield. Initially showing Brinora’s arcane sigil, the pattern rearranges for each new wielder, forming a holy symbol or image of great meaning. While holding this shield, you have adv. on saves against spells & other magical effects, & spell atks have disadv. against you.",
+		descriptionFull : "Created by Brinora for her lover, and later husband, Richard, this shield is made of multicolored glass. While it appears fragile, it is just as strong as a regular shield. Although the picture that was initially formed was Brinora’s arcane sigil, the pattern rearranges appropriately for the wielder, forming a holy symbol or other simple image of great meaning. While holding this shield, you have advantage on saving throws against spells and other magical effects, and spell attacks have disadvantage against you.",
 		attunement : true,
 		weight : 6,
 		shieldAdd : "Spellguard Shield",

@@ -8,13 +8,14 @@ It is recommended to enter the code in a fresh sheet before adding any other inf
     Effect:	This script adds the new items, armor, and weapons found in AL modules and Guild Adept adventures to the MPMB sheet. It also includes some Story Awards that grant blessings, boons, or other mechanical effects. This is not a complete list, but it's a start.*/
 	
 	//Complete: S0-S9, DDCE, Holiday Events, Guild Adept
-	//In progress: CCCs, S10 (Through 10-9), DC-POA, DRW, 
+	//In progress: S10 (Through 10-9), DC-POA, DRW, 
 	
 var iFileName = "AL Special Items.js";
 RequiredSheetVersion(13);
 
 // Define the source
-SourceList["AL"] = {
+
+SourceList.AL = {
 	name : "AL Modules",
 	abbreviation : "AL",
 	group : "Adventurers League",
@@ -29,29 +30,43 @@ SourceList.DDCE = {
     date : "2020/09/19"
 };
 
-SourceList.LN = {  //Liar's Night and Wandering Monsters
+SourceList["AL:LN"] = {  //Liar's Night and Wandering Monsters
     name : "AL Holiday Events - Liar's Night",
-    abbreviation : "LN",
+    abbreviation : "AL:LN",
     group : "Adventurers League",
     date : "Various"
 };
 
-SourceList.FC = {   //Fai Chen & Extra Life items
+SourceList["AL:FC"] = {   //Fai Chen & Extra Life items
     name : "Fai Chen & Other Certs",
-    abbreviation : "FC",
+    abbreviation : "AL:FC",
     group : "Adventurers League",
     date : "Various"
+};
+
+SourceList["AL:RMH"] = {  //Mist Hunters Alternate Campaign
+	name : "Mist Hunters",
+	abbreviation : "AL:RMH",
+	group : "Adventurers League",
+	url : "https://www.dmsguild.com/browse.php?filters=45470_0_0_0_0_0_0_0&src=fid45470",
+	date : "Various"
 };
 
 
 //AL Special Rewards & Story Awards (ones with major mechanical effects)
 MagicItemsList["al story awards"] = {
 		name : "AL Story Awards",
-		description : "Special AL rewards available from epics and adventure modules. This only includes a small slice of the total story awards available, primarily those with boons, blessings, or other major mechanical effects. This selection also assumes that you have spent any Downtime or other cost to receive the reward.",
+		description : "Special AL rewards available from conventions, epics and adventure modules. This only includes a small slice of the total awards available, primarily those with boons, blessings, or other major mechanical effects. This selection also assumes that you have spent any Downtime or other cost required to receive the reward.",
 		type : "story award",
 		rarity : "unique",
 		allowDuplicates : true,
-	choices : ["Blessing of Protection (AL WPM)","Blessing of Protection (DDEP6-3)","Chardalyn Poisoning (DDAL10-9)","Dreamwalker (DDAL5-11)","Flying Snake (DDEP7-1)","Gratitude of Hartkiller (DDAL5-17)","Hall of Honor (DDAL6-3)","Hall of Mirth (DDAL6-3)","Hall of Omens (DDAL6-3)(Diviner)","Hall of Omens (DDAL6-3)(Non-Diviner)","Lich Slayer (DDEP7-2)","Lord of the Gorge (DDAL0-11F)","Plague Buster (DDEP7-2)","The Qualith Experience (DDIA-VOLO)","Quasit's Essence (DDAL5-8)","Student of Stone (DDAL5-11)","Szass Tam's Arcane Essence (DDEP0-1)","Szass Tam's Planar Essence (DDEP0-1)","Thanks of Ilmater - Immortality","Thanks of Ilmater - Planar Travel","Uku the Spider Boy (DDEP7-1)"],
+	choices : ["Angry Alley Cat (FC)","Blessing of Protection (AL WPM)","Blessing of Protection (DDEP6-3)","Chardalyn Poisoning (DDAL10-9)","Dreamwalker (DDAL5-11)","Flying Snake (DDEP7-1)","Gratitude of Brightstar Moonsilver (CCC-BMG-37 HULB3-1)","Gratitude of Hartkiller (DDAL5-17)","Hall of Honor (DDAL6-3)","Hall of Mirth (DDAL6-3)","Hall of Omens (DDAL6-3)(Diviner)","Hall of Omens (DDAL6-3)(Non-Diviner)","Lich Slayer (DDEP7-2)","Lord of the Gorge (DDAL0-11F)","Nature of the Weave (CCC-ROZK-1-2) (Arcana Prof)","Nature of the Weave (CCC-ROZK-1-2) (Arcana Expert)","Plague Buster (DDEP7-2)","The Qualith Experience (DDIA-VOLO)","Quasit's Essence (DDAL5-8)","Student of Stone (DDAL5-11)","Szass Tam's Arcane Essence (DDEP0-1)","Szass Tam's Planar Essence (DDEP0-1)","Thanks of Ilmater - Immortality","Thanks of Ilmater - Planar Travel","Tyr's Blessing of Command (CCC-BMG-23 PHLAN2-2)","Tyr's Blessing of Luck (CCC-BMG-24 PHLAN2-3)","Tyr's Blessing of the Mind (CCC-BMG-22 PHLAN2-1)","Uku the Spider Boy (DDEP7-1)"],
+	"angry alley cat (fc)" : {
+		name : "Angry Alley Cat (FC)",
+		attunement : false,
+		source : [["AL:FC","2018"]],
+		description : "A battle scarred, one-eared angry tomcat that reeks of city has taken a liking to you. 'Like' is a generous term as it spends its free time soiling your footwear and caterwauling. Once per adventure, if you would be arrested by the city watch, the angry cat descends like an avenging angel, distracting the watch enough for you to escape.",
+	},
 	"blessing of protection (al wpm)" : {
 		name : "Blessing of Protection (AL TYP)",
 		attunement : false,
@@ -104,6 +119,72 @@ MagicItemsList["al story awards"] = {
 				}
 			}
 	},
+	"gratitude of brightstar moonsilver (ccc-bmg-37 hulb3-1)" : {	
+		name : "Gratitude of Brightstar Moonsilver (CCC-BMG-37 HULB3-1)",
+		source : [["AL","CCC"]],
+		description : "For rescuing Brightstar, he is grateful and will serve as a mount for lawful good adventurers for three adventures. His stats are the standard unicorn stats found on page 294 of the Monster Manual.",
+		limfeaname : "Unicorn Mount (Brightstar Moonsilver)",
+		usages : 3,
+		recovery : "never",
+		creaturesAdd : [["Unicorn (Brightstar Moonsilver)", true]],
+		creatureOptions : [{
+			name : "Unicorn (Brightstar Moonsilver)",
+			nameAlt : ["Unicorn"],
+			source : [["M", 294] ["AL","CCC"]],
+			size : 2, //Large,
+			type : "Celestial",
+			companion : "mount",
+			alignment : "Lawful Good",
+			ac : 12,
+			hp : 67,
+			hd : [9, 10],
+			speed : "50 ft",
+			scores : [18, 14, 15, 11, 17, 16],
+			senses : "Darkvision 60ft",
+			passivePerception : 13,
+			damage_immunities : "poison",
+			condition_immunities : "charmed, paralyzed, poisoned",
+			languages : "Celestial, Elvish, Sylvan, Telepathy 60 ft.",
+			challengeRating : "5",
+			proficiencyBonus : 3,
+			attacksAction : 2,
+				eval : function(prefix, lvl) {
+				AddString(prefix + 'Cnote.Left', 'Legendary Actions:\n \u2022 The Unicorn can take 3 legendary actions, choosing from the options below. Only one legendary action can be used at a time and only at the end of another turn. The Unicorn regains spent legendary actions at the start of its turn.\n \u2022 Hooves: The unicorn makes one attack with its hooves.\n \u2022 Shimmering Shield (Costs 2 Actions): The unicorn creates a shimmering, magical field around itself or another creature it can see within 60 feet of it. The target gains a +2 bonus to AC until the end of its next turn.\n \u2022 Heal Self (Costs 3 Actions): The unicorn magically regains 11 (2d8 + 2) hit points.', true);
+						},
+				removeeval : function(prefix, lvl) {
+				RemoveString(prefix + 'Cnote.Left', 'Legendary Actions:\n   The Unicorn can take 3 legendary actions, choosing from the options below. Only one legendary action can be used at a time and only at the end of another turn. The Unicorn regains spent legendary actions at the start of its turn.\n \u2022 Hooves: The unicorn makes one attack with its hooves.\n \u2022 Shimmering Shield (Costs 2 Actions): The unicorn creates a shimmering, magical field around itself or another creature it can see within 60 feet of it. The target gains a +2 bonus to AC until the end of its next turn.\n \u2022 Heal Self (Costs 3 Actions): The unicorn magically regains 11 (2d8 + 2) hit points.', true);
+						},
+			attacks : [{
+				name : "Hooves",
+				ability : 1,
+				damage : [2, 6, "bludgeoning"],
+				range : "Melee (5 ft)",
+				description : "The unicorn makes two attacks: one with its hooves and one with its horn."
+						}, {
+				name : "Horn",
+				ability : 1,
+				damage : [1, 8, "piercing"],
+				range : "Melee (5 ft)",
+				description : "The unicorn makes two attacks: one with its hooves and one with its horn. If move at least 20 ft, see charge trait.",
+						}],
+			traits : [{
+				name : "Healing Touch (3/Day)",
+				description : "The unicorn touches another creature with its horn. The target magically regains 11 (2d8 + 2) hit points. In addition, the touch removes all diseases and neutralizes all poisons afflicting the target."
+					}, {
+				name : "Teleport (1/Day)",
+				description : "The unicorn magically teleports itself and up to three willing creatures it can see within 5 feet of it, along with any equipment they are wearing or carrying, to a location the unicorn is familiar with, up to 1 mile away."
+									}, {
+				name : "Charge",
+				description : "If the unicorn moves at least 20 feet straight toward a target and then hits it with a horn attack on the same turn, the target takes an extra 9 (2d8) piercing damage. If the target is a creature, it must succeed on a DC 15 Strength saving throw or be knocked prone."
+									}, {
+				name : "Magic Resistance",
+				description : "The unicorn has advantage on saving throws against spells and other magical effects."
+									}, {
+				name : "Innate Spellcasting",
+				description : "The unicorn's innate spellcasting ability is Charisma (spell save DC 14). The unicorn can innately cast the following spells, requiring no components: At will: detect evil and good, druidcraft, pass without trace; 1/day each: calm emotions, dispel evil and good, entangle"
+				}]
+			}]
+	},
 	"gratitude of hartkiller (ddal5-17)" : {	
 		name : "Gratitude of Hartkiller (DDAL5-17)",
 		source : [["AL","S5"]],
@@ -151,6 +232,22 @@ MagicItemsList["al story awards"] = {
 		description : "You defeated & killed Xak’thar the Twin, the ravenous conjoined twin pit fiends of the Gorge of Slaughter. You ascended to its place as lord of that pit & for a year & a day, your reign was bloody & brutal — until some meddling adventurer defeated you! You are retired from AL play for 366 days & upon your return, you are proficient in Infernal & have a lemure follower; this creature is fanatically devoted but entirely pitiful. Downtime days can’t lessen the time spent in Nessus.",
 		descriptionFull : "You defeated and killed Xak’thar the Twin, the ravenous conjoined twin pit fiends of the Gorge of Slaughter. You ascended to its place as lord of that pit, and for a year and a day your reign was bloody and brutal—until some meddling adventure defeated you! You are retired from D&D Adventurers League play for a year and a day from the date you receive this reward, and upon your return you are proficient in the Infernal tongue and have acquired a lemure follower; this creature is fanatical in its devotion but is entirely pitiful. Downtime days can’t be used to lessen this time spent in Nessus.",
 		languageProfs : ["Infernal"]
+	},
+	"nature of the weave (ccc-rozk-1-2) (arcana prof)" : {	
+		name : "Nature of the Weave (CCC-ROZK-1-2)",
+		source : [["AL","CCC"]],
+		description : "You have uncovered a series of tomes written by the archmage, Manshoon. After spending 50 downtime days, you gain proficiency in the Arcana skill. If you are already proficient in Arcana, you double your proficiency when making checks with the skill.",
+		descriptionFull : "You have uncovered a series of tomes written by the archmage, Manshoon. By spending 50 downtime days, you gain proficiency in the Arcana skill. If you are already proficient in Arcana, you double your proficiency when making checks with the skill.",
+		skillstxt : "You gain proficiency in Arcana. If you are already proficient, you gain expertise.",
+		skills : ["Arcana"]
+	},
+	"nature of the weave (ccc-rozk-1-2) (arcana expert)" : {	
+		name : "Nature of the Weave (CCC-ROZK-1-2)",
+		source : [["AL","CCC"]],
+		description : "You have uncovered a series of tomes written by the archmage, Manshoon. After spending 50 downtime days, you gain proficiency in the Arcana skill. If you are already proficient in Arcana, you double your proficiency when making checks with the skill.",
+		descriptionFull : "You have uncovered a series of tomes written by the archmage, Manshoon. By spending 50 downtime days, you gain proficiency in the Arcana skill. If you are already proficient in Arcana, you double your proficiency when making checks with the skill.",
+		skillstxt : "You gain proficiency in Arcana. If you are already proficient, you gain expertise.",
+		skills : [['Arcana', 'full']]
 	},
 	"plague buster (ddep7-2)" : {
 		name : "Plague Buster (DDEP7-2)",
@@ -230,6 +327,31 @@ MagicItemsList["al story awards"] = {
             }
         }
     },
+	"tyr's blessing of command (ccc-bmg-23 phlan2-2)" : {	
+		name : "Tyr's Blessing of Command (CCC-BMG-23 PHLAN2-2)",
+		source : [["AL","CCC"]],
+		attunement : true,
+		description : "This blessing has been bestowed upon you by Tyr in recognition of your service to the city and citizens of Phlan in the face of great peril to your own wellbeing. Your Charisma score increases by 2, up to a maximum of 20. This blessing may be refused. If accepted, it requires an attunement slot.",
+		scores : [0, 0, 0, 0, 0, 2],
+	},
+	"tyr's blessing of luck (ccc-bmg-24 phlan2-3)" : {	
+		name : "Tyr's Blessing of Luck (CCC-BMG-24 PHLAN2-3)",
+		source : [["AL","CCC"]],
+		attunement : true,
+		description : "This blessing has been bestowed upon you by Tyr in recognition of your service to the city and citizens of Phlan in the face of great peril to your own wellbeing. You gain a +1 bonus to ability checks and saving throws. This blessing may be refused. If accepted, it requires an attunement slot. This blessing is not tradeable, and if refused or unattuned, it cannot be regained.",
+		addMod : [
+			{ type : "save", field : "all", mod : 1, text : "I gain a +1 bonus on all my saving throws." },
+			{ type : "skill", field : "all", mod : 1, text : "I gain a +1 bonus on all my ability checks." },
+			{ type : "skill", field : "Init", mod : 1, text : "I gain a +1 bonus on all my ability checks." }
+		]
+	},
+	"tyr's blessing of the mind (ccc-bmg-22 phlan2-1)" : {	
+		name : "Tyr's Blessing of the Mind (CCC-BMG-22 PHLAN2-1)",
+		source : [["AL","CCC"]],
+		attunement : true,
+		description : "This blessing has been bestowed upon you by Tyr in recognition of your service to the city and citizens of Phlan in the face of great peril to your own wellbeing. Your Intelligence score increases by 2, up to a maximum of 20. This blessing may be refused. If accepted, it requires an attunement slot. This blessing is not tradeable, and if refused or unattuned, it cannot be regained.",
+		scores : [0, 0, 0, 2, 0, 0],
+	},
 	"uku the spider boy (ddep7-1)" : {
 		name : "Uku the Spider Boy (DDEP7-1)",
 		source : [["AL","S7"]],
@@ -247,7 +369,7 @@ MagicItemsList["al special event items"] = {
 	choices : ["Bag of Tricks or Treats","Bunny Slipper Snowshoes","Campfire Ice Sculpture","Cariboots","Dread Helm (Green)","Dread Helm (Pumpkin)","Fey Hound Collar","Ghost Sheet","Hat of Witchery","Inspired Cocoa Mug","Lemure Onesie","Magical Slushy Grinder","Netherese Ghost Stories","Owlbear Snowshoes","Pipes of Remembrance","Pumpkin Ring","Selûne's Owl-Eye Glasses","Shar's Veil","Tarot Card Set"],
 	"bag of tricks or treats" : {
 		name: "Bag of Tricks or Treats",
-		source : ["LN", 2018],
+		source : ["AL:LN", 2018],
 		rarity: "uncommon",
 		magicItemTable : "?",
 		description: "This ordinary bag, made from orange and black striped cloth, appears empty. Reaching inside the bag, however, reveals the presence of crinkly wrapped candies. As an action, 3 times/dawn, you can pull an object from this bag and throw it 20 ft. It transforms into a random creature when it lands (d8): 1-weasel, 2-giant rat, 3-badger, 4-boar, 5-dretch, 6-quasit, 7-imp, 8-hell hound. 1-4 follow your commands, 5-8 are hostile. All act on your turn and vanish at dawn/if reduced to 0 HP.",
@@ -272,28 +394,28 @@ MagicItemsList["al special event items"] = {
 		},
 	"cariboots" : {
 		name : "Cariboots",
-		source : ["LN", 2020],
+		source : ["AL:LN", 2020],
 		rarity : "common",
 		magicItemTable : "?",
 		description : "These boots fit any humanoid, and are finely crafted from caribou pelts and lined with the softest fur. While wearing these boots, you can choose to have them leave tracks like those of a caribou."
 		},
 	"dread helm (green)" : {
 		name : "Dread Helm (Green)",
-		source : ["LN", 2019],
+		source : ["AL:LN", 2019],
 		rarity : "common",
 		magicItemTable : "?",
 		description : "This fearsome skull helm is wreathed in illusory green flames and makes your eyes glow red."
 		},
 	"dread helm (pumpkin)" : {
 		name : "Dread Helm (Pumpkin)",
-		source : ["LN", 2018],
+		source : ["AL:LN", 2018],
 		rarity : "common",
 		magicItemTable : "?",
 		description : "This fearsome carved jack-o-lantern fits over your head. It makes your eyes glow yellow while you wear it."
 		},
 	"fey hound collar" : {
 		name : "Fey Hound Collar",
-		source : ["LN", 2020],
+		source : ["AL:LN", 2020],
 		description : "As an action, while wearing this (very punk rock) collar, you create a 15-foot-diameter sphere of green mist, centered on you, moving with you. The sphere spreads around corners, and its area is heavily obscured. It lasts for 10 minutes or until a wind of moderate or greater speed (at least 10 miles per hour) disperses it. The collar can't be used this way again until the next dawn.",
 		usages : 1,
 		recovery : "dawn",
@@ -301,14 +423,14 @@ MagicItemsList["al special event items"] = {
 		},
 	"ghost sheet" : {
 		name : "Ghost Sheet",
-		source : ["LN", 2018],
+		source : ["AL:LN", 2018],
 		rarity : "uncommon",
 		magicItemTable : "?",
 		description : "This sheet appears to be plain white cotton cloth with two eyeholes cut into it. When you wear the sheet over your head, you appear to be incorporeal. Physical interaction reveals this to be an illusion."
 		},
 	"hat of witchery" : {
 		name : "Hat of Witchery",
-		source : ["LN", 2019],
+		source : ["AL:LN", 2019],
 		rarity : "common",
 		magicItemTable : "?",
 		description : "This black, cone-shaped hat has a wide-brim & is adorned with a tarnished brass buckle & a spindly-legged spider who made the hat its home. It can act as spellcasting focus for your class' spells. Once/long rest, you can try to cast a cantrip you don't know from your class' list by making a DC 10 INT (Arcana) check, wasting the attempt & the action if failed. If 3 allies are wearing & attuned to hats of witchery w/i 30 ft of each other, the check above is made with adv. The characters’ skin turns green & their voices become raspy & aged.",
@@ -325,7 +447,7 @@ MagicItemsList["al special event items"] = {
 		},
 	"lemure onesie" : {
 		name : "Lemure Onesie",
-		source : ["LN", 2019],
+		source : ["AL:LN", 2019],
 		rarity : "uncommon",
 		magicItemTable : "?",
 		description : "This comfortable, fleece onesie is complete w/ cozy, if amorphous, footies. When wearing this it, you make yourself — including belongings on your person — appear as a lemure. The appearance doesn't hold up to physical inspection. To discern you are disguised, a creature must use its action to inspect you & succeed on an INT (Investigation) check (DC 13). The onesie fabric is inexpensive & quite flammable; while wearing it, you are vulnerable to fire dmg.",
@@ -348,13 +470,13 @@ MagicItemsList["al special event items"] = {
 		},
 	"owlbear snowshoes" : {
 		name : "Owlbear Snowshoes",
-		source : ["FC",2020],
+		source : ["AL:FC",2020],
 		type : "trinket",
 		description : "These warmly appointed snowshoes leave the tracks of an owlbear in snow, mud, or other soft surfaces. They also have an unfortunate tendency to attract other owlbears."
 		},
 	"pipes of remembrance" : {
 		name : "Pipes of Remembrance",
-		source : ["LN", 2020],
+		source : ["AL:LN", 2020],
 		rarity : "common",
 		magicItemTable : "?",
 		description : "This delicate wooden pipe features a bowl made from smooth river stone. When the pipe is lit, exhaled smoke doesn't dissipate, instead lingering around the bearer. After 10 minutes, the smoke forms moving shapes that re-enact a scene of the bearer’s choosing from the stories they've been told. When this performance is complete, the smoke dissipates. A new story/likeness may be added to the pipe’s repertoire if the bearer smokes the pipe while relaying a tale or describing a companion. The pipe can be used this way once per dawn.",
@@ -364,14 +486,14 @@ MagicItemsList["al special event items"] = {
 		},
 	"pumpkin ring" : {
 		name : "Pumpkin Ring",
-		source : ["LN", 2020],
+		source : ["AL:LN", 2020],
 		rarity : "common",
 		magicItemTable : "?",
 		description : "This ring is made of polished silver, in the shape of your carved pumpkin. While wearing this ring, the glowing image of your carved pumpkin appears in front of your own face, like a mask."
 		},
 	"selûne's owl-eye glasses" : {
 		name : "Selûne's Owl-Eye Glasses",
-		source : ["LN", 2020],
+		source : ["AL:LN", 2020],
 		attunement : true,
 		description : "While wearing these glasses, as an action once per dawn, you can instantaneously resummon a deceased, certed or Holiday Event vanity pet or mount (only ones that can be returned to life by the find familiar or find steed spells.) If you are not attuned to your glasses, that does not kill your pet.",
 		descriptionFull : "While wearing these glasses, as an action, you can instantaneously resummon a deceased, certed or Holiday Event vanity pet or mount that can be returned to life by the find familiar or find steed spells. Once returned to life, they have no new additions to the roles and abilities they had before death (for example, these glasses do not transform them into a familiar or steed). If you are not attuned to your glasses, that does not kill your pet. The glasses can’t be used this way again until the next dawn.",
@@ -381,14 +503,14 @@ MagicItemsList["al special event items"] = {
 		},
 	"shar's veil" : {
 		name : "Shar's Veil",
-		source : ["LN", 2020],
+		source : ["AL:LN", 2020],
 		description : "Once per long rest, while you wear this purple and black, shadowy veil, it gives the illusion of death and decay for 1 hour. Lying motionless, your body appears to be dead. In motion, you appear to be an undead creature, but your creature type is not changed to undead. To discern that you are disguised, a creature can use its action to inspect your appearance and must succeed on a DC 13 Intelligence (Investigation) check.",
 		usages : 1,
 		recovery : "long rest"
 		},
 	"tarot card set" : {
 		name : "Tarot Card Set",
-		source : ["LN", 2020],
+		source : ["AL:LN", 2020],
 		description : "Once/day, roll 1d4 to find out what your fortune produces. This item disappears at dawn & the character may roll again to reveal their next fortune. DC 1: The Flower - touching this card to a patch of earth w/i 5 ft, causes one flower of your choice to sprout. The flower is nonmagical & grows or withers as a normal flower. DC 2: The Yummy Meal - your favorite meal, the equivalent of 1 ration. DC 3: The Tea Pot - a tiny pot of tea, equivalent to 1 healing potion. DC 4: The Witch - a stone & twisted wire pendant. As an action, it gives you adv. on CHA checks w/ humanoids (<= CR1), for 1 hr.",
 		descriptionFull : "Once per day, roll 1d4 to find out what your tarot fortune produces. At dawn this product (not the card) vanishes but the character may roll again to reveal their next fortune.\n   " + toUni("DC 1: The Flower") + ". - touching this card to a patch of earth or soil, within 5 feet of you, causes one flower of your choice to sprout there. The flower is nonmagical and harmless, and it grows or withers as a normal flower would.\n   " + toUni("DC 2: The Yummy Meal") + ". - this card produces your favorite meal, the equivalent of 1 ration.\n   " + toUni("DC 3: The Tea Pot") + ". - this card produces a tiny pot of piping tea, the equivalent of one potion of healing.\n   " + toUni("DC 4: The Witch") + ". - this card produces a stone and twisted wire pendant. As an action, it gives you advantage on Charisma checks when communicating with humanoids (CR 1 or less), for 1 hour.",
 		usages : 1,
@@ -396,11 +518,19 @@ MagicItemsList["al special event items"] = {
 		},
 }
 
-//New AL Items
+//New AL Items from official and community modules (includes a couple neat trinkets)
 MagicItemsList["al new items"] = {
 		name : "AL New Items",
 		allowDuplicates : true,
-		choices : ["Eye of Xxiphu (DDAL5-19)","Hellrider's Badge (DDEP9-2)","Mind-Poison Dagger (DDHC-MORD-05)","Nettle (DDEP4)","Oathbinder (DDHC-TOA-15)","Spare (DDHC-TOA-13)","Wooden Gecko Earrings (DDHC-TOA-8)"],
+		choices : ["Efreeti Crown of Wishes (CCC-ODFC2-2)","Eye of Xxiphu (DDAL5-19)","Flamesoul Stone (CCC-YLRA1-3)","Hellrider's Badge (DDEP9-2)","Mind-Poison Dagger (DDHC-MORD-05)","Mist Hunters Magnificent Cap (RMH Safety Tools)","Nettle (DDEP4)","Oathbinder (DDHC-TOA-15)","Order of the Guardians Ring (RMH Safety Tools)","Spare (DDHC-TOA-13)","Wooden Gecko Earrings (DDHC-TOA-8)"],
+	"efreeti crown of wishes (ccc-odfc2-2)" : {
+		name : "Efreeti Crown of Wishes (CCC-ODFC2-2)",
+		source : [["AL","CCC"]],
+		type : "trinket",
+		rarity : "unique",
+		description : "This beautiful golden crown is covered with diamonds that gleam with their own light & resizes to fit your head. Despite its name, the crown doesn't actually grant wishes. Instead, when you feel strong emotions of any kind, the crown sprouts harmless, colorful flames from its pinnacle. The color of the flames is based on your mood: red for anger, blue for sorrow, green for amusement, etc.",
+		descriptionFull : "This beautiful golden crown is covered with diamonds each of which gleams with its own light. The crown resizes to fit the head of any wearer. Contrary to its name, the crown does not actually grant any wishes. Instead, when the person wearing it feels strong emotion of any kind, the crown sprouts harmless, colorful flames from its pinnacle, with the color of the flames based on the wearer’s mood: red for anger, blue for sorrow, green for amusement, and so on. This crown can be sold for 1,500 gp. It does not count as a magic item and cannot be traded. (To be kept as a trinket, this crown may not be sold)."
+	},
 	"eye of xxiphu (ddal5-19)" : {
 		name : "Eye of Xxiphu (DDAL5-19)",
 		source : [["AL","S5"]],
@@ -410,6 +540,14 @@ MagicItemsList["al new items"] = {
 		attunement : true,
 		description : "The Eye of Xxiphu bestows insight into the true nature of aboleths. The attuned possessor of the Eye gains telepathy out to 120 ft, & may cover themselves in coat of mucous that lets them breathe underwater as well as on land. The petrified orb is large & heavy, but doesn't need to be held to use its powers. Aboleths have disadv. when attacking owner, & owner has adv. on knowledge-based ability checks about aboleths & the Far Realms when not in combat.",
 		descriptionFull : "While not a truly intelligent item, the Eye of Xxiphu bestows terrifying insight into the true nature of the nightmarish aboleths. The attuned possessor of the Eye gains telepathy out to a range of 120 feet, and may cover themselves in coat of mucous that allows them to breathe underwater as well as on land. The petrified orb is large and heavy, but does not need to be held in order to use its powers. Additionally, aboleths have disadvantage when attacking the owner of the Eye, and the owner has advantage on knowledge-based ability checks about aboleths and the Far Realm when they are not in combat."
+	},
+	"flamesoul stone (ccc-ylra1-3)" : {
+		name : "Flamesoul Stone (CCC-YLRA1-3)",
+		source : [["AL","CCC"]],
+		type : "trinket",
+		rarity : "unique",
+		description : "This fist-sized crystal produces a flickering coppery-orange glow from within. The light is magical, but isn’t bright enough to significantly illuminate an area. Casting detect magic on the Flamesoul Stone shows a hint of necrotic magic emanating from it. The light from the stone is the same color as the comet that was recently seen over Ylraphon.",
+		descriptionFull : "A fist-sized crystal that produces a flickering coppery-orange glow from within. The light is magical, but isn’t bright enough to significantly illuminate any area. Casting detect magic on the Flamesoul Stone shows a slight hint of necrotic magic emanating from within. The light from the stone is the same color as the comet that has recently been seen over Ylraphon."
 	},
 	"hellrider's badge (ddep9-2)" : {
 		name : "Hellrider's Badge (DDEP9-2)",
@@ -443,6 +581,15 @@ MagicItemsList["al new items"] = {
 			source : [["AL","MtoF"]],
 			description : "Finesse, light, thrown; If coated, DC 15 Wis save or +2d10 psychic dmg \u0026 1 min poisoned",
 		}
+	},
+	"mist hunters magnificent cap (rmh safety tools)" : {
+		name : "Mist Hunters Magnificent Cap (RMH Safety Tools)",
+		source : [["AL:RMH","ST"]],
+		type : "wondrous item",
+		rarity : "common",
+		magicItemTable : "?",
+		description : "This deerstalker, ear-flapped traveling cap, is worn by notable investigators. When worn, it functions as any other hat. At the investigator's whim, it transforms into a working magnifying glass or back into a cap as needed.",
+		descriptionFull : "This deerstalker, ear-flapped traveling cap, is worn by notable investigators. When worn, it functions as any other hat. At the investigator's whim, it transforms into a working magnifying glass and back into a cap, as needed. This common magic item cannot be sold.",
 	},
 	"nettle (ddep4)" : {
 		name : "Nettle (DDEP4)",
@@ -492,6 +639,30 @@ MagicItemsList["al new items"] = {
 		description : "Versatile (d10); Fiend/undead +2d6 radiant dmg; if hp<26, DC 15 Wis save or die. If pass, frightened until my next turn ends",
 		modifiers : [2, 2]
 				},
+	},
+	"order of the guardians ring (rmh safety tools)" : {
+		name : "Order of the Guardians Ring (RMH Safety Tools)",
+		source : [["AL:RMH","ST"]],
+		type : "ring",
+		rarity : "unique",
+		magicItemTable : "?",
+		description : "This ring can deliver a dose of potion or poison under a creature’s skin. If targeting a creature, use an action to make a melee attack. On a hit, the liquid is delivered. If targeting yourself, use a reaction to deliver it into your system. If loaded with anti-charm tonic, the reaction gives you adv. on a save against charm or possession. The ring can only be reloaded by the Order.",
+		descriptionFull : "This ring can deliver a dose of potion or poison under a creature’s skin. If targeting a creature, use an action to make a melee attack. On a hit, the liquid is delivered. If targeting yourself, use a reaction to deliver it into your system. This equipment cannot be sold, and the ring cannot be reloaded except by the Order.\n   Currently, the Order of the Guardian ring is loaded with an anti-charm tonic. When an attempt is made to charm or possess you, you may use your reaction to deliver the tonic into your system and gain advantage to your saving throw. This potion has one use, and the top-secret recipe is not known to you. This potion cannot be extracted from the ring until used.",
+		limfeaname : "Anti-charm tonic",
+		usages : "1",
+		recovery : "Special",
+		additional : "from Order",
+		action : [["action", "Order of the Guardians Ring (use on target)"], ["reaction", "Order of the Guardians Ring (use on self)"]],
+		weaponsAdd : ["Order of the Guardians Ring"],
+		weaponOptions : {
+			regExpSearch : /^(?=.*order)(?=.*guardian|guardians)(?=.*ring).*$/i,
+			name : "Order of the Guardians Ring",
+			baseWeapon : "unarmed strike",
+			source : [["AL:RMH","ST"]],
+			abilitytodamage : false,
+			damage : [0, 0, ""],
+			description : "If attack hits, potion or poison in ring delivered to target.",
+		}
 	},
 	"spare (ddhc-toa-13)" : {
 		name : "Spare (DDHC-TOA-13)",
