@@ -1,3 +1,3 @@
 # MPMB-Extra Scripts for Official Content
 
-Exactly what it sounds like. This is where I'm saving all my script code for official content used with More Purple More Better's character sheet. This is primarily AL related magic items that have extra flavor or were custom built for modules but may include other items over time.
+Exactly what it sounds like. This is all my script code for official content that can be used with More Purple More Better's character sheet. This is primarily AL magic items that have extra flavor or were specially created for modules and events. It also includes mechanical Story Awards, some special creatures, and backgrounds from Guild Adept content/other supplements.
