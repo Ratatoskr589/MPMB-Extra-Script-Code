@@ -10,7 +10,7 @@ Effect: This file adds new creatures that are specially made for AL into the she
 //The Sea Lion code was deleted from GoS but still appears on a Beastmaster NPC. The code for Arctic Stink Squirrel, Chwinga Squidling, Gelatinous Ice Cube, Snowy Owlbear Cub was made by Nod_Hero. It was added here to collect the extra creatures in one place.
 
 //Complete: DDCE, House of Lament Premiere, S0-S9, S9 DM Rewards (no vehicles), Holiday Events
-//WIP: Fai Chen's/Certs, S10 (Through 10-9), DC-POA, DRW
+//WIP: Fai Chen's/Certs, S10 (Through 10-10), DC-POA, DRW
 
 var iFileName = "AL Creatures.js";
 RequiredSheetVersion(13);
@@ -29,8 +29,8 @@ SourceList["AL:SE"] = {
     group : "Adventurers League",
     date : "Various"
 };
-
-SourceList.DDCE = {
+ 
+SourceList.DDCE = { //Only creatures from this category count as Event Awards under the new rules
     name : "D&D Celebration Event 2020",
     abbreviation : "DDCE",
     group : "Adventurers League",
@@ -1020,4 +1020,4 @@ CreatureList["marzipan, the skeletal warhorse"] = {
 		name : "The Runt (CCC-TAROT2-9)",
 		source : [["AL","CCC"]],
 		description : "You’ve befriended the runt of the litter, Ember. This cat has jet black fur with streaks of campfire orange and is warm to the touch, a nod to its elemental origins. Ember loves to pounce at Dancing Lights, and will chase ranged spells. Ember has the statistics of a cat.",
-	},CCC-SQC-3-1 through 3-3, and 2-1 all have squirrel pets, CCC-ELF-04, TRI-13, 5=01*/  
+	},CCC-SQC-3-1 through 3-3, and 2-1 all have squirrel pets, CCC-ELF-04, TRI-13, 5-01, MAGS1-1*/  

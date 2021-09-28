@@ -8,7 +8,7 @@ It is recommended to enter the code in a fresh sheet before adding any other inf
     Effect:	This script adds the new items, armor, and weapons found in AL modules and Guild Adept adventures to the MPMB sheet. It also includes some Story Awards that grant blessings, boons, or other mechanical effects. This is not a complete list, but it's a start.*/
 	
 	//Complete: S0-S9, DDCE, Holiday Events, Guild Adept
-	//In progress: S10 (Through 10-9), DC-POA, DRW, 
+	//In progress: S10 (Through 10-10), DC-POA, DRW, 
 	
 var iFileName = "AL Special Items.js";
 RequiredSheetVersion(13);
@@ -23,11 +23,11 @@ SourceList.AL = {
 	date : "Various"
 };
 
-SourceList.DDCE = {
+SourceList.DDCE = { //Only items from this category count as Event Awards under the new rules
     name : "D&D Celebration Event 2020",
     abbreviation : "DDCE",
     group : "Adventurers League",
-    date : "2020/09/19"
+    date : "2020/09/19 - Yearly"
 };
 
 SourceList["AL:LN"] = {  //Liar's Night and Wandering Monsters
@@ -360,13 +360,13 @@ MagicItemsList["al story awards"] = {
 	},
 }
 
-//New items from holiday events (Liar's Night/Wandering Monsters), D&D Celebrations, Fai Chen's and other special events.  Generally ones with limited availability/limited time-frames to get them.
+//New items from holiday events (Liar's Night/Wandering Monsters), D&D Celebrations, Fai Chen's and other special events.  Generally ones with limited availability/limited time-frames to get them.  Celebration Items are Event Awards.
 MagicItemsList["al special event items"] = {
 		name : "AL Special Event Items",
 		rarity : "unique",
 		type : "wondrous item",
 		allowDuplicates : true,
-	choices : ["Bag of Tricks or Treats","Bunny Slipper Snowshoes","Campfire Ice Sculpture","Cariboots","Dread Helm (Green)","Dread Helm (Pumpkin)","Fey Hound Collar","Ghost Sheet","Hat of Witchery","Inspired Cocoa Mug","Lemure Onesie","Magical Slushy Grinder","Netherese Ghost Stories","Owlbear Snowshoes","Pipes of Remembrance","Pumpkin Ring","Selûne's Owl-Eye Glasses","Shar's Veil","Tarot Card Set"],
+	choices : ["Bag of Tricks or Treats","Buckler of Folding","Bunny Slipper Snowshoes","Calliope Wine Cask","Campfire Ice Sculpture","Cariboots","Cuddly Spider","Dread Helm (Green)","Dread Helm (Pumpkin)","Fey Hound Collar","Flask of Glowworms","Ghost Sheet","Hat of Witchery","Inspired Cocoa Mug","Lemure Onesie","Magical Slushy Grinder","Netherese Ghost Stories","Owlbear Snowshoes","Pipes of Remembrance","Pumpkin Ring","Selûne's Owl-Eye Glasses","Shar's Veil","Tarot Card Set","Very Important Crown","Viridian Monocle","Wand of Verdant Vitality"],
 	"bag of tricks or treats" : {
 		name: "Bag of Tricks or Treats",
 		source : ["AL:LN", 2018],
@@ -380,11 +380,26 @@ MagicItemsList["al special event items"] = {
 		usages : 3,
 		recovery : "dawn",
 	},
+	"buckler of folding" : {
+		name : "Buckler of Folding",
+		source : ["DDCE",2021],
+		type : "trinket",
+		description : "This small paper square fits in a pocket & is covered with runes. When you hold it in your hand, you can utter a command word as a bonus action to make the square magically unfold & become a shield as hard as wood. It folds back up upon uttering the same command word.",
+		descriptionFull : "This small paper square fits in a pocket and is covered with runes. When you hold it in your hand, you can use a bonus action to utter a command word to cause the square to magically unfold, becoming a shield as hard as wood. It folds back up upon uttering the same command word.",
+		action : [["bonus action", "Buckler of Folding"]],
+		shieldAdd : "Buckler of Folding"
+		},
 	"bunny slipper snowshoes" : {
 		name : "Bunny Slipper Snowshoes",
 		source : ["DDCE",2020],
 		type : "trinket",
 		description : "Certain to keep your feet warm while traversing the arctic, these fashionable snowshoes expand and contract to fit any Small or Medium humanoid creature."
+		},
+	"calliope wine cask" : {
+		name : "Calliope Wine Cask",
+		source : ["DDCE",2021],
+		type : "trinket",
+		description : "When uncorked, this small cask of wine plays calliope music and can fill up to two waterskins. It magically refills at dusk."
 		},
 	"campfire ice sculpture" : {
 		name : "Campfire Ice Sculpture",
@@ -398,6 +413,14 @@ MagicItemsList["al special event items"] = {
 		rarity : "common",
 		magicItemTable : "?",
 		description : "These boots fit any humanoid, and are finely crafted from caribou pelts and lined with the softest fur. While wearing these boots, you can choose to have them leave tracks like those of a caribou."
+		},
+	"cuddly spider" : {
+		name : "Cuddly Spider",
+		source : ["DDCE",2021],
+		type : "trinket",
+		description : "Use a command word as a bonus action & this fuzzy toy spider magically sticks to any surface you place it on. It can be removed by using a bonus action to touch it and utter the command word again.",
+		descriptionFull : "This fuzzy toy spider magically sticks to any surface you place it on, using a bonus action and a command word. It can be removed by using a bonus action to touch it and utter the command word again.",
+		action : [["bonus action", "Cuddly Spider (Stick/Remove)"]]
 		},
 	"dread helm (green)" : {
 		name : "Dread Helm (Green)",
@@ -416,9 +439,19 @@ MagicItemsList["al special event items"] = {
 	"fey hound collar" : {
 		name : "Fey Hound Collar",
 		source : ["AL:LN", 2020],
-		description : "As an action, while wearing this (very punk rock) collar, you create a 15-foot-diameter sphere of green mist, centered on you, moving with you. The sphere spreads around corners, and its area is heavily obscured. It lasts for 10 minutes or until a wind of moderate or greater speed (at least 10 miles per hour) disperses it. The collar can't be used this way again until the next dawn.",
+		rarity : "unique",
+		description : "As an action, while wearing this (very) punk rock collar, you create a 15-ft-diameter sphere of green mist, centered on you & moving with you. The sphere spreads around corners & its area is heavily obscured. It lasts for 10 minutes or until a wind of moderate or greater speed (at least 10 miles per hour) disperses it. The collar can't be used this way again until the next dawn.",
+		descriptionFull : "As an action, while wearing this (very punk rock) collar, you create a 15-foot-diameter sphere of green mist, centered on you, moving with you. The sphere spreads around corners, and its area is heavily obscured. It lasts for 10 minutes or until a wind of moderate or greater speed (at least 10 miles per hour) disperses it. The collar can't be used this way again until the next dawn.",
 		usages : 1,
 		recovery : "dawn",
+		action : [["action", ""]]
+		},
+	"flask of glowworms" : {
+		name : "Flask of Glowworms",
+		source : ["DDCE", 2021],
+		type : "trinket",
+		description : "This flask contains several glowworms & when held, exudes color-changing illumination equivalent to a torch. The flask magically sustains the glowworms & you can use an action while holding it to set the color of the light for 10 minutes.",
+		descriptionFull : "This flask contains several glowworms that when held, exude color-changing illumination equivalent to a torch. The flask magically sustains the glowworms, and if you use an action while holding it, you can set the color of the illumination for ten minutes.",
 		action : [["action", ""]]
 		},
 	"ghost sheet" : {
@@ -516,13 +549,49 @@ MagicItemsList["al special event items"] = {
 		usages : 1,
 		recovery : "dawn"
 		},
+	"very important crown" : {
+		name : "Very Important Crown",
+		source : ["DDCE",2021],
+		type : "trinket",
+		description : "This stiff paper crown is bedazzled with costume jewelry. When you wear it, creatures within 60 ft that can see you notice your presence, even if you're in a crowd. You also have disadvantage on stealth checks.",
+		descriptionFull : "This stiff paper crown is bedazzled with costume jewelry. When you wear it, creatures that can see you within sixty feet notice your presence, even if you're in a crowd. While wearing the crown, you have disadvantage on stealth checks.",
+		advantages : [["Stealth", false]]
+		},
+	"viridian monocle" : {
+		name : "Viridian Monocle",
+		source : ["DDCE",2021],
+		type : "trinket",
+		description : "This stiff paper crown is bedazzled with costume jewelry. When you wear it, creatures within 60 ft that can see you notice your presence, even if you're in a crowd. You also have disadvantage on stealth checks.",
+		descriptionFull : "This stiff paper crown is bedazzled with costume jewelry. When you wear it, creatures that can see you within sixty feet notice your presence, even if you're in a crowd. While wearing the crown, you have disadvantage on stealth checks.",
+		languageProfs : ["Sylvan"]
+		},
+	"wand of verdant vitality" : {
+		name : "Wand of Verdant Vitality",
+		source : ["DDCE", 2021],
+		type : "trinket",
+		description : "This wand has 3 charges. As an action while holding it, expend 1 charge to target a plant within 30 ft. The plant becomes lush w/ blooms for 24 hrs. The wand regains all charges at dawn. If you use the last charge, roll a d20. On a 1, the wand turns into a swarm of stick bugs & is destroyed.",
+		descriptionFull : "This wand has 3 charges. While holding it, you can use an action to expend 1 of its charges to target one plant within 30 feet. The target becomes lush as in full bloom for 24 hours.\n   The wand regains all expended charges at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand transforms into a swarm of stick bugs and is destroyed.",
+		usages : 3,
+		recovery : "dawn",
+		action : [["action", ""]]
+		},
 }
 
 //New AL Items from official and community modules (includes a couple neat trinkets)
 MagicItemsList["al new items"] = {
 		name : "AL New Items",
 		allowDuplicates : true,
-		choices : ["Efreeti Crown of Wishes (CCC-ODFC2-2)","Eye of Xxiphu (DDAL5-19)","Flamesoul Stone (CCC-YLRA1-3)","Hellrider's Badge (DDEP9-2)","Mind-Poison Dagger (DDHC-MORD-05)","Mist Hunters Magnificent Cap (RMH Safety Tools)","Nettle (DDEP4)","Oathbinder (DDHC-TOA-15)","Order of the Guardians Ring (RMH Safety Tools)","Spare (DDHC-TOA-13)","Wooden Gecko Earrings (DDHC-TOA-8)"],
+		choices : ["Achis Atracta (CCC-BMG-30 HILL2-3)","Efreeti Crown of Wishes (CCC-ODFC2-2)","Eye of Xxiphu (DDAL5-19)","Flamesoul Stone (CCC-YLRA1-3)","Hellrider's Badge (DDEP9-2)","Mind-Poison Dagger (DDHC-MORD-05)","Mist Hunters Magnificent Cap (RMH Safety Tools)","Nettle (DDEP4)","Oathbinder (DDHC-TOA-15)","Order of the Guardians Ring (RMH Safety Tools)","Spare (DDHC-TOA-13)","Wooden Gecko Earrings (DDHC-TOA-8)"],
+	"achis atracta (ccc-bmg-30 hill2-3)" : { // contributed by AelarTheElfRogue
+		name : "Achis Atracta (CCC-BMG-30 HILL2-3)",
+		source : [["AL","CCC"]],
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "This sentient bloodstone amulet is carved in the shape of a woman's head & hangs from a delicate silver chain. The eyes glow white when Achis speaks. While you wear her, poisons have no effect on you. You are immune to the poisoned condition & poison dmg. Sentience: Chaotic Neutral. Hearing & vision to 120 ft. Speaks Common & Celestial. Personality: Fickle, spoiled, wants respect, to fall in love & be treated like a princess. Otherwise screams, complains, & denies pwrs.",
+		descriptionFull : "This amulet is made of an intricately carved bloodstone, shaped in the likeness of a woman’s head. The eyes pulse with a white glow when Achis is speaking. The stone is attached to a delicate silver chain. Achis Atracta has all the powers of a periapt of proof against poison that she bestows upon her wearer — if she feels so inclined. She is very fickle. If she likes you, poisons have no effect on you. You are immune to the poisoned condition and have immunity to poison damage.\n   " + toUni("Sentience") + ": Achis Atracta is a sentient chaotic neutral item with an Intelligence of 10, a Wisdom of 10, and a Charisma of 16. She has hearing and normal vision out to a range of 120 feet.\n   She can speak, read, and understand Common and Celestial.\n   " + toUni("Personality") + ": Achis Atracta speaks in a whiny and shrill voice, making demands as though accustomed to being obeyed. She acts like a spoiled noble and expects to be waited on like a queen. Wearers who do not treat her with respect and deference gain no benefit from her item powers. She screams and complains loudly if surprised by a situation she deems beneath her — such as trekking through a sewer or being engulfed by a fireball.\n   Achis wants to be loved and adored by a person with power and standing like a princess in a fairy tale. Her greatest wish is to fall in love with a prince and be swept off her feet—figuratively speaking.",
+		weight : 1,
+		savetxt : { immune : ["poison"] }
+	},
 	"efreeti crown of wishes (ccc-odfc2-2)" : {
 		name : "Efreeti Crown of Wishes (CCC-ODFC2-2)",
 		source : [["AL","CCC"]],
@@ -600,7 +669,7 @@ MagicItemsList["al new items"] = {
 		attunement : true,
 		prerequisite : "Requires attunement by a creature of non-lawful alignment",
 		prereqeval : function(v) { return !(/lawful/i).test(What("Alignment")); },
-		description : "This sentient +2 hand crossbow looks to have seen better times. The wood is cracked and splintered and the string is heavily-frayed. A large, blue feather hangs from the handgrip alongside a couple green, glass baubles. The crossbow whispers warnings, granting a +2 bonus to initiative if its bearer isn't incapacitated. Sentience: Chaotic Neutral. Hearing & Darkvision to 120 ft. Speaks Common & Halfling.",
+		description : "This sentient +2 hand crossbow has seen better times. The wood is cracked & splintered & the string is heavily-frayed. A large, blue feather hangs from the handgrip alongside a couple green glass baubles. The crossbow whispers warnings, granting a +2 bonus to initiative if you aren't incapacitated. Sentience: Chaotic Neutral. Hearing & Darkvision to 120 ft. Speaks Common & Halfling. Personality: Greedy, impetuous, demands to be polished or shouts insults & denies bonuses.",
 		descriptionFull : "This hand crossbow looks to have seen better times. The wood is cracked and splintered and the string is heavily-frayed. A large, blue feather hangs from the handgrip alongside a couple green, glass baubles. The crossbow whispers warnings to its bearer, granting a +2 bonus to initiative if the bearer isn't incapacitated.\n   " + toUni("Sentience") + ": Nettle is a sentient chaotic neutral weapon with an Intelligence of 15, a Wisdom of 10 and a Charisma of 14. It has has hearing and darkvision out to a range of 120 feet. Nettle speaks Common and Halfling.\n   " + toUni("Personality") + ": Nettle is greedy and impetuous, and prefers that its wielder share these ideals. It demands to be better taken care of than its previous owners did. If its bearer is lawfully-aligned, or if its bearer does not spend at least an hour each day tending to it (polishing, applying resin to the string, etc.), Nettle denies its bonuses to attack and damage rolls and initiative checks. It also shouts out insults to those nearby, imposing disadvantage on any Charisma (Deception or Persuasion) checks or Dexterity (Stealth) check that its wielder makes to move silently.",
 		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
 	weaponsAdd : ["Nettle, Hand Crossbow +2"],
