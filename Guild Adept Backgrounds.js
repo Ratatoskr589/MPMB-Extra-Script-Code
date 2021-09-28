@@ -705,6 +705,42 @@ BackgroundList["detective"] = {
 	lifestyle : "modest"
 };
 
+//Special background from playing DDALCA-01 Return to the Ghost Tower of Inverness
+BackgroundList["echo of the past"] = {
+	regExpSearch :  /^(?=.*echo)(?=.*past).*$/i,
+	name : "Echo of the Past",
+	source : [["AL","DDALCA-01"]],
+	skills : ["Arcana", "Investigation"],
+	gold : 10,
+	equipleft : [
+		["Backpack", "", "5"],
+		["Chalk", "10", ""],
+		["Hammer", "", "3"],
+		["Mirror, steel", "", ".5"],
+		["Oil, Flask", "", ""],
+		["Pick, miner's", "", "10"],
+		["Pitons", "6", ""],
+		["10-foot pole", "", "7"],
+		["Hempen rope, feet of", "50", ".2"],
+		["Sack", "", ".5"],	
+		["Shovel", "", "5"],	
+		["Spikes, iron", "10", ".5"],	
+		["Tinderbox", "", "1"],	
+		["Torches", "10", "1"]
+	],
+	equipright : [
+		["Rugged set of all-white traveler's clothes", "", 3],
+		["Recently bought map of the Sword Coast", "", ""],
+		["Locket with a portrait of a long dead loved one", "", ""],
+		["Belt Pouch (with sapphire)", "", 1]
+	],
+	feature : "Answer to a Forgotten Enigma",
+	languageProfs : [["One exotic language of your choice", 1]],
+	toolProfs : ["Thieves' Tools"],
+	lifestyle : "modest"
+};
+
+
 // Background features
 BackgroundFeatureList["go to ground"] = {
 	description : "You have a nose for where people are likely to run to when in danger. You are adept at guessing the paths a panicked individual might take or where they might seek shelter. When in the wilderness you always find a relatively safe place to rest if such a place exists.",
@@ -745,4 +781,8 @@ BackgroundFeatureList["on the tab"] = {
 BackgroundFeatureList["master sleuth"] = {
 	description : "If you spend ten minutes talking to a stranger, you uncover hidden information about them by studying their mannerisms, tiny scuffs on their clothing, and so forth. At the DM’s discretion, you deduce one of the following pieces of information about them: a recent location they’ve visited, an object they’ve handled, or a person they’ve spoken with.",
 	source : [["AL","XGE"]],
+};
+BackgroundFeatureList["answer to a forgotten enigma"] = {
+	description : "The land of your birth is not only lost to the sands of time but was quite possibly on another plane. You see hints in puzzles and clues to riddles based on knowledge of a past and land that others have never known. Your expertise is therefore different than other adventurers and you are able to make connections that others miss. You especially good at solving puzzles and when faces with a riddle that you have difficulty solving, you may ask your Dungeon Master for a hint based on your obscure knowledge. Your Dungeon Master will determine what, if any, hint you might remember that will help you solve the puzzle.",
+	source : [["AL","DDALCA-01"]],
 };

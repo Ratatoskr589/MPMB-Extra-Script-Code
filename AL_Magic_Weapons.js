@@ -11,7 +11,7 @@ Additionally, due to the length of some descriptions, I recommend auto-sizing fo
 	This is not a complete list since I do not have every published adventure, but it's a start. If you do not see an item listed from a season marked complete, it should be because there was no flavor.*/
 	
 	//Complete: S0-S9, Guild Adept
-	//In progress: CCCs, S10 (Through 10-9), DC-POA, DRW
+	//In progress: CCCs, S10 (Through 10-10), DC-POA, DRW
 	
 var iFileName = "AL Flavored Weapons.js";
 RequiredSheetVersion(13);
@@ -175,7 +175,7 @@ MagicItemsList["al maces"] = {
 MagicItemsList["al staffs"] = {
 	name : "AL Staffs:",
 	allowDuplicates : true,
-	choices : ["Bulkawa's Benevolence (CCC-GSP2-2)","Driftwood Staff (CCC-DES-1-2)","Staff of the Adder (CCC-SRCC1-3)","Staff of Adornment (CCC-3MAGS-ONE)","Staff of Charming (DDEX2-2)","Staff of Frost (DDAL0-11E)","Staff of Frost (DDAL-DRW05)","Staff of Healing (DDEP4)","Staff of the Magi (DDAL7-17)","Staff of Power (DDAL5-19)","Staff of Power (DDEP4)","Staff of Striking (CCC-TRI-14)","Staff of Striking (DDAL7-12)","Staff of Swarming Insects (DDEX3-3)","Staff of Thunder and Lightning (DDAL5-8)","Staff of Thunder and Lightning (DDEP5-2)","Staff of Withering (DDEX2-13)","Staff of Withering (DDAL8-13)","Staff of the Woodlands (CCC-GARY-9)","Staff of the Woodlands (DDAL7-8/DDEP7-1)"],
+	choices : ["Bulkawa's Benevolence (CCC-GSP2-2)","Driftwood Staff (CCC-DES-1-2)","Staff of the Adder (CCC-SRCC1-3)","Staff of Adornment (CCC-3MAGS-ONE)","Staff of Charming (DDEX2-2)","Staff of Frost (DDAL0-11E)","Staff of Frost (DDAL-DRW05)","Staff of Healing (DDEP4)","Staff of the Magi (DDAL7-17)","Staff of Power (DDAL5-19)","Staff of Power (DDEP4)","Staff of the Python (CCC-BMG-MOON7-1)","Staff of Striking (CCC-TRI-14 YUL1-3)","Staff of Striking (DDAL7-12)","Staff of Striking (DDAL10-10)","Staff of Swarming Insects (DDEX3-3)","Staff of Thunder and Lightning (DDAL5-8)","Staff of Thunder and Lightning (DDEP5-2)","Staff of Withering (DDEX2-13)","Staff of Withering (DDAL8-13)","Staff of the Woodlands (CCC-GARY-9)","Staff of the Woodlands (DDAL7-8/DDEP7-1)"],
 	"bulkawa's benevolence (ccc-gsp2-2)" : {
 		name : "Bulkawa's Benevolence (Staff of the Python)",
 		source : [["AL","CCC"]],
@@ -698,8 +698,22 @@ MagicItemsList["al staffs"] = {
 			}
 		}
 	},
-	"staff of striking (ccc-tri-14)" : {
-		name : "Staff of Striking (CCC-TRI-14)",
+	"staff of the python (ccc-bmg-moon7-1)" : {
+		name : "Staff of the Python (CCC-BMG-MOON7-1)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "This blackened crooked 6-ft staff was made from the branch of a Dark Treant & hums with power. It oozes a black tar-like venom at twilight. As an action, speak the command word & throw this staff w/i 10 ft to have it become a giant constrictor snake w/ full HP & its own initiative. You can command it mentally on your turn if w/i 60 ft. Bonus action to revert it back to a staff. If the snake reaches 0 HP, the staff is destroyed.",
+		descriptionLong : "This blackened crooked 6-foot staff was made from the branch of a Dark Treant that hummed with power. It oozes a black tar-like venom at twilight. As an action, speak this staff's command word & throw it on the ground within 10 ft where it becomes a giant constrictor snake. As a bonus action, speak the command word again to return it to its staff form. The snake acts on its own initiative. On you turn, you can mentally command the snake if within 60 ft & you're not incapacitated, deciding what it does on its next turn or a more general command. If the snake is reduced to 0 HP, it reverts to its staff form, & the staff is destroyed. Otherwise, the snake always starts out with full HP.",
+		descriptionFull : "One of the branches of the Dark Treant was humming with power. It can be broken off and functions as a staff of the python. It is a blackened crooked 6-foot-long staff that oozes a black tar-like venom at twilight.\n   You can use an action to speak this staff's command word and throw the staff on the ground within 10 feet of you. The staff becomes a giant constrictor snake under your control and acts on its own initiative count. By using a bonus action to speak the command word again, you return the staff to its normal form in a space formerly occupied by the snake.\n   On your turn, you can mentally command the snake if it is within 60 feet of you and you aren't incapacitated. You decide what action the snake takes and where it moves during its next turn, or you can issue it a general command, such as to attack your enemies or guard a location.\n   If the snake is reduced to 0 hit points, it dies and reverts to its staff form. The staff then shatters and is destroyed. If the snake reverts to staff form before losing all its hit points, it regains all of them.",
+		attunement : true,
+		weight : 4,
+		prerequisite : "Requires attunement by a cleric, druid, or warlock",
+		prereqeval : function(v) { return classes.known.cleric || classes.known.druid || classes.known.warlock ? true : false; },
+		action : [["action", "Staff of the Python (animate)"], ["bonus action", "Staff of the Python (end)"]]
+	},
+	"staff of striking (ccc-tri-14 yul1-3)" : {
+		name : "Staff of Striking (CCC-TRI-14 YUL1-3)",
 		source : [["AL","CCC"]],
 		rarity : "very rare",
 		magicItemTable : "H",
@@ -740,6 +754,29 @@ MagicItemsList["al staffs"] = {
 			regExpSearch : /^(?=.*staff)(?=.*striking).*$/i,
 			name : "Staff of Striking",
 			source : [["SRD", 244], ["D", 203], ["AL","S7"]],
+			modifiers : [3, 3],
+			description : "Versatile (1d8); On hit, 1-3 charges for +1d6 force damage per charge"
+		}
+	},
+	"staff of striking (ddal10-10)" : {
+		name : "Staff of Striking (DDAL10-10)",
+		source : [["AL","S10"]],
+		rarity : "very rare",
+		magicItemTable : "H",
+		description : "This +3 quarterstaff is made of a single piece of unmelting, darkgreen ice. While its exact form can’t be discerned, a dark shape running the length of the staff writhes within. The item has 10 charges, regaining 1d6+4 at dawn. 5% chance to become nonmagical when last charged used (1 on d20). When you hit w/ a melee atk using the staff, you can expend 1-3 charges. Add +1d6 force dmg per spent charge.",
+		descriptionFull : "This staff is made of a single piece of unmelting, darkgreen ice. While its exact form can’t be discerned, a dark shape running the length of the staff writhes within.\n   This staff can be wielded as a magic quarterstaff that grants a +3 bonus to attack and damage rolls made with it. The staff has 10 charges. When you hit with a melee attack using it, you can expend up to 3 of its charges. For each charge you expend, the target takes an extra 1d6 force damage. The staff regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff becomes a nonmagical quarterstaff.",
+		attunement : true,
+		weight : 4,
+		limfeaname : "Staff of Striking",
+		usages : 10,
+		recovery : "dawn",
+		additional : "regains 1d6+4",
+		weaponsAdd : ["Staff of Striking"],
+		weaponOptions : {
+			baseWeapon : "quarterstaff",
+			regExpSearch : /^(?=.*staff)(?=.*striking).*$/i,
+			name : "Staff of Striking",
+			source : [["SRD", 244], ["D", 203], ["AL","S10"]],
 			modifiers : [3, 3],
 			description : "Versatile (1d8); On hit, 1-3 charges for +1d6 force damage per charge"
 		}
@@ -1031,7 +1068,7 @@ MagicItemsList["al swords"] = {
 		name : "AL Swords",
 		type : "weapon (any sword)",
 		allowDuplicates : true,
-	choices : ["Angel's Sting, Dancing Rapier (CCC-GHC-BK1-10)","Bitter Wrath, Frost Brand Rapier (DDAL7-9)","Dawnfire, Sun Blade (CCC-STORM-1)","Deathshield, Defender Greatsword (DDAL9-20)","Desolation, Sword of Sharpness (DDAL8-14)","Ever Vigilant, Greatsword of Warning (CCC-BMG-MOON3-3)","Flame Tongue Sword (CCC-YLRA-2)","Frost Brand Scimitar (DDEP5-2)","Giant Slayer Greatsword (DDEP5-2)","Greatsword of Wounding (DDEX2-15)","Longsword of Vengeance (CCC-GARY-8)","Longsword of Vengeance (CCC-HATMS1-2)","Longsword of Vengeance (CCC-MACE1-3)","Love's Bite, Nine Lives Stealer (DDAL7-11)","Miir, Scimitar of Warning (CCC-BWM-4-1)","Moon-Touched Longsword (CCC-TAROT2-6)","Moon-Touched Longsword (DDAL0-11D)","Night Cutter, Scimitar of Life Stealing (CCC-RCC-1-4)","Nine Lives Stealer Scimitar (CCC-QCC2018-1)","Rapier of Life Stealing (CCC-PDXAGE-2-1)","Raptor, Dancing Rapier (CCC-LINKS-2)","Scintilmorn, Sun Blade (WDotMM)","The Seventh Sword, Sun Blade (CCC-6SWORDS-1)","Sword of Wounding (DDAL-CGB)","Velahr’kerym, Flame Tongue Longsword (DDAL0-2D)","Vicious Longsword (CCC-HATMS2-1)","Vorpal Scimitar (DDAL7-16)","Wyrmripper, Dragon Slayer (DDEP5-1)"],
+	choices : ["Angel's Sting, Dancing Rapier (CCC-GHC-BK1-10)","Bitter Wrath, Frost Brand Rapier (DDAL7-9)","Dawnfire, Sun Blade (CCC-STORM-1)","Deathshield, Defender Greatsword (DDAL9-20)","Desolation, Sword of Sharpness (DDAL8-14)","Ever Vigilant, Greatsword of Warning (CCC-BMG-MOON3-3)","Flame Tongue Sword (CCC-YLRA-2)","Flare, Flame Tongue Shortsword (CCC-WYC-1-2)","Frost Brand Scimitar (DDEP5-2)","Giant Slayer Greatsword (DDEP5-2)","Greatsword of Wounding (DDEX2-15)","Longsword of Vengeance (CCC-GARY-8)","Longsword of Vengeance (CCC-HATMS1-2)","Longsword of Vengeance (CCC-MACE1-3)","Love's Bite, Nine Lives Stealer (DDAL7-11)","Miir, Scimitar of Warning (CCC-BWM-4-1)","Moon-Touched Longsword (CCC-TAROT2-6)","Moon-Touched Longsword (DDAL0-11D)","Moon-Touched Rapier (CCC-UNITE-5)","Moon-Touched Shortsword (DC-POA-CONMAR-9)","Moon-Touched Sword (CCC-BMG-MOON6-2)","Night Cutter, Scimitar of Life Stealing (CCC-RCC-1-4)","Nine Lives Stealer Scimitar (CCC-QCC2018-1)","Rapier of Life Stealing (CCC-PDXAGE-2-1)","Raptor, Dancing Rapier (CCC-LINKS-2)","Scintilmorn, Sun Blade (WDotMM)","The Seventh Sword, Sun Blade (CCC-6SWORDS-1)","Sword of Wounding (DDAL-CGB)","Velahr’kerym, Flame Tongue Longsword (DDAL0-2D)","Vicious Longsword (CCC-HATMS2-1)","Vorpal Scimitar (DDAL7-16)","Wyrmripper, Dragon Slayer (DDEP5-1)"],
 	"angel's sting, dancing rapier (ccc-ghc-bk1-10)" : {
 		name : "Angel's Sting, Dancing Rapier (CCC-GHC-BK1-10)",
 		source : [["AL","CCC"]],
@@ -1207,6 +1244,24 @@ MagicItemsList["al swords"] = {
 				'If I include the words "Flame Tongue" in a the name of a sword, it will be treated as the magic weapon Flame Tongue. When the command word is spoken, the blade erupts with flames, adding +2d6 fire damage on a hit and shining light.'
 			]
 		}
+	},
+	"flare, flame tongue shortsword (ccc-wyc-1-2)" : {
+		name : "Flare, Flame Tongue Shortsword (CCC-WYC-1-2)",
+		source : [["AL","CCC"]],
+		type : "weapon (shortsword)",
+		magicItemTable : "G",
+		rarity : "rare",
+		description : "This shortsword is made of molten steel but finds its shape right before it strikes its target. While attuned, you're comfortable in temps between 20 ̊ F & 120 ̊ F. As a bonus action, say the command word (‘devastation’ in Terran) to make flames erupt from the blade, shedding bright light in a 40-ft radius & dim light for 40-ft more. While ablaze, the sword deals an extra 2d6 fire dmg per hit. The flames last until you say the command word again (bonus action) or you drop/sheathe the sword.",
+		descriptionFull : "This shortsword appears to be made of molten steel that seems to find its way to shape right before it strikes its target. While attuned to this sword, you feel comfortable in temperatures as low as 20 degrees below zero Fahrenheit and as high as 120 degrees above zero Fahrenheit.\n   You can use a bonus action to speak this magic sword's command word (‘devastation’ in Terran), causing flames to erupt from the blade. These flames shed bright light in a 40-foot radius and dim light for an additional 40 feet. While the sword is ablaze, it deals an extra 2d6 fire damage to any target it hits. The flames last until you use a bonus action to speak the command word again or until you drop or sheathe the sword.",
+		savetxt : { immune : ["temps btwn -20 ̊ & 120 ̊ F"] },
+		action : [["bonus action", "Flare (activate/end)"]],
+		weaponsAdd : ["Flare, Flame Tongue Shortsword"],
+		weaponOptions : {
+			baseWeapon : "shortsword",
+			regExpSearch : /^(?=.*shortsword)(?=.*flame)(?=.*tongue)(?=.*flare).*$/i,
+			name : "Flare, Flame Tongue Shortsword",
+			description : "Finesse; While active, +2d6 fire damage.",
+			},
 	},
 	"frost brand scimitar (ddep5-2)" : {
 		name : "Frost Brand Scimitar (DDEP5-2)",
@@ -1453,7 +1508,8 @@ MagicItemsList["al swords"] = {
 		type : "weapon (longsword)",
 		rarity : "common",
 		magicItemTable : "?",
-		description : "This elven made longsword is decorated with intricate scrollwork featuring a full moon shining down upon a glade of dancing elves. In darkness, the unsheathed blade of this magical sword sheds moonlight, creating bright light in a 15-ft radius and dim light for an additional 15 ft.",
+		description : "This elven made magical longsword is decorated with intricate scrollwork featuring a full moon shining down upon a glade of dancing elves. In darkness, the unsheathed blade of the sword sheds moonlight, creating bright light in a 15-ft radius & dim light for another 15 ft.",
+		descriptionFull : "This elven made longsword is decorated with intricate scrollwork featuring a full moon shining down upon a glade of dancing elves. In darkness, the unsheathed blade of this magical sword sheds moonlight, creating bright light in a 15-ft radius and dim light for an additional 15 ft.",
 		weaponsAdd : ["Moon-Touched Longsword"],
 		weaponOptions : {
 			baseWeapon : "longsword",
@@ -1461,6 +1517,68 @@ MagicItemsList["al swords"] = {
 			name : "Moon-Touched Longsword",
 			description : "Versatile (d10); Counts as magical.",
 			},
+	},
+	"moon-touched rapier (ccc-unite-5)" : {
+		name : "Moon-Touched Rapier (CCC-UNITE-5)",
+		source : [["AL","CCC"]],
+		type : "weapon (rapier)",
+		rarity : "common",
+		magicItemTable : "?",
+		description : "In darkness, the unsheathed blade of this magical rapier sheds moonlight, creating bright light in a 15-ft radius & dim light for another 15 ft. The bearer of this weapon can speak Undercommon.",
+		descriptionFull : "In darkness, the unsheathed blade of this magical rapier sheds moonlight, creating bright light in a 15-ft radius and dim light for an additional 15 ft. The bearer of this weapon can speak and understand Undercommon.",
+		languageProfs : ["Undercommon"],
+		weaponsAdd : ["Moon-Touched Rapier"],
+		weaponOptions : {
+			baseWeapon : "rapier",
+			regExpSearch : /^(?=.*rapier)(?=.*moon)(?=.*touched).*$/i,
+			name : "Moon-Touched Rapier",
+			description : "Finesse; Counts as magical.",
+			},
+	},
+	"moon-touched shortsword (dc-poa-conmar-9)" : {
+		name : "Moon-Touched Shortsword (DC-POA-CONMAR-9)",
+		source : [["AL","DC-POA"]],
+		type : "weapon (shortsword)",
+		rarity : "common",
+		magicItemTable : "?",
+		description : "In darkness, the unsheathed blade of this magical shortsword sheds moonlight, creating bright light in a 15-ft radius & dim light for another 15 ft. This sword has a smaller than usual handle, making it harder to grip but easier to draw.",
+		descriptionFull : "In darkness, the unsheathed blade of this magical shortsword sheds moonlight, creating bright light in a 15-ft radius and dim light for an additional 15 ft. This sword has a smaller than usual handle, making it harder to grip, but easier to draw.",
+		weaponsAdd : ["Moon-Touched Shortsword"],
+		weaponOptions : {
+			baseWeapon : "shortsword",
+			regExpSearch : /^(?=.*shortsword)(?=.*moon)(?=.*touched).*$/i,
+			name : "Moon-Touched Shortsword",
+			description : "Finesse, light; Counts as magical.",
+			},
+	},
+	"moon-touched sword (ccc-bmg-moon6-2)" : {
+		name : "Moon-Touched Sword (CCC-BMG-MOON6-2)",
+		source : [["AL","CCC"]],
+		type : "weapon (any sword)",
+		rarity : "common",
+		magicItemTable : "?",
+		description : "This sword is paper-thin. Geometric runes run along its length in contrast to the sweeping elven make. The script is unknown, but purportedly reads: “I am but a shard.” In darkness, the unsheathed blade of this magical sword sheds moonlight, creating bright light in a 15-ft radius & dim light for an additional 15 ft.",
+		descriptionFull : "The blade is thin to the point of being paper. Geometric runes run along its length, in stark contrast to the sweeping elven make. The script is unknown, but purportedly it reads: “I am but a shard.” In darkness, the unsheathed blade of this magical sword sheds moonlight, creating bright light in a 15-ft radius and dim light for an additional 15 ft.",
+	chooseGear : {
+		type : "weapon",
+		prefixOrSuffix : "suffix",
+		descriptionChange : ["replace", "sword"],
+		excludeCheck : function (inObjKey, inObj) {
+			var testRegex = /sword|scimitar|rapier/i;
+			return !(testRegex).test(inObjKey) && (!inObj.baseWeapon || !(testRegex).test(inObj.baseWeapon));
+		}
+	},
+	calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/moon.touched/i).test(v.WeaponText)) {
+					v.theWea.isMagicWeapon = true;
+					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+				}
+			},
+			'If I include the words "Moon-Touched" in the name of a sword, it will be treated as the magic weapon Moon-Touched Sword.'
+					]
+			}
 	},
 	"night cutter, scimitar of life stealing (ccc-rcc-1-4)" : {
 		name : "Night Cutter, Scimitar of Life Stealing (CCC-RCC-1-4)",
@@ -1751,7 +1869,7 @@ MagicItemsList["al weapons +1, +2, or +3"] = {
 		type : "weapon (any)",
 		descriptionFull : "You have a bonus to attack and damage rolls made with this magic weapon. The bonus is determined by the weapon's rarity: uncommon (+1), rare (+2), or very rare (+3).",
 		allowDuplicates : true,
-		choices : ["Arrk's Greatsword +1 (CCC-GLIP-1-1)","+1 Battleaxe (DDEX2-11)","+1 Broken Duergar Drill Bit (CCC-APL1-1)","Foxblade, +1 Shortsword (CCC-SRCC1-2)","Gwa'thern Faln, +1 Longbow (DDHC-MORD-1)","+1 Halberd (DDEP5-2)","Icicle, +1 Shortsword (CCC-GHC-5)","+1 Longbow (CCC-BMG-MOON2-2)","+1 Longsword (DDEP1)","Mace of the Tranquil Oasis +1 (CCC-SALT1-2)","Moon Strike, +1 Shortbow (CCC-TAROT1-6)","+1 Ornate Dagger (CCC-SCAR1-1)","+1 Quarterstaff (DDEX3-16)","+1 Quarterstaff (DDAL7-3)", "+1 Rapier (DDEX3-2)","Rebel's Yell, +1 Battleaxe (CCC-RPR-1)","Ripper's Claw, +1 Scimitar (CCC-ODFC2-1)","+1 Scimitar (CCC-PRIORY-2)","+1 Shortbow (CCC-ANIME1-1)","+1 Shortbow (DDEX3-16)","+1 Shortsword (CCC-CIC-6)","+1 Shortsword (DDEP7-1)","Torag's Hammer, +1 Warhammer (CCC-TAROT1-4)","+1 Trident (DDEP7-1)","+1 Weapon (DDHC-TOA-8)","The Wolves' Claw, +1 Dagger (CCC-BMG-MOON2-1)","+2 Bow (DDEX3-7)","+2 Dagger (CCC-GHC-6)","Elven Blade of the Third Age, +2 Longsword (CCC-BWM-2)","Giant's Bane, +2 Longbow (CCC-GHC-9)","Githyanki Greater Silver Sword +2 (CCC-TRI-27)","+2 Longbow (DDEP5-2)","+2 Shortsword (DDAL0-13)","Smoke, +2 Shortsword (CCC-SFBAY1-1)","+2 Trident (CCC-CIC-12)","Tyr's Justice, +2 Greatsword (CCC-GHC-8)","+2 War Pick (CCC-MYR1-1)","Whisper, +2 Greataxe (DDHC-TOA-8)","+3 Dagger (CCC-TRI-29)","Dream Whirl, +3 Lance (CCC-BMG-39 HULB3-3)","Krahharuan Fork, +3 Pike (DDAL7-10)","Midnight Phaeton's Horn +3 (CCC-ODFC2-3)","+3 Scimitar (DDEP6-2)","Skeggöx, +3 Battleaxe (DDAL5-9)"],
+		choices : ["Arrk's Greatsword +1 (CCC-GLIP-1-1)","+1 Battleaxe (DDEX2-11)","Bone-Pommeled Glaive +1 (CCC-BMG-33 PHLAN3-3)","+1 Broken Duergar Drill Bit (CCC-APL1-1)","Foxblade, +1 Shortsword (CCC-SRCC1-2)","+1 Glaive (CCC-TRI-17 ALLY1-2)","Gwa'thern Faln, +1 Longbow (DDHC-MORD-1)","+1 Halberd (DDEP5-2)","Icicle, +1 Shortsword (CCC-GHC-5)","+1 Longbow (CCC-BMG-MOON2-2)","+1 Longsword (DDEP1)","Mace of the Tranquil Oasis +1 (CCC-SALT1-2)","Moon Strike, +1 Shortbow (CCC-TAROT1-6)","+1 Ornate Dagger (CCC-SCAR1-1)","+1 Quarterstaff (CCC-TRI-11 OLMA1-1)","+1 Quarterstaff (DDEX3-16)","+1 Quarterstaff (DDAL7-3)", "+1 Rapier (DDEX3-2)","Rebel's Yell, +1 Battleaxe (CCC-RPR-1)","Ripper's Claw, +1 Scimitar (CCC-ODFC2-1)","+1 Scimitar (CCC-PRIORY-2)","+1 Shortbow (CCC-ANIME1-1)","+1 Shortbow (DDEX3-16)","+1 Shortsword (CCC-CIC-6)","+1 Shortsword (DDEP7-1)","Torag's Hammer, +1 Warhammer (CCC-TAROT1-4)","+1 Trident (DDEP7-1)","+1 War Pick (CCC-TRI-9 BHC1-0)","+1 Weapon (DDHC-TOA-8)","Widowmaker, +1 Hand Crossbow (CCC-BMG-29 HILL2-2)","The Wolves' Claw, +1 Dagger (CCC-BMG-MOON2-1)","+2 Bow (DDEX3-7)","+2 Dagger (CCC-GHC-6)","Elven Blade of the Third Age, +2 Longsword (CCC-BWM-2)","Giant's Bane, +2 Longbow (CCC-GHC-9)","Githyanki Greater Silver Sword +2 (CCC-TRI-27 ROSE1-2)","+2 Longbow (DDEP5-2)","+2 Shortsword (DDAL0-13)","Smoke, +2 Shortsword (CCC-SFBAY1-1)","+2 Trident (CCC-CIC-12)","Tyr's Justice, +2 Greatsword (CCC-GHC-8)","+2 War Pick (CCC-MYR1-1)","Whisper, +2 Greataxe (DDHC-TOA-8)","+3 Dagger (CCC-TRI-29 TIDE1-1)","Dream Whirl, +3 Lance (CCC-BMG-39 HULB3-3)","Krahharuan Fork, +3 Pike (DDAL7-10)","Midnight Phaeton's Horn +3 (CCC-ODFC2-3)","+3 Scimitar (DDEP6-2)","Skeggöx, +3 Battleaxe (DDAL5-9)"],
 		"arrk's greatsword +1 (ccc-glip-1-1)" : {
 			name : "Arrk's Greatsword +1 (CCC-GLIP-1-1)",
 			source : [["AL","CCC"]],
@@ -1779,6 +1897,21 @@ MagicItemsList["al weapons +1, +2, or +3"] = {
 			baseWeapon : "battleaxe",
 			regExpSearch : /^(?=.*battle)(?=.*axe).*$/i,
 			name : "Battleaxe +1",
+				}
+			},
+		"bone-pommeled glaive +1 (ccc-bmg-33 phlan3-3)" : {
+			name : "Bone-Pommeled Glaive +1 (CCC-BMG-33 PHLAN3-3)",
+			source : [["AL","CCC"]],
+			rarity : "uncommon",
+			magicItemTable : "F",
+			allowDuplicates : true,
+			description : "The lower portion of this glaive’s haft is made of some unidentified creature’s thigh or shoulder joint. The pommel has purposefully notched edges so it can no longer function in the joint socket. You have a +1 bonus to atk & dmg rolls made with this weapon.",
+			descriptionFull : "The entire lower portion of the weapon’s haft is made of some unidentified creature’s thigh or shoulder joint. The pommel has purposely notched edges and looks as though it could no longer function in the socket of whatever it came from. You have a +1 bonus to attack and damage rolls made with this magic weapon.",
+			weaponsAdd : ["Bone-Pommeled Glaive +1"],
+			weaponOptions : {
+			baseWeapon : "glaive",
+			regExpSearch : /^(?=.*glaive)(?=.*bone)(?=.*pommel|pommeled).*$/i,
+			name : "Bone-Pommeled Glaive +1",
 				}
 			},
 		"+1 broken duergar drill bit (ccc-apl1-1)" : {
@@ -1809,6 +1942,21 @@ MagicItemsList["al weapons +1, +2, or +3"] = {
 			baseWeapon : "shortsword",
 			regExpSearch : /^(?=.*shortsword)(?=.*foxblade).*$/i,
 			name : "Foxblade, Shortsword +1",
+				}
+			},
+		"+1 glaive (ccc-tri-17 ally1-2)" : {
+			name : "+1 Glaive (CCC-TRI-17 ALLY1-2)",
+			source : [["AL","CCC"]],
+			rarity : "uncommon",
+			magicItemTable : "F",
+			allowDuplicates : true,
+			description : "Despite looking like a chalk drawing filled with gaps, this glaive is solid all the way through. It feels chalky & leaves chalk residue when touched. You have a +1 bonus to atk & dmg rolls made with this weapon.",
+			descriptionFull : "Despite appearing to be a chalk drawing filled with gaps due to the rough surface it was drawn on, it is solid all the way through and holds a keen edge. It feels chalky, and leaves a chalky residue when touched. You have a +1 bonus to attack and damage rolls made with this magic weapon.",
+			weaponsAdd : ["Glaive +1"],
+			weaponOptions : {
+			baseWeapon : "glaive",
+			regExpSearch : /^(?=.*glaive).*$/i,
+			name : "Glaive +1",
 				}
 			},
 		"gwa'thern faln, +1 longbow (ddhc-mord-1)" : {
@@ -1935,6 +2083,21 @@ MagicItemsList["al weapons +1, +2, or +3"] = {
 			baseWeapon : "dagger",
 			regExpSearch : /^(?=.*dagger).*$/i,
 			name : "Dagger +1",
+				}
+			},
+		"+1 quarterstaff (ccc-tri-11 olma1-1)" : {
+			name : "+1 Quarterstaff (CCC-TRI-11 OLMA1-1)",
+			source : [["AL","CCC"]],
+			rarity : "uncommon",
+			magicItemTable : "F",
+			allowDuplicates : true,
+			description : "This quarterstaff looks like a tree hit by lightning & is made from a copper dragon’s bones & blood. The tree’s branches hold the wyrmling’s head, which chatters & covers the staff with electric discharge with each kill it makes. You have a +1 bonus to attack & damage rolls made with this magic weapon.",
+			descriptionFull : "This quarterstaff is made from a copper dragon’s bones and blood, along with wood to make it look like a tree hit by lightning. The tree’s branches hold the wyrmling dragon’s head, which chatters and covers the staff with electric discharge with each kill made with this weapon. You have a +1 bonus to attack and damage rolls made with this magic weapon.",
+			weaponsAdd : ["Quarterstaff +1"],
+			weaponOptions : {
+			baseWeapon : "quarterstaff",
+			regExpSearch : /^(?=.*staff).*$/i,
+			name : "Quarterstaff +1",
 				}
 			},
 		"+1 quarterstaff (ddex3-16)" : {
@@ -2109,6 +2272,21 @@ MagicItemsList["al weapons +1, +2, or +3"] = {
 			name : "Trident +1",
 				}
 			},
+		"+1 war pick (ccc-tri-9 bhc1-0)" : {
+			name : "+1 War Pick (CCC-TRI-9 BHC1-0)",
+			source : [["AL","CCC"]],
+			rarity : "uncommon",
+			magicItemTable : "F",
+			allowDuplicates : true,
+			description : "This pick is of dwarven make, equally suited for stonework & combat. When used as a mining implement, dwarves can apply twice their proficiency bonus to any skill checks related to stone, including their stonecunning ability. You have a +1 bonus to attack & damage rolls made with this magic weapon.",
+			descriptionFull : "This pick appears to be of dwarven make, and is equally suited to stonework as it is to combat. When used in combat, you have a +1 to attack and damage rolls made with this weapon. When used as a mining implement, it allows dwarves to apply twice their proficiency bonus to any skill rolls related to stone, including their stonecunning ability.",
+			weaponsAdd : ["War Pick +1"],
+			weaponOptions : {
+			baseWeapon : "war pick",
+			regExpSearch : /^(?=.*war)(?=.*pick).*$/i,
+			name : "War Pick +1",
+				}
+			},
 		"+1 weapon (ddhc-toa-8)" : {
 			name : "+1 (DDHC-TOA-8)",
 			source : [["AL","S7"]],
@@ -2122,6 +2300,21 @@ MagicItemsList["al weapons +1, +2, or +3"] = {
 			descriptionChange : ["replace", "weapon"],
 			itemName1stPage : ["prefix", "+1"]
 				},
+			},
+		"widowmaker, +1 hand crossbow (ccc-bmg-29 hill2-2)" : {
+			name : "Widowmaker, +1 Hand Crossbow (CCC-BMG-29 HILL2-2)",
+			source : [["AL","CCC"]],
+			rarity : "uncommon",
+			magicItemTable : "F",
+			allowDuplicates : true,
+			description : "This black wooden hand crossbow is engraved with a blood red heart that bleeds every one of its bolts kills someone. You gain a +1 bonus to attack and damage rolls made with this magic weapon.",
+			descriptionFull : "This black wooden hand crossbow has a blood red heart engraved on it that bleeds a little every a bolt from it kills someone. You gain a +1 bonus to attack and damage rolls made with this magic weapon.",
+			weaponsAdd : ["Widowmaker, +1 Hand Crossbow"],
+			weaponOptions : {
+			baseWeapon : "hand crossbow",
+			regExpSearch : /^(?=.*widowmaker)(?=.*hand)(?=.*crossbow).*$/i,
+			name : "Widowmaker, +1 Hand Crossbow",
+				}
 			},
 		"the wolves' claw, +1 dagger (ccc-bmg-moon2-1)" : {
 			name : "The Wolves' Claw, +1 Dagger (CCC-BMG-MOON2-1)",
@@ -2199,7 +2392,7 @@ MagicItemsList["al weapons +1, +2, or +3"] = {
 			name : "Giant's Bane, Longbow +2",
 				}
 			},
-		"githyanki greater silver sword +2 (ccc-tri-27)" : {
+		"githyanki greater silver sword +2 (ccc-tri-27 rose1-2)" : {
 		name : "Githyanki Greater Silver Sword (+2 Silvered Greatsword)",
 			source : [["AL","CCC"]],
 			rarity : "rare",
@@ -2299,7 +2492,7 @@ MagicItemsList["al weapons +1, +2, or +3"] = {
 			weaponsAdd : ["War Pick +2"],
 			weaponOptions : {
 			baseWeapon : "war pick",
-			regExpSearch : /^(?=.*war pick).*$/i,
+			regExpSearch : /^(?=.*war)(?=.*pick).*$/i,
 			name : "War Pick +2",
 				}
 			},
@@ -2321,9 +2514,9 @@ MagicItemsList["al weapons +1, +2, or +3"] = {
 				},
 			advantages : [["Stealth", true]],
 			},
-		"+3 dagger (ccc-tri-29)" : {
-		name : "+3 Dagger (CCC-TRI-29)",
-			source : [["AL","S6"]],
+		"+3 dagger (ccc-tri-29 tide1-1)" : {
+		name : "+3 Dagger (CCC-TRI-29 TIDE1-1)",
+			source : [["AL","CCC"]],
 			rarity : "very rare",
 			allowDuplicates : true,
 			magicItemTable : "H",
@@ -2423,7 +2616,7 @@ MagicItemsList["al weapons +1, +2, or +3"] = {
 MagicItemsList["al weapons (other)"] = {
 		name : "AL Weapons (Other)",
 		allowDuplicates : true,
-	choices : ["Berserker Flail (CCC-UCON-1)","Dagger of Venom (DDAL4-11)", "Dagger of Venom (DDAL5-17)","Fang of Sibyl (CCC-GARY-1)","The Harbinger, Glaive of Warning (CCC-EPI1-2)","Javelin of Lightning (CCC-BMG MOON16-1)","Javelin of Lightning (CCC-SFBAY-4-1)","Javelin of Lightning (DDAL8-5)","Net of Warning (CCC-ELF-3-1)","Oathbow (DDAL-DRW08)","Ptahrek’s Vicious Glaive (CCC-SVH1-2)","Skyfist, Dwarven Thrower (DDEP4)","Syranna's Folly, Oathbow (CCC-OCC-1)","Trident of Fish Command (CCC-TAROT2-8)","Trident of Fish Command (CCC-WWC-2)","Trident of Warning (DDEX2-3)","Vicious Spear (DDAL0-13)","Weapon of Warning (DDAL0-7)","Whip of Warning (DDAL4-2)"],
+	choices : ["Berserker Flail (CCC-UCON-1)","Dagger of Venom (DDAL4-11)", "Dagger of Venom (DDAL5-17)","Fang of Sibyl (CCC-GARY-1)","The Harbinger, Glaive of Warning (CCC-EPI1-2)","Javelin of Lightning (CCC-BFG1-3)","Javelin of Lightning (CCC-BMG-MOON6-3)","Javelin of Lightning (CCC-BMG-MOON16-1)","Javelin of Lightning (CCC-SFBAY-4-1)","Javelin of Lightning (DDAL8-5)","Jeny's Hairpin, Javelin of Warning (CCC-VOTE-1-1)","Net of Warning (CCC-ELF-3-1)","Oathbow (DDAL-DRW8)","Ptahrek’s Vicious Glaive (CCC-SVH1-2)","Skyfist, Dwarven Thrower (DDEP4)","Syranna's Folly, Oathbow (CCC-OCC-1)","Trident of Fish Command (CCC-TAROT2-8)","Trident of Fish Command (CCC-WWC-2)","Trident of Warning (DDEX2-3)","Vicious Spear (DDAL0-13)","Weapon of Warning (DDAL0-7)","Whip of Warning (DDAL4-2)"],
 	"berserker flail (ccc-ucon-1)" : {
 		name : "Berserker Flail (CCC-UCON-1)",
 		source : [["AL","CCC"]],
@@ -2532,8 +2725,50 @@ MagicItemsList["al weapons (other)"] = {
 			name : "Harbinger, Glaive of Warning",
 				}
 			},
-	"javelin of lightning (ccc-bmg moon16-1)" : { // contains contributions by Larry Hoy
-		name : "Javelin of Lightning (CCC-BMG MOON16-1)",
+	"javelin of lightning (ccc-bfg1-3)" : { // contains contributions by Larry Hoy
+		name : "Javelin of Lightning (CCC-BFG1-3)",
+		source : [["AL","CCC"]],
+		type : "weapon (javelin)",
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "This javelin has the symbol of Selûne embossed onto the head. Once per dawn you can speak the javelin's command word & make a ranged weapon attack with it on a target w/i 120 ft. Anyone between you & the target in a 5-ft wide line takes 4d6 lightning damage, DC 13 Dex save halves. If the javelin hits the target, it takes 1d6 piercing & 4d6 lightning damage.",
+		descriptionFull : "This javelin has the symbol of Selûne embossed onto the head. When you hurl it and speak its command word, it transforms into a bolt of lightning, forming a line 5 feet wide that extends out from you to a target within 120 feet. Each creature in the line excluding you and the target must make a DC 13 Dexterity saving throw, taking 4d6 lightning damage on a failed save, and half as much damage on a successful one. The lightning bolt turns back into a javelin when it reaches the target. Make a ranged weapon attack against the target. On a hit, the target takes damage from the javelin plus 4d6 lightning damage.\n   The javelin's property can't be used again until the next dawn. In the meantime, the javelin can still be used as a magic weapon.",
+		weight : 2,
+		limfeaname : "Javelin of Lightning",
+		usages : 1,
+		recovery : "dawn",
+		weaponsAdd : ["Javelin of Lightning"],
+		weaponOptions : {
+			baseWeapon : "javelin",
+			regExpSearch : /^(?=.*javelin)(?=.*lightning).*$/i,
+			name : "Javelin of Lightning",
+			source : [["SRD", 228], ["D", 178] ["AL","CCC"]],
+			description : "Thrown; Once per dawn special attack, see item description"
+		}
+	},
+	"javelin of lightning (ccc-bmg-moon6-3)" : { // contains contributions by Larry Hoy
+		name : "Javelin of Lightning (CCC-BMG-MOON6-3)",
+		source : [["AL","CCC"]],
+		type : "weapon (javelin)",
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "This javelin crackles with energy that changes color to match your mood. When activated, it changes into an streak of rainbow lightning as it flies through the air. Once per dawn you can speak the javelin's command word & make a ranged weapon attack on a target w/i 120 ft. Anyone between you & the target in a 5-ft wide line takes 4d6 lightning damage, DC 13 Dex save halves. If the javelin hits the target, it takes 1d6 piercing & 4d6 lightning damage.",
+		descriptionFull : "This javelin crackles with energy, which changes color to match the mood of the wielder. In lightning bolt form, it transforms into an electrical streak of rainbow lights as it streaks through the air.\n   When you hurl it and speak its command word, it transforms into a bolt of lightning, forming a line 5 feet wide that extends out from you to a target within 120 feet. Each creature in the line excluding you and the target must make a DC 13 Dexterity saving throw, taking 4d6 lightning damage on a failed save, and half as much damage on a successful one. The lightning bolt turns back into a javelin when it reaches the target. Make a ranged weapon attack against the target. On a hit, the target takes damage from the javelin plus 4d6 lightning damage.\n   The javelin's property can't be used again until the next dawn. In the meantime, the javelin can still be used as a magic weapon.",
+		weight : 2,
+		limfeaname : "Javelin of Lightning",
+		usages : 1,
+		recovery : "dawn",
+		weaponsAdd : ["Javelin of Lightning"],
+		weaponOptions : {
+			baseWeapon : "javelin",
+			regExpSearch : /^(?=.*javelin)(?=.*lightning).*$/i,
+			name : "Javelin of Lightning",
+			source : [["SRD", 228], ["D", 178] ["AL","CCC"]],
+			description : "Thrown; Once per dawn special attack, see item description"
+		}
+	},
+	"javelin of lightning (ccc-bmg-moon16-1)" : { // contains contributions by Larry Hoy
+		name : "Javelin of Lightning (CCC-BMG-MOON16-1)",
 		source : [["AL","CCC"]],
 		type : "weapon (javelin)",
 		rarity : "uncommon",
@@ -2595,16 +2830,34 @@ MagicItemsList["al weapons (other)"] = {
 			description : "Thrown; Once per dawn special attack, see item description"
 		}
 	},
+	"jeny's hairpin, javelin of warning (ccc-vote-1-1)" : {
+			name : "Jeny's Hairpin, Javelin of Warning (CCC-VOTE-1-1)",
+			source : [["AL","CCC"]],
+			type : "weapon (javelin)",
+			rarity : "uncommon",
+			magicItemTable : "F",
+			attunement : true,
+			advantages : [["Initiative", true]],
+			savetxt : { immune : ["surprised"] },
+			description : "This magical javelin resembles a giant hairpin made of purple wood, with a fist-sized jet at its head. Warnings of danger in Jeny’s voice shout for you to prepare for battle. You can't say whether it's the weapon shouting or Jeny herself. While it's on your person, you feel discomfort & distaste but have adv. on initiative. You & your allies w/i 30 ft can't be surprised & the weapon magically awakens all of you when combat starts, unless incapacitated by something other than nonmagical sleep.",
+			descriptionFull : "This magical javelin resembles a giant hairpin made of purple wood, with a fist-sized jet at its head. Players who have experienced “DDEX-01-08 Tales Trees Tell” recognize it as the same sort of item that pinned a villager to the town post, and may even recall it acts as a scrying sensor for Jeny Greenteeth. Warnings of danger come in Jeny’s voice, shouting that they should prepare for battle. Whether it is the weapon shouting or Jeny herself, it is hard to divine.\n   The bearer feels a sense of distaste when in contact with the item, and continues to sense discomfort while bearing it.\n   This magic weapon warns you of danger. While the weapon is on your person, you have advantage on initiative rolls. In addition, you and any of your companions within 30 feet of you can't be surprised, except when incapacitated by something other than nonmagical sleep. The weapon magically awakens you and your companions within range if any of you are sleeping naturally when combat begins.",
+			weaponsAdd : ["Jeny's Hairpin, Javelin of Warning"],
+			weaponOptions : {
+			baseWeapon : "javelin",
+			regExpSearch : /^(?=.*javelin)(?=.*warning)(?=.*hairpin|pin)(?=.*jeny).*$/i,
+			name : "Jeny's Hairpin, Javelin of Warning",
+				}
+			},
 	"net of warning (ccc-elf-3-1)" : {
 			name : "Net of Warning (CCC-ELF-3-1)",
-			source : [["AL","S4"]],
+			source : [["AL","CCC"]],
 			type : "weapon (net)",
 			rarity : "uncommon",
 			magicItemTable : "F",
 			attunement : true,
 			advantages : [["Initiative", true]],
 			savetxt : { immune : ["surprised"] },
-			description : "This iron chain net is of fine gnomish make. While attuned to it, you experience a fascination with tinkered contraptions. When this magic item is on your person, you have adv. on initiative. Also, you & your allies w/i 30 ft can't be surprised & the weapon magically awakens all of you when combat starts, unless incapacitated by something other than nonmagical sleep.",
+			description : "This iron chain net is of fine gnomish make. While attuned to it, you experience a fascination with tinkered contraptions. When this magic net is on your person, you have adv. on initiative. Also, you & your allies w/i 30 ft can't be surprised & the weapon magically awakens all of you when combat starts, unless incapacitated by something other than nonmagical sleep.",
 			descriptionFull : "This iron chain net is of fine, gnomish make. When attuned to this item, the user experiences a fascination with tinkered contraptions. This magic weapon warns you of danger. While the weapon is on your person, you have advantage on initiative rolls. In addition, you and any of your companions within 30 feet of you can't be surprised, except when incapacitated by something other than nonmagical sleep. The weapon magically awakens you and your companions within range if any of you are sleeping naturally when combat begins.",
 			weaponsAdd : ["Net of Warning"],
 			weaponOptions : {
@@ -2613,8 +2866,8 @@ MagicItemsList["al weapons (other)"] = {
 			name : "Net of Warning",
 				}
 			},
-	"oathbow (ddal-drw08)" : {
-		name : "Oathbow (DDAL-DRW08)",
+	"oathbow (ddal-drw8)" : {
+		name : "Oathbow (DDAL-DRW8)",
 		source : [["AL","DRW"]],
 		type : "weapon (longbow)",
 		rarity : "very rare",
@@ -2775,7 +3028,7 @@ MagicItemsList["al weapons (other)"] = {
 			attunement : true,
 			advantages : [["Initiative", true]],
 			savetxt : { immune : ["surprised"] },
-			description : "Anyone wielding this weapon of unusual, blue steel feels oddly self-assured. While it is on your person, you have advantage on initiative rolls. In addition, both you and your allies within 30 ft can't be surprised and the weapon magically awakens all of you when combat starts, except those incapacitated by something other than nonmagical sleep.",
+			description : "Anyone wielding this weapon of unusual, blue steel feels oddly self-assured. While it's on your person, you have advantage on initiative rolls. In addition, both you and your allies within 30 ft can't be surprised and the weapon magically awakens all of you when combat starts, except those incapacitated by something other than nonmagical sleep.",
 			descriptionFull : "Anyone wielding this trident of unusual, blue steel feels oddly self-assured. This magic weapon warns you of danger. While the weapon is on your person, you have advantage on initiative rolls. In addition, you and any of your companions within 30 feet of you can't be surprised, except when incapacitated by something other than nonmagical sleep. The weapon magically awakens you and your companions within range if any of you are sleeping naturally when combat begins.",
 			weaponsAdd : ["Trident of Warning"],
 				weaponOptions : {
