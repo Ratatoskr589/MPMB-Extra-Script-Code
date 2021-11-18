@@ -893,7 +893,7 @@ eval : function () {
 		["A Llewyrr-crafted bracelet", "", ""],
 		["Belt pouch (with coins)", "", 1]
 	],
-	feature : "All Eyes On You (Moonshaes)",
+	feature : "All Moonshaes Eyes On You",
 	trait : [
 		"I know what food is, and most of the food I see being eaten isn’t quite what I’m used to. I try a lot of things and ask to try other people’s things.",
 		"The Llewyrr don’t express their emotions like other people. I’m find myself to be more reserved in my emotions than those around me.",
@@ -2002,18 +2002,10 @@ BackgroundFeatureList["answer to a forgotten enigma"] = {
 	source : [["AL","DDALCA-01"]],
 };
 BackgroundFeatureList["breasal ambassador"] = {
-	description : "Part of your quest is meeting as many of the different inhabitants as possible on the Moonshae Isles. You seek alliances, but not at the expense of a peaceful life for your people. You are familiar with the other lizardfolk tribes in the Moonshaes and could pose as one of them if needed or gain shelter with their tribe for yourself and your companions.",
-eval : function () {
-  if ( !(/lizardfolk/i).test(CurrentRace.known) ) { // if the player is not a lizardfolk, show the pop-up message
-    app.alert({
-      cTitle : 'Racial requirements are not met',
-      cMsg : 'The "Breasal Ambassador" background feature requires you to be a lizardfolk in order to choose it.'
-    })
-  }
-},
+	description : "Part of your quest is meeting as many of the different inhabitants as possible on the Moonshae Isles. You seek alliances, but not at the expense of a peaceful life for your people. You are familiar with the other lizardfolk tribes in the Moonshaes and could pose as one of them if needed or gain shelter with their tribe for yourself and your companions. (Pre-req: lizardfolk)",
 	source : [["MIRG",32]],
 };
-BackgroundFeatureList["rustic hospitality (moonshaes)"] = {
+BackgroundFeatureList["rustic moonshaes hospitality"] = {
 	description : "You’re one of the Ffolk, so you fit in among them with ease. You can find a place to hide, rest, or recuperate among other Ffolk, unless you have shown yourself to be a danger to them. They shield you from the law or anyone else searching for you, though they do not risk their lives for you – unless it’s your hometown.",
 	source : [["MIRG",33]],
 };
@@ -2021,16 +2013,8 @@ BackgroundFeatureList["hometown advantage"] = {
 	description : "You have a hometown, which you can create or choose from the Moonshae Isles’ map. You have a connection to your hometown, and when you return there you can expect the same treatment as from Rustic Hospitality, but the people of your hometown do more for you. Some might even risk their lives for you. If any harm came to the people there, it would be a great blow to your emotional state.",
 	source : [["MIRG",33]],
 };
-BackgroundFeatureList["all eyes on you (moonshaes)"] = {
-	description : "Your speech pattern, clothes, and everything else about you makes you different from others you meet. You might look elvish, but you don’t act like elves from other places. It’s a little unsettling having eyes on you wherever you go, but once people hear you’re from Chrysalis, they want to hear about your homeland and its stories. If people in power hear of your presence, they want to meet with you, hoping this might be the time the Llewyrr are coming out of their seclusion and wanting to ally with a wider world.",
-eval : function () {
-  if ( !(/elf|avariel|grugach|shadar-kai/i).test(CurrentRace.known) ) { // if the player is not one of these elf types, show the pop-up message
-    app.alert({
-      cTitle : 'Racial requirements are not met',
-      cMsg : 'The "All Eyes on You (Moonshaes)" background feature requires you to be an elf or half-elf in order to choose it.'
-    })
-  }
-},
+BackgroundFeatureList["all moonshaes eyes on you"] = {
+	description : "Your speech pattern, clothes, and everything else about you makes you different from others you meet. You might look elvish, but you don’t act like elves from other places. It’s a little unsettling having eyes on you wherever you go, but once people hear you’re from Chrysalis, they want to hear about your homeland and its stories. If people in power hear of your presence, they want to meet with you, hoping this might be the time the Llewyrr are coming out of their seclusion and wanting to ally with a wider world. (Pre-req: elf or half-elf)",
 	source : [["MIRG",34]],
 };
 BackgroundFeatureList["unseen rage"] = {
@@ -2042,15 +2026,7 @@ BackgroundFeatureList["sea dog"] = {
 	source : [["MIRG",36]],
 };
 BackgroundFeatureList["noble fey"] = {
-	description : "You were a noble or esteemed servant of the court of Sarifal. You have an air about you that makes mortals take note: awe or anger, depending on the mortal. This influence works on commoner & noble alike, as many of the people in positions of leadership see you as a way to make contact with High Lady Ordalf. They might be less happy if & when they find out the truth of your situation.",
-eval : function () {
-  if ( !(/elf|eladrin|avariel|grugach|shadar-kai/i).test(CurrentRace.known) ) { // if the player is not one of these elf types, show the pop-up message
-    app.alert({
-      cTitle : 'Racial requirements are not met',
-      cMsg : 'The "Noble Fey" background feature requires you to be an elf, eladrin, or half-elf in order to choose it.'
-    })
-  }
-},
+	description : "You were a noble or esteemed servant of the court of Sarifal. You have an air about you that makes mortals take note: awe or anger, depending on the mortal. This influence works on commoner & noble alike, as many of the people in positions of leadership see you as a way to make contact with High Lady Ordalf. They might be less happy if & when they find out the truth of your situation. (Pre-req: elf, eladrin, or half-elf)",
 	source : [["MIRG",38]],
 };
 BackgroundFeatureList["fey touched"] = {
