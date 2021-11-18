@@ -1,4 +1,4 @@
-/* This file adds optional material to "MPMB's Character Record Sheet" found at https://flapkan.com/mpmb/charsheets and builds off the code of many fantastic people before me. It would not exist without them.
+/* This file adds optional material to "MPMB's Character Record Sheet" found at https://flapkan.com/mpmb/charsheets and builds off the code of many fantastic people before me (MPMB in particular, but Nod Hero and others as well). It would not exist without them.
 
 ===Import this file using the "Add Extra Materials" bookmark.
 -KEEP IN MIND-
@@ -10,13 +10,13 @@ It is recommended to enter the code in a fresh sheet before adding any other inf
 
 	The main categories are as follows:
 	
-	Accessories (Belts, Bracers, Gauntlets, Gloves), Books (Books, Grimoires, Manuals, Tomes), Containers (Bags, Bottles, Bowls, Decanters, Haversacks, Holes, Jugs, Pouches, Quivers, Tankards), Outerwear (Capes, Cloaks, Mantles, Robes), Eyewear (Eyes, Glasses, Goggles), Footwear (Boots, Slippers), Figurines, Headwear (Caps, Circlets, Hats, Headbands, Helms), Instruments (Bardic, Chimes, Horns, Pipes (musical)), Light Sources (Candles and Lanterns mostly), Minerals (Gems, Stones, Orbs), Jewelry (Amulets, Brooches/Pins, Emblems, Medallions, Necklaces, Periapts, Scarabs. Talismans), Rings, Rods, Transport (Boats, Brooms, Carpets, Horseshoes, Saddles), and Wands. The Equipment category has everything else.
+	Accessories (Belts, Bracers, Gauntlets, Gloves, Tattoos), Ammunition, Books (Books, Grimoires, Manuals, Tomes), Containers (Bags, Bottles, Bowls, Decanters, Haversacks, Holes, Jugs, Pouches, Quivers, Tankards), Eyewear (Eyes, Glasses, Goggles), Figurines, Footwear (Boots, Slippers), Headwear (Caps, Circlets, Hats, Headbands, Helms), Instruments (Bardic, Chimes, Horns, Pipes (musical)), Jewelry (Amulets, Brooches/Pins, Emblems, Medallions, Necklaces, Periapts, Scarabs. Talismans), Light Sources (Candles and Lanterns mostly), Minerals (Gems, Stones, Orbs), Outerwear (Capes, Cloaks, Mantles, Robes), Rings, Rods, Transport (Boats, Brooms, Carpets, Horseshoes, Saddles), and Wands. The Equipment category has everything else.
 	
 	For ease of coding & to cut down on the categories, all staffs are in the AL_Magic_Weapons file, regardless of whether you can use them to hit things or not. All Sentient items with actual stats are in the AL Special Items file under new items, even if they're sentient version of existing ones.
 	
 	This isn't a complete list since I don't have every published adventure, but it's a start. If you don't see an item listed from a season marked complete, it should be because there was no flavor.*/
 	
-	//Things I have code for and don't have to buy: GSP02-1 to -3, CCC-6SWORDS, CCC-REAP-01, CCC-ST2-1, CCC-QCC2018-2, CIC-16, SALT2-2
+	//Things I have code for and don't have to buy: GSP02-1 to 2, CCC-REAP-01, CCC-ST2-1, CCC-QCC2018-2, CIC-16, SALT2-2
 	
 	//Complete: S0-S9, Guild Adept
 	//In progress: S10 (Through 10-10), DC-POA, DRW, RMH (03)  (finished all folders)
@@ -41,7 +41,7 @@ SourceList.ALDMs9 = {  //Season 9 DM Rewards
 };
 
 SourceList["AL:SE"] = {
-    name : "AL Special Events (Opens & Premieres)",
+    name : "AL Special Events (Conventions/Opens/Premieres)",
     abbreviation : "AL:SE",
     group : "Adventurers League",
     date : "Various"
@@ -55,6 +55,44 @@ SourceList["AL:RMH"] = {  //Mist Hunters Alternate Campaign
 	date : "Various"
 };
 
+SourceList["KOSC"]={
+	name : "Knuckleheads and Other Such Curiosities: A Traveler's Guide to Icewind Dale",
+	abbreviation : "KOSC",
+	group : "Adventure Books",
+	url : "https://www.dmsguild.com/product/328568/DDAL0013-Knuckleheads--Other-Such-Curiosities-A-Travelers-Guide-to-Icewind-Dale",
+	date : "2020/15/10"
+};
+
+SourceList["AL:LN"] = {  //Liar's Night and Wandering Monsters
+    name : "AL Holiday Events - Liar's Night",
+    abbreviation : "AL:LN",
+    group : "Adventurers League",
+    date : "Various"
+};
+
+
+//Extra tattoo code from MPMB
+var TCoE_magicTattoosDescription = desc([
+	" >>Tattoo Attunement<<. To attune to this item, you hold the needle to your skin where you want the tattoo to appear, pressing the needle there throughout the attunement process. When the attunement is complete, the needle turns into the ink that becomes the tattoo, which appears on the skin.",
+	" If your attunement to the tattoo ends, the tattoo vanishes, and the needle reappears in your space.",
+	"\n>>Magic Tattoos<< (TCoE 118)",
+	" Blending magic and artistry with ink and needles, magic tattoos imbue their bearers with wondrous abilities. Magic tattoos are initially bound to magic needles, which transfer their magic to a creature.",
+	" Once inscribed on a creature's body, damage or injury doesn't impair the tattoo's function, even if the tattoo is defaced. When applying a magic tattoo, a creature can customize the tattoo's appearance. A magic tattoo can look like a brand, scarification, a birthmark, patterns of scale, or any other cosmetic alteration.",
+	" The rarer a magic tattoo is, the more space it typically occupies on a creature's skin. The table below offers guidelines for how large a given tattoo is.",
+	"\n>>Tattoo Rarity\tArea Covered<<",
+	"Common     \tOne hand or foot or a quarter of a limb",
+	"Uncommon   \tHalf a limb or the scalp",
+	"Rare\t\tOne limb",
+	"Very Rare  \tTwo limbs or the chest or upper back",
+	"Legendary  \tTwo limbs and the torso"
+], "\n  ");
+magicTattoosTxt = { // a public variable to be used for any magical tattoo that uses these rules
+	base : TCoE_magicTattoosDescription,
+	unicode : TCoE_magicTattoosDescription.replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+	uppercase : TCoE_magicTattoosDescription.replace(/>>(.*?)<</g, function(a, match) { return match.toUpperCase(); }).replace(/your/g, "my").replace(/\byou\b/ig, "I"),
+	plain : TCoE_magicTattoosDescription.replace(/>>(.*?)<</g, "$1").replace(/your/g, "my").replace(/\byou\b/ig, "I")
+};
+
 
 
 //AL flavored items
@@ -62,27 +100,7 @@ MagicItemsList["al accessories"] = {
 		name : "AL Accessories",
 		type : "wondrous item",
 		allowDuplicates : true,
-	choices : ["Bands of the Tharkul (CCC-ALMOG-1 TALES1-1)","Belt of Dwarvenkind (DDEX2-4)","Belt of Fire Giant Strength (CCC-ALMOG-3 TALES3-1)","Belt of Fire Giant Strength (DDEP3)","Belt of Hill Giant Strength (CCC-SFBAY-2-3)","Belt of Stone Giant Strength (DDAL9-14)","Belt of Storm Giant Strength (DDAL6-3)","Bracers of Archery (CCC-GOC1-1)","Bracers of Archery (DC-POA-HARM1-1)","Bracers of Archery (DDEP2)","Bracers of Archery (DDEX3-14)","Bracers of Archery (DDAL5-2)","Bracers of Archery (DDEP10-1)","Bracers of Defense (CCC-BMG-17 ELMW1-2)","Bracers of Defense (CCC-CIC-10)","Bracers of Defense (CCC-SQC-2-1)","Bracers of Defense (DDAL0-2C)","Bracers of Defense (DDAL4-14)","Bracers of Defense (DDAL-DRWEP02)","Emerald Kidgloves (CCC-BMG-10 HILL1-1)","Fat Markoth's Cummerbund (CCC-LINKS-1)","Gauntlets of Ogre Power (CCC-CIC-8)","Gauntlets of Ogre Power (CCC-ODFC1-1)","Gauntlets of Ogre Power (DDAL5-12)","Gloves of Swimming and Climbing (CCC-PRETZ-PLA1)","Gloves of Thievery (DDAL9-3)","Haunted Bracers of Archery (DC-POA-LEGIT-CIPH-1)","The Vines of Avarice (CCC-ELF-3-2)","Welcomer's Gloves (CCC-FAD-1)"],
-	"bands of the tharkul (ccc-almog-1 tales1-1)" : {
-		name : "Bands of the Tharkul (Bracers of Archery)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "F",
-		description : "These mismatched bracers still look bright and new. Once attuned, you hear promises of the power that can come from a unified Thar. While wearing the bracers, you have proficiency with the longbow & shortbow, & you gain a +2 bonus to dmg rolls on ranged atks made with such weapons.",
-		descriptionFull : "These mismatched bracers still look bright and new, but once attuned the wearer can hear hints of promises of power that can come from a unified Thar. While wearing these bracers, you have proficiency with the longbow and shortbow, and you gain a +2 bonus to damage rolls on ranged attacks made with such weapons.",
-		attunement : true,
-		weaponProfs : [false, false, ["longbow", "shortbow"]],
-		calcChanges : {
-			atkCalc : [
-				function (fields, v, output) {
-					if (v.baseWeaponName == "shortbow" || v.baseWeaponName == "longbow") {
-						output.extraDmg += 2;
-					}
-				},
-				'I add +2 to the damage of attacks I make with shortbows and longbows.'
-				],
-			}
-		},
+	choices : ["Belt of Dwarvenkind (DDEX2-4)","Belt of Fire Giant Strength (CCC-ALMOG-3 TALES3-1)","Belt of Fire Giant Strength (DDEP3)","Belt of Hill Giant Strength: Fat Markoth's Cummerbund (CCC-LINKS-1)","Belt of Hill Giant Strength (CCC-SFBAY-2-3)","Belt of Stone Giant Strength (DDAL9-14)","Belt of Storm Giant Strength (DDAL6-3)","Bracers of Archery: Bands of the Tharkul (CCC-ALMOG-1 TALES1-1)","Bracers of Archery (CCC-GOC1-1)","Bracers of Archery (DC-POA-HARM1-1)","Bracers of Archery: Haunted (DC-POA-LEGIT-CIPH-1)","Bracers of Archery: Vambracers of Blood (DC-POA-TDG1-2)","Bracers of Archery (DDAL5-2)","Bracers of Archery (DDEP2)","Bracers of Archery (DDEP10-1)","Bracers of Archery (DDEX3-14)","Bracers of Defense (CCC-BMG-17 ELMW1-2)","Bracers of Defense (CCC-CIC-10)","Bracers of Defense (CCC-SQC-2-1)","Bracers of Defense (DDAL0-2C)","Bracers of Defense (DDAL4-14)","Bracers of Defense (DDAL-DRWEP02)","Gauntlets of Ogre Power (CCC-CIC-8)","Gauntlets of Ogre Power (CCC-ODFC1-1)","Gauntlets of Ogre Power (DDAL5-12)","Gloves of Swimming and Climbing (CCC-PRETZ-PLA1)","Gloves of Thievery: Emerald Kidgloves (CCC-BMG-10 HILL1-1)","Gloves of Thievery: The Vines of Avarice (CCC-ELF-3-2)","Gloves of Thievery: Welcomer's Gloves (CCC-FAD-1)","Gloves of Thievery (DDAL9-3)","Illuminator's Tattoo (DC-POA-CONMAR-19)","Illuminator's Tattoo (DC-POA-GaryXIII-5)","Illuminator's Tattoo (DC-POA-SH1)","Masquerade Tattoo (DC-POA-GSP2-4H)","Masquerade Tattoo (DC-POA-Z-T1S1)","Masquerade Tattoo (WBW-DC-FDC-5)","Illuminator's Tattoo: Windcrester Tattoo (DC-POA-TDG1-10)"],
 	"belt of dwarvenkind (ddex2-4)" : {
 		name : "Belt of Dwarvenkind (DDEX2-4)",
 		source : [["AL","S2"]],
@@ -115,6 +133,18 @@ MagicItemsList["al accessories"] = {
 		attunement : true,
 		scoresOverride : [25, 0, 0, 0, 0, 0]
 		},
+	"belt of hill giant strength: fat markoth's cummerbund (ccc-links-1)" : {
+		name : "Fat Markoth's Cummerbund (Belt of Hill Giant Strength)",
+		source : [["AL","CCC"]],		
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "Markoth – “Fat Mar” to those that didn’t truly know him – treasured this reinforced, velvety waistband above all else. He wore it every day but never fully grasped its benefits: while attuned, your strength becomes 21 and, once per day, you have adv on 1 save against exhaustion.",
+		descriptionFull : "Markoth – “Fat Mar” to those that didn’t truly know him – treasured this reinforced, velvety waistband above all other possessions. He wore it every day in life but was never able to fully grasp its benefits despite being attuned to it: while attuned, the wearer’s strength becomes 21 unless already 21 or higher and, once per day, the wearer has advantage on one saving throw that might otherwise result in a level of exhaustion.",
+		limfeaname : "Cummerbund (Adv. Exhaustion Save)",
+		usages : 1,
+		recovery : "dawn",
+		scoresOverride : [21, 0, 0, 0, 0, 0]
+		},
 	"belt of hill giant strength (ccc-sfbay-2-3)" : {
 		name : "Belt of Hill Giant Strength (CCC-SFBAY-2-3)",
 		source : [["AL","CCC"]],		
@@ -141,6 +171,26 @@ MagicItemsList["al accessories"] = {
 		description : "The storm giant quintessent Dessa imbued this belt with her elemental strength. When the belt’s fantastic strength is used, lightning dances around the wearer and a warm desert wind blows in the area. While wearing this belt, your Strength score is set to 29 as long as it isn't already 29 or more.",
 		attunement : true,
 		scoresOverride : [29, 0, 0, 0, 0, 0]
+		},
+	"bracers of archery: bands of the tharkul (ccc-almog-1 tales1-1)" : {
+		name : "Bands of the Tharkul (Bracers of Archery)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "These mismatched bracers still look bright and new. Once attuned, you hear promises of the power that can come from a unified Thar. While wearing the bracers, you have proficiency with the longbow & shortbow, & you gain a +2 bonus to dmg rolls on ranged atks made with such weapons.",
+		descriptionFull : "These mismatched bracers still look bright and new, but once attuned the wearer can hear hints of promises of power that can come from a unified Thar. While wearing these bracers, you have proficiency with the longbow and shortbow, and you gain a +2 bonus to damage rolls on ranged attacks made with such weapons.",
+		attunement : true,
+		weaponProfs : [false, false, ["longbow", "shortbow"]],
+		calcChanges : {
+			atkCalc : [
+				function (fields, v, output) {
+					if (v.baseWeaponName == "shortbow" || v.baseWeaponName == "longbow") {
+						output.extraDmg += 2;
+					}
+				},
+				'I add +2 to the damage of attacks I make with shortbows and longbows.'
+				],
+			}
 		},
 	"bracers of archery (ccc-goc1-1)" : {
 		name : "Bracers of Archery (CCC-GOC1-1)",
@@ -182,13 +232,13 @@ MagicItemsList["al accessories"] = {
 				],
 			}
 		},
-	"bracers of archery (ddep2)" : {
-		name : "Bracers of Archery (DDEP2)",
-		source : [["AL","S2"]],
+	"bracers of archery: haunted (dc-poa-legit-ciph-1)" : {
+		name : "Haunted Bracers of Archery (DC-POA-LEGIT-CIPH-1)",
+		source : [["AL","DC-POA"]],
 		rarity : "uncommon",
 		magicItemTable : "F",
-		description : "A large smoking chunk of obsidian smolders in each of these thick brass bracers. They emit dim light in a 5-foot-radius around the wearer, but don't radiate heat. Any object used to conceal the bracers' light smolders & burns away. While wearing these bracers, you have proficiency with the longbow & shortbow, & you gain a +2 bonus to dmg rolls on ranged atks made with such weapons.",
-		descriptionFull : "A large, smoking chunk of obsidian smolders in the center of each of these thick, brass bracers. The bracers emit dim light in a 5-foot-radius around the wearer, but do not radiate heat. Any object used to conceal the bracers's light, however, smolders and burns away. While wearing these bracers, you have proficiency with the longbow and shortbow, and you gain a +2 bonus to damage rolls on ranged attacks made with such weapons.",
+		description : "These pale white bracers were gifted to you by a ghost. While wearing these bracers, you have proficiency with longbows & shortbows, & you gain a +2 bonus to dmg rolls on ranged atks made with such weapons. Whenever you fire an arrow, the sound as it flies through the air resembles the wail of a spirit. ",
+		descriptionFull : "These pale white bracers were gifted to you by a ghost. Whenever you fire an arrow while wearing these bracers, the sound the arrow makes as it flies through the air resembles the wail of a spirit.\n   While wearing these bracers, you have proficiency with the longbow and shortbow, and you gain a +2 bonus to damage rolls on ranged attacks made with such weapons.",
 		attunement : true,
 		weaponProfs : [false, false, ["longbow", "shortbow"]],
 		calcChanges : {
@@ -202,12 +252,13 @@ MagicItemsList["al accessories"] = {
 				],
 			}
 		},
-	"bracers of archery (ddex3-14)" : {
-		name : "Bracers of Archery (DDEX3-14)",
-		source : [["AL","S3"]],
+	"bracers of archery: vambracers of blood (dc-poa-tdg1-2)" : {
+		name : "Vambracers of Blood (Bracers of Archery)",
+		source : [["AL","DC-POA"]],
 		rarity : "uncommon",
 		magicItemTable : "F",
-		description : "Etched around these bracers are words in Elvish that read “Strike True.” While wearing these bracers, you have proficiency with the longbow and shortbow, and you gain a +2 bonus to damage rolls on ranged attacks made with such weapons.",
+		description : "These cured leather bracers are etched with images of arrows chasing wild animals. While wearing them, you have proficiency with longbows & shortbows, & you gain a +2 bonus to dmg rolls on ranged atks made with such weapons.",
+		descriptionFull : "These cured leather bracers are etched with the images of arrows chasing wild animals. While wearing the bracers, you have proficiency with the longbow and shortbow, and you gain a +2 bonus to damage rolls on ranged attacks made with such weapons.",
 		attunement : true,
 		weaponProfs : [false, false, ["longbow", "shortbow"]],
 		calcChanges : {
@@ -242,6 +293,26 @@ MagicItemsList["al accessories"] = {
 				],
 			}
 		},
+	"bracers of archery (ddep2)" : {
+		name : "Bracers of Archery (DDEP2)",
+		source : [["AL","S2"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "A large smoking chunk of obsidian smolders in each of these thick brass bracers. They emit dim light in a 5-foot-radius around the wearer, but don't radiate heat. Any object used to conceal the bracers' light smolders & burns away. While wearing these bracers, you have proficiency with the longbow & shortbow, & you gain a +2 bonus to dmg rolls on ranged atks made with such weapons.",
+		descriptionFull : "A large, smoking chunk of obsidian smolders in the center of each of these thick, brass bracers. The bracers emit dim light in a 5-foot-radius around the wearer, but do not radiate heat. Any object used to conceal the bracers's light, however, smolders and burns away. While wearing these bracers, you have proficiency with the longbow and shortbow, and you gain a +2 bonus to damage rolls on ranged attacks made with such weapons.",
+		attunement : true,
+		weaponProfs : [false, false, ["longbow", "shortbow"]],
+		calcChanges : {
+			atkCalc : [
+				function (fields, v, output) {
+					if (v.baseWeaponName == "shortbow" || v.baseWeaponName == "longbow") {
+						output.extraDmg += 2;
+					}
+				},
+				'I add +2 to the damage of attacks I make with shortbows and longbows.'
+				],
+			}
+		},
 	"bracers of archery (ddep10-1)" : {
 		name : "Bracers of Archery (DDEP10-1)",
 		source : [["AL","S10"]],
@@ -251,6 +322,25 @@ MagicItemsList["al accessories"] = {
 		descriptionFull : "These fur-lined, rust-colored leather cuffs are crafted in traditional Reghed style, with stylized pictographs of beasts stamped around the outer cuff. Normally used to stabilize the arm during archery and protect from scrapes and cuts, these bracers also magically provide warmth to cold bodies. The wearer suffers no harm in temperatures as cold as -20 degrees Fahrenheit or as warm as 120 degrees Fahrenheit. While wearing these bracers, you have proficiency with the longbow and shortbow, and you gain a +2 bonus to damage rolls on ranged attacks made with such weapons.",
 		attunement : true,
 		savetxt : { immune : ["temps btwn -20 ̊ & 120 ̊ F"] },
+		weaponProfs : [false, false, ["longbow", "shortbow"]],
+		calcChanges : {
+			atkCalc : [
+				function (fields, v, output) {
+					if (v.baseWeaponName == "shortbow" || v.baseWeaponName == "longbow") {
+						output.extraDmg += 2;
+					}
+				},
+				'I add +2 to the damage of attacks I make with shortbows and longbows.'
+				],
+			}
+		},
+	"bracers of archery (ddex3-14)" : {
+		name : "Bracers of Archery (DDEX3-14)",
+		source : [["AL","S3"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "Etched around these bracers are words in Elvish that read “Strike True.” While wearing these bracers, you have proficiency with the longbow and shortbow, and you gain a +2 bonus to damage rolls on ranged attacks made with such weapons.",
+		attunement : true,
 		weaponProfs : [false, false, ["longbow", "shortbow"]],
 		calcChanges : {
 			atkCalc : [
@@ -359,27 +449,6 @@ MagicItemsList["al accessories"] = {
 			stopeval : function (v) { return v.wearingArmor || v.usingShield; }
 			}]
 		},
-	"emerald kidgloves (ccc-bmg-10 hill1-1)" : {
-		name : "Emerald Kidgloves (Gloves of Thievery)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "F",
-		description : "These delicate, goatskin gloves are colored bright green & slip onto your hands effortlessly. While wearing them, you experience irresistible generosity, expressing compliments to those around you & spending coin for others w/o hesitation. These gloves don't turn invisible when worn, but shrink or grow to accommodate the wearer. While wearing them, you gain a +5 bonus to DEX (Sleight of Hand) checks & Dexterity checks to pick locks.",
-		descriptionFull : "These delicate, goatskin gloves are colored with a bright green pigment and slip onto the wearer’s hands effortlessly. While wearing these gloves, the wearer experiences irresistible generosity, expressing compliments to those around them and spending coin for the benefit of others without hesitation. Unlike conventional gloves of thievery, these gloves do not turn invisible when worn, but shrink or grow to accommodate a small or medium wearer’s size. While wearing them, you gain a +5 bonus to Dexterity (Sleight of Hand) checks and Dexterity checks made to pick locks.",
-		addMod : [{ type: "skill", field : "Sleight of Hand", mod : 5, text : "I gain a +5 bonus to Dexterity (Sleight of Hand) checks while wearing Gloves of Thievery." }]
-	},
-	"fat markoth's cummerbund (ccc-links-1)" : {
-		name : "Fat Markoth's Cummerbund (Belt of Hill Giant Strength)",
-		source : [["AL","CCC"]],		
-		rarity : "rare",
-		magicItemTable : "G",
-		description : "Markoth – “Fat Mar” to those that didn’t truly know him – treasured this reinforced, velvety waistband above all else. He wore it every day but never fully grasped its benefits: while attuned, your strength becomes 21 and, once per day, you have adv on 1 save against exhaustion.",
-		descriptionFull : "Markoth – “Fat Mar” to those that didn’t truly know him – treasured this reinforced, velvety waistband above all other possessions. He wore it every day in life but was never able to fully grasp its benefits despite being attuned to it: while attuned, the wearer’s strength becomes 21 unless already 21 or higher and, once per day, the wearer has advantage on one saving throw that might otherwise result in a level of exhaustion.",
-		limfeaname : "Cummerbund (Adv. Exhaustion Save)",
-		usages : 1,
-		recovery : "dawn",
-		scoresOverride : [21, 0, 0, 0, 0, 0]
-		},
 	"gauntlets of ogre power (ccc-cic-8)" : {
 		name : "Gauntlets of Ogre Power (CCC-CIC-8)",
 		source : [["AL","CCC"]],
@@ -419,6 +488,33 @@ MagicItemsList["al accessories"] = {
 		descriptionFull : "The rust colored Gloves of Chakalakhan are constructed of articulated boiled leather. While wearing these when you strike an enemy you hear faint fragments of the ancient battle song of the great hobgoblin war chief Chakalakhan:\n   “GRAY! The steel we hold\n   As the tides of battle rise\n   BLACK! The rage we feel\n   For our enemies must die\n   RED! CHAKALAKHAN\n   Our Warchief forever fights”\nWhile wearing these gloves, climbing and swimming don't cost you extra movement, and you gain a +5 bonus to Strength (Athletics) checks made to climb or swim.",
 		attunement : true
 	},
+	"gloves of thievery: emerald kidgloves (ccc-bmg-10 hill1-1)" : {
+		name : "Emerald Kidgloves (Gloves of Thievery)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "These delicate, goatskin gloves are colored bright green & slip onto your hands effortlessly. While wearing them, you experience irresistible generosity, expressing compliments to those around you & spending coin for others w/o hesitation. These gloves don't turn invisible when worn, but shrink or grow to accommodate the wearer. While wearing them, you gain a +5 bonus to DEX (Sleight of Hand) checks & Dexterity checks to pick locks.",
+		descriptionFull : "These delicate, goatskin gloves are colored with a bright green pigment and slip onto the wearer’s hands effortlessly. While wearing these gloves, the wearer experiences irresistible generosity, expressing compliments to those around them and spending coin for the benefit of others without hesitation. Unlike conventional gloves of thievery, these gloves do not turn invisible when worn, but shrink or grow to accommodate a small or medium wearer’s size. While wearing them, you gain a +5 bonus to Dexterity (Sleight of Hand) checks and Dexterity checks made to pick locks.",
+		addMod : [{ type: "skill", field : "Sleight of Hand", mod : 5, text : "I gain a +5 bonus to Dexterity (Sleight of Hand) checks while wearing Gloves of Thievery." }]
+	},
+	"gloves of thievery: the vines of avarice (ccc-elf-3-2)" : {
+		name : "The Vines of Avarice (Gloves of Thievery)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "These vines from the Cormanthor Forest can be wrapped around your hands as fingerless gloves, turning invisible when worn correctly. Whenever you contemplate vengeance, you see a vision of a grand hearth lying in ruins. The fabric at the fingertips is very thin, granting you more sensitivity for delicate work. While wearing the vines, you gain a +5 bonus to DEX (Sleight of Hand) checks & DEX checks made to pick locks.",
+		descriptionFull : "These vines from the Cormanthor Forest can be wrapped around someone’s hands as a pair of fingerless gloves, turning invisible when worn correctly. They function as gloves of thievery. Whenever the wearer contemplates vengeance, they see a vision of a grand hearth lying in ruins. The fabric at the fingertips is very thin, granting the wearer more sensitivity for more delicate work. While wearing them, you gain a +5 bonus to Dexterity (Sleight of Hand) checks and Dexterity checks made to pick locks.",
+		addMod : [{ type: "skill", field : "Sleight of Hand", mod : 5, text : "I gain a +5 bonus to Dexterity (Sleight of Hand) checks while wearing Gloves of Thievery." }]
+	},
+	"gloves of thievery: welcomer's gloves (ccc-fad-1)" : {
+		name : "Welcomer's Gloves (Gloves of Thievery)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "These soft, black leather gloves have a small W embroidered in silver thread on their back & are invisible while worn. The fabric at the fingertips is very thin, granting you more sensitivity for delicate work. While wearing the gloves, you gain a +5 bonus to DEX (Sleight of Hand) checks & DEX checks made to pick locks.",
+		descriptionFull : "These soft, black leather gloves have a small W embroidered in silver thread on their back and are invisible while worn. The fabric at the fingertips is very thin, granting the wearer more sensitivity for more delicate work. While wearing them, you gain a +5 bonus to Dexterity (Sleight of Hand) checks and Dexterity checks made to pick locks.",
+		addMod : [{ type: "skill", field : "Sleight of Hand", mod : 5, text : "I gain a +5 bonus to Dexterity (Sleight of Hand) checks while wearing Gloves of Thievery." }]
+	},
 	"gloves of thievery (ddal9-3)" : {
 		name : "Gloves of Thievery (DDAL9-3)",
 		source : [["AL","S9"]],
@@ -428,43 +524,292 @@ MagicItemsList["al accessories"] = {
 		descriptionFull : "These gloves are made of exquisite red silk with gold and silver embroidery along the fingers and can be invisible while worn. The fabric at the fingertips is very thin, granting the wearer more sensitivity for more delicate work. While wearing them, you gain a +5 bonus to Dexterity (Sleight of Hand) checks and Dexterity checks made to pick locks.",
 		addMod : [{ type: "skill", field : "Sleight of Hand", mod : 5, text : "I gain a +5 bonus to Dexterity (Sleight of Hand) checks while wearing Gloves of Thievery." }]
 	},
-	"haunted bracers of archery (dc-poa-legit-ciph-1)" : {
-		name : "Haunted Bracers of Archery (DC-POA-LEGIT-CIPH-1)",
+	"illuminator's tattoo (dc-poa-conmar-19)" : {   
+		name : "Illuminator's Tattoo (DC-POA-CONMAR-19)",
 		source : [["AL","DC-POA"]],
-		rarity : "uncommon",
-		magicItemTable : "F",
-		description : "These pale white bracers were gifted to you by a ghost. While wearing these bracers, you have proficiency with longbows & shortbows, & you gain a +2 bonus to dmg rolls on ranged atks made with such weapons. Whenever you fire an arrow, the sound as it flies through the air resembles the wail of a spirit. ",
-		descriptionFull : "These pale white bracers were gifted to you by a ghost. Whenever you fire an arrow while wearing these bracers, the sound the arrow makes as it flies through the air resembles the wail of a spirit.\n   While wearing these bracers, you have proficiency with the longbow and shortbow, and you gain a +2 bonus to damage rolls on ranged attacks made with such weapons.",
+		rarity : "common",
+		magicItemTable : "?",
 		attunement : true,
-		weaponProfs : [false, false, ["longbow", "shortbow"]],
-		calcChanges : {
-			atkCalc : [
-				function (fields, v, output) {
-					if (v.baseWeaponName == "shortbow" || v.baseWeaponName == "longbow") {
-						output.extraDmg += 2;
-					}
+		description : "This tattoo is a logo from the Library of Caer-Konig & becomes a pen with the same logo when unattuned. While it's on your skin, you can write with your fingertip as if it's an ink pen that never runs out. As an action once/dawn, you can touch a piece of writing less than 1 page long & speak a creature’s name. The writing becomes invisible to everyone but you & the named creature for 24 hrs. Either of you can dismiss the invisibility by touching the script.",
+		descriptionFull : "This tattoo is a logo from the Library of Caer-Konig and becomes a pen with the same logo when unattuned.\n   The tattoo features beautiful calligraphy, images of writing implements, and the like."+
+		"\n   " + toUni("Magical Scribing") + ". While this tattoo is on your skin, you can write with your fingertip as if it were an ink pen that never runs out of ink."+
+		"\n   As an action, you can touch a piece of writing up to one page in length and speak a creature's name. The writing becomes invisible to everyone other than you and the named creature for the next 24 hours. Either of you can dismiss the invisibility by touching the script (no action required). Once used, this action can't be used again until the next dawn." + magicTattoosTxt.unicode,
+		limfeaname : "Illuminator's Tattoo",
+		usages : 1, 
+		recovery : "dawn",
+	},
+	"illuminator's tattoo (dc-poa-garyxiii-5)" : {   
+		name : "Illuminator's Tattoo (DC-POA-GaryXIII-5)",
+		source : [["AL","DC-POA"]],
+		rarity : "common",
+		magicItemTable : "?",
+		attunement : true,
+		description : "This magical quill, formed of the ebony feather of an infernal nightmare, has a needle protruding from its point. When used, it creates a bold geometric tattoo w/ purple, black, midnight blue & red ink. It depicts a black candle w/ a blood red flame & scrolls etched w/ infernal writing that describes part of a Night Hag’s ritual to make a Soul Bag. While attuned, you can write w/ your finger as if an ink pen. As an action once/dawn, you can touch text up to 1 page long & speak a creature’s name. The script becomes invisible to everyone but you & the named creature for 24 hrs. Either of you can dismiss the invisibility by touching it.",
+		descriptionFull : "This magically infused quill, formed from the ebony feather of an infernal nightmare, features a single needle protruding from its point. When used, it produces a bold geometric tattoo with dark purple, black, midnight blue, and red inks. It depicts a single black candle with a blood red flame, illuminating scrolls etched with infernal writing, which describe portions of a Night Hag’s ritual to create a Soul Bag.\n   The tattoo features beautiful calligraphy, images of writing implements, and the like."+
+		"\n   " + toUni("Magical Scribing") + ". While this tattoo is on your skin, you can write with your fingertip as if it were an ink pen that never runs out of ink."+
+		"\n   As an action, you can touch a piece of writing up to one page in length and speak a creature's name. The writing becomes invisible to everyone other than you and the named creature for the next 24 hours. Either of you can dismiss the invisibility by touching the script (no action required). Once used, this action can't be used again until the next dawn." + magicTattoosTxt.unicode,
+		limfeaname : "Illuminator's Tattoo",
+		usages : 1, 
+		recovery : "dawn",
+	},
+	"illuminator's tattoo (dc-poa-sh1)" : {   
+		name : "Illuminator's Tattoo (DC-POA-SH1)",
+		source : [["AL","DC-POA"]],
+		rarity : "common",
+		magicItemTable : "?",
+		attunement : true,
+		description : "This magical bone needle is inscribed with unfamiliar writing. The 1st time you attune, the resulting tattoo is made entirely of blood red ink. If attuned to again, it uses a full color palette. While attuned, you can write with your fingertip as if an ink pen that never runs out. As an action once/dawn, you can touch a piece of writing less than 1 page long & speak a creature’s name. The script becomes invisible to everyone but you & the named creature for 24 hrs. Either of you can dismiss the invisibility by touching it.",
+		descriptionFull : "This bone needle is inscribed with some sort of unfamiliar writing. The first time a creature attunes to it, the tattoo will be drawn entirely of blood red ink. If ever attuned to again, it will use a full colour palette.\n   The tattoo features beautiful calligraphy, images of writing implements, and the like."+
+		"\n   " + toUni("Magical Scribing") + ". While this tattoo is on your skin, you can write with your fingertip as if it were an ink pen that never runs out of ink."+
+		"\n   As an action, you can touch a piece of writing up to one page in length and speak a creature's name. The writing becomes invisible to everyone other than you and the named creature for the next 24 hours. Either of you can dismiss the invisibility by touching the script (no action required). Once used, this action can't be used again until the next dawn." + magicTattoosTxt.unicode,
+		limfeaname : "Illuminator's Tattoo",
+		usages : 1, 
+		recovery : "dawn",
+	},
+	"illuminator's tattoo: windcrester tattoo (dc-poa-tdg1-10)" : {   
+		name : "Windcrester Tattoo (Illuminator's Tattoo)",
+		source : [["AL","DC-POA"]],
+		rarity : "common",
+		magicItemTable : "?",
+		attunement : true,
+		description : "This ten-point star tattoo & needle acts as a ward against supernatural threats. While it's on your skin, you can write with your fingertip as if it's an ink pen that never runs out. As an action once/dawn, you can touch a piece of writing less than 1 page long & speak a creature’s name. The writing becomes invisible to everyone but you & the named creature for 24 hrs. Either of you can dismiss the invisibility by touching the script.",
+		descriptionFull : "This Ten-point star pattern tattoo and needle acts as a ward against supernatural threats.\n   The tattoo features beautiful calligraphy, images of writing implements, and the like."+
+		"\n   " + toUni("Magical Scribing") + ". While this tattoo is on your skin, you can write with your fingertip as if it were an ink pen that never runs out of ink."+
+		"\n   As an action, you can touch a piece of writing up to one page in length and speak a creature's name. The writing becomes invisible to everyone other than you and the named creature for the next 24 hours. Either of you can dismiss the invisibility by touching the script (no action required). Once used, this action can't be used again until the next dawn." + magicTattoosTxt.unicode,
+		limfeaname : "Illuminator's Tattoo",
+		usages : 1, 
+		recovery : "dawn",
+	},
+	"masquerade tattoo (dc-poa-gsp2-4h)" : {  
+		name : "Masquerade Tattoo (DC-POA-GSP2-4H)",
+		source : [["AL","DC-POA"]],
+		rarity : "common",
+		attunement : true,
+		magicItemTable : "?",
+		description : "When you attune to this light blue magic needle, it disappears & you gain a finely crafted magical tattoo in Harper blue. As a bonus action, you can change its size, color, pattern, & location, but it always has the mark of the Harpers hidden within & is clearly a tattoo. As an action once per dawn, you can use the tattoo to cast Disguise Self (DC 13).",
+		descriptionFull : "This special needle is light blue in color which is similar to the Harpers. Once the tattoo is marked onto the skin, it is always blue in color and the tattoo always has the mark of the Harpers hidden within."+
+		"\n   " + toUni("Fluid Ink") + ". As a bonus action, you can shape the tattoo into any color or pattern and move it to any area of your skin. Whatever form it takes, it is always obviously a tattoo. It can range in size from no smaller than a copper piece to an intricate work of art that covers all your skin."+
+		"\n   " + toUni("Disguise Self.") + ". As an action, you can use the tattoo to cast the disguise self spell (DC 13 to discern the disguise). Once the spell is cast from the tattoo, it can't be cast from the tattoo again until the next dawn." + magicTattoosTxt.unicode,
+		limfeaname : "Masquerade Tattoo",
+		usages : 1,
+		recovery : "dawn",
+		additional : "Disguise Self",
+		action : [["bonus action", " (change)"]],
+		fixedDC : 13,
+		spellcastingBonus : {
+			name : "Disguise Self",
+			spells : ["disguise self"],
+			selection : ["disguise self"],
+			firstCol : "oncelr"
+			}
+	},
+	"masquerade tattoo (dc-poa-z-t1s1)" : {  
+		name : "Masquerade Tattoo (DC-POA-Z-T1S1)",
+		source : [["AL","DC-POA"]],
+		rarity : "common",
+		attunement : true,
+		magicItemTable : "?",
+		description : "When you attune to this magic needle, it disappears & you gain a finely crafted grey-tone magical tattoo. It initially looks like a mask next to a blooming rose. As a bonus action, you can change its size, color, pattern, & location, but it's always clearly a tattoo. When you do this, the rose enlarges & blooms while the mask momentarily shrinks before the transformation happens. As an action once per dawn, you can use the tattoo to cast Disguise Self (DC 13).",
+		descriptionFull : "Produced by a special needle, this finely crafted gray-tone magic tattoo initially looks like a mask of some kind next to a blooming rose. When the command word to alter the tattoo is given, the rose enlarges and blooms, while the mask shrinks momentarily before the transformation happens."+
+		"\n   " + toUni("Fluid Ink") + ". As a bonus action, you can shape the tattoo into any color or pattern and move it to any area of your skin. Whatever form it takes, it is always obviously a tattoo. It can range in size from no smaller than a copper piece to an intricate work of art that covers all your skin."+
+		"\n   " + toUni("Disguise Self.") + ". As an action, you can use the tattoo to cast the disguise self spell (DC 13 to discern the disguise). Once the spell is cast from the tattoo, it can't be cast from the tattoo again until the next dawn." + magicTattoosTxt.unicode,
+		limfeaname : "Masquerade Tattoo",
+		usages : 1,
+		recovery : "dawn",
+		additional : "Disguise Self",
+		action : [["bonus action", " (change)"]],
+		fixedDC : 13,
+		spellcastingBonus : {
+			name : "Disguise Self",
+			spells : ["disguise self"],
+			selection : ["disguise self"],
+			firstCol : "oncelr"
+			}
+	},
+	"masquerade tattoo (wbw-dc-fdc-5)" : {  
+		name : "Masquerade Tattoo (WBW-DC-FDC-5)",
+		source : [["AL","WBW-DC"]],
+		rarity : "common",
+		attunement : true,
+		magicItemTable : "?",
+		description : "When you attune to this magic needle, it disappears & you gain a magical tattoo. The tattoo is made with ink from pureed berries, rich icing, & other all-natural sources. As a bonus action, you can change its size, color, pattern, & location, but it's always clearly a tattoo. As an action once per dawn, you can use the tattoo to cast Disguise Self (DC 13).",
+		descriptionFull : "Produced by a special needle, this magic tattoo appears on your body as whatever you desire. It's formed from inks made from pureed berries, rich icing, and other all-natural sources."+
+		"\n   " + toUni("Fluid Ink") + ". As a bonus action, you can shape the tattoo into any color or pattern and move it to any area of your skin. Whatever form it takes, it is always obviously a tattoo. It can range in size from no smaller than a copper piece to an intricate work of art that covers all your skin."+
+		"\n   " + toUni("Disguise Self.") + ". As an action, you can use the tattoo to cast the disguise self spell (DC 13 to discern the disguise). Once the spell is cast from the tattoo, it can't be cast from the tattoo again until the next dawn." + magicTattoosTxt.unicode,
+		limfeaname : "Masquerade Tattoo",
+		usages : 1,
+		recovery : "dawn",
+		additional : "Disguise Self",
+		action : [["bonus action", " (change)"]],
+		fixedDC : 13,
+		spellcastingBonus : {
+			name : "Disguise Self",
+			spells : ["disguise self"],
+			selection : ["disguise self"],
+			firstCol : "oncelr"
+			}
+	},
+}
+
+MagicItemsList["al ammunition"] = {
+		name : "AL Ammunition",
+		type : "weapon (ammunition)",
+		allowDuplicates : true,
+	choices : ["Arrows +1 (CCC-UBCON1-1)","Arrows +1: Bone-Tipped (DC-POA-CONMAR-18)","Arrows +1: Bone-Tipped (DC-POA-DRAGON-2)","Arrows +1: Bone-Tipped (DC-POA-GaryXIII-2)","Arrows +1: Bone-Tipped (DC-POA-TDG1-8)","Unbreakable Arrow: Shadowneedle (CCC-DRUID-1/CCC-TRI-26 ROSE1-1)","Unbreakable Arrow (CCC-DWB-ACM-1)","Unbreakable Arrow (DDAL10-0)","Walloping Arrow (CCC-DRUIDS-3)","Walloping Arrow (DC-POA-GSP2-4H)","Walloping Bullet: The Witchstone (CCC-CIC-15)","Walloping Bullet: Idris Chardalyn Bullet (DC-POA-TDG1-7)"],
+	"arrows +1 (ccc-ubcon1-1)" : {
+		name : "Arrows +1 (CCC-UBCON1-1)",
+		source : [["AL","CCC"]],
+		type : "weapon (arrow)",
+		magicItemTable : "B",
+		description : "Each of these 6 arrow shafts is inscribed with the name of a different fabled magic item in Elvish: Dawnbringer, Drown, Hazirawn, Tinderstrike, Waythe, & Windvane. You have a +1 bonus to attack & damage rolls made with these arrows. Once an arrow hits a target, it's no longer magical.",
+		descriptionFull : "Each arrow shaft has the name of a different fabled magic item inscribed upon it in Elvish. The names on the arrows are: Dawnbringer, Drown, Hazirawn, Tinderstrike, Waythe, and Windvane.\n   You have a +1 bonus to attack and damage rolls made with this magic ammunition. Once it hits a target, the ammunition is no longer magical.",
+		allowDuplicates : true,
+		chooseGear : {
+			type : "ammo",
+			prefixOrSuffix : "brackets",
+			itemName1stPage  : ["suffix", "Arrows +1"],
+			excludeCheck : function (inObjKey, inObj) {
+				return !(/arrow/i).test(inObj.name);
 				},
-				'I add +2 to the damage of attacks I make with shortbows and longbows.'
-				],
 			}
 		},
-	"the vines of avarice (ccc-elf-3-2)" : {
-		name : "The Vines of Avarice (Gloves of Thievery)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "F",
-		description : "These vines from the Cormanthor Forest can be wrapped around your hands as fingerless gloves, turning invisible when worn correctly. Whenever you contemplate vengeance, you see a vision of a grand hearth lying in ruins. The fabric at the fingertips is very thin, granting you more sensitivity for delicate work. While wearing the vines, you gain a +5 bonus to DEX (Sleight of Hand) checks & DEX checks made to pick locks.",
-		descriptionFull : "These vines from the Cormanthor Forest can be wrapped around someone’s hands as a pair of fingerless gloves, turning invisible when worn correctly. They function as gloves of thievery. Whenever the wearer contemplates vengeance, they see a vision of a grand hearth lying in ruins. The fabric at the fingertips is very thin, granting the wearer more sensitivity for more delicate work. While wearing them, you gain a +5 bonus to Dexterity (Sleight of Hand) checks and Dexterity checks made to pick locks.",
-		addMod : [{ type: "skill", field : "Sleight of Hand", mod : 5, text : "I gain a +5 bonus to Dexterity (Sleight of Hand) checks while wearing Gloves of Thievery." }]
+	"arrows +1: bone-tipped (dc-poa-conmar-18)" : {
+		name : "Bone-Tipped +1 Arrows (DC-POA-CONMAR-18)",
+		source : [["AL","DC-POA"]],
+		type : "weapon (arrow)",
+		magicItemTable : "B",
+		description : "Each of these 6 arrows is tipped with bone from an animal & engraved with the animal's name in Old Illuskan: elk, bear, tiger, wolf, caribou, & seal. You have a +1 bonus to atk & damage rolls made with these arrows. Once an arrow hits a target, it's no longer magical.",
+		descriptionFull : "Each arrow is engraved with one word in Old Illuskan. Translated, they mean Elk, Bear, Tiger, Wolf, Caribou and Seal, and the tip is made from bone of that animal.\n   You have a +1 bonus to attack and damage rolls made with this magic ammunition. Once it hits a target, the ammunition is no longer magical.",
+		allowDuplicates : true,
+		chooseGear : {
+			type : "ammo",
+			prefixOrSuffix : "brackets",
+			itemName1stPage  : ["suffix", "Bone Arrows +1"],
+			excludeCheck : function (inObjKey, inObj) {
+				return !(/arrow/i).test(inObj.name);
+				},
+			}
+		},
+	"arrows +1: bone-tipped (dc-poa-dragon-2)" : {
+		name : "Bone-Tipped +1 Arrows (DC-POA-DRAGON-2)",
+		source : [["AL","DC-POA"]],
+		type : "weapon (arrow)",
+		magicItemTable : "B",
+		description : "These 6 arrows have carved tips made from human bones. You have a +1 bonus to atk & damage rolls made with these arrows. Once an arrow hits a target, it's no longer magical.",
+		descriptionFull : "These 6 arrows have carved tips that are made out of human bones.\n   You have a +1 bonus to attack and damage rolls made with this magic ammunition. Once it hits a target, the ammunition is no longer magical.",
+		allowDuplicates : true,
+		chooseGear : {
+			type : "ammo",
+			prefixOrSuffix : "brackets",
+			itemName1stPage  : ["suffix", "Bone Arrows +1"],
+			excludeCheck : function (inObjKey, inObj) {
+				return !(/arrow/i).test(inObj.name);
+				},
+			}
+		},
+	"arrows +1: bone-tipped (dc-poa-garyxiii-2)" : {
+		name : "Bone-Tipped +1 Arrows (DC-POA-GaryXIII-2)",
+		source : [["AL","DC-POA"]],
+		type : "weapon (arrow)",
+		magicItemTable : "B",
+		description : "These 6 arrows are tipped with bone & exude a magic aura. You have a +1 bonus to atk & damage rolls made with these arrows. Once an arrow hits a target, it's no longer magical.",
+		descriptionFull : "These arrows are tipped with bone and exude a magic aura.\n   You have a +1 bonus to attack and damage rolls made with this magic ammunition. Once it hits a target, the ammunition is no longer magical.",
+		allowDuplicates : true,
+		chooseGear : {
+			type : "ammo",
+			prefixOrSuffix : "brackets",
+			itemName1stPage  : ["suffix", "Bone Arrows +1"],
+			excludeCheck : function (inObjKey, inObj) {
+				return !(/arrow/i).test(inObj.name);
+				},
+			}
+		},
+	"arrows +1: bone-tipped (dc-poa-tdg1-8)" : {
+		name : "Bone-Tipped +1 Arrows (DC-POA-TDG1-8)",
+		source : [["AL","DC-POA"]],
+		type : "weapon (arrow)",
+		magicItemTable : "B",
+		description : "These 6 arrows have pure white tips made from the tooth of an ancient white dragon. You have a +1 bonus to atk & damage rolls made with these arrows. Once an arrow hits a target, it's no longer magical.",
+		descriptionFull : "The arrow tips are pure white made from the tooth of an ancient white dragon.\n   You have a +1 bonus to attack and damage rolls made with this magic ammunition. Once it hits a target, the ammunition is no longer magical.",
+		allowDuplicates : true,
+		chooseGear : {
+			type : "ammo",
+			prefixOrSuffix : "brackets",
+			itemName1stPage  : ["suffix", "Bone Arrows +1"],
+			excludeCheck : function (inObjKey, inObj) {
+				return !(/arrow/i).test(inObj.name);
+				},
+			}
+		},
+	"unbreakable arrow: shadowneedle (ccc-druid-1/ccc-tri-26 rose1-1)" : {
+		name : "Shadowneedle (Unbreakable Arrow)",
+		source : [["AL","S10"]],
+		type : "weapon (arrow)",
+		rarity : "common",
+		magicItemTable : "?",
+		description : "One of 20 unbreakable arrows crafted w/ Shadowsong the oathbow. A gentle hum fills your mind when you nock this arrow on the bow & aim at a target, steadying your hand & steeling your focus. When fired from Shadowsong, you may say the words, “Needles, return to your thread” to make this arrow (& any other in its set) reappear in your quiver. It can only be broken in an Antimagic Field.",
+		descriptionFull : "One of twenty unbreakable arrows crafted with Shadowsong the oathbow, when this arrow is nocked onto the oathbow and leveled at an opponent, a gentle hum fills the wielder’s mind, steadying their hand and steeling their focus (this feature bears no mechanical effect). When fired from Shadowsong, the wielder may say the words, “Needles, return to your thread” to make this arrow (and any other in its set loosed from the wielder’s hand) reappear in the wielder’s quiver. This arrow can't be broken, except when it is within an Antimagic Field.",
+		weight : 0.05
 	},
-	"welcomer's gloves (ccc-fad-1)" : {
-		name : "Welcomer's Gloves (Gloves of Thievery)",
+	"unbreakable arrow (ccc-dwb-acm-1)" : {
+		name : "Unbreakable Arrow (CCC-DWB-ACM-1)",
 		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "F",
-		description : "These soft, black leather gloves have a small W embroidered in silver thread on their back & are invisible while worn. The fabric at the fingertips is very thin, granting you more sensitivity for delicate work. While wearing the gloves, you gain a +5 bonus to DEX (Sleight of Hand) checks & DEX checks made to pick locks.",
-		descriptionFull : "These soft, black leather gloves have a small W embroidered in silver thread on their back and are invisible while worn. The fabric at the fingertips is very thin, granting the wearer more sensitivity for more delicate work. While wearing them, you gain a +5 bonus to Dexterity (Sleight of Hand) checks and Dexterity checks made to pick locks.",
-		addMod : [{ type: "skill", field : "Sleight of Hand", mod : 5, text : "I gain a +5 bonus to Dexterity (Sleight of Hand) checks while wearing Gloves of Thievery." }]
+		type : "weapon (arrow)",
+		rarity : "common",
+		magicItemTable : "?",
+		description : "This arrow is made of expertly carved ice that never melts. This arrow can only be broken in an Antimagic Field.",
+		descriptionFull : "This arrow is made of expertly carved ice that never seems to melt no matter what. It can't be broken, except when it is within an Antimagic Field.",
+		weight : 0.05
+	},
+	"unbreakable arrow (ddal10-0)" : {
+		name : "Unbreakable Arrow (DDAL10-0)",
+		source : [["AL","S10"]],
+		type : "weapon (arrow)",
+		rarity : "common",
+		magicItemTable : "?",
+		description : "Gifted to you by Shaktal of the Reghed Wolf Tribe, this arrow proves to Wolf Tribe members loyal to Aluka that the bearer is a friend and ally. It can only be broken in an Antimagic Field.",
+		descriptionFull : "Gifted to you by Shaktal of the Reghed Wolf Tribe, this arrow proves to Wolf Tribe members loyal to Aluka that the bearer is a friend and ally. This arrow can't be broken, except when it is within an Antimagic Field.",
+		weight : 0.05
+	},
+	"walloping arrow (ccc-druids-3)" : {
+		name : "Walloping Arrow (CCC-DRUIDS-3)",
+		source : [["AL","CCC"]],
+		type : "weapon (arrow)",
+		rarity : "common",
+		magicItemTable : "?",
+		description : "This arrow has a broad, blunt point shaped like a mailed fist, a prize for service faithful to the Order of the Gauntlet. It packs a wallop. A creature hit by this arrow must succeed on a DC 10 Strength saving throw or be knocked prone.",
+		descriptionFull : "This arrow has a broad, blunt point shaped like a mailed fist, a prize for service faithful to the Order of the Gauntlet.\n   This ammunition packs a wallop. A creature hit by the ammunition must succeed on a DC 10 Strength saving throw or be knocked prone.",
+		allowDuplicates : true,
+	},
+	"walloping arrow (dc-poa-gsp2-4h)" : {
+		name : "Walloping Arrow (DC-POA-GSP2-4H)",
+		source : [["AL","DC-POA"]],
+		type : "weapon (arrow)",
+		rarity : "common",
+		magicItemTable : "?",
+		description : "The green shaft of this arrow is filled with tiny eyes that blink at random intervals. It packs a wallop. A creature hit by this arrow must succeed on a DC 10 Strength saving throw or be knocked prone.",
+		descriptionFull : "The green shaft of the arrow is filled with tiny eyes that blinks at random time intervals.\n   This ammunition packs a wallop. A creature hit by the ammunition must succeed on a DC 10 Strength saving throw or be knocked prone.",
+		allowDuplicates : true,
+	},
+	"walloping bullet: the witchstone (ccc-cic-15)" : {
+		name : "The Witchstone, Walloping Bullet (CCC-CIC-15)",
+		source : [["AL","CCC"]],
+		type : "weapon (sling bullet)",
+		rarity : "common",
+		magicItemTable : "?",
+		description : "This large stone is covered in Celestial runes marking fey & undead creatures as its enemies. It packs a wallop. A creature hit by this sling bullet must succeed on a DC 10 Strength saving throw or be knocked prone.",
+		descriptionFull : "This large stone is covered in Celestial runes marking fey and undead creatures as its enemies.\n   This ammunition packs a wallop. A creature hit by the ammunition must succeed on a DC 10 Strength saving throw or be knocked prone.",
+		allowDuplicates : true,
+	},
+	"walloping bullet: idris chardalyn bullet (dc-poa-tdg1-7)" : {
+		name : "Idris Chardalyn Bullet (Walloping Bullet)",
+		source : [["AL","DC-POA"]],
+		type : "weapon (bullet)",
+		rarity : "common",
+		magicItemTable : "?",
+		description : "The bullet is pure black charadlyn & etched with the word - ‘HULK SMASH.’ It packs a wallop. A creature hit by this bullet must succeed on a DC 10 Strength saving throw or be knocked prone.",
+		descriptionFull : "The bullet is pure black charadlyn and etched into the bullet is the word - ‘HULK SMASH.’\n   This ammunition packs a wallop. A creature hit by the ammunition must succeed on a DC 10 Strength saving throw or be knocked prone.",
+		allowDuplicates : true,
 	},
 }
 
@@ -472,14 +817,103 @@ MagicItemsList["al books"] = {
 		name : "AL Books",
 		type : "wondrous item",
 		allowDuplicates : true,
-	choices : ["Arcane Grimoire +1 (DC-POA-CONMAR-19)","Enduring Spellbook (CCC-BMG-MOON6-1)","Enduring Spellbook (CCC-PRIORY-3)","Goodmunn's Book (DC-POA-MDV01)","Manual of Bodily Health (CCC-QCC-1)","Manual of Gainful Exercise (CCC-TRI-24 STORM1-3)","Quaryl's Codex (DDAL0-2F)","Tome of Leadership and Influence (CCC-ROZK1-2)","Tome of Leadership and Influence (CCC-TRI-15 YUL1-4)","Tome of Understanding (CCC-BMG-14 PHLAN1-2)","Tome of Understanding (DDAL5-19)"],
+	choices : ["Arcane Grimoire +1 (DC-POA-CONMAR-19)","Arcane Grimoire +1 (DC-POA-GaryXIII-5)","Arcane Grimoire +1 (DC-POA-SH1)","Arcane Grimoire +1: The Archivist's Grimoire (DC-POA-TDG1-10)","Arcane Grimoire +1 (DC-POA-Z-T2S1)","Enduring Spellbook (CCC-BMG-MOON6-1)","Enduring Spellbook (CCC-PRIORY-3)","Enduring Spellbook: Goodmunn's Book (DC-POA-MDV1)","Manual of Bodily Health (CCC-QCC-1)","Manual of Gainful Exercise (CCC-TRI-24 STORM1-3)","Tome of Leadership and Influence (CCC-ROZK1-2)","Tome of Leadership and Influence (CCC-TRI-15 YUL1-4)","Tome of the Stilled Tongue (CCC-GHC-BK3-9)","Tome of the Stilled Tongue: Quaryl's Codex (DDAL0-2F)","Tome of Understanding (CCC-BMG-14 PHLAN1-2)","Tome of Understanding (DDAL5-19)"],
 	"arcane grimoire +1 (dc-poa-conmar-19)" : {
 		name : "Arcane Grimoire +1 (DC-POA-CONMAR-19)",
 		source : [["AL","DC-POA"]],
         rarity : "uncommon",
-        magicItemTable : "F",
+        magicItemTable : "?",
+		weight : 3, // as spellbook
         description : "This spellbook is moss green with golden decor. When opened, a gust of frigid air is released. While holding the book, you gain a +1 bonus to the spell attack rolls & saving throw DCs of your wizard spells. When you use Arcane Recovery, you can increase the number of spell slot levels regained by 1.",
 		descriptionFull : "This book is mossgreen with golden decor. When opened, a gust of frigid air is released from the book.\n   While you are holding this leather-bound book, you can use it as a spellcasting focus for your wizard spells, and you gain a bonus to spell attack rolls and the saving throw DCs of your wizard spells. The bonus is determined by the book's rarity.\n  You can use this book as a spellbook. In addition, when you use your Arcane Recovery feature, you can increase the number of spell slot levels you regain by 1.",
+		attunement : true,
+		prerequisite : "Requires attunement by a wizard",
+		prereqeval : function(v) {
+        return v.isSpellcaster && classes.known.wizard ? true : false;
+			},
+        calcChanges : {
+            spellCalc : [
+                function (type, spellcasters, ability) {
+					if (type != "prepare" && ((/wizard/).test(spellcasters)|ability == 4)) return 1;
+				},
+				"I gain a +1 bonus to spell attack rolls and to the saving throw DCs of my spells."
+            ]
+        }
+	},
+	"arcane grimoire +1 (dc-poa-garyxiii-5)" : {
+		name : "Arcane Grimoire +1 (DC-POA-GaryXIII-5)",
+		source : [["AL","DC-POA"]],
+        rarity : "uncommon",
+        magicItemTable : "?",
+		weight : 3, // as spellbook
+        description : "This grimoire contains the trapped spirits of 12 imps. When you scribe a spell into the book, prepare your spells, or cast a ritual spell using the book, the imps sing along in slightly-off-pitch angelic voices. The exterior is bound in thin, compounded layers of pyrite. While holding the book, you gain a +1 bonus to the spell atk rolls & saving throw DCs of your wizard spells. When you use Arcane Recovery, you can increase the number of spell slot levels regained by 1.",
+		descriptionFull : "This grimoire contains the trapped spirits of a dozen imps. Whenever you write a spell into the book, prepare your spells for the day, or cast a ritual spell using the book, the imps sing along in slightly-off-pitch angelic voices. The exterior of the grimoire is bound in thin, compounded layers of pyrite.\n   While you are holding this leather-bound book, you can use it as a spellcasting focus for your wizard spells, and you gain a bonus to spell attack rolls and the saving throw DCs of your wizard spells. The bonus is determined by the book's rarity.\n  You can use this book as a spellbook. In addition, when you use your Arcane Recovery feature, you can increase the number of spell slot levels you regain by 1.",
+		attunement : true,
+		prerequisite : "Requires attunement by a wizard",
+		prereqeval : function(v) {
+        return v.isSpellcaster && classes.known.wizard ? true : false;
+			},
+        calcChanges : {
+            spellCalc : [
+                function (type, spellcasters, ability) {
+					if (type != "prepare" && ((/wizard/).test(spellcasters)|ability == 4)) return 1;
+				},
+				"I gain a +1 bonus to spell attack rolls and to the saving throw DCs of my spells."
+            ]
+        }
+	},
+	"arcane grimoire +1 (dc-poa-sh1)" : {
+		name : "Arcane Grimoire +1 (DC-POA-SH1)",
+		source : [["AL","DC-POA"]],
+        rarity : "uncommon",
+        magicItemTable : "?",
+		weight : 3, // as spellbook
+        description : "This spellbook is bound in red dragonborn hide & the new leather smell never goes away, no matter how old it gets. The book doesn't get dirty, & the pages & cover don’t tear or crease. While holding the book, you gain a +1 bonus to the spell atk rolls & saving throw DCs of your wizard spells. When you use Arcane Recovery, you can increase the number of spell slot levels regained by 1.",
+		descriptionFull : "This spellbook is bound in red dragonborn hide. The new leather smell never goes away, no matter how old it gets. It never seems to get dirty, and the pages and cover don’t tear or crease.\n   While you are holding this leather-bound book, you can use it as a spellcasting focus for your wizard spells, and you gain a bonus to spell attack rolls and the saving throw DCs of your wizard spells. The bonus is determined by the book's rarity.\n  You can use this book as a spellbook. In addition, when you use your Arcane Recovery feature, you can increase the number of spell slot levels you regain by 1.",
+		attunement : true,
+		prerequisite : "Requires attunement by a wizard",
+		prereqeval : function(v) {
+        return v.isSpellcaster && classes.known.wizard ? true : false;
+			},
+        calcChanges : {
+            spellCalc : [
+                function (type, spellcasters, ability) {
+					if (type != "prepare" && ((/wizard/).test(spellcasters)|ability == 4)) return 1;
+				},
+				"I gain a +1 bonus to spell attack rolls and to the saving throw DCs of my spells."
+            ]
+        }
+	},
+	"arcane grimoire +1: the archivist's grimoire (dc-poa-tdg1-10)" : {
+		name : "The Archivist's Grimoire (Arcane Grimoire +1)",
+		source : [["AL","DC-POA"]],
+        rarity : "uncommon",
+        magicItemTable : "?",
+		weight : 3, // as spellbook
+        description : "A blue & silver grimoire with filigree patterns of the moons & stars. While holding this book, you gain a +1 bonus to the spell attack rolls & saving throw DCs of your wizard spells. When you use Arcane Recovery, you can increase the number of spell slot levels regained by 1.",
+		descriptionFull : "A blue and silver grimoire with filigree patterns of the moons and stars.\n   While you are holding this leather-bound book, you can use it as a spellcasting focus for your wizard spells, and you gain a bonus to spell attack rolls and the saving throw DCs of your wizard spells. The bonus is determined by the book's rarity.\n  You can use this book as a spellbook. In addition, when you use your Arcane Recovery feature, you can increase the number of spell slot levels you regain by 1.",
+		attunement : true,
+		prerequisite : "Requires attunement by a wizard",
+		prereqeval : function(v) {
+        return v.isSpellcaster && classes.known.wizard ? true : false;
+			},
+        calcChanges : {
+            spellCalc : [
+                function (type, spellcasters, ability) {
+					if (type != "prepare" && ((/wizard/).test(spellcasters)|ability == 4)) return 1;
+				},
+				"I gain a +1 bonus to spell attack rolls and to the saving throw DCs of my spells."
+            ]
+        }
+	},
+	"arcane grimoire +1 (dc-poa-z-t2s1)" : {
+		name : "Arcane Grimoire +1 (DC-POA-Z-T2S1)",
+		source : [["AL","DC-POA"]],
+        rarity : "uncommon",
+        magicItemTable : "?",
+		weight : 3, // as spellbook
+        description : "The beautifully made book cover is carefully engraved in a language you don't recognize, possibly from another planet. The inside cover has an autograph of Ignooz Snoozenews with a note “For my friend Omar”. While holding the book, you gain a +1 bonus to the spell attack rolls & saving throw DCs of your wizard spells. When you use Arcane Recovery, you can increase the number of spell slot levels regained by 1.",
+		descriptionFull : "The beautifully made book cover is carefully engraved in a language you don't recognize, possibly from another planet. The inside cover has an autograph of Ignooz Snoozenews with a note “For my friend Omar”.\n   While you are holding this leather-bound book, you can use it as a spellcasting focus for your wizard spells, and you gain a bonus to spell attack rolls and the saving throw DCs of your wizard spells. The bonus is determined by the book's rarity.\n  You can use this book as a spellbook. In addition, when you use your Arcane Recovery feature, you can increase the number of spell slot levels you regain by 1.",
 		attunement : true,
 		prerequisite : "Requires attunement by a wizard",
 		prereqeval : function(v) {
@@ -512,7 +946,7 @@ MagicItemsList["al books"] = {
 		descriptionFull : "This tome is black-leather bound with the image of an ashen clock burned into the cover. Every page is available for use. The hands of the clock show a different time whenever seen. The spellbook, along with anything written on its pages, can't be damaged by fire or immersion in water. In addition, the spellbook doesn't deteriorate with age.",
 		weight : 5
 	},
-	"goodmunn's book (dc-poa-mdv01)" : {
+	"enduring spellbook: goodmunn's book (dc-poa-mdv1)" : {
 		name : "Goodmunn's Book (Enduring Spellbook)",
 		source : [["AL","DC-POA"]],
 		rarity : "common",
@@ -529,7 +963,7 @@ MagicItemsList["al books"] = {
 		description : "This leather-bound tome smells of rich mahogany & contains health, fitness, & diet tips, & an impressive collection of recipes. The name “Montague” has been written on the inside front cover, likely indicating a previous owner, & its words are charged w/ magic. If you spend 48 hrs w/i 6 days studying the book & practicing its guidelines, your CON score & max go up by 2. The manual then loses its magic for 100 yrs.",
 		descriptionFull : "This leather-bound tome smells of rich mahogany and contains health, fitness, and diet tips, as well as an impressive collection of varied recipes for every occasion. The name “Montague” has been written on the inside front cover, possibly indicating a previous owner. Its words are charged with magic. If you spend 48 hours over a period of 6 days or fewer studying the book's contents and practicing its guidelines, your Constitution score increases by 2, as does your maximum for that score. The manual then loses its magic, but regains it in a century.",
 		weight : 5,
-		applyStatBonus : function(itemName, statName) {
+		applyStatBonus : function(itemName, statName, statBonus) {
 			// a function for all the manuals/tomes
 			if (!IsNotReset) return;
 			initiateCurrentStats();
@@ -539,7 +973,7 @@ MagicItemsList["al books"] = {
 				nIcon : 2,
 				nType : 2,
 				nTitle : "Apply " + itemName + "?",
-				cMsg : "Do you want to apply the +2 bonus to the " + statName + " score and maximum from the " + itemName + " permanently? This increase will stay even after you remove this magic item, but will not be applied if you select 'No', even if you keep the magic item selected.\n\n" + (alreadyAppliedBefore ? "It seems you have applied this item before. If you click 'No', you will be prompted to remove all ability score increases from " + itemName : "If you want to remove this ability score increase at a later time, just add the item again and you will be prompted to remove the ability score increase then.")
+				cMsg : "Do you want to apply the +" + statBonus + " bonus to the " + statName + " score and maximum from the " + itemName + " permanently? This increase will stay even after you remove this magic item.\nIf you select 'No' below, this increase will not be applied, even if you keep the magic item selected.\n\n" + (alreadyAppliedBefore ? "It seems you have applied this item before. If you click 'No', you will be prompted to remove all ability score increases from " + itemName : "If you want to remove this ability score increase at a later time, just add the item again and you will be prompted to remove the ability score increase then.")
 			});
 			if (applyChange == 3) {
 				if (alreadyAppliedBefore) {
@@ -555,7 +989,7 @@ MagicItemsList["al books"] = {
 				}
 			}
 			var baseAdd = [0,0,0,0,0,0];
-			baseAdd[statIndx] = 2;
+			baseAdd[statIndx] = statBonus;
 			if (alreadyAppliedBefore) {
 				baseAdd = [].concat(CurrentStats.maximumsLinked[itemName]);
 				// remove the old version
@@ -565,15 +999,15 @@ MagicItemsList["al books"] = {
 					processStats(false, "magic", itemName, baseAdd, false, "maximums");
 					return;
 				}
-				baseAdd[statIndx] += 2;
+				baseAdd[statIndx] += statBonus;
 			}
 			processStats(true, "magic", itemName, baseAdd, false, false, true);
 			var maxAdd = [0,0,0,0,0,0];
-			maxAdd[statIndx] = 20 + baseAdd[statIndx];
+			maxAdd[statIndx] = "+" + baseAdd[statIndx];
 			processStats(true, "magic", itemName, maxAdd, false, "maximums");
 		},
 		eval : function() {
-			MagicItemsList["manual of bodily health"].applyStatBonus("Manual of Bodily Health", "Constitution");
+			MagicItemsList["manual of bodily health"].applyStatBonus("Manual of Bodily Health", "Constitution", 2);
 		}
 	},
 	"manual of gainful exercise (ccc-tri-24 storm1-3)" : {
@@ -585,10 +1019,53 @@ MagicItemsList["al books"] = {
 		descriptionFull : "This leather-bound book is emblazoned with a crimson red chess piece, the knight. The inside describes hundreds of training regiments for warfare and self-defense, ingraining some of them into your mind and muscles as the magic is used.\n   This book describes fitness exercises, and its words are charged with magic. If you spend 48 hours over a period of 6 days or fewer studying the book's contents and practicing its guidelines, your Strength score increases by 2, as does your maximum for that score. The manual then loses its magic, but regains it in a century.",
 		weight : 5,
 		eval : function() {
-			MagicItemsList["manual of bodily health"].applyStatBonus("Manual of Gainful Exercise", "Strength");
+			MagicItemsList["manual of bodily health"].applyStatBonus("Manual of Gainful Exercise", "Strength", 2);
 		}
 	},
-	"quaryl's codex (ddal0-2f)" : {
+	"tome of leadership and influence (ccc-rozk1-2)" : {
+		name : "Tome of Leadership and Influence (CCC-ROZK1-2)",
+		source : [["AL","CCC"]],
+		type : "wondrous item",
+		rarity : "very rare",
+		magicItemTable : "H",
+		description : "The red leather that covers this tome is embossed with a smiling man with a 3rd eye. The book contains guidelines for influencing & charming others & its words are charged with magic. If you spend 48 hrs within 6 days studying its contents & practicing its guidelines, your CHA score & max increase by 2. The tome then loses its magic for 100 yrs.",
+		descriptionFull : "The red leather that covers this tome is embossed with a smiling man with a third eye.\n   This book contains guidelines for influencing and charming others, and its words are charged with magic. If you spend 48 hours over a period of 6 days or fewer studying the book's contents and practicing its guidelines, your Charisma score increases by 2, as does your maximum for that score. The manual then loses its magic, but regains it in a century.",
+		weight : 5,
+		eval : function() {
+			MagicItemsList["manual of bodily health"].applyStatBonus("Tome of Leadership and Influence", "Charisma", 2);
+		}
+	},
+	"tome of leadership and influence (ccc-tri-15 yul1-4)" : {
+		name : "Tome of Leadership and Influence (CCC-TRI-15 YUL1-4)",
+		source : [["AL","CCC"]],
+		type : "wondrous item",
+		rarity : "very rare",
+		magicItemTable : "H",
+		description : "This purple leather tome has 4 mind flayer tentacles embedded in the cover. When you read it, you hear someone else’s voice reading in your head. The book contains guidelines for influencing & charming others & is charged w/ magic. If you spend 48 hrs w/i 6 days studying it & practicing its guidelines, your CHA score & max increase by 2. The tome then loses its magic for 100 yrs.",
+		descriptionFull : "This purple leather tome has 4 mind flayer tentacles embedded in the cover. When you read the book you hear someone else’s voice reading it to you in your head.\n   This book contains guidelines for influencing and charming others, and its words are charged with magic. If you spend 48 hours over a period of 6 days or fewer studying the book's contents and practicing its guidelines, your Charisma score increases by 2, as does your maximum for that score. The manual then loses its magic, but regains it in a century.",
+		weight : 5,
+		eval : function() {
+			MagicItemsList["manual of bodily health"].applyStatBonus("Tome of Leadership and Influence", "Charisma", 2);
+		}
+	},
+	"tome of the stilled tongue (ccc-ghc-bk3-9)" : {
+		name : "Tome of the Stilled Tongue (CCC-GHC-BK3-9)",
+		source : [["AL","CCC"]],
+		rarity : "legendary",
+		magicItemTable : "I",
+		description : "This thick tome is held shut by a severed tongue & belonged to Szass Tam, leader of the Red Wizards of Thay. He watches anyone using this tome & writes cryptic messages within that appear at midnight & fade away once read. You can use this tome as a spellbook & arcane focus. Once/dawn while holding it, you can cast a spell you've written in it as a bonus action, w/o using a spell slot, verbal or somatic components. Removing the tongue on the cover erases all spells inside.",
+		descriptionLong : "This thick tome is held shut by a severed tongue & belonged to Szass Tam, leader of the Red Wizards of Thay. He watches anyone using this tome and writes cryptic messages inside. These messages appear at midnight and fade away after they're read. The first few pages are filled with indecipherable scrawls. The remaining pages are blank and pristine. You can use this tome as a spellbook and arcane focus. Once per dawn while holding it, you can use a bonus action to cast a spell written in the tome, without expending a spell slot or using any verbal or somatic components. While attuned to the book, you can remove the tongue from the book's cover, permanently erasing all spells within.",
+		descriptionFull : "This specific tome belongs to Szass Tam, leader of the Red Wizards of Thay. He watches anyone using this tome and can also write cryptic messages in the book. These messages appear at midnight and fade away after they are read.\n   Five of these tomes exist, and it's unknown which one is the original. The grisly cover decoration on the first tome of the stilled tongue once belonged to a treacherous former servant of the lich-god Vecna, keeper of secrets. The tongues pinned to the covers of the four copies came from other spellcasters who crossed Vecna. The first few pages of each tome are filled with indecipherable scrawls. The remaining pages are blank and pristine.\n   If you can attune to this item, you can use it as a spellbook and an arcane focus. In addition, while holding the tome, you can use a bonus action to cast a spell you have written in this tome, without expending a spell slot or using any verbal or somatic components. Once used, this property of the tome can't be used again until the next dawn.\n   While attuned to the book, you can remove the tongue from the book's cover. If you do so, all spells written in the book are permanently erased.\n   Vecna watches anyone using this tome. He can also write cryptic messages in the book. These messages appear at midnight and fade away after they are read.",
+		attunement : true,
+		weight : 5,
+		prerequisite : "Requires attunement by a wizard",
+		prereqeval : function(v) { return classes.known.wizard ? true : false; },
+		limfeaname : "Tome of the Stilled Tongue",
+		action : [["bonus action", ""]],
+		usages : 1,
+		recovery : "dawn"
+		},
+	"tome of the stilled tongue: quaryl's codex (ddal0-2f)" : {
 		name : "Quaryl's Codex (Tome of the Stilled Tongue)",
 		source : [["AL","S0"]],
 		rarity : "legendary",
@@ -605,32 +1082,6 @@ MagicItemsList["al books"] = {
 		usages : 1,
 		recovery : "dawn"
 		},
-	"tome of leadership and influence (ccc-rozk1-2)" : {
-		name : "Tome of Leadership and Influence (CCC-ROZK1-2)",
-		source : [["AL","CCC"]],
-		type : "wondrous item",
-		rarity : "very rare",
-		magicItemTable : "H",
-		description : "The red leather that covers this tome is embossed with a smiling man with a 3rd eye. The book contains guidelines for influencing & charming others & its words are charged with magic. If you spend 48 hrs within 6 days studying its contents & practicing its guidelines, your CHA score & max increase by 2. The tome then loses its magic for 100 yrs.",
-		descriptionFull : "The red leather that covers this tome is embossed with a smiling man with a third eye.\n   This book contains guidelines for influencing and charming others, and its words are charged with magic. If you spend 48 hours over a period of 6 days or fewer studying the book's contents and practicing its guidelines, your Charisma score increases by 2, as does your maximum for that score. The manual then loses its magic, but regains it in a century.",
-		weight : 5,
-		eval : function() {
-			MagicItemsList["manual of bodily health"].applyStatBonus("Tome of Leadership and Influence", "Charisma");
-		}
-	},
-	"tome of leadership and influence (ccc-tri-15 yul1-4)" : {
-		name : "Tome of Leadership and Influence (CCC-TRI-15 YUL1-4)",
-		source : [["AL","CCC"]],
-		type : "wondrous item",
-		rarity : "very rare",
-		magicItemTable : "H",
-		description : "This purple leather tome has 4 mind flayer tentacles embedded in the cover. When you read it, you hear someone else’s voice reading in your head. The book contains guidelines for influencing & charming others & is charged w/ magic. If you spend 48 hrs w/i 6 days studying it & practicing its guidelines, your CHA score & max increase by 2. The tome then loses its magic for 100 yrs.",
-		descriptionFull : "This purple leather tome has 4 mind flayer tentacles embedded in the cover. When you read the book you hear someone else’s voice reading it to you in your head.\n   This book contains guidelines for influencing and charming others, and its words are charged with magic. If you spend 48 hours over a period of 6 days or fewer studying the book's contents and practicing its guidelines, your Charisma score increases by 2, as does your maximum for that score. The manual then loses its magic, but regains it in a century.",
-		weight : 5,
-		eval : function() {
-			MagicItemsList["manual of bodily health"].applyStatBonus("Tome of Leadership and Influence", "Charisma");
-		}
-	},
 	"tome of understanding (ccc-bmg-14 phlan1-2)" : {
 		name : "Tome of Understanding (CCC-BMG-14 PHLAN1-2)",
 		source : [["AL","CCC"]],
@@ -641,7 +1092,7 @@ MagicItemsList["al books"] = {
 		weight : 5,
 		action : [["action", "Tome of Understanding (Sense/Cure Chaos Phage)"]],
 		eval : function() {
-			MagicItemsList["manual of bodily health"].applyStatBonus("Tome of Understanding", "Wisdom");
+			MagicItemsList["manual of bodily health"].applyStatBonus("Tome of Understanding", "Wisdom", 2);
 		}
 	},
 	"tome of understanding (ddal5-19)" : {
@@ -653,7 +1104,7 @@ MagicItemsList["al books"] = {
 		descriptionFull : "The cover of this iron-bound book is scribed with many swirling tentacles. A character carrying the book is always aware of eyes from a distant realm following them. This book contains intuition and insight exercises, and its words are charged with magic. If you spend 48 hours over a period of 6 days or fewer studying the book's contents and practicing its guidelines, your Wisdom score increases by 2, as does your maximum for that score. The manual then loses its magic, but regains it in a century.",
 		weight : 5,
 		eval : function() {
-			MagicItemsList["manual of bodily health"].applyStatBonus("Tome of Understanding", "Wisdom");
+			MagicItemsList["manual of bodily health"].applyStatBonus("Tome of Understanding", "Wisdom", 2);
 		}
 	},
 }
@@ -662,21 +1113,7 @@ MagicItemsList["al containers"] = {
 		name : "AL Containers",
 		type : "wondrous item",
 		allowDuplicates : true,
-	choices : ["The Adventures of Cherise and Antonia, Tan Bag of Tricks (CCC-ZIEGE-4-2)","Alchemy Jug (DDEX3-8)","Bag of Devouring (CCC-FC3-1-3)","Bag of Devouring (CCC-TRI-22 STORM1-1)","Bag of Holding (CCC-GARY-5)","Bag of Holding (CCC-GLIP-1-2)","Bag of Holding (CCC-WWC-3)","Bag of Tricks, Rust (CCC-SQC-3-3)","Bag of Tricks, Rust (DDEP8-1)","Bag of Tricks, Tan (CCC-MAG1-2)","Bowl of Commanding Water Elementals (CCC-YLRA1-2)","Bowl of Commanding Water Elementals (DDAL9-7)","Brazier of Commanding Fire Elementals (CCC-SALT2-2)","Brazier of Commanding Fire Elementals (CCC-WYC-1-1)","Chest of Preserving (DC-POA-CONMAR-16)","Decanter of Endless Water (CCC-ALMOG-20 DAGON1-4)","Decanter of Endless Water (CCC-DES-4)","Decanter of Endless Water (CCC-DWB-TLA-1)","Decanter of Endless Water (CCC-MMT1-5)","Decanter of Endless Water (CCC-TTS-3)","Malik's Decanter (RMH-3)","Eversmoking Bottle (DDEP7-1)","Geyser Figurine, Decanter of Endless Water (CCC-CIC-9)","Hag's Breath, Eversmoking Bottle (CCC-GSP-FEAR1-1)","Heward's Handy Haversack (CCC-AN-3)","Heward's Handy Haversack (CCC-GOC1-2)","Heward's Handy Haversack (CCC-SKULL1-1)","Heward's Handy Haversack (DDAL9-9)","Heward's Handy Spice Pouch (CCC-SEA-1-2)","The Joys of Underdark Cooking (CCC-ALMOG-20 DAGON1-4)","Mix #5, Eversmoking Bottle (DC-POA-LEGIT-SV-1)","Mother Pqwirli’s Pod Pouch (CCC-ELO-2)","Portable Hole (CCC-BMG-28 HILL2-1)","Portable Hole (CCC-BMG-34 ELMW2-1)","Portable Hole (CCC-COS-1)","Portable Hole (CCC-ODFC2-2)","Portable Hole (CCC-TRI-7 NIGHT1-3)","Portable Hole (DDAL10-9)","Quiver of Ehlonna (CCC-HATMS1-1)","Quiver of Ehlonna (CCC-SALT1-3)","Quiver of Ehlonna (CCC-TRI-12 OLMA1-2)","Tankard of Sobriety (CCC-3MAGS-ONE)","Tankard of Sobriety (CCC-ELF-2)","Tankard of Sobriety (CCC-ODFC3-3)","Tankard of Sobriety (CCC-PRIORY-1)"],
-	"the adventures of cherise and antonia, tan bag of tricks (ccc-ziege-4-2)" : {
-		name: "The Adventures of Cherise and Antonia (Tan Bag of Tricks)",
-		source : [["AL","CCC"]],
-		rarity: "uncommon",
-		magicItemTable : "F",
-		description: "This book contains short stories & pictures written by a young child. It shows the pair on a thousand different adventures. As an action, 3 times/dawn, you can tear a picture from the book & throw it 20 ft. It transforms into a random creature when it lands (d8): 1-jackal, 2-ape, 3-baboon, 4-axe beak, 5-black bear, 6-giant weasel, 7-giant hyena, 8-tiger. It follows your commands, acts on your turn, & vanishes at dawn/if reduced to 0 HP.",
-		descriptionLong: "This book contains short stories and pictures drawn by a young child, showing the pair on a 1000 different adventures. As an action, you can tear a picture from the book and throw it 20 ft. It transforms into a creature when it lands, determined randomly (d8): 1-jackal, 2-ape, 3-baboon, 4-axe beak, 5-black bear, 6-giant weasel, 7-giant hyena, 8-tiger. The creature is friendly, acts on your turn, and vanishes at the next dawn or when it is reduced to 0 HP. As a bonus action, you can command it how to move and what action to take on its next turn, or give it general orders (e.g. attack your enemies). Without orders, it acts as it normally would. Once 3 pages have been torn from the book, it can't be used again until the next dawn when the pages reappear.",
-		descriptionFull: "This book contains short stories and pictures written by a young child. It shows the pair on a thousand different adventures. The book weighs \u00BD pound.\n   You can use an action to tear a picture from the book and throw it up to 20 feet. When the page lands, it transforms into a creature you determine by rolling a d8 and consulting the table. The creature vanishes at the next dawn or when it is reduced to 0 hit points.\n   The creature is friendly to you and your companions, and it acts on your turn. You can use a bonus action to command how the creature moves and what action it takes on its next turn, or to give it general orders, such as to attack your enemies. In the absence of such orders, the creature acts in a fashion appropriate to its nature.\n   Once three pages have been torn from the book, the book can't be used again until the next dawn, when the pages magically return to the book.\n\n" + toUni("d8\tCreature") + "\n 1\tJackal\n 2\tApe\n 3\tBaboon\n 4\tAxe beak\n 5\tBlack bear\n 6\tGiant weasel\n 7\tGiant hyena\n 8\tTiger",
-		weight: 0.5,
-		action : [["action", " (pull)"], ["bonus action", " (command)"]],
-		limfeaname : "Tan Bag of Tricks",
-		usages : 3,
-		recovery : "dawn",
-		},
+	choices : ["Alchemy Jug (DDEX3-8)","Bag of Devouring (CCC-FC3-1-3)","Bag of Devouring (CCC-TRI-22 STORM1-1)","Bag of Holding: Mother Pqwirli’s Pod Pouch (CCC-ELO-2)","Bag of Holding (CCC-GARY-5)","Bag of Holding (CCC-GLIP-1-2)","Bag of Holding (CCC-WWC-3)","Bag of Holding (WBW-DC-FDC-4)","Bag of Tricks, Gray (DC-POA-Z-T1S1)","Bag of Tricks, Rust (CCC-SQC-3-3)","Bag of Tricks, Rust (DDEP8-1)","Bag of Tricks, Tan (CCC-MAG1-2)","Bag of Tricks, Tan: The Adventures of Cherise and Antonia (CCC-ZIEGE-4-2)","Bowl of Commanding Water Elementals (CCC-YLRA1-2)","Bowl of Commanding Water Elementals (DDAL9-7)","Brazier of Commanding Fire Elementals (CCC-SALT2-2)","Brazier of Commanding Fire Elementals (CCC-WYC-1-1)","Chest of Preserving (DC-POA-CONMAR-16)","Chest of Preserving: Ryboslav's Chest (DC-POA-TDG1-9)","Decanter of Endless Water (CCC-ALMOG-20 DAGON1-4)","Decanter of Endless Water (CCC-ARCON1-3)","Decanter of Endless Water: Geyser Figurine (CCC-CIC-9)","Decanter of Endless Water (CCC-DES-4)","Decanter of Endless Water (CCC-DWB-TLA-1)","Decanter of Endless Water (CCC-MMT1-5)","Decanter of Endless Water (CCC-RPSG-5)","Decanter of Endless Water (CCC-SDREAM1-1)","Decanter of Endless Water (CCC-TTS-3)","Decanter of Endless Water: Malik's Decanter (RMH-3/RMH-4)","Eversmoking Bottle: Hag's Breath (CCC-GSP-FEAR1-1)","Eversmoking Bottle (DDEP7-1)","Heward's Handy Haversack (CCC-AN-3)","Heward's Handy Haversack (CCC-GOC1-2)","Heward's Handy Haversack (CCC-SKULL1-1)","Heward's Handy Haversack (DDAL9-9)","Heward's Handy Spice Pouch: Underdark Cooking (CCC-ALMOG-20 DAGON1-4)","Heward's Handy Spice Pouch (CCC-SEA-1-2)","Mix #5, Eversmoking Bottle (DC-POA-LEGIT-SV-1)","Portable Hole (CCC-BMG-28 HILL2-1)","Portable Hole (CCC-BMG-34 ELMW2-1)","Portable Hole (CCC-COS-1)","Portable Hole (CCC-ODFC2-2)","Portable Hole (CCC-TRI-7 NIGHT1-3)","Portable Hole (DDAL10-9)","Quiver of Ehlonna (CCC-HATMS1-1)","Quiver of Ehlonna (CCC-SALT1-3)","Quiver of Ehlonna (CCC-TRI-12 OLMA1-2)","Tankard of Sobriety (CCC-3MAGS-ONE)","Tankard of Sobriety (CCC-ELF-2)","Tankard of Sobriety (CCC-ODFC3-3)","Tankard of Sobriety (CCC-PRIORY-1)"],
 	"alchemy jug (ddex3-8)" : {
 		name : "Alchemy Jug (DDEX3-8)",
 		source : [["AL","S3"]],
@@ -707,12 +1144,23 @@ MagicItemsList["al containers"] = {
 		descriptionFull : "The bag is covered in giant runes and bears the smiling face of a stone giant. The bag seems to vibrate when it is within 120 ft of its favorite organic material: Dragon.\n   This bag superficially resembles a bag of holding but is a feeding orifice for a gigantic extradimensional creature. Turning the bag inside out closes the orifice.\n   The extradimensional creature attached to the bag can sense whatever is placed inside the bag. Animal or vegetable matter placed wholly in the bag is devoured and lost forever. When part of a living creature is placed in the bag, as happens when someone reaches inside it, there is a 50% chance that the creature is pulled inside the bag. A creature inside the bag can use its action to try to escape with a successful DC 15 Strength check. Another creature can use its action to reach into the bag to pull a creature out, doing so with a successful DC 20 Strength check (provided it isn't pulled inside the bag first). Any creature that starts its turn inside the bag is devoured, its body destroyed.\n   Inanimate objects can be stored in the bag, which can hold a cubic foot of such material. However, once each day, the bag swallows any objects inside it and spits them out into another plane of existence. The DM determines the time and plane.\n   If the bag is pierced or torn, it is destroyed, and anything contained within it is transported to a random location on the Astral Plane.",
 		weight : 0.5
 	},
+	"bag of holding: mother pqwirli’s pod pouch (ccc-elo-2)" : {
+		name : "Mother Pqwirli’s Pod Pouch (Bag of Holding)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : ["A", "B"],
+		description : "The small bloated mauve organism has tiny tentacles that sprout from its body & wrap around your shoulder. Squeezing the surface of the pod releases a translucent slime over its surface before it opens, revealing a throat-like interior. This bag is 2 ft in diameter, 4 ft deep, & 15 lb. It holds 500 lbs & a volume of 64 cu ft. Action to retrieve item. If overloaded, pierced, or torn, it's destroyed & its contents go to the Astral plane. If turned inside out, contents spill forth.",
+		descriptionLong : "The small bloated mauve organism has tiny tentacles that sprout from its body & wrap around your shoulder. Squeezing the surface of the pod releases a translucent slime over its surface before it opens, revealing a throat-like interior. This bag is 2 ft in diameter at the mouth, 4 ft deep, & 15 lb regardless of contents. It can hold up to 500 lb, not exceeding a volume of 64 cu ft. Retrieving an item requires an action. If overloaded, pierced, or torn, it's destroyed, leaving its contents in the Astral plane. If turned inside out, all its contents spill forth unharmed. Creatures inside the bag can breath for 10 min divided by the # of creatures (minimum 1 min), after which they suffocate. Placing the bag in another extradimensional space destroys both & opens a gate to the Astral Plane.",
+		descriptionFull : "The small, mauve-hued, bloated organism has tiny tentacles that sprout from around its body and wrap around the owner’s shoulder. Squeezing the knotty surface of the pod causes the organism to gestate a translucent slime over its surface before opening, revealing a throat-like pinkish interior.\n   This bag has an interior space considerably larger than its outside dimensions, roughly 2 feet in diameter at the mouth and 4 feet deep. The bag can hold up to 500 pounds, not exceeding a volume of 64 cubic feet. The bag weighs 15 pounds, regardless of its contents. Retrieving an item from the bag requires an action.\n   If the bag is overloaded, pierced, or torn, it ruptures and is destroyed, and its contents are scattered in the Astral Plane. If the bag is turned inside out, its contents spill forth, unharmed, but the bag must be put right before it can be used again. Breathing creatures inside the bag can survive up to a number of minutes equal to 10 divided by the number of creatures (minimum 1 minute), after which time they begin to suffocate.\n   Placing a bag of holding inside an extradimensional space created by a Heward's handy haversack, portable hole, or similar item instantly destroys both items and opens a gate to the Astral Plane. The gate originates where the one item was placed inside the other. Any creature within 10 feet of the gate is sucked through it to a random location on the Astral Plane. The gate then closes. The gate is one-way only and can't be reopened.",
+		weight : 15,
+		action : [["action", "Bag of Holding)"]]
+	},
 	"bag of holding (ccc-gary-5)" : {
 		name : "Bag of Holding (CCC-GARY-5)",
 		source : [["AL","CCC"]],
 		rarity : "uncommon",
 		magicItemTable : ["A", "B"],
-		description : "This plain burlap sack is embroidered with the rune for infinity at its base. It's 2 ft in diameter, 4 ft deep, & 15 lb regardless of contents. It holds 500 lbs, & no more than a volume of 64 cu ft. Action to retrieve item. If overloaded, pierced, or torn, it's destroyed & its contents go to the Astral plane. If turned inside out, contents spill forth.",
+		description : "This plain burlap sack is embroidered with the rune for infinity at its base. It's 2 ft in diameter, 4 ft deep, & 15 lb regardless of contents. It holds up to 500 lbs & 64 cu ft in volume. Action to retrieve item. If overloaded, pierced, or torn, it's destroyed & its contents go to the Astral plane. If turned inside out, contents spill forth.",
 		descriptionLong : "This plain burlap sack is embroidered with the rune for infinity at its base. The bag is 2 ft in diameter at the mouth, 4 ft deep, & 15 lb regardless of contents. It can hold up to 500 lb, not exceeding a volume of 64 cu ft. Retrieving an item requires an action. If overloaded, pierced, or torn, it's destroyed, leaving its contents in the Astral plane. If turned inside out, all its contents spill forth unharmed. Creatures inside the bag can breath for 10 min divided by the # of creatures (minimum 1 min), after which they suffocate. Placing the bag in another extradimensional space destroys both & opens a gate to the Astral Plane.",
 		descriptionFull : "This plain burlap sack is embroidered with the rune for infinity at its base.\n   The bag has an interior space considerably larger than its outside dimensions, roughly 2 feet in diameter at the mouth and 4 feet deep. The bag can hold up to 500 pounds, not exceeding a volume of 64 cubic feet. The bag weighs 15 pounds, regardless of its contents. Retrieving an item from the bag requires an action.\n   If the bag is overloaded, pierced, or torn, it ruptures and is destroyed, and its contents are scattered in the Astral Plane. If the bag is turned inside out, its contents spill forth, unharmed, but the bag must be put right before it can be used again. Breathing creatures inside the bag can survive up to a number of minutes equal to 10 divided by the number of creatures (minimum 1 minute), after which time they begin to suffocate.\n   Placing a bag of holding inside an extradimensional space created by a Heward's handy haversack, portable hole, or similar item instantly destroys both items and opens a gate to the Astral Plane. The gate originates where the one item was placed inside the other. Any creature within 10 feet of the gate is sucked through it to a random location on the Astral Plane. The gate then closes. The gate is one-way only and can't be reopened.",
 		weight : 15,
@@ -723,7 +1171,7 @@ MagicItemsList["al containers"] = {
 		source : [["AL","CCC"]],
 		rarity : "uncommon",
 		magicItemTable : ["A", "B"],
-		description : "This burlap sack is unremarkable in every way until its properties are revealed. It's 2 ft in diameter, 4 ft deep, & 15 lb regardless of contents. It holds 500 lbs, & no more than a volume of 64 cu ft. Action to retrieve item. If overloaded, pierced, or torn, it's destroyed & its contents go to the Astral plane. If turned inside out, contents spill forth.",
+		description : "This burlap sack is unremarkable in every way until its properties are revealed. It's 2 ft in diameter, 4 ft deep, & 15 lb regardless of contents. It holds up to 500 lbs & 64 cu ft in volume. Action to retrieve item. If overloaded, pierced, or torn, it's destroyed & its contents go to the Astral plane. If turned inside out, contents spill forth.",
 		descriptionLong : "This burlap sack is unremarkable in every way until its properties are revealed. The bag is 2 ft in diameter at the mouth, 4 ft deep, & 15 lb regardless of contents. It can hold up to 500 lb, not exceeding a volume of 64 cu ft. Retrieving an item requires an action. If overloaded, pierced, or torn, it's destroyed, leaving its contents in the Astral plane. If turned inside out, all its contents spill forth unharmed. Creatures inside the bag can breath for 10 min divided by the # of creatures (minimum 1 min), after which they suffocate. Placing the bag in another extradimensional space destroys both & opens a gate to the Astral Plane.",
 		descriptionFull : "This burlap sack is in every regard unremarkable until its properties are revealed.\n   The bag has an interior space considerably larger than its outside dimensions, roughly 2 feet in diameter at the mouth and 4 feet deep. The bag can hold up to 500 pounds, not exceeding a volume of 64 cubic feet. The bag weighs 15 pounds, regardless of its contents. Retrieving an item from the bag requires an action.\n   If the bag is overloaded, pierced, or torn, it ruptures and is destroyed, and its contents are scattered in the Astral Plane. If the bag is turned inside out, its contents spill forth, unharmed, but the bag must be put right before it can be used again. Breathing creatures inside the bag can survive up to a number of minutes equal to 10 divided by the number of creatures (minimum 1 minute), after which time they begin to suffocate.\n   Placing a bag of holding inside an extradimensional space created by a Heward's handy haversack, portable hole, or similar item instantly destroys both items and opens a gate to the Astral Plane. The gate originates where the one item was placed inside the other. Any creature within 10 feet of the gate is sucked through it to a random location on the Astral Plane. The gate then closes. The gate is one-way only and can't be reopened.",
 		weight : 15,
@@ -734,12 +1182,37 @@ MagicItemsList["al containers"] = {
 		source : [["AL","CCC"]],
 		rarity : "uncommon",
 		magicItemTable : ["A", "B"],
-		description : "This worn bag is made from unusual black leather. Its drawstrings are woven from long strands of white hair. It's 2 ft in diameter, 4 ft deep, & 15 lb regardless of contents. It holds 500 lbs, & no more than a volume of 64 cu ft. Action to retrieve item. If overloaded, pierced, or torn, it's destroyed & its contents go to the Astral plane. If turned inside out, contents spill forth.",
+		description : "This worn bag is made from unusual black leather. Its drawstrings are woven from long strands of white hair. It's 2 ft in diameter, 4 ft deep, & 15 lb regardless of contents. It holds up to 500 lbs & 64 cu ft in volume. Action to retrieve item. If overloaded, pierced, or torn, it's destroyed & its contents go to the Astral plane. If turned inside out, contents spill forth.",
 		descriptionLong : "This worn bag is made from unusual black leather. Its drawstrings are woven from long strands of white hair. The bag is 2 ft in diameter at the mouth, 4 ft deep, & 15 lb regardless of contents. It can hold up to 500 lb, not exceeding a volume of 64 cu ft. Retrieving an item requires an action. If overloaded, pierced, or torn, it's destroyed, leaving its contents in the Astral plane. If turned inside out, all its contents spill forth unharmed. Creatures inside the bag can breath for 10 min divided by the # of creatures (minimum 1 min), after which they suffocate. Placing the bag in another extradimensional space destroys both & opens a gate to the Astral Plane.",
 		descriptionFull : "This worn bag is made from unusual black leather. Its drawstrings seem to be woven from many long strands of white hair.\n   The bag has an interior space considerably larger than its outside dimensions, roughly 2 feet in diameter at the mouth and 4 feet deep. The bag can hold up to 500 pounds, not exceeding a volume of 64 cubic feet. The bag weighs 15 pounds, regardless of its contents. Retrieving an item from the bag requires an action.\n   If the bag is overloaded, pierced, or torn, it ruptures and is destroyed, and its contents are scattered in the Astral Plane. If the bag is turned inside out, its contents spill forth, unharmed, but the bag must be put right before it can be used again. Breathing creatures inside the bag can survive up to a number of minutes equal to 10 divided by the number of creatures (minimum 1 minute), after which time they begin to suffocate.\n   Placing a bag of holding inside an extradimensional space created by a Heward's handy haversack, portable hole, or similar item instantly destroys both items and opens a gate to the Astral Plane. The gate originates where the one item was placed inside the other. Any creature within 10 feet of the gate is sucked through it to a random location on the Astral Plane. The gate then closes. The gate is one-way only and can't be reopened.",
 		weight : 15,
 		action : [["action", "Bag of Holding (retrieve item)"]]
 	},
+	"bag of holding (wbw-dc-fdc-4)" : {
+		name : "Bag of Holding (WBW-DC-FDC-4)",
+		source : [["AL","WBW-DC"]],
+		rarity : "uncommon",
+		magicItemTable : ["A", "B"],
+		description : "This soft brown leather bag has “Wonderia” in Sylvan embroidered in red letters on the side. It holds a recipe for hot yellow cereal. When you contemplate or do a malevolent act, you remember Wonderia & feel pangs of conscience. The bag is 2 ft in diameter, 4 ft deep, & 15 lb regardless of contents. It holds up to 500 lbs & 64 cu ft in volume. Action to retrieve item. If overloaded, pierced, or torn, it's destroyed & its contents go to the Astral plane. If turned inside out, contents spill forth.",
+		descriptionLong : "This soft brown leather bag has “Wonderia” in Sylvan embroidered in red letters on the side. Inside the bag is a rolled-up recipe for hot yellow cereal. When you contemplate or do a malevolent act, you remember Wonderia & feel pangs of conscience. The bag is 2 ft in diameter at the mouth, 4 ft deep, & 15 lb regardless of contents. It holds up to 500 lbs & 64 cu ft in volume. Retrieving an item requires an action. If overloaded, pierced, or torn, it's destroyed, leaving its contents in the Astral plane. If turned inside out, all its contents spill forth unharmed. Creatures inside the bag can breath for 10 min divided by the # of creatures (minimum 1 min), after which they suffocate. Placing the bag in another extradimensional space destroys both & opens a gate to the Astral Plane.",
+		descriptionFull : "This specific bag of holding is made of a soft brown leather with red letters embroidered on the side that spells, “Wonderia” in Sylvan. Inside the bag of holding is a rolled-up recipe for yellow hot cereal. When the bearer of this item contemplates or undertakes a malevolent act, they remember Wonderia and the bag of holding enhances pangs of conscience.\n   The bag has an interior space considerably larger than its outside dimensions, roughly 2 feet in diameter at the mouth and 4 feet deep. The bag can hold up to 500 pounds, not exceeding a volume of 64 cubic feet. The bag weighs 15 pounds, regardless of its contents. Retrieving an item from the bag requires an action.\n   If the bag is overloaded, pierced, or torn, it ruptures and is destroyed, and its contents are scattered in the Astral Plane. If the bag is turned inside out, its contents spill forth, unharmed, but the bag must be put right before it can be used again. Breathing creatures inside the bag can survive up to a number of minutes equal to 10 divided by the number of creatures (minimum 1 minute), after which time they begin to suffocate.\n   Placing a bag of holding inside an extradimensional space created by a Heward's handy haversack, portable hole, or similar item instantly destroys both items and opens a gate to the Astral Plane. The gate originates where the one item was placed inside the other. Any creature within 10 feet of the gate is sucked through it to a random location on the Astral Plane. The gate then closes. The gate is one-way only and can't be reopened.",
+		weight : 15,
+		action : [["action", "Bag of Holding (retrieve item)"]]
+	},
+	"bag of tricks, gray (dc-poa-z-t1s1)" : {
+		name: "Bag of Tricks, Gray (DC-POA-Z-T1S1)",
+		source : [["AL","DC-POA"]],
+		rarity: "uncommon",
+		magicItemTable : "F",
+		description: "This bag is made of seal hide, with a simple opening. Charms attached to the drawstrings resemble animals of Icewind Dale: mountain goat, fox, crag cat, hare, owl, wolf & yeti. On the bottom inside of the bag are the initials I.S. As an action, 3 times/dawn, you can pull an object from this bag & throw it 20 ft. It transforms into a random creature when it lands (d8): 1-weasel, 2-giant rat, 3-badger, 4-boar, 5-panther, 6-giant badger, 7-dire wolf, 8-giant elk. It follows your commands, acts on your turn, & vanishes at dawn/if reduced to 0 HP.",
+		descriptionLong: "This bag is made of seal hide, with a simple opening. It has charms attached to the drawstrings that resemble animals of Icewind Dale. There's mountain goat, fox, crag cat, hare, owl, wolf and yeti charms. On the bottom inside of the bag are the initials I.S. As an action, you can pull a fuzzy object from this bag and throw it 20 ft. It transforms into a creature when it lands, determined randomly (d8): 1-weasel, 2-giant rat, 3-badger, 4-boar, 5-panther, 6-giant badger, 7-dire wolf, 8-giant elk. The creature is friendly, acts on your turn, and vanishes at the next dawn or when it is reduced to 0 HP. As a bonus action, you can command it how to move and what action to take on its next turn, or give it general orders (e.g. attack your enemies). Without orders, it acts as it normally would. Once three fuzzy objects have been pulled from the bag, it can't be used again until the next dawn.",
+		descriptionFull: "This grey Bag of Tricks seems to be made of seal hide, with a simple top opening. It has several charms attached to it resembling animals of the Icewind Dale region. There is a mountain goat, fox, crag cat, hare, owl, wolf and yeti charms attached to the drawstring of the bag. On the inside of the bag at the bottom are the initials I.S.\n   Reaching inside the bag reveals the presence of a small, fuzzy object. The bag weighs \u00BD pound. You can use an action to pull the fuzzy object from the bag and throw it up to 20 feet. When the object lands, it transforms into a creature you determine by rolling a d8 and consulting the table. The creature vanishes at the next dawn or when it is reduced to 0 hit points.\n   The creature is friendly to you and your companions, and it acts on your turn. You can use a bonus action to command how the creature moves and what action it takes on its next turn, or to give it general orders, such as to attack your enemies. In the absence of such orders, the creature acts in a fashion appropriate to its nature.\n   Once three fuzzy objects have been pulled from the bag, the bag can't be used again until the next dawn.\n\n" + toUni("d8\tCreature") + "\n 1\tWeasel\n 2\tGiant rat\n 3\tBadger\n 4\tBoar\n 5\tPanther\n 6\tGiant badger\n 7\tDire wolf\n 8\tGiant elk",
+		weight: 0.5,
+		action : [["action", " (pull)"], ["bonus action", " (command)"]],
+		limfeaname : "Gray Bag of Tricks",
+		usages : 3,
+		recovery : "dawn",
+		},
 	"bag of tricks, rust (ccc-sqc-3-3)" : {
 		name: "Bag of Tricks, Rust (CCC-SQC-3-3)",
 		source : [["AL","CCC"]],
@@ -776,6 +1249,20 @@ MagicItemsList["al containers"] = {
 		description: "This fine tan bag is decorated w/ images of animals that change each time it's looked at. It glows in moonlight, shedding dim light in a 5-ft radius. When the bag is opened, you hear gently rustling leaves & a sonorous elven hymn. As an action, 3 times/dawn, you can pull an object from this bag & throw it 20 ft. It transforms into a random creature when it lands (d8): 1-jackal, 2-ape, 3-baboon, 4-axe beak, 5-black bear, 6-giant weasel, 7-giant hyena, 8-tiger. It follows your commands, acts on your turn, & vanishes at dawn/if reduced to 0 HP.",
 		descriptionLong: "This finely crafted tan bag is decorated with images of animals that randomly change each time it's looked at. It glows in the moonlight, shedding dim light in a 5-ft radius. When the bag is opened, you hear the sound of gently rustling leaves & a sonorous elven hymn. As an action, you can pull a fuzzy object from this bag and throw it 20 ft. It transforms into a creature when it lands, determined randomly (d8): 1-jackal, 2-ape, 3-baboon, 4-axe beak, 5-black bear, 6-giant weasel, 7-giant hyena, 8-tiger. The creature is friendly, acts on your turn, and vanishes at the next dawn or when it is reduced to 0 HP. As a bonus action, you can command it how to move and what action to take on its next turn, or give it general orders (e.g. attack your enemies). Without orders, it acts as it normally would. Once three fuzzy objects have been pulled from the bag, it can't be used again until the next dawn.",
 		descriptionFull: "This finely crafted tan bag is decorated with images of animals that randomly change each time it is looked at and produces a pale glow in the moonlight, shedding dim light in a 5-foot radius. Whenever the bag is opened, the sound of gently rustling leaves can be heard accompanied by a sonorous elven hymn. The bag appears empty. Reaching inside the bag, however, reveals the presence of a small, fuzzy object. The bag weighs \u00BD pound.\n   You can use an action to pull the fuzzy object from the bag and throw it up to 20 feet. When the object lands, it transforms into a creature you determine by rolling a d8 and consulting the table. The creature vanishes at the next dawn or when it is reduced to 0 hit points.\n   The creature is friendly to you and your companions, and it acts on your turn. You can use a bonus action to command how the creature moves and what action it takes on its next turn, or to give it general orders, such as to attack your enemies. In the absence of such orders, the creature acts in a fashion appropriate to its nature.\n   Once three fuzzy objects have been pulled from the bag, the bag can't be used again until the next dawn.\n\n" + toUni("d8\tCreature") + "\n 1\tJackal\n 2\tApe\n 3\tBaboon\n 4\tAxe beak\n 5\tBlack bear\n 6\tGiant weasel\n 7\tGiant hyena\n 8\tTiger",
+		weight: 0.5,
+		action : [["action", " (pull)"], ["bonus action", " (command)"]],
+		limfeaname : "Tan Bag of Tricks",
+		usages : 3,
+		recovery : "dawn",
+		},
+	"bag of tricks, tan: the adventures of cherise and antonia (ccc-ziege-4-2)" : {
+		name: "The Adventures of Cherise and Antonia (Tan Bag of Tricks)",
+		source : [["AL","CCC"]],
+		rarity: "uncommon",
+		magicItemTable : "F",
+		description: "This book contains short stories & pictures written by a young child. It shows the pair on a thousand different adventures. As an action, 3 times/dawn, you can tear a picture from the book & throw it 20 ft. It transforms into a random creature when it lands (d8): 1-jackal, 2-ape, 3-baboon, 4-axe beak, 5-black bear, 6-giant weasel, 7-giant hyena, 8-tiger. It follows your commands, acts on your turn, & vanishes at dawn/if reduced to 0 HP.",
+		descriptionLong: "This book contains short stories and pictures drawn by a young child, showing the pair on a 1000 different adventures. As an action, you can tear a picture from the book and throw it 20 ft. It transforms into a creature when it lands, determined randomly (d8): 1-jackal, 2-ape, 3-baboon, 4-axe beak, 5-black bear, 6-giant weasel, 7-giant hyena, 8-tiger. The creature is friendly, acts on your turn, and vanishes at the next dawn or when it is reduced to 0 HP. As a bonus action, you can command it how to move and what action to take on its next turn, or give it general orders (e.g. attack your enemies). Without orders, it acts as it normally would. Once 3 pages have been torn from the book, it can't be used again until the next dawn when the pages reappear.",
+		descriptionFull: "This book contains short stories and pictures written by a young child. It shows the pair on a thousand different adventures. The book weighs \u00BD pound.\n   You can use an action to tear a picture from the book and throw it up to 20 feet. When the page lands, it transforms into a creature you determine by rolling a d8 and consulting the table. The creature vanishes at the next dawn or when it is reduced to 0 hit points.\n   The creature is friendly to you and your companions, and it acts on your turn. You can use a bonus action to command how the creature moves and what action it takes on its next turn, or to give it general orders, such as to attack your enemies. In the absence of such orders, the creature acts in a fashion appropriate to its nature.\n   Once three pages have been torn from the book, the book can't be used again until the next dawn, when the pages magically return to the book.\n\n" + toUni("d8\tCreature") + "\n 1\tJackal\n 2\tApe\n 3\tBaboon\n 4\tAxe beak\n 5\tBlack bear\n 6\tGiant weasel\n 7\tGiant hyena\n 8\tTiger",
 		weight: 0.5,
 		action : [["action", " (pull)"], ["bonus action", " (command)"]],
 		limfeaname : "Tan Bag of Tricks",
@@ -897,11 +1384,19 @@ MagicItemsList["al containers"] = {
 	"chest of preserving (dc-poa-conmar-16)" : {
 		name : "Chest of Preserving (DC-POA-CONMAR-16)",
 		source : [["AL","DC-POA"]],
-		type : "wondrous item",
 		rarity : "common",
 		magicItemTable : "?",
-		description : "This chest strangely smells of cabbages; food & other perishable items don't age or decay while inside it. The chest is 2.5 ft long, 1.5 ft wide, & 1 ft tall with a half-barrel lid. It has a lock, which can be picked with a successful DC 15 Dexterity (Thieves' Tools) check. Smashing the lock or any part of the chest renders it nonmagical.",
+		description : "This chest strangely smells of cabbages; food & other perishable items don't age or decay while inside it. The chest is 2.5 ft long, 1.5 ft wide, & 1 ft tall with a half-barrel lid. It has a lock, which can be picked with a DC 15 Dexterity (Thieves' Tools) check. Smashing the lock or any part of the chest renders it nonmagical.",
 		descriptionFull : "This chest strangely smells of cabbages.\n   Food and other perishable items do not age or decay while inside a Chest of Preserving. The chest is 2\xBD feet long, 1\xBD feet wide, and 1 foot tall with a half-barrel lid. The chest has a lock, which can be picked with thieves' tools and a successful DC 15 Dexterity check. Smashing the lock or any other part of the chest renders it nonmagical. ",
+		weight : 25
+	},
+	"chest of preserving: ryboslav's chest (dc-poa-tdg1-9)" : {
+		name : "Chest of Ryboslav (Chest of Preserving)",
+		source : [["AL","DC-POA"]],
+		rarity : "common",
+		magicItemTable : "?",
+		description : "This chest is made from a mix of precious metals & chardalyn with intricately designed with goldfish patterns. Food & other perishable items don't age or decay while inside it. The chest is 2.5 ft long, 1.5 ft wide, & 1 ft tall with a half-barrel lid. It has a lock, which can be picked with a DC 15 Dexterity (Thieves' Tools) check. Smashing the lock or any part of the chest renders it nonmagical.",
+		descriptionFull : "The metallic chest is made from a mixture of precious metals and chardalyn and is intricately designed with goldfish patterns.\n   Food and other perishable items do not age or decay while inside a Chest of Preserving. The chest is 2\xBD feet long, 1\xBD feet wide, and 1 foot tall with a half-barrel lid. The chest has a lock, which can be picked with thieves' tools and a successful DC 15 Dexterity check. Smashing the lock or any other part of the chest renders it nonmagical. ",
 		weight : 25
 	},
 	"decanter of endless water (ccc-almog-20 dagon1-4)" : {
@@ -912,6 +1407,26 @@ MagicItemsList["al containers"] = {
 		description : "It's impossible to see inside this jet black flask. When removing the stopper, you feel a pang of dread, as if more than water is being released. As an action, open it \u0026 speak a command word, pouring out fresh/salt water until next turn starts. “Stream” for 1 gal. “Fountain” for 5 gal. “Geyser” for 30 gal in 30 ft \xD7 1 ft geyser. As a bonus action, aim geyser at visible target, which makes a DC 13 Str save or takes 1d4 bludgeoning & falls prone. If object, knock over or push 15 ft.",
 		descriptionLong : "It's impossible to see inside this jet black flask while stoppered. When the stopper is removed, you feel a sudden pang of dread, as if more than water is being released into the world. As an action, you can remove the stopper & speak a command word, pouring out fresh or salt water (choose) until your next turn starts. “Stream” produces 1 gallon. “Fountain” produces 5 gallons. “Geyser” produces 30 gallons of water that gushes forth in a geyser 30 ft long by 1 ft wide. As a bonus action while holding it, you can aim the geyser at a visible creature w/i 30 ft. The target must pass a DC 13 Str save or take 1d4 bludgeoning dmg & fall prone. If you target an unattended object weighing up to 200 lb, you knock it over or push it up to 15 ft away.",
 		descriptionFull : "It is impossible to see the inside of this jet black flask while it is stoppered. Any time the stopper is removed, the user feels a sudden pang of dread, as if more than water is being released into the world. The flask sloshes when shaken, as if it contains water & weighs 2 pounds.\n   You can use an action to remove the stopper and speak one of three command words, whereupon an amount of fresh water or salt water (your choice) pours out of the flask. The water stops pouring out at the start of your next turn. Choose from the following options:\n \u2022 \"Stream\" produces 1 gallon of water.\n \u2022 \"Fountain\" produces 5 gallons of water.\n \u2022 \"Geyser\" produces 30 gallons of water that gushes forth in a geyser 30 feet long and 1 foot wide. As a bonus action while holding the decanter, you can aim the geyser at a creature you can see within 30 feet of you. The target must succeed on a DC 13 Strength saving throw or take 1d4 bludgeoning damage and fall prone. Instead of a creature, you can target an object that isn't being worn or carried and that weighs no more than 200 pounds. The object is either knocked over or pushed up to 15 feet away from you.",
+		weight : 2
+	},
+	"decanter of endless water (ccc-arcon1-3)" : {
+		name : "Decanter of Endless Water (CCC-ARCON1-3)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "C",
+		description : "Around the edge of this decanter are framed pictures of female humans & the words 'A Circle of Life Treats Everyone Alike'. As an action, open it \u0026 speak a command word, pouring out fresh/salt water until next turn starts. “Stream” for 1 gal. “Fountain” for 5 gal. “Geyser” for 30 gal in 30 ft \xD7 1 ft geyser. As a bonus action, aim geyser at visible target, which makes a DC 13 Str save or takes 1d4 bludgeoning & falls prone. If object, knock over or push 15 ft.",
+		descriptionLong : "Around the edge of this decanter are framed pictures of female humans and the words 'A Circle of Life Treats Everyone Alike'. As an action, you can remove the stopper & speak a command word, pouring out fresh or salt water (choose) until your next turn starts. “Stream” produces 1 gallon. “Fountain” produces 5 gallons. “Geyser” produces 30 gallons of water that gushes forth in a geyser 30 ft long by 1 ft wide. As a bonus action while holding it, you can aim the geyser at a visible creature w/i 30 ft. The target must pass a DC 13 Str save or take 1d4 bludgeoning dmg & fall prone. If you target an unattended object weighing up to 200 lb, you knock it over or push it up to 15 ft away.",
+		descriptionFull : "Around the edge of this decanter are framed pictures of female humans and the words 'A Circle of Life Treats Everyone Alike'. It sloshes when shaken, as if it contains water & weighs 2 pounds.\n   You can use an action to remove the stopper and speak one of three command words, whereupon an amount of fresh water or salt water (your choice) pours out of the decanter. The water stops pouring out at the start of your next turn. Choose from the following options:\n \u2022 \"Stream\" produces 1 gallon of water.\n \u2022 \"Fountain\" produces 5 gallons of water.\n \u2022 \"Geyser\" produces 30 gallons of water that gushes forth in a geyser 30 feet long and 1 foot wide. As a bonus action while holding the decanter, you can aim the geyser at a creature you can see within 30 feet of you. The target must succeed on a DC 13 Strength saving throw or take 1d4 bludgeoning damage and fall prone. Instead of a creature, you can target an object that isn't being worn or carried and that weighs no more than 200 pounds. The object is either knocked over or pushed up to 15 feet away from you.",
+		weight : 2
+	},
+	"decanter of endless water: geyser figurine (ccc-cic-9)" : {
+		name : "Geyser Figurine (Decanter of Endless Water)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "C",
+		description : 'This small 2 lb figurine is carved in the shape of a spouting geyser & sloshes when shaken, as if containing water. As an action, open the item \u0026 speak a command word, pouring out fresh/salt water until next turn starts. "Stream" for 1 gal. "Fountain" for 5 gal. "Geyser" for 30 gal in 30 ft \xD7 1 ft geyser. As a bonus action, aim geyser at visible target, which makes a DC 13 Str save or takes 1d4 bludgeoning dmg & falls prone. If object, knock over or push 15 ft away.',
+		descriptionLong : 'This small 2 lb figurine is intricately carved in the shape of a spouting geyser & sloshes when shaken, as if it contains water. As an action, you can remove the stopper and speak one of three command words, pouring out fresh or salt water (choose) until your next turn starts. "Stream" produces 1 gallon. "Fountain" produces 5 gallons. "Geyser" produces 30 gallons of water that gushes forth in a geyser 30 ft long by 1 ft wide. As a bonus action while holding it, you can aim the geyser at a visible creature w/i 30 ft. The target must succeed on a DC 13 Strength save or take 1d4 bludgeoning dmg & fall prone. If you target an unattended object weighing up to 200 lb, you knock it over or push it up to 15 ft away.',
+		descriptionFull : "This small figurine is intricately carved in the shape of a spouting geyser and sloshes when shaken, as if it contains water. The decanter weighs 2 pounds.\n   You can use an action to remove the stopper and speak one of three command words, whereupon an amount of fresh water or salt water (your choice) pours out of the flask. The water stops pouring out at the start of your next turn. Choose from the following options:\n \u2022 \"Stream\" produces 1 gallon of water.\n \u2022 \"Fountain\" produces 5 gallons of water.\n \u2022 \"Geyser\" produces 30 gallons of water that gushes forth in a geyser 30 feet long and 1 foot wide. As a bonus action while holding the decanter, you can aim the geyser at a creature you can see within 30 feet of you. The target must succeed on a DC 13 Strength saving throw or take 1d4 bludgeoning damage and fall prone. Instead of a creature, you can target an object that isn't being worn or carried and that weighs no more than 200 pounds. The object is either knocked over or pushed up to 15 feet away from you.",
 		weight : 2
 	},
 	"decanter of endless water (ccc-des-4)" : {
@@ -944,6 +1459,26 @@ MagicItemsList["al containers"] = {
 		descriptionFull : "The water from this decanter tastes slightly sweet, as if a spoonful of honey has been mixed with the water. The decanter sloshes when shaken, as if it contains water & weighs 2 pounds.\n   You can use an action to remove the stopper and speak one of three command words, whereupon an amount of fresh water or salt water (your choice) pours out of the flask. The water stops pouring out at the start of your next turn. Choose from the following options:\n \u2022 \"Stream\" produces 1 gallon of water.\n \u2022 \"Fountain\" produces 5 gallons of water.\n \u2022 \"Geyser\" produces 30 gallons of water that gushes forth in a geyser 30 feet long and 1 foot wide. As a bonus action while holding the decanter, you can aim the geyser at a creature you can see within 30 feet of you. The target must succeed on a DC 13 Strength saving throw or take 1d4 bludgeoning damage and fall prone. Instead of a creature, you can target an object that isn't being worn or carried and that weighs no more than 200 pounds. The object is either knocked over or pushed up to 15 feet away from you.",
 		weight : 2
 	},
+	"decanter of endless water (ccc-rpsg-5)" : {
+		name : "Decanter of Endless Water (CCC-RPSG-5)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "C",
+		description : "This flask is shaped like a potion vial, with a large nozzle affixed to the stopper. The crossed axes & elk emblem of the Fireseeker Task Force is stamped on the side. As an action, open it \u0026 speak a command word, pouring out fresh/salt water until next turn starts. “Stream” for 1 gal. “Fountain” for 5 gal. “Geyser” for 30 gal in 30 ft \xD7 1 ft geyser. As a bonus action, aim geyser at visible target, which makes a DC 13 Str save or takes 1d4 bludgeoning & falls prone. If object, knock over or push 15 ft.",
+		descriptionLong : "This flask is shaped like a potion vial, with a large nozzle affixed to the stopper. The crossed axes and elk emblem of the Fireseeker Task Force is stamped on the vial. As an action, you can remove the stopper & speak a command word, pouring out fresh or salt water (choose) until your next turn starts. “Stream” produces 1 gallon. “Fountain” produces 5 gallons. “Geyser” produces 30 gallons of water that gushes forth in a geyser 30 ft long by 1 ft wide. As a bonus action while holding it, you can aim the geyser at a visible creature w/i 30 ft. The target must pass a DC 13 Str save or take 1d4 bludgeoning dmg & fall prone. If you target an unattended object weighing up to 200 lb, you knock it over or push it up to 15 ft away.",
+		descriptionFull : "This flask is shaped like a potion vial, with a large nozzle affixed to the stopper. The crossed axes and elk emblem of the Fireseeker Task Force is stamped on the vial. It sloshes when shaken, as if it contains water & weighs 2 pounds.\n   You can use an action to remove the stopper and speak one of three command words, whereupon an amount of fresh water or salt water (your choice) pours out of the flask. The water stops pouring out at the start of your next turn. Choose from the following options:\n \u2022 \"Stream\" produces 1 gallon of water.\n \u2022 \"Fountain\" produces 5 gallons of water.\n \u2022 \"Geyser\" produces 30 gallons of water that gushes forth in a geyser 30 feet long and 1 foot wide. As a bonus action while holding the decanter, you can aim the geyser at a creature you can see within 30 feet of you. The target must succeed on a DC 13 Strength saving throw or take 1d4 bludgeoning damage and fall prone. Instead of a creature, you can target an object that isn't being worn or carried and that weighs no more than 200 pounds. The object is either knocked over or pushed up to 15 feet away from you.",
+		weight : 2
+	},
+	"decanter of endless water (ccc-sdream1-1)" : {
+		name : "Decanter of Endless Water (CCC-SDREAM1-1)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "C",
+		description : "Water taken from this flask glows softly in the moonlight, casting dim light within 5 ft for a few moments. Imbibers hear mutters of things long forgotten, which is discomforting but sometimes useful. As an action, open the item \u0026 speak a command word, pouring out fresh/salt water until next turn starts. “Stream” for 1 gal. “Fountain” for 5 gal. “Geyser” for 30 gal in 30 ft \xD7 1 ft geyser. As a bonus action, aim geyser at visible target, which makes a DC 13 Str save or takes 1d4 bludgeoning & falls prone. If object, knock over or push 15 ft.",
+		descriptionLong : "Water taken from this flask glows softly in the moonlight, casting dim light within 5 feet for a few moments. In addition, imbibers often hear mutters of things long forgotten. This effect can be useful on rare occasions, but is more likely to be discomforting. As an action, you can remove the stopper & speak a command word, pouring out fresh or salt water (choose) until your next turn starts. “Stream” produces 1 gallon. “Fountain” produces 5 gallons. “Geyser” produces 30 gallons of water that gushes forth in a geyser 30 ft long by 1 ft wide. As a bonus action while holding it, you can aim the geyser at a visible creature w/i 30 ft. The target must pass a DC 13 Str save or take 1d4 bludgeoning dmg & fall prone. If you target an unattended object weighing up to 200 lb, you knock it over or push it up to 15 ft away.",
+		descriptionFull : "This decanter sloshes when shaken, as if it contains water & weighs 2 pounds. Water taken from the flask glows softly in the moonlight, casting dim light within 5 feet. This effect wears off quickly. In addition, while drinking water from this flask, imbibers often hear mutters of things long forgotten. This effect can be useful on rare occasions, but is more likely to be discomforting.\n   You can use an action to remove the stopper and speak one of three command words, whereupon an amount of fresh water or salt water (your choice) pours out of the flask. The water stops pouring out at the start of your next turn. Choose from the following options:\n \u2022 \"Stream\" produces 1 gallon of water.\n \u2022 \"Fountain\" produces 5 gallons of water.\n \u2022 \"Geyser\" produces 30 gallons of water that gushes forth in a geyser 30 feet long and 1 foot wide. As a bonus action while holding the decanter, you can aim the geyser at a creature you can see within 30 feet of you. The target must succeed on a DC 13 Strength saving throw or take 1d4 bludgeoning damage and fall prone. Instead of a creature, you can target an object that isn't being worn or carried and that weighs no more than 200 pounds. The object is either knocked over or pushed up to 15 feet away from you.",
+		weight : 2
+	},
 	"decanter of endless water (ccc-tts-3)" : {
 		name : "Decanter of Endless Water (CCC-TTS-3)",
 		source : [["AL","CCC"]],
@@ -954,15 +1489,25 @@ MagicItemsList["al containers"] = {
 		descriptionFull : "This tube made of ancient mithril is inscribed with images of sea creatures and bears marks of fine elven craftsmanship. It hums with arcane energy and, when held close to water, causes minor ripples along its surface. The tube sloshes when shaken, as if it contains water & weighs 2 pounds.\n   You can use an action to remove the stopper and speak one of three command words, whereupon an amount of fresh water or salt water (your choice) pours out of the flask. The water stops pouring out at the start of your next turn. Choose from the following options:\n \u2022 \"Stream\" produces 1 gallon of water.\n \u2022 \"Fountain\" produces 5 gallons of water.\n \u2022 \"Geyser\" produces 30 gallons of water that gushes forth in a geyser 30 feet long and 1 foot wide. As a bonus action while holding the decanter, you can aim the geyser at a creature you can see within 30 feet of you. The target must succeed on a DC 13 Strength saving throw or take 1d4 bludgeoning damage and fall prone. Instead of a creature, you can target an object that isn't being worn or carried and that weighs no more than 200 pounds. The object is either knocked over or pushed up to 15 feet away from you.",
 		weight : 2
 	},
-	"malik's decanter (rmh-3)" : {
+	"decanter of endless water: malik's decanter (rmh-3/rmh-4)" : {
 		name : "Malik's Decanter (Decanter of Endless Water)",
-		source : ["AL:RMH",3],
+		source : ["AL:RMH","3&4"],
 		rarity : "uncommon",
 		magicItemTable : "C",
 		description : "This red leather flask is stoppered w/ cobalt glass. It costs life to use. As action, open item \u0026 speak command word, pouring out fresh/salt water (25% chance blood) until next turn starts. “Stream” for 1 gal (1 hit die). “Fountain” for 5 gal (3 hit dice). “Geyser” for 30 gal in 30 ft \xD7 1 ft line. As a bonus action, aim geyser at visible target which makes DC 13 Str save or takes 1d4 bludgeoning & falls prone. If object, knock over or push 15 ft (1 lvl exhaustion). “Tsunami” for 20-ft radius sphere 30-ft away. All in area DC 15 Str save or fall prone & take 6d6 bludgeoning (1/2 on save) (DC 13 Con Save or 0 hp, pass = 3 lvls exhaustion).",
 		descriptionLong : "This red leather flask is stoppered with cobalt glass & sloshes when shaken. It bears a curse & costs life force to use. As an action, remove the stopper & speak a command word, pouring out fresh or salt water (25% chance of blood instead) until your next turn starts. “Stream” produces 1 gallon (1 hit die). “Fountain” produces 5 gallons (3 hit dice). “Geyser” produces 30 gallons that gushes forth in a geyser 30-ft long by 1-ft wide. As a bonus action, you can aim the geyser at a visible creature w/i 30-ft. The target makes a DC 13 Str save or takes 1d4 bludgeoning dmg & falls prone. If you target an unattended object less than 201 lb, you knock it over or push it up to 15-ft away (1 lvl exhaustion). “Tsunami” produces 20-ft radius sphere 30-ft away. All in area DC 15 Str save or fall prone & take 6d6 bludgeoning (1/2 on save) (DC 13 Con Save or drop to 0 hp. Gain 3 lvls exhaustion on save).",
 		descriptionFull : "This stoppered flask sloshes when shaken, as if it contains water & weighs 2 pounds.\n   You can use an action to remove the stopper and speak one of three command words, whereupon an amount of fresh water or salt water (your choice) pours out of the flask. The water stops pouring out at the start of your next turn. Choose from the following options:\n \u2022 \"Stream\" produces 1 gallon of water.\n \u2022 \"Fountain\" produces 5 gallons of water.\n \u2022 \"Geyser\" produces 30 gallons of water that gushes forth in a geyser 30 feet long and 1 foot wide. As a bonus action while holding the decanter, you can aim the geyser at a creature you can see within 30 feet of you. The target must succeed on a DC 13 Strength saving throw or take 1d4 bludgeoning damage and fall prone. Instead of a creature, you can target an object that isn't being worn or carried and that weighs no more than 200 pounds. The object is either knocked over or pushed up to 15 feet away from you.\n \u2022 \"Tsunami\" produces 200 gallons of water in a 10-foot diameter bubble. A small bead of water is propelled out of the decanter’s mouth, growing in size until it has traveled 30 feet, at which point it violently bursts in a 20-foot-radius sphere. Each creature in the area must make a DC 15 Strength saving throw, falling prone and taking 21 (6d6) bludgeoning damage on a failed save, or taking half damage on a successful one.\n   This decanter is wrapped in red leather and stoppered with cobalt glass. It also bears a potent curse.\n   " + toUni("Curse") + ". Each time the item is used, the user must sacrifice its life force to fuel the item’s magic. Further, there is a one-in-four chance that instead of fresh or salt water, the decanter instead spews a like volume of sticky blood. The price paid for using the item depends on the manner in which the decanter is used, as follows:\n   " + toUni("Stream:") + ". 1 hit die\n   " + toUni("Fountain:") + ". 3 hit dice\n   " + toUni("Geyser:") + ". The user gains one level of exhaustion\n   " + toUni("Tsunami:") + ". The user must succeed on a DC 13 Constitution saving throw or be reduced to 0 hit points. On a successful saving throw, the user instead gains three levels of exhaustion.",
 		weight : 2
+	},
+	"eversmoking bottle: hag's breath (ccc-gsp-fear1-1)" : {
+		name : "Hag's Breath (Eversmoking Bottle)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "This glass flask is impossible to crack, is filled with yellow gas & labeled “Hag’s Breath”. It was used by the hags of the Bleeding Tree for their mysterious tinctures & vile spells. When you remove the stopper as an action, a cloud of thick heavily-obscuring smoke flows out in a 60-ft radius, increasing by 10 ft/minute while open, until it reaches 120 ft. Any creature in the cloud’s radius sees shadows lurking in the fog. Speak the command word as an action to close. Cloud disperses after 10 min, w/ wind after 1 min, strong wind (1 round).",
+		descriptionFull : "This glass flask is filled with yellow gas and labeled “Hag’s Breath”. The glass is hard and impossible to crack. It was once used by the hags of the Bleeding Tree for their mysterious tinctures and vile spells.\n  Smoke leaks from the lead-stoppered mouth of this brass bottle, which weighs 1 pound. When you use an action to remove the stopper, a cloud of thick smoke pours out in a 60-foot radius from the bottle. The cloud's area is heavily obscured and any creature in the cloud’s radius begins to see the movement of indistinguishable shadows lurking in the fog. Each minute the bottle remains open and within the cloud, the radius increases by 10 feet until it reaches its maximum radius of 120 feet.\n   The cloud persists as long as the bottle is open. Closing the bottle requires you to speak its command word as an action. Once the bottle is closed, the cloud disperses after 10 minutes. A moderate wind (11 to 20 miles per hour) can also disperse the smoke after 1 minute, and a strong wind (21 or more miles per hour) can do so after 1 round.",
+		weight : 1,
+		action : [["action", "Eversmoking Bottle (open/close)"]]
 	},
 	"eversmoking bottle (ddep7-1)" : {
 		name : "Eversmoking Bottle (DDEP7-1)",
@@ -971,26 +1516,6 @@ MagicItemsList["al containers"] = {
 		magicItemTable : "F",
 		description : "This bottle of spun glass is decorated with images of battling dragons & giants trampling the homes & lives of small folk underfoot. When you remove the stopper as an action, a cloud of thick heavily-obscuring smoke flows out of the bottle in a 60-ft radius, increasing by 10 ft/minute while open, until it reaches 120 ft. The smoke smells of burning wood & flesh & is accompanied by the sound of weeping. Speak the command word as an action to close. Cloud disperses after 10 min, w/ wind after 1 min, strong wind (1 round).",
 		descriptionFull : "This bottle of spun glass is decorated with images of battling dragons and giants trampling the homes and lives of small folk underfoot. Smoke leaks from the lead-stoppered mouth of this brass bottle, which weighs 1 pound. When you use an action to remove the stopper, a cloud of thick smoke pours out in a 60-foot radius from the bottle. The smoke smells of burning wood and flesh and is accompanied by the sound of weeping. The cloud's area is heavily obscured. Each minute the bottle remains open and within the cloud, the radius increases by 10 feet until it reaches its maximum radius of 120 feet.\n   The cloud persists as long as the bottle is open. Closing the bottle requires you to speak its command word as an action. Once the bottle is closed, the cloud disperses after 10 minutes. A moderate wind (11 to 20 miles per hour) can also disperse the smoke after 1 minute, and a strong wind (21 or more miles per hour) can do so after 1 round.",
-		weight : 1,
-		action : [["action", "Eversmoking Bottle (open/close)"]]
-	},
-	"geyser figurine, decanter of endless water (ccc-cic-9)" : {
-		name : "Geyser Figurine (Decanter of Endless Water)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "C",
-		description : 'This small 2 lb figurine is carved in the shape of a spouting geyser & sloshes when shaken, as if containing water. As an action, open the item \u0026 speak a command word, pouring out fresh/salt water until next turn starts. "Stream" for 1 gal. "Fountain" for 5 gal. "Geyser" for 30 gal in 30 ft \xD7 1 ft geyser. As a bonus action, aim geyser at visible target, which makes a DC 13 Str save or takes 1d4 bludgeoning dmg & falls prone. If object, knock over or push 15 ft away.',
-		descriptionLong : 'This small 2 lb figurine is intricately carved in the shape of a spouting geyser & sloshes when shaken, as if it contains water. As an action, you can remove the stopper and speak one of three command words, pouring out fresh or salt water (choose) until your next turn starts. "Stream" produces 1 gallon. "Fountain" produces 5 gallons. "Geyser" produces 30 gallons of water that gushes forth in a geyser 30 ft long by 1 ft wide. As a bonus action while holding it, you can aim the geyser at a visible creature w/i 30 ft. The target must succeed on a DC 13 Strength save or take 1d4 bludgeoning dmg & fall prone. If you target an unattended object weighing up to 200 lb, you knock it over or push it up to 15 ft away.',
-		descriptionFull : "This small figurine is intricately carved in the shape of a spouting geyser and sloshes when shaken, as if it contains water. The decanter weighs 2 pounds.\n   You can use an action to remove the stopper and speak one of three command words, whereupon an amount of fresh water or salt water (your choice) pours out of the flask. The water stops pouring out at the start of your next turn. Choose from the following options:\n \u2022 \"Stream\" produces 1 gallon of water.\n \u2022 \"Fountain\" produces 5 gallons of water.\n \u2022 \"Geyser\" produces 30 gallons of water that gushes forth in a geyser 30 feet long and 1 foot wide. As a bonus action while holding the decanter, you can aim the geyser at a creature you can see within 30 feet of you. The target must succeed on a DC 13 Strength saving throw or take 1d4 bludgeoning damage and fall prone. Instead of a creature, you can target an object that isn't being worn or carried and that weighs no more than 200 pounds. The object is either knocked over or pushed up to 15 feet away from you.",
-		weight : 2
-	},
-	"hag's breath, eversmoking bottle (ccc-gsp-fear1-1)" : {
-		name : "Hag's Breath, Eversmoking Bottle (CCC-GSP-FEAR1-1)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "F",
-		description : "This glass flask is impossible to crack, is filled with yellow gas & labeled “Hag’s Breath”. It was used by the hags of the Bleeding Tree for their mysterious tinctures & vile spells. When you remove the stopper as an action, a cloud of thick heavily-obscuring smoke flows out in a 60-ft radius, increasing by 10 ft/minute while open, until it reaches 120 ft. Any creature in the cloud’s radius sees shadows lurking in the fog. Speak the command word as an action to close. Cloud disperses after 10 min, w/ wind after 1 min, strong wind (1 round).",
-		descriptionFull : "This glass flask is filled with yellow gas and labeled “Hag’s Breath”. The glass is hard and impossible to crack. It was once used by the hags of the Bleeding Tree for their mysterious tinctures and vile spells.\n  Smoke leaks from the lead-stoppered mouth of this brass bottle, which weighs 1 pound. When you use an action to remove the stopper, a cloud of thick smoke pours out in a 60-foot radius from the bottle. The cloud's area is heavily obscured and any creature in the cloud’s radius begins to see the movement of indistinguishable shadows lurking in the fog. Each minute the bottle remains open and within the cloud, the radius increases by 10 feet until it reaches its maximum radius of 120 feet.\n   The cloud persists as long as the bottle is open. Closing the bottle requires you to speak its command word as an action. Once the bottle is closed, the cloud disperses after 10 minutes. A moderate wind (11 to 20 miles per hour) can also disperse the smoke after 1 minute, and a strong wind (21 or more miles per hour) can do so after 1 round.",
 		weight : 1,
 		action : [["action", "Eversmoking Bottle (open/close)"]]
 	},
@@ -1038,24 +1563,24 @@ MagicItemsList["al containers"] = {
 		weight : 5,
 		action : [["action", "Handy Haversack (retrieve item)"]]
 	},
-	"heward's handy spice pouch (ccc-sea-1-2)" : {
-		name : "Heward's Handy Spice Pouch (CCC-SEA-1-2)",
+	"heward's handy spice pouch: underdark cooking (ccc-almog-20 dagon1-4)" : {
+		name : "The Joys of Underdark Cooking (Heward's Handy Spice Pouch)",
 		source : ["AL", "CCC"],
 		rarity : "common",
-		description : "This leather pouch is small & always slightly damp. It appears empty & has 10 charges. While holding the pouch, you can use an action to expend 1 charge, speak the name of a nonmagical food seasoning (e.g salt, saffron, or cilantro) & remove a pinch of the named seasoning from the pouch. This is enough to season a single meal. To release the seasoning, you must say “BAM!” as loudly as possible. Otherwise, you're unable to let it go. The pouch regains 1d6+4 charges at dawn.",
-		descriptionFull : "This leather pouch is small and always slightly damp. In order for you to release the pinch of seasoning, you must say “BAM!” as loudly as possible. Otherwise, you are unable to let go of the seasoning.\n   This belt pouch appears empty and has 10 charges. While holding the pouch, you can use an action to expend 1 of its charges, speak the name of any nonmagical food seasoning (such as salt, pepper, saffron, or cilantro), and remove a pinch of the desired seasoning from the pouch. A pinch is enough to season a single meal. The pouch regains 1d6+4 expended charges daily at dawn.",
+		description : "The Joys of Underdark Cooking is a tattered book decorated with bioluminescent blue & purple mushrooms on the cover. A description in Undercommon reads “They can’t all taste the same, can they?” Expend 1 charge & flip the book to an appropriate page; a pinch of seasoning will appear in your hand. 1 pinch will season a single meal. Anyone eating a meal seasoned by this book feels fortunate & optimistic about the future. It has 10 charges & regains 1d6+4 at dawn.",
+		descriptionFull : "The Joys of Underdark Cooking takes the form of a tattered book instead of a belt pouch. The book is decorated with the image of bioluminescent blue and purple mushrooms on the cover. A description in undercommon reads “they can’t all taste the same, can they?” Users expend a charge by flipping the book to an appropriate page, and then the pinch of seasoning appears in a free hand.\n   Anyone eating a meal seasoned by The Joys of Underdark Cooking feels fortunate and optimistic about what the future holds.\n   This belt pouch appears empty and has 10 charges. While holding the pouch, you can use an action to expend 1 of its charges, speak the name of any nonmagical food seasoning (such as salt, pepper, saffron, or cilantro), and remove a pinch of the desired seasoning from the pouch. A pinch is enough to season a single meal. The pouch regains 1d6+4 expended charges daily at dawn.",
 		weight : 1,
 		limfeaname : "Heward's Handy Spice Pouch",
 		usages : 10,
 		recovery : "dawn",
 		additional : "regains 1d6+4"
 	},
-	"the joys of underdark cooking (ccc-almog-20 dagon1-4)" : {
-		name : "The Joys of Underdark Cooking (Heward's Handy Spice Pouch)",
+	"heward's handy spice pouch (ccc-sea-1-2)" : {
+		name : "Heward's Handy Spice Pouch (CCC-SEA-1-2)",
 		source : ["AL", "CCC"],
 		rarity : "common",
-		description : "The Joys of Underdark Cooking is a tattered book decorated with bioluminescent blue & purple mushrooms on the cover. A description in Undercommon reads “They can’t all taste the same, can they?” Expend 1 charge & flip the book to an appropriate page; a pinch of seasoning will appear in your hand. 1 pinch will season a single meal. Anyone eating a meal seasoned by this book feels fortunate & optimistic about the future. It has 10 charges & regains 1d6+4 at dawn.",
-		descriptionFull : "The Joys of Underdark Cooking takes the form of a tattered book instead of a belt pouch. The book is decorated with the image of bioluminescent blue and purple mushrooms on the cover. A description in undercommon reads “they can’t all taste the same, can they?” Users expend a charge by flipping the book to an appropriate page, and then the pinch of seasoning appears in a free hand.\n   Anyone eating a meal seasoned by The Joys of Underdark Cooking feels fortunate and optimistic about what the future holds.\n   This belt pouch appears empty and has 10 charges. While holding the pouch, you can use an action to expend 1 of its charges, speak the name of any nonmagical food seasoning (such as salt, pepper, saffron, or cilantro), and remove a pinch of the desired seasoning from the pouch. A pinch is enough to season a single meal. The pouch regains 1d6+4 expended charges daily at dawn.",
+		description : "This leather pouch is small & always slightly damp. It appears empty & has 10 charges. While holding the pouch, you can use an action to expend 1 charge, speak the name of a nonmagical food seasoning (e.g salt, saffron, or cilantro) & remove a pinch of the named seasoning from the pouch. This is enough to season a single meal. To release the seasoning, you must say “BAM!” as loudly as possible. Otherwise, you're unable to let it go. The pouch regains 1d6+4 charges at dawn.",
+		descriptionFull : "This leather pouch is small and always slightly damp. In order for you to release the pinch of seasoning, you must say “BAM!” as loudly as possible. Otherwise, you are unable to let go of the seasoning.\n   This belt pouch appears empty and has 10 charges. While holding the pouch, you can use an action to expend 1 of its charges, speak the name of any nonmagical food seasoning (such as salt, pepper, saffron, or cilantro), and remove a pinch of the desired seasoning from the pouch. A pinch is enough to season a single meal. The pouch regains 1d6+4 expended charges daily at dawn.",
 		weight : 1,
 		limfeaname : "Heward's Handy Spice Pouch",
 		usages : 10,
@@ -1071,17 +1596,6 @@ MagicItemsList["al containers"] = {
 		descriptionFull : "A decanter filled with infernal firewhiskey, hewn from gaudy iridescent crystal, it weighs one pound and is strangely sturdy. Strange additives inside cause the liquid within to roil aggressively and smoke endlessly. A hastily scrawled note indicates that you shouldn’t drink it.\n   When you use an action to remove the stopper, a cloud of thick smoke pours out in a 60-foot radius from the bottle. The cloud's area is heavily obscured. Each minute the bottle remains open and within the cloud, the radius increases by 10 feet until it reaches its maximum radius of 120 feet.\n   The cloud persists as long as the bottle is open. Closing the bottle requires you to speak its command word as an action. Once the bottle is closed, the cloud disperses after 10 minutes. A moderate wind (11 to 20 miles per hour) can also disperse the smoke after 1 minute, and a strong wind (21 or more miles per hour) can do so after 1 round.",
 		weight : 1,
 		action : [["action", "Eversmoking Bottle (open/close)"]]
-	},
-	"mother pqwirli’s pod pouch (ccc-elo-2)" : {
-		name : "Mother Pqwirli’s Pod Pouch (Bag of Holding)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : ["A", "B"],
-		description : "The small bloated mauve organism has tiny tentacles that sprout from its body & wrap around your shoulder. Squeezing the surface of the pod releases a translucent slime over its surface before it opens, revealing a throat-like interior. This bag is 2 ft in diameter, 4 ft deep, & 15 lb. It holds 500 lbs & a volume of 64 cu ft. Action to retrieve item. If overloaded, pierced, or torn, it's destroyed & its contents go to the Astral plane. If turned inside out, contents spill forth.",
-		descriptionLong : "The small bloated mauve organism has tiny tentacles that sprout from its body & wrap around your shoulder. Squeezing the surface of the pod releases a translucent slime over its surface before it opens, revealing a throat-like interior. This bag is 2 ft in diameter at the mouth, 4 ft deep, & 15 lb regardless of contents. It can hold up to 500 lb, not exceeding a volume of 64 cu ft. Retrieving an item requires an action. If overloaded, pierced, or torn, it's destroyed, leaving its contents in the Astral plane. If turned inside out, all its contents spill forth unharmed. Creatures inside the bag can breath for 10 min divided by the # of creatures (minimum 1 min), after which they suffocate. Placing the bag in another extradimensional space destroys both & opens a gate to the Astral Plane.",
-		descriptionFull : "The small, mauve-hued, bloated organism has tiny tentacles that sprout from around its body and wrap around the owner’s shoulder. Squeezing the knotty surface of the pod causes the organism to gestate a translucent slime over its surface before opening, revealing a throat-like pinkish interior.\n   This bag has an interior space considerably larger than its outside dimensions, roughly 2 feet in diameter at the mouth and 4 feet deep. The bag can hold up to 500 pounds, not exceeding a volume of 64 cubic feet. The bag weighs 15 pounds, regardless of its contents. Retrieving an item from the bag requires an action.\n   If the bag is overloaded, pierced, or torn, it ruptures and is destroyed, and its contents are scattered in the Astral Plane. If the bag is turned inside out, its contents spill forth, unharmed, but the bag must be put right before it can be used again. Breathing creatures inside the bag can survive up to a number of minutes equal to 10 divided by the number of creatures (minimum 1 minute), after which time they begin to suffocate.\n   Placing a bag of holding inside an extradimensional space created by a Heward's handy haversack, portable hole, or similar item instantly destroys both items and opens a gate to the Astral Plane. The gate originates where the one item was placed inside the other. Any creature within 10 feet of the gate is sucked through it to a random location on the Astral Plane. The gate then closes. The gate is one-way only and can't be reopened.",
-		weight : 15,
-		action : [["action", "Bag of Holding)"]]
 	},
 	"portable hole (ccc-bmg-28 hill2-1)" : {
 		name : "Portable Hole (CCC-BMG-28 HILL2-1)",
@@ -1213,11 +1727,35 @@ MagicItemsList["al equipment"] = {
 		name : "AL Equipment",
 		type : "wondrous item",
 		allowDuplicates : true,
-	choices : ["All Purpose Tool +1 (DC-POA-Z-T2S2)","The Aloe of Ch (CCC-ELO-1)","Asharam’s Orb of Ensnaring (CCC-DRUID-1)","Bands of the Black Unicorn (CCC-DES-3-1)","Boatman's Walking Stick (DC-POA-LEGIT-SV-3)","Bonds of Fear (DDAL4-12)","Charlatan's Die (CCC-DES-1-6)","Charlatan's Die (DC-POA-CONMAR-11)","Charlatan's Die (DDEP10-1)","Daern's Instant Fortress (CCC-ALMOG-ESC-3-3)","Daern's Instant Fortress (CCC-BWM-7-3)","Daern's Instant Fortress (CCC-DWB-GNA-1)","Deck of Illusions (CCC-BFG1-2)","Dust of Disappearance (DC-POA-TDG1-1)","Emerald Ersatz Eye (CCC-VOTE-1-1)","Ersatz Eye (DDAL10-0)","Ersatz Eye (DDIA-XGE)","Illuminator's Tattoo (DC-POA-CONMAR-19)","Mirror of the Past (DC-POA-CONMAR-18)","Pipe of Smoke Monsters (CCC-3MAGS-ONE)","Pipe of Smoke Monsters (CCC-GSP1-2)","Pipe of Smoke Monsters (CCC-SQC-3-1)","Pole of Angling (DC-POA-CODEX-1)","Pole of Angling (DC-POA-CONMAR-14)","Pole of Angling (DC-POA-GSP1-1)","Pot of Awakening (DDIA-XGE)","Prosthetic Limb (DDAL10-6)","Rope of Climbing (DDEP8-3)","Rope of Entanglement (CCC-ODFC1-2)","Rope of Entanglement (DDAL7-7)","Rotsalve (RMHEP-1)","Shadowneedle, Unbreakable Arrow (CCC-DRUID-1/CCC-TRI-26 ROSE1-1)","Unbreakable Arrow (CCC-DWB-ACM-1)","Unbreakable Arrow (DDAL10-0)","The Vampire's Die (CCC-GSP2-3)","Veteran's Cane (CCC-DRUIDS-3)","Walloping Arrow (CCC-DRUIDS-3)","Wind Fan (DDAL0-9)","Wind Fan (DDAL4-5)","The Witchstone, Walloping Bullet (CCC-CIC-15)"],
+	choices : ["All Purpose Tool +1: Omega #5 Power Rod (DC-POA-TDG1-6)","All Purpose Tool +1 (DC-POA-Z-T2S2)","Charlatan's Die (CCC-DES-1-6)","Charlatan's Die: The Vampire's Die (CCC-GSP2-3)","Charlatan's Die (DC-POA-CONMAR-11)","Charlatan's Die: DaleVision Dice (DC-POA-TDG1-11)","Charlatan's Die (DDEP10-1)","Cube of Force (CCC-RPSG-3)","Daern's Instant Fortress (CCC-ALMOG-ESC-3-3)","Daern's Instant Fortress (CCC-BWM-7-3)","Daern's Instant Fortress (CCC-DWB-GNA-1)","Daern's Instant Fortress (CCC-SDREAM-1-3)","Deck of Illusions (CCC-BFG1-2)","Deck of Illusions: Deck of Illusory Desires (CCC-UNITE-GD-1)","Dimensional Shackles: Bonds of Fear (DDAL4-12)","Dust of Disappearance: Ko-Nip (DC-POA-TDG1-1)","Ersatz Eye: Emerald Eye (CCC-VOTE-1-1)","Ersatz Eye (DDAL10-0)","Ersatz Eye (DDIA-XGE)","Iron Bands of Bilarro: Asharam’s Orb of Ensnaring (CCC-DRUID-1)","Iron Bands of Bilarro: Bands of the Black Unicorn (CCC-DES-3-1)","Keoghtom's Ointment: The Aloe of Ch (CCC-ELO-1)","Keoghtom's Ointment: Rotsalve (RMHEP-1)","Mirror of the Past (DC-POA-CONMAR-18)","Mirror of the Past (DC-POA-GaryXIII-2)","Mirror of the Past: Nether Mirror (DC-POA-TDG1-8)","Pipe of Smoke Monsters (CCC-3MAGS-ONE)","Pipe of Smoke Monsters (CCC-GSP1-2)","Pipe of Smoke Monsters (CCC-SQC-3-1)","Pole of Angling (DC-POA-CODEX-1)","Pole of Angling (DC-POA-CONMAR-14)","Pole of Angling (DC-POA-GSP1-1)","Pole of Angling: Boatman's Walking Stick (DC-POA-LEGIT-SV-3)","Pot of Awakening (CCC-CONMAR1-2)","Pot of Awakening (DDIA-XGE)","Prosthetic Limb (DDAL10-6)","Rope of Climbing (DDEP8-3)","Rope of Entanglement (CCC-ODFC1-2)","Rope of Entanglement (DDAL7-7)","Veteran's Cane (CCC-DRUIDS-3)","Wind Fan (DDAL0-9)","Wind Fan (DDAL4-5)"],
+	"all purpose tool +1: omega #5 power rod (dc-poa-tdg1-6)" : {
+	    name : "Omega #5 Power Rod (All Purpose Tool +1)",
+		source : ["AL", "DC-POA"],
+	    rarity : "uncommon",
+        magicItemTable : "F",
+		limfeaname : "All Purpose Tool +1",
+		usages : 1,
+		recovery : "dawn",
+		action : ["action", "Choose Unknown Cantrip (8 hrs)"],
+		description : "This metallic rod can shift into different animal motifs. While holding it, you gain a +1 bonus to spell atk rolls & saving throw DCs of your artificer spells. As an action, you can transform the rod into any type of artisan's tool. Once per day as an action, you can choose any cantrip you don't know & cast it as an artificer cantrip for 8 hrs.",
+		descriptionFull : "This metallic rod can shift into different animal motifs.\n  This simple screwdriver can transform into a variety of tools; as an action, you can touch the item and transform it into any type of artisan's tool of your choice (see the \"Equipment\" chapter in the Player's Handbook for a list of artisan's tools). Whatever form the tool takes, you are proficient with it.\n  While holding this tool, you gain a bonus to the spell attack rolls and the saving throw DCs of your artificer spells. The bonus is determined by the tool's rarity.\n  As an action, you can focus on the tool to channel your creative forces. Choose a cantrip that you don't know from any class list. For 8 hours, you can cast that cantrip, and it counts as an artificer cantrip for you. Once this property is used, it can't be used again until the next dawn.",
+		attunement : true,
+		prerequisite : "Requires attunement by an artificer",
+		prereqeval : function(v) {
+        return v.isSpellcaster && classes.known.artificer ? true : false;
+			},
+	    calcChanges : {
+        spellCalc : [
+                function (type, spellcasters, ability) {
+					if (type != "prepare" && (/artificer/).test(spellcasters)) return 1;
+				},
+				"I gain a +1 bonus to spell attack rolls and to the saving throw DCs of my artificer spells."
+            ]
+        }
+	},
 	"all purpose tool +1 (dc-poa-z-t2s2)" : {
 	    name : "All Purpose Tool +1 (DC-POA-Z-T2S2)",
 		source : ["AL", "DC-POA"],
-		type : "wondrous item",
 	    rarity : "uncommon",
         magicItemTable : "F",
 		limfeaname : "All Purpose Tool +1",
@@ -1240,91 +1778,6 @@ MagicItemsList["al equipment"] = {
             ]
         }
 	},
-	"the aloe of ch (ccc-elo-1)" : {
-		name : "The Aloe of Ch (Keoghtom's Ointment)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "B",
-		description : "This glass jar, 3 inches in diameter, contains 1d4+1 doses of a thick mixture that smells faintly of aloe. As an action, 1 dose of the ointment can be swallowed or applied to the skin. The creature that receives it regains 2d8+2 hp, ceases to be poisoned, & is cured of any disease.",
-		descriptionFull : "This glass jar, 3 inches in diameter, contains 1d4+1 doses of a thick mixture that smells faintly of aloe.\n   The jar and its contents weigh 1/2 pound. As an action, one dose of the ointment can be swallowed or applied to the skin. The creature that receives it regains 2d8+2 hit points, ceases to be poisoned, and is cured of any disease.",
-		weight : 0.5,
-		limfeaname : "Keoghtom's Ointment",
-		usages : "1d4+1",
-		recovery : "Never"
-	},
-	"asharam’s orb of ensnaring (ccc-druid-1)" : { // contains contributions by AelarTheElfRogue
-		name : "Asharam’s Orb of Ensnaring (Iron Bands of Bilarro)",
-		source : [["AL","CCC"]],
-		rarity : "rare",
-		magicItemTable : "G",
-		description : "This item is always chilly to the touch & looks like a solid iron ball. Closer inspection reveals elaborate whorls & swirls on the ball’s surface & short passages in Celestial runes. The sphere’s command phrase is in the writing: “Bind the Stinger to the floor & force the singer to sing no more.” As an action once per dawn, you can speak the command & make a ranged atk (DEX + Prof). If hit, target is restrained until speak command again as a bonus action. Once per 24 hrs, the target can make a DC 20 STR chk as an action to free itself & destroy the bands.",
-		descriptionLong : "This item is always chilly to the touch & appears to be a solid iron ball. Closer inspection reveals elaborate whorls & swirls on the ball’s surface & short passages in Celestial runes. The sphere’s command phrase is in the writing: “Bind the Stinger to the floor & force the singer to sing no more.” As an action once per dawn, you can throw this sphere & speak command word. You make a ranged atk roll with an atk bonus equal to you Dex modifier + Proficiency Bonus. On a hit, the target is restrained until you use a bonus action to release it w/ the command word. Doing so, or missing, makes the bands contract back into a sphere. The target can make a DC 20 STR check as an action, freeing itself & destroying the bands on a success. If the check fails, any further attempts auto fail for 24 hrs.",
-		descriptionFull : "This item is always chilly to the touch and, at first sight, appears to be a solid iron ball not unlike a large bearing. Closer inspection reveals fine lines that make up minutely elaborate whorls and swirls on the ball’s surface. Even closer inspection reveals short passages written in celestial runes. Anyone who can read celestial or who uses a comprehend languages spell (or an otherwise similar ability) discerns the following sentence—the sphere’s command phrase—in the writing: “Bind the Stinger to the floor and force the singer to sing no more.”\n   This rusty iron sphere measures 3 inches in diameter and weighs 1 pound. You can use an action to speak the command word and throw the sphere at a Huge or smaller creature you can see within 60 feet of you. As the sphere moves through the air, it opens into a tangle of metal bands.\n   Make a ranged attack roll with an attack bonus equal to your Dexterity modifier plus your proficiency bonus. On a hit, the target is restrained until you take a bonus action to speak the command word again to release it. Doing so, or missing with the attack, causes the bands to contract and become a sphere once more.\n   A creature, including the one restrained, can use an action to make a DC 20 Strength check to break the iron bands. On a success, the item is destroyed, and the restrained creature is freed. If the check fails, any further attempts made by that creature automatically fail until 24 hours have elapsed.\n   Once the bands are used, they can't be used again until the next dawn.",
-		weight : 1,
-		limfeaname : "Iron Bands of Bilarro",
-		usages : 1,
-		recovery : "dawn",
-		action : [["action", " (throw)"], ["bonus action", " (release)"]],
-		weaponsAdd : ["Iron Bands of Bilarro"],
-		weaponOptions : {
-			regExpSearch : /^(?=.*iron)(?=.*band)(?=.*(bilarro|binding)).*$/i,
-			name : "Iron Bands of Bilarro",
-			source : [["SRD", 228], ["D", 177], ["AL","CCC"]],
-			ability : 2,
-			type : "Natural",
-			damage : ["\u2015", "", "Restrained"],
-			range : "60 ft",
-			description : "Restrains Huge or smaller creature; DC 20 Strength check to break out",
-			abilitytodamage : false,
-			weight : 1
-		}
-	},
-	"bands of the black unicorn (ccc-des-3-1)" : { // contains contributions by AelarTheElfRogue
-		name : "Bands of the Black Unicorn (Iron Bands of Bilarro)",
-		source : [["AL","CCC"]],
-		rarity : "rare",
-		magicItemTable : "G",
-		description : "Any time you have the opportunity to pursue vengeance against those who've violated your ideals, this iron sphere heightens the urge. As an action once per dawn, you can speak the command & make a ranged atk (DEX + Prof). The bands expand & display the image of Bilarro’s black unicorn banner. If hit, target is restrained until speak command again as a bonus action. Once per 24 hrs, the target can make a DC 20 STR chk as an action to free itself & destroy the bands.",
-		descriptionLong : "Any time the bearer of this iron sphere has the opportunity to pursue vengeance against those who've violated their ideals, it heightens the urge. As an action once per dawn, you can throw this sphere & speak command word. The bands expand & display the image of Bilarro’s black unicorn banner. You make a ranged atk roll with an atk bonus equal to you Dex modifier + Proficiency Bonus. On a hit, the target is restrained until you use a bonus action to release it w/ the command word. Doing so, or missing, makes the bands contract back into a sphere. The target can make a DC 20 STR check as an action, freeing itself & destroying the bands on a success. If the check fails, any further attempts auto fail for 24 hrs.",
-		descriptionFull : "When the bands expand, they display the image of Bilarro’s black unicorn banner. Any time the bearer is presented with the opportunity to pursue vengeance against those who appear to have violated their ideals, the item heightens the bearer’s urge to do so.\n   This rusty iron sphere measures 3 inches in diameter and weighs 1 pound. You can use an action to speak the command word and throw the sphere at a Huge or smaller creature you can see within 60 feet of you. As the sphere moves through the air, it opens into a tangle of metal bands.\n   Make a ranged attack roll with an attack bonus equal to your Dexterity modifier plus your proficiency bonus. On a hit, the target is restrained until you take a bonus action to speak the command word again to release it. Doing so, or missing with the attack, causes the bands to contract and become a sphere once more.\n   A creature, including the one restrained, can use an action to make a DC 20 Strength check to break the iron bands. On a success, the item is destroyed, and the restrained creature is freed. If the check fails, any further attempts made by that creature automatically fail until 24 hours have elapsed.\n   Once the bands are used, they can't be used again until the next dawn.",
-		weight : 1,
-		limfeaname : "Iron Bands of Bilarro",
-		usages : 1,
-		recovery : "dawn",
-		action : [["action", " (throw)"], ["bonus action", " (release)"]],
-		weaponsAdd : ["Iron Bands of Bilarro"],
-		weaponOptions : {
-			regExpSearch : /^(?=.*iron)(?=.*band)(?=.*(bilarro|binding)).*$/i,
-			name : "Iron Bands of Bilarro",
-			source : [["SRD", 228], ["D", 177], ["AL","CCC"]],
-			ability : 2,
-			type : "Natural",
-			damage : ["\u2015", "", "Restrained"],
-			range : "60 ft",
-			description : "Restrains Huge or smaller creature; DC 20 Strength check to break out",
-			abilitytodamage : false,
-			weight : 1
-		}
-	},
-	"boatman's walking stick (dc-poa-legit-sv-3)" : {
-		name : "Boatman's Walking Stick (Pole of Angling)",
-		source : [["AL","DC-POA"]],
-		rarity : "common",
-		magicItemTable : "?",
-		description : "“The same mistakes that sparked his kingdom's decline greviously wounded him.” While holding this pole, you can speak a command word & transform it into a fishing pole w/ a hook, line, & reel. Speaking the command word again changes the fishing pole back into a normal 10-ft pole.",
-		descriptionFull : "“The same mistakes that sparked his kingdom's decline greviously wounded him.” While holding this 10-foot pole, you can speak a command word and transform it into a fishing pole with a hook, a line, and a reel. Speaking the command word again changes the fishing pole back into a normal 10-foot pole.",
-		weight : 7
-	},
-	"bonds of fear (ddal4-12)" : {
-		name : "Bonds of Fear (Dimensional Shackles)",
-		source : [["AL","S4"]],
-		rarity : "rare",
-		magicItemTable : "G",
-		description : "These chains are etched with twisted screaming faces & clouds of fog. As action, shackle incapacitated Small-Large size creature. Target is enveloped in 1-inch thick mist that dampens hearing & vision. Victim is barely aware of surroundings & their loudest screams heard as whispers. Shadowy forms move through the mist as if victim not alone. Shackles act as manacles + prevent extradimensional mvmt, but not portal travel. You & designees can remove. Every 30 days, target may break w/ DC 30 Ath. chk.",
-		descriptionLong : "These chains are etched with twisted screaming faces and clouds of fog. You can use an action to place these shackles on an incapacitated creature. The shackles adjust to fit Small to Large size creatures. When placed, they envelope the target in 1-inch thick mist that dampens hearing and vision. The victim is only peripherally aware of the world around them and even their loudest screams are heard only as soft whispers. Occasionally shadowy forms move through the mist as if the victim wasn't alone. The shackles serve as mundane manacles & prevent target from using methods of extradimensional movement, such as teleportation or travel to a different plane. They don't prevent the creature from passing-through an interdimensional portal. You and any creature you designate when you use the shackles can remove them with an action. Once every 30 days, the bound creature can make a DC 30 Str (Athletics) check. On a success, the creature breaks free and destroys the shackles.",
-		descriptionFull : "These chains are etched with twisted screaming faces and clouds of fog. You can use an action to place these shackles on an incapacitated creature. The shackles adjust to fit a creature of Small to Large size. When placed upon a victim, they are enveloped in mist an inch thick that dampens hearing and vision passing through it. The victim is only peripherally aware of the world around them and even their loudest screams can be heard only as the softest of whispers. Occasionally shadowy forms can be seen moving through the mist, as if the victim were not alone. In addition to serving as mundane manacles, the shackles prevent a creature bound by them from using any method of extradimensional movement, including teleportation or travel to a different plane of existence. They don't prevent the creature from passing-through an interdimensional portal.\n   You and any creature you designate when you use the shackles can use an action to remove them. Once every 30 days, the bound creature can make a DC 30 Strength (Athletics) check. On a success, the creature breaks free and destroys the shackles.",
-		action : [["action", "Dimensional Shackles (bind/remove)"]]
-	},
 	"charlatan's die (ccc-des-1-6)" : {
 		name : "Charlatan's Die (CCC-DES-1-6)",
 		source : [["AL","CCC"]],
@@ -1332,6 +1785,14 @@ MagicItemsList["al equipment"] = {
 		magicItemTable : "?",
 		description : "Whenever you roll this six-sided die while attuned, you can control which number it rolls. It's made of bone, dyed purple, and features a cleverly carved aardvark on one side.",
 		descriptionFull : "Whenever you roll this six-sided die while attuned, you can control which number it rolls. It is carved from bone, dyed purple, and features a cleverly carved aardvark on one side.",
+		attunement : true,
+	},
+	"charlatan's die: the vampire's die (ccc-gsp2-3)" : {
+		name : "The Vampire's Die (Charlatan's Die)",
+		source : [["AL","CCC"]],
+		rarity : "common",
+		magicItemTable : "?",
+		description : "This crimson die with white pips feels heavier than those that can be purchased in the local market. Whenever you roll this six-sided die while attuned, you can control which number it rolls.",
 		attunement : true,
 	},
 	"charlatan's die (dc-poa-conmar-11)" : {
@@ -1343,6 +1804,15 @@ MagicItemsList["al equipment"] = {
 		descriptionFull : "A translucent blue die, it is cold to the touch. In its centre, almost imperceivable, seems to be a single drop of sunshine. Whenever you roll this six-sided die while attuned, you can control which number it rolls.",
 		attunement : true,
 	},
+	"charlatan's die: dalevision dice (dc-poa-tdg1-11)" : {
+		name : "DaleVision Dice (Charlatan's Die)",
+		source : [["AL","DC-POA"]],
+		rarity : "common",
+		magicItemTable : "?",
+		description : "This colorful six-sided die refracts in different colors of the rainbow. The six is symbolised by a rainbow icosahedron. Whenever you roll the die while attuned, you can control which number it rolls.",
+		descriptionFull : "These colorful dice refract in different colors of the rainbow, the face for six on the dice is symbolised by a rainbow icosahedron. Whenever you roll this six-sided die while attuned, you can control which number it rolls.",
+		attunement : true,
+	},
 	"charlatan's die (ddep10-1)" : {
 		name : "Charlatan's Die (DDEP10-1)",
 		source : [["AL","S10"]],
@@ -1352,6 +1822,44 @@ MagicItemsList["al equipment"] = {
 		descriptionFull : "This elk-bone die has pips skillfully carved onto it in the shape of humanoid skulls. While this die is on your person (no attunement required), you can speak and understand Reghedjic, the traditional language of the Reghed people. Whenever you roll this six-sided die while attuned, you can control which number it rolls.",
 		attunement : true,
 		languageProfs : ["Reghedjic"],
+	},
+	"cube of force (ccc-rpsg-3)" : { // contains contributions by Larry Hoy
+		name : "Cube of Force (CCC-RPSG-3)",
+		source : [["AL","CCC"]],
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "This ornate 1-inch puzzle cube is carved from polished duskwood. Fenaria's companions in Tymora's Smile are engraved on the sides & the top bears the band's crest & their pledge: “Always together, never apart.” The bottom has the 2nd half: “Though we are distant, we are connected in heart.” The images whisper encouragement when the cube is activated & you learn its depth below the surface & the direction to the nearest upward path by speaking the pledge. The cube has 36 charges & regains 1d20 at dawn. As an action, press 1 face & expend charges to create a 15-ft cube barrier of force on you for 1 min, which moves with you. See Notes page.",
+		descriptionLong : "This ornate 1-inch puzzle cube is carved from duskwood & polished to a shine. The sides are engraved with the likenesses of Fenaria's companions in Tymora's Smile while the top bears the band's crest & their pledge: “Always together, never apart.” The bottom face has the 2nd half of the band's promise: “Though we are distant, we are connected in heart.” The likenesses whisper encouragement whenever the cube is activated & you can discern its depth below the surface & the direction to the nearest upward path if you speak the words on the cube. It has 36 charges & regains 1d20 at dawn. You can use an action to press 1 face & if enough charges remain, a barrier of invisible force appears, forming a 15-ft cube. See Notes page. The barrier is centered on you, moves with you & lasts for 1 minute, until you press the 6th face as an action, or it's out of charges. You can change the barrier type by pressing a different face & expending the required charges, resetting the duration. If your movement causes the barrier to hit a solid object that can't pass through, you can't move any closer to that object.",
+		descriptionFull : "This ornate puzzle cube is carved from duskwood and polished to a shine.\n   The lateral faces are engraved with the likenesses of Fenaria's companions in Tymora's Smile while the top bears the band's crest and their pledge to be “Always together, never apart.” The latter half of the band's promise - “Though we are distant, we are connected in heart” - adorns the bottom face.\n   The likenesses whisper words of encouragement to the bearer whenever a surface is pressed and the cube activated. \n   Additionally, the bearer can discern the item's depth below the surface and the direction to the nearest staircase, ramp or other path leading upward if the words on the cube are spoken. The cube is about an inch across. Each face has a distinct marking on it that can be pressed. The cube starts with 36 charges, and it regains 1d20 expended charges daily at dawn.\n   You can use an action to press one of the cube's faces, expending a number of charges based on the chosen face, as shown in the Cube of Force Faces table. Each face has a different effect. If the cube has insufficient charges remaining, nothing happens. Otherwise, a barrier of invisible force springs into existence, forming a cube 15 feet on a side. The barrier is centered on you, moves with you, and lasts for 1 minute, until you use an action to press the cube's sixth face, or the cube runs out of charges. You can change the barrier's effect by pressing a different face of the cube and expending the requisite number of charges, resetting the duration. If your movement causes the barrier to come into contact with a solid object that can't pass through the cube, you can't move any closer to that object as long as the barrier remains.\n\n" + toUni("Face    Charges\tEffect") + "\n  1\t1\tGases, wind, and fog can't pass through the barrier.\n  2\t2\tNonliving matter can't pass through the barrier.*\n  3\t3\tLiving matter can't pass through the barrier.\n  4\t4\tSpell effects can't pass through the barrier.\n  5\t5\tNothing can pass through the barrier.*\n  6\t0\tThe barrier deactivates.\n\n   * Walls, floors, and ceilings can pass through at your discretion.\n\nThe cube loses charges when the barrier is targeted by certain spells or comes into contact with certain spell or magic item effects, as shown in the table below.\n\n" + toUni("Spell or Item\tCharges Lost") + "\nDisintegrate\t1d12\nHorn of Blasting\t1d10\nPasswall\t\t1d6\nPrismatic Spray\t1d20\nWall of Fire\t1d4",
+		attunement : true,
+		limfeaname : "Cube of Force",
+		usages : 36,
+		recovery : "dawn",
+		additional : "regains 1d20",
+		action : [["action", ""]],
+		toNotesPage : [{
+			name : "Cube of Force Charge Expenditure Tables",
+			note : [
+				"As an action, I can pressing one of the faces of the cube, expending charges and invoking the effect as listed below. The cube has 36 charges, and it regains 1d20 expended charges daily at dawn.",
+				"Once activated, a barrier of invisible force springs into existence, forming a cube 15 feet on a side. The barrier is centered on me, moves with me, and lasts for 1 minute, until I use an action to press the cube's sixth face, the cube runs out of charges, or I press another face to invoke another barrier.",
+				"If my movement causes the barrier to come into contact with a solid object that can't pass through the cube, I can't move any closer to that object as long as the barrier remains.",
+				"FACE\tCHARGES\tEFFECT",
+				"   1\t      1\tGases, wind, and fog can't pass through the barrier.",
+				"   2\t      2\tNonliving matter can't pass through the barrier.*",
+				"   3\t      3\tLiving matter can't pass through the barrier.",
+				"   4\t      4\tSpell effects can't pass through the barrier.",
+				"   5\t      5\tNothing can pass through the barrier.*",
+				"   6\t      0\tThe barrier deactivates.\n" +
+				"* Walls, floors, and ceilings can pass through at my discretion.\n",
+				"The cube loses charges when the barrier is targeted by certain spells or comes into contact with certain spell or magic item effects, as shown in the table below.",
+				"SPELL OR ITEM\tCHARGES LOST",
+				"Disintegrate  \t1d12",
+				"Horn of Blasting\t1d10",
+				"Passwall\t\t1d6",
+				"Prismatic Spray\t1d20",
+				"Wall of Fire\t1d4"
+			]
+		}]
 	},
 	"daern's instant fortress (ccc-almog-esc-3-3)" : { // contains contributions by Larry Hoy
 		name : "Daern's Instant Fortress (CCC-ALMOG-ESC-3-3)",
@@ -1407,6 +1915,27 @@ MagicItemsList["al equipment"] = {
 			name : "Fortress Details",
 			note : [
 				"This item has the appearance of black stone and anyone who knows of this item’s past with The Artist is likely to view it and its owner with suspicion. As an action I can place this 1-inch metal cube on the ground and speak its command word. The cube rapidly grows into a fortress that remains until I use an action to speak the command word that dismisses it, which works only if the fortress is empty.",
+				"The fortress is a square tower, 20 feet on a side and 30 feet high, with arrow slits on all sides and a battlement atop it. Its interior is divided into two floors. with a ladder running along one wall to connect them. The ladder ends at a trapdoor leading to the roof.",
+				"When activated, the tower has a small door on the side facing me. The door opens only at my command, which I can speak as a bonus action. It is immune to the Knock spell and similar magic (e.g., a Chime of Opening).",
+				"Each creature in the area where the fortress appears must make a DC 15 Dex save or take 10d10 bludgeoning damage (half damage on a success). In either case, the creature is pushed to an unoccupied space outside but next to the fortress. Objects in the area that aren't being worn or carried take this damage and are pushed automatically.",
+				"The tower is made of adamantine, and its magic prevents it from being tipped over. The roof, the door, and the walls each have 100 hit points, immunity to damage from nonmagical weapons excluding siege weapons, and resistance to all other damage. Only a Wish spell can repair the fortress (this use of the spell counts as replicating a spell of 8th level or lower). Each casting of Wish causes the roof, the door, or one wall to regain 50 hit points."
+			]
+		}]
+	},
+	"daern's instant fortress (ccc-sdream-1-3)" : { // contains contributions by Larry Hoy
+		name : "Daern's Instant Fortress (CCC-SDREAM-1-3)",
+		source : [["AL","CCC"]],
+		rarity : "rare",
+		magicItemTable : "G",
+		description: "As an action, put the 1-inch cube on the ground & speak command word, growing it into a 20-ft x 20-ft x 30-ft high adamantine tower w/ a door facing you, arrow slits on all sides, battlements atop, 2 floors, & a ladder along 1 wall ending at a trapdoor to the roof. This fortress resembles a Gnomish factory & is covered in gears, pipes and exhaust stacks. Anyone in area 10d10 bludgeoning (DC 15 Dex for 1/2). See Notes page for details.",
+		descriptionLong : "As an action, place this 1-inch metal cube on the ground and speak its command word, making it grow into a 20-ft by 20-ft by 30-ft high adamantine tower w/ door facing you, arrow slits on all sides, battlement atop, two floors, & a ladder along one wall ending at a trapdoor to the roof. This fortress resembles a Gnomish factory. The exterior is covered in gears, pipes and exhaust stacks. Anyone in area takes 10d10 bludgeoning dmg (DC 15 Dex save for 1/2). See Notes page.",
+		descriptionFull : "Rolisa has decided that a portable factory might be a bad idea and has instead offered her device to you. When activated, this fortress resembles a Gnomish factory. The exterior is covered in gears, pipes and exhaust stacks. These effects are cosmetic and confer no additional benefits.\n   You can use an action to place this 1-inch metal cube on the ground and speak its command word. The cube rapidly grows into a fortress that remains until you use an action to speak the command word that dismisses it, which works only if the fortress is empty.\n   The fortress is a square tower, 20 feet on a side and 30 feet high, with arrow slits on all sides and a battlement atop it. Its interior is divided into two floors. with a ladder running along one wall to connect them. The ladder ends at a trapdoor leading to the roof. When activated, the tower has a small door on the side facing you. The door opens only at your command, which you can speak as a bonus action. It is immune to the Knock spell and similar magic, such as that of a chime of opening.\n   Each creature in the area where the fortress appears must make a DC 15 Dexterity saving throw, taking 10d10 bludgeoning damage on a failed save, or half as much damage on a successful one. In either case, the creature is pushed to an unoccupied space outside but next to the fortress. Objects in the area that aren't being worn or carried take this damage and are pushed automatically.\n   The tower is made of adamantine, and its magic prevents it from being tipped over. The roof, the door, and the walls each have 100 hit points, immunity to damage from nonmagical weapons excluding siege weapons, and resistance to all other damage. Only a Wish spell can repair the fortress (this use of the spell counts as replicating a spell of 8th level or lower). Each casting of Wish causes the roof, the door, or one wall to regain 50 hit points.",
+		action : [["action", ""]],
+		toNotesPage : [{
+			name : "Fortress Details",
+			note : [
+				"Rolisa has decided that a portable factory might be a bad idea and has instead offered her device to you. When activated, this fortress resembles a Gnomish factory. The exterior is covered in gears, pipes and exhaust stacks. These effects are cosmetic and confer no additional benefits.",
+				"As an action I can place this 1-inch metal cube on the ground and speak its command word. The cube rapidly grows into a fortress that remains until I use an action to speak the command word that dismisses it, which works only if the fortress is empty.",
 				"The fortress is a square tower, 20 feet on a side and 30 feet high, with arrow slits on all sides and a battlement atop it. Its interior is divided into two floors. with a ladder running along one wall to connect them. The ladder ends at a trapdoor leading to the roof.",
 				"When activated, the tower has a small door on the side facing me. The door opens only at my command, which I can speak as a bonus action. It is immune to the Knock spell and similar magic (e.g., a Chime of Opening).",
 				"Each creature in the area where the fortress appears must make a DC 15 Dex save or take 10d10 bludgeoning damage (half damage on a success). In either case, the creature is pushed to an unoccupied space outside but next to the fortress. Objects in the area that aren't being worn or carried take this damage and are pushed automatically.",
@@ -1509,7 +2038,112 @@ MagicItemsList["al equipment"] = {
 			].join("\n")
 		}]
 	},
-	"dust of disappearance (dc-poa-tdg1-1)" : {
+	"deck of illusions: deck of illusory desires (ccc-unite-gd-1)" : {
+		name : "Deck of Illusory Desires (Deck of Illusions)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		limfeaname : "Deck of Illusions",
+		usages : 34,
+		recovery : "never",
+		description : "As an action, you can draw a random card from this deck & throw it on the ground within 30 ft. An illusion, determined by the card's type, forms over it & remains until dispelled. These illusions appear as particularly desirable versions of the specified creatures, emphasizing the traits desired by other creatures of the same kind. While you're within 120 ft, you can use an action to move it within 30 ft of the card. See Notes page for details.",
+		action : [["action", "Deck of Illusions (Draw/Move)"]],
+		descriptionFull : [
+			"This box contains a full deck of 34 parchment cards.",
+			"The magic of the deck functions only if cards are drawn at random (you can use an altered deck of playing cards to simulate the deck). You can use an action to draw a card at random from the deck and throw it to the ground at a point within 30 feet of you.",
+			"An illusion of one or more creatures forms over the thrown card and remains until dispelled. An illusory creature appears real, of the appropriate size, and behaves as if it were a real creature, except that it can do no harm. While you are within 120 feet of the illusory creature and can see it, you can use an action to move it magically anywhere within 30 feet of its card. Any physical interaction with the illusory creature reveals it to be an illusion, because objects pass through it. Someone who uses an action to visually inspect the creature identifies it as illusory with a successful DC 15 Intelligence (Investigation) check. The creature then appears translucent.",
+			"The illusions created by this deck appear as particularly desirable versions of the specified creatures. The desirability is in relation to other creatures of the same kind. For example, an Assassin would appear as particularly deadly – appealing to other assassins, while a Druid may appear as particularly in-tune with nature – as desired by other druids.",
+			"The illusion lasts until its card is moved or the illusion is dispelled. When the illusion ends, the image on its card disappears, and that card can't be used again.\n",
+			toUni("1d34\tPlaying Card\tIllusion"),
+			"  1\tAce of hearts\tRed dragon",
+			"  2\tKing of hearts\tKnight and four guards",
+			"  3\tQueen of hearts\tSuccubus/Incubus",
+			"  4\tJack of hearts\tDruid",
+			"  5\tTen of hearts\tCloud giant",
+			"  6\tNine of hearts\tEttin",
+			"  7\tEight of hearts\tBugbear",
+			"  8\tTwo of hearts\tGoblin",
+			"  9\tAce of diamonds\tBeholder",
+			"  10\tKing of diamonds\tArchmage and mage apprentice",
+			"  11\tQueen diamonds\tNight hag",
+			"  12\tJack of diamonds\tAssassin",
+			"  13\tTen of diamonds\tFire giant",
+			"  14\tNine of diamonds\tOgre mage",
+			"  15\tEight of diamonds\tGnoll",
+			"  16\tTwo of diamonds\tKobold",
+			"  17\tAce of spades\tLich",
+			"  18\tKing of spades\tPriest and two acolytes",
+			"  19\tQueen of spades\tMedusa",
+			"  20\tJack of spades\tVeteran",
+			"  21\tTen of spades\tFrost giant",
+			"  22\tNine of spades\tTroll",
+			"  23\tEight of spades\tHobgoblin",
+			"  24\tTwo of spades\tGoblin",
+			"  25\tAce of clubs\tIron golem",
+			"  26\tKing of clubs\tBandit captain and three bandits",
+			"  27\tQueen of clubs\tErinyes",
+			"  28\tJack of clubs\tBerserker",
+			"  29\tTen of clubs\tHill giant",
+			"  30\tNine of clubs\tOgre",
+			"  31\tEight of clubs\tOrc",
+			"  32\tTwo of clubs\tKobold",
+			"33-34\tJoker (2)   \tYou (the deck's owner)"
+		].join("\n"),
+		toNotesPage : [{
+			name : "Cards and Their Effects",
+			note : [
+				"This box contains a set of parchment cards. A full deck has 34 cards. This deck is missing the following 10 cards: Ace of Hearts, Queen of Hearts, Jack of Hearts, Eight of Hearts, Two of Hearts, Nine of Diamonds, Two of Diamonds, Queen of Spades, Jack of Clubs and Ten of Clubs.",
+				"The magic of the deck functions only if cards are drawn at random. I can use an action to draw a card at random from the deck and throw it to the ground at a point within 30 ft of me.",
+				"An illusion of one or more creatures forms over the thrown card and remains until dispelled. An illusory creature appears real, of the appropriate size, and behaves as if it were a real creature, except that it can do no harm. While I am within 120 ft of the illusory creature and can see it, I can use an action to move it magically anywhere within 30 ft of its card. Any physical interaction with the illusory creature reveals it to be an illusion, because objects pass through it. Someone who uses an action to visually inspect the creature identifies it as illusory with a successful DC 15 Intelligence (Investigation) check. The creature then appears translucent.",
+				"The illusion lasts until its card is moved or the illusion is dispelled. When the illusion ends, the image on its card disappears, and that card can't be used again.\n",
+				"1d34\tPLAYING CARD\tILLUSION",
+				"  1\tAce of hearts\tRed dragon",
+				"  2\tKing of hearts\tKnight and four guards",
+				"  3\tQueen of hearts\tSuccubus/Incubus",
+				"  4\tJack of hearts\tDruid",
+				"  5\tTen of hearts\tCloud giant",
+				"  6\tNine of hearts\tEttin",
+				"  7\tEight of hearts\tBugbear",
+				"  8\tTwo of hearts\tGoblin",
+				"  9\tAce of diamonds\tBeholder",
+				"  10\tKing of diamonds\tArchmage and mage apprentice",
+				"  11\tQueen diamonds\tNight hag",
+				"  12\tJack of diamonds\tAssassin",
+				"  13\tTen of diamonds\tFire giant",
+				"  14\tNine of diamonds\tOgre mage",
+				"  15\tEight of diamonds\tGnoll",
+				"  16\tTwo of diamonds\tKobold",
+				"  17\tAce of spades\tLich",
+				"  18\tKing of spades\tPriest and two acolytes",
+				"  19\tQueen of spades\tMedusa",
+				"  20\tJack of spades\tVeteran",
+				"  21\tTen of spades\tFrost giant",
+				"  22\tNine of spades\tTroll",
+				"  23\tEight of spades\tHobgoblin",
+				"  24\tTwo of spades\tGoblin",
+				"  25\tAce of clubs \tIron golem",
+				"  26\tKing of clubs\tBandit captain and three bandits",
+				"  27\tQueen of clubs\tErinyes",
+				"  28\tJack of clubs\tBerserker",
+				"  29\tTen of clubs \tHill giant",
+				"  30\tNine of clubs\tOgre",
+				"  31\tEight of clubs\tOrc",
+				"  32\tTwo of clubs \tKobold",
+				"33-34\tJoker (2)\t\tYou (the deck's owner)"
+			].join("\n")
+		}]
+	},
+	"dimensional shackles: bonds of fear (ddal4-12)" : {
+		name : "Bonds of Fear (Dimensional Shackles)",
+		source : [["AL","S4"]],
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "These chains are etched with twisted screaming faces & clouds of fog. As action, shackle incapacitated Small-Large size creature. Target is enveloped in 1-inch thick mist that dampens hearing & vision. Victim is barely aware of surroundings & their loudest screams heard as whispers. Shadowy forms move through the mist as if victim not alone. Shackles act as manacles + prevent extradimensional mvmt, but not portal travel. You & designees can remove. Every 30 days, target may break w/ DC 30 Ath. chk.",
+		descriptionLong : "These chains are etched with twisted screaming faces and clouds of fog. You can use an action to place these shackles on an incapacitated creature. The shackles adjust to fit Small to Large size creatures. When placed, they envelope the target in 1-inch thick mist that dampens hearing and vision. The victim is only peripherally aware of the world around them and even their loudest screams are heard only as soft whispers. Occasionally shadowy forms move through the mist as if the victim wasn't alone. The shackles serve as mundane manacles & prevent target from using methods of extradimensional movement, such as teleportation or travel to a different plane. They don't prevent the creature from passing-through an interdimensional portal. You and any creature you designate when you use the shackles can remove them with an action. Once every 30 days, the bound creature can make a DC 30 Str (Athletics) check. On a success, the creature breaks free and destroys the shackles.",
+		descriptionFull : "These chains are etched with twisted screaming faces and clouds of fog. You can use an action to place these shackles on an incapacitated creature. The shackles adjust to fit a creature of Small to Large size. When placed upon a victim, they are enveloped in mist an inch thick that dampens hearing and vision passing through it. The victim is only peripherally aware of the world around them and even their loudest screams can be heard only as the softest of whispers. Occasionally shadowy forms can be seen moving through the mist, as if the victim were not alone. In addition to serving as mundane manacles, the shackles prevent a creature bound by them from using any method of extradimensional movement, including teleportation or travel to a different plane of existence. They don't prevent the creature from passing-through an interdimensional portal.\n   You and any creature you designate when you use the shackles can use an action to remove them. Once every 30 days, the bound creature can make a DC 30 Strength (Athletics) check. On a success, the creature breaks free and destroys the shackles.",
+		action : [["action", "Dimensional Shackles (bind/remove)"]]
+	},
+	"dust of disappearance: ko-nip (dc-poa-tdg1-1)" : {
 		name : "Ko-Nip (Dust of Disappearance)",
 		source : [["AL","DC-POA"]],
 		rarity : "uncommon",
@@ -1517,7 +2151,7 @@ MagicItemsList["al equipment"] = {
 		description : "This fine sand-like white powder is irresistible to kobolds and will make them docile if they inhale it. Once as an action, you can throw this dust into the air. You and all creatures within 10 ft become invisible for 2d4 minutes. The duration is the same for all subjects. If a creature affected by the dust attacks or casts a spell, the invisibility ends for that creature.",
 		descriptionFull : "This fine sand like white powder is irresistible to Kobolds and will make them docile if they inhale it. Found in a small packet, there is enough of it for one use. When you use an action to throw the dust into the air, you and each creature and object within 10 feet of you become invisible for 2d4 minutes. The duration is the same for all subjects, and the dust is consumed when its magic takes effect. If a creature affected by the dust attacks or casts a spell, the invisibility ends for that creature."
 	},
-	"emerald ersatz eye (ccc-vote-1-1)" : {
+	"ersatz eye: emerald eye (ccc-vote-1-1)" : {
 		name : "Emerald Eye (Ersatz Eye)",
 		source : [["AL","CCC"]],
 		rarity : "common",
@@ -1545,17 +2179,83 @@ MagicItemsList["al equipment"] = {
 		descriptionFull : "When used, this orb swirls with a pearlescent mist within.\n   This artificial eye replaces a real one that was lost or removed. While the ersatz eye is embedded in your eye socket, it can't be removed by anyone other than you, and you can see through the tiny orb as though it were a normal eye.",
 		attunement : true,
 	},
-	"illuminator's tattoo (dc-poa-conmar-19)" : {   
-		name : "Illuminator's Tattoo (DC-POA-CONMAR-19)",
-		source : [["AL","DC-POA"]],
-		rarity : "common",
-		magicItemTable : "?",
-		attunement : true,
-		description : "This tattoo is a logo from the Library of Caer-Konig & becomes a pen with the same logo when unattuned. While it's on your skin, you can write with your fingertip as if it were an ink pen that never runs out. As an action once/dawn, you can touch a piece of writing less than 1 page long & speak a creature’s name. The writing becomes invisible to everyone but you & the named creature for 24 hrs. Either of you can dismiss the invisibility by touching the script.",
-		descriptionFull : "The tattoo is a logo from the Library of Caer-Konig and becomes a pen with the same logo when unattuned.\n   This tattoo contains beautiful calligraphy, images of writing implements, and the like. While this tattoo is on your skin, you can write with your fingertip as if it were an ink pen that never runs out of ink.\n As an action, you can touch a piece of writing up to one page in length and speak a creature’s name. The writing becomes invisible to everyone other than you and the named creature for the next 24 hours. Either of you can dismiss the invisibility by touching the script (no action required). Once used, this action can’t be used again until the next dawn\n" + toUni("Tattoo Attunement.") + "  To attune to this item, you hold the needle to your skin where you want the tattoo to appear, pressing the needle there throughout the attunement process. When the attunement is complete, the needle turns into the ink that becomes the tattoo, which appears on the skin. If you have multiple magic tattoos, they count as a single magic item with regard to the number of magic items you can attune to.\n If your attunement to the tattoo ends, the tattoo vanishes, and the needle reappears in the closest unoccupied space to you.",
-		limfeaname : "Illuminator's Tattoo",
-		usages : 1, 
+	"iron bands of bilarro: asharam’s orb of ensnaring (ccc-druid-1)" : { // contains contributions by AelarTheElfRogue
+		name : "Asharam’s Orb of Ensnaring (Iron Bands of Bilarro)",
+		source : [["AL","CCC"]],
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "This item is always chilly to the touch & looks like a solid iron ball. Closer inspection reveals elaborate whorls & swirls on the ball’s surface & short passages in Celestial runes. The sphere’s command phrase is in the writing: “Bind the Stinger to the floor & force the singer to sing no more.” As an action once per dawn, you can speak the command & make a ranged atk (DEX + Prof). If hit, target is restrained until speak command again as a bonus action. Once per 24 hrs, the target can make a DC 20 STR chk as an action to free itself & destroy the bands.",
+		descriptionLong : "This item is always chilly to the touch & appears to be a solid iron ball. Closer inspection reveals elaborate whorls & swirls on the ball’s surface & short passages in Celestial runes. The sphere’s command phrase is in the writing: “Bind the Stinger to the floor & force the singer to sing no more.” As an action once per dawn, you can throw this sphere & speak command word. You make a ranged atk roll with an atk bonus equal to you Dex modifier + Proficiency Bonus. On a hit, the target is restrained until you use a bonus action to release it w/ the command word. Doing so, or missing, makes the bands contract back into a sphere. The target can make a DC 20 STR check as an action, freeing itself & destroying the bands on a success. If the check fails, any further attempts auto fail for 24 hrs.",
+		descriptionFull : "This item is always chilly to the touch and, at first sight, appears to be a solid iron ball not unlike a large bearing. Closer inspection reveals fine lines that make up minutely elaborate whorls and swirls on the ball’s surface. Even closer inspection reveals short passages written in celestial runes. Anyone who can read celestial or who uses a comprehend languages spell (or an otherwise similar ability) discerns the following sentence—the sphere’s command phrase—in the writing: “Bind the Stinger to the floor and force the singer to sing no more.”\n   This rusty iron sphere measures 3 inches in diameter and weighs 1 pound. You can use an action to speak the command word and throw the sphere at a Huge or smaller creature you can see within 60 feet of you. As the sphere moves through the air, it opens into a tangle of metal bands.\n   Make a ranged attack roll with an attack bonus equal to your Dexterity modifier plus your proficiency bonus. On a hit, the target is restrained until you take a bonus action to speak the command word again to release it. Doing so, or missing with the attack, causes the bands to contract and become a sphere once more.\n   A creature, including the one restrained, can use an action to make a DC 20 Strength check to break the iron bands. On a success, the item is destroyed, and the restrained creature is freed. If the check fails, any further attempts made by that creature automatically fail until 24 hours have elapsed.\n   Once the bands are used, they can't be used again until the next dawn.",
+		weight : 1,
+		limfeaname : "Iron Bands of Bilarro",
+		usages : 1,
 		recovery : "dawn",
+		action : [["action", " (throw)"], ["bonus action", " (release)"]],
+		weaponsAdd : ["Iron Bands of Bilarro"],
+		weaponOptions : {
+			regExpSearch : /^(?=.*iron)(?=.*band)(?=.*(bilarro|binding)).*$/i,
+			name : "Iron Bands of Bilarro",
+			source : [["SRD", 228], ["D", 177], ["AL","CCC"]],
+			ability : 2,
+			type : "Natural",
+			damage : ["\u2015", "", "Restrained"],
+			range : "60 ft",
+			description : "Restrains Huge or smaller creature; DC 20 Strength check to break out",
+			abilitytodamage : false,
+			weight : 1
+		}
+	},
+	"iron bands of bilarro: bands of the black unicorn (ccc-des-3-1)" : { // contains contributions by AelarTheElfRogue
+		name : "Bands of the Black Unicorn (Iron Bands of Bilarro)",
+		source : [["AL","CCC"]],
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "Any time you have the opportunity to pursue vengeance against those who've violated your ideals, this iron sphere heightens the urge. As an action once per dawn, you can speak the command & make a ranged atk (DEX + Prof). The bands expand & display the image of Bilarro’s black unicorn banner. If hit, target is restrained until speak command again as a bonus action. Once per 24 hrs, the target can make a DC 20 STR chk as an action to free itself & destroy the bands.",
+		descriptionLong : "Any time the bearer of this iron sphere has the opportunity to pursue vengeance against those who've violated their ideals, it heightens the urge. As an action once per dawn, you can throw this sphere & speak command word. The bands expand & display the image of Bilarro’s black unicorn banner. You make a ranged atk roll with an atk bonus equal to you Dex modifier + Proficiency Bonus. On a hit, the target is restrained until you use a bonus action to release it w/ the command word. Doing so, or missing, makes the bands contract back into a sphere. The target can make a DC 20 STR check as an action, freeing itself & destroying the bands on a success. If the check fails, any further attempts auto fail for 24 hrs.",
+		descriptionFull : "When the bands expand, they display the image of Bilarro’s black unicorn banner. Any time the bearer is presented with the opportunity to pursue vengeance against those who appear to have violated their ideals, the item heightens the bearer’s urge to do so.\n   This rusty iron sphere measures 3 inches in diameter and weighs 1 pound. You can use an action to speak the command word and throw the sphere at a Huge or smaller creature you can see within 60 feet of you. As the sphere moves through the air, it opens into a tangle of metal bands.\n   Make a ranged attack roll with an attack bonus equal to your Dexterity modifier plus your proficiency bonus. On a hit, the target is restrained until you take a bonus action to speak the command word again to release it. Doing so, or missing with the attack, causes the bands to contract and become a sphere once more.\n   A creature, including the one restrained, can use an action to make a DC 20 Strength check to break the iron bands. On a success, the item is destroyed, and the restrained creature is freed. If the check fails, any further attempts made by that creature automatically fail until 24 hours have elapsed.\n   Once the bands are used, they can't be used again until the next dawn.",
+		weight : 1,
+		limfeaname : "Iron Bands of Bilarro",
+		usages : 1,
+		recovery : "dawn",
+		action : [["action", " (throw)"], ["bonus action", " (release)"]],
+		weaponsAdd : ["Iron Bands of Bilarro"],
+		weaponOptions : {
+			regExpSearch : /^(?=.*iron)(?=.*band)(?=.*(bilarro|binding)).*$/i,
+			name : "Iron Bands of Bilarro",
+			source : [["SRD", 228], ["D", 177], ["AL","CCC"]],
+			ability : 2,
+			type : "Natural",
+			damage : ["\u2015", "", "Restrained"],
+			range : "60 ft",
+			description : "Restrains Huge or smaller creature; DC 20 Strength check to break out",
+			abilitytodamage : false,
+			weight : 1
+		}
+	},
+	"keoghtom's ointment: the aloe of ch (ccc-elo-1)" : {
+		name : "The Aloe of Ch (Keoghtom's Ointment)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "B",
+		description : "This glass jar, 3 inches in diameter, contains 1d4+1 doses of a thick mixture that smells faintly of aloe. As an action, 1 dose of the ointment can be swallowed or applied to the skin. The creature that receives it regains 2d8+2 hp, ceases to be poisoned, & is cured of any disease.",
+		descriptionFull : "This glass jar, 3 inches in diameter, contains 1d4+1 doses of a thick mixture that smells faintly of aloe.\n   The jar and its contents weigh 1/2 pound. As an action, one dose of the ointment can be swallowed or applied to the skin. The creature that receives it regains 2d8+2 hit points, ceases to be poisoned, and is cured of any disease.",
+		weight : 0.5,
+		limfeaname : "Keoghtom's Ointment",
+		usages : "1d4+1",
+		recovery : "Never"
+	},
+	"keoghtom's ointment: rotsalve (rmhep-1)" : {
+		name : "Rotsalve (Keoghtom's Ointment)",
+		source : [["AL:RMH","EP1"]],
+		rarity : "uncommon",
+		magicItemTable : "B",
+		description : "This glass jar, 3 inches in diameter, contains 1d4+1 doses of a salve made of rendered humanoid fat. The putrid scent attracts the ire of the undead & for 1 hr after a creature receives the ointment, atk rolls by undead against that creature are made with advantage. As an action, 1 dose of the ointment can be swallowed or applied to the skin. The creature that receives it regains 2d8+2 hp, ceases to be poisoned, & is cured of any disease.",
+		descriptionFull : "This glass jar, 3 inches in diameter, contains 1d4+1 doses of a salve that's made of rendered humanoid fat. The putrid scent of the ointment attracts the ire of the undead, and for 1 hour after a creature receives the ointment, attack rolls by undead against that creature are made with advantage. The jar and its contents weigh \xBD pound.\n   As an action, one dose of the ointment can be swallowed or applied to the skin. The creature that receives it regains 2d8+2 hit points, ceases to be poisoned, and is cured of any disease.",
+		weight : 0.5,
+		limfeaname : "Rotsalve",
+		usages : "1d4+1",
+		recovery : "Never"
 	},
 	"mirror of the past (dc-poa-conmar-18)" : {  
 		name : "Mirror of the Past (DC-POA-CONMAR-18)",
@@ -1563,7 +2263,33 @@ MagicItemsList["al equipment"] = {
 		rarity : "rare",
 		magicItemTable : "D",
 		description : "The rim of this circular mirror is engraved with Draconic letters that spell out the following in Loross: “Look into me & I will show you what has been.” As an action once per dawn, you can gaze into the mirror while thinking of a specific object or creature. The mirror shows scenes from the target's past for up to 1 minute. The information is accurate but random, cryptic & presented in no particular order.",
-		descriptionFull : "The rim of this circular mirror is engraved with Draconic letters, which spells out the following sentence in Loross: “Look into me, and I will show you what has been.”\n   The holder of this platinum hand mirror can learn something about the history of a specific object or creature by taking an action to gaze into the mirror and think of the target. Instead of the holder's reflection, the mirror presents scenes from the target's past. Information conveyed is accurate, but it is random and cryptic, and presented in no particular order. Once it is activated, the mirror gives its information for 1 minute or less, then returns to normal. It can't be used again until the 	next dawn.",
+		descriptionFull : "The rim of this circular mirror is engraved with Draconic letters, which spells out the following sentence in Loross: “Look into me, and I will show you what has been.”\n   The holder of this platinum hand mirror can learn something about the history of a specific object or creature by taking an action to gaze into the mirror and think of the target. Instead of the holder's reflection, the mirror presents scenes from the target's past. Information conveyed is accurate, but it is random and cryptic, and presented in no particular order. Once it is activated, the mirror gives its information for 1 minute or less, then returns to normal. It can't be used again until the next dawn.",
+		weight : 1,
+		limfeaname : "Mirror of the Past",
+		usages : 1,
+		recovery : "dawn",
+		action : [["action", ""]]
+	},
+	"mirror of the past (dc-poa-garyxiii-2)" : {  
+		name : "Mirror of the Past (DC-POA-GaryXIII-2)",
+		source : [["AL","DC-POA"]],
+		rarity : "rare",
+		magicItemTable : "D",
+		description : "This Netherese platinum hand mirror is of interest to any historian. As an action once per dawn, you can gaze into the mirror while thinking of a specific object or creature. The mirror shows scenes from the target's past for up to 1 minute. The information is accurate but random, cryptic & presented in no particular order.",
+		descriptionFull : "This mirror is of Netherese make and of interest to any historian.\n   The holder of this platinum hand mirror can learn something about the history of a specific object or creature by taking an action to gaze into the mirror and think of the target. Instead of the holder's reflection, the mirror presents scenes from the target's past. Information conveyed is accurate, but it is random and cryptic, and presented in no particular order. Once it is activated, the mirror gives its information for 1 minute or less, then returns to normal. It can't be used again until the next dawn.",
+		weight : 1,
+		limfeaname : "Mirror of the Past",
+		usages : 1,
+		recovery : "dawn",
+		action : [["action", ""]]
+	},
+	"mirror of the past: nether mirror (dc-poa-tdg1-8)" : {  
+		name : "Nether Mirror (Mirror of the Past)",
+		source : [["AL","DC-POA"]],
+		rarity : "rare",
+		magicItemTable : "D",
+		description : "This pure black hand mirror of High Netherese design is based on the gaping maw of a Tomb Tapper. Large sharp teeth motifs are embedded into the edges of the mirror. As an action once per dawn, you can gaze into the mirror while thinking of a specific object or creature. The mirror shows scenes from the target's past for up to 1 minute. The information is accurate but random, cryptic & presented in no particular order.",
+		descriptionFull : "This pure dark black hand mirror of High Netherese design based on the gaping maw of a Tomb Tapper. Large sharp teeth motifs are embedded into the edges of the mirror.\n   The holder of this platinum hand mirror can learn something about the history of a specific object or creature by taking an action to gaze into the mirror and think of the target. Instead of the holder's reflection, the mirror presents scenes from the target's past. Information conveyed is accurate, but it is random and cryptic, and presented in no particular order. Once it is activated, the mirror gives its information for 1 minute or less, then returns to normal. It can't be used again until the next dawn.",
 		weight : 1,
 		limfeaname : "Mirror of the Past",
 		usages : 1,
@@ -1623,6 +2349,24 @@ MagicItemsList["al equipment"] = {
 		description : "The word “Coinmaker” is scratched on the handle of this pole. While holding this wooden pole, you can speak a command word & transform it into a fishing pole w/ a hook, line, & reel. Speaking the command word again changes the fishing pole back into a normal 10-ft pole.",
 		descriptionFull : "The word “Coinmaker” is scratched on the handle of this pole. While holding this. While holding this 10-foot pole, you can speak a command word and transform it into a fishing pole with a hook, a line, and a reel. Speaking the command word again changes the fishing pole back into a normal 10-foot pole.",
 		weight : 7
+	},
+	"pole of angling: boatman's walking stick (dc-poa-legit-sv-3)" : {
+		name : "Boatman's Walking Stick (Pole of Angling)",
+		source : [["AL","DC-POA"]],
+		rarity : "common",
+		magicItemTable : "?",
+		description : "“The same mistakes that sparked his kingdom's decline greviously wounded him.” While holding this pole, you can speak a command word & transform it into a fishing pole w/ a hook, line, & reel. Speaking the command word again changes the fishing pole back into a normal 10-ft pole.",
+		descriptionFull : "“The same mistakes that sparked his kingdom's decline greviously wounded him.” While holding this 10-foot pole, you can speak a command word and transform it into a fishing pole with a hook, a line, and a reel. Speaking the command word again changes the fishing pole back into a normal 10-foot pole.",
+		weight : 7
+	},
+	"pot of awakening (ccc-conmar1-2)" : {
+		name : "Pot of Awakening (CCC-CONMAR1-2)",
+		rarity : "common",
+		source : [["AL","CCC"]],
+		magicItemTable : "?",
+		description : "This normal-looking pot is made of brown clay & contains an ordinary thyme plant. If you let it grow for 30 days, it magically transforms into an awakened shrub. When the thyme bush awakens, its roots break the pot & destroy it. The shrub is friendly, will provide spice if asked nicely and generally smells delightful. Absent commands from you, it does nothing.",
+		descriptionFull : "The pot is made of brown clay and looks very normal. The shrub that grows from it is a thyme bush, which will provide spice if asked nicely and generally smell delightfully.\n   If you plant an ordinary shrub in this 10-lb pot and let it grow for 30 days, the shrub magically transforms into an awakened shrub at the end of that time. When the shrub awakens, its roots break the pot, destroying it.\n   The awakened shrub is friendly toward you. Absent commands from you, it does nothing.",
+		weight : 10
 	},
 	"pot of awakening (ddia-xge)" : {
 		name : "Pot of Awakening (DDIA-XGE)",
@@ -1703,56 +2447,6 @@ MagicItemsList["al equipment"] = {
 			dc : true
 		}
 	},
-	"rotsalve (rmhep-1)" : {
-		name : "Rotsalve (Keoghtom's Ointment)",
-		source : [["AL:RMH","EP1"]],
-		rarity : "uncommon",
-		magicItemTable : "B",
-		description : "This glass jar, 3 inches in diameter, contains 1d4+1 doses of a salve made of rendered humanoid fat. The putrid scent attracts the ire of the undead & for 1 hr after a creature receives the ointment, atk rolls by undead against that creature are made with advantage. As an action, 1 dose of the ointment can be swallowed or applied to the skin. The creature that receives it regains 2d8+2 hp, ceases to be poisoned, & is cured of any disease.",
-		descriptionFull : "This glass jar, 3 inches in diameter, contains 1d4+1 doses of a salve that's made of rendered humanoid fat. The putrid scent of the ointment attracts the ire of the undead, and for 1 hour after a creature receives the ointment, attack rolls by undead against that creature are made with advantage. The jar and its contents weigh \xBD pound.\n   As an action, one dose of the ointment can be swallowed or applied to the skin. The creature that receives it regains 2d8+2 hit points, ceases to be poisoned, and is cured of any disease.",
-		weight : 0.5,
-		limfeaname : "Rotsalve",
-		usages : "1d4+1",
-		recovery : "Never"
-	},
-	"shadowneedle, unbreakable arrow (ccc-druid-1/ccc-tri-26 rose1-1)" : {
-		name : "Shadowneedle, Unbreakable Arrow (CCC-DRUID-1/CCC-TRI-26 ROSE1-1)",
-		source : [["AL","S10"]],
-		type : "weapon (arrow)",
-		rarity : "common",
-		magicItemTable : "?",
-		description : "One of 20 unbreakable arrows crafted w/ Shadowsong the oathbow. A gentle hum fills your mind when you nock this arrow on the bow & aim at a target, steadying your hand & steeling your focus. When fired from Shadowsong, you may say the words, “Needles, return to your thread” to make this arrow (& any other in its set) reappear in your quiver. It can only be broken in an Antimagic Field.",
-		descriptionFull : "One of twenty unbreakable arrows crafted with Shadowsong the oathbow, when this arrow is nocked onto the oathbow and leveled at an opponent, a gentle hum fills the wielder’s mind, steadying their hand and steeling their focus (this feature bears no mechanical effect). When fired from Shadowsong, the wielder may say the words, “Needles, return to your thread” to make this arrow (and any other in its set loosed from the wielder’s hand) reappear in the wielder’s quiver. This arrow can't be broken, except when it is within an Antimagic Field.",
-		weight : 0.05
-	},
-	"unbreakable arrow (ccc-dwb-acm-1)" : {
-		name : "Unbreakable Arrow (CCC-DWB-ACM-1)",
-		source : [["AL","CCC"]],
-		type : "weapon (arrow)",
-		rarity : "common",
-		magicItemTable : "?",
-		description : "This arrow is made of expertly carved ice that never melts. This arrow can only be broken in an Antimagic Field.",
-		descriptionFull : "This arrow is made of expertly carved ice that never seems to melt no matter what. It can't be broken, except when it is within an Antimagic Field.",
-		weight : 0.05
-	},
-	"unbreakable arrow (ddal10-0)" : {
-		name : "Unbreakable Arrow (DDAL10-0)",
-		source : [["AL","S10"]],
-		type : "weapon (arrow)",
-		rarity : "common",
-		magicItemTable : "?",
-		description : "Gifted to you by Shaktal of the Reghed Wolf Tribe, this arrow proves to Wolf Tribe members loyal to Aluka that the bearer is a friend and ally. It can only be broken in an Antimagic Field.",
-		descriptionFull : "Gifted to you by Shaktal of the Reghed Wolf Tribe, this arrow proves to Wolf Tribe members loyal to Aluka that the bearer is a friend and ally. This arrow can't be broken, except when it is within an Antimagic Field.",
-		weight : 0.05
-	},
-	"the vampire's die (ccc-gsp2-3)" : {
-		name : "The Vampire's Die (Charlatan's Die)",
-		source : [["AL","CCC"]],
-		rarity : "common",
-		magicItemTable : "?",
-		description : "This crimson die with white pips feels heavier than those that can be purchased in the local market. Whenever you roll this six-sided die while attuned, you can control which number it rolls.",
-		attunement : true,
-	},
 	"veteran's cane (ccc-druids-3)" : {
 		name : "Veteran's Cane (CCC-DRUIDS-3)",
 		source : [["AL","CCC"]],
@@ -1762,16 +2456,6 @@ MagicItemsList["al equipment"] = {
 		descriptionFull : "This sword cane belonged to the Dashing Defector that the characters prevented from defecting. The handle has their faction’s crest. Once as a bonus action, you can grasp this walking cane and speak its command word to have it transform into an ordinary longsword. Once transformed, the longsword is nonmagical and can't revert back to a walking cane.",
 		weight : 4,
 		action : [["bonus action", "Veteran's Cane"]]
-	},
-	"walloping arrow (ccc-druids-3)" : {
-		name : "Walloping Arrow (CCC-DRUIDS-3)",
-		source : [["AL","CCC"]],
-		type : "weapon (arrow)",
-		rarity : "common",
-		magicItemTable : "?",
-		description : "This arrow has a broad, blunt point shaped like a mailed fist, a prize for service faithful to the Order of the Gauntlet. It packs a wallop. A creature hit by this arrow must succeed on a DC 10 Strength saving throw or be knocked prone.",
-		descriptionFull : "This arrow has a broad, blunt point shaped like a mailed fist, a prize for service faithful to the Order of the Gauntlet.\n   This ammunition packs a wallop. A creature hit by the ammunition must succeed on a DC 10 Strength saving throw or be knocked prone.",
-		allowDuplicates : true,
 	},
 	"wind fan (ddal0-9)" : {
 		name : "Wind Fan (DDAL0-9)",
@@ -1804,6 +2488,19 @@ MagicItemsList["al equipment"] = {
 		recovery : "dawn",
 		additional : "more uses +20% to destroy",
 		fixedDC : 13,
+		weaponsAdd : [["Open Wind Fan"],["Closed Wind Fan"]],
+		weaponOptions : [{
+			baseWeapon : "shortsword",
+			name : "Open Wind Fan",
+			regExpSearch : /^(?=.*open)(?=.*wind).*$/i,
+			source : ["AL","S4"],
+			damage : [1, 6, "slashing"],
+		},{
+			baseWeapon : "club",
+			name : "Closed Wind Fan",
+			regExpSearch : /^(?=.*closed)(?=.*fan).*$/i,	
+			source : ["AL","S4"],			
+		}],
 		spellcastingBonus : {
 			name : "Once per dawn",
 			spells : ["gust of wind"],
@@ -1811,23 +2508,13 @@ MagicItemsList["al equipment"] = {
 			firstCol : "oncelr"
 		}
 	},
-	"the witchstone, walloping bullet (ccc-cic-15)" : {
-		name : "The Witchstone, Walloping Bullet (CCC-CIC-15)",
-		source : [["AL","CCC"]],
-		type : "weapon (sling bullet)",
-		rarity : "common",
-		magicItemTable : "?",
-		description : "This large stone is covered in Celestial runes marking fey & undead creatures as its enemies. It packs a wallop. A creature hit by this sling bullet must succeed on a DC 10 Strength saving throw or be knocked prone.",
-		descriptionFull : "This large stone is covered in Celestial runes marking fey and undead creatures as its enemies.\n   This ammunition packs a wallop. A creature hit by the ammunition must succeed on a DC 10 Strength saving throw or be knocked prone.",
-		allowDuplicates : true,
-	},
 }
 
 MagicItemsList["al eyewear"] = {
 		name : "AL Eyewear",
 		type : "wondrous item",
 		allowDuplicates : true,
-	choices : ["Eyes of Charming (CCC-AMER-1)","Eyes of Charming (DDAL4-4)","Eyes of the Eagle (DDAL9-2)","Eyes of Minute Seeing (CCC-GSP-PHIL1-2)","Eyes of Minute Seeing (DDEX3-12)","Goggles of Night (CCC-ALMOG-24 DAGON2-2)","Goggles of Night (CCC-TTS-1)","Goggles of Night (DDEX1-4)", "Goggles of Night (DDAL7-4)", "Goggles of Night (DDAL8-2)","Goggles of Night (DDAL10-1)","Doomseers Lenses (RMH-2)"],
+	choices : ["Eyes of Charming (CCC-AMER-1)","Eyes of Charming (DDAL4-4)","Eyes of the Eagle (DDAL9-2)","Eyes of Minute Seeing (CCC-GSP-PHIL1-2)","Eyes of Minute Seeing (DDEX3-12)","Goggles of Night (CCC-ALMOG-24 DAGON2-2)","Goggles of Night (CCC-GAD2-1)","Goggles of Night (CCC-TTS-1)","Goggles of Night (DDAL7-4)", "Goggles of Night (DDAL8-2)","Goggles of Night (DDAL10-1)","Goggles of Night (DDEX1-4)","Goggles of Night: Doomseers Lenses (RMH-2)"],
 	"eyes of charming (ccc-amer-1)" : {
 		name : "Eyes of Charming (CCC-AMER-1)",
 		source : [["AL","CCC"]],
@@ -1905,6 +2592,15 @@ MagicItemsList["al eyewear"] = {
 		descriptionFull: "These goggles are fitted with red light enhancing lenses in a metal frame with adjustment rings. While wearing these goggles, you have darkvision out to a range of 60 feet. If you already have darkvision, wearing the goggles increases its range by 60 feet.",
 		vision : [["Darkvision", "fixed 60"], ["Darkvision", "+60"]]
 		},
+	"goggles of night (ccc-gad2-1)" : {   // contributions by AelarTheElfRogue
+		name : "Goggles of Night (CCC-GAD2-1)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "B",
+		description: "This pair of goggles is fashioned from umber hulk carapace & troll leather. While wearing them, the red lenses cause you to see the world in shades of red & you have darkvision out to a range of 60 feet. If you already have darkvision, wearing the goggles increases its range by 60 feet.",
+		descriptionFull: "This pair of goggles is fashioned from umber hulk carapace and troll leather. While wearing it, its red lenses cause you to see the world in shades of red.\n   While wearing these dark lenses, you have darkvision out to a range of 60 feet. If you already have darkvision, wearing the goggles increases its range by 60 feet.",
+		vision : [["Darkvision", "fixed 60"], ["Darkvision", "+60"]]
+		},
 	"goggles of night (ccc-tts-1)" : {   // contributions by AelarTheElfRogue
 		name : "Goggles of Night (CCC-TTS-1)",
 		source : [["AL","CCC"]],
@@ -1912,14 +2608,6 @@ MagicItemsList["al eyewear"] = {
 		magicItemTable : "B",
 		description: "These are lead miners’ goggles, with large heavy lenses and wide leather straps. While wearing these dark lenses, you have darkvision out to a range of 60 feet. If you already have darkvision, wearing the goggles increases its range by 60 feet.",
 		descriptionFull: "This item comes in the form of lead miners’ goggles, with large heavy lenses and wide leather straps. While wearing these dark lenses, you have darkvision out to a range of 60 feet. If you already have darkvision, wearing the goggles increases its range by 60 feet.",
-		vision : [["Darkvision", "fixed 60"], ["Darkvision", "+60"]]
-		},
-	"goggles of night (ddex1-4)" : {   // contributions by AelarTheElfRogue
-		name : "Goggles of Night (DDEX1-4)",
-		source : [["AL","S1"]],
-		rarity : "uncommon",
-		magicItemTable : "B",
-		description: "These brass-framed goggles feel cool to the touch when worn. While wearing these dark lenses, you have darkvision out to a range of 60 feet. If you already have darkvision, wearing the goggles increases its range by 60 feet.",
 		vision : [["Darkvision", "fixed 60"], ["Darkvision", "+60"]]
 		},
 	"goggles of night (ddal7-4)" : {
@@ -1947,7 +2635,15 @@ MagicItemsList["al eyewear"] = {
 		description: "These goggles consist of thin sheets of translucent black crystal set into brass and leather framers. While wearing these lenses, you have darkvision out to a range of 60 feet. If you already have darkvision, wearing the goggles increases its range by 60 feet.",
 		vision : [["Darkvision", "fixed 60"], ["Darkvision", "+60"]]
 		},
-	"doomseers lenses (rmh-2)" : {
+	"goggles of night (ddex1-4)" : {   // contributions by AelarTheElfRogue
+		name : "Goggles of Night (DDEX1-4)",
+		source : [["AL","S1"]],
+		rarity : "uncommon",
+		magicItemTable : "B",
+		description: "These brass-framed goggles feel cool to the touch when worn. While wearing these dark lenses, you have darkvision out to a range of 60 feet. If you already have darkvision, wearing the goggles increases its range by 60 feet.",
+		vision : [["Darkvision", "fixed 60"], ["Darkvision", "+60"]]
+		},
+	"goggles of night: doomseers lenses (rmh-2)" : {
 		name : "Doomseers Lenses (Goggles of Night)",
 		source : [["AL:RMH",2]],
 		rarity : "uncommon",
@@ -1964,7 +2660,7 @@ MagicItemsList["al figurines"] = {  // contains contributions by Larry Hoy
 		allowDuplicates : true,
 		descriptionFull: "A figurine of wondrous power is a statuette of a beast small enough to fit in a pocket. If you use an action to speak the command word and throw the figurine to a point on the ground within 60 feet of you, the figurine becomes a living creature. If the space where the creature would appear is occupied by other creatures or objects, or if there isn't enough space for the creature, the figurine doesn't become a creature.\n   The creature is friendly to you and your companions. It understands your languages and obeys your spoken commands. If you issue no commands, the creature defends itself but takes no other actions.\n   The creature exists for a duration specific to each figurine. At the end of the duration, the creature reverts to its figurine form. It reverts to a figurine early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature becomes a figurine again, its property can't be used again until a certain amount of time has passed, as specified in the figurine's description.",
 		action : [["action", "Figurine of Wondrous Power"]],
-		choices : ["Bronze Griffon (CCC-QCC2018-2)", "The Plague Fly (CCC-TAROT2-1)","Golden Lions (CCC-BWM-7-2)", "Golden Lions (CCC-FC3-1-2)", "Ivory Goats (CCC-BMG-16 ELMW1-1)", "Ivory Goats (CCC-DES-1-1)", "Ivory Goats (CCC-ZIEGE-1)", "Steel Mammoth (CCC-ODFC3-3)", "Obsidian Steed (DDEP0-1)", "Onyx Dog (CCC-CIC-2)", "Serpentine Owl (DDEX2-9)", "Silver Raven (CCC-DWB-ACM-1)","Silver Raven (DC-POA-CONMAR-9)","Snowy Owl (DDEP10-0)"],
+		choices : ["Bronze Griffon (CCC-QCC2018-2)", "Ebony Fly - The Plague Fly (CCC-TAROT2-1)","Golden Lions (CCC-BWM-7-2)", "Golden Lions (CCC-FC3-1-2)", "Ivory Goats (CCC-BMG-16 ELMW1-1)", "Ivory Goats (CCC-DES-1-1)", "Ivory Goats (CCC-ZIEGE-1)", "Steel Elephant - Mammoth (CCC-ODFC3-3)", "Obsidian Steed (DDEP0-1)", "Onyx Dog (CCC-CIC-2)", "Serpentine Owl - Giant Snowy Owl (DDEX2-9)", "Silver Raven - Hummingbird (CCC-DWB-ACM-1)","Silver Raven (DC-POA-CONMAR-9)","Silver Raven - Owl Totem (DC-POA-TDG1-3)","Silver Raven - Snowy Owl (DDEP10-0)"],
 		"bronze griffon (ccc-qcc2018-2)" : {
 			name : "Bronze Griffon (CCC-QCC2018-2)",
 			rarity : "rare",
@@ -1977,7 +2673,7 @@ MagicItemsList["al figurines"] = {  // contains contributions by Larry Hoy
 			usages : 1,
 			recovery : "5 days"
 		},
-		"the plague fly (ccc-tarot2-1)" : {
+		"ebony fly - the plague fly (ccc-tarot2-1)" : {
 			name : "The Plague Fly (Ebony Fly)",
 			magicItemTable : "G",
 			source : [["AL","CCC"]],
@@ -2151,12 +2847,12 @@ MagicItemsList["al figurines"] = {  // contains contributions by Larry Hoy
 				source : [["SRD", 222], ["D", 170], ["AL","CCC"]],
 			}]
 		},
-		"steel mammoth (ccc-odfc3-3)" : {
+		"steel elephant - mammoth (ccc-odfc3-3)" : {
 			name : "Steel Mammoth (CCC-ODFC3-3)",
 			rarity : "rare",
 			source : [["AL","CCC"]],
 			magicItemTable : "G",
-			description: "This 4 inch mammoth figurine is made of well-polished steel & seems to be a single solid piece of exquisite detail. As an action, speak the command word & throw it to an unoccupied space within 60 ft. The figure moves & makes a trumpeting sound as it becomes a elephant for up to 24 hrs, until you use the command word again, or it reaches 0 hp. It's friendly, understands your languages, & obeys your commands. If no commands, defends self.",
+			description: "This 4 inch mammoth figurine is made of well-polished steel & seems to be a single solid piece of exquisite detail. As an action, speak the command word & throw it to an unoccupied space within 60 ft. The figure moves & makes a trumpeting sound as it becomes a mammoth (reflavored elephant) for up to 24 hrs, until you use the command word again, or it reaches 0 hp. It's friendly, understands your languages, & obeys your commands. If no commands, defends self.",
 			descriptionLong: "This 4 inch mammoth figurine is made of well-polished steel & seems to be a single solid piece of exquisite detail. As an action, you can speak the command word & throw it to an unoccupied space within 60 ft. The figure moves & makes a trumpeting sound as it becomes a elephant for up to 24 hrs, until you use an action to repeat the command word, or it reaches 0 hp. It's friendly to you & your allies, understands your languages, & obeys your spoken commands. If you issue no commands, it defends itself but takes no other actions. When it reverts back to a figurine, it can't be used again for 7 days.",
 			descriptionFull: "This mammoth figurine is made of well-polished steel and appears to be a single solid piece of exquisite detail. It's about 4 inches high and long, small enough to fit in a pocket. If you use an action to speak the command word and throw the figurine to a point on the ground within 60 feet of you, the figurine becomes a living elephant, moving and making a large trumpeting sound as it comes to life.\n   If the space where the creature would appear is occupied by other creatures or objects, or if there isn't enough space for the creature, the figurine doesn't become a creature.\n   The creature is friendly to you and your companions. It understands your languages and obeys your spoken commands. If you issue no commands, the creature defends itself but takes no other actions.\n   The creature exists for 24 hours. At the end of the duration, the creature reverts to its figurine form. It reverts to a figurine early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature becomes a figurine again, its property can't be used again until 7 days have passed.",
 			limfeaname : "Steel Mammoth Figurine",
@@ -2192,8 +2888,8 @@ MagicItemsList["al figurines"] = {  // contains contributions by Larry Hoy
 			usages : 1,
 			recovery : "7 days"
 		},
-		"serpentine owl (ddex2-9)" : {
-			name: "Serpentine Owl (DDEX2-9)",
+		"serpentine owl - giant snowy owl (ddex2-9)" : {
+			name: "Serpentine Owl - Giant Snowy Owl (DDEX2-9)",
 			rarity : "rare",
 			source : [["AL","S2"]],
 			magicItemTable : "G",
@@ -2204,7 +2900,7 @@ MagicItemsList["al figurines"] = {  // contains contributions by Larry Hoy
 			usages : 1,
 			recovery : "2 days"
 		},
-		"silver raven (ccc-dwb-acm-1)" : {
+		"silver raven - hummingbird (ccc-dwb-acm-1)" : {
 			name: "Silver Raven - Hummingbird (CCC-DWB-ACM-1)",
 			rarity : "uncommon",
 			source : [["AL","CCC"]],
@@ -2252,13 +2948,37 @@ MagicItemsList["al figurines"] = {  // contains contributions by Larry Hoy
 				}
 			}
 		},
-		"snowy owl (ddep10-0)" : {
+		"silver raven - owl totem (dc-poa-tdg1-3)" : {
+			name: "Owl Totem Figurine (Silver Raven)",
+			rarity : "uncommon",
+			source : [["AL","DC-POA"]],
+			magicItemTable : "F",
+			allowDuplicates : true,
+			description: "This carved wooden owl is made from Rowan-Oak, with druidic runes that say “The Court Summons Thee”. As an action, speak the command word & throw it to unoccupied space w/i 60 ft, where it becomes an owl (reflavored raven) for up to 12 hrs, until you repeat the command word, or it reaches 0 hp. It's friendly, understands your languages, & obeys spoken commands. While it's an owl, you can cast Animal Messenger on it at will. If no commands, defends itself but nothing else. After reverts, can't be used again for 2 days.",
+			descriptionFull: "This figurine is an intricately carved wooden owl made from Rowan-Oak, with druidic runes that say “The Court Summons Thee”. If you use an action to speak the command word and throw the figurine to a point on the ground within 60 feet of you, the figurine becomes a living owl (reflavored raven). If the space where the creature would appear is occupied by other creatures or objects, or if there isn't enough space for the creature, the figurine doesn't become a creature.\n   The creature is friendly to you and your companions. It understands your languages and obeys your spoken commands. If you issue no commands, the creature defends itself but takes no other actions.\n   The creature exists for 12 hours. At the end of the duration, the creature reverts to its figurine form. It reverts to a figurine early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature becomes a figurine again, its property can't be used again until 2 days have passed.\n   While in raven form, the figurine allows you to cast the Animal Messenger spell on it at will.",
+			limfeaname : "Snowy Owl Figurine",
+			usages : 1,
+			recovery : "2 days",
+			spellcastingBonus : {
+				name : "At will",
+				spells : ["animal messenger"],
+				selection : ["animal messenger"],
+				firstCol : "atwill"
+			},
+			spellChanges : {
+				"animal messenger" : {
+					description : "The owl delivers a 25 word message up to 50 miles away to chosen location and recipient",
+					changes : "The spell can only affect the figurine."
+				}
+			}
+		},
+		"silver raven - snowy owl (ddep10-0)" : {
 			name: "Snowy Owl Figurine (Silver Raven)",
 			rarity : "uncommon",
 			source : [["AL","S10"]],
 			magicItemTable : "F",
 			allowDuplicates : true,
-			description: "As an action, speak the command word & throw this silver statuette to unoccupied space w/i 60 ft, where it becomes a snowy owl (reflavored raven) for up to 12 hrs, until you repeat the command word, or reaches 0 hp. It's friendly, understands your languages, & obeys spoken commands. While it's an owl, you can cast Animal Messenger on it at will. If no commands, defends itself but nothing else. After reverts, can't be used again for 2 days.",
+			description: "As an action, speak the command word & throw this silver statuette to unoccupied space w/i 60 ft, where it becomes a snowy owl (reflavored raven) for up to 12 hrs, until you repeat the command word, or it reaches 0 hp. It's friendly, understands your languages, & obeys spoken commands. While it's an owl, you can cast Animal Messenger on it at will. If no commands, defends itself but nothing else. After reverts, can't be used again for 2 days.",
 			descriptionFull: "This figurine of wondrous power is a silver statuette of a snowy owl, small enough to fit in a pocket. If you use an action to speak the command word and throw the figurine to a point on the ground within 60 feet of you, the figurine becomes a living owl (reflavored raven). If the space where the creature would appear is occupied by other creatures or objects, or if there isn't enough space for the creature, the figurine doesn't become a creature.\n   The creature is friendly to you and your companions. It understands your languages and obeys your spoken commands. If you issue no commands, the creature defends itself but takes no other actions.\n   The creature exists for 12 hours. At the end of the duration, the creature reverts to its figurine form. It reverts to a figurine early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature becomes a figurine again, its property can't be used again until 2 days have passed.\n   While in raven form, the figurine allows you to cast the Animal Messenger spell on it at will.",
 			limfeaname : "Snowy Owl Figurine",
 			usages : 1,
@@ -2282,19 +3002,44 @@ MagicItemsList["al footwear"] = {
 		name : "AL Footwear",
 		type : "wondrous item",
 		allowDuplicates : true,
-	choices : ["The Auftrag’s Buskins (CCC-TAROT2-5)","Boots of Elvenkind (CCC-SFBAY-4-2)","Boots of Elvenkind (DDAL4-6)","Boots of False Tracks (CCC-CENTRIC1-2)","Boots of False Tracks (CCC-PRETZ-PLA2)","Boots of False Tracks (DC-POA-TDG1-1)","Boots of False Tracks (DDAL0-8)","Boots of False Tracks (DDAL10-0)","Boots of Levitation (DDAL10-8)","Boots of Speed (DDAL6-2)","Boots of Striding and Springing (DDAL10-3)","Boots of the Winterlands (CCC-BMG-19 HULB2-1)","Boots of the Winterlands (CCC-CIC-1)","Boots of the Winterlands (DC-POA-CODEX-1)","Boots of the Winterlands (DC-POA-CONMAR-14)","Boots of the Winterlands (DC-POA-GSP1-1)","Boots of the Winterlands (DC-POA-LEGIT-SV-3)","Eladrin Boots of Elvenkind (CCC-BMG-MOON6-2)","Red's Slippers (CCC-KUMORI-2-2)","Shoes of the Glacier Walker (CCC-TRI-26)","Slippers of Spider Climbing (CCC-SRCC1-1)","Winged Boots (CCC-SEA-1-2)","Winged Boots (CCC-SQC-3-2)","Winged Boots (DDEP0-1)","Winged Boots (DDEP8-3)"],
-	"the auftrag’s buskins (ccc-tarot2-5)" : {
-		name : "The Auftrag’s Buskins (Winged Boots)",
+	choices : ["Boots of Elvenkind: Eladrin (CCC-BMG-MOON6-2)","Boots of Elvenkind: Red's Slippers (CCC-KUMORI-2-2)","Boots of Elvenkind (CCC-SFBAY-4-2)","Boots of Elvenkind (DDAL4-6)","Boots of False Tracks (CCC-CENTRIC1-2)","Boots of False Tracks (CCC-PRETZ-PLA2)","Boots of False Tracks: Lucky Kobold's Foot (DC-POA-TDG1-1)","Boots of False Tracks: Dale Ranger Boots (DC-POA-TDG1-6)","Boots of False Tracks (DDAL0-8)","Boots of False Tracks (DDAL10-0/DC-POA/DC-POA-GaryXIII-1)","Boots of Levitation (DDAL10-8)","Boots of Speed (DDAL6-2)","Boots of Striding and Springing: Shoes of the Glacier Walker (CCC-TRI-26)","Boots of Striding and Springing (DDAL10-3)","Boots of the Winterlands (CCC-BMG-19 HULB2-1)","Boots of the Winterlands (CCC-CIC-1)","Boots of the Winterlands (DC-POA-CODEX-1)","Boots of the Winterlands (DC-POA-CONMAR-14)","Boots of the Winterlands (DC-POA-GSP1-1)","Boots of the Winterlands (DC-POA-LEGIT-SV-3)","Slippers of Spider Climbing (CCC-SRCC1-1)","Winged Boots (CCC-SEA-1-2)","Winged Boots (CCC-SQC-3-2)","Winged Boots: The Auftrag’s Buskins (CCC-TAROT2-5)","Winged Boots (DDEP0-1)","Winged Boots (DDEP8-3)"],
+	"boots of elvenkind: eladrin (ccc-bmg-moon6-2)" : { // contains contributions by AelarTheElfRogue
+		name : "Eladrin Boots of Elvenkind (CCC-BMG-MOON6-2)",
 		source : [["AL","CCC"]],
 		rarity : "uncommon",
 		magicItemTable : "F",
-		description : "These boots are made of a solid leather sole & intricate golden cord lacing. Decorative panels of leather along the calf show images of the Cult of the Ordinances & their symbol, a stylized balance w/ an infinity loop. The boots grant you a flying speed equal to your walking speed. You can fly for up to 4 hrs in 1 minute increments. If flying when the time expires, you descend 30 ft/round. They regain 2 hrs of flying capability for every 12 hrs they aren't used.",
-		descriptionFull : "These boots are made of a firm, solid leather sole and intricate golden cord lacing. Decorating panels of leather along the calf are images of the Cult of the Ordinances – including their symbol, a stylized balance against an infinity loop.\n   While you wear these boots, you have a flying speed equal to your walking speed. You can use the boots to fly for up to 4 hours, all at once or in several shorter flights, each one using a minimum of 1 minute from the duration. If you are flying when the duration expires, you descend at a rate of 30 feet per round until you land.\n   The boots regain 2 hours of flying capability for every 12 hours they aren't in use.",
-		attunement : true,
-		limfeaname : "Winged Boots",
-		usages : "240 min",
-		recovery : "Special",
-		additional : "regains 2h/12h"
+		description : "Unworn, these eladrin-crafted boots are crude tubes of birch bark sewn together with sinew. Worn, they transform into slippers that match the seasons. Elk-hide in winter, kelp-wrapped in the wet spring, straw sandals for summer & soft down-lined shoes for fall. While you wear them, your steps are silent, regardless of the surface you're walking on. You have advantage on Dex (Stealth) checks that rely on moving quietly.",
+		descriptionFull : "Unworn, these eladrin-crafted boots appear to be little more than crude tubes of birch bark sewn roughly together with sinew. Worn, they transform into slippers that match the seasons. Elk-hide in winter, kelp-wrapped for the wet spring, straw sandals for summer and soft down-lined shoes for fall. While you wear them, your steps make no sound, regardless of the surface you are moving across. You also have advantage on Dexterity (Stealth) checks that rely on moving silently.",
+		eval : function () {
+			for (var i = 0; i < CurrentMagicItems.known.length; i++) {
+				if (CurrentMagicItems.known[i].indexOf("cloak of elvenkind") !== -1 && tDoc.getField("Extra.Magic Item Attuned " + (1 + i)).isBoxChecked(0)) {
+					SetProf("advantage", true, ["Stealth", true], "Cloak and Boots of Elvenkind (magic items)");
+					break;
+				}
+			}
+		},
+		removeeval : function () {
+			SetProf("advantage", false, ["Stealth", true], "Cloak and Boots of Elvenkind (magic items)");
+		}
+	},
+	"boots of elvenkind: red's slippers (ccc-kumori-2-2)" : { // contains contributions by AelarTheElfRogue
+		name : "Red's Slippers (Boots of Elvenkind)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "These ‘slippers’ are crafted of the finest supple deerskin, with iron studs built into the soles. Bright red, the color of pouring blood, they present a striking appearance. While you wear them, your steps are silent, regardless of the surface you're walking on. You have adv. on Dex (Stealth) checks that rely on moving quietly.",
+		descriptionFull : "These ‘slippers’ are crafted of the finest supple deerskin, with iron studs crafted into the soles. Bright red, the color of pouring blood, they present a striking appearance. While you wear these boots, your steps make no sound, regardless of the surface you are moving across. You also have advantage on Dexterity (Stealth) checks that rely on moving silently.",
+		eval : function () {
+			for (var i = 0; i < CurrentMagicItems.known.length; i++) {
+				if (CurrentMagicItems.known[i].indexOf("cloak of elvenkind") !== -1 && tDoc.getField("Extra.Magic Item Attuned " + (1 + i)).isBoxChecked(0)) {
+					SetProf("advantage", true, ["Stealth", true], "Cloak and Boots of Elvenkind (magic items)");
+					break;
+				}
+			}
+		},
+		removeeval : function () {
+			SetProf("advantage", false, ["Stealth", true], "Cloak and Boots of Elvenkind (magic items)");
+		}
 	},
 	"boots of elvenkind (ccc-sfbay-4-2)" : { // contains contributions by AelarTheElfRogue
 		name : "Boots of Elvenkind (CCC-SFBAY-4-2)",
@@ -2350,13 +3095,21 @@ MagicItemsList["al footwear"] = {
 		description : "The Boots of Chakalakhan are red, rusted, iron boots that curl up at the toes. Created for the hobgoblin war chief Chakalakhan as rocket boots, the ancient mechanisms have long since failed. Now when the bearer clicks their heels together, the spouts simply sputter and spit. Only humanoids can wear these boots. While wearing them, you can choose to leave tracks like those of another kind of humanoid of your size. ",
 		descriptionFull : "The Boots of Chakalakhan are red, rusted, iron boots that curl up at the toes. Originally created for the great hobgoblin war chief Chakalakhan as rocket boots, but the ancient mechanisms have long since failed. Now when the bearer clicks their heels together the spouts simply sputter and spit. This allows the wearer to change the shape of their tracks.\n   Only humanoids can wear these boots. While wearing the boots, you can choose to have them leave tracks like those of another kind of humanoid of your size."
 	},
-	"boots of false tracks (dc-poa-tdg1-1)" : {
+	"boots of false tracks: lucky kobold's foot (dc-poa-tdg1-1)" : {
 		name : "Lucky Kobold's Foot (Boots of False Tracks)",
 		source : [["AL","DC-POA"]],
 		rarity : "common",
 		magicItemTable : "?",
 		description : "These leather boots are made from the skin & scales of guard drakes & are shaped like kobold feet, leaving kobold footprints. Only humanoids can wear them. While wearing the boots, you can choose to leave tracks like those of another kind of humanoid of your size.",
 		descriptionFull : "The pair of leather boots made from the leather and scales of guard drakes are shaped like Kobold feet, leaving kobold shaped footprints.\n   Only humanoids can wear these boots. While wearing the boots, you can choose to have them leave tracks like those of another kind of humanoid of your size."
+	},
+	"boots of false tracks: dale ranger boots (dc-poa-tdg1-6)" : {
+		name : "Dale Ranger Boots (Boots of False Tracks)",
+		source : [["AL","DC-POA"]],
+		rarity : "common",
+		magicItemTable : "?",
+		description : "Each color of these boots leaves behind different animal tracks. Red: Allosaurus/Tyrannosaurus, Yellow: Sabre-toothed Tiger, Blue: Rhinoceros/Triceratops, Pink: Quetzalcoatlus/Pterodactyl, Black: Elephant/Mastodon, Green: Giant Constrictor Snake/Green Dragon Wyrmling, White: Polar Bear/White Tiger, Purple: Giant Boar/Entelodont, Orange: Axe Beak/Terror-Bird. Only humanoids can wear them. While wearing the boots, you can choose to leave tracks like those of another kind of humanoid of your size.",
+		descriptionFull : "These boots are colour coded and leave behind different animal tracks depending on the colour. Red: Allosaurus/Tyrannosaurus, Yellow: Sabre-toothed Tiger, Blue: Rhinoceros/Triceratops, Pink: Quetzalcoatlus/Pterodactyl, Black: Elephant/Mastodon, Green: Giant Constrictor Snake/Green Dragon Wyrmling, White: Polar Bear/White Tiger, Purple: Giant Boar/Entelodont, Orange Axe Beak/Terror-Bird.\n   Only humanoids can wear these boots. While wearing the boots, you can choose to have them leave tracks like those of another kind of humanoid of your size."
 	},
 	"boots of false tracks (ddal0-8)" : {
 		name : "Boots of False Tracks (DDAL0-8)",
@@ -2366,9 +3119,9 @@ MagicItemsList["al footwear"] = {
 		description : "These thick-soled boots are made of supple black leather. Only humanoids can wear them. While wearing the boots, you can choose to leave tracks like those of another kind of humanoid of your size. When used in this way, the tracks are filled with fresh blood, as if the creature leaving them were grievously wounded.",
 		descriptionFull : "These thick-soled boots are made of supple black leather. When used to leave false tracks, the tracks they leave are filled with fresh blood — as if the creature leaving them were grievously wounded.\n   Only humanoids can wear these boots. While wearing the boots, you can choose to have them leave tracks like those of another kind of humanoid of your size."
 	},
-	"boots of false tracks (ddal10-0)" : {
-		name : "Boots of False Tracks (DDAL10-0)",
-		source : [["AL","S10"]],
+	"boots of false tracks (ddal10-0/dc-poa/dc-poa-garyxiii-1)" : {
+		name : "Boots of False Tracks (DDAL10-0/DC-POA/DC-POA-GaryXIII-1)",
+		source : [["AL","S10"],["AL","DC-POA"]],
 		rarity : "common",
 		magicItemTable : "?",
 		description : "These comfortable, fur-lined boots are embroidered with gaudy, but worthless, gems. Only humanoids can wear them. While wearing the boots, you can choose to leave tracks like those of another kind of humanoid of your size.",
@@ -2408,6 +3161,16 @@ MagicItemsList["al footwear"] = {
 		recovery : "long rest",
 		additional : "minutes",
 		languageProfs : ["Gnomish"]
+	},
+	"boots of striding and springing: shoes of the glacier walker (ccc-tri-26)" : { // includes contributions by AelarTheElfRogue
+		name : "Shoes of the Glacier Walker (Boots of Striding and Springing)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		attunement : true,
+		description : "These tall, leather boots are wrapped in fur & tied with brightly dyed rawhide. They expand or contract to fit you snugly, giving you a sense of sure-footedness in snowy or icy terrain. While wearing these boots, your walking speed is 30 ft, unless it's higher, & your speed isn't reduced by encumbrance or wearing heavy armor. You can also jump 3 times the normal distance, though not farther than your remaining movement allows.",
+		descriptionFull : "These tall, leather boots are wrapped in fur tied on with brightly dyed rawhide. It expands or contracts to fit the wearer snugly, giving the wearer a sense of sure-footedness in snowy or icy terrain (there is no mechanical benefit to this).\n   While you wear these boots, your walking speed becomes 30 feet, unless your walking speed is higher, and your speed isn't reduced if you are encumbered or wearing heavy armor. In addition, you can jump three times the normal distance, though you can't jump farther than your remaining movement would allow.",
+		speed : { walk : { spd : "fixed 30", enc : "fixed 30" } }
 	},
 	"boots of striding and springing (ddal10-3)" : { // includes contributions by AelarTheElfRogue
 		name : "Boots of Striding and Springing (DDAL10-3)",
@@ -2479,54 +3242,6 @@ MagicItemsList["al footwear"] = {
 		descriptionFull : "“Fur from a Wolf Tribe Winter Wolf, horn sliver from an Elk Tribe helmet, blood from a Tiger Tribe traitor. Earned by right of battle, given away freely.”\n   These furred boots are snug and feel quite warm. While you wear them, you gain the following benefits:\n \u2022 You have resistance to cold damage.\n \u2022 You ignore difficult terrain created by ice or snow.\n \u2022 You can tolerate temperatures as low as -50 degrees Fahrenheit without any additional protection. If you wear heavy clothes, you can tolerate temperatures as low as -100 degrees Fahrenheit.",
 		dmgres : ["Cold"]
 	},
-	"eladrin boots of elvenkind (ccc-bmg-moon6-2)" : { // contains contributions by AelarTheElfRogue
-		name : "Eladrin Boots of Elvenkind (CCC-BMG-MOON6-2)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "F",
-		description : "Unworn, these eladrin-crafted boots are crude tubes of birch bark sewn together with sinew. Worn, they transform into slippers that match the seasons. Elk-hide in winter, kelp-wrapped in the wet spring, straw sandals for summer & soft down-lined shoes for fall. While you wear them, your steps are silent, regardless of the surface you're walking on. You have advantage on Dex (Stealth) checks that rely on moving quietly.",
-		descriptionFull : "Unworn, these eladrin-crafted boots appear to be little more than crude tubes of birch bark sewn roughly together with sinew. Worn, they transform into slippers that match the seasons. Elk-hide in winter, kelp-wrapped for the wet spring, straw sandals for summer and soft down-lined shoes for fall. While you wear them, your steps make no sound, regardless of the surface you are moving across. You also have advantage on Dexterity (Stealth) checks that rely on moving silently.",
-		eval : function () {
-			for (var i = 0; i < CurrentMagicItems.known.length; i++) {
-				if (CurrentMagicItems.known[i].indexOf("cloak of elvenkind") !== -1 && tDoc.getField("Extra.Magic Item Attuned " + (1 + i)).isBoxChecked(0)) {
-					SetProf("advantage", true, ["Stealth", true], "Cloak and Boots of Elvenkind (magic items)");
-					break;
-				}
-			}
-		},
-		removeeval : function () {
-			SetProf("advantage", false, ["Stealth", true], "Cloak and Boots of Elvenkind (magic items)");
-		}
-	},
-	"red's slippers (ccc-kumori-2-2)" : { // contains contributions by AelarTheElfRogue
-		name : "Red's Slippers (Boots of Elvenkind)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "F",
-		description : "These ‘slippers’ are crafted of the finest supple deerskin, with iron studs built into the soles. Bright red, the color of pouring blood, they present a striking appearance. While you wear them, your steps are silent, regardless of the surface you're walking on. You have adv. on Dex (Stealth) checks that rely on moving quietly.",
-		descriptionFull : "These ‘slippers’ are crafted of the finest supple deerskin, with iron studs crafted into the soles. Bright red, the color of pouring blood, they present a striking appearance. While you wear these boots, your steps make no sound, regardless of the surface you are moving across. You also have advantage on Dexterity (Stealth) checks that rely on moving silently.",
-		eval : function () {
-			for (var i = 0; i < CurrentMagicItems.known.length; i++) {
-				if (CurrentMagicItems.known[i].indexOf("cloak of elvenkind") !== -1 && tDoc.getField("Extra.Magic Item Attuned " + (1 + i)).isBoxChecked(0)) {
-					SetProf("advantage", true, ["Stealth", true], "Cloak and Boots of Elvenkind (magic items)");
-					break;
-				}
-			}
-		},
-		removeeval : function () {
-			SetProf("advantage", false, ["Stealth", true], "Cloak and Boots of Elvenkind (magic items)");
-		}
-	},
-	"shoes of the glacier walker (ccc-tri-26)" : { // includes contributions by AelarTheElfRogue
-		name : "Shoes of the Glacier Walker (Boots of Striding and Springing)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "F",
-		attunement : true,
-		description : "These tall, leather boots are wrapped in fur & tied with brightly dyed rawhide. They expand or contract to fit you snugly, giving you a sense of sure-footedness in snowy or icy terrain. While wearing these boots, your walking speed is 30 ft, unless it's higher, & your speed isn't reduced by encumbrance or wearing heavy armor. You can also jump 3 times the normal distance, though not farther than your remaining movement allows.",
-		descriptionFull : "These tall, leather boots are wrapped in fur tied on with brightly dyed rawhide. It expands or contracts to fit the wearer snugly, giving the wearer a sense of sure-footedness in snowy or icy terrain (there is no mechanical benefit to this).\n   While you wear these boots, your walking speed becomes 30 feet, unless your walking speed is higher, and your speed isn't reduced if you are encumbered or wearing heavy armor. In addition, you can jump three times the normal distance, though you can't jump farther than your remaining movement would allow.",
-		speed : { walk : { spd : "fixed 30", enc : "fixed 30" } }
-	},
 	"slippers of spider climbing (ccc-srcc1-1)" : {
 		name : "Slippers of Spider Climbing (CCC-SRCC1-1)",
 		source : [["AL","CCC"]],
@@ -2557,6 +3272,19 @@ MagicItemsList["al footwear"] = {
 		magicItemTable : "F",
 		description : "These boots were made by fusing leaves from the Comanthar forest & the magic that still lingers around Myth Drannor. They change color according to the season & leave a trail of sparkling dust that disappears almost immediately. The boots grant you a flying speed equal to your walking speed. You can fly for up to 4 hrs in 1 minute increments. If flying when the time expires, you descend 30 ft/round. They regain 2 hrs of flying capability for every 12 hrs they aren't used.",
 		descriptionFull : "This pair of boots is crafted by magically fusing leaves from the Comanthar forest and ancient magic that still lingers around Myth Drannor. The wearer of the boots leaves behind a trail of faintly sparkling dust that disappears almost immediately. The leaves on the boots changes color according to the season of the region.\n   While you wear these boots, you have a flying speed equal to your walking speed. You can use the boots to fly for up to 4 hours, all at once or in several shorter flights, each one using a minimum of 1 minute from the duration. If you are flying when the duration expires, you descend at a rate of 30 feet per round until you land.\n   The boots regain 2 hours of flying capability for every 12 hours they aren't in use.",
+		attunement : true,
+		limfeaname : "Winged Boots",
+		usages : "240 min",
+		recovery : "Special",
+		additional : "regains 2h/12h"
+	},
+	"winged boots: the auftrag’s buskins (ccc-tarot2-5)" : {
+		name : "The Auftrag’s Buskins (Winged Boots)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "These boots are made of a solid leather sole & intricate golden cord lacing. Decorative panels of leather along the calf show images of the Cult of the Ordinances & their symbol, a stylized balance w/ an infinity loop. The boots grant you a flying speed equal to your walking speed. You can fly for up to 4 hrs in 1 minute increments. If flying when the time expires, you descend 30 ft/round. They regain 2 hrs of flying capability for every 12 hrs they aren't used.",
+		descriptionFull : "These boots are made of a firm, solid leather sole and intricate golden cord lacing. Decorating panels of leather along the calf are images of the Cult of the Ordinances – including their symbol, a stylized balance against an infinity loop.\n   While you wear these boots, you have a flying speed equal to your walking speed. You can use the boots to fly for up to 4 hours, all at once or in several shorter flights, each one using a minimum of 1 minute from the duration. If you are flying when the duration expires, you descend at a rate of 30 feet per round until you land.\n   The boots regain 2 hours of flying capability for every 12 hours they aren't in use.",
 		attunement : true,
 		limfeaname : "Winged Boots",
 		usages : "240 min",
@@ -2595,35 +3323,34 @@ MagicItemsList["al headwear"] = {
 		name : "AL Headwear",
 		type : "wondrous item",
 		allowDuplicates : true,
-	choices : ["Bulaga Wizard Hat of Vermin (CCC-GSP2-1)","Chardalyn Earring (DDEP10-1)","Circlet (Eye Patch) of Blasting (CCC-CIC-11)","Circlet of Blasting (DC-POA-RH01)","Dread Helm (CCC-AETHER-1-2)","Dread Helm (CCC-GAD1-2)","Dread Helm (CCC-OCC-2)","Dread Helm (Generic DC-POA)","Dread Helm (DC-POA-DUCKS-OS-02)","Dread Helm (DC-POA-HARM1-1)","Dread Helm (DC-POA-LEGIT-CIPH-1)","Hat of Disguise (CCC-AETHER2-1)","Hat of Disguise (DDAL8-3)","Hat of Vermin (CCC-TAROT1-5)","Headband of Intellect (DDEP0-1)","Headband of Intellect (DDEX1-6)", "Headband of Intellect (DDAL5-16)","Headband of Intellect (DDEP7-2)","Helm of Brilliance (DDAL-DRW03)","Helm of Comprehending Languages (CCC-AETHER-1-1)","Helm of Comprehending Languages (CCC-DWB-ESR-1)","Helm of Comprehending Languages (CCC-DWB-TRM-1)","Helm of Comprehending Languages (CCC-MMT1-1)","Helm of Comprehending Languages (CCC-FCC-1)","Helm of Telepathy (CCC-AN-1)","Helm of Telepathy (CCC-GHC-BK1-7)","Helm of Telepathy (DC-POA-CONMAR-16)","Helm of Telepathy (DDAL9-15)","Helm of Telepathy (DDEP9-1)","Helm of Teleportation (CCC-BMG-43 PHLAN4-1)","The Mask of Wompona Yarp (DDAL7-14)","Superbly Angled Feathered Beret of the Librarian (CCC-OA-1-1)","Thenturian Circlet (CCC-TAROT1-7)","Weave, Helm of Teleportation (CCC-PHA-1)","Wolfskin Cap (DDEX4-3)"],
-	"bulaga wizard hat of vermin (ccc-gsp2-1)" : {
-		name : "Bulaga Wizard Hat (Hat of Vermin)",
-		source : [["AL","CCC"]],
-		rarity : "common",
-		description : "This is a wizard's hat w/ a swirly 3-color design & 3 charges, all regained at dawn. As an action while holding it, you can expend 1 charge & speak a command word to have 1 bat, frog, or rat appear in the hat. It acts like a normal animal & disappears after 1 hr or at 0 HP. You don't control it. Each beast represents a shard of a wizard's soul. The bat leaves a trail of red glitter, the frog's skin is shiny yellow, & the rat has dark blue eyes & teeth.",
-		descriptionFull : "This hat has 3 charges. While holding the hat, you can use an action to expend 1 of its charges and speak a command word that summons your choice of a bat, a frog, or a rat. The summoned creature magically appears in the hat and tries to get away from you as quickly as possible. The creature is neither friendly nor hostile, and it isn't under your control. It behaves as an ordinary creature of its kind and disappears after 1 hour or when it drops to 0 hit points. The hat regains all expended charges daily at dawn.\n   The hat looks like a pointy wizard's hat with three swirly color designs (red, blue, & yellow). Each beast represents a shard of a wizard's soul trapped in the hat. When the bat is summoned, it always leaves a trail of red glitter. The frog's skin is shiny yellow, and the rat has dark blue eyes and teeth.",
-		limfeaname : "Hat of Vermin",
-		action : [["action", " (Summon)"]],
-		usages : 3,
-		recovery : "dawn"
-	},
-	"chardalyn earring (ddep10-1)" : {
-		name : "Chardalyn Earring (Headband of Intellect)",
-		source : [["AL","S10"]],
-		rarity : "uncommon",
-		magicItemTable : "F",
-		description: "This earring is crafted from the unusual material chardalyn, which retains much of the cruel mindset of the Crenshinibon. This provides the earring's intellect-boosting properties, but it often whispers notions of grandeur and words of confidence into its wearer's mind and urges them to accumulate more and greater power. Your Intelligence score is 19 while you wear this earring. It has no effect on you if your Intelligence is already 19 or higher without it.",
-		attunement : true,
-		scoresOverride : [0, 0, 0, 19, 0, 0]
-		},
+	choices : ["Circlet (Eye Patch) of Blasting (CCC-CIC-11)","Circlet of Blasting: Thenturian Circlet (CCC-TAROT1-7)","Circlet of Blasting (DC-POA-RH01)","Dread Helm (CCC-AETHER-1-2)","Dread Helm (CCC-GAD1-2)","Dread Helm (CCC-OCC-2)","Dread Helm (Generic DC-POA)","Dread Helm (DC-POA-DUCKS-OS-02)","Dread Helm (DC-POA-HARM1-1)","Dread Helm (DC-POA-LEGIT-CIPH-1)","Dread Helm: Ko's Visage (DC-POA-TDG1-2)","Dread Helm (Liar's Night - Green)","Dread Helm (Liar's Night - Pumpkin)","Hat of Disguise (CCC-AETHER2-1)","Hat of Disguise: Wolfskin Cap (DDAL4-3)","Hat of Disguise (DDAL8-3)","Hat of Vermin: Bulaga Wizard Hat (CCC-GSP2-1)","Hat of Vermin (CCC-TAROT1-5)","Headband of Intellect (DDEP0-1)","Headband of Intellect (DDEX1-6)", "Headband of Intellect (DDAL5-16)","Headband of Intellect (DDEP7-2)","Headband of Intellect: Chardalyn Earring (DDEP10-1)","Helm of Brilliance: The Mask of Wompona Yarp (DDAL7-14)","Helm of Brilliance (DDAL-DRW03)","Helm of Comprehending Languages (CCC-AETHER-1-1)","Helm of Comprehending Languages (CCC-DWB-ESR-1)","Helm of Comprehending Languages (CCC-DWB-TRM-1)","Helm of Comprehending Languages (CCC-FCC-1)","Helm of Comprehending Languages (CCC-MMT1-1)","Helm of Comprehending Languages: Superb Beret of the Librarian (CCC-OA-1-1)","Helm of Comprehending Languages (CCC-UBCON1-1)","Helm of Telepathy (CCC-AN-1)","Helm of Telepathy (CCC-GHC-BK1-7)","Helm of Telepathy (DC-POA-CONMAR-16)","Helm of Telepathy: Ryboslav's Helm (DC-POA-TDG1-9)","Helm of Telepathy (DDAL9-15)","Helm of Telepathy (DDEP9-1)","Helm of Teleportation (CCC-BMG-43 PHLAN4-1)","Helm of Teleportation: Weave (CCC-PHA-1)"],
 	"circlet (eye patch) of blasting (ccc-cic-11)" : { // contains contributions by Larry Hoy
-		name : "Eye Patch of Blasting (CCC-CIC-11)",
+		name : "Eye Patch of Blasting (Circlet of Blasting)",
 		source : [["AL","CCC"]],
 		rarity : "uncommon",
 		magicItemTable : "F",
 		description : "This circlet has been altered to look like a pirate’s eye patch. In all other ways it is a circlet. Once per dawn while wearing this item, you can cast the Scorching Ray spell with it as an action. When you make the spell atks, you do so with an atk bonus of +5.",
 		descriptionFull : "This circlet has been altered to look like a pirate’s eye patch. In all other ways it is a circlet. While wearing this circlet, you can use an action to cast the Scorching Ray spell with it. When you make the spell's attacks, you do so with an attack bonus of +5. The circlet can't be used this way again until the next dawn.",
 		limfeaname : "Eye Patch of Blasting",
+		usages : 1,
+		recovery : "dawn",
+		fixedDC : 13,
+		spellcastingBonus : {
+			name : "Once per dawn",
+			spells : ["scorching ray"],
+			selection : ["scorching ray"],
+			firstCol : "oncelr"
+		}
+	},
+	"circlet of blasting: thenturian circlet (ccc-tarot1-7)" : { // contains contributions by Larry Hoy
+		name : "Thenturian Circlet (Circlet of Blasting)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "This circlet is very old – from the time of Aesperus. It's made of copper & onyx, with golden chains draping down from the circlet & single shard of obsidian in the center. While wearing the circlet, the voices of the dead whisper to you, granting you a +2 bonus to initiative if not incapacitated. Once per dawn, you can cast the Scorching Ray spell with it as an action. When you make the spell atks, your atk bonus is +5.",
+		descriptionFull : "The circlet is made of elk antler carved with the design of the shimmering aurora and bound with a waxed elk leather cord. When activated, the circlet glows with blue light. While wearing this circlet, you can use an action to cast the Scorching Ray spell with it. When you make the spell's attacks, you do so with an attack bonus of +5. The circlet can't be used this way again until the next dawn.\n   While worn, the voices of the dead whisper to you, granting you a +2 bonus to initiative if you aren't incapacitated. This circlet is very old – from the time of Aesperus when he was alive. It is made of copper and onyx, with golden chains draping down from the circlet. In the center is a single shard of obsidian.",
+		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
+		limfeaname : "Circlet of Blasting",
 		usages : 1,
 		recovery : "dawn",
 		fixedDC : 13,
@@ -2703,6 +3430,28 @@ MagicItemsList["al headwear"] = {
 		description : "This fearsome helm fashioned from a white wyrmling's skull makes your eyes glow white while you wear it and you feel an urge to assert your dominance over any creature that appears weaker than you.",
 		descriptionFull : "This fearsome helm fashioned from a white wyrmling's skull makes your eyes glow white while you wear it. While wearing this helm, you feel an urge to assert your dominance over any creature that appears weaker than you."
 		},
+	"dread helm: ko's visage (dc-poa-tdg1-2)" : {
+		name : "Ko's Visage (Dread Helm)",
+		source : [["AL","DC-POA"]],
+		rarity : "common",
+		magicItemTable : "?",
+		description : "This fearsome helm fashioned from a white wyrmling's skull makes your eyes glow white while you wear it and you feel an urge to assert your dominance over any creature that appears weaker than you.",
+		descriptionFull : "This fearsome helm fashioned from a white wyrmling's skull makes your eyes glow white while you wear it. While wearing this helm, you feel an urge to assert your dominance over any creature that appears weaker than you."
+		},
+	"dread helm (liar's night - green)" : {
+		name : "Dread Helm (Green)",
+		source : ["AL:LN", 2019],
+		rarity : "common",
+		magicItemTable : "?",
+		description : "This fearsome skull helm is wreathed in illusory green flames and makes your eyes glow red."
+		},
+	"dread helm (liar's night - pumpkin)" : {
+		name : "Dread Helm (Pumpkin)",
+		source : ["AL:LN", 2018],
+		rarity : "common",
+		magicItemTable : "?",
+		description : "This fearsome carved jack-o-lantern fits over your head. It makes your eyes glow yellow while you wear it."
+		},
 	"hat of disguise (ccc-aether2-1)" : { // contributed by Larry Hoy
 		name : "Hat of Disguise (CCC-AETHER2-1)",
 		source : [["AL","CCC"]],
@@ -2719,6 +3468,22 @@ MagicItemsList["al headwear"] = {
 	   }],
 	   spellcastingAbility : "class" // https://www.sageadvice.eu/2015/11/27/hat-of-disguise-dc/
 	},
+	"hat of disguise: wolfskin cap (ddal4-3)" : {   // contains contributions by Larry Hoy
+		name : "Wolfskin Cap (Hat of Disguise)",
+		source : [["AL","S4"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "This thick & fuzzy cap is actually a hat of disguise, & looks incredibly comfortable. While it allows the wearer to cast disguise self at-will, the power is limited in that it only disguises the wearer as a plain-looking brown-haired human male in his late twenties. However, while so disguised, the wearer is hidden from spells abilities that would detect their true nature (such as divine sense). The spell ends if the hat is removed.",
+		descriptionFull : "This thick and fuzzy hat is actually a hat of disguise, and looks incredibly comfortable. While it allows the wearer to cast disguise self at-will, the power is limited in that it only disguises the wearer as a plain-looking brown-haired human male in his late twenties. However, while so disguised, the wearer is hidden from spells abilities that would detect its true nature (such as divine sense). The spell ends if the hat is removed.",
+		attunement : true,
+		spellcastingBonus : [{
+			name : "At will",
+			spells : ["disguise self"],
+			selection : ["disguise self"],
+			firstCol : "atwill"
+	   }],
+	   spellcastingAbility : "class"
+	},
 	"hat of disguise (ddal8-3)" : { // contributed by Larry Hoy
 		name : "Hat of Disguise (DDAL8-3)",
 		source : [["AL","S8"]],
@@ -2734,6 +3499,17 @@ MagicItemsList["al headwear"] = {
 			firstCol : "atwill"
 	   }],
 	   spellcastingAbility : "class" // https://www.sageadvice.eu/2015/11/27/hat-of-disguise-dc/
+	},
+	"hat of vermin: bulaga wizard hat (ccc-gsp2-1)" : {
+		name : "Bulaga Wizard Hat (Hat of Vermin)",
+		source : [["AL","CCC"]],
+		rarity : "common",
+		description : "This is a wizard's hat w/ a swirly 3-color design & 3 charges, all regained at dawn. As an action while holding it, you can expend 1 charge & speak a command word to have 1 bat, frog, or rat appear in the hat. It acts like a normal animal & disappears after 1 hr or at 0 HP. You don't control it. Each beast represents a shard of a wizard's soul. The bat leaves a trail of red glitter, the frog's skin is shiny yellow, & the rat has dark blue eyes & teeth.",
+		descriptionFull : "This hat has 3 charges. While holding the hat, you can use an action to expend 1 of its charges and speak a command word that summons your choice of a bat, a frog, or a rat. The summoned creature magically appears in the hat and tries to get away from you as quickly as possible. The creature is neither friendly nor hostile, and it isn't under your control. It behaves as an ordinary creature of its kind and disappears after 1 hour or when it drops to 0 hit points. The hat regains all expended charges daily at dawn.\n   The hat looks like a pointy wizard's hat with three swirly color designs (red, blue, & yellow). Each beast represents a shard of a wizard's soul trapped in the hat. When the bat is summoned, it always leaves a trail of red glitter. The frog's skin is shiny yellow, and the rat has dark blue eyes and teeth.",
+		limfeaname : "Hat of Vermin",
+		action : [["action", " (Summon)"]],
+		usages : 3,
+		recovery : "dawn"
 	},
 	"hat of vermin (ccc-tarot1-5)" : {
 		name : "Hat of Vermin (CCC-TAROT1-5)",
@@ -2782,6 +3558,100 @@ MagicItemsList["al headwear"] = {
 		attunement : true,
 		scoresOverride : [0, 0, 0, 19, 0, 0]
 		},
+	"headband of intellect: chardalyn earring (ddep10-1)" : {
+		name : "Chardalyn Earring (Headband of Intellect)",
+		source : [["AL","S10"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description: "This earring is crafted from the unusual material chardalyn, which retains much of the cruel mindset of the Crenshinibon. This provides the earring's intellect-boosting properties, but it often whispers notions of grandeur and words of confidence into its wearer's mind and urges them to accumulate more and greater power. Your Intelligence score is 19 while you wear this earring. It has no effect on you if your Intelligence is already 19 or higher without it.",
+		attunement : true,
+		scoresOverride : [0, 0, 0, 19, 0, 0]
+		},
+	"helm of brilliance: the mask of wompona yarp (ddal7-14)" : {
+		name : "The Mask of Wompona Yarp (Helm of Brilliance)",
+		source : [["AL","S7"]],
+		rarity : "very rare",
+		magicItemTable : "H",
+		description : "This monstrous batiri goblin mask is made of lacquered wood, its gems carved to resemble numerous unblinking eyes. When found, the mask has 6 diamonds, 5 rubies, 17 fire opals, & 34 opals. Action to cast a spell w/ a gem, the surrounding wood closing around it like an eyelid. When all the gems are used, the mask loses its magic. The mask has special properties for each gem type, see Notes page.",
+		descriptionFull : "This monstrous batiri goblin mask is made of lacquered wood and its gems carved to resemble numerous unblinking eyes. When found, the helm has 6 diamonds, 5 rubies, 17 fire opals, and 34 opals. You can use an action to destroy a gem & cast a spell, the surrounding wood closing around it like an eyelid. When all the gems are used or destroyed, the mask loses its magic.\n   You gain the following benefits while wearing it:\n \u2022 You can use an action to cast one of the following spells (save DC 18), using one of the helm's gems of the specified type as a component: Daylight (opal), Fireball (fire opal), Prismatic Spray (diamond), or Wall of Fire (ruby). The gem is destroyed when the spell is cast and disappears from the helm.\n \u2022 As long as it has at least one diamond, the helm emits dim light in a 30-foot radius when at least one undead is within that area. Any undead that starts its turn in that area takes 1d6 radiant damage.\n \u2022 As long as the helm has at least one ruby, you have resistance to fire damage.\n \u2022 As long as the helm has at least one fire opal, you can use an action and speak a command word to cause one weapon you are holding to burst into flames. The flames emit bright light in a 10-foot radius and dim light for an additional 10 feet. The flames are harmless to you and the weapon. When you hit with an attack using the blazing weapon, the target takes an extra 1d6 fire damage. The flames last until you use a bonus action to speak the command word again or until you drop or stow the weapon.\n\nRoll a d20 if you are wearing the helm and take fire damage as a result of failing a saving throw against a spell. On a roll of 1, the helm emits beams of light from its remaining gems. Each creature within 60 feet of the helm other than you must succeed on a DC 17 Dexterity saving throw or be struck by a beam, taking radiant damage equal to the number of gems in the helm. The helm and its gems are then destroyed.",
+		attunement : true,
+		dmgres : ["Fire"],
+		action : [["action", "Helm of Brilliance (spell/blazing weapon)"]],
+		extraLimitedFeatures : [{
+			name : "Helm of Brilliance - Diamonds (D)",
+			usages : "6",
+			recovery : "Never"
+		}, {
+			name : "Helm of Brilliance - Rubies (R)",
+			usages : "5",
+			recovery : "Never"
+		}, {
+			name : "Helm of Brilliance - Fire Opals (F)",
+			usages : "17",
+			recovery : "Never"
+		}, {
+			name : "Helm of Brilliance - Opals (O)",
+			usages : "34",
+			recovery : "Never"
+		}],
+		fixedDC : 18,
+		spellFirstColTitle : "GE",
+		spellcastingBonus : [{
+			name : "Uses an opal (O)",
+			spells : ["daylight"],
+			selection : ["daylight"],
+			firstCol : "(O)"
+		}, {
+			name : "Uses a fire opal (F)",
+			spells : ["fireball"],
+			selection : ["fireball"],
+			firstCol : "(F)"
+		}, {
+			name : "Uses a diamond (D)",
+			spells : ["prismatic spray"],
+			selection : ["prismatic spray"],
+			firstCol : "(D)"
+		}, {
+			name : "Uses a ruby (R)",
+			spells : ["wall of fire"],
+			selection : ["wall of fire"],
+			firstCol : "(R)"
+		}],
+		spellChanges : {
+			"daylight" : {
+				components : "M\u0192,M\u2020",
+				compMaterial : "Spells cast from magic items don't require any components other than the magic item itself and, when casting Daylight from the Helm of Brilliance, causes one of the opals in the helm to crumble to dust.",
+				changes : "Using the Helm of Brilliance to cast Daylight causes one of the opals in the helm to crumble to dust."
+			},
+			"fireball" : {
+				components : "M\u0192,M\u2020",
+				compMaterial : "Spells cast from magic items don't require any components other than the magic item itself and, when casting Fireball from the Helm of Brilliance, causes one of the fire opals in the helm to crumble to dust.",
+				changes : "Using the Helm of Brilliance to cast Fireball causes one of the fire opals in the helm to crumble to dust."
+			},
+			"prismatic spray" : {
+				components : "M\u0192,M\u2020",
+				compMaterial : "Spells cast from magic items don't require any components other than the magic item itself and, when casting Prismatic Spray from the Helm of Brilliance, causes one of the diamonds in the helm to crumble to dust.",
+				changes : "Using the Helm of Brilliance to cast Prismatic Spray causes one of the diamonds in the helm to crumble to dust."
+			},
+			"wall of fire" : {
+				components : "M\u0192,M\u2020",
+				compMaterial : "Spells cast from magic items don't require any components other than the magic item itself and, when casting Wall of Fire from the Helm of Brilliance, causes one of the rubies in the helm to crumble to dust.",
+				changes : "Using the Helm of Brilliance to cast Wall of Fire causes one of the rubies in the helm to crumble to dust."
+			}
+		},
+		toNotesPage : [{
+			name : "Special Properties",
+			popupName : "Helm of Brilliance's Special Properties",
+			note : [
+				"This monstrous batiri goblin mask is made of lacquered wood and its gems carved to resemble numerous unblinking eyes. When found, the helm has 6 diamonds, 5 rubies, 17 fire opals, and 34 opals. You can use an action to destroy a gem & cast a spell, the surrounding wood closing around it like an eyelid. When all the gems are used or destroyed, the mask loses its magic.",
+				"As an action, I can cast one of the following spells (save DC 18), using one of the helm's gems of the specified type as a component: Daylight (opal), Fireball (fire opal), Prismatic Spray (diamond), or Wall of Fire (ruby). The gem is destroyed when the spell is cast and disappears from the helm.",
+				"As long as the helm has at least one diamond remaining, it emits dim light in a 30-ft radius when at least one undead is within that area. Any undead that starts its turn in that area takes 1d6 radiant damage.",
+				"As long as the helm has at least one ruby remaining, I have resistance to fire damage.",
+				"As long as the helm has at least one fire opal remaining, I can use an action and speak a command word to cause one weapon I'm holding to burst into flames. The flames emit bright light in a 10-ft radius and dim light for an additional 10 ft. The flames are harmless to me and the weapon. When I hit with an attack using the blazing weapon, the target takes an extra 1d6 fire damage. The flames last until I use a bonus action to speak the command word again or until I drop or stow the weapon.",
+				"If I take fire damage as a result of failing a save against a spell while wearing the helm, I have to roll a d20. On a roll of 1, the helm emits beams of light from its remaining gems. Each creature within 60 ft other than myself must succeed on a DC 17 Dexterity save or be struck by a beam, taking radiant damage equal to the number of gems remaining in the helm. The helm and its gems are then destroyed."
+			]
+		}]
+	},
 	"helm of brilliance (ddal-drw03)" : {
 		name : "Helm of Brilliance (DDAL-DRW03)",
 		source : [["AL","DRW"]],
@@ -2910,6 +3780,20 @@ MagicItemsList["al headwear"] = {
 			firstCol : "atwill"
 		}
 	},
+	"helm of comprehending languages (ccc-fcc-1)" : { // contributions by Larry Hoy
+		name : "Helm of Comprehending Languages (CCC-FCC-1)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "B",
+		description : "Magical runes & symbols similar to those of the Red Wizards are painted on this ordinary looking helm. It's unclear if the runes imbue the helm with its magic or if further power can be extracted by the right user. While wearing this helm, you can use an action to cast the Comprehend Languages spell from it at will.",
+		descriptionFull : "Magical runes and symbols similar to that of the Red Wizards are painted over this ordinary looking helm. It is unclear if the runes imbued the helm with its magic property or further power can be extracted by the right user. While wearing this helm, you can use an action to cast the Comprehend Languages spell from it at will.",
+		spellcastingBonus : {
+			name : "At will",
+			spells : ["comprehend languages"],
+			selection : ["comprehend languages"],
+			firstCol : "atwill"
+		}
+	},
 	"helm of comprehending languages (ccc-mmt1-1)" : { // contributions by Larry Hoy
 		name : "Helm of Comprehending Languages (CCC-MMT1-1)",
 		source : [["AL","CCC"]],
@@ -2924,13 +3808,27 @@ MagicItemsList["al headwear"] = {
 			firstCol : "atwill"
 		}
 	},
-	"helm of comprehending languages (ccc-fcc-1)" : { // contributions by Larry Hoy
-		name : "Helm of Comprehending Languages (CCC-FCC-1)",
+	"helm of comprehending languages: superb beret of the librarian (ccc-oa-1-1)" : { // contributions by Larry Hoy
+		name : "Superbly Angled Feathered Beret of the Librarian (CCC-OA-1-1)",
 		source : [["AL","CCC"]],
 		rarity : "uncommon",
 		magicItemTable : "B",
-		description : "Magical runes & symbols similar to those of the Red Wizards are painted on this ordinary looking helm. It's unclear if the runes imbue the helm with its magic or if further power can be extracted by the right user. While wearing this helm, you can use an action to cast the Comprehend Languages spell from it at will.",
-		descriptionFull : "Magical runes and symbols similar to that of the Red Wizards are painted over this ordinary looking helm. It is unclear if the runes imbued the helm with its magic property or further power can be extracted by the right user. While wearing this helm, you can use an action to cast the Comprehend Languages spell from it at will.",
+		description : "This wonderfully stylish beret is bright pink & adorned with a glorious black feather. Carefully sewn on the inside is a neatly printed inscription proudly proclaiming it “Property of the Thentian Library of Arcane History”. While wearing this beret, you can use an action to cast Comprehend Languages from it at will unless you've raised your voice above a courteous whisper while in a library. Then the beret ceases to function for 10 minutes. (Helm of Comprehending Languages)",
+		descriptionFull : "This wonderfully stylish beret is bright pink and adorned with a glorious black feather. Carefully sewn on the inside is a neatly printed inscription proudly proclaiming it as “Property of the Thentian Library of Arcane History”. When worn, the beret functions exactly as a Helm of Comprehending Languages, except in the event that the wearer is located in a library and has raised their voice level above a courteous whisper. In this case, the beret ceases to function for 10 minutes.\n   While wearing this beret, you can use an action to cast the Comprehend Languages spell from it at will. (Helm of Comprehending Languages)",
+		spellcastingBonus : {
+			name : "At will",
+			spells : ["comprehend languages"],
+			selection : ["comprehend languages"],
+			firstCol : "atwill"
+		}
+	},
+	"helm of comprehending languages (ccc-ubcon1-1)" : { // contributions by Larry Hoy
+		name : "Helm of Comprehending Languages (CCC-UBCON1-1)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "B",
+		description : "While wearing this helm, you can use an action to cast the Comprehend Languages spell from it at will. While using this ability, speakers you would not normally be able to understand seem to have a mild lisp.",
+		descriptionFull : "While wearing this helm, you can use an action to cast the Comprehend Languages spell from it at will. While using the ability of this helm, speakers you would not normally be able to understand seem to have a mild lisp.",
 		spellcastingBonus : {
 			name : "At will",
 			spells : ["comprehend languages"],
@@ -2991,8 +3889,32 @@ MagicItemsList["al headwear"] = {
 		source : [["AL","DC-POA"]],
 		rarity : "uncommon",
 		magicItemTable : "F",
-		description : "This helm is made from some otherworldly material, slightly soft to the touch. When used to cast Detect Thoughts (DC 13), ink starts to drip from it. As a bonus action, you can send a telepathic message to a creature that you're focusing on w/ Detect Thoughts, which can reply as a bonus action. Once per day, you can cast Suggestion (DC 13) on a creature you're focusing on w/ the spell",
+		description : "This helm is made from some otherworldly material, slightly soft to the touch. When used to cast Detect Thoughts (DC 13), ink starts to drip from it. As a bonus action, you can send a telepathic message to a creature that you're focusing on w/ Detect Thoughts, which can reply as a bonus action. Once per day, you can cast Suggestion (DC 13) on a creature you're focusing on w/ the spell.",
 		descriptionFull : "This helm is made out of some otherworldly material, somewhat soft to the touch. When used ink will start to drip from the helm.\n   While wearing the helm, you can use an action to cast the Detect Thoughts spell (save DC 13) from it. As long as you maintain concentration on the spell, you can use a bonus action to send a telepathic message to a creature you are focused on. It can reply - using a bonus action - while your focus on it continues.\n   While focusing on a creature with Detect Thoughts, you can use an action to cast the Suggestion spell (save DC 13) from the helm on that creature. Once used, the suggestion property can't be used again until the next dawn.",
+		attunement : true,
+		limfeaname : "Helm of Telepathy: Suggestion",
+		usages : 1,
+		recovery : "dawn",
+		fixedDC : 13,
+		spellcastingBonus : [{
+			name : "At will",
+			spells : ["detect thoughts"],
+			selection : ["detect thoughts"],
+			firstCol : "atwill"
+		}, {
+			name : "Once per dawn",
+			spells : ["suggestion"],
+			selection : ["suggestion"],
+			firstCol : "oncelr"
+		}]
+	},
+	"helm of telepathy: ryboslav's helm (dc-poa-tdg1-9)" : {
+		name : "Ryboslav's Helm (Helm of Telepathy)",
+		source : [["AL","DC-POA"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "This chardalyn helm has red ruby eyes & an illithid/goldfish motif designed to resemble a brain. While wearing it, you can cast Detect Thoughts (DC 13). As a bonus action, you can send a telepathic message to a creature that you're focusing on w/ Detect Thoughts, which can reply as a bonus action. Once per day, you can cast Suggestion (DC 13) on a creature you're focusing on w/ Detect Thoughts.",
+		descriptionFull : "A chardalyn helm with red ruby eyes and an illithid/goldfish motif. The majority of the helm is designed to resemble a brain.\n   While wearing the helm, you can use an action to cast the Detect Thoughts spell (save DC 13) from it. As long as you maintain concentration on the spell, you can use a bonus action to send a telepathic message to a creature you are focused on. It can reply - using a bonus action - while your focus on it continues.\n   While focusing on a creature with Detect Thoughts, you can use an action to cast the Suggestion spell (save DC 13) from the helm on that creature. Once used, the suggestion property can't be used again until the next dawn.",
 		attunement : true,
 		limfeaname : "Helm of Telepathy: Suggestion",
 		usages : 1,
@@ -3064,7 +3986,7 @@ MagicItemsList["al headwear"] = {
 		rarity : "rare",
 		magicItemTable : "G",
 		description : "This black helm has a gold crown built into the ornamentation & resembles the ceremonial battle helm of a samurai warrior. In the crown's crest is a skull with a prominent black diamond on its forehead, the symbol of the Order of the Long Death. This helm has 3 charges. While wearing it, you can expend 1 charge as an action to cast Teleport from it. The helm regains 1d3 charges at dawn.",
-		descriptionFull : "This black helm has a gold crown built into the ornamentation. It resembles the ceremonial battle helm of a samurai warrior. In the crest of the crown it features a skull with a prominent black diamond on its forehead, the symbol of the Order of the Long Death.\n   When the helmet is used, all those being transported hear the words “Across the weave” whispered softly in undercommon. This helm has 3 charges. While wearing it, you can use an action and expend 1 charge to cast the Teleport spell from it. The helm regains 1d3 expended charges daily at dawn.",
+		descriptionFull : "This black helm has a gold crown built into the ornamentation. It resembles the ceremonial battle helm of a samurai warrior. In the crest of the crown it features a skull with a prominent black diamond on its forehead, the symbol of the Order of the Long Death.\n   This helm has 3 charges. While wearing it, you can use an action and expend 1 charge to cast the Teleport spell from it. The helm regains 1d3 expended charges daily at dawn.",
 		attunement : true,
 		limfeaname : "Helm of Teleportation",
 		usages : 3,
@@ -3078,131 +4000,13 @@ MagicItemsList["al headwear"] = {
 			firstCol : "1"
 		}
 	},
-	"the mask of wompona yarp (ddal7-14)" : {
-		name : "The Mask of Wompona Yarp (Helm of Brilliance)",
-		source : [["AL","S7"]],
-		rarity : "very rare",
-		magicItemTable : "H",
-		description : "This monstrous batiri goblin mask is made of lacquered wood, its gems carved to resemble numerous unblinking eyes. When found, the mask has 6 diamonds, 5 rubies, 17 fire opals, & 34 opals. Action to cast a spell w/ a gem, the surrounding wood closing around it like an eyelid. When all the gems are used, the mask loses its magic. The mask has special properties for each gem type, see Notes page.",
-		descriptionFull : "This monstrous batiri goblin mask is made of lacquered wood and its gems carved to resemble numerous unblinking eyes. When found, the helm has 6 diamonds, 5 rubies, 17 fire opals, and 34 opals. You can use an action to destroy a gem & cast a spell, the surrounding wood closing around it like an eyelid. When all the gems are used or destroyed, the mask loses its magic.\n   You gain the following benefits while wearing it:\n \u2022 You can use an action to cast one of the following spells (save DC 18), using one of the helm's gems of the specified type as a component: Daylight (opal), Fireball (fire opal), Prismatic Spray (diamond), or Wall of Fire (ruby). The gem is destroyed when the spell is cast and disappears from the helm.\n \u2022 As long as it has at least one diamond, the helm emits dim light in a 30-foot radius when at least one undead is within that area. Any undead that starts its turn in that area takes 1d6 radiant damage.\n \u2022 As long as the helm has at least one ruby, you have resistance to fire damage.\n \u2022 As long as the helm has at least one fire opal, you can use an action and speak a command word to cause one weapon you are holding to burst into flames. The flames emit bright light in a 10-foot radius and dim light for an additional 10 feet. The flames are harmless to you and the weapon. When you hit with an attack using the blazing weapon, the target takes an extra 1d6 fire damage. The flames last until you use a bonus action to speak the command word again or until you drop or stow the weapon.\n\nRoll a d20 if you are wearing the helm and take fire damage as a result of failing a saving throw against a spell. On a roll of 1, the helm emits beams of light from its remaining gems. Each creature within 60 feet of the helm other than you must succeed on a DC 17 Dexterity saving throw or be struck by a beam, taking radiant damage equal to the number of gems in the helm. The helm and its gems are then destroyed.",
-		attunement : true,
-		dmgres : ["Fire"],
-		action : [["action", "Helm of Brilliance (spell/blazing weapon)"]],
-		extraLimitedFeatures : [{
-			name : "Helm of Brilliance - Diamonds (D)",
-			usages : "6",
-			recovery : "Never"
-		}, {
-			name : "Helm of Brilliance - Rubies (R)",
-			usages : "5",
-			recovery : "Never"
-		}, {
-			name : "Helm of Brilliance - Fire Opals (F)",
-			usages : "17",
-			recovery : "Never"
-		}, {
-			name : "Helm of Brilliance - Opals (O)",
-			usages : "34",
-			recovery : "Never"
-		}],
-		fixedDC : 18,
-		spellFirstColTitle : "GE",
-		spellcastingBonus : [{
-			name : "Uses an opal (O)",
-			spells : ["daylight"],
-			selection : ["daylight"],
-			firstCol : "(O)"
-		}, {
-			name : "Uses a fire opal (F)",
-			spells : ["fireball"],
-			selection : ["fireball"],
-			firstCol : "(F)"
-		}, {
-			name : "Uses a diamond (D)",
-			spells : ["prismatic spray"],
-			selection : ["prismatic spray"],
-			firstCol : "(D)"
-		}, {
-			name : "Uses a ruby (R)",
-			spells : ["wall of fire"],
-			selection : ["wall of fire"],
-			firstCol : "(R)"
-		}],
-		spellChanges : {
-			"daylight" : {
-				components : "M\u0192,M\u2020",
-				compMaterial : "Spells cast from magic items don't require any components other than the magic item itself and, when casting Daylight from the Helm of Brilliance, causes one of the opals in the helm to crumble to dust.",
-				changes : "Using the Helm of Brilliance to cast Daylight causes one of the opals in the helm to crumble to dust."
-			},
-			"fireball" : {
-				components : "M\u0192,M\u2020",
-				compMaterial : "Spells cast from magic items don't require any components other than the magic item itself and, when casting Fireball from the Helm of Brilliance, causes one of the fire opals in the helm to crumble to dust.",
-				changes : "Using the Helm of Brilliance to cast Fireball causes one of the fire opals in the helm to crumble to dust."
-			},
-			"prismatic spray" : {
-				components : "M\u0192,M\u2020",
-				compMaterial : "Spells cast from magic items don't require any components other than the magic item itself and, when casting Prismatic Spray from the Helm of Brilliance, causes one of the diamonds in the helm to crumble to dust.",
-				changes : "Using the Helm of Brilliance to cast Prismatic Spray causes one of the diamonds in the helm to crumble to dust."
-			},
-			"wall of fire" : {
-				components : "M\u0192,M\u2020",
-				compMaterial : "Spells cast from magic items don't require any components other than the magic item itself and, when casting Wall of Fire from the Helm of Brilliance, causes one of the rubies in the helm to crumble to dust.",
-				changes : "Using the Helm of Brilliance to cast Wall of Fire causes one of the rubies in the helm to crumble to dust."
-			}
-		},
-		toNotesPage : [{
-			name : "Special Properties",
-			popupName : "Helm of Brilliance's Special Properties",
-			note : [
-				"This monstrous batiri goblin mask is made of lacquered wood and its gems carved to resemble numerous unblinking eyes. When found, the helm has 6 diamonds, 5 rubies, 17 fire opals, and 34 opals. You can use an action to destroy a gem & cast a spell, the surrounding wood closing around it like an eyelid. When all the gems are used or destroyed, the mask loses its magic.",
-				"As an action, I can cast one of the following spells (save DC 18), using one of the helm's gems of the specified type as a component: Daylight (opal), Fireball (fire opal), Prismatic Spray (diamond), or Wall of Fire (ruby). The gem is destroyed when the spell is cast and disappears from the helm.",
-				"As long as the helm has at least one diamond remaining, it emits dim light in a 30-ft radius when at least one undead is within that area. Any undead that starts its turn in that area takes 1d6 radiant damage.",
-				"As long as the helm has at least one ruby remaining, I have resistance to fire damage.",
-				"As long as the helm has at least one fire opal remaining, I can use an action and speak a command word to cause one weapon I'm holding to burst into flames. The flames emit bright light in a 10-ft radius and dim light for an additional 10 ft. The flames are harmless to me and the weapon. When I hit with an attack using the blazing weapon, the target takes an extra 1d6 fire damage. The flames last until I use a bonus action to speak the command word again or until I drop or stow the weapon.",
-				"If I take fire damage as a result of failing a save against a spell while wearing the helm, I have to roll a d20. On a roll of 1, the helm emits beams of light from its remaining gems. Each creature within 60 ft other than myself must succeed on a DC 17 Dexterity save or be struck by a beam, taking radiant damage equal to the number of gems remaining in the helm. The helm and its gems are then destroyed."
-			]
-		}]
-	},
-	"superbly angled feathered beret of the librarian (ccc-oa-1-1)" : { // contributions by Larry Hoy
-		name : "Superbly Angled Feathered Beret of the Librarian (Helm of Comprehending Languages)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "B",
-		description : "This wonderfully stylish beret is bright pink & adorned with a glorious black feather. Carefully sewn on the inside is a neatly printed inscription proudly proclaiming it “Property of the Thentian Library of Arcane History”. While wearing this beret, you can use an action to cast Comprehend Languages from it at will unless you've raised your voice above a courteous whisper while in a library. Then the beret ceases to function for 10 minutes.",
-		descriptionFull : "This wonderfully stylish beret is bright pink and adorned with a glorious black feather. Carefully sewn on the inside is a neatly printed inscription proudly proclaiming it as “Property of the Thentian Library of Arcane History”. When worn, the beret functions exactly as a Helm of Comprehending Languages, except in the event that the wearer is located in a library and has raised their voice level above a courteous whisper. In this case, the beret ceases to function for 10 minutes.\n   While wearing this beret, you can use an action to cast the Comprehend Languages spell from it at will.",
-		spellcastingBonus : {
-			name : "At will",
-			spells : ["comprehend languages"],
-			selection : ["comprehend languages"],
-			firstCol : "atwill"
-		}
-	},
-	"thenturian circlet (ccc-tarot1-7)" : { // contains contributions by Larry Hoy
-		name : "Thenturian Circlet (CCC-TAROT1-7)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "F",
-		description : "This circlet is very old – from the time of Aesperus. It's made of copper & onyx, with golden chains draping down from the circlet & single shard of obsidian in the center. While wearing the circlet, the voices of the dead whisper to you, granting you a +2 bonus to initiative if not incapacitated. Once per dawn, you can cast the Scorching Ray spell with it as an action. When you make the spell atks, your atk bonus is +5.",
-		descriptionFull : "The circlet is made of elk antler carved with the design of the shimmering aurora and bound with a waxed elk leather cord. When activated, the circlet glows with blue light. While wearing this circlet, you can use an action to cast the Scorching Ray spell with it. When you make the spell's attacks, you do so with an attack bonus of +5. The circlet can't be used this way again until the next dawn.\n   While worn, the voices of the dead whisper to you, granting you a +2 bonus to initiative if you aren't incapacitated. This circlet is very old – from the time of Aesperus when he was alive. It is made of copper and onyx, with golden chains draping down from the circlet. In the center is a single shard of obsidian.",
-		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
-		limfeaname : "Circlet of Blasting",
-		usages : 1,
-		recovery : "dawn",
-		fixedDC : 13,
-		spellcastingBonus : {
-			name : "Once per dawn",
-			spells : ["scorching ray"],
-			selection : ["scorching ray"],
-			firstCol : "oncelr"
-		}
-	},
-	"weave, helm of teleportation (ccc-pha-1)" : {
+	"helm of teleportation: weave (ccc-pha-1)" : {
 		name : "Weave, Helm of Teleportation (CCC-PHA-1)",
 		source : [["AL","CCC"]],
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "This helm once belonged to the drow mage Axcelia Axcelon. It's crafted from mithral in the shape of a spider. When held to the back of your head, 8 thin spidery legs extend & wrap around your face. The feel of legs over skin is soft & silken, a sensation that's both comfortable & extremely unsettling. A worshipper of Lolth feels envy & awe at the fine craftmanship. This helm has 3 charges. While wearing it, you can expend 1 charge as an action to cast Teleport from it. The helm regains 1d3 charges at dawn.",
-		descriptionFull : "The helm called “Weave” once belonged to the drow mage Axcelia Axcelon. It is crafted out of mithral and fashioned into the shape of a spider. When held to the back of the wearer’s head, eight thin spidery legs extend and wrap around the head and face of the wearer to form the helmet. The feel of the legs over skin is soft and silken – a sensation that is both comfortable and extremely unsettling to the unaccustomed wearer.\n   A worshipper of Lolth would pause in envy and awe at the sight of such fine workmanship.\n   When the helmet is used, all those being transported hear the words “Across the weave” whispered softly in undercommon. This helm has 3 charges. While wearing it, you can use an action and expend 1 charge to cast the Teleport spell from it. The helm regains 1d3 expended charges daily at dawn.",
+		description : "This helm belonged to the drow mage Axcelia Axcelon. It's crafted from mithral in the shape of a spider. When held to the back of your head, 8 thin spidery legs extend & wrap around your face. The legs are soft & silken, both comfortable & extremely unsettling. A worshipper of Lolth feels envy & awe at the fine craftmanship. This helm has 3 charges. Expend 1 charge as an action to cast Teleport from it; everyone hears “Across the weave” whispered in Undercommon. The helm regains 1d3 charges at dawn.",
+		descriptionFull : "The helm called “Weave” once belonged to the drow mage Axcelia Axcelon. It is crafted out of mithral and fashioned into the shape of a spider. When held to the back of the wearer’s head, eight thin spidery legs extend and wrap around the head and face of the wearer to form the helmet. The feel of the legs over skin is soft and silken – a sensation that is both comfortable and extremely unsettling to the unaccustomed wearer.\n   A worshipper of Lolth would pause in envy and awe at the sight of such fine workmanship.\n   When the helmet is used, all those being transported hear the words “Across the weave” whispered softly in Undercommon. This helm has 3 charges. While wearing it, you can use an action and expend 1 charge to cast the Teleport spell from it. The helm regains 1d3 expended charges daily at dawn.",
 		attunement : true,
 		limfeaname : "Helm of Teleportation",
 		usages : 3,
@@ -3215,22 +4019,6 @@ MagicItemsList["al headwear"] = {
 			selection : ["teleport"],
 			firstCol : "1"
 		}
-	},
-	"wolfskin cap (ddex4-3)" : {   // contains contributions by Larry Hoy
-		name : "Wolfskin Cap (Hat of Disguise)",
-		source : [["AL","S4"]],
-		rarity : "uncommon",
-		magicItemTable : "F",
-		description : "This thick & fuzzy cap is actually a hat of disguise, & looks incredibly comfortable. While it allows the wearer to cast disguise self at-will, the power is limited in that it only disguises the wearer as a plain-looking brown-haired human male in his late twenties. However, while so disguised, the wearer is hidden from spells abilities that would detect their true nature (such as divine sense). The spell ends if the hat is removed.",
-		descriptionFull : "This thick and fuzzy hat is actually a hat of disguise, and looks incredibly comfortable. While it allows the wearer to cast disguise self at-will, the power is limited in that it only disguises the wearer as a plain-looking brown-haired human male in his late twenties. However, while so disguised, the wearer is hidden from spells abilities that would detect its true nature (such as divine sense). The spell ends if the hat is removed.",
-		attunement : true,
-		spellcastingBonus : [{
-			name : "At will",
-			spells : ["disguise self"],
-			selection : ["disguise self"],
-			firstCol : "atwill"
-	   }],
-	   spellcastingAbility : "class"
 	},
 }
 	
@@ -3238,7 +4026,7 @@ MagicItemsList["al instruments"] = {
 		name : "AL Instruments",
 		type : "wondrous item",
 		allowDuplicates : true,
-	choices : ["Anstruth Harp (CCC-BMG-40 HULB4-1)","Bell of Silent Carols (DDAL0-5)","Biguris' Fury, Horn of Valhalla (CCC-GSP2-3)","Canaith Mandolin (DDEX3-9)","Chime of Opening (DDAL10-6)","Cli Lyre (CCC-TRI-25 DEAD1-2)","Doss Lute (CCC-MALTH-2)","Dragon's Lullaby, Mac-Fuirmidh Cittern (CCC-GSP1-1)","Flute of Scribing (CCC-BWM-7-2)","Horn of Blasting (DDEX1-11)","Horn of Silent Alarm (CCC-BMG-MOON6-3)","Horn of Silent Alarm (CCC-SQC-3-3)","Instrument of Illusions (CCC-ODFC3-1)","Instrument of Illusions (DDHC-MORD-5)","Instrument of Scribing (DC-POA-CONMAR-13)","Instrument of Scribing (DC-POA-DCAF10)","Mac-Fuirmidh Cittern (CCC-THENT1-3)","Pipes of Haunting (CCC-MACE1-1)","Pipes of the Sewers (DDEX3-6)","Pipes of the Sewers (DDHC-XGE-01)","Silver Horn of Valhalla (CCC-TRI-5 NIGHT1-1)"],
+	choices : ["Anstruth Harp (CCC-BMG-40 HULB4-1)","Brass Horn of Valhalla: Biguris' Fury (CCC-GSP2-3)","Canaith Mandolin (DDEX3-9)","Chime of Opening (DDAL10-6)","Cli Lyre (CCC-TRI-25 DEAD1-2)","Doss Lute (CCC-MALTH-2)","Horn of Blasting (DDEX1-11)","Horn of Silent Alarm (CCC-BMG-MOON6-3)","Horn of Silent Alarm (CCC-SQC-3-3)","Horn of Silent Alarm: Bell of Silent Carols (DDAL0-5)","Instrument of Illusions (CCC-ODFC3-1)","Instrument of Illusions (DDHC-MORD-5)","Instrument of Scribing: Flute (CCC-BWM-7-2)","Instrument of Scribing (DC-POA-CONMAR-13)","Instrument of Scribing (DC-POA-DCAF10)","Mac-Fuirmidh Cittern: Dragon's Lullaby (CCC-GSP1-1)","Mac-Fuirmidh Cittern (CCC-THENT1-3)","Pipes of Haunting (CCC-MACE1-1)","Pipes of the Sewers (DDEX3-6)","Pipes of the Sewers (DDHC-XGE-01)","Silver Horn of Valhalla: Luthik's Call (CCC-MAYDAYS2-1)","Silver Horn of Valhalla (CCC-TRI-5 NIGHT1-1)"],
 	"anstruth harp (ccc-bmg-40 hulb4-1)" : {
 		name : "Anstruth Harp (CCC-BMG-40 HULB4-1)",
 		source : [["AL","CCC"]],
@@ -3271,21 +4059,7 @@ MagicItemsList["al instruments"] = {
 			}
 		}
 	},
-	"bell of silent carols (ddal0-5)" : {
-		name : "Bell of Silent Carols (Horn of Silent Alarm)",
-		source : [["AL","S0"]],
-		rarity : "common",
-		magicItemTable : "?",
-		description : "This bell has 4 charges. When you use an action to shake it, one creature of your choice can hear the bell’s ring in the tune of festive carols, provided the creature is within 600 feet of the bell and not deafened. No other creature hears sound coming from the bell. The bell regains 1d4 expended charges daily at dawn.",
-		descriptionFull : "This bell has 4 charges. When you use an action to shake it, one creature of your choice can hear the bell’s ring in the tune of festive carols, provided the creature is within 600 feet of the bell and not deafened. No other creature hears sound coming from the bell. The bell regains 1d4 expended charges daily at dawn.",
-		weight : 2,
-		limfeaname : "Bell of Silent Carols",
-		usages : 4,
-		recovery : "dawn",
-		additional : "regains 1d4",
-		action : [["action", ""]]
-		},
-	"biguris' fury, horn of valhalla (ccc-gsp2-3)" : {
+	"brass horn of valhalla: biguris' fury (ccc-gsp2-3)" : {
 		name : "Biguris' Fury (Brass Horn of Valhalla)",
 		source : [["AL","CCC"]],
 		rarity : "rare",
@@ -3389,40 +4163,6 @@ MagicItemsList["al instruments"] = {
 			}
 		}
 	},
-	"dragon's lullaby, mac-fuirmidh cittern (ccc-gsp1-1)" : {
-		name : "Dragon's Lullaby (Mac-Fuirmidh Cittern)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "F",
-		attunement : true,
-		description: "This cittern is pure, pearly white. A light blue, cloud like design of shou origin is engraved on its body. When used to cast a spell, tiny pink flower petals swirl around your body, blown by a harmless gust of wind to the song's rhythm. If you try to play w/o attuning, DC 15 Wis save or 2d4 psychic dmg. Action to play the instrument & cast spell: Fly, Invisibility, Levitate, Protection from Evil & Good, Barkskin, Cure Wounds, or Fog Cloud. Each can be cast once per dawn using your spellcasting ability & save DC. Play the instrument while casting a charm effect spell & you can impose disadv. on the save if the spell has somatic or material components.",
-		descriptionFull : "This cittern is pure, pearly white. A light blue, cloud like design of shou origin is engraved on the instrument's body. When used to cast a spell, tiny pink flower petals swirls around the caster's body as it gets blown away by a harmless gust of wind. The petals' movement matches the tempo of the song being played.\n   An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Mac-Fuirmidh cittern can be used to cast Barkskin, Cure Wounds, and Fog Cloud.",
-		weight : 3, // Magic of Faerûn (2001) page 161
-		prerequisite : "Requires attunement by a bard",
-		prereqeval : function(v) { return classes.known.bard ? true : false; },
-		spellcastingBonus : {
-			name : "Once per long rest",
-			spells : ["fly", "invisibility", "levitate", "protection from evil and good", "barkskin", "cure wounds", "fog cloud"],
-			selection : ["fly", "invisibility", "levitate", "protection from evil and good", "barkskin", "cure wounds", "fog cloud"],
-			firstCol : "oncelr",
-			times : 7,
-			spellcastingAbility : "class"
-		}
-	},
-	"flute of scribing (ccc-bwm-7-2)" : {  
-		name : "Flute of Scribing (CCC-BWM-7-2)",
-		source : [["AL","CCC"]],
-		type : "Instrument",
-		rarity : "common",
-		description : "This flute has 3 charges & regains them at dawn. While playing it, you can expend 1 charge as an action & write a magical message on a visible nonmagical object or surface w/i 30 ft. You can write up to 6 words in a language you know. Bards can scribe 7 more words & make the message glow faintly to be seen in nonmagical darkness. The message fades after 24 hrs or when hit by Dispel Magic.",
-		descriptionFull : "This flute has 3 charges. While you are playing it, you can use an action to expend 1 charge from the flute and write a magical message on a nonmagical object or surface that you can see within 30 feet of you. The message can be up to six words long and is written in a language you know. If you are a bard, you can scribe an additional seven words and choose to make the message glow faintly, allowing it to be seen in nonmagical darkness. Casting Dispel Magic on the message erases it. Otherwise, the message fades away after 24 hours.\n   The flute regains all expended charges daily at dawn.",
-		attunement : true,
-		weight : 3, // same as instrument of the bards
-		limfeaname : "Instrument of Scribing",
-		action : [["action", ""]],
-		usages : 3,
-		recovery : "dawn"
-	},
 	"horn of blasting (ddex1-11)" : {  // contains contributions by Larry Hoy
 		name : "Horn of Blasting (DDEX1-11)",
 		source : [["AL","S1"]],
@@ -3461,6 +4201,20 @@ MagicItemsList["al instruments"] = {
 		additional : "regains 1d4",
 		action : [["action", ""]]
 		},
+	"horn of silent alarm: bell of silent carols (ddal0-5)" : {
+		name : "Bell of Silent Carols (Horn of Silent Alarm)",
+		source : [["AL","S0"]],
+		rarity : "common",
+		magicItemTable : "?",
+		description : "This bell has 4 charges. When you use an action to shake it, one creature of your choice can hear the bell’s ring in the tune of festive carols, provided the creature is within 600 feet of the bell and not deafened. No other creature hears sound coming from the bell. The bell regains 1d4 expended charges daily at dawn.",
+		descriptionFull : "This bell has 4 charges. When you use an action to shake it, one creature of your choice can hear the bell’s ring in the tune of festive carols, provided the creature is within 600 feet of the bell and not deafened. No other creature hears sound coming from the bell. The bell regains 1d4 expended charges daily at dawn.",
+		weight : 2,
+		limfeaname : "Bell of Silent Carols",
+		usages : 4,
+		recovery : "dawn",
+		additional : "regains 1d4",
+		action : [["action", ""]]
+		},
 	"instrument of illusions (ccc-odfc3-1)" : {   // contains contributions by AelarTheElFRogue
 		name : "Instrument of Illusions (CCC-ODFC3-1)",
 		source : [["AL","CCC"]],
@@ -3478,6 +4232,20 @@ MagicItemsList["al instruments"] = {
 		description : "This gleaming mithral harmonica is engraved with the following phrase: “Shandira & Bailee, Suzail, 1492 DR.” While playing it, you can create harmless, illusory visual effects within a 5-ft-radius (15-ft for bards) sphere centered on the instrument. The magical effects have neither substance nor sound, and are obviously illusory. The effects end when you stop playing.",
 		descriptionFull : "This gleaming mithral harmonica is engraved with the following phrase: “Shandira & Bailee, Suzail, 1492 DR.” While playing it, you can create harmless, illusory visual effects within a 5-foot-radius sphere centered on the instrument. If you are a bard, the radius increases to 15 feet. Sample visual effects include luminous musical notes, a spectral dancer, butterflies, and gently falling snow. The magical effects have neither substance nor sound, and they are obviously illusory. The effects end when you stop playing.",
 		attunement : true,
+	},
+	"instrument of scribing: flute (ccc-bwm-7-2)" : {  
+		name : "Flute of Scribing (CCC-BWM-7-2)",
+		source : [["AL","CCC"]],
+		type : "Instrument",
+		rarity : "common",
+		description : "This flute has 3 charges & regains them at dawn. While playing it, you can expend 1 charge as an action & write a magical message on a visible nonmagical object or surface w/i 30 ft. You can write up to 6 words in a language you know. Bards can scribe 7 more words & make the message glow faintly to be seen in nonmagical darkness. The message fades after 24 hrs or when hit by Dispel Magic.",
+		descriptionFull : "This flute has 3 charges. While you are playing it, you can use an action to expend 1 charge from the flute and write a magical message on a nonmagical object or surface that you can see within 30 feet of you. The message can be up to six words long and is written in a language you know. If you are a bard, you can scribe an additional seven words and choose to make the message glow faintly, allowing it to be seen in nonmagical darkness. Casting Dispel Magic on the message erases it. Otherwise, the message fades away after 24 hours.\n   The flute regains all expended charges daily at dawn.",
+		attunement : true,
+		weight : 3, // same as instrument of the bards
+		limfeaname : "Instrument of Scribing",
+		action : [["action", ""]],
+		usages : 3,
+		recovery : "dawn"
 	},
 	"instrument of scribing (dc-poa-conmar-13)" : {  
 		name : "Instrument of Scribing (DC-POA-CONMAR-13)",
@@ -3506,6 +4274,26 @@ MagicItemsList["al instruments"] = {
 		action : [["action", ""]],
 		usages : 3,
 		recovery : "dawn"
+	},
+	"mac-fuirmidh cittern: dragon's lullaby (ccc-gsp1-1)" : {
+		name : "Dragon's Lullaby (Mac-Fuirmidh Cittern)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		attunement : true,
+		description: "This cittern is pure, pearly white. A light blue, cloud like design of shou origin is engraved on its body. When used to cast a spell, tiny pink flower petals swirl around your body, blown by a harmless gust of wind to the song's rhythm. If you try to play w/o attuning, DC 15 Wis save or 2d4 psychic dmg. Action to play the instrument & cast spell: Fly, Invisibility, Levitate, Protection from Evil & Good, Barkskin, Cure Wounds, or Fog Cloud. Each can be cast once per dawn using your spellcasting ability & save DC. Play the instrument while casting a charm effect spell & you can impose disadv. on the save if the spell has somatic or material components.",
+		descriptionFull : "This cittern is pure, pearly white. A light blue, cloud like design of shou origin is engraved on the instrument's body. When used to cast a spell, tiny pink flower petals swirls around the caster's body as it gets blown away by a harmless gust of wind. The petals' movement matches the tempo of the song being played.\n   An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Mac-Fuirmidh cittern can be used to cast Barkskin, Cure Wounds, and Fog Cloud.",
+		weight : 3, // Magic of Faerûn (2001) page 161
+		prerequisite : "Requires attunement by a bard",
+		prereqeval : function(v) { return classes.known.bard ? true : false; },
+		spellcastingBonus : {
+			name : "Once per long rest",
+			spells : ["fly", "invisibility", "levitate", "protection from evil and good", "barkskin", "cure wounds", "fog cloud"],
+			selection : ["fly", "invisibility", "levitate", "protection from evil and good", "barkskin", "cure wounds", "fog cloud"],
+			firstCol : "oncelr",
+			times : 7,
+			spellcastingAbility : "class"
+		}
 	},
 	"mac-fuirmidh cittern (ccc-thent1-3)" : {
 		name : "Mac-Fuirmidh Cittern (CCC-THENT1-3)",
@@ -3592,6 +4380,21 @@ MagicItemsList["al instruments"] = {
 			}
 		}
 	},
+	"silver horn of valhalla: luthik's call (ccc-maydays2-1)" : {
+		name : "Luthik's Call, Silver Horn of Valhalla (CCC-MAYDAYS2-1)",
+		source : [["AL","CCC"]],
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "Luthik’s Call is a holy relic, given to the faithful of Luthik for the bravest deeds, & resists being used by anyone else. It's made from a hollowed giant eland horn, adorned with silver filigree that glimmers in moonlight. Followers of Luthik revere those who bear this item in battle & tales of your heroic deeds are etched on its surface in orcish. As an action once per 7 days, you can blow the horn to summon 2d4+2 warrior spirits from Ysgard w/i 60 ft. These berserkers disappear after 1 hr or at 0 hp. They are friendly & follow your commands. You can spreak Orcish while you have this item.",
+		descriptionFull : "You can use an action to blow this horn. In response, warrior spirits from the plane of Ysgard appear within 60 feet of you. These spirits use the berserker statistics. They return to Ysgard after 1 hour or when they drop to 0 hit points. Once you use the horn, it can't be used again until 7 days have passed.\n    The silver horn summons 2d4+2 berserkers. The berserkers are friendly to you and your companions and follow your commands.\n    This item is a blessed holy relic, granted to the faithful of Luthik for only the most valorous of deeds. Luthik’s Call is made from a hollowed giant eland horn, adorned with silver filigree that glimmers in moonlight. Tales of the wielder’s mettle are etched upon its surface in orcish, chronicling for all to read the heroic deeds of its owner. Followers of Luthik will revere those who bear this item in battle. Enemies of the Den Mother may try to steal it away but will be disappointed, as Luthik’s Call resists use by any person except the one to whom it was gifted.\n    The horn’s owner can speak and understand the orc language while Luthik’s Call is on their person.",
+		weight : 2,
+		languageProfs : ["Orcish"],
+		limfeaname : "Silver Horn of Valhalla",
+		usages : 1,
+		recovery : "7 days",
+		action : [["action", ""]],
+		allowDuplicates : true,
+		},
 	"silver horn of valhalla (ccc-tri-5 night1-1)" : {
 		name : "Silver Horn of Valhalla (CCC-TRI-5 NIGHT1-1)",
 		source : [["AL","CCC"]],
@@ -3608,777 +4411,11 @@ MagicItemsList["al instruments"] = {
 		},
 }
 
-MagicItemsList["al light sources"] = {
-		name : "AL Light Sources",
-		type : "wondrous item",
-		allowDuplicates : true,
-		allowDuplicates : true,
-	choices : ["Candle of the Deep (CCC-AETHER2-1)","Candle of the Deep (CCC-ELO-2)","Candle of the Deep (DC-POA-JAK1)","Chultan Midwinter Candle (DDAL0-4)","Ghost Light (RMH-1)","Lantern of Revealing (CCC-BMG-32 PHLAN3-2)","Lantern of Revealing (CCC-CONMAR1-1)","Lantern of Revealing (CCC-DRUIDS-3)","Lantern of Revealing (CCC-DWB-EOG-1)","Lantern of Revealing (CCC-DWB-Q1)","Lantern of Revealing (CCC-KKALGO-2-1)","Lantern of Revealing (CCC-MALTH-1)","Lantern of Revealing (CCC-MELB-2)","Lantern of Revealing (CCC-PP-TDD1-1)","Lantern of Revealing (CCC-ZIEGE-4-1)","Last Light of Northkeep (CCC-BWM-2)"],
-	"candle of the deep (ccc-aether2-1)" : {
-		name : "Candle of the Deep (CCC-AETHER2-1)",
-		source : [["AL","CCC"]],
-		rarity : "common",
-		magicItemTable : "?",
-		description : "This candle is carved in the shape of the Great Old One, Cthulhu, & emits an aura of insanity. The wax never melts & is nearly unbreakable. It burns even if immersed in water, giving off light & heat like a normal candle.",
-		descriptionFull : "The wax of this candle is carved in the shape of the Great Old One, Cthulhu, & it emits an aura of insanity. The candle never melts and is nearly unbreakable.\n  The flame of this candle is not extinguished when immersed in water. It gives off light and heat like a normal candle."
-	},
-	"candle of the deep (ccc-elo-2)" : {
-		name : "Candle of the Deep (CCC-ELO-2)",
-		source : [["AL","CCC"]],
-		rarity : "common",
-		magicItemTable : "?",
-		description : "This unique lamp is an exotic Underdark fungi: Nightlight. A 4-ft preserved stalk planted in a clay pot, its luminance soothes the hearts of Underdark children & is aesthetically pleasing to others. It glows even if immersed in water & gives off light & heat as a normal candle.",
-		descriptionFull : "This unique lamp consists of a planted exotic Underdark fungi, Nightlight. A four-foot preserved stalk planted in a clay pot functions as a Candle of the Deep (pg. 136 XGtE). It’s luminance soothes the hearts of Underdark children and can be aesthetically pleasing to others. It glows even if immersed in water and gives off light and heat as a normal candle would."
-	},
-	"candle of the deep (dc-poa-jak1)" : {
-		name : "Candle of the Deep (DC-POA-JAK1)",
-		source : [["AL","DC-POA"]],
-		rarity : "common",
-		magicItemTable : "?",
-		description : "This candle is made to look like a knucklehead trout leaping out of a fishing hole, its tail partially submerged in the water. The wick sticks out of the fish's mouth, like a fishing lure. It glows even if immersed in water & gives off light & heat as a normal candle.",
-		descriptionFull : "This candle is made to look like a knucklehead trout leaping out of a fishing hole, its tail partially submerged in the water. The wick sticks out of the fish's mouth, like a fishing lure. The flame of this candle is not extinguished when immersed in water. It gives off light and heat like a normal candle."
-	},
-	"chultan midwinter candle (ddal0-4)" : {
-		name : "Chultan Midwinter Candle (Candle of the Deep)",
-		source : [["AL","S0"]],
-		rarity : "common",
-		magicItemTable : "?",
-		description : "A product of a pain-staking enchantment, the candle acts as an anchor for the delicate and fickle spark of flame. As it burns, it emits a slight citrus scent, like that of a pembelon. It cannot be extinguished unless clipped from the wick (even if immersed in water) and gives light and heat as a normal candle would.",
-		descriptionFull : "A product of a pain-staking enchantment, the candle acts as an anchor for the delicate and fickle spark of an enchanted flame. As it burns it emits a slight citrus scent, not unlike that of a pembelon. It cannot be extinguished unless it is clipped from the wick (even if immersed in water) and gives light and heat as a normal candle would."
-	},
-	"ghost light (rmh-1)" : {
-		name : "Ghost Light (Lantern of Revealing)",
-		source : [["AL:RMH",1]],
-		rarity : "uncommon",
-		magicItemTable : "B",
-		description : "This brass lantern is engraved w/ ghostly images & twisted faces. When you add 1 pint of oil to the lantern, 3 drops of humanoid blood are also required as fuel. While you have this item, you're haunted by a poltergeist that rearranges your pack, hides your socks, pelts you w/ small pebbles, & makes life annoying. The lantern burns for 6 hrs on 1 pint of oil. It sheds bright light in a 30-ft radius & dim light for another 30 ft. Invisible objects & creatures are visible in the bright light. If you lower the hood as an action, it sheds dim light in a 5-ft radius.",
-		descriptionFull : "This ornate brass lantern is engraved with ghostly images and faces twisted in horror. Each time you add 1 pint of oil to the lantern, three drops of blood from a humanoid creature are also required to fuel it. While you possess the lantern, you are haunted by a minor poltergeist that rearranges your pack, hides your socks, occasionally pelts you with small pebbles, and generally makes life annoying for you.\n   While lit, this hooded lantern burns for 6 hours on 1 pint of oil, shedding bright light in a 30-foot radius and dim light for an additional 30 feet. Invisible creatures and objects are visible as long as they are in the lantern's bright light. You can use an action to lower the hood, reducing the light to dim light in a 5-foot radius.",
-		weight : 2,
-		action : [["action", "Ghost Light (hood up/down)"]]
-	},
-	"lantern of revealing (ccc-bmg-32 phlan3-2)" : {
-		name : "Lantern of Revealing (CCC-BMG-32 PHLAN3-2)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "B",
-		description : "This lantern was made by a necromancer from leather & bones & smells like grave soil. It runs off blood instead of oil & burns for 12 hrs on 1 pint. It sheds bright light in a 30-ft radius & dim light for another 30 ft. The light has an eerie reddish tint. Invisible objects & creatures are visible in the bright light. If you lower the hood as an action, it sheds dim light in a 5-ft radius.",
-		descriptionFull : "This lantern is made of leather, bones and smells like grave soil. It was created by a necromancer and the light it gives off is an eerie reddish tint. The lantern runs off blood instead of oil, and a pint burns for twice as long as normal.\n   While lit, this hooded lantern burns for 6 hours on 1 pint of oil, shedding bright light in a 30-foot radius and dim light for an additional 30 feet. Invisible creatures and objects are visible as long as they are in the lantern's bright light. You can use an action to lower the hood, reducing the light to dim light in a 5-foot radius.",
-		weight : 2,
-		action : [["action", "Lantern of Revealing (hood up/down)"]]
-	},
-	"lantern of revealing (ccc-conmar1-1)" : {
-		name : "Lantern of Revealing (CCC-CONMAR1-1)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "B",
-		description : "This lantern is etched with Sylvan writing that reads: “When you light a light, you also cast a shadow”. The lantern burns for 6 hrs on 1 pint of oil. It sheds bright light in a 30-ft radius & dim light for another 30 ft. Invisible objects & creatures are visible in the bright light. If you lower the hood as an action, it sheds dim light in a 5-ft radius.",
-		descriptionFull : "This lantern bears an etched writing in Sylvan. When read by a character who can read Sylvan, the word says: “When you light a light, you also cast a shadow”. The inscription has no mechanical effect.\n   While lit, this hooded lantern burns for 6 hours on 1 pint of oil, shedding bright light in a 30-foot radius and dim light for an additional 30 feet. Invisible creatures and objects are visible as long as they are in the lantern's bright light. You can use an action to lower the hood, reducing the light to dim light in a 5-foot radius.",
-		weight : 2,
-		action : [["action", "Lantern of Revealing (hood up/down)"]]
-	},
-	"lantern of revealing (ccc-druids-3)" : {
-		name : "Lantern of Revealing (CCC-DRUIDS-3)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "B",
-		description : "This lantern belonged to a vampire hunter known to the Brave Adventurer in times past. It burns olive oil, and has a little basket above the flame for roasting garlic. The lantern burns for 6 hrs on 1 pint of oil. It sheds bright light in a 30-ft radius & dim light for another 30 ft. Invisible objects & creatures are visible in the bright light. If you lower the hood as an action, it sheds dim light in a 5-ft radius.",
-		descriptionFull : "This lantern belonged to a vampire hunter known to the Brave Adventurer in times past. It burns olive oil, and has a little basket above the flame for roasting garlic.\n   While lit, this hooded lantern burns for 6 hours on 1 pint of oil, shedding bright light in a 30-foot radius and dim light for an additional 30 feet. Invisible creatures and objects are visible as long as they are in the lantern's bright light. You can use an action to lower the hood, reducing the light to dim light in a 5-foot radius.",
-		weight : 2,
-		action : [["action", "Lantern of Revealing (hood up/down)"]]
-	},
-	"lantern of revealing (ccc-dwb-eog-1)" : {
-		name : "Lantern of Revealing (CCC-DWB-EOG-1)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "B",
-		description : "This lantern is made of pitted infernal iron and fashioned into the shape of a roaring dragon. The lantern burns for 6 hrs on 1 pint of oil. It sheds bright light in a 30-ft radius & dim light for another 30 ft. Invisible objects & creatures are visible in the bright light. If you lower the hood as an action, it sheds dim light in a 5-ft radius.",
-		descriptionFull : "This lantern is made of pitted infernal iron and fashioned into the shape of a roaring dragon. \n   While lit, this hooded lantern burns for 6 hours on 1 pint of oil, shedding bright light in a 30-foot radius and dim light for an additional 30 feet. Invisible creatures and objects are visible as long as they are in the lantern's bright light. You can use an action to lower the hood, reducing the light to dim light in a 5-foot radius.",
-		weight : 2,
-		action : [["action", "Lantern of Revealing (hood up/down)"]]
-	},
-	"lantern of revealing (ccc-dwb-q1)" : {
-		name : "Lantern of Revealing (CCC-DWB-Q1)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "B",
-		description : "This polished lantern has inset gemstones, gold & platinum inlays, & gold & silver filigree on its surface. When seen from the corner of the eye, the item seems to be moving. The lantern burns for 6 hrs on 1 pint of oil. It sheds bright light in a 30-ft radius & dim light for another 30 ft. Invisible objects & creatures are visible in the bright light. If you lower the hood as an action, it sheds dim light in a 5-ft radius.",
-		descriptionFull : "This polished lantern is inset with gemstones, gold and platinum inlays, and gold and silver filigree adorn its surface. When seen from the corner of the eye, the item seems to be moving.\n   While lit, this hooded lantern burns for 6 hours on 1 pint of oil, shedding bright light in a 30-foot radius and dim light for an additional 30 feet. Invisible creatures and objects are visible as long as they are in the lantern's bright light. You can use an action to lower the hood, reducing the light to dim light in a 5-foot radius.",
-		weight : 2,
-		action : [["action", "Lantern of Revealing (hood up/down)"]]
-	},
-	"lantern of revealing (ccc-kkalgo-2-1)" : {
-		name : "Lantern of Revealing (CCC-KKALGO-2-1)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "B",
-		description : "This astonishing lantern is made with dwarven technology. It burns for 6 hrs on 1 pint of oil. It sheds bright light in a 30-ft radius & dim light for another 30 ft. Invisible objects & creatures are visible in the bright light. If you lower the hood as an action, it sheds dim light in a 5-ft radius.",
-		descriptionFull : "This astonishing lantern is made with dwarven technology.\n   While lit, this hooded lantern burns for 6 hours on 1 pint of oil, shedding bright light in a 30-foot radius and dim light for an additional 30 feet. Invisible creatures and objects are visible as long as they are in the lantern's bright light. You can use an action to lower the hood, reducing the light to dim light in a 5-foot radius.",
-		weight : 2,
-		action : [["action", "Lantern of Revealing (hood up/down)"]]
-	},
-	"lantern of revealing (ccc-malth-1)" : {
-		name : "Lantern of Revealing (CCC-MALTH-1)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "B",
-		description : "This pewter lantern is trimmed with pale green crystals & has the 4 phases of the moon carved into its sides. Light shines from the full moon carving when it's lit. The lantern burns for 6 hrs on 1 pint of oil. It sheds bright light in a 30-ft radius & dim light for another 30 ft. Invisible objects & creatures are visible in the bright light. If you lower the hood as an action, it sheds dim light in a 5-ft radius.",
-		descriptionFull : "This pewter lantern is trimmed with pale green crystals. The four phases of the moon are carved into the lantern, one on each side. Light shines from the lantern from the full moon carved into its side.\n   While lit, this hooded lantern burns for 6 hours on 1 pint of oil, shedding bright light in a 30-foot radius and dim light for an additional 30 feet. Invisible creatures and objects are visible as long as they are in the lantern's bright light. You can use an action to lower the hood, reducing the light to dim light in a 5-foot radius.",
-		weight : 2,
-		action : [["action", "Lantern of Revealing (hood up/down)"]]
-	},
-	"lantern of revealing (ccc-melb-2)" : {
-		name : "Lantern of Revealing (CCC-MELB-2)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "B",
-		description : "This lantern is of ancient Netherese design, & while lit, ancient runes around its base flicker & glow with arcane energy. The lantern burns for 6 hrs on 1 pint of oil. It sheds bright light in a 30-ft radius & dim light for another 30 ft. Invisible objects & creatures are visible in the bright light. If you lower the hood as an action, it sheds dim light in a 5-ft radius.",
-		descriptionFull : "This lantern is of ancient Netherese design, and while lit, ancient runes around its base flicker and glow with arcane energy.\n   While lit, this hooded lantern burns for 6 hours on 1 pint of oil, shedding bright light in a 30-foot radius and dim light for an additional 30 feet. Invisible creatures and objects are visible as long as they are in the lantern's bright light. You can use an action to lower the hood, reducing the light to dim light in a 5-foot radius.",
-		weight : 2,
-		action : [["action", "Lantern of Revealing (hood up/down)"]]
-	},
-	"lantern of revealing (ccc-pp-tdd1-1)" : {
-		name : "Lantern of Revealing (CCC-PP-TDD1-1)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "B",
-		description : "This slightly battered brass lantern is fitted w/ engraved shutters that display an eye motif. The lantern burns for 6 hrs on 1 pint of oil. It sheds bright light in a 30-ft radius & dim light for another 30 ft. Invisible objects & creatures are visible in the bright light. If you lower the hood as an action, it sheds dim light in a 5-ft radius.",
-		descriptionFull : "This slightly battered brass caged lantern is fitted with engraved shutters that display an eye motif.\n   While lit, this hooded lantern burns for 6 hours on 1 pint of oil, shedding bright light in a 30-foot radius and dim light for an additional 30 feet. Invisible creatures and objects are visible as long as they are in the lantern's bright light. You can use an action to lower the hood, reducing the light to dim light in a 5-foot radius.",
-		weight : 2,
-		action : [["action", "Lantern of Revealing (hood up/down)"]]
-	},
-	"lantern of revealing (ccc-ziege-4-1)" : {
-		name : "Lantern of Revealing (CCC-ZIEGE-4-1)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "B",
-		description : "This lantern is molded into a wyvern, its gaping maw inset with a heavy iron ring. Its light is a pale otherworldly luminescence in which spirits of the dead dance at the edge of sight. The lantern burns for 6 hrs on 1 pint of oil. It sheds bright light in a 30-ft radius & dim light for another 30 ft. Invisible objects & creatures are visible in the bright light. If you lower the hood as an action, it sheds dim light in a 5-ft radius.",
-		descriptionFull : "This lantern is molded in the form of a wyvern, its gaping maw inset with a heavy iron ring. Its light is a pale, otherworld luminescence within which spirits of the dead seem to dance just at the edge of sight.\n   While lit, this hooded lantern burns for 6 hours on 1 pint of oil, shedding bright light in a 30-foot radius and dim light for an additional 30 feet. Invisible creatures and objects are visible as long as they are in the lantern's bright light. You can use an action to lower the hood, reducing the light to dim light in a 5-foot radius.",
-		weight : 2,
-		action : [["action", "Lantern of Revealing (hood up/down)"]]
-	},
-	"last light of northkeep (ccc-bwm-2)" : {
-		name : "Last Light of Northkeep (Candle of the Deep)",
-		source : [["AL","CCC"]],
-		rarity : "common",
-		magicItemTable : "?",
-		description : "This crystal lantern has patterns of stars etched into it & its flame isn't extinguished when immersed in water. It gives off light & heat like a normal lantern. With the blessing of Selune, this lantern never runs out of fuel.",
-		descriptionFull : "This crystal lantern has patterns of stars etched all over it. The flame of this lantern is not extinguished when immersed in water. It gives off light and heat like a normal lantern. With the blessing of Selune, this lantern never runs out of fuel."
-	},
-}		
-		
-MagicItemsList["al minerals"] = {
-		name : "AL Minerals",
-		type : "wondrous item",
-		allowDuplicates : true,
-	choices : ["Aier, Pearl of Power (CCC-EPI1-1)","Audience Stones (CCC-BMG-12 HILL1-3)","Corsair's Star (CCC-COTN-1-1)","Crystal Ball (CCC-MIND1-1)","Emerald of the War Mage (DDHC-MORD-01)","Gem of Brightness (CCC-KUMORI-1-1)","Gem of Brightness (CCC-ROLL20-2)","Gem of Seeing (CCC-SHINY-4)","Gem of Seeing (DDAL8-12)","Gem of Seeing (DDAL9-5)","The Heart of Baga (CCC-GSP2-1)","Ioun Stone - Greater Absorption (DDAL0-10)","Ioun Stone - Insight (DDEP3)","Ioun Stone - Mastery (DDAL0-11F)","Ioun Stone - Protection (CCC-HATMS1-3)","Ioun Stone - Protection (DDAL0-11D)","Ioun Stone - Reserve (CCC-BMG-48 HILL3-3)","Ioun Stone - Reserve (CCC-YLRA1-1)","Pearl of Power (CCC-DDSC-1)","Pearl of Power (CCC-THENT1-1)","Pearl of Power (DDAL7-5)","Red Elemental Gem (CCC-BMG-MOON7-2)","Ruby of the War Mage (DDAL10-9)","Selfaril's Soul Gem (CCC-GAD1-1)","Sending Stones (CCC-CIC-4)","Sending Stones (DDAL0-8)","Sending Stones (DDAL10-2)","Stone of Controlling Earth Elementals (CCC-BLD1-3)","Stone of Good Luck (CCC-DWB-TFG-1)","Stone of Good Luck (CCC-HATMS2-3)","Stone of Good Luck (CCC-SCAR1-2)","Stone of Good Luck (DDAL0-2B)","Stone of Good Luck (DDAL0-11B)","Stone of Good Luck (DDEP4)","Stone of Good Luck (DDHC-MORD-04)","Traveler's Heart (CCC-SFBAY-4-2)"],
-	"aier, pearl of power (ccc-epi1-1)" : { // contains contributions by AelarTheElfRogue
-		name : "Aier, Pearl of Power (CCC-EPI1-1)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "F",
-		description : "The Finger of Yurtus was powered by an elven artifact known as Aier. This tiny chunk of the mythal has been drained of most of its power. Once per dawn as an action, you can speak its command word & regain 1 expended spell slot. If the slot was 4th lvl or higher, the new slot is 3rd lvl. The Aier can also be used to clear blackheads & pimples not created by magical means. ",
-		descriptionFull : "The Finger of Yurtus was powered by an elven artifact known as Aier. This originated as a tiny chunk of mythal which has been drained of most of its power. In addition to serving as a Pearl of Power, it can also be used to clear blackheads and pimples not created by magical means.\n   While this pearl is on your person, you can use an action to speak its command word and regain one expended spell slot. If the expended slot was of 4th level or higher, the new slot is 3rd level. Once you have used the pearl, it can't be used again until the next dawn.",
-		attunement : true,
-		limfeaname : "Pearl of Power",
-		usages : 1,
-		recovery : "dawn",
-		action : [["action", ""]]
-	},
-	"audience stones (ccc-bmg-12 hill1-3)" : {
-		name : "Audience Stones (Sending Stones)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "C",
-		description : "These smooth stones made of marble have the crest of Hillsfar carved into them. While touching one stone, you can cast Sending as an action once per dawn, targeting the bearer of the other stone or the First Lord of Hillsfar. If no one else has the stone, the spell doesn't cast. Sending allows each bearer to communicate up to 25 words.",
-		descriptionFull : "These smooth stones made of marble have the crest of Hillsfar carved into them. In addition to normal use, these stones also have the ability to directly contact the First Lord of Hillsfar. You have been assured that he always keeps the stone close at hand. Contacting the First Lord expends the single use the stones gain every dawn.\n   While you touch one stone, you can use an action to cast the Sending spell from it. The target is the bearer of on of the other stones. If no creature bears the other stone, you know that fact as soon as you use the stone and don't cast the spell.\n   Once Sending is cast through the stones, they can't be used again until the next dawn. If one of the stones in a set is destroyed, the other ones become nonmagical.",
-		spellcastingBonus : {
-			name : "To other stone bearer only",
-			spells : ["sending"],
-			selection : ["sending"],
-			firstCol : "oncelr"
-				},
-		usages : 1, 
-		recovery : "dawn",
-		spellChanges : {
-			"sending" : {
-				description : "Send a 25 word message to the bearer of the other Sending Stone, who can respond with 25 words",
-				changes : "Using one stone of a pair of Sending Stones, the spell can only target the bearer of the other stone of the pair."
-				}
-			}
-		},
-	"corsair's star (ccc-cotn-1-1)" : {
-		name : "Corsair's Star (Orb of Direction)",
-		source : [["AL","CCC"]],
-		rarity : "common",
-		description : "This palm-sized, masterwork compass was the property of a Thayan captain. Housed in its polished silver case is an expertly-crafted compass rose, bone-finger points standing out from carved storm clouds & lightning bolts. A small opal w/ part of the Thayan’s soul sits at its center. While in use, you hear the sound of waves & a ship’s hull. A haunting voice calls, “Bring it back, bring it back to me...” As an action while holding this orb on the Material Plane, you can determine which way is north.",
-		descriptionFull : "This palm-sized, masterwork compass was once the property of a Thayan ship captain. Housed within its polished silver case is an expertly-crafted compass rose, whose bone-finger points stand out from behind intricately-carved storm clouds and lightning bolts. A diminutive opal orb suffused with a part of the Thayan’s soul sets at its center. While in use, the wielder hears the sound of waves crashing along with a ship’s hull creaking. A haunting voice calls, “Bring it back …bring it back to me...” When holding this orb, you can use an action to determine which way is north. This property functions only on the Material Plane.",
-		weight : 3,
-		action : [["action", "Corsair's Star (North)"]]
-		},
-	"crystal ball (ccc-mind1-1)" : {
-		name : "Crystal Ball (CCC-MIND1-1)",
-		source : [["AL","CCC"]],
-		rarity : "very rare",
-		magicItemTable : "H",
-		description : "You can cast Scrying (DC 17) at will while touching this 6 inch crystal ball. If you peer into it as an action, you can see events that have occurred in your past.",
-		descriptionFull : "This crystal ball is about 6 inches in diameter. While touching it, you can cast the Scrying spell (save DC 17) with it. When a character that is attuned to this Crystal Ball spends an action peering into it, they can see events that have occurred in their past.",
-		attunement : true,
-		weight : 3,
-		action : [["action", "Crystal Ball (Look into past)"]],
-		allowDuplicates : true,
-		fixedDC : 17,
-		spellcastingBonus : {
-			name : "DC 17",
-			spells : ["scrying"],
-			selection : ["scrying"],
-			firstCol : "atwill"
-		}
-	},
-	"emerald of the war mage (ddhc-mord-01)" : {
-		name : "Emerald of the War Mage (DDHC-MORD-01)",
-		source : [["AL","MtoF"]],
-		rarity : "common",
-		magicItemTable : "?",
-		description : "This 1-inch emerald is etched with eldritch runes. The green color seems to pulse gently. By pressing this emerald to a simple or martial weapon for 10 minutes, it attaches itself to the weapon. You can then use that weapon as a spellcasting focus. Once attached, it can't be removed unless your attunement ends, you detach it as an action, or the weapon is destroyed.",
-		descriptionFull : "Etched with eldritch runes, the 1-inch-diameter emerald allows you to use a simple or martial weapon as a spellcasting focus for your spells. For this property to work, you must attach the emerald to the weapon by pressing the emerald against it for at least 10 minutes. Thereafter, the emerald can't be removed unless you detach it as an action or the weapon is destroyed. Not even an Antimagic Field causes it to fall off. The emerald does fall off the weapon if your attunement to the emerald ends.",
-		attunement : true,
-		prerequisite : "Requires attunement by a spellcaster",
-		prereqeval : function(v) { return v.isSpellcaster; }
-	},
-	"gem of brightness (ccc-kumori-1-1)" : { // contains contributions by Larry Hoy
-		name : "Gem of Brightness (CCC-KUMORI-1-1)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "F",
-		description : "Glowing w/ an inner light, this gem flickers in a random pattern that slows as each charge is used. It has 50 charges. As an action while holding it, say a command word so it: sheds 30-ft bright & 30-ft dim light, fires a 60-ft beam at 1 creature (1 charge, DC 15 Con save or blinded 1 min), or flares w/ light in a 30-ft cone (5 charges, DC 15 Con save or blinded 1 min).",
-		descriptionLong : "Glowing w/ an inner light, this gem flickers in a random pattern that slows as each charge is used. It has 50 charges. As an action while holding it, speak 1 of 3 command words to make it: [1] shed bright light in a 30-ft radius & dim light in another 30 ft until another word is used or you end it w/ a bonus action, [2] fire a 60-ft beam of light at 1 creature (1 charge, DC 15 Con save or blinded 1 minute), or [3] flare with blinding light in a 30-ft cone (5 charges, DC 15 Con save or blinded 1 minute). Blinded creatures can repeat the save at the end of each their turns. When all of the gem's charges are expended, it becomes a nonmagical jewel worth 50 gp.",
-		descriptionFull : "Glowing w/ an inner light, this gem flickers in a random pattern that slows as each charge is used. It has 50 charges. While you are holding it, you can use an action to speak one of three command words to cause one of the following effects:\n \u2022 The first command word causes the gem to shed bright light in a 30-foot radius and dim light for an additional 30 feet. This effect doesn't expend a charge. It lasts until you use a bonus action to repeat the command word or until you use another function of the gem.\n \u2022 The second command word expends 1 charge and causes the gem to fire a brilliant beam of light at one creature you can see within 60 feet of you. The creature must succeed on a DC 15 Constitution saving throw or become blinded for 1 minute. The creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.\n \u2022 The third command word expends 5 charges and causes the gem to flare with blinding light in a 30-foot cone originating from it. Each creature in the cone must make a saving throw as if struck by the beam created with the second command word.\n\nWhen all of the gem's charges are expended, the gem becomes a nonmagical jewel worth 50 gp.",
-		weight : 1,
-		limfeaname : "Gem of Brightness",
-		usages : 50,
-		recovery : "Never",
-		action : [["action", "Gem of Brightness"], ["bonus action", " (Stop Glow)"]]
-	},
-	"gem of brightness (ccc-roll20-2)" : { // contains contributions by Larry Hoy
-		name : "Gem of Brightness (CCC-ROLL20-2)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "F",
-		description : "This 20-sided gem is made from remains of multiple elementals & resembles an artifact of lore. Deities from another dimension are said to use such gems to control the actions & decisions of mortals. The gem has 50 charges. As an action while holding it, say a command word so it: sheds 30-ft bright & 30-ft dim light, fires a 60-ft beam at 1 creature (1 charge, DC 15 Con save or blinded 1 min), or flares w/ light in a 30-ft cone (5 charges, DC 15 Con save or blinded 1 min).",
-		descriptionLong : "This 20-sided gem is made from the remains of earth, fire, water, & air elementals & resembles an artifact of lore. Deities from another dimension are said to use such gems to control the actions & decisions of mortals but many Faerûnian scholars believe there's no truth to such myths. The gem has 50 charges. As an action while holding it, speak 1 of 3 command words to make it: [1] shed bright light in a 30-ft radius & dim light in another 30 ft until another word is used or you end it w/ a bonus action, [2] fire a 60-ft beam of light at 1 creature (1 charge, DC 15 Con save or blinded 1 minute), or [3] flare with blinding light in a 30-ft cone (5 charges, DC 15 Con save or blinded 1 minute). Blinded creatures can repeat the save at the end of each their turns. When all of the gem's charges are expended, it becomes a nonmagical jewel worth 50 gp.",
-		descriptionFull : "This magnificent 20-sided gem is made from the remains of earth, fire, water, and air elementals and resembles an artifact of lore. It is said, deities from another dimension used gems crafted in such a fashion to control the actions and decisions of mortals. Many Faerûnian scholars believe there is no truth to such myths.\n	The gem has 50 charges. While you are holding it, you can use an action to speak one of three command words to cause one of the following effects:\n \u2022 The first command word causes the gem to shed bright light in a 30-foot radius and dim light for an additional 30 feet. This effect doesn't expend a charge. It lasts until you use a bonus action to repeat the command word or until you use another function of the gem.\n \u2022 The second command word expends 1 charge and causes the gem to fire a brilliant beam of light at one creature you can see within 60 feet of you. The creature must succeed on a DC 15 Constitution saving throw or become blinded for 1 minute. The creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.\n \u2022 The third command word expends 5 charges and causes the gem to flare with blinding light in a 30-foot cone originating from it. Each creature in the cone must make a saving throw as if struck by the beam created with the second command word.\n\nWhen all of the gem's charges are expended, the gem becomes a nonmagical jewel worth 50 gp.",
-		weight : 1,
-		limfeaname : "Gem of Brightness",
-		usages : 50,
-		recovery : "Never",
-		action : [["action", "Gem of Brightness"], ["bonus action", " (Stop Glow)"]]
-	},
-	"gem of seeing (ccc-shiny-4)" : { // contains contributions by Larry Hoy
-		name : "Gem of Seeing (CCC-SHINY-4)",
-		source : [["AL","CCC"]],
-		rarity : "rare",
-		magicItemTable : "G",
-		description : "A color-drained ruby rests in a ring of polished stone affixed to the top of a similar handle. When activated, a message appears on the handle in blue, runic letters that only you can see; if you know a language, you can read the runes: “May you never lose sight of the truth.” The gem has 3 charges. As an action, speak its command word & expend 1 charge to gain 120 ft of truesight for 10 min. while you peer through the gem. The gem regains 1d3 charges at dawn.",
-		descriptionFull : "A color-drained ruby rests in a ring of polished stone affixed to the top of a similarly crafted handle. Whenever this item is activated, a message appears along the handle in blue, runic letters that only the attuned character can see; as long as the character knows a language, it can understand what the runes say: “May you never lose sight of the truth.”\n   The gem has 3 charges. As an action, you can speak its command word and expend 1 charge. For the next 10 minutes, you have truesight out to 120 ft when you peer through the gem. The gem regains 1d3 expended charges daily at dawn.",
-		attunement : true,
-		weight : 1,
-		limfeaname : "Gem of Seeing",
-		usages : 3,
-		recovery : "dawn",
-		additional : "1d3 Recharge"
-	},
-	"gem of seeing (ddal8-12)" : { // contains contributions by Larry Hoy
-		name : "Gem of Seeing (DDAL8-12)",
-		source : [["AL","S8"]],
-		rarity : "rare",
-		magicItemTable : "G",
-		description : "This orange gem has been carved into the shape of a goldfish. The bottom is inscribed w/ the word “Sylgar.” The Xanathar won’t be happy that you have this. The gem has 3 charges. As an action, you can speak its command word & expend 1 charge to gain 120 ft of truesight for 10 min. while you peer through the gem. The gem regains 1d3 charges at dawn.",
-		descriptionFull : "This orange gem has been carved into the shape of a goldfish. The bottom is inscribed with the word “Sylgar.” The Xanathar won’t be happy that you have this.\n   The gem has 3 charges. As an action, you can speak its command word and expend 1 charge. For the next 10 minutes, you have truesight out to 120 ft when you peer through the gem. The gem regains 1d3 expended charges daily at dawn.",
-		attunement : true,
-		weight : 1,
-		limfeaname : "Gem of Seeing",
-		usages : 3,
-		recovery : "dawn",
-		additional : "1d3 Recharge"
-	},
-	"gem of seeing (ddal9-5)" : { // contains contributions by Larry Hoy
-		name : "Gem of Seeing (DDAL9-5)",
-		source : [["AL","S9"]],
-		rarity : "rare",
-		magicItemTable : "G",
-		description : "While looking through this unusual cut-gemstone monocle, the wearer can perceive the relative value of an item to its owner (monetary, sentimental, etc). The gem has 3 charges. As an action, you can speak its command word & expend 1 charge to gain 120 ft of truesight for 10 min. while you peer through the gem. The gem regains 1d3 charges at dawn.",
-		descriptionFull : "While looking through this unusual cut-gemstone monocle, the wearer can perceive the relative value of an item to its owner (monetary, sentimental, etc). The gem has 3 charges. As an action, you can speak its command word and expend 1 charge. For the next 10 minutes, you have truesight out to 120 ft when you peer through the gem. The gem regains 1d3 expended charges at dawn.",
-		attunement : true,
-		weight : 1,
-		limfeaname : "Gem of Seeing",
-		usages : 3,
-		recovery : "dawn",
-		additional : "1d3 Recharge"
-	},
-	"the heart of baga (ccc-gsp2-1)" : {
-		name : "The Heart of Baga (Elemental Gem [Red Corundum])",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "B",
-		allowDuplicates : true,
-		description : "A tiny shard of Baga's soul is in this elemental gem, which contains a mote of fire energy. Once as an action, you can break the gem to summon a fire elemental as if you'd cast the Conjure Elemental spell. The elemental is shaped like a minotaur with a black five-leaf clover on its right hand. After breaking the gem, its magic is lost.",
-		descriptionFull : "A tiny shard of Baga's soul is still inside this elemental gem. When you decide to use it, the fire elemental is shaped like a minotaur with a black five-leaf clover on the back of its right hand.\n   This gem contains a mote of elemental energy. When you use an action to break the gem, a fire elemental is summoned as if you had cast the Conjure Elemental spell, and the gem's magic is lost.",
-		spellcastingBonus : {
-			name : "Fire Elemental only",
-			spells : ["conjure elemental"],
-			selection : ["conjure elemental"]
-		},
-		spellChanges : {
-			"conjure elemental" : {
-				time : "1 a",
-				description : "CR 5 fire elemental that obeys my verbal commands; on broken conc. elemental breaks free",
-				changes : "Using the Red Corundum Elemental Gem, the spell only takes 1 action instead of 1 minute to cast, but can only bring forth a fire elemental."
-			}
-		}
-	},
-	"ioun stone - greater absorption (ddal0-10)" : {
-		name: "Ioun Stone - Greater Absorption (DDAL0-10)",
-		source : [["AL","S0"]],
-		rarity : "legendary",
-		magicItemTable : "I",
-		attunement : true,
-		description : "This lavender & green stone has been shaped into a strange dragon w/ a long, sinewy neck, a serpentine body, 4 stout legs, & 2 long whiskers that look like a mustache. This is a dragon of far-off Shou Lung in Kara-Tur. Action to make orbit at 1d3ft or stow. Action to catch w/ atk or Acrobatics chk (AC/DC 24). 10 HP & resistance to dmg. While it orbits, reaction to cancel spell of 8th lvl or lower targeting only you, if you can see caster & have enough charges. It can cancel 50 lvls of spells.",
-		descriptionFull : "An Ioun stone is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of Ioun stone exist, each type a distinct combination of shape and color.\n   When you use an action to toss one of these stones into the air, the stone orbits your head at a distance of 1d3 feet and confers a benefit to you. Thereafter, another creature must use an action to grasp or net the stone to separate it from you, either by making a successful attack roll against AC 24 or a successful DC 24 Dexterity (Acrobatics) check. You can use an action to seize and stow the stone, ending its effect.\n   A stone has AC 24, 10 hit points, and resistance to all damage. It is considered to be an object that is being worn while it orbits your head.\n   This lavender and green stone has been fashioned into the shape of a strange dragon; it has a long, sinewy neck, a body like a serpent, four stout legs, and two long whiskers that almost look like a mustache. This is what the dragons of far-off Shou Lung in Kara-Tur look like. While this marbled lavender and green ellipsoid orbits your head, you can use your reaction to cancel a spell of 8th level or lower cast by a creature you can see and targeting only you. Once the stone has canceled 50 levels of spells, it burns out and turns dull gray, losing its magic. If you are targeted by a spell whose level is higher than the number of spell levels the stone has left, the stone can't cancel it.",
-		limfeaname : "Ioun Stone of Greater Absorption",
-		usages : 50,
-		recovery : "Never",
-		action : [["action", "Ioun Stone (orbit/retrieve)"], ["reaction", ""]]
-		},
-	"ioun stone - insight (ddep3)" : {
-		name: "Ioun Stone - Insight (DDEP3)",
-		source : [["AL","S3"]],
-		rarity : "very rare",
-		magicItemTable : "H",
-		attunement : true,
-		description : "This incandescent blue sphere glows w/ an unearthly white light as it orbits your head, casting odd shadows all around you. To those nearby, the shadows seem to take on nefarious shapes or do undesirable things. Action to make orbit at 1d3ft or stow. Others can catch as action w/ atk or Acrobatics chk (AC/DC 24). It has 10 HP & resistance to dmg. While it orbits, your Wisdom score increases by 2, to max of 20.",
-		descriptionFull : "An Ioun stone is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of Ioun stone exist, each type a distinct combination of shape and color.\n   When you use an action to toss one of these stones into the air, the stone orbits your head at a distance of 1d3 feet and confers a benefit to you. Thereafter, another creature must use an action to grasp or net the stone to separate it from you, either by making a successful attack roll against AC 24 or a successful DC 24 Dexterity (Acrobatics) check. You can use an action to seize and stow the stone, ending its effect.\n   A stone has AC 24, 10 hit points, and resistance to all damage. It is considered to be an object that is being worn while it orbits your head.\n   This incandescent blue sphere glows with an unearthly white light as it orbits your head, casting odd shadows all around you. To those nearby, these shadows sometimes seem to take on nefarious shapes or perform undesirable things. Your Wisdom score increases by 2, to a maximum of 20, while the sphere orbits your head.",
-		action : [["action", "Ioun Stone (orbit/retrieve)"]],
-		scores : [0, 0, 0, 0, 2, 0]
-		},
-	"ioun stone - mastery (ddal0-11f)" : {
-		name: "Ioun Stone - Mastery (DDAL0-11F)",
-		source : [["AL","S0"]],
-		rarity : "legendary",
-		magicItemTable : "I",
-		attunement : true,
-		description : "Pipyap has left behind a pale green icosahedron that appears to be a 20-sided die. This stone is eternally warm & slightly damp, no matter what environment it’s in. Action to orbit your head at 1d3ft or stow. Others can catch stone as action w/ atk or Acrobatics chk (AC/DC 24). It has 10 HP & resistance to dmg. While it orbits your head, your proficiency bonus increases by 1.",
-		descriptionFull : "An Ioun stone is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of Ioun stone exist, each type a distinct combination of shape and color.\n   When you use an action to toss one of these stones into the air, the stone orbits your head at a distance of 1d3 feet and confers a benefit to you. Thereafter, another creature must use an action to grasp or net the stone to separate it from you, either by making a successful attack roll against AC 24 or a successful DC 24 Dexterity (Acrobatics) check. You can use an action to seize and stow the stone, ending its effect.\n   A stone has AC 24, 10 hit points, and resistance to all damage. It is considered to be an object that is being worn while it orbits your head.\n   Pipyap has left behind a pale green icosahedron that appears to be a 20-sided die. This stone is eternally warm and slightly damp, no matter what environment it’s in. Your proficiency bonus increases by 1 while this pale green stone orbits your head.",
-		action : [["action", "Ioun Stone (orbit/retrieve)"]],
-		addMod : [{ type: "", field : "Proficiency Bonus Modifier", mod : 1, text : "My proficiency bonus increases by 1." }]
-		},
-	"ioun stone - protection (ccc-hatms1-3)" : {
-		name: "Ioun Stone - Protection (CCC-HATMS1-3)",
-		source : [["AL","CCC"]],
-		rarity : "rare",
-		magicItemTable : "G",
-		attunement : true,
-		description : "This stone is the color of the ocean at midnight, a blue so deep it appears black, and is carved in the shape of a lidless eye. Action to orbit your head at 1d3ft or stow. Others can catch stone as action w/ atk or Acrobatics chk (AC/DC 24). It has 10 HP & resistance to dmg. While it orbits your head, your AC increases by 1.",
-		descriptionFull : "An Ioun stone is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of Ioun stone exist, each type a distinct combination of shape and color.\n   When you use an action to toss one of these stones into the air, the stone orbits your head at a distance of 1d3 feet and confers a benefit to you. Thereafter, another creature must use an action to grasp or net the stone to separate it from you, either by making a successful attack roll against AC 24 or a successful DC 24 Dexterity (Acrobatics) check. You can use an action to seize and stow the stone, ending its effect.\n   A stone has AC 24, 10 hit points, and resistance to all damage. It is considered to be an object that is being worn while it orbits your head.\n   This stone is the color of the ocean at midnight, a blue so deep it appears black, and is carved in the shape of a lidless eye. Your AC increases by 1 while the sphere orbits your head.",
-		action : [["action", "Ioun Stone (orbit/retrieve)"]],
-		extraAC : [{name : "Ioun Stone of Protection", mod : 1, magic : true, text : "I gain a +1 bonus to AC while attuned."}]
-		},
-	"ioun stone - protection (ddal0-11d)" : {
-		name: "Ioun Stone - Protection (DDAL0-11D)",
-		source : [["AL","S0"]],
-		rarity : "rare",
-		magicItemTable : "G",
-		attunement : true,
-		description : "Made from a chunk of Malbolgian rock, you can command this ioun stone to ignite w/ hell fire as an action. The fire is as bright as a torch & ignites flammable objects. While ignited, the stone radiates evil. Action to orbit your head at 1d3ft or stow. Others can catch stone as action w/ atk or Acrobatics chk (AC/DC 24). It has 10 HP & resistance to dmg. While it orbits your head, your AC increases by 1.",
-		descriptionFull : "An Ioun stone is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of Ioun stone exist, each type a distinct combination of shape and color.\n   When you use an action to toss one of these stones into the air, the stone orbits your head at a distance of 1d3 feet and confers a benefit to you. Thereafter, another creature must use an action to grasp or net the stone to separate it from you, either by making a successful attack roll against AC 24 or a successful DC 24 Dexterity (Acrobatics) check. You can use an action to seize and stow the stone, ending its effect.\n   A stone has AC 24, 10 hit points, and resistance to all damage. It is considered to be an object that is being worn while it orbits your head.\n   Made from a chunk of Malbolgian rock, the owner can command this ioun stone to ignite with hell fire as an action. The fire is as bright as a torch & ignites flammable objects. While ignited, the stone radiates evil. Your AC increases by 1 while the sphere orbits your head.",
-		action : [["action", "Ioun Stone (orbit/retrieve)"]	["action", "Ioun Stone (Ignite)"]],
-		extraAC : [{name : "Ioun Stone of Protection", mod : 1, magic : true, text : "I gain a +1 bonus to AC while attuned."}]
-		},
-	"ioun stone - reserve (ccc-bmg-48 hill3-3)" : {
-		name: "Ioun Stone - Reserve (CCC-BMG-48 HILL3-3)",
-		source : [["AL","CCC"]],
-		rarity : "rare",
-		magicItemTable : "G",
-		attunement : true,
-		description : "This deep violet, almost indigo, translucent prism has a noticeable chunk broken off 1 corner. While orbiting your head, the stone emits a low buzzing, like an insect, which only you can hear. Action to orbit your head at 1d3ft or stow. Others can catch stone as action w/ atk or Acrobatics chk (AC/DC 24). It has 10 HP & resistance to dmg. The stone can hold 3 lvls of spells, which can be cast from the stone to free up space. It contains lightning bolt when found.",
-		descriptionFull : "An Ioun stone is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of Ioun stone exist, each type a distinct combination of shape and color.\n   When you use an action to toss one of these stones into the air, the stone orbits your head at a distance of 1d3 feet and confers a benefit to you. Thereafter, another creature must use an action to grasp or net the stone to separate it from you, either by making a successful attack roll against AC 24 or a successful DC 24 Dexterity (Acrobatics) check. You can use an action to seize and stow the stone, ending its effect.\n   A stone has AC 24, 10 hit points, and resistance to all damage. It is considered to be an object that is being worn while it orbits your head.\n   This deep violet, almost indigo, translucent prism has a noticeable chunk broken off of one corner. When found, it contains the spell lightning bolt. While orbiting the owner’s head, the stone emits a low buzzing, like an insect, which is only perceptible to the owner.\n   The stone can store up to 3 levels worth of spells at a time. Any creature can cast a spell of 1st through 3rd level into the stone by touching it as the spell is cast. The spell has no effect, other than to be stored in the stone. If the stone can't hold the spell, the spell is expended without effect. The level of the slot used to cast the spell determines how much space it uses.\n   While this stone orbits your head, you can cast any spell stored in it. The spell uses the slot level, spell save DC, spell attack bonus, and spellcasting ability of the original caster, but is otherwise treated as if you cast the spell. The spell cast from the stone is no longer stored in it, freeing up space.",
-		},
-	"ioun stone - reserve (ccc-ylra1-1)" : {
-		name: "Ioun Stone - Reserve (CCC-YLRA1-1)",
-		source : [["AL","CCC"]],
-		rarity : "rare",
-		magicItemTable : "G",
-		attunement : true,
-		description : "This purple gem, the Peacemaker’s Coin, has a face carved on each side: an elf woman w/ ruby-tinted hair & a dwarf bearing the symbol of Clangeddin Silverbeard. In darkness, ghostly shapes trail from it. When a spell is cast into it, the caster hears a male & female voice arguing. When a spell is unleashed, the voices chant in unison. While attuned, you get +1 to CHA (Persuasion) chks to resolve conflict/calm emotions. Action to orbit your head at 1d3ft or stow. Gem caught as action w/ atk or Acrobatics chk (AC/DC 24). It has 10 HP & resistance to dmg. The gem holds 3 lvls of spells, which can be cast from it to free up space.",
-		descriptionFull : "An Ioun stone is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of Ioun stone exist, each type a distinct combination of shape and color.\n   When you use an action to toss one of these stones into the air, the stone orbits your head at a distance of 1d3 feet and confers a benefit to you. Thereafter, another creature must use an action to grasp or net the stone to separate it from you, either by making a successful attack roll against AC 24 or a successful DC 24 Dexterity (Acrobatics) check. You can use an action to seize and stow the stone, ending its effect.\n   A stone has AC 24, 10 hit points, and resistance to all damage. It is considered to be an object that is being worn while it orbits your head.\n   Rather than appearing as a prism like a normal ioun stone of its type, however, this purple gem is cut like a coin, with a face on each side. One is an elf woman whose long hair has a ruby tint, and the other is an older dwarf in a helm bearing the symbol of the dwarf god Clangeddin Silverbeard. In darkness, one can see ghostly shapes trailing after the coin-like jewel as it moves. When a spell is cast into the stone, the caster hears a male and female voice arguing. When a spell is unleashed from it, the same voices are heard chanting in unison by the user. Anyone attuned to this item receives to +1 bonus on Charisma (Persuasion) checks to resolve conflict or calm emotions. Research indicates this item was known as the Peacemaker’s Coin in the old dwarf kingdom of Roldilar, where it belonged to the human mage and dwarf ally Beldossan the Short.\n   The stone can store up to 3 levels worth of spells at a time. Any creature can cast a spell of 1st through 3rd level into the stone by touching it as the spell is cast. The spell has no effect, other than to be stored in the stone. If the stone can't hold the spell, the spell is expended without effect. The level of the slot used to cast the spell determines how much space it uses.\n   While this stone orbits your head, you can cast any spell stored in it. The spell uses the slot level, spell save DC, spell attack bonus, and spellcasting ability of the original caster, but is otherwise treated as if you cast the spell. The spell cast from the stone is no longer stored in it, freeing up space.",
-		},
-	"pearl of power (ccc-ddsc-1)" : { // contains contributions by AelarTheElfRogue
-		name : "Pearl of Power (CCC-DDSC-1)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "F",
-		description : "This black pearl, carved to resemble a skull. It is mounted on a band of silver and fashioned as a serpent devouring the skull. Once per dawn as an action, you can speak its command word & regain 1 expended spell slot. If the slot was 4th lvl or higher, the new slot is 3rd lvl.",
-		descriptionFull : "This black pearl, carved to resemble a skull. It is mounted on a ring band of silver and fashioned as a serpent devouring the skull. While this pearl is on your person, you can use an action to speak its command word and regain one expended spell slot. If the expended slot was of 4th level or higher, the new slot is 3rd level. Once you have used the pearl, it can't be used again until the next dawn.",
-		attunement : true,
-		limfeaname : "Pearl of Power",
-		usages : 1,
-		recovery : "dawn",
-		action : [["action", ""]]
-	},
-	"pearl of power (ccc-thent1-1)" : { // contains contributions by AelarTheElfRogue
-		name : "Pearl of Power (CCC-THENT1-1)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "F",
-		description : "The pearl’s brilliant nacreous quality fades to almost black after being used, only to waken at the following dawn. Once per dawn as an action, you can speak its command word & regain 1 expended spell slot. If the slot was 4th lvl or higher, the new slot is 3rd lvl.",
-		descriptionFull : "The pearl’s brilliant nacreous quality fades to almost black after being used, only to waken at the following dawn. While this pearl is on your person, you can use an action to speak its command word and regain one expended spell slot. If the expended slot was of 4th level or higher, the new slot is 3rd level. Once you have used the pearl, it can't be used again until the next dawn.",
-		attunement : true,
-		limfeaname : "Pearl of Power",
-		usages : 1,
-		recovery : "dawn",
-		action : [["action", ""]]
-	},
-	"pearl of power (ddal7-5)" : { // contains contributions by AelarTheElfRogue
-		name : "Pearl of Power (DDAL7-5)",
-		source : [["AL","S7"]],
-		rarity : "uncommon",
-		magicItemTable : "F",
-		description : "This bright yellow pearl is set in a ring of black iron & glows w/ a warm, yellow light. The ring is shaped like a serpent, twisting around your finger w/ the pearl clutched in its mouth. While attuned, your dreams are consumed by yellow, serpentine eyes staring from darkness. Once/dawn as an action, you can speak its command word & regain 1 expended spell slot. If the slot was of >= 4th lvl, the new slot is 3rd lvl.",
-		descriptionFull : "This bright yellow pearl is set in a ring of black iron and glows with a warm, yellow light. The ring has been fashioned into the shape of a serpent that twists around its wearer’s finger with the pearl clutched in its mouth. While attuned to the pearl, the wearer’s dreams are consumed by a pair of yellow, serpentine eyes staring from fathomless darkness. While this pearl is on your person, you can use an action to speak its command word and regain one expended spell slot. If the expended slot was of 4th level or higher, the new slot is 3rd level. Once you have used the pearl, it can't be used again until the next dawn.",
-		attunement : true,
-		limfeaname : "Pearl of Power",
-		usages : 1,
-		recovery : "dawn",
-		action : [["action", ""]]
-	},
-	"red elemental gem (ccc-bmg-moon7-2)" : {
-		name : "Red Elemental Gem (CCC-BMG-MOON7-2)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "B",
-		allowDuplicates : true,
-		description : "This is an artifact of the lost temples of the Earthmother. It's inscribed with motifs of the sun rising and setting. Once as an action, you can break the gem to summon a fire elemental as if you'd cast the Conjure Elemental spell. After breaking the gem, its magic is lost.",
-		descriptionFull : "This is one of the artifacts of the lost temples of the Earthmother. It is inscribed with motifs of the sun rising and setting.\n   This gem contains a mote of elemental energy. When you use an action to break the gem, a fire elemental is summoned as if you had cast the Conjure Elemental spell, and the gem's magic is lost.",
-		spellcastingBonus : {
-			name : "Fire Elemental only",
-			spells : ["conjure elemental"],
-			selection : ["conjure elemental"]
-		},
-		spellChanges : {
-			"conjure elemental" : {
-				time : "1 a",
-				description : "CR 5 fire elemental that obeys my verbal commands; on broken conc. elemental breaks free",
-				changes : "Using the Red Corundum Elemental Gem, the spell only takes 1 action instead of 1 minute to cast, but can only bring forth a fire elemental."
-			}
-		}
-	},
-	"ruby of the war mage (ddal10-9)" : {
-		name : "Ruby of the War Mage (DDAL10-9)",
-		source : [["AL","S10"]],
-		rarity : "common",
-		magicItemTable : "?",
-		description : "This ruby is a crudely fashioned chunk of blood-red crystal & etched with eldritch runes. The red color seems to pulse gently. By pressing this ruby to a simple or martial weapon for 10 minutes, it attaches itself to the weapon. You can then use that weapon as a spellcasting focus. Once attached, it can't be removed unless your attunement ends, you detach it as an action, or the weapon is destroyed.",
-		descriptionFull : "This ruby is a crudely fashioned chunk of blood-red crystal. The red color seems to pulse gently. Etched with eldritch runes, the 1-inch-diameter ruby allows you to use a simple or martial weapon as a spellcasting focus for your spells. For this property to work, you must attach the ruby to the weapon by pressing the ruby against it for at least 10 minutes. Thereafter, the ruby can't be removed unless you detach it as an action or the weapon is destroyed. Not even an Antimagic Field causes it to fall off. The ruby does fall off the weapon if your attunement to the ruby ends.",
-		attunement : true,
-		prerequisite : "Requires attunement by a spellcaster",
-		prereqeval : function(v) { return v.isSpellcaster; }
-	},
-	"selfaril's soul gem (ccc-gad1-1)" : {
-		name : "Selfaril's Soul Gem (Ruby of the War Mage)",
-		source : [["AL","CCC"]],
-		rarity : "common",
-		magicItemTable : "?",
-		description : "This jagged piece of ruby is etched w/ eldritch runes & was once part of the gem housing Selfaril Uoumdolphin’s soul. It still holds a piece of his vitality. By pressing this ruby to a simple or martial weapon for 10 minutes, it attaches itself to the weapon. You can then use that weapon as a spellcasting focus. Once attached, it can't be removed unless your attunement ends, you detach it as an action, or the weapon is destroyed.",
-		descriptionFull : "This jagged piece of ruby was once part of the gem that housed Selfaril Uoumdolphin’s soul. Even now it seems to hold a small piece of his vitality. Etched with eldritch runes, the 1-inch-diameter ruby allows you to use a simple or martial weapon as a spellcasting focus for your spells. For this property to work, you must attach the ruby to the weapon by pressing the ruby against it for at least 10 minutes. Thereafter, the ruby can't be removed unless you detach it as an action or the weapon is destroyed. Not even an Antimagic Field causes it to fall off. The ruby does fall off the weapon if your attunement to the ruby ends.",
-		attunement : true,
-		prerequisite : "Requires attunement by a spellcaster",
-		prereqeval : function(v) { return v.isSpellcaster; }
-	},
-	"sending stones (ccc-cic-4)" : {
-		name : "Sending Stones (CCC-CIC-4)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "C",
-		description : "These stones are inside male & female stuffed sphinxes. To activate, you must hug the toy & say “I love you Mr./Mrs. Wubsy.” You can command the sphinx's eyes to glow w/ a soft blue light equal to a candle. The stones can't be removed from the toys. While touching 1 stone, you can cast Sending as an action once/dawn, targeting whoever has the other stone. If no one has it, the spell won't cast. Sending allows each bearer to communicate up to 25 words.",
-		descriptionFull : "These stones are inside male and female sphinx stuffed children's toys. To activate one, the owner must hug the animal and say “I love you Mr./Mrs. Wubsy.” The sphinx's eyes can be commanded to glow with a soft blue light equal to a candle. The stones cannot be removed from the toys without destroying the magic.\n   While you touch one stone, you can use an action to cast the Sending spell from it. The target is the bearer of on of the other stones. If no creature bears the other stone, you know that fact as soon as you use the stone and don't cast the spell.\n   Once Sending is cast through the stones, they can't be used again until the next dawn. If one of the stones in a set is destroyed, the other ones become nonmagical.",
-		spellcastingBonus : {
-			name : "To other stone bearer only",
-			spells : ["sending"],
-			selection : ["sending"],
-			firstCol : "oncelr"
-				},
-		usages : 1, 
-		recovery : "dawn",
-		spellChanges : {
-			"sending" : {
-				description : "Send a 25 word message to the bearer of the other Sending Stone, who can respond with 25 words",
-				changes : "Using one stone of a pair of Sending Stones, the spell can only target the bearer of the other stone of the pair."
-				}
-			}
-		},
-	"sending stones (ddal0-8)" : {
-		name : "Sending Stones (DDAL0-8)",
-		source : [["AL","S0"]],
-		rarity : "uncommon",
-		magicItemTable : "C",
-		description : "There are 3 stones in this set, crafted from a small, polished river rocks inscribed w/ a strange sigil. When the stones are used, there's a 10% chance the message is overheard by Witchthorn who twists or distorts the message — trying to put any listeners in peril. While touching one stone, you can cast Sending as an action once/dawn, targeting the bearer of another stone. If no creature has one, the spell won't cast. Sending allows each bearer to communicate up to 25 words.",
-		descriptionFull : "Instead of only two stones, there are three stones in this set. Each is crafted from a small, polished river stone, inscribed with a strange sigil. Their use is not without risk, however. Each time the stones are used, there is a 1-in-10 chance that the message is overheard by Witchthorn who, in turn twists or otherwise distorts the message — preferably in a way to put any listeners in peril.\n   While you touch one stone, you can use an action to cast the Sending spell from it. The target is the bearer of on of the other stones. If no creature bears the other stone, you know that fact as soon as you use the stone and don't cast the spell.\n   Once Sending is cast through the stones, they can't be used again until the next dawn. If one of the stones in a set is destroyed, the other ones become nonmagical.",
-		spellcastingBonus : {
-			name : "To other stone bearer only",
-			spells : ["sending"],
-			selection : ["sending"],
-			firstCol : "oncelr"
-				},
-		usages : 1, 
-		recovery : "dawn",
-		spellChanges : {
-			"sending" : {
-				description : "Send a 25 word message to the bearer of the other Sending Stone, who can respond with 25 words",
-				changes : "Using one stone of a pair of Sending Stones, the spell can only target the bearer of the other stone of the pair."
-				}
-			}
-		},
-	"sending stones (ddal10-2)" : {
-		name : "Sending Stones (DDAL10-2)",
-		source : [["AL","S10"]],
-		rarity : "uncommon",
-		magicItemTable : "C",
-		description : "These stones were plucked from a raging river. Worn smooth by eons of fast-moving water, each is struck through with streaks of silvery metal and chunks of blue crystal, and engraved with a sigil of unknown origin. While touching one stone, you can cast Sending as an action once/dawn, targeting the bearer of the other stone. If no one has it, the spell won't cast. Sending allows each bearer to communicate up to 25 words.",
-		descriptionFull : "These stones were plucked from a raging river. Worn smooth by eons of fast-moving water, each is struck through with streaks of silvery metal and chunks of blue crystal, and engraved with a sigil of unknown origin.\n   Sending stones come in pairs, with each smooth stone carved to match the other so the pairing is easily recognized. While you touch one stone, you can use an action to cast the Sending spell from it. The target is the bearer of the other stone. If no creature bears the other stone, you know that fact as soon as you use the stone and don't cast the spell.\n   Once Sending is cast through the stones, they can't be used again until the next dawn. If one of the stones in a pair is destroyed, the other one becomes nonmagical.",
-		spellcastingBonus : {
-			name : "To other stone bearer only",
-			spells : ["sending"],
-			selection : ["sending"],
-			firstCol : "oncelr"
-				},
-		usages : 1, 
-		recovery : "dawn",
-		spellChanges : {
-			"sending" : {
-				description : "Send a 25 word message to the bearer of the other Sending Stone, who can respond with 25 words",
-				changes : "Using one stone of a pair of Sending Stones, the spell can only target the bearer of the other stone of the pair."
-				}
-			}
-		},
-	"stone of controlling earth elementals (ccc-bld1-3)" : {
-		name : "Stone of Controlling Earth Elementals (CCC-BLD1-3)",
-		source : [["AL","CCC"]],
-		rarity : "rare",
-		magicItemTable : "G",
-		description : "This unassuming chunk of bauxite is carved in the shape of a round mother goddess & seems to thrum faintly when held. The thrumming increases to a hypnotic hum when used. Once per dawn when the stone is touching the ground, you can use an action to speak its command word & summon an earth elemental, as if you'd cast the Conjure Elemental spell.",
-		descriptionFull : "This unassuming chunk of bauxite is carved in the shape of a round mother goddess and seems to thrum faintly when held. The thrumming increases to a hypnotic hum when used. If the stone is touching the ground, you can use an action to speak its command word and summon an earth elemental, as if you'd cast the Conjure Elemental spell. The stone can't be used this way again until the next dawn. The stone weighs 5 lbs.",
-		weight : 5,
-		spellcastingBonus : {
-			name : "Earth Elemental only",
-			spells : ["conjure elemental"],
-			selection : ["conjure elemental"],
-			firstCol : "oncelr"
-		},
-		limfeaname : "Stone of Controlling Earth Elementals",
-		usages : 1,
-		recovery : "dawn",
-		spellChanges : {
-			"conjure elemental" : {
-				time : "1 a",
-				components : "V,M\u0192",
-				compMaterial : "The Stone of Controlling Earth Elementals needs to touch the ground to cast this spell with a command word.",
-				description : "CR 5 earth elemental that obeys my verbal commands; on broken conc. elemental breaks free",
-				changes : "Using the Stone of Controlling Earth Elementals, the spell only takes 1 action instead of 1 minute to cast, but can only bring forth an earth elemental."
-			}
-		}
-	},
-	"stone of good luck (ccc-dwb-tfg-1)" : {
-		name : "Stone of Good Luck (CCC-DWB-TFG-1)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "F",
-		description : "This forest green crystal bears the symbol of Levistus. While it's on your person, you gain a +1 bonus to ability checks & saving throws.",
-		descriptionFull : "This forest green crystal bears the symbol of Levistus. While this item is on your person, you gain a +1 bonus to ability checks and saving throws.",
-		attunement : true,
-		addMod : [
-			{ type : "save", field : "all", mod : 1, text : "I gain a +1 bonus on all my saving throws." },
-			{ type : "skill", field : "all", mod : 1, text : "I gain a +1 bonus on all my ability checks." },
-			{ type : "skill", field : "Init", mod : 1, text : "I gain a +1 bonus on all my ability checks." }
-		]
-	},
-	"stone of good luck (ccc-hatms2-3)" : {
-		name : "Stone of Good Luck (CCC-HATMS2-3)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "F",
-		description : "The luckstone appears to be a fossilized shell of some ancient marine creature no larger than a gold piece. While it's on your person, you gain a +1 bonus to ability checks & saving throws.",
-		descriptionFull : "The luckstone appears to be a fossilized shell of some ancient marine creature no larger than a gold piece. While this item is on your person, you gain a +1 bonus to ability checks and saving throws.",
-		attunement : true,
-		addMod : [
-			{ type : "save", field : "all", mod : 1, text : "I gain a +1 bonus on all my saving throws." },
-			{ type : "skill", field : "all", mod : 1, text : "I gain a +1 bonus on all my ability checks." },
-			{ type : "skill", field : "Init", mod : 1, text : "I gain a +1 bonus on all my ability checks." }
-		]
-	},
-	"stone of good luck (ccc-scar1-2)" : {
-		name : "Stone of Good Luck (CCC-SCAR1-2)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "F",
-		description : "This smooth stone has a rainbow of colors through its opaque surface, and a small hole in one end so it could be put onto a necklace or leather thong. While it's on your person, you gain a +1 bonus to ability checks & saving throws.",
-		descriptionFull : "This smooth stone has a rainbow of colors throughout its opaque surface, and a small hole in one end such that it could be put onto a necklace or leather thong. While this item is on your person, you gain a +1 bonus to ability checks and saving throws.",
-		attunement : true,
-		addMod : [
-			{ type : "save", field : "all", mod : 1, text : "I gain a +1 bonus on all my saving throws." },
-			{ type : "skill", field : "all", mod : 1, text : "I gain a +1 bonus on all my ability checks." },
-			{ type : "skill", field : "Init", mod : 1, text : "I gain a +1 bonus on all my ability checks." }
-		]
-	},
-	"stone of good luck (ddal0-2b)" : {
-		name : "Stone of Good Luck (DDAL0-2B)",
-		source : [["AL","S0"]],
-		rarity : "uncommon",
-		magicItemTable : "F",
-		description : "This stone is made of murky, green crystal & set on a length of heavy, pig-iron chain that allows it to be worn (albeit uncomfortably) around your neck. As an action, you can cause the stone to shed pale green light as bright as a torch. While it's on your person, you gain a +1 bonus to ability checks & saving throws.",
-		descriptionFull : "This stone is made of murky, green crystal and is set on a length of heavy, pig-iron chain — allowing it to be worn (albeit uncomfortably) around the wearer’s neck. As an action, the wearer can cause the stone to shed pale green light as bright as a torch. While this item is on your person, you gain a +1 bonus to ability checks and saving throws.",
-		attunement : true,
-		action : [["action", "Stone of Good Luck (Shed Light)"]],
-		addMod : [
-			{ type : "save", field : "all", mod : 1, text : "I gain a +1 bonus on all my saving throws." },
-			{ type : "skill", field : "all", mod : 1, text : "I gain a +1 bonus on all my ability checks." },
-			{ type : "skill", field : "Init", mod : 1, text : "I gain a +1 bonus on all my ability checks." }
-		]
-	},
-	"stone of good luck (ddal0-11b)" : {
-		name : "Stone of Good Luck (DDAL0-11B)",
-		source : [["AL","S0"]],
-		rarity : "uncommon",
-		magicItemTable : "F",
-		description : "This foul-smelling chunk of cooled brimstone is inscribed with the unholy symbol of Asmodeus. While this item is on your person, you gain a +1 bonus to ability checks and saving throws.",
-		attunement : true,
-		addMod : [
-			{ type : "save", field : "all", mod : 1, text : "I gain a +1 bonus on all my saving throws." },
-			{ type : "skill", field : "all", mod : 1, text : "I gain a +1 bonus on all my ability checks." },
-			{ type : "skill", field : "Init", mod : 1, text : "I gain a +1 bonus on all my ability checks." }
-		]
-	},
-	"stone of good luck (ddep4)" : {
-		name : "Stone of Good Luck (DDEP4)",
-		source : [["AL","S4"]],
-		rarity : "uncommon",
-		magicItemTable : "F",
-		description : "The center of this fist-sized emerald appears to be hollow and filled with a viscous green liquid. When agitated, the gem grows warm. While this item is on your person, you gain a +1 bonus to ability checks and saving throws.",
-		attunement : true,
-		addMod : [
-			{ type : "save", field : "all", mod : 1, text : "I gain a +1 bonus on all my saving throws." },
-			{ type : "skill", field : "all", mod : 1, text : "I gain a +1 bonus on all my ability checks." },
-			{ type : "skill", field : "Init", mod : 1, text : "I gain a +1 bonus on all my ability checks." }
-		]
-	},
-	"stone of good luck (ddhc-mord-04)" : {
-		name : "Stone of Good Luck (DDHC-MORD-04)",
-		source : [["AL","MtoF"]],
-		rarity : "uncommon",
-		magicItemTable : "F",
-		description : "This palm-sized stone is cool to the touch and carved into the likeness of a beaming halfling face. While you hold the stone, you gain advantage on Charisma (Persuasion) checks made against good-aligned halflings. While this item is on your person, you gain a +1 bonus to ability checks and saving throws.",
-		attunement : true,
-		addMod : [
-			{ type : "save", field : "all", mod : 1, text : "I gain a +1 bonus on all my saving throws." },
-			{ type : "skill", field : "all", mod : 1, text : "I gain a +1 bonus on all my ability checks." },
-			{ type : "skill", field : "Init", mod : 1, text : "I gain a +1 bonus on all my ability checks." }
-		]
-	},
-	"traveler's heart (ccc-sfbay-4-2)" : {
-		name : "Traveler's Heart, Stone of Controlling Earth Elementals",
-		source : [["AL","CCC"]],
-		rarity : "rare",
-		magicItemTable : "G",
-		description : "The Traveler’s Heart is a smooth sphere of meteorite iron, the size of a small orange. While underground & holding this item, you always know your depth below the surface & the direction to the nearest staircase, ramp, or other path upward. Once per dawn when the stone is touching the ground, you can use an action to speak its command word & summon an earth elemental, as if you'd cast the Conjure Elemental spell.",
-		descriptionFull : "The Traveler’s Heart is a perfectly smooth sphere forged of meteorite iron, the size of a small shotput or orange. The person holding the Traveler’s Heart has the Delver ability: While underground, the bearer of this item always knows the item's depth below the surface and the direction to the nearest staircase, ramp, or other path leading upward. If the stone is touching the ground, you can use an action to speak its command word and summon an earth elemental, as if you'd cast the Conjure Elemental spell. The stone can't be used this way again until the next dawn. The stone weighs 5 lbs.",
-		weight : 5,
-		spellcastingBonus : {
-			name : "Earth Elemental only",
-			spells : ["conjure elemental"],
-			selection : ["conjure elemental"],
-			firstCol : "oncelr"
-		},
-		limfeaname : "Stone of Controlling Earth Elementals",
-		usages : 1,
-		recovery : "dawn",
-		spellChanges : {
-			"conjure elemental" : {
-				time : "1 a",
-				components : "V,M\u0192",
-				compMaterial : "The Stone of Controlling Earth Elementals needs to touch the ground to cast this spell with a command word.",
-				description : "CR 5 earth elemental that obeys my verbal commands; on broken conc. elemental breaks free",
-				changes : "Using the Stone of Controlling Earth Elementals, the spell only takes 1 action instead of 1 minute to cast, but can only bring forth an earth elemental."
-			}
-		}
-	},
-}
-
 MagicItemsList["al jewelry"] = {
 		name : "AL Jewelry",
 		type : "wondrous item",
 		allowDuplicates : true,
-	choices : ["Amarantha’s Heart (CCC-TAROT1-7)","Amulet of Health (CCC-GSP-NTHR1-1)","Amulet of Health (CCC-SFBAY-2-2)","Amulet of Health (DDEP0-1)","Amulet of Health (DDEP1)","Amulet of Health (DDAL8-10)","Amulet of the Planes (DDEP6-3)","Amulet of Proof Against Detection and Location (CCC-MMT2-1)","Amulet of Proof Against Detection and Location (CCC-TAROT2-6)","Amulet of Proof Against Detection and Location (CCC-TRI-32 DAGGR1-1)","Amulet of Shielding (CCC-BMG-27 CORE3-3)","Aramesha's Wisdom, Medallion of Thoughts (DDEX2-16)","Brooch of Shielding (CCC-BMG-MOON5-2)","Brooch of Shielding (CCC-WWC-6)","Brooch of Shielding (DC-POA-CONMAR-11)","Brooch of Shielding (DC-POA-NBDD-01)","Brooch of Shielding (DDEX2-5)", "Brooch of Shielding (DDAL5-3)","Chronostat of Precision (CCC-GAD1-3)","Clockwork Amulet (CCC-CENTRIC1-3)","Clockwork Amulet (DDAL10-8)","Clockwork Amulet (DDAL10-10)","Dark Shard Amulet (CCC-DES-1-6)","Dark Shard Amulet (CCC-GEL-1)","Dark Shard Amulet (DDAL10-7)","Guardian Emblem (DC-POA-CONMAR-6)","Guardian Emblem (DC-POA-HAG-SF4)","Holy Symbol of Kyuss (DDAL0-10)","Medallion of Thoughts (CCC-BMG-MOON11-3)","Medallion of Thoughts (DC-POA-CONMAR-13)","Medallion of Thoughts (DC-POA-DCAF10)","Necklace of Adaptation (DDEP9-1)","Necklace of Fireballs (CCC-CIC-15)","Necklace of Fireballs (CCC-MALTH-3)","Necklace of the Legions (CCC-OHAYO-CON1-3)","Necklace of Prayer Beads (CCC-BMG-35 ELMW2-2)","Necklace of Prayer Beads (DDEP2)","Periapt of Health (CCC-AN-2)","Periapt of Health (DDAL9-4)","Periapt of Proof Against Poison (CCC-RCC-1-6)","Periapt of Wound Closure (CCC-BLD1-1)","Periapt of Wound Closure (CCC-BMG-11 HILL1-2)","Periapt of Wound Closure (CCC-BMG-MOON3-1)","Periapt of Wound Closure (CCC-THENT1-2)","Periapt of Wound Closure (DDEP5-2)","Prospector's Chronoglass (CCC-GAD1-3)","Scarab of Protection (DDAL7-18)","Scarab of Protection (DDAL-DRW8)","Ward of the Martyr (CCC-TAROT1-3)"],
-	"amarantha’s heart (ccc-tarot1-7)" : {
-		name : "Amarantha’s Heart (Dark Shard Amulet)",
-		source : [["AL","CCC"]],
-		rarity : "common",
-		magicItemTable : "?",
-		description : "This amulet is shaped like a stylized heart & supported by a thin gold chain. The heart seems to absorb all light and is always pitch black. In dim light, the heart appears to have mists swirling within it. You can use it as a spellcasting focus for your warlock spells. Once per long rest, you can use it to cast a warlock cantrip you don't know w/ a DC 10 Int (Arcana) check, wasting the attempt & your action if you fail.",
-		descriptionFull : "This amulet is shaped like a stylized heart – the heart seems to absorb all light into it, and is always pitch dark. When in dim light, the heart seems to have mists swirling around in it. The amulet is supported by a thin gold chain. While you are wearing it, you gain the following benefits:\n \u2022 You can use the amulet as a spellcasting focus for your warlock spells.\n \u2022 You can try to cast a cantrip that you don't know. The cantrip must be on the warlock spell list, and you must make a DC 10 Intelligence (Arcana) check. If the check succeeds, you cast the spell. If the check fails, so does the spell, and the action used to cast the spell is wasted. In either case, you can't use this property again until you finish a long rest.",
-		attunement : true,
-		prerequisite : "Requires attunement by a warlock",
-		prereqeval : function (v) { return classes.known.warlock ? true : false; },
-		limfeaname : "Dark Shard Amulet",
-		usages : 1,
-		recovery : "long rest",
-	calcChanges : {
-		spellList : [
-			function(spList, spName, spType) {
-				// Remove the already known Warlock cantrips
-				if (spName == 'warlock-dark shard amulet' && CurrentSpells.warlock && CurrentSpells.warlock.selectCa) {
-					var warlockCantrips = CreateSpellList({"class" : "warlock", level : [0,0]});
-					var notCantrips = [];
-					for (var i = 0; i < warlockCantrips.length; i++) {
-						if (CurrentSpells.warlock.selectCa.indexOf(warlockCantrips[i]) !== -1) notCantrips.push(warlockCantrips[i]);
-					}
-					if (!spList.notspells) spList.notspells = [];
-					spList.notspells = spList.notspells.concat(notCantrips);
-				}
-			}
-		],
-		spellAdd : [
-			function (spellKey, spellObj, spName, isDuplicate) {
-				if (spName == 'warlock-dark shard amulet') {
-					spellObj.firstCol = "";
-				}
-			}
-		]
-	},
-	eval : function () {
-		CurrentSpells['warlock-dark shard amulet'] = {
-			name : 'Dark Shard Amulet (item)',
-			ability : "class",
-			list : { 'class' : 'warlock', level : [0, 0] },
-			known : { cantrips : 0, spells : 'list' },
-			bonus : {
-				bon1 : {
-					name : 'Just select "Full List"',
-					spells : []
-				},
-				bon2 : {
-					name : 'in the bottom right',
-					spells : []
-				}
-			},
-			typeList : 4,
-			refType : "item",
-			firstCol : ""
-		};
-		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
-		},
-	removeeval : function () {
-		delete CurrentSpells['dark shard amulet'];
-		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
-		}
-	},
+	choices : ["Amulet of Health (CCC-GSP-NTHR1-1)","Amulet of Health (CCC-SFBAY-2-2)","Amulet of Health (DDAL8-10)","Amulet of Health (DDEP0-1)","Amulet of Health (DDEP1)","Amulet of the Planes (DDEP6-3)","Amulet of Proof Against Detection and Location (CCC-MMT2-1)","Amulet of Proof Against Detection and Location (CCC-TAROT2-6)","Amulet of Proof Against Detection and Location (CCC-TRI-32 DAGGR1-1)","Brooch of Shielding: Amulet of Shielding (CCC-BMG-27 CORE3-3)","Brooch of Shielding (CCC-BMG-MOON5-2)","Brooch of Shielding (CCC-WWC-6)","Brooch of Shielding (DC-POA-CONMAR-11)","Brooch of Shielding (DC-POA-NBDD-01)","Brooch of Shielding: Gorg-Eous Brooch (DC-POA-TDG1-11)", "Brooch of Shielding (DDAL5-3)","Brooch of Shielding (DDEX2-5)","Clockwork Amulet (CCC-CENTRIC1-3)","Clockwork Amulet: Chronostat of Precision (CCC-GAD1-3)","Clockwork Amulet: Modron Communication Device (CCC-MAYDAYS2-1)","Clockwork Amulet (DDAL10-8)","Clockwork Amulet (DDAL10-10)","Dark Shard Amulet (CCC-DES-1-6)","Dark Shard Amulet (CCC-GEL-1)","Dark Shard Amulet: Booyahg Necklace (CCC-MAYDAYS2-1)","Dark Shard Amulet: Amarantha’s Heart (CCC-TAROT1-7)","Dark Shard Amulet (DDAL10-7)","Guardian Emblem (DC-POA-CONMAR-6)","Guardian Emblem (DC-POA-GaryXIII-4)","Guardian Emblem (DC-POA-HAG-SF4)","Medallion of Thoughts (CCC-BMG-MOON11-3)","Medallion of Thoughts (DC-POA-CONMAR-13)","Medallion of Thoughts (DC-POA-DCAF10)","Medallion of Thoughts: Aramesha's Wisdom (DDEX2-16)","Necklace of Adaptation (CCC-RPSG-2)","Necklace of Adaptation (DDEP9-1)","Necklace of Fireballs (CCC-CIC-15)","Necklace of Fireballs (CCC-MALTH-3)","Necklace of Fireballs: Necklace of the Legions (CCC-OHAYO-CON1-3)","Necklace of Prayer Beads (CCC-BMG-35 ELMW2-2)","Necklace of Prayer Beads (DDEP2)","Periapt of Health (CCC-AN-2)","Periapt of Health: Ward of the Martyr (CCC-TAROT1-3)","Periapt of Health (DDAL9-4)","Periapt of Proof Against Poison: Prospector's Chronoglass (CCC-GAD1-3)","Periapt of Proof Against Poison (CCC-RCC-1-6)","Periapt of Wound Closure (CCC-BLD1-1)","Periapt of Wound Closure (CCC-BMG-11 HILL1-2)","Periapt of Wound Closure (CCC-BMG-MOON3-1)","Periapt of Wound Closure (CCC-THENT1-2)","Periapt of Wound Closure (DDEP5-2)","Scarab of Protection (DDAL7-18)","Scarab of Protection (DDAL-DRW8)","Talisman of Ultimate Evil: Holy Symbol of Kyuss (DDAL0-10)"],
 	"amulet of health (ccc-gsp-nthr1-1)" : {
 		name : "Amulet of Health (CCC-GSP-NTHR1-1)",
 		source : [["AL","CCC"]],
@@ -4401,6 +4438,17 @@ MagicItemsList["al jewelry"] = {
 		weight : 1,
 		scoresOverride : [0, 0, 19, 0, 0, 0]
 	},
+	"amulet of health (ddal8-10)" : {
+		name : "Amulet of Health (DDAL8-10)",
+		source : [["AL","S8"]],
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "An electrum pendant in the shape of an eye surrounded by a grasping tentacle hangs from this mithril chain. While you wear the amulet, your Constitution score is set to 19 & you have the feeling that you are being watched. It has no effect if your Constitution score is already 19 or higher.",
+		descriptionFull : "An electrum pendant in the shape of an eye surrounded by a grasping tentacle hangs from this mithril chain. Whenever you wear the amulet, your Constitution score is set to 19 and you have the feeling that you are being watched. It has no effect if your Constitution score is already 19 or higher without it.",
+		attunement : true,
+		weight : 1,
+		scoresOverride : [0, 0, 19, 0, 0, 0]
+	},
 	"amulet of health (ddep0-1)" : {
 		name : "Amulet of Health (DDEP0-1)",
 		source : [["AL","S0"]],
@@ -4419,17 +4467,6 @@ MagicItemsList["al jewelry"] = {
 		magicItemTable : "G",
 		description : "This amulet is made of gold, with a large ruby inset in it. While you wear it, your Constitution score is set to 19. It has no effect if your Constitution score is already 19 or higher.",
 		descriptionFull : "This amulet is made of gold, with a large ruby inset in it. Whenever you wear the amulet, your Constitution score is set to 19. It has no effect if your Constitution score is already 19 or higher without it.",
-		attunement : true,
-		weight : 1,
-		scoresOverride : [0, 0, 19, 0, 0, 0]
-	},
-	"amulet of health (ddal8-10)" : {
-		name : "Amulet of Health (DDAL8-10)",
-		source : [["AL","S8"]],
-		rarity : "rare",
-		magicItemTable : "G",
-		description : "An electrum pendant in the shape of an eye surrounded by a grasping tentacle hangs from this mithril chain. While you wear the amulet, your Constitution score is set to 19 & you have the feeling that you are being watched. It has no effect if your Constitution score is already 19 or higher.",
-		descriptionFull : "An electrum pendant in the shape of an eye surrounded by a grasping tentacle hangs from this mithril chain. Whenever you wear the amulet, your Constitution score is set to 19 and you have the feeling that you are being watched. It has no effect if your Constitution score is already 19 or higher without it.",
 		attunement : true,
 		weight : 1,
 		scoresOverride : [0, 0, 19, 0, 0, 0]
@@ -4488,8 +4525,8 @@ MagicItemsList["al jewelry"] = {
 		descriptionFull : "This small medallion depicts a stylized eclipse: a smooth black onyx surrounded by bronze sun rays. While wearing this amulet, you are hidden from Divination magic. You can't be targeted by such magic or perceived through magical scrying sensors.",
 		weight : 1
 	},
-	"amulet of shielding (ccc-bmg-27 core3-3)" : {  // contains contributions by Smashman
-		name : "Amulet of Shielding (CCC-BMG-27 CORE3-3)",
+	"brooch of shielding: amulet of shielding (ccc-bmg-27 core3-3)" : {  // contains contributions by Smashman
+		name : "Amulet of Shielding (Brooch of Shielding)",
 		source : [["AL","CCC"]],
 		rarity : "uncommon",
 		magicItemTable : "F",
@@ -4500,27 +4537,6 @@ MagicItemsList["al jewelry"] = {
 		savetxt: {
 			immune: ["Magic Missile spell"]
 			}
-		},
-	"aramesha's wisdom, medallion of thoughts (ddex2-16)" : {
-		name : "Aramesha's Wisdom (Medallion of Thoughts)",
-		source : [["AL","S2"]],
-		rarity : "uncommon",
-		magicItemTable : "F",
-		attunement : true,
-		description: "This beautiful silver medallion has an intricate engraving in Celestial upon it – a short poem called “The Hope of Aramesha.” The medallion has 3 charges. While wearing it, you can use an action and expend 1 charge to cast the Detect Thoughts spell (save DC 13) from it. The medallion regains 1d3 expended charges daily at dawn.",
-		weight : 1,
-		limfeaname : "Medallion of Thoughts",
-		usages : 3,
-		recovery : "dawn",
-		additional : "regains 1d3",
-		spellcastingBonus : {
-			name : "1 charge",
-			spells : ["detect thoughts"],
-			selection : ["detect thoughts"],
-			firstCol : 1
-		},
-		fixedDC : 13,
-		spellFirstColTitle : "Ch"
 		},
 	"brooch of shielding (ccc-bmg-moon5-2)" : {  // contains contributions by Smashman
 		name : "Brooch of Shielding (CCC-BMG-MOON5-2)",
@@ -4574,14 +4590,14 @@ MagicItemsList["al jewelry"] = {
 			immune: ["Magic Missile spell"]
 			}
 		},
-	"brooch of shielding (ddex2-5)" : {  // contains contributions by Smashman
-		name : "Brooch of Shielding (DDEX2-5)",
-		source : [["AL","S2"]],
+	"brooch of shielding: gorg-eous brooch (dc-poa-tdg1-11)" : {  // contains contributions by Smashman
+		name : "Gorg-Eous Brooch (Brooch of Shielding)",
+		source : [["AL","DC-POA"]],
 		rarity : "uncommon",
 		magicItemTable : "F",
 		attunement : true,
-		description: "This brooch is fashioned to look like a paint brush whose bristles are aflame. A mad cackling quietly emanates from it every sunset. While wearing this brooch, you have resistance to force damage and immunity to the Magic Missile spell.",
-		descriptionFull: "This brooch is fashioned to look like a paint brush whose bristles are aflame. A mad cackling quietly emanates from it every sunset. While wearing this brooch, you have resistance to force damage, and you have immunity to damage from the Magic Missile spell.",
+		description: "This multi-colored brooch of Baldurian craftsmanship holds precious opal gems & is emblazoned with the letters: G.E. While wearing this brooch, you have resistance to force damage & immunity to the Magic Missile spell.",
+		descriptionFull: "A multi-coloured brooch of Baldrurian craftsmanship, the brooch holds various precious opal gems and is emblazoned with letters: G.E. While wearing this brooch, you have resistance to force damage, and you have immunity to damage from the Magic Missile spell.",
 		dmgres: ["Force"],
 		savetxt: {
 			immune: ["Magic Missile spell"]
@@ -4600,6 +4616,19 @@ MagicItemsList["al jewelry"] = {
 			immune: ["Magic Missile spell"]
 			}
 		},
+	"brooch of shielding (ddex2-5)" : {  // contains contributions by Smashman
+		name : "Brooch of Shielding (DDEX2-5)",
+		source : [["AL","S2"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		attunement : true,
+		description: "This brooch is fashioned to look like a paint brush whose bristles are aflame. A mad cackling quietly emanates from it every sunset. While wearing this brooch, you have resistance to force damage and immunity to the Magic Missile spell.",
+		descriptionFull: "This brooch is fashioned to look like a paint brush whose bristles are aflame. A mad cackling quietly emanates from it every sunset. While wearing this brooch, you have resistance to force damage, and you have immunity to damage from the Magic Missile spell.",
+		dmgres: ["Force"],
+		savetxt: {
+			immune: ["Magic Missile spell"]
+			}
+		},
 	"clockwork amulet (ccc-centric1-3)" : {
 		name : "Clockwork Amulet (CCC-CENTRIC1-3)",
 		source : [["AL","CCC"]],
@@ -4611,13 +4640,25 @@ MagicItemsList["al jewelry"] = {
 		usages : 1,
 		recovery : "dawn"
 		},
-	"chronostat of precision (ccc-gad1-3)" : {
+	"clockwork amulet: chronostat of precision (ccc-gad1-3)" : {
 		name : "Chronostat of Precision (Clockwork Amulet)",
 		source : [["AL","CCC"]],
 		rarity : "common",
 		magicItemTable : "?",
 		description : "This feat of engineering helps you calculate your aim with pinpoint accuracy & avoid the chaos of everyday life. It even comes with 17 multi-tool combinations for your everyday needs. Once/dawn when you make an atk roll while wearing this amulet, you can take a 10 on the die instead of rolling. The amulet contains tiny interlocking gears powered by magic from Mechanus, a plane of clockwork predictability. When you listen to it, you can hear faint ticking & whirring noises.",
 		descriptionFull : "This feat of Mechanus engineering will help you calculate your aim with pinpoint accuracy, so you can avoid the chaos of everyday life. It even comes with seventeen multi tool combinations for your everyday needs.\n   This copper amulet contains tiny interlocking gears and is powered by magic from Mechanus, a plane of clockwork predictability. A creature that puts an ear to the amulet can hear faint ticking and whirring noises coming from within.\n   When you make an attack roll while wearing the amulet, you can forgo rolling the d20 to get a 10 on the die. Once used. this property can't be used again until the next dawn.",
+		limfeaname : "Clockwork Amulet",
+		usages : 1,
+		recovery : "dawn"
+		},
+	"clockwork amulet: modron communication device (ccc-maydays2-1)" : {
+		name : "Modron Communication Device Model 1701-D (Clockwork Amulet)",
+		source : [["AL","CCC"]],
+		rarity : "common",
+		magicItemTable : "?",
+		description : "You can speak Modron while wearing this amulet. Once/dawn when you make an atk roll while wearing it, you can take a 10 on the die instead of rolling. The amulet contains tiny interlocking gears powered by magic from Mechanus, a plane of clockwork predictability. When you listen to it, you can hear faint ticking & whirring noises.",
+		descriptionFull : "Besides its utility in combat, the wearer of this amulet can also speak and understand the Modron language.\n   This copper amulet contains tiny interlocking gears and is powered by magic from Mechanus, a plane of clockwork predictability. A creature that puts an ear to the amulet can hear faint ticking and whirring noises coming from within.\n   When you make an attack roll while wearing the amulet, you can forgo rolling the d20 to get a 10 on the die. Once used. this property can't be used again until the next dawn.",
+		languageProfs : ["Modron"],
 		limfeaname : "Clockwork Amulet",
 		usages : 1,
 		recovery : "dawn"
@@ -4770,6 +4811,132 @@ MagicItemsList["al jewelry"] = {
 		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
 		}
 	},
+	"dark shard amulet: booyahg necklace (ccc-maydays2-1)" : {
+		name : "Booyahg Necklace (Dark Shard Amulet)",
+		source : [["AL","CCC"]],
+		rarity : "common",
+		magicItemTable : "?",
+		description : "This necklace has a free-moving whip pendant & is made of a metal that's noticeably uncomfortable to touch, similar to a soul coin. You feel like the boss of everyone while attuned. You can use the necklace as a spellcasting focus for your warlock spells. Once per long rest, you can use it to cast a warlock cantrip you don't know w/ a DC 10 Int (Arcana) check, wasting the attempt & your action if you fail.",
+		descriptionFull : "This necklace with a free-moving whip pendant is made of a metal that feels noticeably uncomfortable to the touch, much like the feeling one might get from a soul coin. The wielder feels like the boss of everybody while attuned to it. While you are wearing it, you gain the following benefits:\n \u2022 You can use the amulet as a spellcasting focus for your warlock spells.\n \u2022 You can try to cast a cantrip that you don't know. The cantrip must be on the warlock spell list, and you must make a DC 10 Intelligence (Arcana) check. If the check succeeds, you cast the spell. If the check fails, so does the spell, and the action used to cast the spell is wasted. In either case, you can't use this property again until you finish a long rest.",
+		attunement : true,
+		prerequisite : "Requires attunement by a warlock",
+		prereqeval : function (v) { return classes.known.warlock ? true : false; },
+		limfeaname : "Dark Shard Amulet",
+		usages : 1,
+		recovery : "long rest",
+	calcChanges : {
+		spellList : [
+			function(spList, spName, spType) {
+				// Remove the already known Warlock cantrips
+				if (spName == 'warlock-dark shard amulet' && CurrentSpells.warlock && CurrentSpells.warlock.selectCa) {
+					var warlockCantrips = CreateSpellList({"class" : "warlock", level : [0,0]});
+					var notCantrips = [];
+					for (var i = 0; i < warlockCantrips.length; i++) {
+						if (CurrentSpells.warlock.selectCa.indexOf(warlockCantrips[i]) !== -1) notCantrips.push(warlockCantrips[i]);
+					}
+					if (!spList.notspells) spList.notspells = [];
+					spList.notspells = spList.notspells.concat(notCantrips);
+				}
+			}
+		],
+		spellAdd : [
+			function (spellKey, spellObj, spName, isDuplicate) {
+				if (spName == 'warlock-dark shard amulet') {
+					spellObj.firstCol = "";
+				}
+			}
+		]
+	},
+	eval : function () {
+		CurrentSpells['warlock-dark shard amulet'] = {
+			name : 'Dark Shard Amulet (item)',
+			ability : "class",
+			list : { 'class' : 'warlock', level : [0, 0] },
+			known : { cantrips : 0, spells : 'list' },
+			bonus : {
+				bon1 : {
+					name : 'Just select "Full List"',
+					spells : []
+				},
+				bon2 : {
+					name : 'in the bottom right',
+					spells : []
+				}
+			},
+			typeList : 4,
+			refType : "item",
+			firstCol : ""
+		};
+		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+		},
+	removeeval : function () {
+		delete CurrentSpells['dark shard amulet'];
+		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+		}
+	},
+	"dark shard amulet: amarantha’s heart (ccc-tarot1-7)" : {
+		name : "Amarantha’s Heart (Dark Shard Amulet)",
+		source : [["AL","CCC"]],
+		rarity : "common",
+		magicItemTable : "?",
+		description : "This amulet is shaped like a stylized heart & supported by a thin gold chain. The heart seems to absorb all light and is always pitch black. In dim light, the heart appears to have mists swirling within it. You can use it as a spellcasting focus for your warlock spells. Once per long rest, you can use it to cast a warlock cantrip you don't know w/ a DC 10 Int (Arcana) check, wasting the attempt & your action if you fail.",
+		descriptionFull : "This amulet is shaped like a stylized heart – the heart seems to absorb all light into it, and is always pitch dark. When in dim light, the heart seems to have mists swirling around in it. The amulet is supported by a thin gold chain. While you are wearing it, you gain the following benefits:\n \u2022 You can use the amulet as a spellcasting focus for your warlock spells.\n \u2022 You can try to cast a cantrip that you don't know. The cantrip must be on the warlock spell list, and you must make a DC 10 Intelligence (Arcana) check. If the check succeeds, you cast the spell. If the check fails, so does the spell, and the action used to cast the spell is wasted. In either case, you can't use this property again until you finish a long rest.",
+		attunement : true,
+		prerequisite : "Requires attunement by a warlock",
+		prereqeval : function (v) { return classes.known.warlock ? true : false; },
+		limfeaname : "Dark Shard Amulet",
+		usages : 1,
+		recovery : "long rest",
+	calcChanges : {
+		spellList : [
+			function(spList, spName, spType) {
+				// Remove the already known Warlock cantrips
+				if (spName == 'warlock-dark shard amulet' && CurrentSpells.warlock && CurrentSpells.warlock.selectCa) {
+					var warlockCantrips = CreateSpellList({"class" : "warlock", level : [0,0]});
+					var notCantrips = [];
+					for (var i = 0; i < warlockCantrips.length; i++) {
+						if (CurrentSpells.warlock.selectCa.indexOf(warlockCantrips[i]) !== -1) notCantrips.push(warlockCantrips[i]);
+					}
+					if (!spList.notspells) spList.notspells = [];
+					spList.notspells = spList.notspells.concat(notCantrips);
+				}
+			}
+		],
+		spellAdd : [
+			function (spellKey, spellObj, spName, isDuplicate) {
+				if (spName == 'warlock-dark shard amulet') {
+					spellObj.firstCol = "";
+				}
+			}
+		]
+	},
+	eval : function () {
+		CurrentSpells['warlock-dark shard amulet'] = {
+			name : 'Dark Shard Amulet (item)',
+			ability : "class",
+			list : { 'class' : 'warlock', level : [0, 0] },
+			known : { cantrips : 0, spells : 'list' },
+			bonus : {
+				bon1 : {
+					name : 'Just select "Full List"',
+					spells : []
+				},
+				bon2 : {
+					name : 'in the bottom right',
+					spells : []
+				}
+			},
+			typeList : 4,
+			refType : "item",
+			firstCol : ""
+		};
+		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+		},
+	removeeval : function () {
+		delete CurrentSpells['dark shard amulet'];
+		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+		}
+	},
 	"dark shard amulet (ddal10-7)" : {
 		name : "Dark Shard Amulet (DDAL10-7)",
 		source : [["AL","S10"]],
@@ -4853,6 +5020,26 @@ MagicItemsList["al jewelry"] = {
 			["reaction", " (Cancel Critical)"]
 				]
 	},
+	"guardian emblem (dc-poa-garyxiii-4)" : {
+		name : "Guardian Emblem (DC-POA-GaryXIII-4)",
+		source : [["AL","DC-POA"]],
+		rarity : "uncommon",
+		magicItemTable : "?",
+		prerequisite : "Requires attunement by a cleric or paladin",
+		prereqeval : function(v) {
+			return v.isSpellcaster && (classes.known.cleric ? true : false || classes.known.paladin ? true: false);
+			},
+		description : "The pearlescent black badge has the image of a lit candle on its front. You can use an action to attach/detach the emblem to a suit of armor or a shield. When you do this, the emblem melts into scintillating inks & emblazons the object with a tattoo-like picture of your choosing. As a reaction, you can use 1 charge to turn a critical hit on yourself or a creature you can see within 30 ft into a normal hit. All charges are regained at dawn.",
+		descriptionFull : "The emblem appears to be a pearlescent black badge with the image of a lit candle on its front. When attached to a suit of armor or a shield, the badge melts into scintillating inks and emblazons the object with a tattoo-like picture of your choosing.\n  As an action, you can attach the emblem to a suit of armor or a shield or remove it.\n  The emblem has 3 charges. When you or a creature you can see within 30 feet of you suffers a critical hit while you're wearing the emblem, you can use your reaction to expend 1 charge to turn the critical hit into a normal hit instead.\n  The emblem regains all expended charges daily at dawn.",
+		attunement : true,
+		limfeaname : "Guardian Emblem",
+		usages : 3,
+		recovery : "dawn",
+		action : [
+			["action", " (Attach/Detach)"],
+			["reaction", " (Cancel Critical)"]
+				]
+	},
 	"guardian emblem (dc-poa-hag-sf4)" : {
 		name : "Guardian Emblem (DC-POA-HAG-SF4)",
 		source : [["AL","DC-POA"]],
@@ -4872,31 +5059,6 @@ MagicItemsList["al jewelry"] = {
 			["action", " (Attach/Detach)"],
 			["reaction", " (Cancel Critical)"]
 				]
-	},
-	"holy symbol of kyuss (ddal0-10)" : {
-		name : "Holy Symbol of Kyuss (Talisman of Ultimate Evil)",
-		source : [["AL","S0"]],
-		rarity : "legendary",
-		magicItemTable : "I",
-		description : "This platinum disc is a holy symbol of Kyuss: a skull w/ worms emerging from eyes, nose, & mouth. This item symbolizes unrepentant evil. While in your possession, you must spend 5 DT days btwn each adventure, lest you be consumed. If consumed, you are instantly & permanently retired from AL play. If an evil cleric/ paladin, you can use this as a holy symbol & get a +2 bonus on spell atks. As an action, spend 1 charge to have a visible good creature w/i 120 ft make a DC 20 Dex save or be destroyed. Non-evil creatures take necrotic dmg/turn touching, good=8d6 / neutral=6d6.",
-		descriptionLong : "This platinum disc has the holy symbol of Kyuss on its face: a skull with intertwined worms emerging from the eyes, nose, & mouth. This item symbolizes unrepentant evil. While in your possession, you must spend 5 DT days between each adventure, lest you be consumed by Kyuss. If consumed, you are instantly & permanently retired from AL play. If an evil cleric or paladin, you can use it as a holy symbol & get a +2 bonus on your spell atks. As an action, use 1 charge to target 1 visible good creature on the ground within 120 ft. A flaming fissure opens & it must pass a DC 20 Dex save or fall into the fissure & be destroyed, leaving no remains. The talisman is destroyed when the last charge is used. Non-evil creatures take necrotic dmg per turn touching, 8d6 if good or 6d6 if neutral.",
-		descriptionFull : "This platinum disc has the holy symbol of Kyuss on its face: a skull with intertwined worms emerging from the eyes, nose, and mouth. The worms appear to move ever so slightly. This item symbolizes unrepentant evil. While in possession of this item, you must spend 5 downtime days between every adventure in meditation, lest your soul and body be consumed by Kyuss; if you are consumed, you are immediately and permanently retired from D&D Adventurers League play.\n   This item symbolizes unrepentant evil. A creature that is neither good nor evil in alignment takes 6d6 necrotic damage upon touching the talisman. A good creature takes 8d6 necrotic damage upon touching the talisman. Either sort of creature takes the damage again each time it ends its turn holding or carrying the talisman.\n   If you are an evil cleric or paladin, you can use the talisman as a holy symbol, and you gain a +2 bonus to spell attack rolls while you wear or hold it.\n   The talisman has 6 charges. If you are wearing or holding it, you can use an action to expend 1 charge from the talisman and choose one creature you can see on the ground within 120 feet of you. If the target is of good alignment, a flaming fissure opens under it. The target must succeed on a DC 20 Dexterity saving throw or fall into the fissure and be destroyed, leaving no remains. The fissure then closes, leaving no trace of its existence. When you expend the last charge, the talisman dissolves into foul-smelling slime and is destroyed.",
-		attunement : true,
-		weight : 1,
-		prerequisite : "Requires attunement by a creature of evil alignment",
-		prereqeval : function(v) { return (/evil/i).test(What("Alignment")); },
-		limfeaname : "Talisman of Ultimate Evil",
-		usages : 6,
-		recovery : "never",
-		action : [["action", ""]],
-		calcChanges : {
-			spellCalc : [
-				function (type, spellcasters, ability) {
-					if (type == "attack" && (classes.known.paladin || classes.known.cleric) && (/evil/i).test(What("Alignment"))) return 2;
-				},
-				"If I'm an evil cleric or paladin, I gain a +2 bonus on my spell attack rolls while wearing or holding the Talisman of Ultimate Evil."
-			]
-		}
 	},
 	"medallion of thoughts (ccc-bmg-moon11-3)" : {
 		name : "Medallion of Thoughts (CCC-BMG-MOON11-3)",
@@ -4964,6 +5126,38 @@ MagicItemsList["al jewelry"] = {
 		fixedDC : 13,
 		spellFirstColTitle : "Ch"
 		},
+	"medallion of thoughts: aramesha's wisdom (ddex2-16)" : {
+		name : "Aramesha's Wisdom (Medallion of Thoughts)",
+		source : [["AL","S2"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		attunement : true,
+		description: "This beautiful silver medallion has an intricate engraving in Celestial upon it – a short poem called “The Hope of Aramesha.” The medallion has 3 charges. While wearing it, you can use an action and expend 1 charge to cast the Detect Thoughts spell (save DC 13) from it. The medallion regains 1d3 expended charges daily at dawn.",
+		weight : 1,
+		limfeaname : "Medallion of Thoughts",
+		usages : 3,
+		recovery : "dawn",
+		additional : "regains 1d3",
+		spellcastingBonus : {
+			name : "1 charge",
+			spells : ["detect thoughts"],
+			selection : ["detect thoughts"],
+			firstCol : 1
+		},
+		fixedDC : 13,
+		spellFirstColTitle : "Ch"
+		},
+	"necklace of adaptation (ccc-rpsg-2)" : {
+		name : "Necklace of Adaptation (CCC-RPSG-2)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "A rectangular shard of pearlescent shell dangles from this chain of chased links. By speaking the motto of the Company of the Pearl Shell, you can make the shell shed bright light in a 10-ft radius & dim light for another 10-ft, or extinguish the light. While wearing this necklace, you can breathe normally in any environment, & have advantage on saving throws made against harmful gases & vapors (such as Cloudkill & Stinking Cloud effects, inhaled poisons, & some dragon breath weapons).",
+		descriptionFull : "A rectangular shard of pearlescent shell dangles from this chain of chased links. By speaking the motto of the Company of the Pearl Shell, its wearer can cause the shell to shed bright light in a 10-ft radius and dim light for an additional 10-ft, or extinguish the light. While wearing this necklace, you can breathe normally in any environment, and you have advantage on saving throws made against harmful gases and vapors (such as Cloudkill and Stinking Cloud effects, inhaled poisons, and the breath weapons of some dragons).",
+		weight : 1,
+		attunement : true,
+		savetxt : { adv_vs : ["gases", "vapors"] }
+	},
 	"necklace of adaptation (ddep9-1)" : {
 		name : "Necklace of Adaptation (DDEP9-1)",
 		source : [["AL","S9"]],
@@ -5027,7 +5221,7 @@ MagicItemsList["al jewelry"] = {
 			}
 		}
 	},
-	"necklace of the legions (ccc-ohayo-con1-3)" : {
+	"necklace of fireballs: necklace of the legions (ccc-ohayo-con1-3)" : {
 		name : "Necklace of the Legions (Necklace of Fireballs)",
 		source : [["AL","CCC"]],
 		rarity : "rare",
@@ -5135,6 +5329,15 @@ MagicItemsList["al jewelry"] = {
 		weight : 1,
 		savetxt : { immune : ["disease"] }
 	},
+	"periapt of health: ward of the martyr (ccc-tarot1-3)" : { // contributed by AelarTheElfRogue
+		name : "Ward of the Martyr (Periapt of Health)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "C",
+		description : "This periapt of health takes the form of a pair of silver bound hands on a rope made of the hair of penitents. A priest of Ilmater may use it as a holy symbol. You are immune to contracting any disease while you wear this pendant. If you are already infected with a disease, the effects of the disease are suppressed.",
+		weight : 1,
+		savetxt : { immune : ["disease"] }
+	},
 	"periapt of health (ddal9-4)" : { // contributed by AelarTheElfRogue
 		name : "Periapt of Health (DDAL9-4)",
 		source : [["AL","S9"]],
@@ -5143,6 +5346,16 @@ MagicItemsList["al jewelry"] = {
 		description : "This charm consists of an irregularly shaped emerald hanging from a thick silver chain. You are immune to contracting any disease while you wear this pendant. If you are already infected with a disease, the effects of the disease are suppressed.",
 		weight : 1,
 		savetxt : { immune : ["disease"] }
+	},
+	"periapt of proof against poison: prospector's chronoglass (ccc-gad1-3)" : { // contributed by AelarTheElfRogue
+		name : "Prospector's Chronoglass (Periapt of Proof Against Poison)",
+		source : [["AL","CCC"]],
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "This clockwork wristband consists of a hexagonal prism containing three miniature hourglass shaped needles. While you wear it, the emerald hourglass protects you from poison. You are immune to the poisoned condition & poison damage. The black sapphire hourglass acts as a timepiece. While underground, the moonstone hourglass allows you to sense your depth below the surface & the direction to the nearest staircase, ramp, or other path leading upward.",
+		descriptionFull : "This clockwork wristband consists of a hexagonal prism containing three miniature hourglass shaped needles. The emerald hourglass functions as a Periapt of Proof against Poison. While you wear it, poisons have no effect on you. You are immune to the poisoned condition and have immunity to poison damage. The black sapphire hourglass acts as a timepiece. The moonstone hourglass allows its bearer, while underground, to sense their depths below the surface and the direction to the nearest staircase, ramp, or other path leading upward.",
+		weight : 1,
+		savetxt : { immune : ["poison"] }
 	},
 	"periapt of proof against poison (ccc-rcc-1-6)" : { // contributed by AelarTheElfRogue
 		name : "Periapt of Proof Against Poison (CCC-RCC-1-6)",
@@ -5188,7 +5401,7 @@ MagicItemsList["al jewelry"] = {
 		source : [["AL","S5"]],
 		rarity : "uncommon",
 		magicItemTable : "F",
-		description : "Silvered hummingbird wings holding a clear crystal make up this pendant. Whem its magic is used, the crystal takes on a deep red hue that fades away at the next dawn. While wearing this pendant, you stabilize whenever you are dying at the start of your turn. In addition, when you roll a Hit Die to regain hp, double the number of hit points restored.",
+		description : "Silvered hummingbird wings holding a clear crystal make up this pendant. When its magic is used, the crystal takes on a deep red hue that fades away at the next dawn. While wearing this pendant, you stabilize whenever you are dying at the start of your turn. In addition, when you roll a Hit Die to regain hp, double the number of hit points restored.",
 		descriptionFull : "Silvered wings, like those of a hummingbird, hold between them a clear crystal. If the effect of the pendant occurs, the crystal takes on a deep red hue, which fades away at the next dawn. While you wear this pendant, you stabilize whenever you are dying at the start of your turn. In addition, whenever you roll a Hit Die to regain hit points, double the number of hit points it restores.",
 		attunement : true,
 		weight : 1
@@ -5202,16 +5415,6 @@ MagicItemsList["al jewelry"] = {
 		descriptionFull : "This wide, leather choker is set with a blood-red stone the size of a man’s fist. The stone glows with a faint red light that pulses in time with the wearer’s heartbeat. While you wear this pendant, you stabilize whenever you are dying at the start of your turn. In addition, whenever you roll a Hit Die to regain hit points, double the number of hit points it restores.",
 		attunement : true,
 		weight : 1
-	},
-	"prospector's chronoglass (ccc-gad1-3)" : { // contributed by AelarTheElfRogue
-		name : "Prospector's Chronoglass (Periapt of Proof Against Poison)",
-		source : [["AL","CCC"]],
-		rarity : "rare",
-		magicItemTable : "G",
-		description : "This clockwork wristband consists of a hexagonal prism containing three miniature hourglass shaped needles. While you wear it, the emerald hourglass protects you from poison. You are immune to the poisoned condition & poison damage. The black sapphire hourglass acts as a timepiece. While underground, the moonstone hourglass allows you to sense your depth below the surface & the direction to the nearest staircase, ramp, or other path leading upward.",
-		descriptionFull : "This clockwork wristband consists of a hexagonal prism containing three miniature hourglass shaped needles. The emerald hourglass functions as a Periapt of Proof against Poison. While you wear it, poisons have no effect on you. You are immune to the poisoned condition and have immunity to poison damage. The black sapphire hourglass acts as a timepiece. The moonstone hourglass allows its bearer, while underground, to sense their depths below the surface and the direction to the nearest staircase, ramp, or other path leading upward.",
-		weight : 1,
-		savetxt : { immune : ["poison"] }
 	},
 	"scarab of protection (ddal7-18)" : {
 		name : "Scarab of Protection (DDAL7-18)",
@@ -5241,22 +5444,795 @@ MagicItemsList["al jewelry"] = {
 		recovery : "Never",
 		action : [["reaction", ""]]
 	},
-	"ward of the martyr (ccc-tarot1-3)" : { // contributed by AelarTheElfRogue
-		name : "Ward of the Martyr (Periapt of Health)",
+	"talisman of ultimate evil: holy symbol of kyuss (ddal0-10)" : {
+		name : "Holy Symbol of Kyuss (Talisman of Ultimate Evil)",
+		source : [["AL","S0"]],
+		rarity : "legendary",
+		magicItemTable : "I",
+		description : "This platinum disc is a holy symbol of Kyuss: a skull w/ worms emerging from eyes, nose, & mouth. This item symbolizes unrepentant evil. While in your possession, you must spend 5 DT days btwn each adventure, lest you be consumed. If consumed, you are instantly & permanently retired from AL play. If an evil cleric/ paladin, you can use this as a holy symbol & get a +2 bonus on spell atks. As an action, spend 1 charge to have a visible good creature w/i 120 ft make a DC 20 Dex save or be destroyed. Non-evil creatures take necrotic dmg/turn touching, good=8d6 / neutral=6d6.",
+		descriptionLong : "This platinum disc has the holy symbol of Kyuss on its face: a skull with intertwined worms emerging from the eyes, nose, & mouth. This item symbolizes unrepentant evil. While in your possession, you must spend 5 DT days between each adventure, lest you be consumed by Kyuss. If consumed, you are instantly & permanently retired from AL play. If an evil cleric or paladin, you can use it as a holy symbol & get a +2 bonus on your spell atks. As an action, use 1 charge to target 1 visible good creature on the ground within 120 ft. A flaming fissure opens & it must pass a DC 20 Dex save or fall into the fissure & be destroyed, leaving no remains. The talisman is destroyed when the last charge is used. Non-evil creatures take necrotic dmg per turn touching, 8d6 if good or 6d6 if neutral.",
+		descriptionFull : "This platinum disc has the holy symbol of Kyuss on its face: a skull with intertwined worms emerging from the eyes, nose, and mouth. The worms appear to move ever so slightly. This item symbolizes unrepentant evil. While in possession of this item, you must spend 5 downtime days between every adventure in meditation, lest your soul and body be consumed by Kyuss; if you are consumed, you are immediately and permanently retired from D&D Adventurers League play.\n   This item symbolizes unrepentant evil. A creature that is neither good nor evil in alignment takes 6d6 necrotic damage upon touching the talisman. A good creature takes 8d6 necrotic damage upon touching the talisman. Either sort of creature takes the damage again each time it ends its turn holding or carrying the talisman.\n   If you are an evil cleric or paladin, you can use the talisman as a holy symbol, and you gain a +2 bonus to spell attack rolls while you wear or hold it.\n   The talisman has 6 charges. If you are wearing or holding it, you can use an action to expend 1 charge from the talisman and choose one creature you can see on the ground within 120 feet of you. If the target is of good alignment, a flaming fissure opens under it. The target must succeed on a DC 20 Dexterity saving throw or fall into the fissure and be destroyed, leaving no remains. The fissure then closes, leaving no trace of its existence. When you expend the last charge, the talisman dissolves into foul-smelling slime and is destroyed.",
+		attunement : true,
+		weight : 1,
+		prerequisite : "Requires attunement by a creature of evil alignment",
+		prereqeval : function(v) { return (/evil/i).test(What("Alignment")); },
+		limfeaname : "Talisman of Ultimate Evil",
+		usages : 6,
+		recovery : "never",
+		action : [["action", ""]],
+		calcChanges : {
+			spellCalc : [
+				function (type, spellcasters, ability) {
+					if (type == "attack" && (classes.known.paladin || classes.known.cleric) && (/evil/i).test(What("Alignment"))) return 2;
+				},
+				"If I'm an evil cleric or paladin, I gain a +2 bonus on my spell attack rolls while wearing or holding the Talisman of Ultimate Evil."
+			]
+		}
+	},
+}
+
+MagicItemsList["al light sources"] = {
+		name : "AL Light Sources",
+		type : "wondrous item",
+		allowDuplicates : true,
+		allowDuplicates : true,
+	choices : ["Candle of the Deep (CCC-AETHER2-1)","Candle of the Deep: Last Light of Northkeep (CCC-BWM-2)","Candle of the Deep (CCC-ELO-2)","Candle of the Deep (DC-POA-JAK1)","Candle of the Deep: Chultan Midwinter Candle (DDAL0-4)","Gem of Brightness (CCC-KUMORI-1-1)","Gem of Brightness (CCC-ROLL20-2)","Lantern of Revealing (CCC-BMG-32 PHLAN3-2)","Lantern of Revealing (CCC-CONMAR1-1)","Lantern of Revealing (CCC-DRUIDS-3)","Lantern of Revealing (CCC-DWB-EOG-1)","Lantern of Revealing (CCC-DWB-Q1)","Lantern of Revealing (CCC-KKALGO-2-1)","Lantern of Revealing (CCC-MALTH-1)","Lantern of Revealing (CCC-MELB-2)","Lantern of Revealing (CCC-PP-TDD1-1)","Lantern of Revealing (CCC-RPSG-4)","Lantern of Revealing (CCC-ZIEGE-4-1)","Lantern of Revealing: Ghost Light (RMH-1)","Lantern of Tracking Abberations (DC-POA-Z-T1S3)"],
+	"candle of the deep (ccc-aether2-1)" : {
+		name : "Candle of the Deep (CCC-AETHER2-1)",
+		source : [["AL","CCC"]],
+		rarity : "common",
+		magicItemTable : "?",
+		description : "This candle is carved in the shape of the Great Old One, Cthulhu, & emits an aura of insanity. The wax never melts & is nearly unbreakable. It burns even if immersed in water, giving off light & heat like a normal candle.",
+		descriptionFull : "The wax of this candle is carved in the shape of the Great Old One, Cthulhu, & it emits an aura of insanity. The candle never melts and is nearly unbreakable.\n  The flame of this candle is not extinguished when immersed in water. It gives off light and heat like a normal candle."
+	},
+	"candle of the deep: last light of northkeep (ccc-bwm-2)" : {
+		name : "Last Light of Northkeep (Candle of the Deep)",
+		source : [["AL","CCC"]],
+		rarity : "common",
+		magicItemTable : "?",
+		description : "This crystal lantern has patterns of stars etched into it & its flame isn't extinguished when immersed in water. It gives off light & heat like a normal lantern. With the blessing of Selune, this lantern never runs out of fuel.",
+		descriptionFull : "This crystal lantern has patterns of stars etched all over it. The flame of this lantern is not extinguished when immersed in water. It gives off light and heat like a normal lantern. With the blessing of Selune, this lantern never runs out of fuel."
+	},
+	"candle of the deep (ccc-elo-2)" : {
+		name : "Candle of the Deep (CCC-ELO-2)",
+		source : [["AL","CCC"]],
+		rarity : "common",
+		magicItemTable : "?",
+		description : "This unique lamp is an exotic Underdark fungi: Nightlight. A 4-ft preserved stalk planted in a clay pot, its luminance soothes the hearts of Underdark children & is aesthetically pleasing to others. It glows even if immersed in water & gives off light & heat as a normal candle.",
+		descriptionFull : "This unique lamp consists of a planted exotic Underdark fungi, Nightlight. A four-foot preserved stalk planted in a clay pot functions as a Candle of the Deep (pg. 136 XGtE). It’s luminance soothes the hearts of Underdark children and can be aesthetically pleasing to others. It glows even if immersed in water and gives off light and heat as a normal candle would."
+	},
+	"candle of the deep (dc-poa-jak1)" : {
+		name : "Candle of the Deep (DC-POA-JAK1)",
+		source : [["AL","DC-POA"]],
+		rarity : "common",
+		magicItemTable : "?",
+		description : "This candle is made to look like a knucklehead trout leaping out of a fishing hole, its tail partially submerged in the water. The wick sticks out of the fish's mouth, like a fishing lure. It glows even if immersed in water & gives off light & heat as a normal candle.",
+		descriptionFull : "This candle is made to look like a knucklehead trout leaping out of a fishing hole, its tail partially submerged in the water. The wick sticks out of the fish's mouth, like a fishing lure. The flame of this candle is not extinguished when immersed in water. It gives off light and heat like a normal candle."
+	},
+	"candle of the deep: chultan midwinter candle (ddal0-4)" : {
+		name : "Chultan Midwinter Candle (Candle of the Deep)",
+		source : [["AL","S0"]],
+		rarity : "common",
+		magicItemTable : "?",
+		description : "A product of a pain-staking enchantment, the candle acts as an anchor for the delicate and fickle spark of flame. As it burns, it emits a slight citrus scent, like that of a pembelon. It cannot be extinguished unless clipped from the wick (even if immersed in water) and gives light and heat as a normal candle would.",
+		descriptionFull : "A product of a pain-staking enchantment, the candle acts as an anchor for the delicate and fickle spark of an enchanted flame. As it burns it emits a slight citrus scent, not unlike that of a pembelon. It cannot be extinguished unless it is clipped from the wick (even if immersed in water) and gives light and heat as a normal candle would."
+	},
+	"gem of brightness (ccc-kumori-1-1)" : { // contains contributions by Larry Hoy
+		name : "Gem of Brightness (CCC-KUMORI-1-1)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "Glowing w/ an inner light, this gem flickers in a random pattern that slows as each charge is used. It has 50 charges. As an action while holding it, say a command word so it: sheds 30-ft bright & 30-ft dim light, fires a 60-ft beam at 1 creature (1 charge, DC 15 Con save or blinded 1 min), or flares w/ light in a 30-ft cone (5 charges, DC 15 Con save or blinded 1 min).",
+		descriptionLong : "Glowing w/ an inner light, this gem flickers in a random pattern that slows as each charge is used. It has 50 charges. As an action while holding it, speak 1 of 3 command words to make it: [1] shed bright light in a 30-ft radius & dim light in another 30 ft until another word is used or you end it w/ a bonus action, [2] fire a 60-ft beam of light at 1 creature (1 charge, DC 15 Con save or blinded 1 minute), or [3] flare with blinding light in a 30-ft cone (5 charges, DC 15 Con save or blinded 1 minute). Blinded creatures can repeat the save at the end of each their turns. When all of the gem's charges are expended, it becomes a nonmagical jewel worth 50 gp.",
+		descriptionFull : "Glowing w/ an inner light, this gem flickers in a random pattern that slows as each charge is used. It has 50 charges. While you are holding it, you can use an action to speak one of three command words to cause one of the following effects:\n \u2022 The first command word causes the gem to shed bright light in a 30-foot radius and dim light for an additional 30 feet. This effect doesn't expend a charge. It lasts until you use a bonus action to repeat the command word or until you use another function of the gem.\n \u2022 The second command word expends 1 charge and causes the gem to fire a brilliant beam of light at one creature you can see within 60 feet of you. The creature must succeed on a DC 15 Constitution saving throw or become blinded for 1 minute. The creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.\n \u2022 The third command word expends 5 charges and causes the gem to flare with blinding light in a 30-foot cone originating from it. Each creature in the cone must make a saving throw as if struck by the beam created with the second command word.\n\nWhen all of the gem's charges are expended, the gem becomes a nonmagical jewel worth 50 gp.",
+		weight : 1,
+		limfeaname : "Gem of Brightness",
+		usages : 50,
+		recovery : "Never",
+		action : [["action", "Gem of Brightness"], ["bonus action", " (Stop Glow)"]]
+	},
+	"gem of brightness (ccc-roll20-2)" : { // contains contributions by Larry Hoy
+		name : "Gem of Brightness (CCC-ROLL20-2)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "This 20-sided gem is made from remains of multiple elementals & resembles an artifact of lore. Deities from another dimension are said to use such gems to control the actions & decisions of mortals. The gem has 50 charges. As an action while holding it, say a command word so it: sheds 30-ft bright & 30-ft dim light, fires a 60-ft beam at 1 creature (1 charge, DC 15 Con save or blinded 1 min), or flares w/ light in a 30-ft cone (5 charges, DC 15 Con save or blinded 1 min).",
+		descriptionLong : "This 20-sided gem is made from the remains of earth, fire, water, & air elementals & resembles an artifact of lore. Deities from another dimension are said to use such gems to control the actions & decisions of mortals but many Faerûnian scholars believe there's no truth to such myths. The gem has 50 charges. As an action while holding it, speak 1 of 3 command words to make it: [1] shed bright light in a 30-ft radius & dim light in another 30 ft until another word is used or you end it w/ a bonus action, [2] fire a 60-ft beam of light at 1 creature (1 charge, DC 15 Con save or blinded 1 minute), or [3] flare with blinding light in a 30-ft cone (5 charges, DC 15 Con save or blinded 1 minute). Blinded creatures can repeat the save at the end of each their turns. When all of the gem's charges are expended, it becomes a nonmagical jewel worth 50 gp.",
+		descriptionFull : "This magnificent 20-sided gem is made from the remains of earth, fire, water, and air elementals and resembles an artifact of lore. It is said, deities from another dimension used gems crafted in such a fashion to control the actions and decisions of mortals. Many Faerûnian scholars believe there is no truth to such myths.\n	The gem has 50 charges. While you are holding it, you can use an action to speak one of three command words to cause one of the following effects:\n \u2022 The first command word causes the gem to shed bright light in a 30-foot radius and dim light for an additional 30 feet. This effect doesn't expend a charge. It lasts until you use a bonus action to repeat the command word or until you use another function of the gem.\n \u2022 The second command word expends 1 charge and causes the gem to fire a brilliant beam of light at one creature you can see within 60 feet of you. The creature must succeed on a DC 15 Constitution saving throw or become blinded for 1 minute. The creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.\n \u2022 The third command word expends 5 charges and causes the gem to flare with blinding light in a 30-foot cone originating from it. Each creature in the cone must make a saving throw as if struck by the beam created with the second command word.\n\nWhen all of the gem's charges are expended, the gem becomes a nonmagical jewel worth 50 gp.",
+		weight : 1,
+		limfeaname : "Gem of Brightness",
+		usages : 50,
+		recovery : "Never",
+		action : [["action", "Gem of Brightness"], ["bonus action", " (Stop Glow)"]]
+	},
+	"lantern of revealing (ccc-bmg-32 phlan3-2)" : {
+		name : "Lantern of Revealing (CCC-BMG-32 PHLAN3-2)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "B",
+		description : "This lantern was made by a necromancer from leather & bones & smells like grave soil. It runs off blood instead of oil & burns for 12 hrs on 1 pint. It sheds bright light in a 30-ft radius & dim light for another 30 ft. The light has an eerie reddish tint. Invisible objects & creatures are visible in the bright light. If you lower the hood as an action, it sheds dim light in a 5-ft radius.",
+		descriptionFull : "This lantern is made of leather, bones and smells like grave soil. It was created by a necromancer and the light it gives off is an eerie reddish tint. The lantern runs off blood instead of oil, and a pint burns for twice as long as normal.\n   While lit, this hooded lantern burns for 6 hours on 1 pint of oil, shedding bright light in a 30-foot radius and dim light for an additional 30 feet. Invisible creatures and objects are visible as long as they are in the lantern's bright light. You can use an action to lower the hood, reducing the light to dim light in a 5-foot radius.",
+		weight : 2,
+		action : [["action", "Lantern of Revealing (hood up/down)"]]
+	},
+	"lantern of revealing (ccc-conmar1-1)" : {
+		name : "Lantern of Revealing (CCC-CONMAR1-1)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "B",
+		description : "This lantern is etched with Sylvan writing that reads: “When you light a light, you also cast a shadow”. The lantern burns for 6 hrs on 1 pint of oil. It sheds bright light in a 30-ft radius & dim light for another 30 ft. Invisible objects & creatures are visible in the bright light. If you lower the hood as an action, it sheds dim light in a 5-ft radius.",
+		descriptionFull : "This lantern bears an etched writing in Sylvan. When read by a character who can read Sylvan, the word says: “When you light a light, you also cast a shadow”. The inscription has no mechanical effect.\n   While lit, this hooded lantern burns for 6 hours on 1 pint of oil, shedding bright light in a 30-foot radius and dim light for an additional 30 feet. Invisible creatures and objects are visible as long as they are in the lantern's bright light. You can use an action to lower the hood, reducing the light to dim light in a 5-foot radius.",
+		weight : 2,
+		action : [["action", "Lantern of Revealing (hood up/down)"]]
+	},
+	"lantern of revealing (ccc-druids-3)" : {
+		name : "Lantern of Revealing (CCC-DRUIDS-3)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "B",
+		description : "This lantern belonged to a vampire hunter known to the Brave Adventurer in times past. It burns olive oil, and has a little basket above the flame for roasting garlic. The lantern burns for 6 hrs on 1 pint of oil. It sheds bright light in a 30-ft radius & dim light for another 30 ft. Invisible objects & creatures are visible in the bright light. If you lower the hood as an action, it sheds dim light in a 5-ft radius.",
+		descriptionFull : "This lantern belonged to a vampire hunter known to the Brave Adventurer in times past. It burns olive oil, and has a little basket above the flame for roasting garlic.\n   While lit, this hooded lantern burns for 6 hours on 1 pint of oil, shedding bright light in a 30-foot radius and dim light for an additional 30 feet. Invisible creatures and objects are visible as long as they are in the lantern's bright light. You can use an action to lower the hood, reducing the light to dim light in a 5-foot radius.",
+		weight : 2,
+		action : [["action", "Lantern of Revealing (hood up/down)"]]
+	},
+	"lantern of revealing (ccc-dwb-eog-1)" : {
+		name : "Lantern of Revealing (CCC-DWB-EOG-1)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "B",
+		description : "This lantern is made of pitted infernal iron and fashioned into the shape of a roaring dragon. The lantern burns for 6 hrs on 1 pint of oil. It sheds bright light in a 30-ft radius & dim light for another 30 ft. Invisible objects & creatures are visible in the bright light. If you lower the hood as an action, it sheds dim light in a 5-ft radius.",
+		descriptionFull : "This lantern is made of pitted infernal iron and fashioned into the shape of a roaring dragon. \n   While lit, this hooded lantern burns for 6 hours on 1 pint of oil, shedding bright light in a 30-foot radius and dim light for an additional 30 feet. Invisible creatures and objects are visible as long as they are in the lantern's bright light. You can use an action to lower the hood, reducing the light to dim light in a 5-foot radius.",
+		weight : 2,
+		action : [["action", "Lantern of Revealing (hood up/down)"]]
+	},
+	"lantern of revealing (ccc-dwb-q1)" : {
+		name : "Lantern of Revealing (CCC-DWB-Q1)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "B",
+		description : "This polished lantern has inset gemstones, gold & platinum inlays, & gold & silver filigree on its surface. When seen from the corner of the eye, the item seems to be moving. The lantern burns for 6 hrs on 1 pint of oil. It sheds bright light in a 30-ft radius & dim light for another 30 ft. Invisible objects & creatures are visible in the bright light. If you lower the hood as an action, it sheds dim light in a 5-ft radius.",
+		descriptionFull : "This polished lantern is inset with gemstones, gold and platinum inlays, and gold and silver filigree adorn its surface. When seen from the corner of the eye, the item seems to be moving.\n   While lit, this hooded lantern burns for 6 hours on 1 pint of oil, shedding bright light in a 30-foot radius and dim light for an additional 30 feet. Invisible creatures and objects are visible as long as they are in the lantern's bright light. You can use an action to lower the hood, reducing the light to dim light in a 5-foot radius.",
+		weight : 2,
+		action : [["action", "Lantern of Revealing (hood up/down)"]]
+	},
+	"lantern of revealing (ccc-kkalgo-2-1)" : {
+		name : "Lantern of Revealing (CCC-KKALGO-2-1)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "B",
+		description : "This astonishing lantern is made with dwarven technology. It burns for 6 hrs on 1 pint of oil. It sheds bright light in a 30-ft radius & dim light for another 30 ft. Invisible objects & creatures are visible in the bright light. If you lower the hood as an action, it sheds dim light in a 5-ft radius.",
+		descriptionFull : "This astonishing lantern is made with dwarven technology.\n   While lit, this hooded lantern burns for 6 hours on 1 pint of oil, shedding bright light in a 30-foot radius and dim light for an additional 30 feet. Invisible creatures and objects are visible as long as they are in the lantern's bright light. You can use an action to lower the hood, reducing the light to dim light in a 5-foot radius.",
+		weight : 2,
+		action : [["action", "Lantern of Revealing (hood up/down)"]]
+	},
+	"lantern of revealing (ccc-malth-1)" : {
+		name : "Lantern of Revealing (CCC-MALTH-1)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "B",
+		description : "This pewter lantern is trimmed with pale green crystals & has the 4 phases of the moon carved into its sides. Light shines from the full moon carving when it's lit. The lantern burns for 6 hrs on 1 pint of oil. It sheds bright light in a 30-ft radius & dim light for another 30 ft. Invisible objects & creatures are visible in the bright light. If you lower the hood as an action, it sheds dim light in a 5-ft radius.",
+		descriptionFull : "This pewter lantern is trimmed with pale green crystals. The four phases of the moon are carved into the lantern, one on each side. Light shines from the lantern from the full moon carved into its side.\n   While lit, this hooded lantern burns for 6 hours on 1 pint of oil, shedding bright light in a 30-foot radius and dim light for an additional 30 feet. Invisible creatures and objects are visible as long as they are in the lantern's bright light. You can use an action to lower the hood, reducing the light to dim light in a 5-foot radius.",
+		weight : 2,
+		action : [["action", "Lantern of Revealing (hood up/down)"]]
+	},
+	"lantern of revealing (ccc-melb-2)" : {
+		name : "Lantern of Revealing (CCC-MELB-2)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "B",
+		description : "This lantern is of ancient Netherese design, & while lit, ancient runes around its base flicker & glow with arcane energy. The lantern burns for 6 hrs on 1 pint of oil. It sheds bright light in a 30-ft radius & dim light for another 30 ft. Invisible objects & creatures are visible in the bright light. If you lower the hood as an action, it sheds dim light in a 5-ft radius.",
+		descriptionFull : "This lantern is of ancient Netherese design, and while lit, ancient runes around its base flicker and glow with arcane energy.\n   While lit, this hooded lantern burns for 6 hours on 1 pint of oil, shedding bright light in a 30-foot radius and dim light for an additional 30 feet. Invisible creatures and objects are visible as long as they are in the lantern's bright light. You can use an action to lower the hood, reducing the light to dim light in a 5-foot radius.",
+		weight : 2,
+		action : [["action", "Lantern of Revealing (hood up/down)"]]
+	},
+	"lantern of revealing (ccc-pp-tdd1-1)" : {
+		name : "Lantern of Revealing (CCC-PP-TDD1-1)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "B",
+		description : "This slightly battered brass lantern is fitted w/ engraved shutters that display an eye motif. The lantern burns for 6 hrs on 1 pint of oil. It sheds bright light in a 30-ft radius & dim light for another 30 ft. Invisible objects & creatures are visible in the bright light. If you lower the hood as an action, it sheds dim light in a 5-ft radius.",
+		descriptionFull : "This slightly battered brass caged lantern is fitted with engraved shutters that display an eye motif.\n   While lit, this hooded lantern burns for 6 hours on 1 pint of oil, shedding bright light in a 30-foot radius and dim light for an additional 30 feet. Invisible creatures and objects are visible as long as they are in the lantern's bright light. You can use an action to lower the hood, reducing the light to dim light in a 5-foot radius.",
+		weight : 2,
+		action : [["action", "Lantern of Revealing (hood up/down)"]]
+	},
+	"lantern of revealing (ccc-rpsg-4)" : {
+		name : "Lantern of Revealing (CCC-RPSG-4)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "B",
+		description : "The glass on this battered old carriage lamp is soot-stained & several large spidery cracks run across the beveled surface. Light leaks through the cracks & the flame gutters ominously when lit. The lantern burns for 6 hrs on 1 pint of oil. It sheds bright light in a 30-ft radius & dim light for another 30 ft. Invisible objects & creatures are visible in the bright light. If you lower the hood as an action, it sheds dim light in a 5-ft radius.",
+		descriptionFull : "The glass on this battered old carriage lamp is soot-stained and several large spidery cracks run across the beveled surface. Light leaks through the cracks and the flame gutters ominously when the lantern is lit, though this does not hamper its actual functions.\n   While lit, this hooded lantern burns for 6 hours on 1 pint of oil, shedding bright light in a 30-foot radius and dim light for an additional 30 feet. Invisible creatures and objects are visible as long as they are in the lantern's bright light. You can use an action to lower the hood, reducing the light to dim light in a 5-foot radius.",
+		weight : 2,
+		action : [["action", "Lantern of Revealing (hood up/down)"]]
+	},
+	"lantern of revealing (ccc-ziege-4-1)" : {
+		name : "Lantern of Revealing (CCC-ZIEGE-4-1)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "B",
+		description : "This lantern is molded into a wyvern, its gaping maw inset with a heavy iron ring. Its light is a pale otherworldly luminescence in which spirits of the dead dance at the edge of sight. The lantern burns for 6 hrs on 1 pint of oil. It sheds bright light in a 30-ft radius & dim light for another 30 ft. Invisible objects & creatures are visible in the bright light. If you lower the hood as an action, it sheds dim light in a 5-ft radius.",
+		descriptionFull : "This lantern is molded in the form of a wyvern, its gaping maw inset with a heavy iron ring. Its light is a pale, otherworld luminescence within which spirits of the dead seem to dance just at the edge of sight.\n   While lit, this hooded lantern burns for 6 hours on 1 pint of oil, shedding bright light in a 30-foot radius and dim light for an additional 30 feet. Invisible creatures and objects are visible as long as they are in the lantern's bright light. You can use an action to lower the hood, reducing the light to dim light in a 5-foot radius.",
+		weight : 2,
+		action : [["action", "Lantern of Revealing (hood up/down)"]]
+	},
+	"lantern of revealing: ghost light (rmh-1)" : {
+		name : "Ghost Light (Lantern of Revealing)",
+		source : [["AL:RMH",1]],
+		rarity : "uncommon",
+		magicItemTable : "B",
+		description : "This brass lantern is engraved w/ ghostly images & twisted faces. When you add 1 pint of oil to the lantern, 3 drops of humanoid blood are also required as fuel. While you have this item, you're haunted by a poltergeist that rearranges your pack, hides your socks, pelts you w/ small pebbles, & makes life annoying. The lantern burns for 6 hrs on 1 pint of oil. It sheds bright light in a 30-ft radius & dim light for another 30 ft. Invisible objects & creatures are visible in the bright light. If you lower the hood as an action, it sheds dim light in a 5-ft radius.",
+		descriptionFull : "This ornate brass lantern is engraved with ghostly images and faces twisted in horror. Each time you add 1 pint of oil to the lantern, three drops of blood from a humanoid creature are also required to fuel it. While you possess the lantern, you are haunted by a minor poltergeist that rearranges your pack, hides your socks, occasionally pelts you with small pebbles, and generally makes life annoying for you.\n   While lit, this hooded lantern burns for 6 hours on 1 pint of oil, shedding bright light in a 30-foot radius and dim light for an additional 30 feet. Invisible creatures and objects are visible as long as they are in the lantern's bright light. You can use an action to lower the hood, reducing the light to dim light in a 5-foot radius.",
+		weight : 2,
+		action : [["action", "Ghost Light (hood up/down)"]]
+	},
+	"lantern of tracking abberations (dc-poa-z-t1s3)" : {
+		name : "Lantern of Tracking Abberations (DC-POA-Z-T1S3)",
+		source : [["AL","DC-POA"]],
+		rarity : "common",
+		magicItemTable : "?",
+		description : "This beautiful bronze hooded lantern is ornate in design with a snowflake pattern inscribed on its surface. It burns for 6 hrs on 1 pint of oil, shedding bright light in a 30-ft radius & dim light for another 30 ft. While this lantern is within 300 ft of abberations, its flame turns bright green. However, it doesn't pinpoint their exact location",
+		descriptionFull : [
+			"This beautiful bronze hooded lantern is ornate in design with a snowflake pattern inscribed on its surface. It burns for 6 hours on 1 pint of oil, shedding bright light in a 30-foot radius and dim light for an additional 30 feet."+
+			"\n   Each lantern of tracking is designed to track down a certain type of creature, which is determined by rolling on the Lantern of Tracking table. Once determined, this creature type can't be changed. While the lantern is within 300 feet of any creature of that type, its flame turns bright green. The lantern doesn't pinpoint the creature's exact location, however.\n",
+			toUni("d10\tCreature Type"),
+			"  1\tAberrations",
+			"  2\tCelestials",
+			"  3\tConstructs",
+			"  4\tDragons",
+			"  5\tElementals",
+			"  6\tFey",
+			"  7\tFiends",
+			"  8\tGiants",
+			"  9\tMonstrosities",
+			"10\tUndead"
+		].join("\n   "),
+		weight : 2
+	},
+}		
+		
+MagicItemsList["al minerals"] = {
+		name : "AL Minerals",
+		type : "wondrous item",
+		allowDuplicates : true,
+	choices : ["Crystal Ball (CCC-MIND1-1)","Elemental Gem - Red (CCC-BMG-MOON7-2)","Elemental Gem - Red: The Heart of Baga (CCC-GSP2-1)","Gem of Seeing (CCC-SHINY-4)","Gem of Seeing (DDAL8-12)","Gem of Seeing (DDAL9-5)","Ioun Stone - Greater Absorption (DDAL0-10)","Ioun Stone - Insight (DDEP3)","Ioun Stone - Mastery (DDAL0-11F)","Ioun Stone - Protection (CCC-HATMS1-3)","Ioun Stone - Protection (DDAL0-11D)","Ioun Stone - Reserve (CCC-BMG-48 HILL3-3)","Ioun Stone - Reserve (CCC-YLRA1-1)","Orb of Direction: Corsair's Star (CCC-COTN-1-1)","Pearl of Power (CCC-DDSC-1)","Pearl of Power: Aier (CCC-EPI1-1)","Pearl of Power (CCC-THENT1-1)","Pearl of Power (DDAL7-5)","Psi Crystal (DC-POA-X-T1S3)","Ruby of the War Mage: Selfaril's Soul Gem (CCC-GAD1-1)","Ruby of the War Mage (DDAL10-9)","Ruby (Emerald) of the War Mage (DDHC-MORD-1)","Sending (Audience) Stones (CCC-BMG-12 HILL1-3)","Sending Stones (CCC-CIC-4)","Sending Stones (DDAL0-8)","Sending Stones (DDAL10-2)","Stone of Controlling Earth Elementals (CCC-BLD1-3)","Stone of Controlling Earth Elementals: Traveler's Heart (CCC-SFBAY-4-2)","Stone of Good Luck (CCC-DWB-TFG-1)","Stone of Good Luck (CCC-HATMS2-3)","Stone of Good Luck (CCC-SCAR1-2)","Stone of Good Luck (DDAL0-2B)","Stone of Good Luck (DDAL0-11B)","Stone of Good Luck (DDEP4)","Stone of Good Luck (DDHC-MORD-4)"],
+	"crystal ball (ccc-mind1-1)" : {
+		name : "Crystal Ball (CCC-MIND1-1)",
+		source : [["AL","CCC"]],
+		rarity : "very rare",
+		magicItemTable : "H",
+		description : "You can cast Scrying (DC 17) at will while touching this 6 inch crystal ball. If you peer into it as an action, you can see events that have occurred in your past.",
+		descriptionFull : "This crystal ball is about 6 inches in diameter. While touching it, you can cast the Scrying spell (save DC 17) with it. When a character that is attuned to this Crystal Ball spends an action peering into it, they can see events that have occurred in their past.",
+		attunement : true,
+		weight : 3,
+		action : [["action", "Crystal Ball (Look into past)"]],
+		allowDuplicates : true,
+		fixedDC : 17,
+		spellcastingBonus : {
+			name : "DC 17",
+			spells : ["scrying"],
+			selection : ["scrying"],
+			firstCol : "atwill"
+		}
+	},
+	"elemental gem - red (ccc-bmg-moon7-2)" : {
+		name : "Red Elemental Gem (CCC-BMG-MOON7-2)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "B",
+		allowDuplicates : true,
+		description : "This is an artifact of the lost temples of the Earthmother. It's inscribed with motifs of the sun rising and setting. Once as an action, you can break the gem to summon a fire elemental as if you'd cast the Conjure Elemental spell. After breaking the gem, its magic is lost.",
+		descriptionFull : "This is one of the artifacts of the lost temples of the Earthmother. It is inscribed with motifs of the sun rising and setting.\n   This gem contains a mote of elemental energy. When you use an action to break the gem, a fire elemental is summoned as if you had cast the Conjure Elemental spell, and the gem's magic is lost.",
+		spellcastingBonus : {
+			name : "Fire Elemental only",
+			spells : ["conjure elemental"],
+			selection : ["conjure elemental"]
+		},
+		spellChanges : {
+			"conjure elemental" : {
+				time : "1 a",
+				description : "CR 5 fire elemental that obeys my verbal commands; on broken conc. elemental breaks free",
+				changes : "Using the Red Corundum Elemental Gem, the spell only takes 1 action instead of 1 minute to cast, but can only bring forth a fire elemental."
+			}
+		}
+	},
+	"elemental gem - red: the heart of baga (ccc-gsp2-1)" : {
+		name : "The Heart of Baga (Elemental Gem [Red Corundum])",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "B",
+		allowDuplicates : true,
+		description : "A tiny shard of Baga's soul is in this elemental gem, which contains a mote of fire energy. Once as an action, you can break the gem to summon a fire elemental as if you'd cast the Conjure Elemental spell. The elemental is shaped like a minotaur with a black five-leaf clover on its right hand. After breaking the gem, its magic is lost.",
+		descriptionFull : "A tiny shard of Baga's soul is still inside this elemental gem. When you decide to use it, the fire elemental is shaped like a minotaur with a black five-leaf clover on the back of its right hand.\n   This gem contains a mote of elemental energy. When you use an action to break the gem, a fire elemental is summoned as if you had cast the Conjure Elemental spell, and the gem's magic is lost.",
+		spellcastingBonus : {
+			name : "Fire Elemental only",
+			spells : ["conjure elemental"],
+			selection : ["conjure elemental"]
+		},
+		spellChanges : {
+			"conjure elemental" : {
+				time : "1 a",
+				description : "CR 5 fire elemental that obeys my verbal commands; on broken conc. elemental breaks free",
+				changes : "Using the Red Corundum Elemental Gem, the spell only takes 1 action instead of 1 minute to cast, but can only bring forth a fire elemental."
+			}
+		}
+	},
+	"gem of seeing (ccc-shiny-4)" : { // contains contributions by Larry Hoy
+		name : "Gem of Seeing (CCC-SHINY-4)",
+		source : [["AL","CCC"]],
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "A color-drained ruby rests in a ring of polished stone affixed to the top of a similar handle. When activated, a message appears on the handle in blue, runic letters that only you can see; if you know a language, you can read the runes: “May you never lose sight of the truth.” The gem has 3 charges. As an action, speak its command word & expend 1 charge to gain 120 ft of truesight for 10 min. while you peer through the gem. The gem regains 1d3 charges at dawn.",
+		descriptionFull : "A color-drained ruby rests in a ring of polished stone affixed to the top of a similarly crafted handle. Whenever this item is activated, a message appears along the handle in blue, runic letters that only the attuned character can see; as long as the character knows a language, it can understand what the runes say: “May you never lose sight of the truth.”\n   The gem has 3 charges. As an action, you can speak its command word and expend 1 charge. For the next 10 minutes, you have truesight out to 120 ft when you peer through the gem. The gem regains 1d3 expended charges daily at dawn.",
+		attunement : true,
+		weight : 1,
+		limfeaname : "Gem of Seeing",
+		usages : 3,
+		recovery : "dawn",
+		additional : "1d3 Recharge"
+	},
+	"gem of seeing (ddal8-12)" : { // contains contributions by Larry Hoy
+		name : "Gem of Seeing (DDAL8-12)",
+		source : [["AL","S8"]],
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "This orange gem has been carved into the shape of a goldfish. The bottom is inscribed w/ the word “Sylgar.” The Xanathar won’t be happy that you have this. The gem has 3 charges. As an action, you can speak its command word & expend 1 charge to gain 120 ft of truesight for 10 min. while you peer through the gem. The gem regains 1d3 charges at dawn.",
+		descriptionFull : "This orange gem has been carved into the shape of a goldfish. The bottom is inscribed with the word “Sylgar.” The Xanathar won’t be happy that you have this.\n   The gem has 3 charges. As an action, you can speak its command word and expend 1 charge. For the next 10 minutes, you have truesight out to 120 ft when you peer through the gem. The gem regains 1d3 expended charges daily at dawn.",
+		attunement : true,
+		weight : 1,
+		limfeaname : "Gem of Seeing",
+		usages : 3,
+		recovery : "dawn",
+		additional : "1d3 Recharge"
+	},
+	"gem of seeing (ddal9-5)" : { // contains contributions by Larry Hoy
+		name : "Gem of Seeing (DDAL9-5)",
+		source : [["AL","S9"]],
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "While looking through this unusual cut-gemstone monocle, the wearer can perceive the relative value of an item to its owner (monetary, sentimental, etc). The gem has 3 charges. As an action, you can speak its command word & expend 1 charge to gain 120 ft of truesight for 10 min. while you peer through the gem. The gem regains 1d3 charges at dawn.",
+		descriptionFull : "While looking through this unusual cut-gemstone monocle, the wearer can perceive the relative value of an item to its owner (monetary, sentimental, etc). The gem has 3 charges. As an action, you can speak its command word and expend 1 charge. For the next 10 minutes, you have truesight out to 120 ft when you peer through the gem. The gem regains 1d3 expended charges at dawn.",
+		attunement : true,
+		weight : 1,
+		limfeaname : "Gem of Seeing",
+		usages : 3,
+		recovery : "dawn",
+		additional : "1d3 Recharge"
+	},
+	"ioun stone - greater absorption (ddal0-10)" : {
+		name: "Ioun Stone - Greater Absorption (DDAL0-10)",
+		source : [["AL","S0"]],
+		rarity : "legendary",
+		magicItemTable : "I",
+		attunement : true,
+		description : "This lavender & green stone has been shaped into a strange dragon w/ a long, sinewy neck, a serpentine body, 4 stout legs, & 2 long whiskers that look like a mustache. This is a dragon of far-off Shou Lung in Kara-Tur. Action to make orbit at 1d3ft or stow. Action to catch w/ atk or Acrobatics chk (AC/DC 24). 10 HP & resistance to dmg. While it orbits, reaction to cancel spell of 8th lvl or lower targeting only you, if you can see caster & have enough charges. It can cancel 50 lvls of spells.",
+		descriptionFull : "An Ioun stone is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of Ioun stone exist, each type a distinct combination of shape and color.\n   When you use an action to toss one of these stones into the air, the stone orbits your head at a distance of 1d3 feet and confers a benefit to you. Thereafter, another creature must use an action to grasp or net the stone to separate it from you, either by making a successful attack roll against AC 24 or a successful DC 24 Dexterity (Acrobatics) check. You can use an action to seize and stow the stone, ending its effect.\n   A stone has AC 24, 10 hit points, and resistance to all damage. It is considered to be an object that is being worn while it orbits your head.\n   This lavender and green stone has been fashioned into the shape of a strange dragon; it has a long, sinewy neck, a body like a serpent, four stout legs, and two long whiskers that almost look like a mustache. This is what the dragons of far-off Shou Lung in Kara-Tur look like. While this marbled lavender and green ellipsoid orbits your head, you can use your reaction to cancel a spell of 8th level or lower cast by a creature you can see and targeting only you. Once the stone has canceled 50 levels of spells, it burns out and turns dull gray, losing its magic. If you are targeted by a spell whose level is higher than the number of spell levels the stone has left, the stone can't cancel it.",
+		limfeaname : "Ioun Stone of Greater Absorption",
+		usages : 50,
+		recovery : "Never",
+		action : [["action", "Ioun Stone (orbit/retrieve)"], ["reaction", ""]]
+		},
+	"ioun stone - insight (ddep3)" : {
+		name: "Ioun Stone - Insight (DDEP3)",
+		source : [["AL","S3"]],
+		rarity : "very rare",
+		magicItemTable : "H",
+		attunement : true,
+		description : "This incandescent blue sphere glows w/ an unearthly white light as it orbits your head, casting odd shadows all around you. To those nearby, the shadows seem to take on nefarious shapes or do undesirable things. Action to make orbit at 1d3ft or stow. Others can catch as action w/ atk or Acrobatics chk (AC/DC 24). It has 10 HP & resistance to dmg. While it orbits, your Wisdom score increases by 2, to max of 20.",
+		descriptionFull : "An Ioun stone is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of Ioun stone exist, each type a distinct combination of shape and color.\n   When you use an action to toss one of these stones into the air, the stone orbits your head at a distance of 1d3 feet and confers a benefit to you. Thereafter, another creature must use an action to grasp or net the stone to separate it from you, either by making a successful attack roll against AC 24 or a successful DC 24 Dexterity (Acrobatics) check. You can use an action to seize and stow the stone, ending its effect.\n   A stone has AC 24, 10 hit points, and resistance to all damage. It is considered to be an object that is being worn while it orbits your head.\n   This incandescent blue sphere glows with an unearthly white light as it orbits your head, casting odd shadows all around you. To those nearby, these shadows sometimes seem to take on nefarious shapes or perform undesirable things. Your Wisdom score increases by 2, to a maximum of 20, while the sphere orbits your head.",
+		action : [["action", "Ioun Stone (orbit/retrieve)"]],
+		scores : [0, 0, 0, 0, 2, 0]
+		},
+	"ioun stone - mastery (ddal0-11f)" : {
+		name: "Ioun Stone - Mastery (DDAL0-11F)",
+		source : [["AL","S0"]],
+		rarity : "legendary",
+		magicItemTable : "I",
+		attunement : true,
+		description : "Pipyap has left behind a pale green icosahedron that appears to be a 20-sided die. This stone is eternally warm & slightly damp, no matter what environment it’s in. Action to orbit your head at 1d3ft or stow. Others can catch stone as action w/ atk or Acrobatics chk (AC/DC 24). It has 10 HP & resistance to dmg. While it orbits your head, your proficiency bonus increases by 1.",
+		descriptionFull : "An Ioun stone is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of Ioun stone exist, each type a distinct combination of shape and color.\n   When you use an action to toss one of these stones into the air, the stone orbits your head at a distance of 1d3 feet and confers a benefit to you. Thereafter, another creature must use an action to grasp or net the stone to separate it from you, either by making a successful attack roll against AC 24 or a successful DC 24 Dexterity (Acrobatics) check. You can use an action to seize and stow the stone, ending its effect.\n   A stone has AC 24, 10 hit points, and resistance to all damage. It is considered to be an object that is being worn while it orbits your head.\n   Pipyap has left behind a pale green icosahedron that appears to be a 20-sided die. This stone is eternally warm and slightly damp, no matter what environment it’s in. Your proficiency bonus increases by 1 while this pale green stone orbits your head.",
+		action : [["action", "Ioun Stone (orbit/retrieve)"]],
+		addMod : [{ type: "", field : "Proficiency Bonus Modifier", mod : 1, text : "My proficiency bonus increases by 1." }]
+		},
+	"ioun stone - protection (ccc-hatms1-3)" : {
+		name: "Ioun Stone - Protection (CCC-HATMS1-3)",
+		source : [["AL","CCC"]],
+		rarity : "rare",
+		magicItemTable : "G",
+		attunement : true,
+		description : "This stone is the color of the ocean at midnight, a blue so deep it appears black, and is carved in the shape of a lidless eye. Action to orbit your head at 1d3ft or stow. Others can catch stone as action w/ atk or Acrobatics chk (AC/DC 24). It has 10 HP & resistance to dmg. While it orbits your head, your AC increases by 1.",
+		descriptionFull : "An Ioun stone is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of Ioun stone exist, each type a distinct combination of shape and color.\n   When you use an action to toss one of these stones into the air, the stone orbits your head at a distance of 1d3 feet and confers a benefit to you. Thereafter, another creature must use an action to grasp or net the stone to separate it from you, either by making a successful attack roll against AC 24 or a successful DC 24 Dexterity (Acrobatics) check. You can use an action to seize and stow the stone, ending its effect.\n   A stone has AC 24, 10 hit points, and resistance to all damage. It is considered to be an object that is being worn while it orbits your head.\n   This stone is the color of the ocean at midnight, a blue so deep it appears black, and is carved in the shape of a lidless eye. Your AC increases by 1 while the sphere orbits your head.",
+		action : [["action", "Ioun Stone (orbit/retrieve)"]],
+		extraAC : [{name : "Ioun Stone of Protection", mod : 1, magic : true, text : "I gain a +1 bonus to AC while attuned."}]
+		},
+	"ioun stone - protection (ddal0-11d)" : {
+		name: "Ioun Stone - Protection (DDAL0-11D)",
+		source : [["AL","S0"]],
+		rarity : "rare",
+		magicItemTable : "G",
+		attunement : true,
+		description : "Made from a chunk of Malbolgian rock, you can command this ioun stone to ignite w/ hell fire as an action. The fire is as bright as a torch & ignites flammable objects. While ignited, the stone radiates evil. Action to orbit your head at 1d3ft or stow. Others can catch stone as action w/ atk or Acrobatics chk (AC/DC 24). It has 10 HP & resistance to dmg. While it orbits your head, your AC increases by 1.",
+		descriptionFull : "An Ioun stone is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of Ioun stone exist, each type a distinct combination of shape and color.\n   When you use an action to toss one of these stones into the air, the stone orbits your head at a distance of 1d3 feet and confers a benefit to you. Thereafter, another creature must use an action to grasp or net the stone to separate it from you, either by making a successful attack roll against AC 24 or a successful DC 24 Dexterity (Acrobatics) check. You can use an action to seize and stow the stone, ending its effect.\n   A stone has AC 24, 10 hit points, and resistance to all damage. It is considered to be an object that is being worn while it orbits your head.\n   Made from a chunk of Malbolgian rock, the owner can command this ioun stone to ignite with hell fire as an action. The fire is as bright as a torch & ignites flammable objects. While ignited, the stone radiates evil. Your AC increases by 1 while the sphere orbits your head.",
+		action : [["action", "Ioun Stone (orbit/retrieve)"]	["action", "Ioun Stone (Ignite)"]],
+		extraAC : [{name : "Ioun Stone of Protection", mod : 1, magic : true, text : "I gain a +1 bonus to AC while attuned."}]
+		},
+	"ioun stone - reserve (ccc-bmg-48 hill3-3)" : {
+		name: "Ioun Stone - Reserve (CCC-BMG-48 HILL3-3)",
+		source : [["AL","CCC"]],
+		rarity : "rare",
+		magicItemTable : "G",
+		attunement : true,
+		description : "This deep violet, almost indigo, translucent prism has a noticeable chunk broken off 1 corner. While orbiting your head, the stone emits a low buzzing, like an insect, which only you can hear. Action to orbit your head at 1d3ft or stow. Others can catch stone as action w/ atk or Acrobatics chk (AC/DC 24). It has 10 HP & resistance to dmg. The stone can hold 3 lvls of spells, which can be cast from the stone to free up space. It contains lightning bolt when found.",
+		descriptionFull : "An Ioun stone is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of Ioun stone exist, each type a distinct combination of shape and color.\n   When you use an action to toss one of these stones into the air, the stone orbits your head at a distance of 1d3 feet and confers a benefit to you. Thereafter, another creature must use an action to grasp or net the stone to separate it from you, either by making a successful attack roll against AC 24 or a successful DC 24 Dexterity (Acrobatics) check. You can use an action to seize and stow the stone, ending its effect.\n   A stone has AC 24, 10 hit points, and resistance to all damage. It is considered to be an object that is being worn while it orbits your head.\n   This deep violet, almost indigo, translucent prism has a noticeable chunk broken off of one corner. When found, it contains the spell lightning bolt. While orbiting the owner’s head, the stone emits a low buzzing, like an insect, which is only perceptible to the owner.\n   The stone can store up to 3 levels worth of spells at a time. Any creature can cast a spell of 1st through 3rd level into the stone by touching it as the spell is cast. The spell has no effect, other than to be stored in the stone. If the stone can't hold the spell, the spell is expended without effect. The level of the slot used to cast the spell determines how much space it uses.\n   While this stone orbits your head, you can cast any spell stored in it. The spell uses the slot level, spell save DC, spell attack bonus, and spellcasting ability of the original caster, but is otherwise treated as if you cast the spell. The spell cast from the stone is no longer stored in it, freeing up space.",
+		},
+	"ioun stone - reserve (ccc-ylra1-1)" : {
+		name: "Ioun Stone - Reserve (CCC-YLRA1-1)",
+		source : [["AL","CCC"]],
+		rarity : "rare",
+		magicItemTable : "G",
+		attunement : true,
+		description : "This purple gem, the Peacemaker’s Coin, has a face carved on each side: an elf woman w/ ruby-tinted hair & a dwarf bearing the symbol of Clangeddin Silverbeard. In darkness, ghostly shapes trail from it. When a spell is cast into it, the caster hears a male & female voice arguing. When a spell is unleashed, the voices chant in unison. While attuned, you get +1 to CHA (Persuasion) chks to resolve conflict/calm emotions. Action to orbit your head at 1d3ft or stow. Gem caught as action w/ atk or Acrobatics chk (AC/DC 24). It has 10 HP & resistance to dmg. The gem holds 3 lvls of spells, which can be cast from it to free up space.",
+		descriptionFull : "An Ioun stone is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of Ioun stone exist, each type a distinct combination of shape and color.\n   When you use an action to toss one of these stones into the air, the stone orbits your head at a distance of 1d3 feet and confers a benefit to you. Thereafter, another creature must use an action to grasp or net the stone to separate it from you, either by making a successful attack roll against AC 24 or a successful DC 24 Dexterity (Acrobatics) check. You can use an action to seize and stow the stone, ending its effect.\n   A stone has AC 24, 10 hit points, and resistance to all damage. It is considered to be an object that is being worn while it orbits your head.\n   Rather than appearing as a prism like a normal ioun stone of its type, however, this purple gem is cut like a coin, with a face on each side. One is an elf woman whose long hair has a ruby tint, and the other is an older dwarf in a helm bearing the symbol of the dwarf god Clangeddin Silverbeard. In darkness, one can see ghostly shapes trailing after the coin-like jewel as it moves. When a spell is cast into the stone, the caster hears a male and female voice arguing. When a spell is unleashed from it, the same voices are heard chanting in unison by the user. Anyone attuned to this item receives to +1 bonus on Charisma (Persuasion) checks to resolve conflict or calm emotions. Research indicates this item was known as the Peacemaker’s Coin in the old dwarf kingdom of Roldilar, where it belonged to the human mage and dwarf ally Beldossan the Short.\n   The stone can store up to 3 levels worth of spells at a time. Any creature can cast a spell of 1st through 3rd level into the stone by touching it as the spell is cast. The spell has no effect, other than to be stored in the stone. If the stone can't hold the spell, the spell is expended without effect. The level of the slot used to cast the spell determines how much space it uses.\n   While this stone orbits your head, you can cast any spell stored in it. The spell uses the slot level, spell save DC, spell attack bonus, and spellcasting ability of the original caster, but is otherwise treated as if you cast the spell. The spell cast from the stone is no longer stored in it, freeing up space.",
+		},
+	"orb of direction: corsair's star (ccc-cotn-1-1)" : {
+		name : "Corsair's Star (Orb of Direction)",
+		source : [["AL","CCC"]],
+		rarity : "common",
+		description : "This palm-sized, masterwork compass was the property of a Thayan captain. Housed in its polished silver case is an expertly-crafted compass rose, bone-finger points standing out from carved storm clouds & lightning bolts. A small opal w/ part of the Thayan’s soul sits at its center. While in use, you hear the sound of waves & a ship’s hull. A haunting voice calls, “Bring it back, bring it back to me...” As an action while holding this orb on the Material Plane, you can determine which way is north.",
+		descriptionFull : "This palm-sized, masterwork compass was once the property of a Thayan ship captain. Housed within its polished silver case is an expertly-crafted compass rose, whose bone-finger points stand out from behind intricately-carved storm clouds and lightning bolts. A diminutive opal orb suffused with a part of the Thayan’s soul sets at its center. While in use, the wielder hears the sound of waves crashing along with a ship’s hull creaking. A haunting voice calls, “Bring it back …bring it back to me...” When holding this orb, you can use an action to determine which way is north. This property functions only on the Material Plane.",
+		weight : 3,
+		action : [["action", "Corsair's Star (North)"]]
+		},
+	"pearl of power (ccc-ddsc-1)" : { // contains contributions by AelarTheElfRogue
+		name : "Pearl of Power (CCC-DDSC-1)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "This black pearl, carved to resemble a skull. It is mounted on a band of silver and fashioned as a serpent devouring the skull. Once per dawn as an action, you can speak its command word & regain 1 expended spell slot. If the slot was 4th lvl or higher, the new slot is 3rd lvl.",
+		descriptionFull : "This black pearl, carved to resemble a skull. It is mounted on a ring band of silver and fashioned as a serpent devouring the skull. While this pearl is on your person, you can use an action to speak its command word and regain one expended spell slot. If the expended slot was of 4th level or higher, the new slot is 3rd level. Once you have used the pearl, it can't be used again until the next dawn.",
+		attunement : true,
+		limfeaname : "Pearl of Power",
+		usages : 1,
+		recovery : "dawn",
+		action : [["action", ""]]
+	},
+	"pearl of power: aier (ccc-epi1-1)" : { // contains contributions by AelarTheElfRogue
+		name : "Aier, Pearl of Power (CCC-EPI1-1)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "The Finger of Yurtus was powered by an elven artifact known as Aier. This tiny chunk of the mythal has been drained of most of its power. Once per dawn as an action, you can speak its command word & regain 1 expended spell slot. If the slot was 4th lvl or higher, the new slot is 3rd lvl. The Aier can also be used to clear blackheads & pimples not created by magical means. ",
+		descriptionFull : "The Finger of Yurtus was powered by an elven artifact known as Aier. This originated as a tiny chunk of mythal which has been drained of most of its power. In addition to serving as a Pearl of Power, it can also be used to clear blackheads and pimples not created by magical means.\n   While this pearl is on your person, you can use an action to speak its command word and regain one expended spell slot. If the expended slot was of 4th level or higher, the new slot is 3rd level. Once you have used the pearl, it can't be used again until the next dawn.",
+		attunement : true,
+		limfeaname : "Pearl of Power",
+		usages : 1,
+		recovery : "dawn",
+		action : [["action", ""]]
+	},
+	"pearl of power (ccc-thent1-1)" : { // contains contributions by AelarTheElfRogue
+		name : "Pearl of Power (CCC-THENT1-1)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "The pearl’s brilliant nacreous quality fades to almost black after being used, only to waken at the following dawn. Once per dawn as an action, you can speak its command word & regain 1 expended spell slot. If the slot was 4th lvl or higher, the new slot is 3rd lvl.",
+		descriptionFull : "The pearl’s brilliant nacreous quality fades to almost black after being used, only to waken at the following dawn. While this pearl is on your person, you can use an action to speak its command word and regain one expended spell slot. If the expended slot was of 4th level or higher, the new slot is 3rd level. Once you have used the pearl, it can't be used again until the next dawn.",
+		attunement : true,
+		limfeaname : "Pearl of Power",
+		usages : 1,
+		recovery : "dawn",
+		action : [["action", ""]]
+	},
+	"pearl of power (ddal7-5)" : { // contains contributions by AelarTheElfRogue
+		name : "Pearl of Power (DDAL7-5)",
+		source : [["AL","S7"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "This bright yellow pearl is set in a ring of black iron & glows w/ a warm, yellow light. The ring is shaped like a serpent, twisting around your finger w/ the pearl clutched in its mouth. While attuned, your dreams are consumed by yellow, serpentine eyes staring from darkness. Once/dawn as an action, you can speak its command word & regain 1 expended spell slot. If the slot was of >= 4th lvl, the new slot is 3rd lvl.",
+		descriptionFull : "This bright yellow pearl is set in a ring of black iron and glows with a warm, yellow light. The ring has been fashioned into the shape of a serpent that twists around its wearer’s finger with the pearl clutched in its mouth. While attuned to the pearl, the wearer’s dreams are consumed by a pair of yellow, serpentine eyes staring from fathomless darkness. While this pearl is on your person, you can use an action to speak its command word and regain one expended spell slot. If the expended slot was of 4th level or higher, the new slot is 3rd level. Once you have used the pearl, it can't be used again until the next dawn.",
+		attunement : true,
+		limfeaname : "Pearl of Power",
+		usages : 1,
+		recovery : "dawn",
+		action : [["action", ""]]
+	},
+	"psi crystal (dc-poa-x-t1s3)" : { //contains contributions by BraabHimself
+		name : "Psi Crystal (DC-POA-X-T1S3)",
+		source : [["AL","DC-POA"]],
+		rarity : "uncommon",
+		attunement : true,
+		prerequisite : "Requires attunement by a creature with an intelligence score of 3 or higher",
+		prereqeval : function(v) { return Number(What("Int")) >= 3; },
+		description : "Inscribed into one facet of this orb are the words “To Trovus: after so many adventures together, you already know my thoughts. Happy Birthday, I.S.” While attuned, it glows with an inner purplish light & gives you telepathy. The range of telepathy & intensity of light are determined by your Intelligence score. Int 3-7 = 5 ft dim light, 15 ft telepathy. Int 8-11 = 30 ft telepathy, 5 ft bright light & 5 ft dim light. Int 12-15 = 60 ft telepathy, 10 ft bright light & 10 ft dim light. Int 16+ = 120 ft telepathy, 15 ft bright light & 15 ft dim light.",
+		descriptionFull : "This crystal grants you telepathy for as long as you remain attuned to it. See the introduction of the Monster Manual for rules on how this telepathy works."+
+		"Inscribed into the surface of one of the facets are the words “To Trovus, after so many adventures together you already know my thoughts, Happy Birthday I.S.”"+
+		"\n   The crystal also glows with a purplish inner light while you are attuned to it."+
+		"\n   The higher your intelligence, the greater the light's intensity and the greater the range of the telepathy (see the table below)."+
+		toUni("\n\nIntelligence\tRange of   \tLight"+
+		"\n    Score\t\tTelepathy  \tIntensity")+
+		"\n      3-7\t\t  15 feet\t\tDim light out to a range of 5 ft"+
+		"\n      8-11\t\t  30 feet\t\tBright light in a 5-ft radius and dim light for an additional 5 ft"+
+		"\n    12-15\t\t  60 feet\t\tBright light in a 10-ft radius and dim light for an additional 10 ft"+
+		"\n    16 or higher\t 120 feet\t\tBright light in a 15-ft radius and dim light for an additional 15 ft",
+		weight : 3,
+	},
+	"ruby of the war mage: selfaril's soul gem (ccc-gad1-1)" : {
+		name : "Selfaril's Soul Gem (Ruby of the War Mage)",
+		source : [["AL","CCC"]],
+		rarity : "common",
+		magicItemTable : "?",
+		description : "This jagged piece of ruby is etched w/ eldritch runes & was once part of the gem housing Selfaril Uoumdolphin’s soul. It still holds a piece of his vitality. By pressing this ruby to a simple or martial weapon for 10 minutes, it attaches itself to the weapon. You can then use that weapon as a spellcasting focus. Once attached, it can't be removed unless your attunement ends, you detach it as an action, or the weapon is destroyed.",
+		descriptionFull : "This jagged piece of ruby was once part of the gem that housed Selfaril Uoumdolphin’s soul. Even now it seems to hold a small piece of his vitality. Etched with eldritch runes, the 1-inch-diameter ruby allows you to use a simple or martial weapon as a spellcasting focus for your spells. For this property to work, you must attach the ruby to the weapon by pressing the ruby against it for at least 10 minutes. Thereafter, the ruby can't be removed unless you detach it as an action or the weapon is destroyed. Not even an Antimagic Field causes it to fall off. The ruby does fall off the weapon if your attunement to the ruby ends.",
+		attunement : true,
+		prerequisite : "Requires attunement by a spellcaster",
+		prereqeval : function(v) { return v.isSpellcaster; }
+	},
+	"ruby of the war mage (ddal10-9)" : {
+		name : "Ruby of the War Mage (DDAL10-9)",
+		source : [["AL","S10"]],
+		rarity : "common",
+		magicItemTable : "?",
+		description : "This ruby is a crudely fashioned chunk of blood-red crystal & etched with eldritch runes. The red color seems to pulse gently. By pressing this ruby to a simple or martial weapon for 10 minutes, it attaches itself to the weapon. You can then use that weapon as a spellcasting focus. Once attached, it can't be removed unless your attunement ends, you detach it as an action, or the weapon is destroyed.",
+		descriptionFull : "This ruby is a crudely fashioned chunk of blood-red crystal. The red color seems to pulse gently. Etched with eldritch runes, the 1-inch-diameter ruby allows you to use a simple or martial weapon as a spellcasting focus for your spells. For this property to work, you must attach the ruby to the weapon by pressing the ruby against it for at least 10 minutes. Thereafter, the ruby can't be removed unless you detach it as an action or the weapon is destroyed. Not even an Antimagic Field causes it to fall off. The ruby does fall off the weapon if your attunement to the ruby ends.",
+		attunement : true,
+		prerequisite : "Requires attunement by a spellcaster",
+		prereqeval : function(v) { return v.isSpellcaster; }
+	},
+	"ruby (emerald) of the war mage (ddhc-mord-1)" : {
+		name : "Emerald of the War Mage (Ruby of the War Mage)",
+		source : [["AL","MtoF"]],
+		rarity : "common",
+		magicItemTable : "?",
+		description : "This 1-inch emerald is etched with eldritch runes. The green color seems to pulse gently. By pressing this emerald to a simple or martial weapon for 10 minutes, it attaches itself to the weapon. You can then use that weapon as a spellcasting focus. Once attached, it can't be removed unless your attunement ends, you detach it as an action, or the weapon is destroyed.",
+		descriptionFull : "Etched with eldritch runes, the 1-inch-diameter emerald allows you to use a simple or martial weapon as a spellcasting focus for your spells. For this property to work, you must attach the emerald to the weapon by pressing the emerald against it for at least 10 minutes. Thereafter, the emerald can't be removed unless you detach it as an action or the weapon is destroyed. Not even an Antimagic Field causes it to fall off. The emerald does fall off the weapon if your attunement to the emerald ends.",
+		attunement : true,
+		prerequisite : "Requires attunement by a spellcaster",
+		prereqeval : function(v) { return v.isSpellcaster; }
+	},
+	"sending (audience) stones (ccc-bmg-12 hill1-3)" : {
+		name : "Audience Stones (Sending Stones)",
 		source : [["AL","CCC"]],
 		rarity : "uncommon",
 		magicItemTable : "C",
-		description : "This periapt of health takes the form of a pair of silver bound hands on a rope made of the hair of penitents. A priest of Ilmater may use it as a holy symbol. You are immune to contracting any disease while you wear this pendant. If you are already infected with a disease, the effects of the disease are suppressed.",
-		weight : 1,
-		savetxt : { immune : ["disease"] }
+		description : "These smooth stones made of marble have the crest of Hillsfar carved into them. While touching one stone, you can cast Sending as an action once per dawn, targeting the bearer of the other stone or the First Lord of Hillsfar. If no one else has the stone, the spell doesn't cast. Sending allows each bearer to communicate up to 25 words.",
+		descriptionFull : "These smooth stones made of marble have the crest of Hillsfar carved into them. In addition to normal use, these stones also have the ability to directly contact the First Lord of Hillsfar. You have been assured that he always keeps the stone close at hand. Contacting the First Lord expends the single use the stones gain every dawn.\n   While you touch one stone, you can use an action to cast the Sending spell from it. The target is the bearer of on of the other stones. If no creature bears the other stone, you know that fact as soon as you use the stone and don't cast the spell.\n   Once Sending is cast through the stones, they can't be used again until the next dawn. If one of the stones in a set is destroyed, the other ones become nonmagical.",
+		spellcastingBonus : {
+			name : "To other stone bearer only",
+			spells : ["sending"],
+			selection : ["sending"],
+			firstCol : "oncelr"
+				},
+		usages : 1, 
+		recovery : "dawn",
+		spellChanges : {
+			"sending" : {
+				description : "Send a 25 word message to the bearer of the other Sending Stone, who can respond with 25 words",
+				changes : "Using one stone of a pair of Sending Stones, the spell can only target the bearer of the other stone of the pair."
+				}
+			}
+		},
+	"sending stones (ccc-cic-4)" : {
+		name : "Sending Stones (CCC-CIC-4)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "C",
+		description : "These stones are inside male & female stuffed sphinxes. To activate, you must hug the toy & say “I love you Mr./Mrs. Wubsy.” You can command the sphinx's eyes to glow w/ a soft blue light equal to a candle. The stones can't be removed from the toys. While touching 1 stone, you can cast Sending as an action once/dawn, targeting whoever has the other stone. If no one has it, the spell won't cast. Sending allows each bearer to communicate up to 25 words.",
+		descriptionFull : "These stones are inside male and female sphinx stuffed children's toys. To activate one, the owner must hug the animal and say “I love you Mr./Mrs. Wubsy.” The sphinx's eyes can be commanded to glow with a soft blue light equal to a candle. The stones cannot be removed from the toys without destroying the magic.\n   While you touch one stone, you can use an action to cast the Sending spell from it. The target is the bearer of on of the other stones. If no creature bears the other stone, you know that fact as soon as you use the stone and don't cast the spell.\n   Once Sending is cast through the stones, they can't be used again until the next dawn. If one of the stones in a set is destroyed, the other ones become nonmagical.",
+		spellcastingBonus : {
+			name : "To other stone bearer only",
+			spells : ["sending"],
+			selection : ["sending"],
+			firstCol : "oncelr"
+				},
+		usages : 1, 
+		recovery : "dawn",
+		spellChanges : {
+			"sending" : {
+				description : "Send a 25 word message to the bearer of the other Sending Stone, who can respond with 25 words",
+				changes : "Using one stone of a pair of Sending Stones, the spell can only target the bearer of the other stone of the pair."
+				}
+			}
+		},
+	"sending stones (ddal0-8)" : {
+		name : "Sending Stones (DDAL0-8)",
+		source : [["AL","S0"]],
+		rarity : "uncommon",
+		magicItemTable : "C",
+		description : "There are 3 stones in this set, crafted from a small, polished river rocks inscribed w/ a strange sigil. When the stones are used, there's a 10% chance the message is overheard by Witchthorn who twists or distorts the message — trying to put any listeners in peril. While touching one stone, you can cast Sending as an action once/dawn, targeting the bearer of another stone. If no creature has one, the spell won't cast. Sending allows each bearer to communicate up to 25 words.",
+		descriptionFull : "Instead of only two stones, there are three stones in this set. Each is crafted from a small, polished river stone, inscribed with a strange sigil. Their use is not without risk, however. Each time the stones are used, there is a 1-in-10 chance that the message is overheard by Witchthorn who, in turn twists or otherwise distorts the message — preferably in a way to put any listeners in peril.\n   While you touch one stone, you can use an action to cast the Sending spell from it. The target is the bearer of on of the other stones. If no creature bears the other stone, you know that fact as soon as you use the stone and don't cast the spell.\n   Once Sending is cast through the stones, they can't be used again until the next dawn. If one of the stones in a set is destroyed, the other ones become nonmagical.",
+		spellcastingBonus : {
+			name : "To other stone bearer only",
+			spells : ["sending"],
+			selection : ["sending"],
+			firstCol : "oncelr"
+				},
+		usages : 1, 
+		recovery : "dawn",
+		spellChanges : {
+			"sending" : {
+				description : "Send a 25 word message to the bearer of the other Sending Stone, who can respond with 25 words",
+				changes : "Using one stone of a pair of Sending Stones, the spell can only target the bearer of the other stone of the pair."
+				}
+			}
+		},
+	"sending stones (ddal10-2)" : {
+		name : "Sending Stones (DDAL10-2)",
+		source : [["AL","S10"]],
+		rarity : "uncommon",
+		magicItemTable : "C",
+		description : "These stones were plucked from a raging river. Worn smooth by eons of fast-moving water, each is struck through with streaks of silvery metal and chunks of blue crystal, and engraved with a sigil of unknown origin. While touching one stone, you can cast Sending as an action once/dawn, targeting the bearer of the other stone. If no one has it, the spell won't cast. Sending allows each bearer to communicate up to 25 words.",
+		descriptionFull : "These stones were plucked from a raging river. Worn smooth by eons of fast-moving water, each is struck through with streaks of silvery metal and chunks of blue crystal, and engraved with a sigil of unknown origin.\n   Sending stones come in pairs, with each smooth stone carved to match the other so the pairing is easily recognized. While you touch one stone, you can use an action to cast the Sending spell from it. The target is the bearer of the other stone. If no creature bears the other stone, you know that fact as soon as you use the stone and don't cast the spell.\n   Once Sending is cast through the stones, they can't be used again until the next dawn. If one of the stones in a pair is destroyed, the other one becomes nonmagical.",
+		spellcastingBonus : {
+			name : "To other stone bearer only",
+			spells : ["sending"],
+			selection : ["sending"],
+			firstCol : "oncelr"
+				},
+		usages : 1, 
+		recovery : "dawn",
+		spellChanges : {
+			"sending" : {
+				description : "Send a 25 word message to the bearer of the other Sending Stone, who can respond with 25 words",
+				changes : "Using one stone of a pair of Sending Stones, the spell can only target the bearer of the other stone of the pair."
+				}
+			}
+		},
+	"stone of controlling earth elementals (ccc-bld1-3)" : {
+		name : "Stone of Controlling Earth Elementals (CCC-BLD1-3)",
+		source : [["AL","CCC"]],
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "This unassuming chunk of bauxite is carved in the shape of a round mother goddess & seems to thrum faintly when held. The thrumming increases to a hypnotic hum when used. Once per dawn when the stone is touching the ground, you can use an action to speak its command word & summon an earth elemental, as if you'd cast the Conjure Elemental spell.",
+		descriptionFull : "This unassuming chunk of bauxite is carved in the shape of a round mother goddess and seems to thrum faintly when held. The thrumming increases to a hypnotic hum when used. If the stone is touching the ground, you can use an action to speak its command word and summon an earth elemental, as if you'd cast the Conjure Elemental spell. The stone can't be used this way again until the next dawn. The stone weighs 5 lbs.",
+		weight : 5,
+		spellcastingBonus : {
+			name : "Earth Elemental only",
+			spells : ["conjure elemental"],
+			selection : ["conjure elemental"],
+			firstCol : "oncelr"
+		},
+		limfeaname : "Stone of Controlling Earth Elementals",
+		usages : 1,
+		recovery : "dawn",
+		spellChanges : {
+			"conjure elemental" : {
+				time : "1 a",
+				components : "V,M\u0192",
+				compMaterial : "The Stone of Controlling Earth Elementals needs to touch the ground to cast this spell with a command word.",
+				description : "CR 5 earth elemental that obeys my verbal commands; on broken conc. elemental breaks free",
+				changes : "Using the Stone of Controlling Earth Elementals, the spell only takes 1 action instead of 1 minute to cast, but can only bring forth an earth elemental."
+			}
+		}
+	},
+	"stone of controlling earth elementals: traveler's heart (ccc-sfbay-4-2)" : {
+		name : "Traveler's Heart (Stone of Controlling Earth Elementals)",
+		source : [["AL","CCC"]],
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "The Traveler’s Heart is a smooth sphere of meteorite iron, the size of a small orange. While underground & holding this item, you always know your depth below the surface & the direction to the nearest staircase, ramp, or other path upward. Once per dawn when the stone is touching the ground, you can use an action to speak its command word & summon an earth elemental, as if you'd cast the Conjure Elemental spell.",
+		descriptionFull : "The Traveler’s Heart is a perfectly smooth sphere forged of meteorite iron, the size of a small shotput or orange. The person holding the Traveler’s Heart has the Delver ability: While underground, the bearer of this item always knows the item's depth below the surface and the direction to the nearest staircase, ramp, or other path leading upward. If the stone is touching the ground, you can use an action to speak its command word and summon an earth elemental, as if you'd cast the Conjure Elemental spell. The stone can't be used this way again until the next dawn. The stone weighs 5 lbs.",
+		weight : 5,
+		spellcastingBonus : {
+			name : "Earth Elemental only",
+			spells : ["conjure elemental"],
+			selection : ["conjure elemental"],
+			firstCol : "oncelr"
+		},
+		limfeaname : "Stone of Controlling Earth Elementals",
+		usages : 1,
+		recovery : "dawn",
+		spellChanges : {
+			"conjure elemental" : {
+				time : "1 a",
+				components : "V,M\u0192",
+				compMaterial : "The Stone of Controlling Earth Elementals needs to touch the ground to cast this spell with a command word.",
+				description : "CR 5 earth elemental that obeys my verbal commands; on broken conc. elemental breaks free",
+				changes : "Using the Stone of Controlling Earth Elementals, the spell only takes 1 action instead of 1 minute to cast, but can only bring forth an earth elemental."
+			}
+		}
+	},
+	"stone of good luck (ccc-dwb-tfg-1)" : {
+		name : "Stone of Good Luck (CCC-DWB-TFG-1)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "This forest green crystal bears the symbol of Levistus. While it's on your person, you gain a +1 bonus to ability checks & saving throws.",
+		descriptionFull : "This forest green crystal bears the symbol of Levistus. While this item is on your person, you gain a +1 bonus to ability checks and saving throws.",
+		attunement : true,
+		addMod : [
+			{ type : "save", field : "all", mod : 1, text : "I gain a +1 bonus on all my saving throws." },
+			{ type : "skill", field : "all", mod : 1, text : "I gain a +1 bonus on all my ability checks." },
+			{ type : "skill", field : "Init", mod : 1, text : "I gain a +1 bonus on all my ability checks." }
+		]
+	},
+	"stone of good luck (ccc-hatms2-3)" : {
+		name : "Stone of Good Luck (CCC-HATMS2-3)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "The luckstone appears to be a fossilized shell of some ancient marine creature no larger than a gold piece. While it's on your person, you gain a +1 bonus to ability checks & saving throws.",
+		descriptionFull : "The luckstone appears to be a fossilized shell of some ancient marine creature no larger than a gold piece. While this item is on your person, you gain a +1 bonus to ability checks and saving throws.",
+		attunement : true,
+		addMod : [
+			{ type : "save", field : "all", mod : 1, text : "I gain a +1 bonus on all my saving throws." },
+			{ type : "skill", field : "all", mod : 1, text : "I gain a +1 bonus on all my ability checks." },
+			{ type : "skill", field : "Init", mod : 1, text : "I gain a +1 bonus on all my ability checks." }
+		]
+	},
+	"stone of good luck (ccc-scar1-2)" : {
+		name : "Stone of Good Luck (CCC-SCAR1-2)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "This smooth stone has a rainbow of colors through its opaque surface, and a small hole in one end so it could be put onto a necklace or leather thong. While it's on your person, you gain a +1 bonus to ability checks & saving throws.",
+		descriptionFull : "This smooth stone has a rainbow of colors throughout its opaque surface, and a small hole in one end such that it could be put onto a necklace or leather thong. While this item is on your person, you gain a +1 bonus to ability checks and saving throws.",
+		attunement : true,
+		addMod : [
+			{ type : "save", field : "all", mod : 1, text : "I gain a +1 bonus on all my saving throws." },
+			{ type : "skill", field : "all", mod : 1, text : "I gain a +1 bonus on all my ability checks." },
+			{ type : "skill", field : "Init", mod : 1, text : "I gain a +1 bonus on all my ability checks." }
+		]
+	},
+	"stone of good luck (ddal0-2b)" : {
+		name : "Stone of Good Luck (DDAL0-2B)",
+		source : [["AL","S0"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "This stone is made of murky, green crystal & set on a length of heavy, pig-iron chain that allows it to be worn (albeit uncomfortably) around your neck. As an action, you can cause the stone to shed pale green light as bright as a torch. While it's on your person, you gain a +1 bonus to ability checks & saving throws.",
+		descriptionFull : "This stone is made of murky, green crystal and is set on a length of heavy, pig-iron chain — allowing it to be worn (albeit uncomfortably) around the wearer’s neck. As an action, the wearer can cause the stone to shed pale green light as bright as a torch. While this item is on your person, you gain a +1 bonus to ability checks and saving throws.",
+		attunement : true,
+		action : [["action", "Stone of Good Luck (Shed Light)"]],
+		addMod : [
+			{ type : "save", field : "all", mod : 1, text : "I gain a +1 bonus on all my saving throws." },
+			{ type : "skill", field : "all", mod : 1, text : "I gain a +1 bonus on all my ability checks." },
+			{ type : "skill", field : "Init", mod : 1, text : "I gain a +1 bonus on all my ability checks." }
+		]
+	},
+	"stone of good luck (ddal0-11b)" : {
+		name : "Stone of Good Luck (DDAL0-11B)",
+		source : [["AL","S0"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "This foul-smelling chunk of cooled brimstone is inscribed with the unholy symbol of Asmodeus. While this item is on your person, you gain a +1 bonus to ability checks and saving throws.",
+		attunement : true,
+		addMod : [
+			{ type : "save", field : "all", mod : 1, text : "I gain a +1 bonus on all my saving throws." },
+			{ type : "skill", field : "all", mod : 1, text : "I gain a +1 bonus on all my ability checks." },
+			{ type : "skill", field : "Init", mod : 1, text : "I gain a +1 bonus on all my ability checks." }
+		]
+	},
+	"stone of good luck (ddep4)" : {
+		name : "Stone of Good Luck (DDEP4)",
+		source : [["AL","S4"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "The center of this fist-sized emerald appears to be hollow and filled with a viscous green liquid. When agitated, the gem grows warm. While this item is on your person, you gain a +1 bonus to ability checks and saving throws.",
+		attunement : true,
+		addMod : [
+			{ type : "save", field : "all", mod : 1, text : "I gain a +1 bonus on all my saving throws." },
+			{ type : "skill", field : "all", mod : 1, text : "I gain a +1 bonus on all my ability checks." },
+			{ type : "skill", field : "Init", mod : 1, text : "I gain a +1 bonus on all my ability checks." }
+		]
+	},
+	"stone of good luck (ddhc-mord-4)" : {
+		name : "Stone of Good Luck (DDHC-MORD-4)",
+		source : [["AL","MtoF"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "This palm-sized stone is cool to the touch and carved into the likeness of a beaming halfling face. While you hold the stone, you gain advantage on Charisma (Persuasion) checks made against good-aligned halflings. While this item is on your person, you gain a +1 bonus to ability checks and saving throws.",
+		attunement : true,
+		addMod : [
+			{ type : "save", field : "all", mod : 1, text : "I gain a +1 bonus on all my saving throws." },
+			{ type : "skill", field : "all", mod : 1, text : "I gain a +1 bonus on all my ability checks." },
+			{ type : "skill", field : "Init", mod : 1, text : "I gain a +1 bonus on all my ability checks." }
+		]
 	},
 }
+
 
 MagicItemsList["al outerwear"] = {
 		name : "AL Outerwear",
 		allowDuplicates : true,
 		type : "wondrous item",
-	choices : ["Cape of the Mountebank (DDAL4-7)","Cloak of Arachnida (DDAL9-12)","Cloak of the Bat (CCC-BMG-44 PHLAN4-2)","Cloak of the Bat (DDEP7-1)","Cloak of the Bat (DDHC-MORD-01)","Cloak of Billowing (DDHC-XGE-01)","Cloak of Displacement (CCC-SFBAY-2-1)","Cloak of Displacement (DDAL5-5)","Cloak of Elvenkind (DDEX1-8)", "Cloak of Invisibility (DDEP6-3)","Cloak of Many Fashions (CCC-GSP1-3)","Cloak of Many Fashions (CCC-QUAKE-1)","Cloak of Many Fashions (CCC-ROLL20-2)","Cloak of the Manta Ray (DC-POA-CONMAR-12)","Cloak of the Manta Ray (DC-POA-PND-1)","Cloak of Protection (CCC-BWM-4-2)","Cloak of Protection (CCC-WWC-4)","Cloak of Protection (DDEP2)","Cloak of Protection (DDAL6-1)","Cloak of Protection (DDAL8-6)","Cloak of Protection (DDIA04)","Cosmic Chasuble, Robe of Stars (CCC-TRI-28 ROSE1-3)","Dryad's Cloak (DDAL0-2A)","Fey Cloak of Protection (CCC-BMG-MOON6-1)","Gray Robe of the Archmagi (DDAL0-3)","Llyneth’s Cloak of Mists (CCC-BMG-MOON2-3)","Mantle of Freedom (CCC-TAROT2-8)","Mantle of Spell Resistance (DDEX1-13)","Mantle of Spell Resistance (DDEP9-1)","Ordine Sage's Robes (CCC-TAROT1-1)","Piwafwi Cloak of Elvenkind (CCC-GARY-7)","Robe of Eyes (CCC-BMG-42 HULB4-3)","Robe of Eyes (DDEX1-14)","Robe of Scintillating Colors (CCC-TRI-1)","Robe of Stars (DDEX3-16)","Robe of Useful Items (CCC-GSP-PHIL1-3)","Robe of Useful Items (CCC-KUMORI-1-2)","Robe of Useful Items (DDAL10-4)","Sea Hag's Cloak (CCC-GAD1-1)","Thayvian Mantle of Spell Resistance (CCC-ST2-1)","Wings of Flying (CCC-TRI-4 ROC1-2)","Wings of Flying (DDEP2)","Winter Wolf Cloak (DDAL0-13)"],
+	choices : ["Cape of the Mountebank (DDAL4-7)","Cloak of Arachnida (DDAL9-12)","Cloak of the Bat (CCC-BMG-44 PHLAN4-2)","Cloak of the Bat (DDEP7-1)","Cloak of the Bat (DDHC-MORD-1)","Cloak of Billowing: Mantle of Freedom (CCC-TAROT2-8)","Cloak of Billowing (DDHC-XGE-01)","Cloak of Displacement (CCC-SFBAY-2-1)","Cloak of Displacement (DDAL5-5)","Cloak of Elvenkind: Llyneth’s Cloak of Mists (CCC-BMG-MOON2-3)","Cloak of Elvenkind: Piwafwi (CCC-GARY-7)","Cloak of Elvenkind (DDEX1-8)","Cloak of Invisibility (DDEP6-3)","Cloak of Many Fashions (CCC-GSP1-3)","Cloak of Many Fashions (CCC-QUAKE-1)","Cloak of Many Fashions (CCC-ROLL20-2)","Cloak of the Manta Ray: Sea Hag's Cloak (CCC-GAD1-1)","Cloak of the Manta Ray (DC-POA-CONMAR-12)","Cloak of the Manta Ray (DC-POA-PND-1)","Cloak of the Manta Ray: Lucius' Scientist Robe (DC-POA-TDG1-5)","Cloak of Protection: Fey (CCC-BMG-MOON6-1)","Cloak of Protection (CCC-BWM-4-2)","Cloak of Protection (CCC-WWC-4)","Cloak of Protection: Dryad's Cloak (DDAL0-2A)","Cloak of Protection (DDAL6-1)","Cloak of Protection (DDAL8-6)","Cloak of Protection (DDEP2)","Cloak of Protection (DDIA04)","Gray Robe of the Archmagi (DDAL0-3)","Hell Hound Cloak: Winter Wolf Cloak (DDAL0-13)","Mantle of Spell Resistance: Thayvian Mantle (CCC-ST2-1)","Mantle of Spell Resistance (DDEX1-13)","Mantle of Spell Resistance (DDEP9-1)","Nature's Mantle (WBW-DC-FDC-5)","Robe of Eyes (CCC-BMG-42 HULB4-3)","Robe of Eyes (DDEX1-14)","Robe of Scintillating Colors (CCC-TRI-1)","Robe of Stars: Cosmic Chasuble (CCC-TRI-28 ROSE1-3)","Robe of Stars (DDEX3-16)","Robe of Useful Items (CCC-GSP-PHIL1-3)","Robe of Useful Items (CCC-KUMORI-1-2)","Robe of Useful Items: Ordine Sage's Robes (CCC-TAROT1-1)","Robe of Useful Items (DDAL10-4)","Wings of Flying (CCC-TRI-4 ROC1-2)","Wings of Flying (DDEP2)"],
 	"cape of the mountebank (ddal4-7)" : {  // contains contributions by Smashman
 		name : "Cape of the Mountebank (DDAL4-7)",
 		source : [["AL","S4"]],
@@ -5283,6 +6259,7 @@ MagicItemsList["al outerwear"] = {
 		descriptionFull : "This cloak has been in Avernus for ages and been worn in constant conflict. While actively using any properties of the item, the bearer experiences a harmless flash of pain. In addition, the cloak whispers warnings to its bearer, granting a +2 bonus to initiative if the bearer isn’t incapacitated. This fine garment is made of black silk interwoven with faint silvery threads. While wearing it, you gain the following benefits:\n \u2022 You have resistance to poison damage.\n \u2022 You have a climbing speed equal to your walking speed.\n \u2022 You can move up, down, and across vertical surfaces and upside down along ceilings, while leaving your hands free.\n \u2022 You can't be caught in webs of any sort and can move through webs as if they were difficult terrain.\n \u2022 You can use an action to cast the Web spell (save DC 13). The web created by the spell fills twice its normal area. Once used, this property of the cloak can't be used again until the next dawn.",
 		attunement : true,
 		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
+		dmgres : ["Poison"],
 		limfeaname : "Cloak of Arachnida",
 		usages : 1,
 		recovery : "dawn",
@@ -5355,8 +6332,8 @@ MagicItemsList["al outerwear"] = {
 			}
 		}
 	},
-	"cloak of the bat (ddhc-mord-01)" : {
-		name : "Cloak of the Bat (DDHC-MORD-01)",
+	"cloak of the bat (ddhc-mord-1)" : {
+		name : "Cloak of the Bat (DDHC-MORD-1)",
 		source : [["AL","MtoF"]],
 		rarity : "rare",
 		magicItemTable : "G",
@@ -5382,6 +6359,15 @@ MagicItemsList["al outerwear"] = {
 			}
 		}
 	},
+	"cloak of billowing: mantle of freedom (ccc-tarot2-8)" : {
+		name : "Mantle of Freedom (Cloak of Billowing)",
+		source : [["AL","CCC"]],
+		rarity : "common",
+		magicItemTable : "?",
+		description : "This cloak is made of stark white silk embroidered with golden thread in the shape of two grand wings. It seems to be the result of a failed attempt to create wings of flying. While wearing this cloak, you can use a bonus action to make it billow dramatically.",
+		descriptionFull : "This cloak is made of stark white silk embroidered with golden thread in the shape of two grand wings. Those with arcane ability might note it appears to be the result of a failed attempt at creating wings of flying. While wearing this cloak, you can use a bonus action to make it billow dramatically.",
+		action : [["bonus action", "Cloak of Billowing"]]
+		},
 	"cloak of billowing (ddhc-xge-01)" : {
 		name : "Cloak of Billowing (DDHC-XGE-01)",
 		source : [["AL","XGE"]],
@@ -5407,6 +6393,42 @@ MagicItemsList["al outerwear"] = {
 		description : "This cloak has a bone toggle & is made of the pelt of a smooth, black-furred creature. The gold-embroidered hem shows a poem: “Six men in pain; six men rent. Blood, it falls like rain; broken bodies bent. Six men plead & six men cry; Tearing arm & leg, six men die.”. While wearing the cloak, creatures have disadv. on atk rolls against you. If you take dmg, this property stops working until your next turn. It's also suppressed if you're incapacitated, restrained, or unable to move.",
 		descriptionFull : "This cloak is made of the pelt of a smooth, black-furred creature. A bone toggle fastens the cloak around its wearer’s neck. Close examination of the gold-embroidered hem reveals a poem that reads (in Common): “Six men in pain; six men rent. Blood, it falls like rain; broken bodies bent. Six men plead; and six men cry; Tearing arm and leg, six men die.” While you wear this cloak, it projects an illusion that makes you appear to be standing in a place near your actual location, causing any creature to have disadvantage on attack rolls against you. If you take damage, the property ceases to function until the start of your next turn. This property is suppressed while you are incapacitated, restrained, or otherwise unable to move.",
 		attunement : true
+	},
+	"cloak of elvenkind: llyneth’s cloak of mists (ccc-bmg-moon2-3)" : {
+		name : "Llyneth’s Cloak of Mists (Cloak of Elvenkind)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		attunement : true,
+		description: "This cloak is made of fine gray wool & edged with embroidered silver knotwork. The wool blends into the mists of the Moonshaes. The inside is lined with small pockets for holding herbs or spell components. While you wear this cloak with its hood up, Wis (Perception) checks made to see you have disadv., & you have adv. on Dex (Stealth) checks made to hide, as the cloak's color shifts to camouflage you. Pulling the hood up or down requires an action.",
+		descriptionFull: "This cloak is made of fine gray wool and edged with embroidered silver knotwork. The wool blends into the mists common in the Moonshaes. The inside is lined with small pockets perfect for holding herb samples or spell components.\n   While you wear this cloak with its hood up, Wisdom (Perception) checks made to see you have disadvantage, and you have advantage on Dexterity (Stealth) checks made to hide, as the cloak's color shifts to camouflage you. Pulling the hood up or down requires an action.",
+		action : [["action", "Cloak of Elvenkind (hood up/down)"]],
+		eval : function () {
+			if (CurrentMagicItems.known.indexOf("boots of elvenkind") !== -1) {
+				SetProf("advantage", true, ["Stealth", true], "Cloak and Boots of Elvenkind (magic items)");
+			}
+		},
+		removeeval : function () {
+			SetProf("advantage", false, ["Stealth", true], "Cloak and Boots of Elvenkind (magic items)");
+		}
+	},
+	"cloak of elvenkind: piwafwi (ccc-gary-7)" : {
+		name : "Piwafwi Cloak of Elvenkind (CCC-GARY-7)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		attunement : true,
+		description: "This silky black cloak is clearly of drow manufacture & loses its magic if exposed to sunlight for 1 hr uninterrupted. While you wear this cloak with its hood up, Wis (Perception) checks made to see you have disadv., & you have adv. on Dex (Stealth) checks made to hide, as the cloak's color shifts to camouflage you. Pulling the hood up or down requires an action.",
+		descriptionFull: "This silky black cloak is clearly of drow manufacture & loses its magic if exposed to sunlight for 1 hr uninterrupted. While you wear this cloak with its hood up, Wisdom (Perception) checks made to see you have disadvantage, and you have advantage on Dexterity (Stealth) checks made to hide, as the cloak's color shifts to camouflage you. Pulling the hood up or down requires an action.",
+		action : [["action", "Cloak of Elvenkind (hood up/down)"]],
+		eval : function () {
+			if (CurrentMagicItems.known.indexOf("boots of elvenkind") !== -1) {
+				SetProf("advantage", true, ["Stealth", true], "Cloak and Boots of Elvenkind (magic items)");
+			}
+		},
+		removeeval : function () {
+			SetProf("advantage", false, ["Stealth", true], "Cloak and Boots of Elvenkind (magic items)");
+		}
 	},
 	"cloak of elvenkind (ddex1-8)" : {
 		name : "Cloak of Elvenkind (DDEX1-8)",
@@ -5473,6 +6495,17 @@ MagicItemsList["al outerwear"] = {
 		descriptionFull : "This cloak is worn as part of the Reclamator uniform. Reclamators normally wear the cloak with a rugged brown appearance and a large ribbed collar. In certain circumstances, Reclamators choose to use a modified version of their cloaks; black with wolf fur along the collar.\n   While wearing this cloak, you can use a bonus action to change the style, color, and apparent quality of the garment. The cloak's weight doesn't change. Regardless of its appearance, the cloak can't be anything but a cloak. Although it can duplicate the appearance of other magic cloaks, it doesn't gain their magical properties.",
 		action : [["bonus action", "Cloak of Many Fashions"]]
 	},
+	"cloak of the manta ray: sea hag's cloak (ccc-gad1-1)" : {
+		name : "Sea Hag's Cloak (Cloak of the Manta Ray)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "B",
+		description : "This dark green cloak is sewn together from seaweed & kelp. While wearing it with its hood up, you can breathe underwater & have a swim speed of 60 ft. You also suffer no harm in temps from -20 ̊ F to 120 ̊ F. Pulling the hood up or down requires an action.",
+		descriptionFull : "This dark green cloak seems to be sewn together out of seaweed and kelp. Its wearer suffers no harm in temperatures as cold as -20 degrees Fahrenheit or as warm as 120 degrees Fahrenheit.\n   While wearing this cloak with its hood up, you can breathe underwater, and you have a swimming speed of 60 feet. Pulling the hood up or down requires an action.",
+		action : [["action", "Cloak of the Manta Ray (hood up/down)"]],
+		speed : { swim : { spd : "fixed 60", enc : "fixed 50" } },
+		savetxt : { immune : ["temps btwn -20 ̊ & 120 ̊ F"] }
+	},
 	"cloak of the manta ray (dc-poa-conmar-12)" : {
 		name : "Cloak of the Manta Ray (DC-POA-CONMAR-12)",
 		source : [["AL","DC-POA"]],
@@ -5492,6 +6525,27 @@ MagicItemsList["al outerwear"] = {
 		descriptionFull : "This thick woolen cloak is lined with a leather made from knuckle-head trout.\n   While wearing this cloak with its hood up, you can breathe underwater, and you have a swimming speed of 60 feet. Pulling the hood up or down requires an action.",
 		action : [["action", "Cloak of the Manta Ray (hood up/down)"]],
 		speed : { swim : { spd : "fixed 60", enc : "fixed 50" } },
+	},
+	"cloak of the manta ray: lucius' scientist robe (dc-poa-tdg1-5)" : {
+		name : "Lucius' Scientist Robe (Cloak of the Manta Ray)",
+		source : [["AL","DC-POA"]],
+		rarity : "uncommon",
+		magicItemTable : "B",
+		description : "These white robes shift & disguise you as a sea creature when immersed in water (flavor only). While wearing them with the hood up, you can breathe underwater & have a swim speed of 60 ft. Pulling the hood up or down requires an action.",
+		descriptionFull : "These white robes will shift and disguise its wearer as a sea creature when immersed in water (flavor only).\n   While wearing this cloak with its hood up, you can breathe underwater, and you have a swimming speed of 60 feet. Pulling the hood up or down requires an action.",
+		action : [["action", "Cloak of the Manta Ray (hood up/down)"]],
+		speed : { swim : { spd : "fixed 60", enc : "fixed 50" } },
+	},
+	"cloak of protection: fey (ccc-bmg-moon6-1)" : { 
+		name : "Fey Cloak of Protection (CCC-BMG-MOON6-1)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "This cloak seems to be made of finely woven leaves with a gleaming silver clasp etched in elegant patterns. You gain a +1 bonus to AC & saving throws while you wear the cloak.",
+		descriptionFull : "This cloak seems to be made of finely woven leaves, and the clasp is gleaming silver etched in elegant patterns. You gain a +1 bonus to AC & saving throws while you wear this cloak.",
+		attunement : true,
+		extraAC : [{name : "Cloak of Protection", mod : 1, magic : true, text : "I gain a +1 bonus to AC while attuned."}],
+		addMod : [{ type : "save", field : "all", mod : 1, text : "While I wear the Cloak of Protection, I gain a +1 bonus to all my saving throws." }]
 	},
 	"cloak of protection (ccc-bwm-4-2)" : { 
 		name : "Cloak of Protection (CCC-BWM-4-2)",
@@ -5515,13 +6569,12 @@ MagicItemsList["al outerwear"] = {
 		extraAC : [{name : "Cloak of Protection", mod : 1, magic : true, text : "I gain a +1 bonus to AC while attuned."}],
 		addMod : [{ type : "save", field : "all", mod : 1, text : "While I wear the Cloak of Protection, I gain a +1 bonus to all my saving throws." }]
 	},
-	"cloak of protection (ddep2)" : { 
-		name : "Cloak of Protection (DDEP2)",
-		source : [["AL","S2"]],
+	"cloak of protection: dryad's cloak (ddal0-2a)" : { 
+		name : "Dryad's Cloak (Cloak of Protection)",
+		source : [["AL","S0"]],
 		rarity : "uncommon",
 		magicItemTable : "F",
-		description : "This cloak is more of a mantle, covering only your shoulders & head with the hood drawn. It's made of scales of thin stone, studded with small crystals & sewn together with fine golden wire. You gain a +1 bonus to AC & saving throws while you wear this cloak.",
-		descriptionFull : "This cloak is more a mantle; covering only the shoulders and head with the hood drawn. However, it is made of what appears to be scales of thin stone, studded with small crystals and sewn together with fine, golden wire. You gain a +1 bonus to AC & saving throws while you wear this cloak.",
+		description : "This cloak reflects the color of the seasons; green in summer, gold in autumn, mottled brown in winter and in spring is mottled in pale shades of green and cream. While wearing this cloak, you gain a +1 bonus to AC & saving throws.",
 		attunement : true,
 		extraAC : [{name : "Cloak of Protection", mod : 1, magic : true, text : "I gain a +1 bonus to AC while attuned."}],
 		addMod : [{ type : "save", field : "all", mod : 1, text : "While I wear the Cloak of Protection, I gain a +1 bonus to all my saving throws." }]
@@ -5547,6 +6600,17 @@ MagicItemsList["al outerwear"] = {
 		extraAC : [{name : "Cloak of Protection", mod : 1, magic : true, text : "I gain a +1 bonus to AC while attuned."}],
 		addMod : [{ type : "save", field : "all", mod : 1, text : "While I wear the Cloak of Protection, I gain a +1 bonus to all my saving throws." }]
 	},
+	"cloak of protection (ddep2)" : { 
+		name : "Cloak of Protection (DDEP2)",
+		source : [["AL","S2"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "This cloak is more of a mantle, covering only your shoulders & head with the hood drawn. It's made of scales of thin stone, studded with small crystals & sewn together with fine golden wire. You gain a +1 bonus to AC & saving throws while you wear this cloak.",
+		descriptionFull : "This cloak is more a mantle; covering only the shoulders and head with the hood drawn. However, it is made of what appears to be scales of thin stone, studded with small crystals and sewn together with fine, golden wire. You gain a +1 bonus to AC & saving throws while you wear this cloak.",
+		attunement : true,
+		extraAC : [{name : "Cloak of Protection", mod : 1, magic : true, text : "I gain a +1 bonus to AC while attuned."}],
+		addMod : [{ type : "save", field : "all", mod : 1, text : "While I wear the Cloak of Protection, I gain a +1 bonus to all my saving throws." }]
+	},
 	"cloak of protection (ddia04)" : { 
 		name : "Cloak of Protection (DDIA04)",
 		source : [["AL:SE","CoS"]],
@@ -5560,56 +6624,6 @@ MagicItemsList["al outerwear"] = {
 			{ type : "save", field : "all", mod : 1, text : "While I wear the Cloak of Protection, I gain a +1 bonus to all my saving throws." },
 			{ type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." }
 		],
-	},
-	"cosmic chasuble, robe of stars (ccc-tri-28 rose1-3)" : {    // contains contributions by SoilentBrad
-		name : "Cosmic Chasuble, Robe of Stars (CCC-TRI-28 ROSE1-3)",
-		source : [["AL","S3"]],
-		rarity : "very rare",
-		magicItemTable : "H",
-		description : "This deep blue ritual gown is covered in fine embroidery of suns, stars, moons & other heavenly bodies. At night, the ornaments swirl & whirl, traveling slowly across the robe. While wearing it, you gain +1 to saves & dream of far worlds & alien landscapes. 6 stars are special. As an action, remove 1 star to cast Magic Missile at 5th-lvl. Daily at dusk, 1d6 removed stars reappear. While wearing the robe, you can enter the Astral Plane w/ an action. You remain there until you return to the previous plane w/ another action. You reappear in the same space, or the nearest unoccupied space.",
-		descriptionFull : "An exquisite ritual gown, this deep blue garment is covered in finely detailed embroidery depicting suns, stars, moons, planets and other heavenly bodies. At night, these embroidered ornaments swirl and whirl, traveling slowly across the robe’s fibers. If you sleep in it, you dream of far worlds and alien landscapes. You gain a +1 bonus to saving throws while you wear it.\n   Six stars, located on the robe's upper front portion, are particularly large. While wearing this robe, you can use an action to pull off one of the stars and use it to cast Magic Missile as a 5th-level spell. Daily at dusk, 1d6 removed stars reappear on the robe.\n   While you wear the robe, you can use an action to enter the Astral Plane along with everything you are wearing and carrying. You remain there until you use an action to return to the plane you were on. You reappear in the last space you occupied, or if that space is occupied, the nearest unoccupied space.",
-		attunement : true,
-		weight : 4,
-		limfeaname : "Robe of Stars",
-		action : [["action", ""]],
-		usages : 6,
-		recovery : "Dusk",
-		additional : "regains 1d6",
-		addMod: [{ type: "save", field: "all", mod: 1, text: "While wearing the Robe of Stars, I gain a +1 bonus to all my saving throws." }],
-		spellFirstColTitle: "Ch",
-		spellcastingBonus: {
-			name: "1 charge",
-			spells: ["magic missile"],
-			selection: ["magic missile"],
-			firstCol: 1
-		},
-		spellChanges : {
-			"magic missile" : {
-				description : "8 darts hit creature(s) I can see for 1d4+1 Force dmg per dart",
-				changes : "Magic Missile cast from the Robe of Stars is always at 5th-level."
-				}
-			}
-		},
-	"dryad's cloak (ddal0-2a)" : { 
-		name : "Dryad's Cloak (Cloak of Protection)",
-		source : [["AL","S0"]],
-		rarity : "uncommon",
-		magicItemTable : "F",
-		description : "This cloak reflects the color of the seasons; green in summer, gold in autumn, mottled brown in winter and in spring is mottled in pale shades of green and cream. While wearing this cloak, you gain a +1 bonus to AC & saving throws.",
-		attunement : true,
-		extraAC : [{name : "Cloak of Protection", mod : 1, magic : true, text : "I gain a +1 bonus to AC while attuned."}],
-		addMod : [{ type : "save", field : "all", mod : 1, text : "While I wear the Cloak of Protection, I gain a +1 bonus to all my saving throws." }]
-	},
-	"fey cloak of protection (ccc-bmg-moon6-1)" : { 
-		name : "Fey Cloak of Protection (CCC-BMG-MOON6-1)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "F",
-		description : "This cloak seems to be made of finely woven leaves with a gleaming silver clasp etched in elegant patterns. You gain a +1 bonus to AC & saving throws while you wear the cloak.",
-		descriptionFull : "This cloak seems to be made of finely woven leaves, and the clasp is gleaming silver etched in elegant patterns. You gain a +1 bonus to AC & saving throws while you wear this cloak.",
-		attunement : true,
-		extraAC : [{name : "Cloak of Protection", mod : 1, magic : true, text : "I gain a +1 bonus to AC while attuned."}],
-		addMod : [{ type : "save", field : "all", mod : 1, text : "While I wear the Cloak of Protection, I gain a +1 bonus to all my saving throws." }]
 	},
 	"gray robe of the archmagi (ddal0-3)" : { // contains contributions by SoilentBrad
 		name : "Gray Robe of the Archmagi (DDAL0-3)",
@@ -5640,32 +6654,26 @@ MagicItemsList["al outerwear"] = {
 			weight : 4
 		}]
 	},
-	"llyneth’s cloak of mists (ccc-bmg-moon2-3)" : {
-		name : "Llyneth’s Cloak of Mists (Cloak of Elvenkind)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "F",
+	"hell hound cloak: winter wolf cloak (ddal0-13)" : {
+		name : "Winter Wolf Cloak (Hell Hound Cloak)",
+		source : [["KOSC",82]],
+		rarity : "rare",
+		magicItemTable : "H",
+		description : "This dark cloak is made of cured winter wolf hide. As an action, you can command this cloak to Polymorph you into a winter wolf for 1 hour, or until you stop it as a bonus action. The 6th time you use it and every time after, you must make a DC 15 Cha save or be stuck in winter wolf form until dispelled or you drop to 0 HP. If you remain in winter wolf form for 6 hours, it becomes permanent.",
+		descriptionFull : "This dark cloak is made of cured winter wolf hide. As an action, you can command the cloak to transform you into a winter wolf for up to 1 hour. The transformation otherwise functions as the Polymorph spell, but you can use a bonus action to revert to your normal form.\n   " + toUni("Curse") + ". This cloak is cursed with the essence of a winter wolf, and becoming attuned to it extends the curse to you. Until the curse is broken with Remove Curse or similar magic, you are unwilling to part with the cloak, keeping it within reach at all times.\n   The sixth time you use the cloak, and each time thereafter, you must make a DC 15 Charisma saving throw. On a failed save, the transformation lasts until dispelled or until you drop to 0 hit points, and you can't willingly return to normal form. If you ever remain in winter wolf form for 6 hours, the transformation becomes permanent and you lose your sense of self. All your statistics are then replaced by those of a winter wolf. Thereafter, only Remove Curse or similar magic allows you to regain your identity and return to normal. If you remain in this permanent form for 6 days, only a Wish spell can reverse the transformation.",
 		attunement : true,
-		description: "This cloak is made of fine gray wool & edged with embroidered silver knotwork. The wool blends into the mists of the Moonshaes. The inside is lined with small pockets for holding herbs or spell components. While you wear this cloak with its hood up, Wis (Perception) checks made to see you have disadv., & you have adv. on Dex (Stealth) checks made to hide, as the cloak's color shifts to camouflage you. Pulling the hood up or down requires an action.",
-		descriptionFull: "This cloak is made of fine gray wool and edged with embroidered silver knotwork. The wool blends into the mists common in the Moonshaes. The inside is lined with small pockets perfect for holding herb samples or spell components.\n   While you wear this cloak with its hood up, Wisdom (Perception) checks made to see you have disadvantage, and you have advantage on Dexterity (Stealth) checks made to hide, as the cloak's color shifts to camouflage you. Pulling the hood up or down requires an action.",
-		action : [["action", "Cloak of Elvenkind (hood up/down)"]],
-		eval : function () {
-			if (CurrentMagicItems.known.indexOf("boots of elvenkind") !== -1) {
-				SetProf("advantage", true, ["Stealth", true], "Cloak and Boots of Elvenkind (magic items)");
-			}
+		weight : 1,
+		action : [["action", "Winter Wolf Cloak (Polymorph)"],["bonus action", "Winter Wolf Cloak (Revert)"]],
+		cursed : true
 		},
-		removeeval : function () {
-			SetProf("advantage", false, ["Stealth", true], "Cloak and Boots of Elvenkind (magic items)");
-		}
-	},
-	"mantle of freedom (ccc-tarot2-8)" : {
-		name : "Mantle of Freedom (Cloak of Billowing)",
+	"mantle of spell resistance: thayvian mantle (ccc-st2-1)" : {
+		name : "Thayvian Mantle of Spell Resistance (CCC-ST2-1)",
 		source : [["AL","CCC"]],
-		rarity : "common",
-		magicItemTable : "?",
-		description : "This cloak is made of stark white silk embroidered with golden thread in the shape of two grand wings. It seems to be the result of a failed attempt to create wings of flying. While wearing this cloak, you can use a bonus action to make it billow dramatically.",
-		descriptionFull : "This cloak is made of stark white silk embroidered with golden thread in the shape of two grand wings. Those with arcane ability might note it appears to be the result of a failed attempt at creating wings of flying. While wearing this cloak, you can use a bonus action to make it billow dramatically.",
-		action : [["bonus action", "Cloak of Billowing"]]
+		rarity : "rare",
+		magicItemTable : "G",
+		attunement : true,
+		savetxt : { adv_vs : ["spells"] },
+		description: "This crimson cloak is embroidered with golden sigils of Thay. When the wearer of this cloak is presented with an opportunity to act in a selfish or malevolent way, this item heightens their urge to do so. While attuned to and wearing this cloak, you have advantage on saving throws against spells."
 		},
 	"mantle of spell resistance (ddex1-13)" : {
 		name : "Mantle of Spell Resistance (DDEX1-13)",
@@ -5685,33 +6693,21 @@ MagicItemsList["al outerwear"] = {
 		savetxt : { adv_vs : ["spells"] },
 		description: "This sleeveless shawl is made from the stitched skin of many demons and devils. While attuned to and wearing this cloak, you have advantage on saving throws against spells."
 		},
-	"ordine sage's robes (ccc-tarot1-1)" : {
-		name : "Ordine Sage's Robes (Robe of Useful Items)",
-		source : [["AL","CCC"]],
+	"nature's mantle (wbw-dc-fdc-5)" : {
+		name : "Nature's Mantle (WBW-DC-FDC-5)",
+		source : [["AL","WBW-DC"]],
 		rarity : "uncommon",
-		magicItemTable : "B",
-		description : "This white robe has gold detailing & very orderly patterns. The robe gives you a sense of assuredness, as if there's a purpose to everything. As an action while donned, you can detach 1 patch, which becomes the item shown. The robe turns ordinary once out of patches. It has 4 patches determined by DM, 4 potions of healing, 1st lvl spell scroll, 100 gp, a mechanical riding horse w/ saddle bags & 2 each: dagger, bullseye lantern (filled & lit), steel mirror, 10-ft pole, 50 ft hemp rope, sack.",
-		descriptionFull : "This white robe has gold detailing, and all of its patterns look very orderly. The robe itself gives its wearer a sense of assuredness, as if there is a purpose to every action taken and seen. While wearing the robe, you can use an action to detach one of the patches, causing it to become the object or creature it represents. Once the last patch is removed, the robe becomes an ordinary garment.\n\nThe robe has two of each of the following patches:\n \u2022 Dagger\n \u2022 Bullseye lantern (filled and lit)\n \u2022 Steel mirror\n \u2022 10-foot pole\n \u2022 Hempen rope (50 feet, coiled)\n \u2022 Sack\n\nIn addition, the robe has 4 potions of healing, 1st lvl spell scroll, 100 gp, a mechanical riding horse w/ saddle bags & 4 patches determined by the DM. The DM chooses the patches or determines them randomly.\n\n" + toUni("d100\tPatch") + "\n01-08\tBag of 100 gp\n09-15\tSilver coffer (1 foot long, 6 inches wide and deep) worth 500 gp\n16-22\tIron door (up to 10 feet wide and 10 feet high, barred on one side of your choice), which you can place in an opening you can reach; it conforms to fit the opening, attaching and hinging itself\n23-30\t10 gems worth 100 gp each\n31-44\tWooden ladder (24 feet long)\n45-51\tA riding horse with saddle bags\n52-59\tPit (a cube 10 feet on a side), which you can place on the ground within 10 feet of you\n60-68\t4 potions of healing\n69-75\tRowboat (12 feet long)\n76-83\tSpell scroll containing one spell of 1st to 3rd level\n84-90\t2 mastiffs\n91-96\tWindow (2 feet by 4 feet, up to 2 feet deep), which you can place on a vertical surface you can reach\n97-00\tPortable ram",
-		weight : 4,
-		action : ["action", "Robe of Useful Items"],
-	},
-	"piwafwi cloak of elvenkind (ccc-gary-7)" : {
-		name : "Piwafwi Cloak of Elvenkind (CCC-GARY-7)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "F",
+		magicItemTable : "?",
 		attunement : true,
-		description: "This silky black cloak is clearly of drow manufacture & loses its magic if exposed to sunlight for 1 hr uninterrupted. While you wear this cloak with its hood up, Wis (Perception) checks made to see you have disadv., & you have adv. on Dex (Stealth) checks made to hide, as the cloak's color shifts to camouflage you. Pulling the hood up or down requires an action.",
-		descriptionFull: "This silky black cloak is clearly of drow manufacture & loses its magic if exposed to sunlight for 1 hr uninterrupted. While you wear this cloak with its hood up, Wisdom (Perception) checks made to see you have disadvantage, and you have advantage on Dexterity (Stealth) checks made to hide, as the cloak's color shifts to camouflage you. Pulling the hood up or down requires an action.",
-		action : [["action", "Cloak of Elvenkind (hood up/down)"]],
-		eval : function () {
-			if (CurrentMagicItems.known.indexOf("boots of elvenkind") !== -1) {
-				SetProf("advantage", true, ["Stealth", true], "Cloak and Boots of Elvenkind (magic items)");
-			}
+		prerequisite : "Requires attunement by a druid or ranger.",
+		prereqeval : function(v) {
+			return classes.known.druid || classes.known.ranger || classes.known.rangerua ? true : false;
 		},
-		removeeval : function () {
-			SetProf("advantage", false, ["Stealth", true], "Cloak and Boots of Elvenkind (magic items)");
-		}
+		description : "This cloak is formed from the same cotton candy clouds that hold Castamella aloft & is incredibly warm & soft. If consumed, it isn't filling & tastes like bittersweet raspberries; after 1d4 hrs, the clouds roil & reform in their original shape. The cloak shifts color & texture to blend with the terrain around you. While wearing it, you can use it as a spellcasting focus for your druid & ranger spells & when lightly obscured, you can Hide as a bonus action even if directly observed.",
+		descriptionFull : "This cloak is formed from the same cotton candy clouds that hold Castamella aloft. It is incredibly warm and soft. If consumed, the cloak tastes like bittersweet raspberries but is not filling; after 1d4 hours, the clouds roil and reform in their original shape."+
+		"\n   This cloak shifts color and texture to blend with the terrain surrounding you. While wearing the cloak, you can use it as a spellcasting focus for your druid and ranger spells."+
+		"\n   While you are in an area that is lightly obscured, you can Hide as a bonus action even if you are being directly observed.",
+		action : [["bonus action", " (Hide)"]]
 	},
 	"robe of eyes (ccc-bmg-42 hulb4-3)" : {   // contains contributions by SoilentBrad
 		name : "Robe of Eyes (CCC-BMG-42 HULB4-3)",
@@ -5758,6 +6754,35 @@ MagicItemsList["al outerwear"] = {
 		additional : "regains 1d3",
 		action : [["action", ""]]
 	},
+	"robe of stars: cosmic chasuble (ccc-tri-28 rose1-3)" : {    // contains contributions by SoilentBrad
+		name : "Cosmic Chasuble, Robe of Stars (CCC-TRI-28 ROSE1-3)",
+		source : [["AL","S3"]],
+		rarity : "very rare",
+		magicItemTable : "H",
+		description : "This deep blue ritual gown is covered in fine embroidery of suns, stars, moons & other heavenly bodies. At night, the ornaments swirl & whirl, traveling slowly across the robe. While wearing it, you gain +1 to saves & dream of far worlds & alien landscapes. 6 stars are special. As an action, remove 1 star to cast Magic Missile at 5th-lvl. Daily at dusk, 1d6 removed stars reappear. While wearing the robe, you can enter the Astral Plane w/ an action. You remain there until you return to the previous plane w/ another action. You reappear in the same space, or the nearest unoccupied space.",
+		descriptionFull : "An exquisite ritual gown, this deep blue garment is covered in finely detailed embroidery depicting suns, stars, moons, planets and other heavenly bodies. At night, these embroidered ornaments swirl and whirl, traveling slowly across the robe’s fibers. If you sleep in it, you dream of far worlds and alien landscapes. You gain a +1 bonus to saving throws while you wear it.\n   Six stars, located on the robe's upper front portion, are particularly large. While wearing this robe, you can use an action to pull off one of the stars and use it to cast Magic Missile as a 5th-level spell. Daily at dusk, 1d6 removed stars reappear on the robe.\n   While you wear the robe, you can use an action to enter the Astral Plane along with everything you are wearing and carrying. You remain there until you use an action to return to the plane you were on. You reappear in the last space you occupied, or if that space is occupied, the nearest unoccupied space.",
+		attunement : true,
+		weight : 4,
+		limfeaname : "Robe of Stars",
+		action : [["action", ""]],
+		usages : 6,
+		recovery : "Dusk",
+		additional : "regains 1d6",
+		addMod: [{ type: "save", field: "all", mod: 1, text: "While wearing the Robe of Stars, I gain a +1 bonus to all my saving throws." }],
+		spellFirstColTitle: "Ch",
+		spellcastingBonus: {
+			name: "1 charge",
+			spells: ["magic missile"],
+			selection: ["magic missile"],
+			firstCol: 1
+		},
+		spellChanges : {
+			"magic missile" : {
+				description : "8 darts hit creature(s) I can see for 1d4+1 Force dmg per dart",
+				changes : "Magic Missile cast from the Robe of Stars is always at 5th-level."
+				}
+			}
+		},
 	"robe of stars (ddex3-16)" : {    // contains contributions by SoilentBrad
 		name : "Robe of Stars (DDEX3-16)",
 		source : [["AL","S3"]],
@@ -5807,6 +6832,16 @@ MagicItemsList["al outerwear"] = {
 		weight : 4,
 		action : ["action", "Robe of Useful Items"],
 	},
+	"robe of useful items: ordine sage's robes (ccc-tarot1-1)" : {
+		name : "Ordine Sage's Robes (Robe of Useful Items)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "B",
+		description : "This white robe has gold detailing & very orderly patterns. The robe gives you a sense of assuredness, as if there's a purpose to everything. As an action while donned, you can detach 1 patch, which becomes the item shown. The robe turns ordinary once out of patches. It has 4 patches determined by DM, 4 potions of healing, 1st lvl spell scroll, 100 gp, a mechanical riding horse w/ saddle bags & 2 each: dagger, bullseye lantern (filled & lit), steel mirror, 10-ft pole, 50 ft hemp rope, sack.",
+		descriptionFull : "This white robe has gold detailing, and all of its patterns look very orderly. The robe itself gives its wearer a sense of assuredness, as if there is a purpose to every action taken and seen. While wearing the robe, you can use an action to detach one of the patches, causing it to become the object or creature it represents. Once the last patch is removed, the robe becomes an ordinary garment.\n\nThe robe has two of each of the following patches:\n \u2022 Dagger\n \u2022 Bullseye lantern (filled and lit)\n \u2022 Steel mirror\n \u2022 10-foot pole\n \u2022 Hempen rope (50 feet, coiled)\n \u2022 Sack\n\nIn addition, the robe has 4 potions of healing, 1st lvl spell scroll, 100 gp, a mechanical riding horse w/ saddle bags & 4 patches determined by the DM. The DM chooses the patches or determines them randomly.\n\n" + toUni("d100\tPatch") + "\n01-08\tBag of 100 gp\n09-15\tSilver coffer (1 foot long, 6 inches wide and deep) worth 500 gp\n16-22\tIron door (up to 10 feet wide and 10 feet high, barred on one side of your choice), which you can place in an opening you can reach; it conforms to fit the opening, attaching and hinging itself\n23-30\t10 gems worth 100 gp each\n31-44\tWooden ladder (24 feet long)\n45-51\tA riding horse with saddle bags\n52-59\tPit (a cube 10 feet on a side), which you can place on the ground within 10 feet of you\n60-68\t4 potions of healing\n69-75\tRowboat (12 feet long)\n76-83\tSpell scroll containing one spell of 1st to 3rd level\n84-90\t2 mastiffs\n91-96\tWindow (2 feet by 4 feet, up to 2 feet deep), which you can place on a vertical surface you can reach\n97-00\tPortable ram",
+		weight : 4,
+		action : ["action", "Robe of Useful Items"],
+	},
 	"robe of useful items (ddal10-4)" : {
 		name : "Robe of Useful Items (DDAL10-4)",
 		source : [["AL","S10"]],
@@ -5818,26 +6853,6 @@ MagicItemsList["al outerwear"] = {
 		action : ["action", "Robe of Useful Items"],
 		savetxt : { immune : ["temps btwn -20 ̊ & 120 ̊ F"] },
 	},
-	"sea hag's cloak (ccc-gad1-1)" : {
-		name : "Sea Hag's Cloak (Cloak of the Manta Ray)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "B",
-		description : "This dark green cloak is sewn together from seaweed & kelp. While wearing it with its hood up, you can breathe underwater & have a swim speed of 60 ft. You also suffer no harm in temps from -20 ̊ F to 120 ̊ F. Pulling the hood up or down requires an action.",
-		descriptionFull : "This dark green cloak seems to be sewn together out of seaweed and kelp. Its wearer suffers no harm in temperatures as cold as -20 degrees Fahrenheit or as warm as 120 degrees Fahrenheit.\n   While wearing this cloak with its hood up, you can breathe underwater, and you have a swimming speed of 60 feet. Pulling the hood up or down requires an action.",
-		action : [["action", "Cloak of the Manta Ray (hood up/down)"]],
-		speed : { swim : { spd : "fixed 60", enc : "fixed 50" } },
-		savetxt : { immune : ["temps btwn -20 ̊ & 120 ̊ F"] }
-	},
-	"thayvian mantle of spell resistance (ccc-st2-1)" : {
-		name : "Thayvian Mantle of Spell Resistance (CCC-ST2-1)",
-		source : [["AL","CCC"]],
-		rarity : "rare",
-		magicItemTable : "G",
-		attunement : true,
-		savetxt : { adv_vs : ["spells"] },
-		description: "This crimson cloak is embroidered with golden sigils of Thay. When the wearer of this cloak is presented with an opportunity to act in a selfish or malevolent way, this item heightens their urge to do so. While attuned to and wearing this cloak, you have advantage on saving throws against spells."
-		},
 	"wings of flying (ccc-tri-4 roc1-2)" : {
 		name : "Wings of Flying (CCC-TRI-4 ROC1-2)",
 		source : [["AL","CCC"]],
@@ -5864,25 +6879,13 @@ MagicItemsList["al outerwear"] = {
 		action : [["action", " (start/stop)"]],
 		recovery : "1d12 h"
 	},
-	"winter wolf cloak (ddal0-13)" : {
-		name : "Winter Wolf Cloak (Hell Hound Cloak)",
-		source : [["AL","S10"]],
-		rarity : "rare",
-		magicItemTable : "H",
-		description : "This dark cloak is made of cured winter wolf hide. As an action, you can command this cloak to Polymorph you into a winter wolf for 1 hour, or until you stop it as a bonus action. The 6th time you use it and every time after, you must make a DC 15 Cha save or be stuck in winter wolf form until dispelled or you drop to 0 HP. If you remain in winter wolf form for 6 hours, it becomes permanent.",
-		descriptionFull : "This dark cloak is made of cured winter wolf hide. As an action, you can command the cloak to transform you into a winter wolf for up to 1 hour. The transformation otherwise functions as the Polymorph spell, but you can use a bonus action to revert to your normal form.\n   " + toUni("Curse") + ". This cloak is cursed with the essence of a winter wolf, and becoming attuned to it extends the curse to you. Until the curse is broken with Remove Curse or similar magic, you are unwilling to part with the cloak, keeping it within reach at all times.\n   The sixth time you use the cloak, and each time thereafter, you must make a DC 15 Charisma saving throw. On a failed save, the transformation lasts until dispelled or until you drop to 0 hit points, and you can't willingly return to normal form. If you ever remain in winter wolf form for 6 hours, the transformation becomes permanent and you lose your sense of self. All your statistics are then replaced by those of a winter wolf. Thereafter, only Remove Curse or similar magic allows you to regain your identity and return to normal. If you remain in this permanent form for 6 days, only a Wish spell can reverse the transformation.",
-		attunement : true,
-		weight : 1,
-		action : [["action", "Winter Wolf Cloak (Polymorph)"],["bonus action", "Winter Wolf Cloak (Revert)"]],
-		cursed : true
-		},
 }
 	
 MagicItemsList["al rings"] = {
 		name : "AL Rings",
 		type : "ring",
 		allowDuplicates : true,
-	choices : ["Ring of Animal Influence (DDAL4-13)","Ring of Earth Elemental Command (DDAL-DRWEP02)","Ring of Evasion (DDEX1-3)","Ring of Evasion (DDEP7-2)","Ring of Fire Resistance (DDEX1-5)", "Ring of Fire Resistance (DDAL8-8)","Ring of Free Action (DDAL9-10)","Ring of Invisibility (DDEP8-3)","Ring of Jumping (CCC-DDSC-2)","Ring of Jumping (DC-POA-CODEX-2)","Ring of Jumping (DC-POA-CONMAR-8)","Ring of Jumping (DC-POA-LEGIT-SV-2)","Ring of Jumping (DDAL5-10)","Ring of Jumping (DDEP7-2)","Ring of Mind Shielding (CCC-BMG-MOON5-3)","Ring of Mind Shielding (CCC-MTL-2)","Ring of Mind Shielding (CCC-TRI-33 DAGGR1-2)","Ring of Mind Shielding (DDEX2-6)","Ring of Mind Shielding (DDAL8-4)","Ring of Protection (DDEX3-15)", "Ring of the Ram (CCC-GHC-7)","Ring of the Ram (CCC-TRI-8 NIGHT1-4)","Ring of Regeneration (CCC-MIND1-2)","Ring of Shooting Stars (DDEP5-2)","Ring of Shooting Stars (DDAL8-15)","Ring of Spell Storing (CCC-ZIEGE-3)","Ring of Spell Storing (DDAL4-8)", "Ring of Spell Storing (DDEP5-2)","Ring of Swimming (CCC-ALMOG-27 DAGON1-2)","Ring of Swimming (DDAL5-6)","Ring of Telekinesis (DDEP0-1)","Ring of Truth Telling (DC-POA-CONMAR-15)","Ring of Warmth (CCC-CIC-16)","Ring of Warmth (CCC-ELF-1)","Ring of Warmth (CCC-WWC-5)","Ring of Water Walking (DDEX2-7)"],
+	choices : ["Ring of Animal Influence (DDAL4-13)","Ring of Earth Elemental Command (DDAL-DRWEP02)","Ring of Evasion (DDEP7-2)","Ring of Evasion (DDEX1-3)","Ring of Fire Resistance (DDAL8-8)","Ring of Fire Resistance (DDEX1-5)", "Ring of Free Action (DDAL9-10)","Ring of Invisibility (DDEP8-3)","Ring of Jumping (CCC-DDSC-2)","Ring of Jumping (DC-POA-CODEX-2)","Ring of Jumping (DC-POA-CONMAR-8)","Ring of Jumping (DC-POA-LEGIT-SV-2)","Ring of Jumping: Cat's Ring (DC-POA-TDG1-4)","Ring of Jumping (DDAL5-10)","Ring of Jumping (DDEP7-2)","Ring of Mind Shielding (CCC-BMG-MOON5-3)","Ring of Mind Shielding (CCC-MTL-2)","Ring of Mind Shielding (CCC-TRI-33 DAGGR1-2)","Ring of Mind Shielding (DDAL8-4)","Ring of Mind Shielding (DDEX2-6)","Ring of Protection (DDEX3-15)", "Ring of the Ram (CCC-GHC-7)","Ring of the Ram (CCC-TRI-8 NIGHT1-4)","Ring of Regeneration (CCC-MIND1-2)","Ring of Shooting Stars (DDAL8-15)","Ring of Shooting Stars (DDEP5-2)","Ring of Spell Storing (CCC-ZIEGE-3)","Ring of Spell Storing (DDAL4-8)", "Ring of Spell Storing (DDEP5-2)","Ring of Swimming (CCC-ALMOG-27 DAGON1-2)","Ring of Swimming (DDAL5-6)","Ring of Telekinesis (DDEP0-1)","Ring of Truth Telling (DC-POA-CONMAR-15)","Ring of Warmth (CCC-CIC-16)","Ring of Warmth (CCC-ELF-1)","Ring of Warmth (CCC-WWC-5)","Ring of Water Walking (DDEX2-7)"],
 	"ring of animal influence (ddal4-13)" : {
 		name : "Ring of Animal Influence (DDAL4-13)",
 		source : [["AL","S4"]],
@@ -5941,19 +6944,6 @@ MagicItemsList["al rings"] = {
 			},
 			limfeaname : "Ring of Earth Elemental Command"
 		},
-	"ring of evasion (ddex1-3)" : {
-		name : "Ring of Evasion (DDEX1-3)",
-		rarity : "rare",
-		source : [["AL","S1"]],
-		magicItemTable : "G",
-		attunement : true,
-		description: "This intricate thin silver ring is decorated w/ tiny opalescent stones & glows w/ a pale radiance (dim light, 5-ft radius) in moonlight. The ring has 3 charges, and it regains 1d3 expended charges daily at dawn. As a reaction when you fail a Dexterity saving throw while wearing it, you can expend 1 of its charges to succeed on that saving throw instead.",
-		limfeaname : "Ring of Evasion",
-		usages : 3,
-		recovery : "dawn",
-		additional : "regains 1d3",
-		action : [["reaction", ""]]
-			},
 	"ring of evasion (ddep7-2)" : {
 		name : "Ring of Evasion (DDEP7-2)",
 		rarity : "rare",
@@ -5967,21 +6957,34 @@ MagicItemsList["al rings"] = {
 		additional : "regains 1d3",
 		action : [["reaction", ""]]
 			},
-	"ring of fire resistance (ddex1-5)" : {
-		name : "Ring of Fire Resistance (DDEX1-5)",
-		source : [["AL","S1"]],
+	"ring of evasion (ddex1-3)" : {
+		name : "Ring of Evasion (DDEX1-3)",
 		rarity : "rare",
+		source : [["AL","S1"]],
 		magicItemTable : "G",
-		description: "This delicate copper ring is fitted with a beautiful fire agate and is always warm to the touch. While attuned to this wing and wearing it, you gain resistance to fire damage.",
 		attunement : true,
-		dmgres : ["Fire"]
-		},
+		description: "This intricate thin silver ring is decorated w/ tiny opalescent stones & glows w/ a pale radiance (dim light, 5-ft radius) in moonlight. The ring has 3 charges, and it regains 1d3 expended charges daily at dawn. As a reaction when you fail a Dexterity saving throw while wearing it, you can expend 1 of its charges to succeed on that saving throw instead.",
+		limfeaname : "Ring of Evasion",
+		usages : 3,
+		recovery : "dawn",
+		additional : "regains 1d3",
+		action : [["reaction", ""]]
+			},
 	"ring of fire resistance (ddal8-8)" : {
 		name : "Ring of Fire Resistance (DDAL8-8)",
 		source : [["AL","S8"]],
 		rarity : "rare",
 		magicItemTable : "G",
 		description: "This simple ring of twisted brass wire is warm to the touch. While attuned to this wing and wearing it, you gain resistance to fire damage.",
+		attunement : true,
+		dmgres : ["Fire"]
+		},
+	"ring of fire resistance (ddex1-5)" : {
+		name : "Ring of Fire Resistance (DDEX1-5)",
+		source : [["AL","S1"]],
+		rarity : "rare",
+		magicItemTable : "G",
+		description: "This delicate copper ring is fitted with a beautiful fire agate and is always warm to the touch. While attuned to this wing and wearing it, you gain resistance to fire damage.",
 		attunement : true,
 		dmgres : ["Fire"]
 		},
@@ -6093,6 +7096,29 @@ MagicItemsList["al rings"] = {
 			},
 		}
 	},
+	"ring of jumping: cat's ring (dc-poa-tdg1-4)" : {
+		name : "Cat's Ring (Ring of Jumping)",
+		source : [["AL","DC-POA"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "A symbol of a black cat holding a coin is emblazoned into this ring’s signet. While wearing it, you can cast the Jump spell from it as a bonus action at will, but can target only yourself when you do so.",
+		descriptionFull : "A symbol of a black cat holding a coin is emblazoned into the ring’s signet. While wearing the ring, you can cast the Jump spell from it as a bonus action at will, but can target only yourself when you do so.",
+		attunement : true,
+		action : [["bonus action", "Ring of Jumping"]],
+		spellcastingBonus : {
+			name : "Self Only",
+			spells : ["jump"],
+			selection : ["jump"],
+			firstCol : "atwill"
+		},
+		spellChanges : {
+			"jump" : {
+				time : "1 bns",
+				range : "Self",
+				changes : "The casting time is only a bonus action instead of an action and it can only affect the wearer."
+			},
+		}
+	},
 	"ring of jumping (ddal5-10)" : {
 		name : "Ring of Jumping (DDAL5-10)",
 		source : [["AL","S5"]],
@@ -6170,17 +7196,6 @@ MagicItemsList["al rings"] = {
 		action : [["action", "Ring of Mind Shielding: (in)visible"]],
 		savetxt : { immune : ["magic reading my thoughts, truthfulness, alignment, or creature type"] }
 		},
-	"ring of mind shielding (ddex2-6)" : {
-		name : "Ring of Mind Shielding (DDEX2-6)",
-		source : [["AL","S2"]],
-		rarity : "uncommon",
-		magicItemTable : "F",
-		description: "This plain, silver ring is engraved w/ the holy symbol of Ilmater, a pair of hands bound with cord. While wearing it, you're immune to magic that reads your thoughts, determines lies, knows alignment, or knows creature type. Creatures can mentally communicate w/ you only if allowed. Action to make the ring invisible. If you die while wearing the ring, your soul enters it, unless occupied. As long as your soul is in the ring, you can communicate w/ the wearer.",
-		descriptionFull : "This plain, silver ring is engraved w/ the holy symbol of Ilmater, a pair of hands bound with cord. While wearing this ring, you are immune to magic that allows other creatures to read your thoughts, determine whether you are lying, know your alignment, or know your creature type. Creatures can telepathically communicate with you only if you allow it.\n   You can use an action to cause the ring to become invisible until you use another action to make it visible, until you remove the ring, or until you die.\n   If you die while wearing the ring, your soul enters it, unless it already houses a soul. You can remain in the ring or depart for the afterlife. As long as your soul is in the ring, you can telepathically communicate with any creature wearing it. The wearer can't prevent this telepathic communication.",
-		attunement : true,
-		action : [["action", "Ring of Mind Shielding: (in)visible"]],
-		savetxt : { immune : ["magic reading my thoughts, truthfulness, alignment, or creature type"] }
-		},
 	"ring of mind shielding (ddal8-4)" : {
 		name : "Ring of Mind Shielding (DDAL8-4)",
 		source : [["AL","S8"]],
@@ -6188,6 +7203,17 @@ MagicItemsList["al rings"] = {
 		magicItemTable : "F",
 		description: "This ornate silver ring is engraved with the words “Be Where They Are Not” in the Alzhedo language of southwestern Faerûn. While wearing it, you're immune to magic that reads your thoughts, determines lies, knows alignment, or knows creature type. Creatures can mentally communicate w/ you only if allowed. Action to make the ring invisible. If you die while wearing the ring, your soul enters it, unless occupied. As long as your soul is in the ring, you can communicate w/ the wearer.",
 		descriptionFull : "This ornate silver ring is engraved with the words “Be Where They Are Not” in the Alzhedo language of southwestern Faerûn. While wearing this ring, you are immune to magic that allows other creatures to read your thoughts, determine whether you are lying, know your alignment, or know your creature type. Creatures can telepathically communicate with you only if you allow it.\n   You can use an action to cause the ring to become invisible until you use another action to make it visible, until you remove the ring, or until you die.\n   If you die while wearing the ring, your soul enters it, unless it already houses a soul. You can remain in the ring or depart for the afterlife. As long as your soul is in the ring, you can telepathically communicate with any creature wearing it. The wearer can't prevent this telepathic communication.",
+		attunement : true,
+		action : [["action", "Ring of Mind Shielding: (in)visible"]],
+		savetxt : { immune : ["magic reading my thoughts, truthfulness, alignment, or creature type"] }
+		},
+	"ring of mind shielding (ddex2-6)" : {
+		name : "Ring of Mind Shielding (DDEX2-6)",
+		source : [["AL","S2"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description: "This plain, silver ring is engraved w/ the holy symbol of Ilmater, a pair of hands bound with cord. While wearing it, you're immune to magic that reads your thoughts, determines lies, knows alignment, or knows creature type. Creatures can mentally communicate w/ you only if allowed. Action to make the ring invisible. If you die while wearing the ring, your soul enters it, unless occupied. As long as your soul is in the ring, you can communicate w/ the wearer.",
+		descriptionFull : "This plain, silver ring is engraved w/ the holy symbol of Ilmater, a pair of hands bound with cord. While wearing this ring, you are immune to magic that allows other creatures to read your thoughts, determine whether you are lying, know your alignment, or know your creature type. Creatures can telepathically communicate with you only if you allow it.\n   You can use an action to cause the ring to become invisible until you use another action to make it visible, until you remove the ring, or until you die.\n   If you die while wearing the ring, your soul enters it, unless it already houses a soul. You can remain in the ring or depart for the afterlife. As long as your soul is in the ring, you can telepathically communicate with any creature wearing it. The wearer can't prevent this telepathic communication.",
 		attunement : true,
 		action : [["action", "Ring of Mind Shielding: (in)visible"]],
 		savetxt : { immune : ["magic reading my thoughts, truthfulness, alignment, or creature type"] }
@@ -6255,13 +7281,13 @@ MagicItemsList["al rings"] = {
 		description : "This band of emerald is engraved with the face of a snarling troll. While healing you, the ring radiates a comfortable warmth & the troll’s expression changes to a wicked grin. While wearing this ring, you regain 1d6 hp every 10 min, provided that you have at least 1 hp. If you lose a body part, the ring regrows the missing part after 1d6+1 days if you have at least 1 hp the whole time.",
 		descriptionFull : "This band of emerald is engraved with the face of a snarling troll. While the ring works to heal its wearer, it radiates a comfortable warmth and the troll head’s expression changes to a wicked grin.\n   While wearing this ring, you regain 1d6 hit points every 10 minutes, provided that you have at least 1 hit point. If you lose a body part, the ring causes the missing part to regrow and return to full functionality after 1d6+1 days if you have at least 1 hit point the whole time."
 	},
-	"ring of shooting stars (ddep5-2)" : {
-		name : "Ring of Shooting Stars (DDEP5-2)",
-		source : [["AL","S5"]],
+	"ring of shooting stars (ddal8-15)" : {
+		name : "Ring of Shooting Stars (DDAL8-15)",
+		source : [["AL","S8"]],
 		rarity : "very rare",
 		magicItemTable : "H",
-		description : "This ring appears to be made of pure light w/ motes of twinkling radiance within. When used, rainbow sparks dance around the wearer’s hand. The ring has 6 charges & regains 1d6 charges at dawn. While wearing the ring in dim light/darkness, you can cast Dancing Lights & Light at will. As an action, expend charges to cast Faerie Fire, Ball Lightning, or Shooting Stars (see 3rd page notes). All spell DC 15.",
-		descriptionFull : "This ring appears to be made of pure light w/ motes of twinkling radiance within. When used, rainbow sparks dance around the wearer’s hand. While wearing this ring in dim light or darkness, you can cast Dancing Lights and Light from the ring at will. Casting either spell from the ring requires an action.\n   The ring has 6 charges for the following other properties. The ring regains 1d6 expended charges daily at dawn.\n   " + toUni("Faerie Fire") + ". You can expend 1 charge as an action to cast Faerie Fire from the ring.\n   " + toUni("Ball Lightning") + ". You can expend 2 charges as an action to create one to four 3-foot-diameter spheres of lightning. The more spheres you create, the less powerful each sphere is individually.\n   Each sphere appears in an unoccupied space you can see within 120 feet of you. The spheres last as long as you concentrate (as if concentrating on a spell), up to 1 minute. Each sphere sheds dim light in a 30-foot radius.\n   As a bonus action, you can move each sphere up to 30 feet, but no farther than 120 feet away from you. When a creature other than you comes within 5 feet of a sphere, the sphere discharges lightning at that creature and disappears. That creature must make a DC 15 Dexterity saving throw. On a failed save, the creature takes lightning damage based on the number of spheres you created (4 spheres = 2d4, 3 spheres = 2d6, 2 spheres = 5d4, 1 sphere = 4d12).\n   " + toUni("Shooting Stars") + ". \n   You can expend 1 to 3 charges as an action. For every charge you expend, you launch a glowing mote of light from the ring at a point you can see within 60 feet of you. Each creature within a 15-foot cube originating from that point is showered in sparks and must make a DC 15 Dexterity saving throw. taking 5d4 fire damage on a failed save, or half as much damage on a successful one.",
+		description : "While wearing this ring, you are filled with feelings of safety and contentment, unless you bear witness to the symbol of Shar. Then you feel only rage. The ring has 6 charges & regains 1d6 charges at dawn. While wearing the ring in dim light/darkness, you can cast Dancing Lights & Light at will. As an action, expend charges to cast Faerie Fire, Ball Lightning, or Shooting Stars (see 3rd page notes). All spell DC 15.",
+		descriptionFull : "While wearing this ring, you are filled with feelings of safety and contentment, unless you bear witness to the symbol of Shar. Then you feel only rage. While wearing this ring in dim light or darkness, you can cast Dancing Lights and Light from the ring at will. Casting either spell from the ring requires an action.\n   The ring has 6 charges for the following other properties. The ring regains 1d6 expended charges daily at dawn.\n   " + toUni("Faerie Fire") + ". You can expend 1 charge as an action to cast Faerie Fire from the ring.\n   " + toUni("Ball Lightning") + ". You can expend 2 charges as an action to create one to four 3-foot-diameter spheres of lightning. The more spheres you create, the less powerful each sphere is individually.\n   Each sphere appears in an unoccupied space you can see within 120 feet of you. The spheres last as long as you concentrate (as if concentrating on a spell), up to 1 minute. Each sphere sheds dim light in a 30-foot radius.\n   As a bonus action, you can move each sphere up to 30 feet, but no farther than 120 feet away from you. When a creature other than you comes within 5 feet of a sphere, the sphere discharges lightning at that creature and disappears. That creature must make a DC 15 Dexterity saving throw. On a failed save, the creature takes lightning damage based on the number of spheres you created (4 spheres = 2d4, 3 spheres = 2d6, 2 spheres = 5d4, 1 sphere = 4d12).\n   " + toUni("Shooting Stars") + ". \n   You can expend 1 to 3 charges as an action. For every charge you expend, you launch a glowing mote of light from the ring at a point you can see within 60 feet of you. Each creature within a 15-foot cube originating from that point is showered in sparks and must make a DC 15 Dexterity saving throw. taking 5d4 fire damage on a failed save, or half as much damage on a successful one.",
 		attunement : true,
 		toNotesPage : [{
 			name : "Ball Lightning",
@@ -6349,13 +7375,13 @@ MagicItemsList["al rings"] = {
 			}
 		}
 	},
-	"ring of shooting stars (ddal8-15)" : {
-		name : "Ring of Shooting Stars (DDAL8-15)",
-		source : [["AL","S8"]],
+	"ring of shooting stars (ddep5-2)" : {
+		name : "Ring of Shooting Stars (DDEP5-2)",
+		source : [["AL","S5"]],
 		rarity : "very rare",
 		magicItemTable : "H",
-		description : "While wearing this ring, you are filled with feelings of safety and contentment, unless you bear witness to the symbol of Shar. Then you feel only rage. The ring has 6 charges & regains 1d6 charges at dawn. While wearing the ring in dim light/darkness, you can cast Dancing Lights & Light at will. As an action, expend charges to cast Faerie Fire, Ball Lightning, or Shooting Stars (see 3rd page notes). All spell DC 15.",
-		descriptionFull : "While wearing this ring, you are filled with feelings of safety and contentment, unless you bear witness to the symbol of Shar. Then you feel only rage. While wearing this ring in dim light or darkness, you can cast Dancing Lights and Light from the ring at will. Casting either spell from the ring requires an action.\n   The ring has 6 charges for the following other properties. The ring regains 1d6 expended charges daily at dawn.\n   " + toUni("Faerie Fire") + ". You can expend 1 charge as an action to cast Faerie Fire from the ring.\n   " + toUni("Ball Lightning") + ". You can expend 2 charges as an action to create one to four 3-foot-diameter spheres of lightning. The more spheres you create, the less powerful each sphere is individually.\n   Each sphere appears in an unoccupied space you can see within 120 feet of you. The spheres last as long as you concentrate (as if concentrating on a spell), up to 1 minute. Each sphere sheds dim light in a 30-foot radius.\n   As a bonus action, you can move each sphere up to 30 feet, but no farther than 120 feet away from you. When a creature other than you comes within 5 feet of a sphere, the sphere discharges lightning at that creature and disappears. That creature must make a DC 15 Dexterity saving throw. On a failed save, the creature takes lightning damage based on the number of spheres you created (4 spheres = 2d4, 3 spheres = 2d6, 2 spheres = 5d4, 1 sphere = 4d12).\n   " + toUni("Shooting Stars") + ". \n   You can expend 1 to 3 charges as an action. For every charge you expend, you launch a glowing mote of light from the ring at a point you can see within 60 feet of you. Each creature within a 15-foot cube originating from that point is showered in sparks and must make a DC 15 Dexterity saving throw. taking 5d4 fire damage on a failed save, or half as much damage on a successful one.",
+		description : "This ring appears to be made of pure light w/ motes of twinkling radiance within. When used, rainbow sparks dance around the wearer’s hand. The ring has 6 charges & regains 1d6 charges at dawn. While wearing the ring in dim light/darkness, you can cast Dancing Lights & Light at will. As an action, expend charges to cast Faerie Fire, Ball Lightning, or Shooting Stars (see 3rd page notes). All spell DC 15.",
+		descriptionFull : "This ring appears to be made of pure light w/ motes of twinkling radiance within. When used, rainbow sparks dance around the wearer’s hand. While wearing this ring in dim light or darkness, you can cast Dancing Lights and Light from the ring at will. Casting either spell from the ring requires an action.\n   The ring has 6 charges for the following other properties. The ring regains 1d6 expended charges daily at dawn.\n   " + toUni("Faerie Fire") + ". You can expend 1 charge as an action to cast Faerie Fire from the ring.\n   " + toUni("Ball Lightning") + ". You can expend 2 charges as an action to create one to four 3-foot-diameter spheres of lightning. The more spheres you create, the less powerful each sphere is individually.\n   Each sphere appears in an unoccupied space you can see within 120 feet of you. The spheres last as long as you concentrate (as if concentrating on a spell), up to 1 minute. Each sphere sheds dim light in a 30-foot radius.\n   As a bonus action, you can move each sphere up to 30 feet, but no farther than 120 feet away from you. When a creature other than you comes within 5 feet of a sphere, the sphere discharges lightning at that creature and disappears. That creature must make a DC 15 Dexterity saving throw. On a failed save, the creature takes lightning damage based on the number of spheres you created (4 spheres = 2d4, 3 spheres = 2d6, 2 spheres = 5d4, 1 sphere = 4d12).\n   " + toUni("Shooting Stars") + ". \n   You can expend 1 to 3 charges as an action. For every charge you expend, you launch a glowing mote of light from the ring at a point you can see within 60 feet of you. Each creature within a 15-foot cube originating from that point is showered in sparks and must make a DC 15 Dexterity saving throw. taking 5d4 fire damage on a failed save, or half as much damage on a successful one.",
 		attunement : true,
 		toNotesPage : [{
 			name : "Ball Lightning",
@@ -6572,17 +7598,7 @@ MagicItemsList["al rods"] = {
 	name : "AL Rods",
 	type : "rod",
 	allowDuplicates : true,
-	choices : ["Chauncey’s Codbone Cosherer (CCC-COTN-1-1)","Immovable Rod (CCC-ALMOG-28 DAGON1-3)","Immovable Rod (CCC-CENTRIC1-3)","Immovable Rod (CCC-DWB-CW-1)","Immovable Rod (CCC-TRI-16 ALLY1-1)","Lor’Shon va’Na’eel, Rod of Absorption (DDAL0-2E)","Rod of Absorption (CCC-HATMS2-2)","Rod of Absorption (CCC-TRI-2 YUL1-2)","Rod of Alertness (DDAL0-3)","Rod of the Pact Keeper +1 (DDEX2-8)", "Rod of the Pact Keeper +2 (DDEX3-13)","Rod of the Pact Keeper +2 (DDAL9-20)","Rod of Resurrection (DDAL8-18)","Rod of Rulership (CCC-ELF-4)","Rod of Rulership (CCC-TRI-3 ROC1-1)","Rod of Security (DDAL0-1)"],
-	"chauncey’s codbone cosherer (ccc-cotn-1-1)" : {
-		name : "Chauncey’s Codbone Cosherer (Immovable Rod)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "B",
-		description : "This gnarled stick is a mix of bramble, vine & birchwood, twisted around the spine of a humongous Moonsea Cod. Druidic runes are etched in the handle, their meaning lost to the seasons. You can thread a line though the spine to a crude reel made of a sea chub’s skull. While activated, if any fish-like beasts are w/i 10ft, the skull exclaims, “You got a bite!”. Action to press button on end, magically fixing the rod in place or making it movable. Once fixed, it holds 8000 lb. More causes it to deactivate. DC 30 Str check to move 10ft.",
-		descriptionFull : "This gnarled stick is a warped mix of bramble, vine and birchwood, twisted around the spine of a humongous Moonsea Cod. Druidic runes are etched in the handle, their meaning, lost through the seasons. The fish spine permits threading of a line down to a crude reel made of a sea chub’s skull. While activated, if there are any fish-like beasts within 10ft. of the rod, it will shake, and the skull will excitedly exclaim, “You got a bite! You got a bite!”. There's a button on one end. You can use an action to press the button, which causes the rod to become magically fixed in place. Until you or another creature uses an action to push the button again, the rod doesn't move, even if it is defying gravity. The rod can hold up to 8,000 pounds of weight. More weight causes the rod to deactivate and fall. A creature can use an action to make a DC 30 Strength check, moving the fixed rod up to 10 feet on a success.",
-		weight : 2,
-		action : [["action", "Immovable Rod (activate/deactivate)"]]
-	},
+	choices : ["Immovable Rod (CCC-ALMOG-28 DAGON1-3)","Immovable Rod (CCC-CENTRIC1-3)","Immovable Rod: Chauncey’s Codbone Cosherer (CCC-COTN-1-1)","Immovable Rod (CCC-DWB-CW-1)","Immovable Rod (CCC-TRI-16 ALLY1-1)","Immovable Rod (CCC-RPSG-6)","Immovable Rod (CCC-RPSG-7)","Rod of Absorption (CCC-HATMS2-2)","Rod of Absorption (CCC-TRI-2 YUL1-2)","Rod of Absorption: Lor’Shon va’Na’eel (DDAL0-2E)","Rod of Alertness (DDAL0-3)","Rod of the Pact Keeper +1 (DDEX2-8)", "Rod of the Pact Keeper +2 (DDEX3-13)","Rod of the Pact Keeper +2 (DDAL9-20)","Rod of Resurrection (DDAL8-18)","Rod of Rulership (CCC-ELF-4)","Rod of Rulership (CCC-TRI-3 ROC1-1)","Rod of Security (DDAL0-1)"],
 	"immovable rod (ccc-almog-28 dagon1-3)" : {
 		name : "Immovable Rod (CCC-ALMOG-28 DAGON1-3)",
 		source : [["AL","CCC"]],
@@ -6600,6 +7616,16 @@ MagicItemsList["al rods"] = {
 		magicItemTable : "B",
 		description : "This flat iron rod has a button on one end. You can use an action to press the button, magically fixing the rod in place or making it movable. The rod speaks the word “on” or “off” in Modron, when activated or deactivated. Once fixed, it holds 8000 lb. More causes it to deactivate. DC 30 Str check to move 10ft.",
 		descriptionFull : "This flat iron rod has a button on one end. You can use an action to press the button, which causes the rod to become magically fixed in place. The rod speaks the word “on” or “off” in Modron, when activated or deactivated. Until you or another creature uses an action to push the button again, the rod doesn't move, even if it is defying gravity. The rod can hold up to 8,000 pounds of weight. More weight causes the rod to deactivate and fall. A creature can use an action to make a DC 30 Strength check, moving the fixed rod up to 10 feet on a success.",
+		weight : 2,
+		action : [["action", "Immovable Rod (activate/deactivate)"]]
+	},
+	"immovable rod: chauncey’s codbone cosherer (ccc-cotn-1-1)" : {
+		name : "Chauncey’s Codbone Cosherer (Immovable Rod)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "B",
+		description : "This gnarled stick is a mix of bramble, vine & birchwood, twisted around the spine of a humongous Moonsea Cod. Druidic runes are etched in the handle, their meaning lost to the seasons. You can thread a line though the spine to a crude reel made of a sea chub’s skull. While activated, if any fish-like beasts are w/i 10ft, the skull exclaims, “You got a bite!”. Action to press button on end, magically fixing the rod in place or making it movable. Once fixed, it holds 8000 lb. More causes it to deactivate. DC 30 Str check to move 10ft.",
+		descriptionFull : "This gnarled stick is a warped mix of bramble, vine and birchwood, twisted around the spine of a humongous Moonsea Cod. Druidic runes are etched in the handle, their meaning, lost through the seasons. The fish spine permits threading of a line down to a crude reel made of a sea chub’s skull. While activated, if there are any fish-like beasts within 10ft. of the rod, it will shake, and the skull will excitedly exclaim, “You got a bite! You got a bite!”. There's a button on one end. You can use an action to press the button, which causes the rod to become magically fixed in place. Until you or another creature uses an action to push the button again, the rod doesn't move, even if it is defying gravity. The rod can hold up to 8,000 pounds of weight. More weight causes the rod to deactivate and fall. A creature can use an action to make a DC 30 Strength check, moving the fixed rod up to 10 feet on a success.",
 		weight : 2,
 		action : [["action", "Immovable Rod (activate/deactivate)"]]
 	},
@@ -6623,26 +7649,25 @@ MagicItemsList["al rods"] = {
 		weight : 2,
 		action : [["action", "Immovable Rod (activate/deactivate)"]]
 	},
-	"lor’shon va’na’eel, rod of absorption (ddal0-2e)" : {
-		name : "Lor’Shon va’Na’eel, Rod of Absorption",
-		source : [["AL","S0"]],
-		rarity : "very rare",
-		magicItemTable : "H",
-		description : "The Lor’Shon va’Na’eel empathically imparts a seething hunger to destroy others' magic & funnel that power into the holder. The obsidian rod doesn't control your actions but fills your dreams w/ scorn for others who employ magic & hubris for your talents. When grasped, the end of this rod wraps firmly around your wrist. As a reaction, you can absorb a spell targeting only you, w/o an area of effect. It does nothing & its spell slot lvl is stored in the rod. You can expend these lvls as slots to power your own spells up to 5th-lvl. Once the rod has absorbed 50 lvls, the magic disappears.",
-		descriptionLong : "The Lor’Shon va’Na’eel empathically imparts a seething hunger to destroy the magic of others and funnel that power into the holder. The obsidian rod doesn't control your actions but fills your dreams with scorn for others who employ magic and hubris for your talents. When grasped by the attuned, the end of this rod wraps firmly around your wrist. As a reaction while holding this rod, you can use it to absorb a spell targeting only you and without an area of effect. The spell has no effect and its energy is stored in the rod. This energy has the same level as the spell when it was cast. Once the rod has absorbed 50 levels, it can absorb no more. You can expend these levels as if they are spell slots to power your own spells up to 5th-level and only for spell slot levels you have access to otherwise; i.e. you can expend 3 lvls to cast one of your spells using a 3rd-lvl spell slot. When the rod can't absorb any more lvls and has no energy left, it becomes nonmagical.",
-		descriptionFull : "The Lor’Shon va’Na’eel empathically imparts a seething hunger to destroy the magic of others and funnel that power into the holder. The obsidian rod does not control the owner’s actions but fills their dreams with scorn for others who employ magic and hubris for the owner’s talents. When grasped by the attuned, the end of this rod wraps firmly around the wielder’s wrist.\n   While holding this rod, you can use your reaction to absorb a spell that is targeting only you and not with an area of effect. The absorbed spell's effect is canceled, and the spell's energy\u2014not the spell itself\u2014is stored in the rod. The energy has the same level as the spell when it was cast. The rod can absorb and store up to 50 levels of energy over the course of its existence. Once the rod absorbs 50 levels of energy, it can't absorb more. If you are targeted by a spell that the rod can't store, the rod has no effect on that spell.\n   When you become attuned to the rod, you know how many levels of energy the rod has absorbed over the course of its existence, and how many levels of spell energy it currently has stored.\n   If you are a spellcaster holding the rod, you can convert energy stored in it into spell slots to cast spells you have prepared or know. You can create spell slots only of a level equal to or lower than your own spell slots, up to a maximum of 5th level. You use the stored levels in place of your slots, but otherwise cast the spell as normal. For example, you can use 3 levels stored in the rod as a 3rd-level spell slot.\n   A newly found rod has 1d10 levels of spell energy stored in it already. A rod that can no longer absorb spell energy and has no energy remaining becomes nonmagical.",
-		attunement : true,
+	"immovable rod (ccc-rpsg-6)" : {
+		name : "Immovable Rod (CCC-RPSG-6)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "B",
+		description : "This metal rod is spiked on one end. The other is capped in bronze & stamped with the emblem of the Pridebow Consortium - a drawn shortbow nocked with 3 arrows, upon a field of grass. You can use an action to press the button on one end, magically fixing the rod in place or making it movable. Once fixed, it holds 8000 lb. More causes it to deactivate. DC 30 Str check to move 10ft.",
+		descriptionFull : "This metal rod is spiked on one end. The other is capped in bronze and stamped with the emblem of the Pridebow Consortium - a drawn shortbow nocked with three arrows, across a field of grass.\n   This flat iron rod has a button on one end. You can use an action to press the button, which causes the rod to become magically fixed in place. Until you or another creature uses an action to push the button again, the rod doesn't move, even if it is defying gravity. The rod can hold up to 8,000 pounds of weight. More weight causes the rod to deactivate and fall. A creature can use an action to make a DC 30 Strength check, moving the fixed rod up to 10 feet on a success.",
 		weight : 2,
-		action : [["reaction", "Rod of Absorption"]],
-		extraLimitedFeatures : [{
-			name : "Rod of Absorption [Total Levels Absorbed]",
-			usages : 50,
-			recovery : "Never"
-		}, {
-			name : "Rod of Absorption [Stored Levels]",
-			usages : " ",
-			recovery : "Never"
-		}],
+		action : [["action", "Immovable Rod (activate/deactivate)"]]
+	},
+	"immovable rod (ccc-rpsg-7)" : {
+		name : "Immovable Rod (CCC-RPSG-7)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "B",
+		description : "This heavy cold gold rod has a wolf's head on one end. The wolf's eyes appear blood-red & glint unnaturally in the light. You can use an action to press the button on one end, magically fixing the rod in place or making it movable. Once fixed, it holds 8000 lb. More causes it to deactivate. DC 30 Str check to move 10ft.",
+		descriptionFull : "You receive a cold, heavy gold rod with a wolf's head on one end. The wolf's eyes - that appear to be blood-red, glint unnaturally in the light.\n   This flat iron rod has a button on one end. You can use an action to press the button, which causes the rod to become magically fixed in place. Until you or another creature uses an action to push the button again, the rod doesn't move, even if it is defying gravity. The rod can hold up to 8,000 pounds of weight. More weight causes the rod to deactivate and fall. A creature can use an action to make a DC 30 Strength check, moving the fixed rod up to 10 feet on a success.",
+		weight : 2,
+		action : [["action", "Immovable Rod (activate/deactivate)"]]
 	},
 	"rod of absorption (ccc-hatms2-2)" : {
 		name : "Rod of Absorption (CCC-HATMS2-2)",
@@ -6673,6 +7698,27 @@ MagicItemsList["al rods"] = {
 		description : "Made from the thigh bone of a Drow Matron, this rod has black veins along its length. You hear Lloth screaming w/ incoherent rage when absorbing spells & develop a fondness for spiders, which are often found near you. As a reaction while holding the rod, you can absorb spells targeting only you, w/o an area of effect. It does nothing & its spell slot lvl is stored in the rod. You can expend these lvls as slots to power your spells up to 5th-lvl. Once the rod has absorbed 50 lvls, the magic disappears.",
 		descriptionLong : "Made from the thigh bone of a Drow Matron of Lloth, this rod has black veins along its length. You hear Lloth screaming with incoherent rage when absorbing spells and develop a fondness for spiders of all types. Spiders tend to found near or on the wielder. As a reaction while holding this rod, you can use it to absorb a spell targeting only you & without an area of effect. The spell has no effect & its energy is stored in the rod. This energy has the same level as the spell when it was cast. Once the rod has absorbed 50 levels, it can absorb no more. You can expend these levels as if they are spell slots to power your own spells up to 5th-level & only for spell slot levels you have access to otherwise; i.e. you can expend 3 levels to cast one of your spells using a 3rd-level spell slot. When the rod can't absorb any more levels & has no energy left, it becomes nonmagical.",
 		descriptionFull : "Made from the thigh bone of a Drow Matron of Lloth, this rod has veins of midnight black along the length of it. When absorbing spell levels, the wielder hears Lloth screaming with incoherent rage as the spell is absorbed. While attuned to this item, the wielder develops a fondness for spiders of all types and spiders tend to found near or on the wielder.\n   While holding this rod, you can use your reaction to absorb a spell that is targeting only you and not with an area of effect. The absorbed spell's effect is canceled, and the spell's energy\u2014not the spell itself\u2014is stored in the rod. The energy has the same level as the spell when it was cast. The rod can absorb and store up to 50 levels of energy over the course of its existence. Once the rod absorbs 50 levels of energy, it can't absorb more. If you are targeted by a spell that the rod can't store, the rod has no effect on that spell.\n   When you become attuned to the rod, you know how many levels of energy the rod has absorbed over the course of its existence, and how many levels of spell energy it currently has stored.\n   If you are a spellcaster holding the rod, you can convert energy stored in it into spell slots to cast spells you have prepared or know. You can create spell slots only of a level equal to or lower than your own spell slots, up to a maximum of 5th level. You use the stored levels in place of your slots, but otherwise cast the spell as normal. For example, you can use 3 levels stored in the rod as a 3rd-level spell slot.\n   A newly found rod has 1d10 levels of spell energy stored in it already. A rod that can no longer absorb spell energy and has no energy remaining becomes nonmagical.",
+		attunement : true,
+		weight : 2,
+		action : [["reaction", "Rod of Absorption"]],
+		extraLimitedFeatures : [{
+			name : "Rod of Absorption [Total Levels Absorbed]",
+			usages : 50,
+			recovery : "Never"
+		}, {
+			name : "Rod of Absorption [Stored Levels]",
+			usages : " ",
+			recovery : "Never"
+		}],
+	},
+	"rod of absorption: lor’shon va’na’eel (ddal0-2e)" : {
+		name : "Lor’Shon va’Na’eel (Rod of Absorption)",
+		source : [["AL","S0"]],
+		rarity : "very rare",
+		magicItemTable : "H",
+		description : "The Lor’Shon va’Na’eel empathically imparts a seething hunger to destroy others' magic & funnel that power into the holder. The obsidian rod doesn't control your actions but fills your dreams w/ scorn for others who employ magic & hubris for your talents. When grasped, the end of this rod wraps firmly around your wrist. As a reaction, you can absorb a spell targeting only you, w/o an area of effect. It does nothing & its spell slot lvl is stored in the rod. You can expend these lvls as slots to power your own spells up to 5th-lvl. Once the rod has absorbed 50 lvls, the magic disappears.",
+		descriptionLong : "The Lor’Shon va’Na’eel empathically imparts a seething hunger to destroy the magic of others and funnel that power into the holder. The obsidian rod doesn't control your actions but fills your dreams with scorn for others who employ magic and hubris for your talents. When grasped by the attuned, the end of this rod wraps firmly around your wrist. As a reaction while holding this rod, you can use it to absorb a spell targeting only you and without an area of effect. The spell has no effect and its energy is stored in the rod. This energy has the same level as the spell when it was cast. Once the rod has absorbed 50 levels, it can absorb no more. You can expend these levels as if they are spell slots to power your own spells up to 5th-level and only for spell slot levels you have access to otherwise; i.e. you can expend 3 lvls to cast one of your spells using a 3rd-lvl spell slot. When the rod can't absorb any more lvls and has no energy left, it becomes nonmagical.",
+		descriptionFull : "The Lor’Shon va’Na’eel empathically imparts a seething hunger to destroy the magic of others and funnel that power into the holder. The obsidian rod does not control the owner’s actions but fills their dreams with scorn for others who employ magic and hubris for the owner’s talents. When grasped by the attuned, the end of this rod wraps firmly around the wielder’s wrist.\n   While holding this rod, you can use your reaction to absorb a spell that is targeting only you and not with an area of effect. The absorbed spell's effect is canceled, and the spell's energy\u2014not the spell itself\u2014is stored in the rod. The energy has the same level as the spell when it was cast. The rod can absorb and store up to 50 levels of energy over the course of its existence. Once the rod absorbs 50 levels of energy, it can't absorb more. If you are targeted by a spell that the rod can't store, the rod has no effect on that spell.\n   When you become attuned to the rod, you know how many levels of energy the rod has absorbed over the course of its existence, and how many levels of spell energy it currently has stored.\n   If you are a spellcaster holding the rod, you can convert energy stored in it into spell slots to cast spells you have prepared or know. You can create spell slots only of a level equal to or lower than your own spell slots, up to a maximum of 5th level. You use the stored levels in place of your slots, but otherwise cast the spell as normal. For example, you can use 3 levels stored in the rod as a 3rd-level spell slot.\n   A newly found rod has 1d10 levels of spell energy stored in it already. A rod that can no longer absorb spell energy and has no energy remaining becomes nonmagical.",
 		attunement : true,
 		weight : 2,
 		action : [["reaction", "Rod of Absorption"]],
@@ -6859,9 +7905,27 @@ MagicItemsList["al transport"] = {
 	name : "AL Transport",
 	type : "wondrous item",
 	allowDuplicates : true,	
-	choices : ["Auntie Sue's Broom (CCC-TAROT1-5)","Broom of Flying (CCC-TRI-13 OLMA1-3)","Carpet of Flying (CCC-GOC1-3)","The Choralier’s Companion (CCC-REAP-1)","Cubic Gate (DDAL8-17)","Dragonhide Saddle (CCC-GAD1-2)","Folding Boat (CCC-TAROT2-4)","Folding Boat (DDEP8-1)","Horseshoes of Speed (CCC-TAROT2-7)","Jeny's Special Helper (CCC-DES-1-6)","Merrenoloth Skiff (ALDMs9)","Saddle of the Cavalier (CCC-CENTRIC1-2)","Sovad's Staff of Flying (CCC-RPSG-1)"],
-	"auntie sue's broom (ccc-tarot1-5)" : {
-		name : "Auntie Sue's Broom (CCC-TAROT1-5)",
+	choices : ["Broom of Flying: Jeny's Special Helper (CCC-DES-1-6)","Broom of Flying: Sovad's Staff of Flying (CCC-RPSG-1)","Broom of Flying: Auntie Sue's Broom (CCC-TAROT1-5)","Broom of Flying (CCC-TRI-13 OLMA1-3)","Carpet of Flying (CCC-GOC1-3)","Cubic Gate (DDAL8-17)","Folding Boat: Merrenoloth Skiff (ALDMs9)","Folding Boat (CCC-TAROT2-4)","Folding Boat (DDEP8-1)","Horseshoes of Speed (CCC-TAROT2-7)","Saddle of the Cavalier (CCC-CENTRIC1-2)","Saddle of the Cavalier: Dragonhide Saddle (CCC-GAD1-2)","Saddle of the Cavalier: The Choralier’s Companion (CCC-REAP-1)"],
+	"broom of flying: jeny's special helper (ccc-des-1-6)" : {
+		name : "Jeny's Special Helper (Broom of Flying)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "This broom has seen 'gentle use' by Jeny Greenteeth & remains terribly stained despite all attempts to clean it. Sweeping with the broom creates more mess than it fixes. The broom hovers in the air when you speak the command word & can be ridden or sent alone up to 1 mile by naming a familiar location. It has a flying speed of 50 ft & holds up to 400 lb (30 ft speed if over 200 lb). It stops hovering when you land. With 2nd command, it flies to you if within 1 mile.",
+		descriptionFull : "This wooden broom, which weighs 3 pounds, functions like a mundane broom until you stand astride it and speak its command word. It then hovers beneath you and can be ridden in the air. It has a flying speed of 50 feet. It can carry up to 400 pounds, but its flying speed becomes 30 feet while carrying over 200 pounds. The broom stops hovering when you land.\n   You can send the broom to travel alone to a destination within 1 mile of you if you speak the command word, name the location, and are familiar with that place. The broom comes back to you when you speak another command word, provided that the broom is still within 1 mile of you.\n   This broom has seen 'gentle use' by Jeny Greenteeth, and it remains terribly stained despite all attempts to clean it, mundane or magical. Actually cleaning with the broom creates more mess than it fixes. Jeny is happy to provide this item to the adventurers, mostly because she is capable of using it as a scrying sensor (not that she would tell that to them).",
+		weight : 3
+	},
+	"broom of flying: sovad's staff of flying (ccc-rpsg-1)" : {
+		name : "Sovad's Staff of Flying (Broom of Flying)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "This oak staff is capped by an ebony triangle inscribed with Auran runes. When activated by the command word, it hovers in the air; ephemeral strands of spiraling energy bristle from one end & spectral wings unfurl from the other. The broom can be ridden or sent alone up to 1 mile by naming a familiar location. It has a flying speed of 50 ft & holds up to 400 lb (30 ft speed if over 200 lb). It stops hovering when you land. With a 2nd command, it flies to you if within 1 mile.",
+		descriptionFull : "This wooden broom, which weighs 3 pounds, functions like a mundane broom until you stand astride it and speak its command word. It then hovers beneath you and can be ridden in the air. It has a flying speed of 50 feet. It can carry up to 400 pounds, but its flying speed becomes 30 feet while carrying over 200 pounds. The broom stops hovering when you land.\n   You can send the broom to travel alone to a destination within 1 mile of you if you speak the command word, name the location, and are familiar with that place. The broom comes back to you when you speak another command word, provided that the broom is still within 1 mile of you.\n   This oaken walking staff is capped by a triangle of ebony inscribed with runes in Auran. When activated, ephemeral strands of spiraling energy bristle from one end and a pair of spectral wings unfurl from the other.",
+		weight : 3
+	},
+	"broom of flying: auntie sue's broom (ccc-tarot1-5)" : {
+		name : "Auntie Sue's Broom (Broom of Flying)",
 		source : [["AL","CCC"]],
 		rarity : "uncommon",
 		magicItemTable : "F",
@@ -6887,14 +7951,6 @@ MagicItemsList["al transport"] = {
 		description : "The natural fibers of this 5 ft \xD7 7 ft rug have been dyed with patterns of overlapping blue & red feathers. You can speak the carpet's command word as an action to make it hover & fly. The carpet moves according to your spoken directions if you're within 30 ft. It has a flying speed of 40 ft & can carry up to 1200 lb. If carrying more than 600 lb, its flying speed is reduced to 20 ft.",
 		descriptionFull : "The natural fibers of this 5-foot by 7-foot rug have been dyed with patterns of overlapping blue and red feathers.\n   You can speak the carpet's command word as an action to make the carpet hover and fly. It moves according to your spoken directions, provided that you are within 30 feet of it.\n   Four sizes of carpet of flying exist. The DM chooses the size of a given carpet or determines it randomly.\n\n" + toUni("d100\tSize\tCapacity\tFlying Speed") + "\n01-20\t3 \xD7 5 ft.\t  200 lb.\t  80 feet\n21-55\t4 \xD7 6 ft.\t  400 lb.\t  60 feet\n56-80\t5 \xD7 7 ft.\t  600 lb.\t  40 feet\n81-100\t6 \xD7 9 ft.\t  800 lb.\t  30 feet\n\nA carpet can carry up to twice the weight shown on the table, but it flies at half speed if it carries more than its normal capacity.",
 		action : [["action", "Carpet of Flying"]],
-	},
-	"the choralier’s companion (ccc-reap-1)" : {
-		name : "The Choralier’s Companion (Saddle of the Cavalier)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "B",
-		description : "Any mount that wears this saddle possesses a phenomenal gift for singing — the song selection, frequency, & volume depends on the temperament of the mount, but it’s beautiful & usually entertaining. This effect does not grant them any additional languages. While in this saddle on a mount, you can't be dismounted against your will if conscious, & atk rolls against the mount have disadv.",
-		descriptionFull : "Any mount that wears this saddle possesses a phenomenal gift for singing — the song selection, frequency, and volume depends on the temperament of the mount, but it’s beautiful and almost always entertaining. This effect does not grant any additional languages to the mount. While in this saddle on a mount, you can't be dismounted against your will if you're conscious, and attack rolls against the mount have disadvantage."
 	},
 	"cubic gate (ddal8-17)" : { // contains contributions by Larry Hoy
 		name : "Cubic Gate (DDAL8-17)",
@@ -6927,13 +7983,17 @@ MagicItemsList["al transport"] = {
 			}
 		}
 	},
-	"dragonhide saddle (ccc-gad1-2)" : {
-		name : "Dragonhide Saddle (Saddle of the Cavalier)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "B",
-		description : "This saddle is made of the hide & bones of a red dragon. The saddle never gets dirty, even in the grimiest environments. While in this saddle on a mount, you can't be dismounted against your will if conscious, & atk rolls against the mount have disadv.",
-		descriptionFull : "This saddle is made primarily of the hide & bones of a red dragon. The saddle never gets dirty, even in the grimiest environments. While in this saddle on a mount, you can't be dismounted against your will if you're conscious, and attack rolls against the mount have disadvantage."
+	"folding boat: merrenoloth skiff (aldms9)" : {
+		name : "Merrenoloth Skiff (Folding Boat)",
+		source : [["ALDMs9"]],
+		rarity : "rare",
+		magicItemTable : "C",
+		description : "As an action, speak 1 of 3 command words to change this wooden box into a boat, a ship, or to fold back up. The boat holds 4 Medium creatures & has oars, anchor, mast, & a sail. The ship holds 15 Medium creatures & has a deck, five sets of oars, rowing seats, a steering oar, anchor, deck cabin, & a mast. This Merrenoloth Skiff can be used safely on the River Styx.",
+		descriptionLong : "A wooden box of 12 inch \xD7 6 inch \xD7 6 inch, that can be opened to put items in. As an action, you can speak one of its three command words. The first causes it to unfold into a boat 10 ft \xD7 4 ft \xD7 2 ft, with oars, an anchor, a mast, and a lateen sail, which can hold four Medium creatures comfortably. The second causes it to unfold into a ship 24 ft \xD7 8 ft \xD7 6 ft, with a deck, rowing seats, five sets of oars, a steering oar, an anchor, a deck cabin, and a mast with a square sail, which can hold fifteen Medium creatures comfortably. Three causes it to fold up, leaving large objects placed in the boat/ship outside of the box. This Merrenoloth Skiff can be used safely on the River Styx.",
+		descriptionFull : "This object appears as a wooden box that measures 12 inches long, 6 inches wide, and 6 inches deep. It weighs 4 pounds and floats. It can be opened to store items inside. This item also has three command words, each requiring you to use an action to speak it.\n   One command word causes the box to unfold into a boat 10 feet long, 4 feet wide, and 2 feet deep. The boat has one pair of oars, an anchor, a mast, and a lateen sail. The boat can hold up to four Medium creatures comfortably.\n   The second command word causes the box to unfold into a ship 24 feet long, 8 feet wide; and 6 feet deep. The ship has a deck, rowing seats, five sets of oars, a steering oar, an anchor, a deck cabin, and a mast with a square sail. The ship can hold fifteen Medium creatures comfortably.\n   When the box becomes a vessel, its weight becomes that of a normal vessel its size, and anything that was stored in the box remains in the boat.\n   The third command word causes the folding boat to fold back into a box, provided that no creatures are aboard. Any objects in the vessel that can't fit inside the box remain outside the box as it folds. Any objects in the vessel that can fit inside the box do so. This Merrenoloth Skiff can be used safely on the River Styx.",
+		weight : 4,
+		limfeaname : "Merrenoloth Skiff (unfold/fold)",
+		action : [["action", ""]]
 	},
 	"folding boat (ccc-tarot2-4)" : {
 		name : "Folding Boat (CCC-TAROT2-4)",
@@ -6965,27 +8025,6 @@ MagicItemsList["al transport"] = {
 		description : "While all four shoes are affixed to the hooves of a horse or similar creature, they increase the creature's walking speed by 30 ft. While active, the horseshoes flicker like flames from a torch & shed light in a 20-ft radius.",
 		descriptionFull : "These iron horseshoes come in a set of four. While all four shoes are affixed to the hooves of a horse or similar creature, they increase the creature's walking speed by 30 feet. While active, these horseshoes flicker as if flames from a torch and shed light in a 20-foot radius."
 	},
-	"jeny's special helper (ccc-des-1-6)" : {
-		name : "Jeny's Special Helper (Broom of Flying)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		magicItemTable : "F",
-		description : "This broom has seen 'gentle use' by Jeny Greenteeth & remains terribly stained despite all attempts to clean it. Sweeping with the broom creates more mess than it fixes. The broom hovers in the air when you speak the command word & can be ridden or sent alone up to 1 mile by naming a familiar location. It has a flying speed of 50 ft & holds up to 400 lb (30 ft speed if over 200 lb). It stops hovering when you land. With 2nd command, it flies to you if within 1 mile.",
-		descriptionFull : "This wooden broom, which weighs 3 pounds, functions like a mundane broom until you stand astride it and speak its command word. It then hovers beneath you and can be ridden in the air. It has a flying speed of 50 feet. It can carry up to 400 pounds, but its flying speed becomes 30 feet while carrying over 200 pounds. The broom stops hovering when you land.\n   You can send the broom to travel alone to a destination within 1 mile of you if you speak the command word, name the location, and are familiar with that place. The broom comes back to you when you speak another command word, provided that the broom is still within 1 mile of you.\n   This broom has seen 'gentle use' by Jeny Greenteeth, and it remains terribly stained despite all attempts to clean it, mundane or magical. Actually cleaning with the broom creates more mess than it fixes. Jeny is happy to provide this item to the adventurers, mostly because she is capable of using it as a scrying sensor (not that she would tell that to them).",
-		weight : 3
-	},
-	"merrenoloth skiff (aldms9)" : {
-		name : "Merrenoloth Skiff (Folding Boat)",
-		source : [["ALDMs9"]],
-		rarity : "rare",
-		magicItemTable : "C",
-		description : "As an action, speak 1 of 3 command words to change this wooden box into a boat, a ship, or to fold back up. The boat holds 4 Medium creatures & has oars, anchor, mast, & a sail. The ship holds 15 Medium creatures & has a deck, five sets of oars, rowing seats, a steering oar, anchor, deck cabin, & a mast. This Merrenoloth Skiff can be used safely on the River Styx.",
-		descriptionLong : "A wooden box of 12 inch \xD7 6 inch \xD7 6 inch, that can be opened to put items in. As an action, you can speak one of its three command words. The first causes it to unfold into a boat 10 ft \xD7 4 ft \xD7 2 ft, with oars, an anchor, a mast, and a lateen sail, which can hold four Medium creatures comfortably. The second causes it to unfold into a ship 24 ft \xD7 8 ft \xD7 6 ft, with a deck, rowing seats, five sets of oars, a steering oar, an anchor, a deck cabin, and a mast with a square sail, which can hold fifteen Medium creatures comfortably. Three causes it to fold up, leaving large objects placed in the boat/ship outside of the box. This Merrenoloth Skiff can be used safely on the River Styx.",
-		descriptionFull : "This object appears as a wooden box that measures 12 inches long, 6 inches wide, and 6 inches deep. It weighs 4 pounds and floats. It can be opened to store items inside. This item also has three command words, each requiring you to use an action to speak it.\n   One command word causes the box to unfold into a boat 10 feet long, 4 feet wide, and 2 feet deep. The boat has one pair of oars, an anchor, a mast, and a lateen sail. The boat can hold up to four Medium creatures comfortably.\n   The second command word causes the box to unfold into a ship 24 feet long, 8 feet wide; and 6 feet deep. The ship has a deck, rowing seats, five sets of oars, a steering oar, an anchor, a deck cabin, and a mast with a square sail. The ship can hold fifteen Medium creatures comfortably.\n   When the box becomes a vessel, its weight becomes that of a normal vessel its size, and anything that was stored in the box remains in the boat.\n   The third command word causes the folding boat to fold back into a box, provided that no creatures are aboard. Any objects in the vessel that can't fit inside the box remain outside the box as it folds. Any objects in the vessel that can fit inside the box do so. This Merrenoloth Skiff can be used safely on the River Styx.",
-		weight : 4,
-		limfeaname : "Merrenoloth Skiff (unfold/fold)",
-		action : [["action", ""]]
-	},
 	"saddle of the cavalier (ccc-centric1-2)" : {
 		name : "Saddle of the Cavalier (CCC-CENTRIC1-2)",
 		source : [["AL","CCC"]],
@@ -6994,14 +8033,21 @@ MagicItemsList["al transport"] = {
 		description : "When this smooth ankheg shell is placed on a mount, it grows sticky to hold the saddle & rider in place. The phrase “words are bolder than actions” is engraved in Common on the front of the saddle. While in this saddle on a mount, you can't be dismounted against your will if conscious, & atk rolls against the mount have disadv.",
 		descriptionFull : "When this smooth ankheg shell is placed on a mount it grows sticky, holding both the saddle and rider in place. The phrase “words are bolder than actions” is engraved in Common to help mark the front of the saddle. While in this saddle on a mount, you can't be dismounted against your will if you're conscious, and attack rolls against the mount have disadvantage."
 	},
-	"sovad's staff of flying (ccc-rpsg-1)" : {
-		name : "Sovad's Staff of Flying (Broom of Flying)",
+	"saddle of the cavalier: dragonhide saddle (ccc-gad1-2)" : {
+		name : "Dragonhide Saddle (Saddle of the Cavalier)",
 		source : [["AL","CCC"]],
 		rarity : "uncommon",
-		magicItemTable : "F",
-		description : "This oak staff is capped by an ebony triangle inscribed with Auran runes. When activated by the command word, it hovers in the air; ephemeral strands of spiraling energy bristle from one end & spectral wings unfurl from the other. The broom can be ridden or sent alone up to 1 mile by naming a familiar location. It has a flying speed of 50 ft & holds up to 400 lb (30 ft speed if over 200 lb). It stops hovering when you land. With a 2nd command, it flies to you if within 1 mile.",
-		descriptionFull : "This wooden broom, which weighs 3 pounds, functions like a mundane broom until you stand astride it and speak its command word. It then hovers beneath you and can be ridden in the air. It has a flying speed of 50 feet. It can carry up to 400 pounds, but its flying speed becomes 30 feet while carrying over 200 pounds. The broom stops hovering when you land.\n   You can send the broom to travel alone to a destination within 1 mile of you if you speak the command word, name the location, and are familiar with that place. The broom comes back to you when you speak another command word, provided that the broom is still within 1 mile of you.\n   This oaken walking staff is capped by a triangle of ebony inscribed with runes in Auran. When activated, ephemeral strands of spiraling energy bristle from one end and a pair of spectral wings unfurl from the other.",
-		weight : 3
+		magicItemTable : "B",
+		description : "This saddle is made of the hide & bones of a red dragon. The saddle never gets dirty, even in the grimiest environments. While in this saddle on a mount, you can't be dismounted against your will if conscious, & atk rolls against the mount have disadv.",
+		descriptionFull : "This saddle is made primarily of the hide & bones of a red dragon. The saddle never gets dirty, even in the grimiest environments. While in this saddle on a mount, you can't be dismounted against your will if you're conscious, and attack rolls against the mount have disadvantage."
+	},
+	"saddle of the cavalier: the choralier’s companion (ccc-reap-1)" : {
+		name : "The Choralier’s Companion (Saddle of the Cavalier)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "B",
+		description : "Any mount that wears this saddle possesses a phenomenal gift for singing — the song selection, frequency, & volume depends on the temperament of the mount, but it’s beautiful & usually entertaining. This effect does not grant them any additional languages. While in this saddle on a mount, you can't be dismounted against your will if conscious, & atk rolls against the mount have disadv.",
+		descriptionFull : "Any mount that wears this saddle possesses a phenomenal gift for singing — the song selection, frequency, and volume depends on the temperament of the mount, but it’s beautiful and almost always entertaining. This effect does not grant any additional languages to the mount. While in this saddle on a mount, you can't be dismounted against your will if you're conscious, and attack rolls against the mount have disadvantage."
 	},
 }
 	
@@ -7010,120 +8056,7 @@ MagicItemsList["al wands"] = {
 		name : "AL Wands",
 		type : "wand",
 		allowDuplicates : true,
-	choices : ["Auntie Helena's Wand of Paralysis (CCC-TAROT2-3)","Ilmater's Respite, Wand of Smiles (CCC-ELF-3-2)","Rooster, Wand of Wonder (DDAL0-3)","Wand of Binding (DDAL4-10)","Wand of Fear (CCC-BMG-45 PHLAN4-3)","Wand of Fireballs (CCC-BWM-7-1)","Wand of Fireballs (CCC-WYC-1-3)","Wand of Magic Detection (DDEX1-2)", "Wand of Lightning Bolts (DDEX2-9)", "Wand of Lightning Bolts (DDEP7-2)","Wand of Lightning Bolts (DDAL8-9)","Wand of Magic Missiles (CCC-SKULL1-2)","Kianne Statuette, Wand of Magic Missiles (CCC-TAROT2-9)","Wand of Magic Missiles (CCC-WWC-1)","Wand of Paralysis (CCC-DWB-ANH-1)","Wand of Polymorph (CCC-TRI-20 YUL1-5)","Wand of Polymorph (DDAL7-13)","Wand of Polymorph (DDEP7-2)","Wand of Pyrotechnics (DC-POA-CONMAR-12)","Wand of Pyrotechnics (DC-POA-PND-1)","Wand of Pyrotechnics (DDAL0-7)","Wand of Secrets (CCC-COS-2-1)","Wand of Secrets (CCC-SQC-3-1)","Wand of Secrets (DDAL8-1)","Wand of Secrets (DDAL9-14)","Wand of Smiles (DDIA-XGE)","Wand of the War Mage +1 (DDEX3-10)","Wand of the War Mage +2 (CCC-ROZK1-1)","Wand of the War Mage +3 (CCC-MIND1-3)","Wand of the War Mage +3 (DDEP7-2)","Wand of Web (DDAL5-7)","Wand of Wonder (CCC-CIC-5)"],
-	"auntie helena's wand of paralysis (ccc-tarot2-3)" : {
-		name : "Auntie Helena's Wand of Paralysis (CCC-TAROT2-3)",
-		source : [["AL","CCC"]],
-		rarity : "rare",
-		magicItemTable : "G",
-		description : "This prickly gnarled piece of a corrupted Treant is activated by a drop of blood. It has 7 charges, regaining 1d6+1 at dawn. As an action, you can spend 1 charge to have a creature w/i 60 ft make a DC 15 Con save or be paralyzed for 1 min. It can repeat the save at the end of each turn. When a creature fails the save, they imagine themselves turning into a twisted, rotted tree. 5% chance the wand is destroyed when last charge used (1 on a d20).",
-		descriptionFull : "This prickly gnarled piece of a corrupted Treant requires a drop of blood to activate. When a creature fails their saving throw, they envision themselves turning into a twisted, rotted tree.\n   This wand has 7 charges. While holding it, you can use an action to expend 1 of its charges to cause a thin blue ray to streak from the tip toward a creature you can see within 60 feet of you. The target must succeed on a DC 15 Constitution saving throw or be paralyzed for 1 minute. At the end of each of the target's turns, it can repeat the saving throw, ending the effect on itself on a success.\n   The wand regains 1d6+1 expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand crumbles into ashes and is destroyed.",
-		attunement : true,
-		weight : 1,
-		prerequisite : "Requires attunement by a spellcaster",
-		prereqeval : function(v) { return v.isSpellcaster; },
-		action : [["action", "Wand of Paralysis"]]
-	},
-	"ilmater's respite, wand of smiles (ccc-elf-3-2)" : {
-		name : "Ilmater's Respite, Wand of Smiles (CCC-ELF-3-2)",
-		source : [["AL","CCC"]],
-		rarity : "common",
-		magicItemTable : "?",
-		description : "This wand crafted from an illithid tentacle feels like it's squirming in you hand. Anyone staring at it for a minute hears an ominous voice in their head: “WARNING: best used on strangers & loved ones.” It has 3 charges, regained at dawn. As an action, expend 1 charge & target a visible humanoid w/i 30 ft. The target must pass a DC 10 Charisma save or be forced to smile for 1 min. If you expend the last charge, roll a d20. On a 1, the wand turns into a wand of scowls.",
-		descriptionFull : "This wand crafted from an illithid tentacle feels like it is constantly squirming in the user’s hand. Anyone staring at the wand for a minute hears an ominous voice in their head: “WARNING: best used on strangers and loved ones.”\n  This wand has 3 charges. While holding it, you can use an action to expend 1 of its charges and target a humanoid you can see within 30 feet of you. The target must succeed on a DC 10 Charisma saving throw or be forced to smile for 1 minute.\n   The wand regains all expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand transforms into a wand of scowls.",
-		weight : 1,
-		limfeaname : "Wand of Smiles",
-		action : [["action", ""]],
-		usages : 3,
-		recovery : "dawn"
-	},
-	"rooster, wand of wonder (ddal0-3)" : {
-		name : "Rooster (Wand of Wonder)",
-		source : [["AL","S0"]],
-		rarity : "rare",
-		magicItemTable : "G",
-		description : "Rhaugilath’s efforts to record the history of the Netherese Empire sometimes incorporated unsavory elements, such as the transmogrification of a chaos sorcerer into this elegant wand. Covered in swirls, whorls, dizzying patterns, knobs, & clicky bits, it thrums & hums in your hand. The wand has 7 charges, regaining 1d6+1 at dawn. When using the last charge, 5% chance the wand is destroyed. As an action while holding it, expend 1 charge, choose a target w/i 120 ft, & roll a 1d100 to see the effect, see Notes page.",
-		descriptionFull : "Rhaugilath’s efforts to record the history of the Netherese Empire sometimes incorporated some unsavory elements… such as the transmogrification of a chaos sorcerer into this elegant wand. Covered in swirls, whorls, dizzying patterns, knobs, and clicky bits, it thrums and hums in your hand.\n   This wand has 7 charges. While holding it, you can use an action to expend 1 of its charges and choose a target within 120 feet of you. The target can be a creature, an object, or a point in space. Roll d100 and consult the following table to discover what happens." + desc([
-			"If the effect causes you to cast a spell from the wand, the spell's save DC is 15. If the spell normally has a range expressed in feet, its range becomes 120 feet if it isn't already.",
-			"If an effect covers an area, you must center the spell on and include the target. If an effect has multiple possible subjects, the DM randomly determines which ones are affected.",
-			"The wand regains 1d6+1 expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand crumbles into dust and is destroyed.\n",
-			toUni("d100 and effects"),
-			toUni("01-05") + ". You cast Slow.",
-			toUni("06-10") + ". You cast Faerie Fire.",
-			toUni("11-15") + ". You are stunned until the start of your next turn, believing something awesome just happened.",
-			toUni("16-20") + ". You cast Gust of Wind.",
-			toUni("21-25") + ". You cast Detect Thoughts on the target you chose. If you didn't target a creature, you instead take 1d6 psychic damage.",
-			toUni("26-30") + ". You cast Stinking Cloud.",
-			toUni("31-33") + ". Heavy rain falls in a 60-foot radius centered on the target. The area becomes lightly obscured. The rain falls until the start of your next turn.",
-			toUni("34-36") + ". An animal appears in the unoccupied space nearest the target. The animal isn't under your control and acts as it normally would. Roll a d100 to determine which animal appears. On a 01-25, a rhinoceros appears; on a 26-50, an elephant appears; and on a 51-100, a rat appears.",
-			toUni("37-46") + ". You cast Lightning Bolt.",
-			toUni("47-49") + ". A cloud of 600 oversized butterflies fills a 30-foot radius centered on the target. The area becomes heavily obscured. The butterflies remain for 10 minutes.",
-			toUni("50-53") + ". You enlarge the target as if you had cast Enlarge/Reduce. If the target can't be affected by that spell or if you didn't target a creature, you become the target.",
-			toUni("54-58") + ". You cast Darkness.",
-			toUni("59-62") + ". Grass grows on the ground in a 60-foot radius centered on the target. If grass is already there, it grows to ten times its normal size and remains overgrown for 1 minute.",
-			toUni("63-65") + ". An object of the DM's choice disappears into the Ethereal Plane. The object must be neither worn nor carried, within 120 feet of the target, and no larger than 10 feet in any dimension.",
-			toUni("66-69") + ". You shrink yourself as if you had cast Enlarge/Reduce on yourself.",
-			toUni("70-79") + ". You cast Fireball.",
-			toUni("80-84") + ". You cast Invisibility.",
-			toUni("85-87") + ". Leaves grow from the target. If you chose a point in space as the target, leaves sprout from the creature nearest to that point. Unless they are picked off, the leaves turn brown and fall off after 24 hours.",
-			toUni("88-90") + ". A stream of 1d4 \xD7 10 gems, each worth 1 gp, shoots from the wand's tip in a line 30 feet long and 5 feet wide. Each gem deals 1 bludgeoning damage, and the total damage of the gems is divided equally among all creatures in the line.",
-			toUni("91-95") + ". A burst of colorful shimmering light extends from you in a 30-foot radius. You and each creature in the area that can see must succeed on a DC 15 Constitution saving throw or become blinded for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.",
-			toUni("96-97") + ". The target's skin turns bright blue for 1d10 days. If you chose a point in space, the creature nearest to that point is affected.",
-			toUni("98-00") + ". If you targeted a creature, it must make a DC 15 Constitution saving throw. If you didn't target a creature, you become the target and must make the saving throw. If the saving throw fails by 5 or more, the target is instantly petrified. On any other failed save, the target is restrained and begins to turn to stone. While restrained in this way, the target must repeat the saving throw at the end of its next turn, becoming petrified on a failure or ending the effect on a success. The petrification lasts until the target is freed by the Greater Restoration spell or similar magic."
-		]),
-		attunement : true,
-		weight : 1,
-		prerequisite : "Requires attunement by a spellcaster",
-		prereqeval : function(v) { return v.isSpellcaster; },
-		usages : 7,
-		recovery : "dawn",
-		additional : "regains 1d6+1",
-		toNotesPage : [{
-			name : "Table of Effects",
-			popupName : "Wand of Wonder's Table of Effects",
-			note : [
-				"As an action I can expend 1 of the wand's 7 charges and choose a target within 120 ft of me. The target can be a creature, an object, or a point in space. Roll a d100 and consult the effect below to discover what happens.",
-				"If the effect causes me to cast a spell from the wand, the spell's save DC is 15. If the spell normally has a range expressed in feet, its range becomes 120 ft if it isn't already.",
-				"If an effect covers an area, I must center the spell on and include the target. If an effect has multiple possible subjects, the DM randomly determines which ones are affected.",
-				"\nd100 RESULT AND EFFECTS",
-				"01-05: I cast Slow.",
-				"06-10: I cast Faerie Fire.",
-				"11-15: I am stunned until the start of my next turn, believing something awesome just happened.",
-				"16-20: I cast Gust of Wind.",
-				"21-25: I cast Detect Thoughts on the target I chose. If I didn't target a creature, I instead take 1d6 psychic damage.",
-				"26-30: I cast Stinking Cloud.",
-				"31-33: Heavy rain falls in a 60-ft radius centered on the target. The area becomes lightly obscured. The rain falls until the start of my next turn.",
-				"34-36: An animal appears in the unoccupied space nearest the target. The animal isn't under my control and acts as it normally would. Roll a d100 to determine which animal appears. On a 01-25, a rhinoceros appears; on a 26-50, an elephant appears; and on a 51-100, a rat appears.",
-				"37-46: I cast Lightning Bolt.",
-				"47-49: A cloud of 600 oversized butterflies fills a 30-ft radius centered on the target. The area becomes heavily obscured. The butterflies remain for 10 minutes.",
-				"50-53: I enlarge the target as if I had cast Enlarge/Reduce. If the target can't be affected by that spell or if I didn't target a creature, I become the target.",
-				"54-58: I cast Darkness.",
-				"59-62: Grass grows on the ground in a 60-ft radius centered on the target. If grass is already there, it grows to ten times its normal size and remains overgrown for 1 minute.",
-				"63-65: An object of the DM's choice disappears into the Ethereal Plane. The object must be neither worn nor carried, within 120 ft of the target, and no larger than 10 ft in any dimension.",
-				"66-69: I shrink myself as if I had cast Enlarge/Reduce on myself.",
-				"70-79: I cast Fireball.",
-				"80-84: I cast Invisibility.",
-				"85-87: Leaves grow from the target. If I chose a point in space as the target, leaves sprout from the creature nearest to that point. Unless they are picked off, the leaves turn brown and fall off after 24 hours.",
-				"88-90: A stream of 1d4 \xD7 10 gems, each worth 1 gp, shoots from the wand's tip in a line 30 ft long and 5 ft wide. Each gem deals 1 bludgeoning damage, and the total damage of the gems is divided equally among all creatures in the line.",
-				"91-95: A burst of colorful shimmering light extends from me in a 30-ft radius. Me and each creature in the area that can see must succeed on a DC 15 Constitution saving throw or become blinded for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.",
-				"96-97: The target's skin turns bright blue for 1d10 days. If I chose a point in space, the creature nearest to that point is affected.",
-				"98-00: If I targeted a creature, it must make a DC 15 Constitution saving throw. If I didn't target a creature, I become the target and must make the saving throw. If the saving throw fails by 5 or more, the target is instantly petrified. On any other failed save, the target is restrained and begins to turn to stone. While restrained in this way, the target must repeat the saving throw at the end of its next turn, becoming petrified on a failure or ending the effect on a success. The petrification lasts until the target is freed by the Greater Restoration spell or similar magic."
-			]
-		}],
-		fixedDC : 15,
-		spellcastingBonus : {
-			name : "Random option",
-			spells : ["slow", "faerie fire", "gust of wind", "detect thoughts", "stinking cloud", "lightning bolt", "enlarge/reduce", "darkness", "fireball", "invisibility"],
-			selection : ["slow", "faerie fire", "gust of wind", "detect thoughts", "stinking cloud", "lightning bolt", "enlarge/reduce", "darkness", "fireball", "invisibility"],
-			times : 10
-		},
-		spellChanges : {
-			"darkness" : { range : "120 ft", changes : "All Wand of Wonder spells have a range of 120 ft." },
-			"enlarge/reduce" : { range : "120 ft", changes : "All Wand of Wonder spells have a range of 120 ft." },
-			"faerie fire" : { range : "120 ft", changes : "All Wand of Wonder spells have a range of 120 ft." },
-			"stinking cloud" : { range : "120 ft", changes : "All Wand of Wonder spells have a range of 120 ft." }
-		}
-	},
+	choices : ["Wand of Binding (DDAL4-10)","Wand of Fear (CCC-BMG-45 PHLAN4-3)","Wand of Fireballs (CCC-BWM-7-1)","Wand of Fireballs (CCC-WYC-1-3)","Wand of Magic Detection (DDEX1-2)", "Wand of Lightning Bolts (DDAL8-9)","Wand of Lightning Bolts (DDEP7-2)","Wand of Lightning Bolts (DDEX2-9)","Wand of Magic Missiles (CCC-SKULL1-2)","Wand of Magic Missiles: Kianne Statuette (CCC-TAROT2-9)","Wand of Magic Missiles (CCC-WWC-1)","Wand of Paralysis (CCC-DWB-ANH-1)","Wand of Paralysis: Auntie Helena's Wand (CCC-TAROT2-3)","Wand of Polymorph (CCC-TRI-20 YUL1-5)","Wand of Polymorph (DDAL7-13)","Wand of Polymorph (DDEP7-2)","Wand of Pyrotechnics (DC-POA-CONMAR-12)","Wand of Pyrotechnics (DC-POA-PND-1)","Wand of Pyrotechnics: Lucius' Incense (DC-POA-TDG1-5)","Wand of Pyrotechnics (DDAL0-7)","Wand of Secrets (CCC-COS-2-1)","Wand of Secrets (CCC-SQC-3-1)","Wand of Secrets (DDAL8-1)","Wand of Secrets (DDAL9-14)","Wand of Smiles: Ilmater's Respite (CCC-ELF-3-2)","Wand of Smiles (DDIA-XGE)","Wand of the War Mage +1 (DDEX3-10)","Wand of the War Mage +2 (CCC-ROZK1-1)","Wand of the War Mage +3 (CCC-MIND1-3)","Wand of the War Mage +3 (DDEP7-2)","Wand of the War Mage +3 (DDEP10-2)","Wand of Web (DDAL5-7)","Wand of Web (LN-1)","Wand of Wonder (CCC-CIC-5)","Wand of Wonder: Rooster (DDAL0-3)"],
 	"wand of binding (ddal4-10)" : {
 		name : "Wand of Binding (DDAL4-10)",
 		source : [["AL","S4"]],
@@ -7245,14 +8178,14 @@ MagicItemsList["al wands"] = {
 			}
 		}
 	},
-	"wand of lightning bolts (ddex2-9)" : {
-		name : "Wand of Lightning Bolts (DDEX2-9)",
-		source : [["AL","S2"]],
+	"wand of lightning bolts (ddal8-9)" : {
+		name : "Wand of Lightning Bolts (DDAL8-9)",
+		source : [["AL","S8"]],
 		rarity : "rare",
 		magicItemTable : "G",
 		attunement : true,
-		description: "This slender rod of glass feels solid, but appears to have a constant storm of thunderclouds roiling within. It has 7 charges, regaining 1d6+1 at dawn. As an action, you can expend 1 or more of its charges to cast Lightning Bolt (save DC 15) from it as a 3rd level spell. The spell slot level increases by 1 for each charge expended after the 1st. When using the last charge, 5% chance the wand is destroyed (1 on a d20).",
-		descriptionFull : "This slender rod of glass feels solid, but appears to have a constant storm of thunderclouds roiling within.  The wand has 7 charges. While holding it, you can use an action to expend 1 or more of its charges to cast the Lightning Bolt spell (save DC 15) from it. For 1 charge, you cast the 3rd-level version of the spell. You can increase the spell slot level by one for each additional charge you expend.\n   The wand regains 1d6+1 expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand crumbles into ashes and is destroyed.",
+		description: "This black wand is decorated with an intricate symbol of the dark goddess Shar. Each time this wand is used, the wielder forgets all their bonds for 10 minutes. It has 7 charges, regaining 1d6+1 at dawn. As an action, expend 1 or more of its charges to cast Lightning Bolt (save DC 15) from it as a 3rd level spell. The spell slot lvl increases by 1 for each charge expended after the 1st. When using the last charge, 5% chance the wand is destroyed (1 on a d20).",
+		descriptionFull : "This black wand is decorated with an intricate symbol of the dark goddess Shar. Each time this wand is used, the wielder forgets all their bonds for 10 minutes. The wand has 7 charges. While holding it, you can use an action to expend 1 or more of its charges to cast the Lightning Bolt spell (save DC 15) from it. For 1 charge, you cast the 3rd-level version of the spell. You can increase the spell slot level by one for each additional charge you expend.\n   The wand regains 1d6+1 expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand crumbles into ashes and is destroyed.",
 		weight : 1,
 		prerequisite : "Requires attunement by a spellcaster",
 		prereqeval : function(v) { return v.isSpellcaster; },
@@ -7305,14 +8238,14 @@ MagicItemsList["al wands"] = {
 				},
 			}
 		},
-	"wand of lightning bolts (ddal8-9)" : {
-		name : "Wand of Lightning Bolts (DDAL8-9)",
-		source : [["AL","S8"]],
+	"wand of lightning bolts (ddex2-9)" : {
+		name : "Wand of Lightning Bolts (DDEX2-9)",
+		source : [["AL","S2"]],
 		rarity : "rare",
 		magicItemTable : "G",
 		attunement : true,
-		description: "This black wand is decorated with an intricate symbol of the dark goddess Shar. Each time this wand is used, the wielder forgets all their bonds for 10 minutes. It has 7 charges, regaining 1d6+1 at dawn. As an action, expend 1 or more of its charges to cast Lightning Bolt (save DC 15) from it as a 3rd level spell. The spell slot lvl increases by 1 for each charge expended after the 1st. When using the last charge, 5% chance the wand is destroyed (1 on a d20).",
-		descriptionFull : "This black wand is decorated with an intricate symbol of the dark goddess Shar. Each time this wand is used, the wielder forgets all their bonds for 10 minutes. The wand has 7 charges. While holding it, you can use an action to expend 1 or more of its charges to cast the Lightning Bolt spell (save DC 15) from it. For 1 charge, you cast the 3rd-level version of the spell. You can increase the spell slot level by one for each additional charge you expend.\n   The wand regains 1d6+1 expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand crumbles into ashes and is destroyed.",
+		description: "This slender rod of glass feels solid, but appears to have a constant storm of thunderclouds roiling within. It has 7 charges, regaining 1d6+1 at dawn. As an action, you can expend 1 or more of its charges to cast Lightning Bolt (save DC 15) from it as a 3rd level spell. The spell slot level increases by 1 for each charge expended after the 1st. When using the last charge, 5% chance the wand is destroyed (1 on a d20).",
+		descriptionFull : "This slender rod of glass feels solid, but appears to have a constant storm of thunderclouds roiling within.  The wand has 7 charges. While holding it, you can use an action to expend 1 or more of its charges to cast the Lightning Bolt spell (save DC 15) from it. For 1 charge, you cast the 3rd-level version of the spell. You can increase the spell slot level by one for each additional charge you expend.\n   The wand regains 1d6+1 expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand crumbles into ashes and is destroyed.",
 		weight : 1,
 		prerequisite : "Requires attunement by a spellcaster",
 		prereqeval : function(v) { return v.isSpellcaster; },
@@ -7379,7 +8312,7 @@ MagicItemsList["al wands"] = {
 			}
 		}
 	},
-	"kianne statuette, wand of magic missiles (ccc-tarot2-9)" : {
+	"wand of magic missiles: kianne statuette (ccc-tarot2-9)" : {
 		name : "Kianne Statuette (Wand of Magic Missile)",
 		source : [["AL","CCC"]],
 		rarity : "uncommon",
@@ -7438,6 +8371,19 @@ MagicItemsList["al wands"] = {
 		magicItemTable : "G",
 		description : "This wand is durable & has dwarven runes worked into its design. It has 7 charges, regaining 1d6+1 at dawn. As an action, you can spend 1 charge to have a creature w/i 60 ft make a DC 15 Con save or be paralyzed for 1 min. It can repeat the save at the end of each turn. 5% chance the wand is destroyed when last charge used (1 on a d20).",
 		descriptionFull : "The item is durable and has Dwarven runes worked into its design.\n   This wand has 7 charges. While holding it, you can use an action to expend 1 of its charges to cause a thin blue ray to streak from the tip toward a creature you can see within 60 feet of you. The target must succeed on a DC 15 Constitution saving throw or be paralyzed for 1 minute. At the end of each of the target's turns, it can repeat the saving throw, ending the effect on itself on a success.\n   The wand regains 1d6+1 expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand crumbles into ashes and is destroyed.",
+		attunement : true,
+		weight : 1,
+		prerequisite : "Requires attunement by a spellcaster",
+		prereqeval : function(v) { return v.isSpellcaster; },
+		action : [["action", "Wand of Paralysis"]]
+	},
+	"wand of paralysis: auntie helena's wand (ccc-tarot2-3)" : {
+		name : "Auntie Helena's Wand of Paralysis (CCC-TAROT2-3)",
+		source : [["AL","CCC"]],
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "This prickly gnarled piece of a corrupted Treant is activated by a drop of blood. It has 7 charges, regaining 1d6+1 at dawn. As an action, you can spend 1 charge to have a creature w/i 60 ft make a DC 15 Con save or be paralyzed for 1 min. It can repeat the save at the end of each turn. When a creature fails the save, they imagine themselves turning into a twisted, rotted tree. 5% chance the wand is destroyed when last charge used (1 on a d20).",
+		descriptionFull : "This prickly gnarled piece of a corrupted Treant requires a drop of blood to activate. When a creature fails their saving throw, they envision themselves turning into a twisted, rotted tree.\n   This wand has 7 charges. While holding it, you can use an action to expend 1 of its charges to cause a thin blue ray to streak from the tip toward a creature you can see within 60 feet of you. The target must succeed on a DC 15 Constitution saving throw or be paralyzed for 1 minute. At the end of each of the target's turns, it can repeat the saving throw, ending the effect on itself on a success.\n   The wand regains 1d6+1 expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand crumbles into ashes and is destroyed.",
 		attunement : true,
 		weight : 1,
 		prerequisite : "Requires attunement by a spellcaster",
@@ -7542,6 +8488,19 @@ MagicItemsList["al wands"] = {
 		recovery : "dawn",
 		additional : "regains 1d6+1"
 	},
+	"wand of pyrotechnics: lucius' incense (dc-poa-tdg1-5)" : {
+		name : "Lucius’ Incense (Wand of Pyrotechnics)",
+		source : [["AL","DC-POA"]],
+		magicItemTable : "?",
+		description : "A yellow-orange wand with a thin red handle. It has 7 charges, regaining 1d6+1 at dawn, 5% chance it's destroyed when last charge used. As an action, you can expend 1 charge to create a harmless burst of sound & multi-colored light at a point you can see up to 60 ft away, w/ the noise traveling 300 ft. The light is as bright as a torch but lasts only a second.",
+		descriptionFull : "A yellow-orange wand with a thin red handle. The burst of multi-colored light is accompanied by a crackling noise that can be heard up to 300 feet away.\n   This wand has 7 charges. While holding it, you can use an action to expend 1 of its charges and create a harmless burst of multicolored light at a point you can see up to 60 feet away. The burst of light is accompanied by a crackling noise that can be heard up to 300 feet away. The light is as bright as a torch flame but lasts only a second.\n   The wand regains 1d6+1 expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand erupts in a harmless pyrotechnic display and is destroyed.",
+		weight : 1,
+		limfeaname : "Wand of Pyrotechnics",
+		action : [["action", ""]],
+		usages : 3,
+		recovery : "dawn",
+		additional : "regains 1d6+1"
+	},
 	"wand of pyrotechnics (ddal0-7)" : {
 		name : "Wand of Pyrotechnics (DDAL0-7)",
 		source : [["AL","S0"]],
@@ -7610,6 +8569,19 @@ MagicItemsList["al wands"] = {
 		recovery : "dawn",
 		additional : "regains 1d3",
 		action : [["action", ""]]
+	},
+	"wand of smiles: ilmater's respite (ccc-elf-3-2)" : {
+		name : "Ilmater's Respite (Wand of Smiles)",
+		source : [["AL","CCC"]],
+		rarity : "common",
+		magicItemTable : "?",
+		description : "This wand crafted from an illithid tentacle feels like it's squirming in you hand. Anyone staring at it for a minute hears an ominous voice in their head: “WARNING: best used on strangers & loved ones.” It has 3 charges, regained at dawn. As an action, expend 1 charge & target a visible humanoid w/i 30 ft. The target must pass a DC 10 Charisma save or be forced to smile for 1 min. If you expend the last charge, roll a d20. On a 1, the wand turns into a wand of scowls.",
+		descriptionFull : "This wand crafted from an illithid tentacle feels like it is constantly squirming in the user’s hand. Anyone staring at the wand for a minute hears an ominous voice in their head: “WARNING: best used on strangers and loved ones.”\n  This wand has 3 charges. While holding it, you can use an action to expend 1 of its charges and target a humanoid you can see within 30 feet of you. The target must succeed on a DC 10 Charisma saving throw or be forced to smile for 1 minute.\n   The wand regains all expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand transforms into a wand of scowls.",
+		weight : 1,
+		limfeaname : "Wand of Smiles",
+		action : [["action", ""]],
+		usages : 3,
+		recovery : "dawn"
 	},
 	"wand of smiles (ddia-xge)" : {
 		name : "Wand of Smiles (DDIA-XGE)",
@@ -7705,6 +8677,25 @@ MagicItemsList["al wands"] = {
 				]
 			}
 		},
+	"wand of the war mage +3 (ddep10-2)" : {
+		name : "Wand of the War Mage +3 (DDEP10-2)",
+		source : [["AL","S10"]],
+		rarity : "very rare",
+		magicItemTable : "H",
+		attunement : true,
+		weight : 1,
+		prerequisite : "Requires attunement by a spellcaster",
+		prereqeval : function(v) { return v.isSpellcaster; },
+		description : "The shaft of this wand is made of blackened bone covered in flecks of a strange, unidentifiable metal. While you are holding this arcane focus, you gain a +3 bonus to spell attack rolls and ignore half cover when making a spell attack.",
+		calcChanges : {
+			spellCalc : [
+				function (type, spellcasters, ability) {
+						if (type == "attack") return 3;
+					},
+					"I gain a +3 bonus to spell attack rolls."
+				]
+			}
+		},
 	"wand of web (ddal5-7)" : {
 		name : "Wand of Web (DDAL5-7)",
 		source : [["AL","S5"]],
@@ -7729,6 +8720,30 @@ MagicItemsList["al wands"] = {
 			firstCol : 1
 		}
 	},
+	"wand of web (ln-1)" : {
+		name : "Wand of Web (LN-1)",
+		source : ["AL:LN", 2021],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "This wand is made of twisted strands of dried ettercap silk & remains sticky to the touch no matter how it's cleaned. It has 7 charges & regains 1d6+1 expended charges at dawn. As an action, expend 1 charge to cast Web (save DC 15). When using the last charge, 5% chance the wand is destroyed.",
+		descriptionFull : "This wand is made of twisted strands of dried ettercap silk. It remains sticky to the touch no matter how it is cleaned. The wand has 7 charges. While holding it, you can use an action to expend 1 of its charges to cast the Web spell (save DC 15) from it.\n   The wand regains 1d6+1 expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand crumbles into ashes and is destroyed.",
+		attunement : true,
+		weight : 1,
+		prerequisite : "Requires attunement by a spellcaster",
+		prereqeval : function(v) { return v.isSpellcaster; },
+		limfeaname : "Wand of Web",
+		usages : 7,
+		recovery : "dawn",
+		additional : "regains 1d6+1",
+		spellFirstColTitle : "Ch",
+		fixedDC : 15,
+		spellcastingBonus : {
+			name : "1 charge",
+			spells : ["web"],
+			selection : ["web"],
+			firstCol : 1
+		}
+	},
 	"wand of wonder (ccc-cic-5)" : {
 		name : "Wand of Wonder (CCC-CIC-5)",
 		source : [["AL","CCC"]],
@@ -7736,6 +8751,93 @@ MagicItemsList["al wands"] = {
 		magicItemTable : "G",
 		description : "This golden wand decorated with a multitude of brightly covered spheres. The wand has 7 charges, regaining 1d6+1 at dawn. If you use the last charge, roll a d20. On a 1, the wand is destroyed. As an action while holding it, expend 1 charge, choose a target w/i 120 ft, & roll a 1d100 to see the effect, see Notes page.",
 		descriptionFull : "This golden wand decorated with a multitude of brightly covered spheres.\n   This wand has 7 charges. While holding it, you can use an action to expend 1 of its charges and choose a target within 120 feet of you. The target can be a creature, an object, or a point in space. Roll d100 and consult the following table to discover what happens." + desc([
+			"If the effect causes you to cast a spell from the wand, the spell's save DC is 15. If the spell normally has a range expressed in feet, its range becomes 120 feet if it isn't already.",
+			"If an effect covers an area, you must center the spell on and include the target. If an effect has multiple possible subjects, the DM randomly determines which ones are affected.",
+			"The wand regains 1d6+1 expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand crumbles into dust and is destroyed.\n",
+			toUni("d100 and effects"),
+			toUni("01-05") + ". You cast Slow.",
+			toUni("06-10") + ". You cast Faerie Fire.",
+			toUni("11-15") + ". You are stunned until the start of your next turn, believing something awesome just happened.",
+			toUni("16-20") + ". You cast Gust of Wind.",
+			toUni("21-25") + ". You cast Detect Thoughts on the target you chose. If you didn't target a creature, you instead take 1d6 psychic damage.",
+			toUni("26-30") + ". You cast Stinking Cloud.",
+			toUni("31-33") + ". Heavy rain falls in a 60-foot radius centered on the target. The area becomes lightly obscured. The rain falls until the start of your next turn.",
+			toUni("34-36") + ". An animal appears in the unoccupied space nearest the target. The animal isn't under your control and acts as it normally would. Roll a d100 to determine which animal appears. On a 01-25, a rhinoceros appears; on a 26-50, an elephant appears; and on a 51-100, a rat appears.",
+			toUni("37-46") + ". You cast Lightning Bolt.",
+			toUni("47-49") + ". A cloud of 600 oversized butterflies fills a 30-foot radius centered on the target. The area becomes heavily obscured. The butterflies remain for 10 minutes.",
+			toUni("50-53") + ". You enlarge the target as if you had cast Enlarge/Reduce. If the target can't be affected by that spell or if you didn't target a creature, you become the target.",
+			toUni("54-58") + ". You cast Darkness.",
+			toUni("59-62") + ". Grass grows on the ground in a 60-foot radius centered on the target. If grass is already there, it grows to ten times its normal size and remains overgrown for 1 minute.",
+			toUni("63-65") + ". An object of the DM's choice disappears into the Ethereal Plane. The object must be neither worn nor carried, within 120 feet of the target, and no larger than 10 feet in any dimension.",
+			toUni("66-69") + ". You shrink yourself as if you had cast Enlarge/Reduce on yourself.",
+			toUni("70-79") + ". You cast Fireball.",
+			toUni("80-84") + ". You cast Invisibility.",
+			toUni("85-87") + ". Leaves grow from the target. If you chose a point in space as the target, leaves sprout from the creature nearest to that point. Unless they are picked off, the leaves turn brown and fall off after 24 hours.",
+			toUni("88-90") + ". A stream of 1d4 \xD7 10 gems, each worth 1 gp, shoots from the wand's tip in a line 30 feet long and 5 feet wide. Each gem deals 1 bludgeoning damage, and the total damage of the gems is divided equally among all creatures in the line.",
+			toUni("91-95") + ". A burst of colorful shimmering light extends from you in a 30-foot radius. You and each creature in the area that can see must succeed on a DC 15 Constitution saving throw or become blinded for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.",
+			toUni("96-97") + ". The target's skin turns bright blue for 1d10 days. If you chose a point in space, the creature nearest to that point is affected.",
+			toUni("98-00") + ". If you targeted a creature, it must make a DC 15 Constitution saving throw. If you didn't target a creature, you become the target and must make the saving throw. If the saving throw fails by 5 or more, the target is instantly petrified. On any other failed save, the target is restrained and begins to turn to stone. While restrained in this way, the target must repeat the saving throw at the end of its next turn, becoming petrified on a failure or ending the effect on a success. The petrification lasts until the target is freed by the Greater Restoration spell or similar magic."
+		]),
+		attunement : true,
+		weight : 1,
+		prerequisite : "Requires attunement by a spellcaster",
+		prereqeval : function(v) { return v.isSpellcaster; },
+		usages : 7,
+		recovery : "dawn",
+		additional : "regains 1d6+1",
+		toNotesPage : [{
+			name : "Table of Effects",
+			popupName : "Wand of Wonder's Table of Effects",
+			note : [
+				"As an action I can expend 1 of the wand's 7 charges and choose a target within 120 ft of me. The target can be a creature, an object, or a point in space. Roll a d100 and consult the effect below to discover what happens.",
+				"If the effect causes me to cast a spell from the wand, the spell's save DC is 15. If the spell normally has a range expressed in feet, its range becomes 120 ft if it isn't already.",
+				"If an effect covers an area, I must center the spell on and include the target. If an effect has multiple possible subjects, the DM randomly determines which ones are affected.",
+				"\nd100 RESULT AND EFFECTS",
+				"01-05: I cast Slow.",
+				"06-10: I cast Faerie Fire.",
+				"11-15: I am stunned until the start of my next turn, believing something awesome just happened.",
+				"16-20: I cast Gust of Wind.",
+				"21-25: I cast Detect Thoughts on the target I chose. If I didn't target a creature, I instead take 1d6 psychic damage.",
+				"26-30: I cast Stinking Cloud.",
+				"31-33: Heavy rain falls in a 60-ft radius centered on the target. The area becomes lightly obscured. The rain falls until the start of my next turn.",
+				"34-36: An animal appears in the unoccupied space nearest the target. The animal isn't under my control and acts as it normally would. Roll a d100 to determine which animal appears. On a 01-25, a rhinoceros appears; on a 26-50, an elephant appears; and on a 51-100, a rat appears.",
+				"37-46: I cast Lightning Bolt.",
+				"47-49: A cloud of 600 oversized butterflies fills a 30-ft radius centered on the target. The area becomes heavily obscured. The butterflies remain for 10 minutes.",
+				"50-53: I enlarge the target as if I had cast Enlarge/Reduce. If the target can't be affected by that spell or if I didn't target a creature, I become the target.",
+				"54-58: I cast Darkness.",
+				"59-62: Grass grows on the ground in a 60-ft radius centered on the target. If grass is already there, it grows to ten times its normal size and remains overgrown for 1 minute.",
+				"63-65: An object of the DM's choice disappears into the Ethereal Plane. The object must be neither worn nor carried, within 120 ft of the target, and no larger than 10 ft in any dimension.",
+				"66-69: I shrink myself as if I had cast Enlarge/Reduce on myself.",
+				"70-79: I cast Fireball.",
+				"80-84: I cast Invisibility.",
+				"85-87: Leaves grow from the target. If I chose a point in space as the target, leaves sprout from the creature nearest to that point. Unless they are picked off, the leaves turn brown and fall off after 24 hours.",
+				"88-90: A stream of 1d4 \xD7 10 gems, each worth 1 gp, shoots from the wand's tip in a line 30 ft long and 5 ft wide. Each gem deals 1 bludgeoning damage, and the total damage of the gems is divided equally among all creatures in the line.",
+				"91-95: A burst of colorful shimmering light extends from me in a 30-ft radius. Me and each creature in the area that can see must succeed on a DC 15 Constitution saving throw or become blinded for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.",
+				"96-97: The target's skin turns bright blue for 1d10 days. If I chose a point in space, the creature nearest to that point is affected.",
+				"98-00: If I targeted a creature, it must make a DC 15 Constitution saving throw. If I didn't target a creature, I become the target and must make the saving throw. If the saving throw fails by 5 or more, the target is instantly petrified. On any other failed save, the target is restrained and begins to turn to stone. While restrained in this way, the target must repeat the saving throw at the end of its next turn, becoming petrified on a failure or ending the effect on a success. The petrification lasts until the target is freed by the Greater Restoration spell or similar magic."
+			]
+		}],
+		fixedDC : 15,
+		spellcastingBonus : {
+			name : "Random option",
+			spells : ["slow", "faerie fire", "gust of wind", "detect thoughts", "stinking cloud", "lightning bolt", "enlarge/reduce", "darkness", "fireball", "invisibility"],
+			selection : ["slow", "faerie fire", "gust of wind", "detect thoughts", "stinking cloud", "lightning bolt", "enlarge/reduce", "darkness", "fireball", "invisibility"],
+			times : 10
+		},
+		spellChanges : {
+			"darkness" : { range : "120 ft", changes : "All Wand of Wonder spells have a range of 120 ft." },
+			"enlarge/reduce" : { range : "120 ft", changes : "All Wand of Wonder spells have a range of 120 ft." },
+			"faerie fire" : { range : "120 ft", changes : "All Wand of Wonder spells have a range of 120 ft." },
+			"stinking cloud" : { range : "120 ft", changes : "All Wand of Wonder spells have a range of 120 ft." }
+		}
+	},
+	"wand of wonder: rooster (ddal0-3)" : {
+		name : "Rooster (Wand of Wonder)",
+		source : [["AL","S0"]],
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "Rhaugilath’s efforts to record the history of the Netherese Empire sometimes incorporated unsavory elements, such as the transmogrification of a chaos sorcerer into this elegant wand. Covered in swirls, whorls, dizzying patterns, knobs, & clicky bits, it thrums & hums in your hand. The wand has 7 charges, regaining 1d6+1 at dawn. When using the last charge, 5% chance the wand is destroyed. As an action while holding it, expend 1 charge, choose a target w/i 120 ft, & roll a 1d100 to see the effect, see Notes page.",
+		descriptionFull : "Rhaugilath’s efforts to record the history of the Netherese Empire sometimes incorporated some unsavory elements… such as the transmogrification of a chaos sorcerer into this elegant wand. Covered in swirls, whorls, dizzying patterns, knobs, and clicky bits, it thrums and hums in your hand.\n   This wand has 7 charges. While holding it, you can use an action to expend 1 of its charges and choose a target within 120 feet of you. The target can be a creature, an object, or a point in space. Roll d100 and consult the following table to discover what happens." + desc([
 			"If the effect causes you to cast a spell from the wand, the spell's save DC is 15. If the spell normally has a range expressed in feet, its range becomes 120 feet if it isn't already.",
 			"If an effect covers an area, you must center the spell on and include the target. If an effect has multiple possible subjects, the DM randomly determines which ones are affected.",
 			"The wand regains 1d6+1 expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand crumbles into dust and is destroyed.\n",

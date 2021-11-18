@@ -1,4 +1,5 @@
-/* This file adds optional material to "MPMB's Character Record Sheet" found at https://flapkan.com/mpmb/charsheets
+/* This file adds optional material to "MPMB's Character Record Sheet" found at https://flapkan.com/mpmb/charsheets and builds off the code of many fantastic people before me (MPMB in particular, but others as noted). It would not exist without them.
+
 ===Import this file using the "Add Extra Materials" bookmark.
 -KEEP IN MIND-
 It is recommended to enter the code in a fresh sheet before adding any other information (i.e. before making your character with it). 
@@ -16,22 +17,29 @@ var iFileName = "AL Creatures.js";
 RequiredSheetVersion(13);
 
 // Define the source
-SourceList["AL:FC"] = {
-    name : "Fai Chen & Other Certs",
+SourceList["AL:FC"] = {   //Fai Chen 
+    name : "Fai Chen Certs",
     abbreviation : "AL:FC",
     group : "Adventurers League",
     date : "Various"
 };
 
+SourceList["AL:EL"] = {   //AL specific Extra Life certs
+    name : "AL Extra Life Certs",
+    abbreviation : "AL:EL",
+    group : "Extra Life",
+    date : "Various"
+};
+
 SourceList["AL:SE"] = {
-    name : "AL Special Events (Opens & Premieres)",
+    name : "AL Special Events (Conventions/Opens/Premieres)",
     abbreviation : "AL:SE",
     group : "Adventurers League",
     date : "Various"
 };
  
 SourceList.DDCE = { //Only creatures from this category count as Event Awards under the new rules
-    name : "D&D Celebration Event 2020",
+    name : "D&D Celebration",
     abbreviation : "DDCE",
     group : "Adventurers League",
     date : "2020/09/19"
@@ -74,7 +82,9 @@ CreatureList["sea lion"] = {
 	source : ["GoS", 252],
 	size : 2,
 	type : "Beast",
+	companion : "companion",
 	subtype : "",
+
 	alignment : "Unaligned",
 	ac : 16,
 	hp : 15,
@@ -118,7 +128,7 @@ CreatureList["sea lion"] = {
 CreatureList["berserker"] = {
 	name : "Berserker",
 	header : "Summon",
-	source : ["SRD",""],
+	source : [["SRD",""],["AL","Item"]],
 	size : 3, //medium
 	type : "Humanoid",
 	subtype : "",
@@ -150,13 +160,13 @@ CreatureList["berserker"] = {
 	}]
 }
 
-
+//D&D Celebration Familiars
 /* Arctic Stink Squirrel
 This cuddly little brute makes a playful (if alarming) companion. 
 It can be summoned using find familiar and has the statistics of a weasel. 
 It can cast stinking cloud once per day, save DC 11. */
 CreatureList["arctic stink squirrel"] = {
-	name : "Arctic Stink Squirrel",
+	name : "Arctic Stink Squirrel (Event Award)",
 	source : ["DDCE"],
 	size : 5, //Tiny
 	type : "Beast",
@@ -205,7 +215,7 @@ This bizarre mutation is both devoted and dangerous.
 You can summon the chwinga squidling using find familiar.
 It has the statistics of a stirge with no fly speed. */
 CreatureList["chwinga squidling"] = {
-	name : "Chwinga Squidling",
+	name : "Chwinga Squidling (Event Award)",
 	source : ["DDCE"],
 	size : 5, //Tiny
 	type : "Beast",
@@ -245,7 +255,7 @@ You have a friendly psychic link with this tiny cube of death.
 You can summon the gelatinous ice cube using find familiar.
 It has the statistics of an oblex spawn. */
 CreatureList["gelatinous ice cube"] = {
-	name : "Gelatinous Ice Cube",
+	name : "Gelatinous Ice Cube (Event Award)",
 	source : ["DDCE"],
 	size : 5, //Tiny
 	type : "Ooze",
@@ -292,7 +302,7 @@ CreatureList["gelatinous ice cube"] = {
 The cub of this rare breed of tiny owlbear forms a loving bond with a single adventurer.  You can summon the owlbear cub using find familiar.
 It has the statistics of a cat. */
 CreatureList["snowy owlbear cub"] = {
-	name : "Snowy Owlbear Cub",
+	name : "Snowy Owlbear Cub (Event Award)",
 	source : ["DDCE"],
 	size : 5, //Tiny
 	type : "Beast",
@@ -332,14 +342,167 @@ CreatureList["snowy owlbear cub"] = {
 		}]
 };
 
-//Mini Displacer Beast: 
+
+//Special cert from the Beadle & Grimm Icewind Dale Premiere. Acts as a non-combat, non-mechanical companion unless you summon it with Find Familiar.
+CreatureList["yeti tyke"] = {
+		name : "Yeti Tyke",
+		source : ["AL:SE","IDRF:BG"],
+		size : 4, //Small
+		type : "Monstrosity",
+		alignment : "Lawful Evil",
+		subtype : "",
+		companion : "familiar",
+		ac : 11,
+		hp : 9,
+		hd : [2, 6],
+		speed : "20 ft, climb 20 ft",
+		scores : [10, 11, 12, 6, 8, 5],
+		senses : "Darkvision 60 ft",
+		passivePerception : 9,
+		languages : "Understands Yeti but can't speak",
+		challengeRating : "1/8",
+		proficiencyBonus : 2,
+		attacksAction : 1,
+		attacks : [{
+			name : "Claw",
+			ability : 1,
+			damage : [1, 4, "slashing"],
+			range : "Melee (5 ft)",
+			description : "+2 (1d4) cold damage",
+		}],
+		traits : [{	
+			name : "Description",
+			description : "Thanks to exposure to chardalyn, this yeti will remain forever small. For better or worse, it has taken a shining to you and delights in bringing you gifts of questionable origin and intent. Its wide eyes imply an innocence that you're quite certain it doesn't possess. It acts as a non-combat pet unless summoned with Find Familiar."
+		}],
+		features : [{
+			name : "Keen Smell",
+			description : "The yeti tyke has advantage on Wisdom (Perception) checks that rely on smell."
+		}, {
+			name : "Snow Camouflage",
+			description : "The yeti tyke has advantage on Dexterity (Stealth) checks made to hide in snowy terrain."
+		}],
+}
+
+
+
+//Creatures from Fai Chen Certs
+CreatureList["euphio the watch hound"] = {
+		name : "Euphio the Watch Hound",
+		source : ["AL:FC",2018],
+		size : 3, //Medium
+		type : "Beast",
+		companion : "familiar",
+		alignment : "Unaligned",
+		ac : 13,
+		hp : 5,
+		hd : [1, 8],
+		speed : "40 ft",
+		scores : [13, 14, 12, 3, 12, 7],
+		skills : {
+			"perception" : 3
+		},
+		senses : "Adv. on Wis (Perception) checks using hearing/smell",
+		passivePerception : 13,
+		challengeRating : "1/8",
+		proficiencyBonus : 2,
+		attacksAction : 1,
+		attacks : [{
+			name : "Bite",
+			ability : 1,
+			damage : [1, 6, "piercing"],
+			range : "Melee (5 ft)",
+			description : "Target must succeed on a DC 11 Strength saving throw or be knocked prone"
+		}],
+		features : [{
+			name : "Keen Hearing and Smell",
+			description : "The mastiff has advantage on Wisdom (Perception) checks that rely on hearing or smell."
+		}],
+		traits : [{
+			name : "Description",
+			description : "Euphio is a stalwart mastiff of impeccable breeding and even temperament who had the honor of guarding the Blackstaff for a time. He has his own set of custom leather barding emblazoned with the seal of the City of Splendors (AC 11 + Dex). The City Watch looks favorably on Euphio's owner, although that favor has limits. If slain, Euphio can be resummoned with Find Familiar."
+		}]
+	},
+	
+CreatureList["rollando, war rothe"] = {
+		name : "Rollando, War Roth\xE9",
+		source : ["AL:FC",2018],
+		size : 2, //Large
+		type : "Beast",
+		companion : "mount",
+		header : "Mount",
+		alignment : "Unaligned",
+		ac : 10,
+		hp : 15,
+		hd : [2, 10], //[#, die]
+		speed : "30 ft",
+		scores : [18, 10, 12, 2, 10, 4], //[Str, Dex, Con, Int, Wis, Cha]
+		senses : "Darkvision 30 ft",
+		passivePerception : 10,
+		challengeRating : "1/4",
+		proficiencyBonus : 2,
+		attacksAction : 1,
+	attacks : [{
+		name : "Gore",
+		ability : 1,
+		damage : [1, 6, "piercing"], //[#, die, type] "" for die is allowed
+		range : "Melee (5 ft)",
+		description : "If used after moving 20 ft straight in the same round, deals extra 2d6 damage (Charge)"
+	}],
+	features : [{
+		name : "Charge",
+		description : "If the Roth\xE9 moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 7 (2d6) piercing damage."
+	}],
+		traits : [{
+			name : "Description",
+			description : "Rollando is a saddle trained roth\xe9 owned by Bregan D'aerthe who escaped his pen and wandered the mean streets of Waterdeep. Fai Chen figured you would do well to own such a courageous beast. Rollando can be resummoned via find steed. He will not attack members of Bregan D'aerthe. Old loyalties die hard."
+	}]
+},
+
+	
+//This rare breed of arctic goat roams the mountains near Icewind Dale and makes an adorable animal companion or familiar. It has the statistics of a goat, but is size small.
+CreatureList["mini arctic goat"] = {
+		name : "Mini Arctic Goat",
+		source : ["AL:FC",2020],
+		size : 4, //Small
+		type : "Beast",
+		companion : "familiar",
+		alignment : "Unaligned",
+		ac : 10,
+		hp : 4,
+		hd : [1, 8],
+		speed : "40 ft",
+		scores : [12, 10, 11, 2, 10, 5],
+		senses : "",
+		passivePerception : 10,
+		challengeRating : "0",
+		proficiencyBonus : 2,
+		attacksAction : 1,
+		attacks : [{
+			name : "Ram",
+			ability : 1,
+			damage : [1, 4, "bludgeoning"],
+			range : "Melee (5 ft)",
+			description : "If used after moving 20 ft straight in the same round, see Charge trait"
+		}],
+		traits : [{
+			name : "Description",
+			description : "This rare breed of arctic goat roams the mountains near Icewind Dale and makes an adorable animal companion or familiar."
+		}, {
+			name : "Charge",
+			description : "If the goat hits with a ram attack after moving at least 20 ft straight toward a target on the same turn, the target takes an extra 1d4 bludgeoning damage. If the target is a creature, it must succeed on a DC 10 Strength saving throw or be knocked prone."
+		}, {
+			name : "Sure-Footed",
+			description : "The goat has advantage on Strength and Dexterity saving throws made against effects that would knock it prone."
+		}]
+	},
+	
+	
 //The result of magical experimentation, this cute critter makes a great animal companion. It has the statistics of a panther, though it can cast the blur spell once per day.
 CreatureList["mini displacer beast"] = {
 		name : "Mini Displacer Beast",
 		source : ["AL:FC",2020],
 		size : 3, //Medium
 		type : "Beast",
-		companion : "companion",
 		alignment : "Unaligned",
 		ac : 12,
 		hp : 13,
@@ -382,45 +545,10 @@ CreatureList["mini displacer beast"] = {
 			description : "The mini displacer beast can cast Blur once per day."
 		}]
 	},
-	
-//Fai Chen Purchase - Mini Arctic Goat
-//This rare breed of arctic goat roams the mountains near Icewind Dale and makes an adorable animal companion or familiar. It has the statistics of a goat, but is size small.
-CreatureList["mini arctic goat"] = {
-		name : "Mini Arctic Goat",
-		source : ["AL:FC",2020],
-		size : 4, //Small
-		type : "Beast",
-		companion : "familiar",
-		alignment : "Unaligned",
-		ac : 10,
-		hp : 4,
-		hd : [1, 8],
-		speed : "40 ft",
-		scores : [12, 10, 11, 2, 10, 5],
-		senses : "",
-		passivePerception : 10,
-		challengeRating : "0",
-		proficiencyBonus : 2,
-		attacksAction : 1,
-		attacks : [{
-			name : "Ram",
-			ability : 1,
-			damage : [1, 4, "bludgeoning"],
-			range : "Melee (5 ft)",
-			description : "If used after moving 20 ft straight in the same round, see Charge trait"
-		}],
-		traits : [{
-			name : "Description",
-			description : "This rare breed of arctic goat roams the mountains near Icewind Dale and makes an adorable animal companion or familiar."
-		}, {
-			name : "Charge",
-			description : "If the goat hits with a ram attack after moving at least 20 ft straight toward a target on the same turn, the target takes an extra 1d4 bludgeoning damage. If the target is a creature, it must succeed on a DC 10 Strength saving throw or be knocked prone."
-		}, {
-			name : "Sure-Footed",
-			description : "The goat has advantage on Strength and Dexterity saving throws made against effects that would knock it prone."
-		}]
-	},
-	
+
+
+
+//Special Creatures from AL modules
 //Can only be used with approval from DM or the season 5 AL Story Award
 CreatureList["quasit (familiar variant)"] = {
 		name : "Quasit (Familiar Variant)",
@@ -429,6 +557,7 @@ CreatureList["quasit (familiar variant)"] = {
 		type : "Fiend",
 		subtype : "demon",
 		companion : "pact_of_the_chain",
+		header : "Familiar",
 		alignment : "Chaotic Evil",
 		ac : 13,
 		hp : 7,
@@ -486,6 +615,7 @@ CreatureList["celestial gold pseudodragon"] = {
 		size : 5, //Tiny
 		type : "Celestial",
 		companion : "familiar",
+		header : "Familiar",
 		alignment : "Lawful Good",
 		ac : 13,
 		hp : 7,
@@ -533,29 +663,30 @@ CreatureList["celestial gold pseudodragon"] = {
 
 //Story award from CCC-SQC-2-1
 CreatureList["the crazy squirrel"] = {
-	name : "The Crazy Squirrel",
-	source : [["AL","CCC"]],
-	size : 5, //Tiny
-	type : "Beast",
-	subtype : "",
-	companion : "familiar",
-	alignment : "Unaligned",
-	ac : 12,
-	hp : 2,
-	hd : [1, 4],
-	speed : "40 ft, climb 30 ft",
-	scores : [3, 15, 10, 3, 12, 7],
-	saves : ["", "", "", "", "", ""],
-	skills : {
+		name : "The Crazy Squirrel",
+		source : [["AL","CCC"]],
+		size : 5, //Tiny
+		type : "Beast",
+		subtype : "",
+		companion : "familiar",
+		header : "Familiar",
+		alignment : "Unaligned",
+		ac : 12,
+		hp : 2,
+		hd : [1, 4],
+		speed : "40 ft, climb 30 ft",
+		scores : [3, 15, 10, 3, 12, 7],
+		saves : ["", "", "", "", "", ""],
+		skills : {
 		"perception" : 3,
 		"stealth" : 4
 		},
-	senses : "Adv. on Wis (Perception) checks using smell",
-	passivePerception : 13,
-	languages : "",
-	challengeRating : "0",
-	proficiencyBonus : 2,
-	attacksAction : 1,
+		senses : "Adv. on Wis (Perception) checks using smell",
+		passivePerception : 13,
+		languages : "",
+		challengeRating : "0",
+		proficiencyBonus : 2,
+		attacksAction : 1,
 	attacks : [{
 		name : "Claws",
 		ability : 2,
@@ -573,14 +704,14 @@ CreatureList["the crazy squirrel"] = {
 		}]
 }
 	
+	
 //Special cert from the House of Lament premier. Only usable in Mist Hunters adventures.
-CreatureList["penumbra (gremishka)"] = {
-		name : "Penumbra (Gremishka)",
+CreatureList["penumbra the gremishka"] = {
+		name : "Penumbra the Gremishka",
 		source : ["AL:SE","HoL"],
 		size : 5, //Tiny
 		type : "Monstrosity",
 		subtype : "",
-		companion : "companion",
 		ac : 12,
 		hp : 10,
 		hd : [4, 4],
@@ -621,6 +752,7 @@ CreatureList["imp courier"] = {
 		type : "Fiend",
 		subtype : "devil",
 		companion : "familiar",
+		header : "Familiar",
 		alignment : "Lawful Evil",
 		ac : 13,
 		hp : 10,
@@ -672,6 +804,7 @@ CreatureList["imp toady"] = {
 		type : "Fiend",
 		subtype : "devil",
 		companion : "familiar",
+		header : "Familiar",
 		alignment : "Lawful Evil",
 		ac : 13,
 		hp : 10,
@@ -722,6 +855,7 @@ CreatureList["infernal pseudodragon"] = {
 		size : 5, //Tiny
 		type : "Dragon",
 		companion : "familiar",
+		header : "Familiar",
 		alignment : "Lawful Evil",
 		ac : 13,
 		hp : 7,
@@ -773,6 +907,7 @@ CreatureList["bone whelk"] = {
 		size : 2, //Large
 		type : "Monstrosity",
 		companion : "mount",
+		header : "Mount",
 		alignment : "Unaligned",
 		ac : 12,
 		hp : 27,
@@ -808,6 +943,7 @@ CreatureList["hellwasp"] = {
 		size : 2, //Large
 		type : "Fiend",
 		companion : "mount",
+		header : "Mount",
 		alignment : "Lawful Evil",
 		ac : 19,
 		hp : 52,
@@ -879,7 +1015,7 @@ CreatureList["candy corn calico cat"] = {
 			description : "The cat has advantage on Wisdom (Perception) checks that rely on smell."
 		}, {
 			name : "Candy Corn Nature",
-			description : "This construct is made entirely of partially chewed candy corns. They use cat stats (construct) and can also be a familiar or animal companion."
+			description : "This construct is made entirely of partially chewed candy corns. They use cat stats (construct) and can be a familiar or animal companion."
 		}]
 	}
 	
@@ -914,7 +1050,7 @@ CreatureList["foxwere"] = {
 		}],
 		traits : [{
 			name : "Foxwere Pet",
-			description : "This foxwere adopted you as their family. They can also be a familiar or animal companion. They are careful and never pass on the lycanthropy curse."
+			description : "This foxwere adopted you as their family. They can be a familiar or animal companion. They are careful and never pass on the lycanthropy curse."
 		}, {
 			name : "Shapechanging",
 			description : "Selûne transformed a fox to serve as your guide. Now, as a foxwere, they have two forms, fox (true form) and fox-humanoid hybrid (only on a full moon).\n   The foxwere does not control their transformations. Every full moon, the foxwere instantly polymorphs into their fox-humanoid hybrid form. Their statistics are the same in each form. They revert into their true form when the moon is not full or if they die."
@@ -931,6 +1067,7 @@ CreatureList["fritter the 7-legged spider"] = {
 		size : 2, //Large
 		type : "Beast",
 		companion : "mount",
+		header : "Mount",
 		alignment : "Unaligned",
 		ac : 14,
 		hp : 26,
@@ -963,7 +1100,8 @@ CreatureList["fritter the 7-legged spider"] = {
 		traits : [{
 			name : "Description",
 			description : "The Kernel insists that this tarantula of unusual size is house-trained. Fritter wears a harness made of definitely-not-humanoid-teeth-how-dare-you and woven spiderwebs. If killed, Fritter can be summoned via find steed or find greater steed."
-		}, {
+		}],
+		features : [{
 			name : "Spider Climb",
 			description : "The spider can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check. However, Fritter has an intense fear of heights. You must succeed a DC 15 Wisdom (Animal Handling) check to convince Fritter to use their spider climb ability."
 		}, {
@@ -985,6 +1123,7 @@ CreatureList["marzipan, the skeletal warhorse"] = {
 		size : 2, //Large
 		type : "Undead",
 		companion : "mount",
+		header : "Mount",
 		alignment : "Unaligned",
 		ac : 11,
 		hp : 19,
@@ -1015,7 +1154,65 @@ CreatureList["marzipan, the skeletal warhorse"] = {
 		}]
 	}
 	
-	
+
+//Extra Life Certs
+CreatureList["glitter elemental"] = {
+		name : "Glitter Elemental",
+		source : [["AL:EL", 2021]],
+		size : 4, //Small
+		type : "Elemental",
+		companion : "familiar",
+		alignment : "Chaotic Good",
+		ac : 12,
+		hp : 17,
+		hd : [5, 6],
+		speed : "30 ft, fly 30 ft",
+		scores : [5, 14, 10, 9, 11, 10],
+		skills : {
+			"perception" : 2,
+			"stealth" : 4
+		},
+		senses : "Darkvision 60 ft",
+		passivePerception : 12,
+		languages : "Common",
+		challengeRating : "1/2",
+		proficiencyBonus : 2,
+		attacksAction : 1,
+		damage_vulnerabilities : "fire",
+		damage_immunities : "poison",
+		condition_immunities : "blinded",
+		attacks : [{
+			name : "Claws",
+			ability : 2,
+			damage : [1, 4, "slashing"],
+			range : "Melee (5 ft)",
+			description : ""
+		}, {
+			name : "Blinding Breath (Recharge 6)",
+			ability : 3,
+			damage : ["Dex save", "", "Blinded"],
+			range : "15-ft cone",
+			description : "Hits all in area; Dex save or blinded for 1 min; Affected can repeat save at end of each turn",
+			dc : true,
+			abilitytodamage : false,
+			tooltip : "The glitter elemental exhales a 15-ft cone of blinding glitter. Each creature in that area must succeed on a DC 10 Dexterity saving throw or be blinded for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
+		}],
+		features : [{
+			name : "Death Burst",
+			description : "When the glitter elemental dies, it explodes in a burst of glitter. Each creature within 5 ft of it must then succeed on a DC 10 Constitution saving throw or be blinded for 1 minute. A blinded creature can repeat the saving throw on each of its turns, ending the effect on itself on a success."
+		}],
+		traits : [{
+			name : "Description",
+			description : "Who doesn't want a sparkly friend to bring some joy to your adventures? The glitter elemental can be used as an animal companion or resummoned using find familiar."
+		}, {
+			name : "Blinding Breath (Recharge 6)",
+			description : "The glitter elemental exhales a 15-ft cone of blinding glitter. Each creature in that area must succeed on a DC 10 Dexterity saving throw or be blinded for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
+		}]
+	}
+
+
+
+
 /*	"the runt (ccc-tarot2-9)" : {
 		name : "The Runt (CCC-TAROT2-9)",
 		source : [["AL","CCC"]],

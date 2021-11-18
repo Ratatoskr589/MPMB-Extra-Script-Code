@@ -1,4 +1,5 @@
 /* This file adds optional material to "MPMB's Character Record Sheet" found at https://flapkan.com/mpmb/charsheets
+
 ===Import this file using the "Add Extra Materials" bookmark.
 -KEEP IN MIND-
 It is recommended to enter the code in a fresh sheet before adding any other information (i.e. before making your character with it). Additionally, due to the length of some descriptions, I recommend auto-sizing font & hiding the lines for multi-line fields. Otherwise, many of these items will run off the page.
@@ -23,8 +24,8 @@ SourceList.AL = {
 	date : "Various"
 };
 
-SourceList.DDCE = { //Only items from this category count as Event Awards under the new rules
-    name : "D&D Celebration Event 2020",
+SourceList.DDCE = { //All items in this category count as event awards
+    name : "D&D Celebration",
     abbreviation : "DDCE",
     group : "Adventurers League",
     date : "2020/09/19 - Yearly"
@@ -37,10 +38,17 @@ SourceList["AL:LN"] = {  //Liar's Night and Wandering Monsters
     date : "Various"
 };
 
-SourceList["AL:FC"] = {   //Fai Chen & Extra Life items
-    name : "Fai Chen & Other Certs",
+SourceList["AL:FC"] = {   //Fai Chen 
+    name : "Fai Chen Certs",
     abbreviation : "AL:FC",
     group : "Adventurers League",
+    date : "Various"
+};
+
+SourceList["AL:EL"] = {   //AL specific Extra Life certs
+    name : "AL Extra Life Certs",
+    abbreviation : "AL:EL",
+    group : "Extra Life",
     date : "Various"
 };
 
@@ -68,7 +76,7 @@ MagicItemsList["al story awards"] = {
 		description : "A battle scarred, one-eared angry tomcat that reeks of city has taken a liking to you. 'Like' is a generous term as it spends its free time soiling your footwear and caterwauling. Once per adventure, if you would be arrested by the city watch, the angry cat descends like an avenging angel, distracting the watch enough for you to escape.",
 	},
 	"blessing of protection (al wpm)" : {
-		name : "Blessing of Protection (AL TYP)",
+		name : "Blessing of Protection (AL WPM)",
 		attunement : false,
 		source : [["AL","TYP"]],
 		description : "Your reward for returning the three legendary weapons of White Plume Mountain to their rightful owners, this blessing grants a +1 bonus to AC and saving throws.",
@@ -102,7 +110,7 @@ MagicItemsList["al story awards"] = {
 	"flying snake (ddep7-1)" : {
 		name : "Flying Snake (DDEP7-1)",
 		source : [["AL","S7"]],
-		description : "You’ve unmasked the merchant prince Ifan Talro’aas a criminal. The Emerald Enclave is sitting on the information, choosing to monitor the prince rather than show their hand. As a reward, they’ve given you a trained flying snake to serve as your messenger. Once per adventure, you can attach a message to the flying snake & send it to one of your allies. This works as an animal messenger spell, but the message can only be sent to people you know.",
+		description : "You’ve unmasked the merchant prince Ifan Talro’aas a criminal. The Emerald Enclave is sitting on the information, choosing to monitor the prince rather than show their hand. As a reward, they’ve given you a trained flying snake to serve as your messenger. Once per adventure, you can attach a message to the flying snake and send it to one of your allies. This works as an animal messenger spell, but the message can only be sent to people you know.",
 		limfeaname : "Flying Snake",
 		usages : 1,
 		recovery : "mod",
@@ -360,30 +368,17 @@ MagicItemsList["al story awards"] = {
 	},
 }
 
-//New items from holiday events (Liar's Night/Wandering Monsters), D&D Celebrations, Fai Chen's and other special events.  Generally ones with limited availability/limited time-frames to get them.  Celebration Items are Event Awards.
-MagicItemsList["al special event items"] = {
-		name : "AL Special Event Items",
+//New Event Awards from Al events such as the D&D Celebration and the newers Liar's Night events. Only one may be on a character at a time.
+MagicItemsList["al event award items"] = {
+		name : "AL Event Award Items",
 		rarity : "unique",
 		type : "wondrous item",
-		allowDuplicates : true,
-	choices : ["Bag of Tricks or Treats","Buckler of Folding","Bunny Slipper Snowshoes","Calliope Wine Cask","Campfire Ice Sculpture","Cariboots","Cuddly Spider","Dread Helm (Green)","Dread Helm (Pumpkin)","Fey Hound Collar","Flask of Glowworms","Ghost Sheet","Hat of Witchery","Inspired Cocoa Mug","Lemure Onesie","Magical Slushy Grinder","Netherese Ghost Stories","Owlbear Snowshoes","Pipes of Remembrance","Pumpkin Ring","Selûne's Owl-Eye Glasses","Shar's Veil","Tarot Card Set","Very Important Crown","Viridian Monocle","Wand of Verdant Vitality"],
-	"bag of tricks or treats" : {
-		name: "Bag of Tricks or Treats",
-		source : ["AL:LN", 2018],
-		rarity: "uncommon",
-		magicItemTable : "?",
-		description: "This ordinary bag, made from orange and black striped cloth, appears empty. Reaching inside the bag, however, reveals the presence of crinkly wrapped candies. As an action, 3 times/dawn, you can pull an object from this bag and throw it 20 ft. It transforms into a random creature when it lands (d8): 1-weasel, 2-giant rat, 3-badger, 4-boar, 5-dretch, 6-quasit, 7-imp, 8-hell hound. 1-4 follow your commands, 5-8 are hostile. All act on your turn and vanish at dawn/if reduced to 0 HP.",
-		descriptionFull: "This ordinary bag, made from orange and black striped cloth, appears empty. Reaching inside the bag, however, reveals the presence of crinkly wrapped candies. The bag weighs \u00BD pound.\n   You can use an action to pull the candy from the bag and throw it up to 20 feet.  When the object lands, it transforms into a creature you determine by rolling a d8 and consulting the table. The creature vanishes at the next dawn or when it is reduced to 0 hit points.\n   The creature is friendly to you and your companions (if 1-4) or hostile (5-8), and it acts on your turn. You can use a bonus action to command how the creature moves and what action it takes on its next turn, or to give it general orders, such as to attack your enemies. In the absence of such orders, the creature acts in a fashion appropriate to its nature.\n   Once three fuzzy objects have been pulled from the bag, the bag can't be used again until the next dawn.\n\n" + toUni("d8\tCreature") + "\n 1\tWeasel\n 2\tGiant Rat\n 3\tBadger\n 4\tBoar\n 5\tDretch\n 6\tQuasit\n 7\tImp\n 8\tHell Hound",
-		weight: 0.5,
-		allowDuplicates : true,
-		action : [["action", " (pull)"], ["bonus action", " (command)"]],
-		usages : 3,
-		recovery : "dawn",
-	},
+		allowDuplicates : false,
+	choices : ["Buckler of Folding","Bunny Slipper Snowshoes","Calliope Wine Cask","Campfire Ice Sculpture","Cuddly Spider","Fiery Snow Sled","Flask of Glowworms","Harengon Spirit Club (LN-1)","Inspired Cocoa Mug","Jar of Everflowing Honey","Magical Slushy Grinder","Moonlight Candle","Netherese Ghost Stories","Very Important Crown","Viridian Monocle","Wand of Verdant Vitality"],
 	"buckler of folding" : {
 		name : "Buckler of Folding",
 		source : ["DDCE",2021],
-		type : "trinket",
+		type : "shield",
 		description : "This small paper square fits in a pocket & is covered with runes. When you hold it in your hand, you can utter a command word as a bonus action to make the square magically unfold & become a shield as hard as wood. It folds back up upon uttering the same command word.",
 		descriptionFull : "This small paper square fits in a pocket and is covered with runes. When you hold it in your hand, you can use a bonus action to utter a command word to cause the square to magically unfold, becoming a shield as hard as wood. It folds back up upon uttering the same command word.",
 		action : [["bonus action", "Buckler of Folding"]],
@@ -407,13 +402,6 @@ MagicItemsList["al special event items"] = {
 		type : "trinket",
 		description : "When placed on the ground in a cold climate, this tiny sculpture glows orange-red and emits heat enough for up to four Medium creatures within five feet to become comfortably warm."
 		},
-	"cariboots" : {
-		name : "Cariboots",
-		source : ["AL:LN", 2020],
-		rarity : "common",
-		magicItemTable : "?",
-		description : "These boots fit any humanoid, and are finely crafted from caribou pelts and lined with the softest fur. While wearing these boots, you can choose to have them leave tracks like those of a caribou."
-		},
 	"cuddly spider" : {
 		name : "Cuddly Spider",
 		source : ["DDCE",2021],
@@ -422,29 +410,14 @@ MagicItemsList["al special event items"] = {
 		descriptionFull : "This fuzzy toy spider magically sticks to any surface you place it on, using a bonus action and a command word. It can be removed by using a bonus action to touch it and utter the command word again.",
 		action : [["bonus action", "Cuddly Spider (Stick/Remove)"]]
 		},
-	"dread helm (green)" : {
-		name : "Dread Helm (Green)",
-		source : ["AL:LN", 2019],
-		rarity : "common",
-		magicItemTable : "?",
-		description : "This fearsome skull helm is wreathed in illusory green flames and makes your eyes glow red."
-		},
-	"dread helm (pumpkin)" : {
-		name : "Dread Helm (Pumpkin)",
-		source : ["AL:LN", 2018],
-		rarity : "common",
-		magicItemTable : "?",
-		description : "This fearsome carved jack-o-lantern fits over your head. It makes your eyes glow yellow while you wear it."
-		},
-	"fey hound collar" : {
-		name : "Fey Hound Collar",
-		source : ["AL:LN", 2020],
-		rarity : "unique",
-		description : "As an action, while wearing this (very) punk rock collar, you create a 15-ft-diameter sphere of green mist, centered on you & moving with you. The sphere spreads around corners & its area is heavily obscured. It lasts for 10 minutes or until a wind of moderate or greater speed (at least 10 miles per hour) disperses it. The collar can't be used this way again until the next dawn.",
-		descriptionFull : "As an action, while wearing this (very punk rock) collar, you create a 15-foot-diameter sphere of green mist, centered on you, moving with you. The sphere spreads around corners, and its area is heavily obscured. It lasts for 10 minutes or until a wind of moderate or greater speed (at least 10 miles per hour) disperses it. The collar can't be used this way again until the next dawn.",
+	"fiery snow sled" : {
+		name : "Fiery Snow Sled",
+		source : ["AL:EL","TAL 2020"],
 		usages : 1,
-		recovery : "dawn",
-		action : [["action", ""]]
+		recovery : "LR",
+		description : "You can use a bonus action to compel this sled and the animals pulling it to double their speed for 3 rounds. Once used, the magic ceases to function until you and the animals finish a long rest.",
+		descriptionFull : "You can use a bonus action to compel this sled and the animals pulling it to double their speed for 3 rounds. Once used, the magic ceases to function until you and the animals finish a long rest.",
+		action : [["bonus action", " (Double speed)"]]
 		},
 	"flask of glowworms" : {
 		name : "Flask of Glowworms",
@@ -454,23 +427,28 @@ MagicItemsList["al special event items"] = {
 		descriptionFull : "This flask contains several glowworms that when held, exude color-changing illumination equivalent to a torch. The flask magically sustains the glowworms, and if you use an action while holding it, you can set the color of the illumination for ten minutes.",
 		action : [["action", ""]]
 		},
-	"ghost sheet" : {
-		name : "Ghost Sheet",
-		source : ["AL:LN", 2018],
-		rarity : "uncommon",
-		magicItemTable : "?",
-		description : "This sheet appears to be plain white cotton cloth with two eyeholes cut into it. When you wear the sheet over your head, you appear to be incorporeal. Physical interaction reveals this to be an illusion."
-		},
-	"hat of witchery" : {
-		name : "Hat of Witchery",
-		source : ["AL:LN", 2019],
-		rarity : "common",
-		magicItemTable : "?",
-		description : "This black, cone-shaped hat has a wide-brim & is adorned with a tarnished brass buckle & a spindly-legged spider who made the hat its home. It can act as spellcasting focus for your class' spells. Once/long rest, you can try to cast a cantrip you don't know from your class' list by making a DC 10 INT (Arcana) check, wasting the attempt & the action if failed. If 3 allies are wearing & attuned to hats of witchery w/i 30 ft of each other, the check above is made with adv. The characters’ skin turns green & their voices become raspy & aged.",
-		descriptionFull : "This black, cone-shaped hat has a wide-brim and is adorned with a tarnished brass buckle and a spindly-legged spider who has made the hat its home. While you are wearing it, you gain the following benefits:\n \u2022 You can use the hat as a spellcasting focus for your class' spells.\n \u2022 You can try to cast a cantrip that you don't know. The cantrip must be on your class' spell list, and you must make a DC 10 Intelligence (Arcana) check. If the check succeeds, you cast the spell. If the check fails, so does the spell, and the action used to cast the spell is wasted. In either case, you can't use this property again until you finish a long rest.\n \u2022 If three allies are all wearing and attuned to hats of witchery and are within 30 feet of each other, the check above is made with advantage. The characters’ skin turns green, and their voices become raspy and aged.",
-		attunement : true,
+	"harengon spirit club (ln-1)" : {
+		name : "Harengon Spirit Club (LN-1)",
+		source : ["AL:LN", 2021],
+		type : "weapon (club)",
+		description : "This knotted club houses the spirit of a harengon. While wielding it, your ears grow long like a hare's, granting you advantage on Wisdom (Perception) checks involving hearing. In addition, you can cast the jump spell once per dawn.",
+		descriptionFull : "This knotted club houses the spirit of a harengon. While wielding the club, your ears grow long like a hare's ears, granting you advantage on Wisdom (Perception) checks involving hearing. In addition, while wielding the club, you can cast the jump spell. The club can't be used to cast jump again until the next dawn.",
+		limfeaname : "Harengon Spirit Club (Jump Spell)",
 		usages : 1,
-		recovery : "long rest",
+		recovery : "dawn",
+		vision : [["Adv. on Perception checks involving hearing", 0]],
+		weaponsAdd : ["Harengon Spirit Club"],
+		weaponOptions : {
+			baseWeapon : "club",
+			regExpSearch : /^(?=.*harengon)(?=.*spirit)(?=.*club).*$/i,
+			name : "Harengon Spirit Club",
+			source : [["AL:LN", 2021]],
+		},
+		spellcastingBonus : [{
+			name : "Once per dawn",
+			spells : ["jump"],
+			selection : ["jump"],
+			firstCol : "oncelr"}],
 		},
 	"inspired cocoa mug" : {
 		name : "Inspired Cocoa Mug",
@@ -478,14 +456,11 @@ MagicItemsList["al special event items"] = {
 		type : "trinket",
 		description : "This mug can magically fill with delicious hot cocoa during a short rest. Drinking the cocoa allows one creature to regain an extra 1d6 hit points if they spend Hit Dice to regain hit points."
 		},
-	"lemure onesie" : {
-		name : "Lemure Onesie",
-		source : ["AL:LN", 2019],
-		rarity : "uncommon",
-		magicItemTable : "?",
-		description : "This comfortable, fleece onesie is complete w/ cozy, if amorphous, footies. When wearing this it, you make yourself — including belongings on your person — appear as a lemure. The appearance doesn't hold up to physical inspection. To discern you are disguised, a creature must use its action to inspect you & succeed on an INT (Investigation) check (DC 13). The onesie fabric is inexpensive & quite flammable; while wearing it, you are vulnerable to fire dmg.",
-		descriptionFull : "This comfortable, fleece onesie is complete with cozy, if amorphous, footies. When wearing this onesie, you make yourself—including belongings on your person—appear as a lemure. The appearance fails to hold up to physical inspection. To discern you are disguised, a creature can use its action to inspect your appearance and must succeed on an Intelligence (Investigation) check (DC 13). The fabric is inexpensive and quite flammable; while wearing this onesie, you have vulnerability to fire damage.",
-		savetxt : { text : ["Vulnerable to fire damage"] }
+	"moonlight candle" : {
+		name : "Moonlight Candle",
+		source : ["AL:EL", "TAL"],
+		description : "When lit, this hauntingly pale candle provides illumination that's treated as moonlight, shedding bright light in a 20-ft radius and dim light for another 20 ft. It gives off no heat and never burns out.",
+		descriptionFull : "When lit, this hauntingly pale candle provides illumination that is treated as moonlight, shedding bright light in a 20-foot radius and dim light for an additional 20 feet. It gives off no heat and never burns out.",
 		},
 	"magical slushy grinder" : {
 		name : "Magical Slushy Grinder",
@@ -495,59 +470,19 @@ MagicItemsList["al special event items"] = {
 		usages : 1,
 		recovery : "dawn"
 		},
+	"jar of everflowing honey" : {
+		name : "Jar of Everflowing Honey",
+		source : ["AL:LN", 2021],
+		type : "trinket",
+		description : "This ceramic jar weighs 5 pounds & feels full. Its lid can't be removed unless you're using it. As an action, you may remove the lid & a fountain of honey pours out, generating 5 gallons of honey. The honey stops pouring out at the start of your next turn.",
+		descriptionFull : "This ceramic jar weighs five pounds and feels full of honey. Its lid cannot be removed unless you're using it. As an action, you may remove the lid and a fountain of honey pours out, generating five gallons of honey. The honey stops pouring out at the start of your next turn.",
+		action : [["action", " (Pour)"]]
+		},
 	"netherese ghost stories" : {
 		name : "Netherese Ghost Stories",
 		source : ["DDCE",2020],
 		type : "trinket",
 		description : "Reading from this Netherese book of horrifying ghost stories for 10 minutes grants advantage on a single related History check and gives the reader nightmares. You must succeed on a DC 13 Wisdom saving throw to successfully complete your next long rest."
-		},
-	"owlbear snowshoes" : {
-		name : "Owlbear Snowshoes",
-		source : ["AL:FC",2020],
-		type : "trinket",
-		description : "These warmly appointed snowshoes leave the tracks of an owlbear in snow, mud, or other soft surfaces. They also have an unfortunate tendency to attract other owlbears."
-		},
-	"pipes of remembrance" : {
-		name : "Pipes of Remembrance",
-		source : ["AL:LN", 2020],
-		rarity : "common",
-		magicItemTable : "?",
-		description : "This delicate wooden pipe features a bowl made from smooth river stone. When the pipe is lit, exhaled smoke doesn't dissipate, instead lingering around the bearer. After 10 minutes, the smoke forms moving shapes that re-enact a scene of the bearer’s choosing from the stories they've been told. When this performance is complete, the smoke dissipates. A new story/likeness may be added to the pipe’s repertoire if the bearer smokes the pipe while relaying a tale or describing a companion. The pipe can be used this way once per dawn.",
-		descriptionFull : "This long, delicate wooden pipe features a bowl made from smooth river stone. When the pipe is lit, smoke exhaled from it does not dissipate, instead lingering around the bearer. After 10 minutes, the smoke forms moving shapes that reenact a scene of the bearer’s choosing from the stories it has been told. When this realistic performance is complete, the smoke dissipates. A new story or likeness may be added to the pipe’s repertoire if the bearer smokes the pipe while relaying a tale or describing a companion. The pipe can’t be used this way again until the next dawn.",
-		usages : 1,
-		recovery : "dawn"
-		},
-	"pumpkin ring" : {
-		name : "Pumpkin Ring",
-		source : ["AL:LN", 2020],
-		rarity : "common",
-		magicItemTable : "?",
-		description : "This ring is made of polished silver, in the shape of your carved pumpkin. While wearing this ring, the glowing image of your carved pumpkin appears in front of your own face, like a mask."
-		},
-	"selûne's owl-eye glasses" : {
-		name : "Selûne's Owl-Eye Glasses",
-		source : ["AL:LN", 2020],
-		attunement : true,
-		description : "While wearing these glasses, as an action once per dawn, you can instantaneously resummon a deceased, certed or Holiday Event vanity pet or mount (only ones that can be returned to life by the find familiar or find steed spells.) If you are not attuned to your glasses, that does not kill your pet.",
-		descriptionFull : "While wearing these glasses, as an action, you can instantaneously resummon a deceased, certed or Holiday Event vanity pet or mount that can be returned to life by the find familiar or find steed spells. Once returned to life, they have no new additions to the roles and abilities they had before death (for example, these glasses do not transform them into a familiar or steed). If you are not attuned to your glasses, that does not kill your pet. The glasses can’t be used this way again until the next dawn.",
-		limfeaname : "Selûne's Glasses",
-		usages : 1,
-		recovery : "dawn"
-		},
-	"shar's veil" : {
-		name : "Shar's Veil",
-		source : ["AL:LN", 2020],
-		description : "Once per long rest, while you wear this purple and black, shadowy veil, it gives the illusion of death and decay for 1 hour. Lying motionless, your body appears to be dead. In motion, you appear to be an undead creature, but your creature type is not changed to undead. To discern that you are disguised, a creature can use its action to inspect your appearance and must succeed on a DC 13 Intelligence (Investigation) check.",
-		usages : 1,
-		recovery : "long rest"
-		},
-	"tarot card set" : {
-		name : "Tarot Card Set",
-		source : ["AL:LN", 2020],
-		description : "Once/day, roll 1d4 to find out what your fortune produces. This item disappears at dawn & the character may roll again to reveal their next fortune. DC 1: The Flower - touching this card to a patch of earth w/i 5 ft, causes one flower of your choice to sprout. The flower is nonmagical & grows or withers as a normal flower. DC 2: The Yummy Meal - your favorite meal, the equivalent of 1 ration. DC 3: The Tea Pot - a tiny pot of tea, equivalent to 1 healing potion. DC 4: The Witch - a stone & twisted wire pendant. As an action, it gives you adv. on CHA checks w/ humanoids (<= CR1), for 1 hr.",
-		descriptionFull : "Once per day, roll 1d4 to find out what your tarot fortune produces. At dawn this product (not the card) vanishes but the character may roll again to reveal their next fortune.\n   " + toUni("DC 1: The Flower") + ". - touching this card to a patch of earth or soil, within 5 feet of you, causes one flower of your choice to sprout there. The flower is nonmagical and harmless, and it grows or withers as a normal flower would.\n   " + toUni("DC 2: The Yummy Meal") + ". - this card produces your favorite meal, the equivalent of 1 ration.\n   " + toUni("DC 3: The Tea Pot") + ". - this card produces a tiny pot of piping tea, the equivalent of one potion of healing.\n   " + toUni("DC 4: The Witch") + ". - this card produces a stone and twisted wire pendant. As an action, it gives you advantage on Charisma checks when communicating with humanoids (CR 1 or less), for 1 hour.",
-		usages : 1,
-		recovery : "dawn"
 		},
 	"very important crown" : {
 		name : "Very Important Crown",
@@ -568,7 +503,7 @@ MagicItemsList["al special event items"] = {
 	"wand of verdant vitality" : {
 		name : "Wand of Verdant Vitality",
 		source : ["DDCE", 2021],
-		type : "trinket",
+		type : "wand",
 		description : "This wand has 3 charges. As an action while holding it, expend 1 charge to target a plant within 30 ft. The plant becomes lush w/ blooms for 24 hrs. The wand regains all charges at dawn. If you use the last charge, roll a d20. On a 1, the wand turns into a swarm of stick bugs & is destroyed.",
 		descriptionFull : "This wand has 3 charges. While holding it, you can use an action to expend 1 of its charges to target one plant within 30 feet. The target becomes lush as in full bloom for 24 hours.\n   The wand regains all expended charges at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand transforms into a swarm of stick bugs and is destroyed.",
 		usages : 3,
@@ -577,11 +512,11 @@ MagicItemsList["al special event items"] = {
 		},
 }
 
-//New AL Items from official and community modules (includes a couple neat trinkets)
+//New AL Items from official modules, community modules (includes a couple neat trinkets), Fai Chen's and past holiday events (that aren't event awards)
 MagicItemsList["al new items"] = {
 		name : "AL New Items",
 		allowDuplicates : true,
-		choices : ["Achis Atracta (CCC-BMG-30 HILL2-3)","Efreeti Crown of Wishes (CCC-ODFC2-2)","Eye of Xxiphu (DDAL5-19)","Flamesoul Stone (CCC-YLRA1-3)","Hellrider's Badge (DDEP9-2)","Mind-Poison Dagger (DDHC-MORD-05)","Mist Hunters Magnificent Cap (RMH Safety Tools)","Nettle (DDEP4)","Oathbinder (DDHC-TOA-15)","Order of the Guardians Ring (RMH Safety Tools)","Spare (DDHC-TOA-13)","Wooden Gecko Earrings (DDHC-TOA-8)"],
+		choices : ["Achis Atracta (CCC-BMG-30 HILL2-3)","Bag of Tricks or Treats","Cariboots","Efreeti Crown of Wishes (CCC-ODFC2-2)","Eye of Xxiphu (DDAL5-19)","Fey Hound Collar","Flamesoul Stone (CCC-YLRA1-3)","Ghost Sheet","Hat of Witchery","Hellrider's Badge (DDEP9-2)","Lemure Onesie","Mind-Poison Dagger (DDHC-MORD-05)","Mist Hunters Magnificent Cap (RMH Safety Tools)","Nettle (DDEP4)","Oathbinder (DDHC-TOA-15)","Order of the Guardians Ring (RMH Safety Tools)","Owlbear Snowshoes","Pipes of Remembrance","Pumpkin Ring","Selûne's Owl-Eye Glasses","Shar's Veil","Spare (DDHC-TOA-13)","Tarot Card Set","Wooden Gecko Earrings (DDHC-TOA-8)"],
 	"achis atracta (ccc-bmg-30 hill2-3)" : { // contributed by AelarTheElfRogue
 		name : "Achis Atracta (CCC-BMG-30 HILL2-3)",
 		source : [["AL","CCC"]],
@@ -592,6 +527,26 @@ MagicItemsList["al new items"] = {
 		weight : 1,
 		savetxt : { immune : ["poison"] }
 	},
+	"bag of tricks or treats" : {
+		name: "Bag of Tricks or Treats",
+		source : ["AL:LN", 2018],
+		rarity: "uncommon",
+		magicItemTable : "?",
+		description: "This ordinary bag, made from orange and black striped cloth, appears empty. Reaching inside the bag, however, reveals the presence of crinkly wrapped candies. As an action, 3 times/dawn, you can pull an object from this bag and throw it 20 ft. It transforms into a random creature when it lands (d8): 1-weasel, 2-giant rat, 3-badger, 4-boar, 5-dretch, 6-quasit, 7-imp, 8-hell hound. 1-4 follow your commands, 5-8 are hostile. All act on your turn and vanish at dawn/if reduced to 0 HP.",
+		descriptionFull: "This ordinary bag, made from orange and black striped cloth, appears empty. Reaching inside the bag, however, reveals the presence of crinkly wrapped candies. The bag weighs \u00BD pound.\n   You can use an action to pull the candy from the bag and throw it up to 20 feet.  When the object lands, it transforms into a creature you determine by rolling a d8 and consulting the table. The creature vanishes at the next dawn or when it is reduced to 0 hit points.\n   The creature is friendly to you and your companions (if 1-4) or hostile (5-8), and it acts on your turn. You can use a bonus action to command how the creature moves and what action it takes on its next turn, or to give it general orders, such as to attack your enemies. In the absence of such orders, the creature acts in a fashion appropriate to its nature.\n   Once three fuzzy objects have been pulled from the bag, the bag can't be used again until the next dawn.\n\n" + toUni("d8\tCreature") + "\n 1\tWeasel\n 2\tGiant Rat\n 3\tBadger\n 4\tBoar\n 5\tDretch\n 6\tQuasit\n 7\tImp\n 8\tHell Hound",
+		weight: 0.5,
+		allowDuplicates : true,
+		action : [["action", " (pull)"], ["bonus action", " (command)"]],
+		usages : 3,
+		recovery : "dawn",
+	},
+	"cariboots" : {
+		name : "Cariboots",
+		source : ["AL:LN", 2020],
+		rarity : "common",
+		magicItemTable : "?",
+		description : "These boots fit any humanoid, and are finely crafted from caribou pelts and lined with the softest fur. While wearing these boots, you can choose to have them leave tracks like those of a caribou."
+		},
 	"efreeti crown of wishes (ccc-odfc2-2)" : {
 		name : "Efreeti Crown of Wishes (CCC-ODFC2-2)",
 		source : [["AL","CCC"]],
@@ -610,6 +565,16 @@ MagicItemsList["al new items"] = {
 		description : "The Eye of Xxiphu bestows insight into the true nature of aboleths. The attuned possessor of the Eye gains telepathy out to 120 ft, & may cover themselves in coat of mucous that lets them breathe underwater as well as on land. The petrified orb is large & heavy, but doesn't need to be held to use its powers. Aboleths have disadv. when attacking owner, & owner has adv. on knowledge-based ability checks about aboleths & the Far Realms when not in combat.",
 		descriptionFull : "While not a truly intelligent item, the Eye of Xxiphu bestows terrifying insight into the true nature of the nightmarish aboleths. The attuned possessor of the Eye gains telepathy out to a range of 120 feet, and may cover themselves in coat of mucous that allows them to breathe underwater as well as on land. The petrified orb is large and heavy, but does not need to be held in order to use its powers. Additionally, aboleths have disadvantage when attacking the owner of the Eye, and the owner has advantage on knowledge-based ability checks about aboleths and the Far Realm when they are not in combat."
 	},
+	"fey hound collar" : {
+		name : "Fey Hound Collar",
+		source : ["AL:LN", 2020],
+		rarity : "unique",
+		description : "As an action, while wearing this (very) punk rock collar, you create a 15-ft-diameter sphere of green mist, centered on you & moving with you. The sphere spreads around corners & its area is heavily obscured. It lasts for 10 minutes or until a wind of moderate or greater speed (at least 10 miles per hour) disperses it. The collar can't be used this way again until the next dawn.",
+		descriptionFull : "As an action, while wearing this (very punk rock) collar, you create a 15-foot-diameter sphere of green mist, centered on you, moving with you. The sphere spreads around corners, and its area is heavily obscured. It lasts for 10 minutes or until a wind of moderate or greater speed (at least 10 miles per hour) disperses it. The collar can't be used this way again until the next dawn.",
+		usages : 1,
+		recovery : "dawn",
+		action : [["action", ""]]
+		},
 	"flamesoul stone (ccc-ylra1-3)" : {
 		name : "Flamesoul Stone (CCC-YLRA1-3)",
 		source : [["AL","CCC"]],
@@ -618,6 +583,24 @@ MagicItemsList["al new items"] = {
 		description : "This fist-sized crystal produces a flickering coppery-orange glow from within. The light is magical, but isn’t bright enough to significantly illuminate an area. Casting detect magic on the Flamesoul Stone shows a hint of necrotic magic emanating from it. The light from the stone is the same color as the comet that was recently seen over Ylraphon.",
 		descriptionFull : "A fist-sized crystal that produces a flickering coppery-orange glow from within. The light is magical, but isn’t bright enough to significantly illuminate any area. Casting detect magic on the Flamesoul Stone shows a slight hint of necrotic magic emanating from within. The light from the stone is the same color as the comet that has recently been seen over Ylraphon."
 	},
+	"ghost sheet" : {
+		name : "Ghost Sheet",
+		source : ["AL:LN", 2018],
+		rarity : "uncommon",
+		magicItemTable : "?",
+		description : "This sheet appears to be plain white cotton cloth with two eyeholes cut into it. When you wear the sheet over your head, you appear to be incorporeal. Physical interaction reveals this to be an illusion."
+		},
+	"hat of witchery" : {
+		name : "Hat of Witchery",
+		source : ["AL:LN", 2019],
+		rarity : "common",
+		magicItemTable : "?",
+		description : "This black, cone-shaped hat has a wide-brim & is adorned with a tarnished brass buckle & a spindly-legged spider who made the hat its home. It can act as spellcasting focus for your class' spells. Once/long rest, you can try to cast a cantrip you don't know from your class' list by making a DC 10 INT (Arcana) check, wasting the attempt & the action if failed. If 3 allies are wearing & attuned to hats of witchery w/i 30 ft of each other, the check above is made with adv. The characters’ skin turns green & their voices become raspy & aged.",
+		descriptionFull : "This black, cone-shaped hat has a wide-brim and is adorned with a tarnished brass buckle and a spindly-legged spider who has made the hat its home. While you are wearing it, you gain the following benefits:\n \u2022 You can use the hat as a spellcasting focus for your class' spells.\n \u2022 You can try to cast a cantrip that you don't know. The cantrip must be on your class' spell list, and you must make a DC 10 Intelligence (Arcana) check. If the check succeeds, you cast the spell. If the check fails, so does the spell, and the action used to cast the spell is wasted. In either case, you can't use this property again until you finish a long rest.\n \u2022 If three allies are all wearing and attuned to hats of witchery and are within 30 feet of each other, the check above is made with advantage. The characters’ skin turns green, and their voices become raspy and aged.",
+		attunement : true,
+		usages : 1,
+		recovery : "long rest",
+		},
 	"hellrider's badge (ddep9-2)" : {
 		name : "Hellrider's Badge (DDEP9-2)",
 		source : [["AL","S9"]],
@@ -629,6 +612,15 @@ MagicItemsList["al new items"] = {
 		descriptionFull : "A Hellrider’s Badge is only usable by a member of the Hellriders, and thanks to your efforts during Klysandral’s funeral and the subsequent escape from Avernus, you have been awarded honorary membership by Duke Ulder Ravengard himself. This badge marks you as a lieutenant in the Hellriders.\n   While wearing the badge, you gain a +2 bonus to AC if you aren’t using a shield. If the badge is more than 5 feet away from you for more than one minute, it vanishes and harmlessly reappears on a surface within 5 feet of Duke Ravengard. While holding the badge, the Duke knows your location, provided the two of you are on the same plane of existence and your attunement to the badge hasn’t ended.\n   As an action, the Duke can touch the badge and end your attunement to it, as he has been granted this power by Elturel despite not being a Hellrider himself.\n   " + toUni("Special") + ". If you wish to take the Hellriders or Flaming Fist as your faction, you may do so. Additionally, this badge is made from the bones of Klysandral himself, counts as a holy reliquary, and may be used as a holy symbol of Torm if needed.\n   Despite its rarity, the Hellrider’s Badge can be equipped by anyone that has earned it via playing DDEP09-02 Hellfire Requiem.",
 		extraAC : [{name : "Hellrider's Badge", mod : 2, magic : true, text : "I gain a +2 bonus to AC when not using a shield."}],
 	},
+	"lemure onesie" : {
+		name : "Lemure Onesie",
+		source : ["AL:LN", 2019],
+		rarity : "uncommon",
+		magicItemTable : "?",
+		description : "This comfortable, fleece onesie is complete w/ cozy, if amorphous, footies. When wearing this it, you make yourself — including belongings on your person — appear as a lemure. The appearance doesn't hold up to physical inspection. To discern you are disguised, a creature must use its action to inspect you & succeed on an INT (Investigation) check (DC 13). The onesie fabric is inexpensive & quite flammable; while wearing it, you are vulnerable to fire dmg.",
+		descriptionFull : "This comfortable, fleece onesie is complete with cozy, if amorphous, footies. When wearing this onesie, you make yourself—including belongings on your person—appear as a lemure. The appearance fails to hold up to physical inspection. To discern you are disguised, a creature can use its action to inspect your appearance and must succeed on an Intelligence (Investigation) check (DC 13). The fabric is inexpensive and quite flammable; while wearing this onesie, you have vulnerability to fire damage.",
+		savetxt : { text : ["Vulnerable to fire damage"] }
+		},
 	"mind-poison dagger (ddhc-mord-05)" : {
 		name : "Mind-Poison Dagger (DDHC-MORD-05)",
 		source : [["AL","MtoF"]],
@@ -733,6 +725,46 @@ MagicItemsList["al new items"] = {
 			description : "If attack hits, potion or poison in ring delivered to target.",
 		}
 	},
+	"owlbear snowshoes" : {
+		name : "Owlbear Snowshoes",
+		source : ["AL:FC",2020],
+		type : "trinket",
+		description : "These warmly appointed snowshoes leave the tracks of an owlbear in snow, mud, or other soft surfaces. They also have an unfortunate tendency to attract other owlbears."
+		},
+	"pipes of remembrance" : {
+		name : "Pipes of Remembrance",
+		source : ["AL:LN", 2020],
+		rarity : "common",
+		magicItemTable : "?",
+		description : "This delicate wooden pipe features a bowl made from smooth river stone. When the pipe is lit, exhaled smoke doesn't dissipate, instead lingering around the bearer. After 10 minutes, the smoke forms moving shapes that re-enact a scene of the bearer’s choosing from the stories they've been told. When this performance is complete, the smoke dissipates. A new story/likeness may be added to the pipe’s repertoire if the bearer smokes the pipe while relaying a tale or describing a companion. The pipe can be used this way once per dawn.",
+		descriptionFull : "This long, delicate wooden pipe features a bowl made from smooth river stone. When the pipe is lit, smoke exhaled from it does not dissipate, instead lingering around the bearer. After 10 minutes, the smoke forms moving shapes that reenact a scene of the bearer’s choosing from the stories it has been told. When this realistic performance is complete, the smoke dissipates. A new story or likeness may be added to the pipe’s repertoire if the bearer smokes the pipe while relaying a tale or describing a companion. The pipe can’t be used this way again until the next dawn.",
+		usages : 1,
+		recovery : "dawn"
+		},
+	"pumpkin ring" : {
+		name : "Pumpkin Ring",
+		source : ["AL:LN", 2020],
+		rarity : "common",
+		magicItemTable : "?",
+		description : "This ring is made of polished silver, in the shape of your carved pumpkin. While wearing this ring, the glowing image of your carved pumpkin appears in front of your own face, like a mask."
+		},
+	"selûne's owl-eye glasses" : {
+		name : "Selûne's Owl-Eye Glasses",
+		source : ["AL:LN", 2020],
+		attunement : true,
+		description : "While wearing these glasses, as an action once per dawn, you can instantaneously resummon a deceased, certed or Holiday Event vanity pet or mount (only ones that can be returned to life by the find familiar or find steed spells.) If you are not attuned to your glasses, that does not kill your pet.",
+		descriptionFull : "While wearing these glasses, as an action, you can instantaneously resummon a deceased, certed or Holiday Event vanity pet or mount that can be returned to life by the find familiar or find steed spells. Once returned to life, they have no new additions to the roles and abilities they had before death (for example, these glasses do not transform them into a familiar or steed). If you are not attuned to your glasses, that does not kill your pet. The glasses can’t be used this way again until the next dawn.",
+		limfeaname : "Selûne's Glasses",
+		usages : 1,
+		recovery : "dawn"
+		},
+	"shar's veil" : {
+		name : "Shar's Veil",
+		source : ["AL:LN", 2020],
+		description : "Once per long rest, while you wear this purple and black, shadowy veil, it gives the illusion of death and decay for 1 hour. Lying motionless, your body appears to be dead. In motion, you appear to be an undead creature, but your creature type is not changed to undead. To discern that you are disguised, a creature can use its action to inspect your appearance and must succeed on a DC 13 Intelligence (Investigation) check.",
+		usages : 1,
+		recovery : "long rest"
+		},
 	"spare (ddhc-toa-13)" : {
 		name : "Spare (DDHC-TOA-13)",
 		source : [["AL","S7"]],
@@ -764,6 +796,14 @@ MagicItemsList["al new items"] = {
 		modifiers : [2, 2]
 				},
 	},
+	"tarot card set" : {
+		name : "Tarot Card Set",
+		source : ["AL:LN", 2020],
+		description : "Once/day, roll 1d4 to find out what your fortune produces. This item disappears at dawn & the character may roll again to reveal their next fortune. DC 1: The Flower - touching this card to a patch of earth w/i 5 ft, causes one flower of your choice to sprout. The flower is nonmagical & grows or withers as a normal flower. DC 2: The Yummy Meal - your favorite meal, the equivalent of 1 ration. DC 3: The Tea Pot - a tiny pot of tea, equivalent to 1 healing potion. DC 4: The Witch - a stone & twisted wire pendant. As an action, it gives you adv. on CHA checks w/ humanoids (<= CR1), for 1 hr.",
+		descriptionFull : "Once per day, roll 1d4 to find out what your tarot fortune produces. At dawn this product (not the card) vanishes but the character may roll again to reveal their next fortune.\n   " + toUni("DC 1: The Flower") + ". - touching this card to a patch of earth or soil, within 5 feet of you, causes one flower of your choice to sprout there. The flower is nonmagical and harmless, and it grows or withers as a normal flower would.\n   " + toUni("DC 2: The Yummy Meal") + ". - this card produces your favorite meal, the equivalent of 1 ration.\n   " + toUni("DC 3: The Tea Pot") + ". - this card produces a tiny pot of piping tea, the equivalent of one potion of healing.\n   " + toUni("DC 4: The Witch") + ". - this card produces a stone and twisted wire pendant. As an action, it gives you advantage on Charisma checks when communicating with humanoids (CR 1 or less), for 1 hour.",
+		usages : 1,
+		recovery : "dawn"
+		},
 	"wooden gecko earrings (ddhc-toa-8)" : {
 		name : "Wooden Gecko Earrings (DDHC-TOA-8)",
 		source : [["AL","S7"]],
