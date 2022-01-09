@@ -12,7 +12,7 @@ Additionally, due to the length of some descriptions, I recommend auto-sizing fo
 	This is not a complete list since I do not have every published adventure, but it's a start. If you do not see an item listed from a season marked complete, it should be because there was no flavor.*/
 	
 	//Complete: S0-S9, Guild Adept
-	//In progress: CCCs, S10 (Through 10-10), DC-POA, DRW
+	//In progress: CCCs, DC-POA, DRW
 	
 var iFileName = "AL Flavored Armor.js";
 RequiredSheetVersion(13);
@@ -26,12 +26,21 @@ SourceList.AL = {
 	date : "Various"
 };
 
+SourceList.ALSRs11 = {  //Season 11 Service Rewards
+    name : "AL Season 11 Service Rewards",
+    abbreviation : "ALSRs11",
+    group : "Adventurers League",
+    date : "2021/11/02"
+};
+
+
 //AL Flavored Armor
 MagicItemsList["al adamantine/mithral armor"] = {
 		name : "AL Adamantine/Mithral Armor",
 		type : "armor (medium or heavy)",
 		rarity : "uncommon",
-		allowDuplicates : true,				
+		allowDuplicates : true,
+		choicesNotInMenu : true,		
 	choices : ["Adamantine Armor (DDAL0-1)","Adamantine Chain (CCC-SALT1-1)","Adamantine Chain Shirt (CCC-BMG-MOON3-2)","Adamantine Chain Shirt (CCC-PDXAGE-1-1)","Adamantine Chain Shirt (DDEP5-2)","Adamantine Chain Mail (CCC-BMG-MOON5-1)","Adamantine Plate: Durgeddin's Unbreakable Auspice (DDEP6-1)","Mithral Scale Barding (DC-POA-CONMAR-18)","Mithral Scale Barding (DC-POA-DRAGON-2)","Mithral Scale Barding (DC-POA-GaryXIII-2)","Mithral Scale Barding: G.O.A.T. Barding (DC-POA-TDG1-8)","Mithral Scale Mail (CCC-ODFC2-1)","Mithral Scale Mail: Hulk-Buster Armor (DC-POA-TDG1-7)","Mithral Breastplate (CCC-BMG-MOON16-2)","Mithral Half Plate (CCC-GLIP-1-3)","Mithral Splint: Armor of Insults (CCC-GSP-OOZE1-1)","Mithral Splint (DDAL5-4)","Mithral Plate (DDHC-MORD-1)"],	
 		"adamantine armor (ddal0-1)" : {
 			name: "Adamantine Armor (DDAL0-1)",
@@ -238,8 +247,8 @@ MagicItemsList["al adamantine/mithral armor"] = {
 		},
 }
 
-MagicItemsList["al armor +1 or +2"] = {
-		name : "AL Armor +1 or +2",
+MagicItemsList["al armor +1, +2, +3"] = {
+		name : "AL Armor +1, +2, +3",
 		type : "armor (light, medium, or heavy)",
 		descriptionFull : "You have a bonus to AC while wearing this armor. The bonus is determined by its rarity: rare (+1), very rare (+2), or legendary (+3).\n\nThere are several magic item tables in the Dungeon Masters Guide where this item appears on. It varies per type of armor and magic bonus, with not all types of combinations listed. See below for the table per type of armor and bonus:\n\n" + toUni("Table\tBonus\tArmor Types") +
 		"\n  G\t  +1\tChain Mail, Chain Shirt, Leather" +
@@ -254,7 +263,8 @@ MagicItemsList["al armor +1 or +2"] = {
 		"\n  I\t  +3\tHalf Plate, Leather, Plate" +
 		"\n  I\t  +3\tSpiked Armor, Splint, Studded Leather",
 		allowDuplicates : true,
-		choices : ["+1 Leather (DDEP7-1)","+1 Studded Leather (CCC-BMG-21 HULB2-3)","+1 Scale Mail: Shroud of the Mourning Warrior (DDAL5-13)","+1 Breastplate: Glass (DDAL0-1)","+1 Half Plate: Bone (CCC-TRI-6 NIGHT1-2)", "+1 Half Plate (DDEP4)","+1 Splint (DDEX1-12)","+1 Splint (DDAL5-4)","+2 Studded Leather (CCC-TRI-23 STORM1-2)","+2 Half Plate: Stone (DDEP7-2)","+2 Splint: Remorhaz (DDEP10-2)","+2 Plate: Stone (CCC-JGD-1)"],
+		choicesNotInMenu : true,
+		choices : ["+1 Leather (DDEP7-1)","+1 Studded Leather (CCC-BMG-21 HULB2-3)","+1 Scale Mail: Shroud of the Mourning Warrior (DDAL5-13)","+1 Breastplate: Glass (DDAL0-1)","+1 Half Plate: Bone (CCC-TRI-6 NIGHT1-2)", "+1 Half Plate (DDEP4)","+1 Splint (DDEX1-12)","+1 Splint (DDAL5-4)","+2 Studded Leather (CCC-TRI-23 STORM1-2)","+2 Half Plate: Stone (DDEP7-2)","+2 Splint: Remorhaz (DDEP10-2)","+2 Plate: Stone (CCC-JGD-1)","+3 Hide: Daphnaie Armor (ALSRs11-A)"],
 		"+1 leather (ddep7-1)" : {
 			name : "+1 Leather (DDEP7-1)",
 			source : [["AL","S7"]],
@@ -421,14 +431,28 @@ MagicItemsList["al armor +1 or +2"] = {
 				source : [["AL", "CCC"]],
 				}]
 		},
+		"+3 hide: daphnaie armor (alsrs11-a)" : {
+			name : "Daphnaie Armor (+3 Hide)",
+			rarity : "legendary",
+			source : [["ALSRs11","A"]],
+			description : "This armor is made of pliant material from laurel tree bark with stylized carvings of dancing dryads burnt into it. Small bits of green moss accentuate the wood, giving the wearer advantage on Dexterity (Stealth) checks when in a forest. The armor resizes to fit its wearer & grants a +3 bonus to AC while worn.",
+			descriptionFull : "This armor is made of pliant material from worn, laurel tree bark with stylized carvings of dancing dryads burnt into it. Small bits of green moss accentuate the wood, allowing the wearer to gain advantage on Dexterity (Stealth) checks when in a forest. The armor resizes to fit its wearer. This armor grants a +3 bonus to AC while worn.",
+			allowDuplicates : true,
+			armorAdd : "+3 Hide (Daphnaie)",
+			armorOptions : [{
+				name : "+3 Hide (Daphnaie)",
+				source : [["ALSRs11","A"]],
+				}]
+		},
 }
 
 MagicItemsList["al armor (common)"] = {
 		name : "AL Armor (Common)",
 		allowDuplicates : true,
+		choicesNotInMenu : true,
 		rarity : "common",
 		magicItemTable : "?",
-	choices : ["Cast-Off Breastplate (DC-POA-CONMAR-6)","Cast-Off Breastplate: Ooze (DC-POA-GaryXIII-4)","Cast-Off Breastplate (DC-POA-HAG-SF4)","Shield of Expression (DC-POA-CONMAR-15)","Smoldering Armor: Flurried Furs (DDAL0-4)","Smoldering Breastplate: Jökulsbrynja (DC-POA-CONMAR-3)","Smoldering Breastplate: Wintergreen Guard (DC-POA-LEGIT-SV-01)","Smoldering Studded Leather (DC-POA-CODEX-2)","Smoldering Studded Leather (DC-POA-CONMAR-8)","Smoldering Studded Leather: Smokin' Hot Leather (DC-POA-LEGIT-SV-02)","Smoldering Studded Leather: Armor of the Dark Knight (DC-POA-TDG1-4)","Smoldering Studded Leather (DDAL10-0)","Smoldering Scale Mail: Stygian Armor (CCC-GSP2-2)"],
+	choices : ["Cast-Off Breastplate (DC-POA-CONMAR-6)","Cast-Off Breastplate: Ooze (DC-POA-GaryXIII-4)","Cast-Off Breastplate (DC-POA-HAG-SF4)","Cast-Off Chain Mail: Scavenger's Shroud (CCC-DES-4-1)","Shield of Expression (DC-POA-CONMAR-15)","Shield of Expression (DC-POA-SNIPE-1)","Smoldering Armor: Flurried Furs (DDAL0-4)","Smoldering Studded Leather (DC-POA-CODEX-2)","Smoldering Studded Leather (DC-POA-CONMAR-8)","Smoldering Studded Leather (DC-POA-GSP2-2H)","Smoldering Studded Leather: Smokin' Hot Leather (DC-POA-LEGIT-SV-02)","Smoldering Studded Leather (DC-POA-OGG-1)","Smoldering Studded Leather: Armor of the Dark Knight (DC-POA-TDG1-4)","Smoldering Studded Leather (DDAL10-0)","Smoldering Scale Mail: Stygian Armor (CCC-GSP2-2)","Smoldering Breastplate: Jökulsbrynja (DC-POA-CONMAR-3)","Smoldering Breastplate: Wintergreen Guard (DC-POA-LEGIT-SV-01)","Spiked Armor of Gleaming: Axehead's Coat of Beaks (CCC-MTL-3)"],
 	"cast-off breastplate (dc-poa-conmar-6)" : {
 		name : "Cast-Off Breastplate (DC-POA-CONMAR-6)",
 		source : [["AL","DC-POA"]],
@@ -471,6 +495,20 @@ MagicItemsList["al armor (common)"] = {
 				}],
 		action : [["action", "Cast-Off Breastplate"]]
 	},
+	"cast-off chain mail: scavenger's shroud (ccc-des-4-1)" : {
+		name : "Scavenger's Shroud (Cast-Off Chain Mail)",
+		source : [["AL","CCC"]],
+		type : "armor (heavy)",
+		description : "This cleverly crafted cowl and coat combination is made of worn leather covered in dangling chains and hooks, and gives you the appearance of a chain devil (kyton) when you wear it. You can doff it as an action.",
+		descriptionFull : "This cleverly crafted cowl and coat combination is made of worn leather, covered in dangling chains and hooks, and gives the appearance of a chain devil (kyton) to any that wear it. Made of interlocking metal rings, chain mail includes a layer of quilted fabric worn underneath the mail to prevent chafing and to cushion the impact of blows. The suit includes gauntlets. You can doff it as an action.",
+		attunement : true,
+		armorAdd : "Cast-Off Chain Mail",
+		armorOptions : [{
+				name : "Cast-Off Chain Mail",
+				source : [["AL", "CCC"]],
+				}],
+		action : [["action", "Cast-Off Chain Mail"]]
+	},
 	"shield of expression (dc-poa-conmar-15)" : {
 			name : "Shield of Expression (DC-POA-CONMAR-15)",
 			source : [["AL","DC-POA"]],
@@ -478,6 +516,17 @@ MagicItemsList["al armor (common)"] = {
 			rarity : "common",
 			description : "This shield is made of bright oak which is painted teal. The logo of “The Silver Lining Trading Company” is circling the face of a white goat. As a bonus action while bearing the shield, you can alter the expression of the face.",
 			descriptionFull : "This shield is made of bright oak which is painted teal. The logo of “The Silver Lining Trading Company” is circling the face of a white goat.\n   The front of this shield is shaped in the likeness of a face. While bearing the shield, you can use a bonus action to alter the faces expression.",
+			weight : 6,
+			shieldAdd : "Shield of Expression",
+			action : [["bonus action", "Shield of Expression"]]
+	},
+	"shield of expression (dc-poa-snipe-1)" : {
+			name : "Shield of Expression (DC-POA-SNIPE-1)",
+			source : [["AL","DC-POA"]],
+			type : "shield",
+			rarity : "common",
+			description : "This tapestry shows Artor Morlin, the Baron of Blood, & Halaster the Mad Mage. A memento of an uncomfortable & awkward feast, it's mounted on a round frame with a strap that makes it usable as a shield. The bottom is engraved: “Inaugural Chalet Celebration: Special Adjunct Apprentice Minion Commemorative Award Souvenir.” When it gets marred or dirty, it repairs & cleans itself in an hour. As a bonus action when bearing the shield, you can alter Artor or Halaster's expressions.",
+			descriptionFull : "Made magically by Halaster the Mad Mage of Undermountain, this is a mounted tapestry on a round frame, showing a picture of Artor Morlin, the Baron of Blood, and Halaster the Mad Mage. It is engraved on the bottom with the following: “Inaugural Chalet Celebration: Special Adjunct Apprentice Minion Commemorative Award Souvenir.”\n   Try as you might, any time this picture gets marred or dirty, it repairs and cleans itself within the hour. Although given as a useless memento of an uncomfortable and awkward feast, the strap at the back makes it usable as a passable shields.\n   While bearing the picture, you can use a bonus action to alter the expression on the faces of Morlin or Halaster.\n   The front of this shield is shaped in the likeness of a face. While bearing the shield, you can use a bonus action to alter the faces expression.",
 			weight : 6,
 			shieldAdd : "Shield of Expression",
 			action : [["bonus action", "Shield of Expression"]]
@@ -497,42 +546,6 @@ MagicItemsList["al armor (common)"] = {
 				},
 		}
 	},	
-	"smoldering breastplate: jökulsbrynja (dc-poa-conmar-3)" : {
-			name : "Jökulsbrynja (Smoldering Breastplate)",
-			source : [["AL","DC-POA"]],
-			type : "armor (medium)",
-			description : "This metal armor is adorned with snowflake symbols & feels cool to the touch. Although metal, its sheen & color make it look like it's made from opaque ice & it emits wisps of harmless odorless frost vapor while worn.",
-			descriptionFull : "This metal breastplate is adorned with snowflake symbols and feels cool to the touch. While metal, its sheen and color make it look almost like it is made from opaque ice, and it constantly emits wisps of harmless, odorless frost smoke while it is worn.\n  This armor consists of a fitted metal chest piece worn with supple leather. Although it leaves the legs and arms relatively unprotected, this armor provides good protection for the wearer's vital organs while leaving the wearer relatively unencumbered.",
-		armorAdd : "Smoldering Breastplate",
-		armorOptions : [{
-				name : "Smoldering Breastplate",
-				source : [["AL", "DC-POA"]],
-				}]
-			},
-	"smoldering breastplate: wintergreen guard (dc-poa-legit-sv-01)" : {
-			name : "Wintergreen Guard, Smoldering Breastplate",
-			source : [["AL","DC-POA"]],
-			type : "armor (medium)",
-			description : "When you are struck by bludgeoning damage, this armor emits oils that cause a cool numbing sensation. While not particularly effective at its intended purpose, the volatile oils produce a visible & pleasant smelling vapor that wafts from the armor.",
-			descriptionFull : "When you are struck by bludgeoning damage, the armor emits oils which create a cool numbing sensation. While not particularly effective at its intended purpose, the volatile oils produce a visible and pleasant smelling vapor which wafts from under the armor.",
-		armorAdd : "Smoldering Breastplate",
-		armorOptions : [{
-				name : "Smoldering Breastplate",
-				source : [["AL", "DC-POA"]],
-				}]
-			},
-	"smoldering scale mail: stygian armor (ccc-gsp2-2)" : {
-			name : "Stygian Scale Mail (Smoldering Armor)",
-			source : [["AL","CCC"]],
-			type : "armor (medium)",
-			description : "This light blue, ice-like armor with a closed helm is light but durable. When exposed to air, the humidity around the armor condenses into tiny droplets, becoming visible wisps of mist-like vapor. A copy of the Nightsong Clan's infernal contract is engraved all over the armor, reminding you to search for the soul of Rem Nightsong & bring it to the Nine Hells.",
-			descriptionFull : "This light blue, ice-like armor with a closed helm is light but durable. When exposed to air, the humidity around the armor condenses into tiny droplets, becoming visible wisps of mist-like vapor. A copy of the Nightsong Clan's infernal contract is engraved all over the armor, reminding its wearer to search for the soul of Rem Nightsong and bring it to the Nine Hells.\n   Wisps of harmless, odorless smoke rise from this armor while it is worn.",
-		armorAdd : "Stygian Scale Mail",
-		armorOptions : [{
-				name : "Stygian Scale Mail",
-				source : [["AL", "DC-POA"]],
-				}]
-			},
 	"smoldering studded leather (dc-poa-codex-2)" : {
 			name : "Smoldering Studded Leather (DC-POA-CODEX-2)",
 			source : [["AL","DC-POA"]],
@@ -557,6 +570,18 @@ MagicItemsList["al armor (common)"] = {
 				source : [["AL", "DC-POA"]],
 				}]
 			},
+	"smoldering studded leather (dc-poa-gsp2-2h)" : {
+			name : "Smoldering Studded Leather (DC-POA-GSP2-2H)",
+			source : [["AL","DC-POA"]],
+			type : "armor (light)",
+			description : "Wisps of harmless, odorless ice vapors rise from this armor when it's worn, forming a shape similar to the wings of an angel. A glistening emblem of the Order of the Gauntlet is pinned to the top right of the armor.",
+			descriptionFull : "Wisps of harmless, odorless smoke rise from this studded leather armor while it is worn. The ice vapors that rise from this armor form a shape similar to the wings of an angel. At the top right of the armor piece, a glistening emblem of the Order of the Gauntlet is pinned on it.",
+		armorAdd : "Smoldering Studded Leather",
+		armorOptions : [{
+				name : "Smoldering Studded Leather",
+				source : [["AL", "DC-POA"]],
+				}]
+			},
 	"smoldering studded leather: smokin' hot leather (dc-poa-legit-sv-02)" : {
 			name : "Smokin' Hot Armor (Smoldering Studded Leather)",
 			source : [["AL","DC-POA"]],
@@ -566,6 +591,18 @@ MagicItemsList["al armor (common)"] = {
 		armorAdd : "Smokin' Studded Leather",
 		armorOptions : [{
 				name : "Smokin' Studded Leather",
+				source : [["AL", "DC-POA"]],
+				}]
+			},
+	"smoldering studded leather (dc-poa-ogg-1)" : {
+			name : "Smoldering Studded Leather (DC-POA-OGG-1)",
+			source : [["AL","DC-POA"]],
+			type : "armor (light)",
+			description : "This studded leather survived the intense heat of an illithid’s furnace & still bears splotchy red stains & blackened buckles from the flames. Wisps of harmless, odorless smoke rise from the armor when it's worn. ",
+			descriptionFull : "This studded leather armor survived the intense heat of the illithid’s furnace, but still bears splotchy red stains and blackened buckles from the flames. Wisps of harmless, odorless smoke rise from the armor while it is worn.",
+		armorAdd : "Smoldering Studded Leather",
+		armorOptions : [{
+				name : "Smoldering Studded Leather",
 				source : [["AL", "DC-POA"]],
 				}]
 			},
@@ -593,13 +630,68 @@ MagicItemsList["al armor (common)"] = {
 				source : [["AL", "S10"]],
 				}]
 			},
+	"smoldering scale mail: stygian armor (ccc-gsp2-2)" : {
+			name : "Stygian Scale Mail (Smoldering Armor)",
+			source : [["AL","CCC"]],
+			type : "armor (medium)",
+			description : "This light blue, ice-like armor with a closed helm is light but durable. When exposed to air, the humidity around the armor condenses into tiny droplets, becoming visible wisps of mist-like vapor. A copy of the Nightsong Clan's infernal contract is engraved all over the armor, reminding you to search for the soul of Rem Nightsong & bring it to the Nine Hells.",
+			descriptionFull : "This light blue, ice-like armor with a closed helm is light but durable. When exposed to air, the humidity around the armor condenses into tiny droplets, becoming visible wisps of mist-like vapor. A copy of the Nightsong Clan's infernal contract is engraved all over the armor, reminding its wearer to search for the soul of Rem Nightsong and bring it to the Nine Hells.\n   Wisps of harmless, odorless smoke rise from this armor while it is worn.",
+		armorAdd : "Stygian Scale Mail",
+		armorOptions : [{
+				name : "Stygian Scale Mail",
+				source : [["AL", "DC-POA"]],
+				}]
+			},
+	"smoldering breastplate: jökulsbrynja (dc-poa-conmar-3)" : {
+			name : "Jökulsbrynja (Smoldering Breastplate)",
+			source : [["AL","DC-POA"]],
+			type : "armor (medium)",
+			description : "This metal armor is adorned with snowflake symbols & feels cool to the touch. Although metal, its sheen & color make it look like it's made from opaque ice & it emits wisps of harmless odorless frost vapor while worn.",
+			descriptionFull : "This metal breastplate is adorned with snowflake symbols and feels cool to the touch. While metal, its sheen and color make it look almost like it is made from opaque ice, and it constantly emits wisps of harmless, odorless frost smoke while it is worn.\n  This armor consists of a fitted metal chest piece worn with supple leather. Although it leaves the legs and arms relatively unprotected, this armor provides good protection for the wearer's vital organs while leaving the wearer relatively unencumbered.",
+		armorAdd : "Smoldering Breastplate",
+		armorOptions : [{
+				name : "Smoldering Breastplate",
+				source : [["AL", "DC-POA"]],
+				}]
+			},
+	"smoldering breastplate: wintergreen guard (dc-poa-legit-sv-01)" : {
+			name : "Wintergreen Guard, Smoldering Breastplate",
+			source : [["AL","DC-POA"]],
+			type : "armor (medium)",
+			description : "When you are struck by bludgeoning damage, this armor emits oils that cause a cool numbing sensation. While not particularly effective at its intended purpose, the volatile oils produce a visible & pleasant smelling vapor that wafts from the armor.",
+			descriptionFull : "When you are struck by bludgeoning damage, the armor emits oils which create a cool numbing sensation. While not particularly effective at its intended purpose, the volatile oils produce a visible and pleasant smelling vapor which wafts from under the armor.",
+		armorAdd : "Smoldering Breastplate",
+		armorOptions : [{
+				name : "Smoldering Breastplate",
+				source : [["AL", "DC-POA"]],
+				}]
+			},
+	"spiked armor of gleaming: axehead's coat of beaks (ccc-mtl-3)" : {
+			name : "Axehead's Coat of Beaks (Spiked Armor of Gleaming)",
+			source : [["AL","CCC"]],
+			type : "armor (medium)",
+			rarity : "common",
+			description : "Once belonging to the battlerager Axehead Moontunnel, this strangely designed armor is crafted from Underdark creatures. The softer parts are made of boiled roper skin & the spikes are the beaks from various Underdark horrors. The mask features the heads of two small axes strapped together to form a visor. Though made of unpleasant materials, the armor never gets dirty – blood runs right off it! While wearing it, you feel like you can take on any opponent.",
+			descriptionFull : "Once belonging to the battlerager Axehead Moontunnel, this armor is of his own strange design and crafted from parts of Underdark creatures. The softer parts are made of boiled roper skin and the spikes are beaks taken from various Underdark horrors. The mask features heads of two small axes strapped together to form a sort of visor. Though made of unpleasant materials, the armor never seems to get any dirtier than it already is – blood runs right off it! The wearer of this armor feels as though they can take on any opponent.",
+			allowDuplicates : true,
+		armorAdd : "Axehead's Coat of Beaks",
+		armorOptions : [{
+				name : "Axehead's Coat of Beaks",
+				source : [["AL", "CCC"]],
+				regExpSearch : /^(?=.*coat)(?=.*axehead|s)(?=.*beaks).*$/i,
+				type : "medium",
+				ac : 14,
+				stealthdis : true,
+				weight : 45
+				}]
+		},	
 }
 
 
 MagicItemsList["al armor (other)"] = {
 		name : "AL Armor (Other)",
 		allowDuplicates : true,
-	choices : ["Breastplate of Necrotic Resistance: Chardalyn (DDAL10-5)","Demon Armor (DDEX3-16)","Efreeti Chain (DDAL7-15)","Elven Chain (CCC-BMG-36 ELMW2-3)","Elven Chain (CCC-SQC-2-2)","Glamoured Studded Leather (DDAL4-9)","Glamoured Studded Leather (DDAL8-11)","Glamoured Studded Leather (DDAL9-6)","Half Plate of Poison Resistance: Mushroom (DDEX3-11)","Mariner's Breastplate (CCC-AETHER-1-2)","Plate Armor of Etherealness (DDAL8-16)","Red Dragon Scale Mail (DDEP5-1)","Red Dragon Scale Mail (DDAL9-15)","Scale Mail of Psychic Resistance: Resin (CCC-TRI-21 YUL1-6)","Studded Leather of Fire Resistance (DDAL0-11C)"],
+	choices : ["Breastplate of Necrotic Resistance: Chardalyn (DDAL10-5)","Demon Armor (DDEX3-16)","Efreeti Chain (DDAL7-15)","Elven Chain (CCC-BMG-36 ELMW2-3)","Elven Chain (CCC-SQC-2-2)","Glamoured Studded Leather (DDAL4-9)","Glamoured Studded Leather (DDAL8-11)","Glamoured Studded Leather (DDAL9-6)","Half Plate of Poison Resistance: Mushroom (DDEX3-11)","Mariner's Breastplate (CCC-AETHER-1-2)","Mariner's Breastplate (CCC-MMT1-2)","Mariner's Scale Mail (ALSRs11-A)","Plate Armor of Etherealness (DDAL8-16)","Red Dragon Scale Mail (DDEP5-1)","Red Dragon Scale Mail (DDAL9-15)","Scale Mail of Psychic Resistance: Resin (CCC-TRI-21 YUL1-6)","Studded Leather of Fire Resistance (DDAL0-11C)"],
 	"breastplate of necrotic resistance: chardalyn (ddal10-5)" : {
 			name : "Chardalyn Breastplate of Necrotic Resist. (DDAL10-5)",
 			source : [["AL","S10"]],
@@ -632,7 +724,7 @@ MagicItemsList["al armor (other)"] = {
 		armorOptions : [{
 			regExpSearch : /^(?=.*demon)(?=.*armor).*$/i,
 			name : "Demon Armor",
-			source: [["SRD", 218], ["D", 165] ["AL","S3"]],
+			source: [["AL","S3"]],
 			type : "heavy",
 			ac : 19,
 			stealthdis : true,
@@ -795,6 +887,38 @@ MagicItemsList["al armor (other)"] = {
 		armorAdd : "Mariner's Breastplate",
 		armorOptions : [{
 				name : "Mariner's Breastplate",
+				source : [["AL", "CCC"]],
+				}],
+		speed : { swim : { spd : "walk", enc : "walk" } }
+	},
+	"mariner's breastplate (ccc-mmt1-2)" : {
+		name : "Mariner's Breastplate (CCC-MMT1-2)",
+		source : [["AL","CCC"]],
+		type : "armor (breastplate)",
+		rarity : "uncommon",
+		magicItemTable : "B",
+		description : "While wearing this breastplate, you have a swimming speed equal to your walking speed. In addition, whenever you start your turn underwater with 0 hp, you rise 60 ft toward the surface. The armor is decorated with fish & shell motifs as well as the holy symbol of Umberlee.",
+		descriptionFull : "While wearing this breastplate, you have a swimming speed equal to your walking speed. In addition, whenever you start your turn underwater with 0 hit points, the armor causes you to rise 60 feet toward the surface. The armor is decorated with fish and shell motifs as well as the holy symbol of Umberlee.",
+		allowDuplicates : true,
+		armorAdd : "Mariner's Breastplate",
+		armorOptions : [{
+				name : "Mariner's Breastplate",
+				source : [["AL", "CCC"]],
+				}],
+		speed : { swim : { spd : "walk", enc : "walk" } }
+	},
+	"mariner's scale mail (alsrs11-a)" : {
+		name : "Mariner's Scale Mail (ALSRs11-A)",
+		source : [["AL","CCC"]],
+		type : "armor (scale mail)",
+		rarity : "uncommon",
+		magicItemTable : "B",
+		description : "Constructed of overlapping flat smooth river stones, this set of scale mail is surprisingly light & mobile. While wearing it, you need half the water normally required to stave off exhaustion & have a swimming speed equal to your walking speed. In addition, whenever you start your turn underwater with 0 hp, you rise 60 ft toward the surface. The armor is decorated with fish & shell motifs.",
+		descriptionFull : "Constructed of flat, smooth, and overlapping river stones, this set of scale mail is surprisingly light and mobile. While wearing the armor, you need half the water normally required to stave off exhaustion and you have a swimming speed equal to your walking speed. In addition, whenever you start your turn underwater with 0 hit points, the armor causes you to rise 60 feet toward the surface. The armor is decorated with fish and shell motifs.",
+		allowDuplicates : true,
+		armorAdd : "Mariner's Scale Mail",
+		armorOptions : [{
+				name : "Mariner's Scale Mail",
 				source : [["AL", "CCC"]],
 				}],
 		speed : { swim : { spd : "walk", enc : "walk" } }
@@ -1008,7 +1132,7 @@ MagicItemsList["al shields (other)"] = {
 		allowDuplicates : true,
 		type : "shield",
 		weight : 6,
-	choices : ["Animated Shield (DDEP5-2)","Animated Shield (DDEP8-3)","Arrow-Catching Shield (CCC-GLIP-2-1)","Arrow-Catching Shield (DDAL9-8)","Sentinel Shield (CCC-BMG-MOON11-1)","Sentinel Shield (CCC-WWC-7)","Sentinel Shield (DDAL-CGB)","Sentinel Shield (DDEX2-12)","Spellguard Shield: Warden (CCC-ODFC1-3)","Spellguard Shield (CCC-ROZK1-3)","Spellguard Shield (DDEP7-2)","Spellguard Shield (DDAL-DRWEP02)"],
+	choices : ["Animated Shield (DDEP5-2)","Animated Shield (DDEP8-3)","Arrow-Catching Shield (CCC-BMG-MOON13-3)","Arrow-Catching Shield (CCC-GLIP-2-1)","Arrow-Catching Shield (DDAL9-8)","Sentinel Shield (CCC-BMG-MOON11-1)","Sentinel Shield (CCC-WWC-7)","Sentinel Shield (DDAL-CGB)","Sentinel Shield (DDEX2-12)","Spellguard Shield: Warden (CCC-ODFC1-3)","Spellguard Shield (CCC-ROZK1-3)","Spellguard Shield (DDEP7-2)","Spellguard Shield (DDAL-DRWEP02)"],
 	"animated shield (ddep5-2)" : {  // contains contributions by Larry Hoy
 		name : "Animated Shield (DDEP5-2)",
 		source : [["AL","S5"]],
@@ -1031,9 +1155,21 @@ MagicItemsList["al shields (other)"] = {
 		action : [["bonus action", "Animated Shield"]],
 		shieldAdd : "Animated Shield"
 	},
+	"arrow-catching shield (ccc-bmg-moon13-3)" : { // contains contributions by Larry Hoy
+		name : "Arrow-Catching Shield (CCC-BMG-MOON13-3)",
+		source : [["AL","CCC"]],
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "This large round wooden shield is dark brown, with a black iron rim & boss. It's decorated with two entwined red serpents, each holding a bundle of broken arrows in their mouths. The shield is surprisingly light & floats on water. While wielding it, you gain an additional +2 bonus to AC against ranged attacks (not calculated in 1st page AC). When an attacker makes a ranged atk against a target w/i 5 ft of you, you can become the target of the atk as a reaction.",
+		descriptionFull : "This large round wooden shield is dark brown, with a black iron rim and a black shield boss. It is decorated with two entwined red serpents, each holding a bundle of broken arrows in their mouths. The shield is surprisingly light and floats on water.\n   You gain a +2 bonus to AC against ranged attacks while you wield this shield. This bonus is in addition to the shield's normal bonus to AC. In addition, whenever an attacker makes a ranged attack against a target within 5 feet of you, you can use your reaction to become the target of the attack instead.",
+		attunement : true,
+		weight : 6,
+		action : [["reaction", "Arrow-Catching Shield"]],
+		shieldAdd : "Arrow-Catching Shield (+\u200A2 vs. ranged)"
+	},
 	"arrow-catching shield (ccc-glip-2-1)" : { // contains contributions by Larry Hoy
 		name : "Arrow-Catching Shield (CCC-GLIP-2-1)",
-		source : [["AL","S9"]],
+		source : [["AL","CCC"]],
 		rarity : "rare",
 		magicItemTable : "G",
 		description : "This bronze-inlaid shield bears the marching dragon symbol of the Kroth Magg hobgoblin clan. While wielding it, you gain an additional +2 bonus to AC against ranged attacks (not calculated in 1st page AC). When an attacker makes a ranged atk against a target w/i 5 ft of you, you can become the target of the atk as a reaction.",

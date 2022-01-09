@@ -9,7 +9,7 @@ It is recommended to enter the code in a fresh sheet before adding any other inf
     Effect:	This script adds the new items, armor, and weapons found in AL modules and Guild Adept adventures to the MPMB sheet. It also includes some Story Awards that grant blessings, boons, or other mechanical effects. This is not a complete list, but it's a start.*/
 	
 	//Complete: S0-S9, DDCE, Holiday Events, Guild Adept
-	//In progress: S10 (Through 10-10), DC-POA, DRW, 
+	//In progress: CCCs, DC-POA, DRW, 
 	
 var iFileName = "AL Special Items.js";
 RequiredSheetVersion(13);
@@ -458,7 +458,7 @@ MagicItemsList["al event award items"] = {
 		},
 	"moonlight candle" : {
 		name : "Moonlight Candle",
-		source : ["AL:EL", "TAL"],
+		source : ["AL:EL", "2021-2022"],
 		description : "When lit, this hauntingly pale candle provides illumination that's treated as moonlight, shedding bright light in a 20-ft radius and dim light for another 20 ft. It gives off no heat and never burns out.",
 		descriptionFull : "When lit, this hauntingly pale candle provides illumination that is treated as moonlight, shedding bright light in a 20-foot radius and dim light for an additional 20 feet. It gives off no heat and never burns out.",
 		},
@@ -515,8 +515,9 @@ MagicItemsList["al event award items"] = {
 //New AL Items from official modules, community modules (includes a couple neat trinkets), Fai Chen's and past holiday events (that aren't event awards)
 MagicItemsList["al new items"] = {
 		name : "AL New Items",
+		type : "wondrous item",
 		allowDuplicates : true,
-		choices : ["Achis Atracta (CCC-BMG-30 HILL2-3)","Bag of Tricks or Treats","Cariboots","Efreeti Crown of Wishes (CCC-ODFC2-2)","Eye of Xxiphu (DDAL5-19)","Fey Hound Collar","Flamesoul Stone (CCC-YLRA1-3)","Ghost Sheet","Hat of Witchery","Hellrider's Badge (DDEP9-2)","Lemure Onesie","Mind-Poison Dagger (DDHC-MORD-05)","Mist Hunters Magnificent Cap (RMH Safety Tools)","Nettle (DDEP4)","Oathbinder (DDHC-TOA-15)","Order of the Guardians Ring (RMH Safety Tools)","Owlbear Snowshoes","Pipes of Remembrance","Pumpkin Ring","Selûne's Owl-Eye Glasses","Shar's Veil","Spare (DDHC-TOA-13)","Tarot Card Set","Wooden Gecko Earrings (DDHC-TOA-8)"],
+		choices : ["Achis Atracta (CCC-BMG-30 HILL2-3)","Artor's Blood Mead: Six-pack (DC-POA-SNIPE-1)","Bag of Tricks or Treats","Bookmark of Memory (WBW-PR)","Cariboots","Discord (DDAL-DRW15)","Efreeti Crown of Wishes (CCC-ODFC2-2)","Eye of Xxiphu (DDAL5-19)","Fey Hound Collar","Flamesoul Stone (CCC-YLRA1-3)","Fold-Up Friend (WBW-PR)","Giant's Gloves (WBW-PR)","Ghost Sheet","Hat of Witchery","Hellrider's Badge (DDEP9-2)","Lemure Onesie","Mind-Poison Dagger (DDHC-MORD-05)","Mist Hunters Magnificent Cap (RMH Safety Tools)","Nettle (DDEP4)","Oathbinder (DDHC-TOA-15)","Order of the Guardians Ring (RMH Safety Tools)","Owlbear Snowshoes","Pearl of Elocution (WBW-PR)","Pipes of Remembrance","Pocket Watch (WBW-PR)","Pumpkin Ring","Selûne's Owl-Eye Glasses","Shar's Veil","Snipe Feather Pillow (DC-POA-SNIPE-1)","Spare (DDHC-TOA-13)","Striking at the Bare Neck (DC-POA-SNIPE-1)","Tarot Card Set","Wand of Whimsy (WBW-PR)","Wooden Gecko Earrings (DDHC-TOA-8)"],
 	"achis atracta (ccc-bmg-30 hill2-3)" : { // contributed by AelarTheElfRogue
 		name : "Achis Atracta (CCC-BMG-30 HILL2-3)",
 		source : [["AL","CCC"]],
@@ -526,6 +527,14 @@ MagicItemsList["al new items"] = {
 		descriptionFull : "This amulet is made of an intricately carved bloodstone, shaped in the likeness of a woman’s head. The eyes pulse with a white glow when Achis is speaking. The stone is attached to a delicate silver chain. Achis Atracta has all the powers of a periapt of proof against poison that she bestows upon her wearer — if she feels so inclined. She is very fickle. If she likes you, poisons have no effect on you. You are immune to the poisoned condition and have immunity to poison damage.\n   " + toUni("Sentience") + ": Achis Atracta is a sentient chaotic neutral item with an Intelligence of 10, a Wisdom of 10, and a Charisma of 16. She has hearing and normal vision out to a range of 120 feet.\n   She can speak, read, and understand Common and Celestial.\n   " + toUni("Personality") + ": Achis Atracta speaks in a whiny and shrill voice, making demands as though accustomed to being obeyed. She acts like a spoiled noble and expects to be waited on like a queen. Wearers who do not treat her with respect and deference gain no benefit from her item powers. She screams and complains loudly if surprised by a situation she deems beneath her — such as trekking through a sewer or being engulfed by a fireball.\n   Achis wants to be loved and adored by a person with power and standing like a princess in a fairy tale. Her greatest wish is to fall in love with a prince and be swept off her feet—figuratively speaking.",
 		weight : 1,
 		savetxt : { immune : ["poison"] }
+	},
+	"artor's blood mead: six-pack (dc-poa-snipe-1)" : {
+		name: "Six-pack of Artor's Blood Mead (DC-POA-SNIPE-1)",
+		source : ["AL", "DC-POA"],
+		rarity: "trinket",
+		description: "This small wooden crate has 6 ceramic bottles containing dark red mead specially commissioned for Artor Morlin. His frowning face is stenciled on the bottles. When drunk, the mead has an unsettling metallic taste.",
+		descriptionFull: "A small wooden crate containing six ceramic bottles containing dark red mead especially commissioned for Artor Morlin, with the frowning face of Artor stenciled on the bottles. When you drink it, it has an unsettling metallic taste.",
+		weight: 1,
 	},
 	"bag of tricks or treats" : {
 		name: "Bag of Tricks or Treats",
@@ -540,6 +549,14 @@ MagicItemsList["al new items"] = {
 		usages : 3,
 		recovery : "dawn",
 	},
+	"bookmark of memory (wbw-pr)" : {
+		name : "Bookmark of Memory (WBW-PR)",
+		source : ["AL", "WBW"],
+		rarity : "common",
+		magicItemTable : "?",
+		description : "When you open a book bearing this bookmark, you immediately recall every word you’ve read from it with perfect clarity.",
+		descriptionFull : "When you open a book bearing this bookmark, you immediately recall every word you’ve previously read from it, with perfect clarity."
+		},
 	"cariboots" : {
 		name : "Cariboots",
 		source : ["AL:LN", 2020],
@@ -547,6 +564,29 @@ MagicItemsList["al new items"] = {
 		magicItemTable : "?",
 		description : "These boots fit any humanoid, and are finely crafted from caribou pelts and lined with the softest fur. While wearing these boots, you can choose to have them leave tracks like those of a caribou."
 		},
+	"discord (ddal-drw15)" : {
+		name : "Discord (DDAL-DRW15)",
+		source : [["AL","DRW"]],
+		rarity : "unique",
+		allowDuplicates : true,
+		description : "This magical armor is made of sharp interlocking spikes of green crystal & extinguishes all nonmagical flames within 30 ft. You hear insidious whispers from just beyond your peripheral vision. Unless deafened, you have disadvantage on saving throws caused by, & Wisdom checks related to, Father Llymic & its allies. Once per dawn, you can use your reaction to see normally in magical & nonmagical darkness for 120 ft until your next turn starts. If also wielding Woe (a longsword), you're unharmed by temps as low as −60 \u00B0F",
+		descriptionFull : "Discord is comprised of sharp, interlocking spikes of green crystal and extinguishes all nonmagical flames within 30 feet of it. A creature wearing Discord hears insidious whispers originating from a point just beyond their peripheral vision. Unless deafened, the creature has disadvantage on saving throws caused by, and on Wisdom checks related to, Father Llymic and its allies.\n   While wearing this armor, you gain a +2 bonus to AC. In addition, you can use your reaction to see normally in darkness, both magical and nonmagical, out to a distance of 120 feet until the start of your next turn. Discord can’t be used this way again until the next dawn.\n   If a character wields Woe (a longsword) while wearing Discord, they are unharmed by temperatures as low as −60 degrees Fahrenheit.",
+		action : [["reaction", "Discord (120 ft Devil Sight)"]],
+		limfeaname : "Discord (120 ft Devil Sight)",
+		usages : 1,
+		recovery : "dawn",
+		armorAdd : "Discord",
+		armorOptions : [{
+			regExpSearch : /^(?=.*discord).*$/i,
+			name : "Discord",
+			source : [["AL","DRW"]],
+			type : "heavy",
+			ac : 20,
+			stealthdis : true,
+			weight : 65,
+			strReq : 15
+			}]
+	},
 	"efreeti crown of wishes (ccc-odfc2-2)" : {
 		name : "Efreeti Crown of Wishes (CCC-ODFC2-2)",
 		source : [["AL","CCC"]],
@@ -558,7 +598,6 @@ MagicItemsList["al new items"] = {
 	"eye of xxiphu (ddal5-19)" : {
 		name : "Eye of Xxiphu (DDAL5-19)",
 		source : [["AL","S5"]],
-		type : "wondrous item",
 		rarity : "legendary",
 		magicItemTable : "?",
 		attunement : true,
@@ -583,6 +622,22 @@ MagicItemsList["al new items"] = {
 		description : "This fist-sized crystal produces a flickering coppery-orange glow from within. The light is magical, but isn’t bright enough to significantly illuminate an area. Casting detect magic on the Flamesoul Stone shows a hint of necrotic magic emanating from it. The light from the stone is the same color as the comet that was recently seen over Ylraphon.",
 		descriptionFull : "A fist-sized crystal that produces a flickering coppery-orange glow from within. The light is magical, but isn’t bright enough to significantly illuminate any area. Casting detect magic on the Flamesoul Stone shows a slight hint of necrotic magic emanating from within. The light from the stone is the same color as the comet that has recently been seen over Ylraphon."
 	},
+	"fold-up friend (wbw-pr)" : {
+		name : "Fold-Up Friend (WBW-PR)",
+		source : ["AL", "WBW"],
+		rarity : "common",
+		magicItemTable : "?",
+		description : "While this cut-out parchment character is within 5 ft of you, you can command it to walk, play, dance or follow you. The fold-up friend can't take actions or manipulate objects. It has AC 12 and 1 hit point.",
+		descriptionFull : "While this cut-out parchment character is within 5 feet of you, you can command it to walk, play, dance, or follow you. The fold-up friend cannot take actions and cannot manipulate objects. It has AC 12 and 1 hit point."
+		},
+	"giant's gloves (wbw-pr)" : {
+		name : "Giant's Gloves (WBW-PR)",
+		source : ["AL", "WBW"],
+		rarity : "common",
+		magicItemTable : "?",
+		description : "While wearing these oversized gloves, your hands magically expand to fill their volume. This has no benefit.",
+		descriptionFull : "While wearing these oversized gloves, your hands magically expand to fill their volume. You gain no benefit from this."
+		},
 	"ghost sheet" : {
 		name : "Ghost Sheet",
 		source : ["AL:LN", 2018],
@@ -604,7 +659,6 @@ MagicItemsList["al new items"] = {
 	"hellrider's badge (ddep9-2)" : {
 		name : "Hellrider's Badge (DDEP9-2)",
 		source : [["AL","S9"]],
-		type : "wondrous item",
 		rarity : "rare",
 		magicItemTable : "?",
 		attunement : true,
@@ -646,7 +700,6 @@ MagicItemsList["al new items"] = {
 	"mist hunters magnificent cap (rmh safety tools)" : {
 		name : "Mist Hunters Magnificent Cap (RMH Safety Tools)",
 		source : [["AL:RMH","ST"]],
-		type : "wondrous item",
 		rarity : "common",
 		magicItemTable : "?",
 		description : "This deerstalker, ear-flapped traveling cap, is worn by notable investigators. When worn, it functions as any other hat. At the investigator's whim, it transforms into a working magnifying glass or back into a cap as needed.",
@@ -731,6 +784,14 @@ MagicItemsList["al new items"] = {
 		type : "trinket",
 		description : "These warmly appointed snowshoes leave the tracks of an owlbear in snow, mud, or other soft surfaces. They also have an unfortunate tendency to attract other owlbears."
 		},
+	"pearl of elocution (wbw-pr)" : {
+		name : "Pearl of Elocution (WBW-PR)",
+		source : ["AL", "WBW"],
+		rarity : "common",
+		magicItemTable : "?",
+		description : "When you place this pearl underneath your tongue, you perfectly pronounce the words of any language you can speak.",
+		descriptionFull : "When you place this pearl underneath your tongue, you perfectly pronounce the words of any language that you can speak."
+		},
 	"pipes of remembrance" : {
 		name : "Pipes of Remembrance",
 		source : ["AL:LN", 2020],
@@ -740,6 +801,14 @@ MagicItemsList["al new items"] = {
 		descriptionFull : "This long, delicate wooden pipe features a bowl made from smooth river stone. When the pipe is lit, smoke exhaled from it does not dissipate, instead lingering around the bearer. After 10 minutes, the smoke forms moving shapes that reenact a scene of the bearer’s choosing from the stories it has been told. When this realistic performance is complete, the smoke dissipates. A new story or likeness may be added to the pipe’s repertoire if the bearer smokes the pipe while relaying a tale or describing a companion. The pipe can’t be used this way again until the next dawn.",
 		usages : 1,
 		recovery : "dawn"
+		},
+	"pocket watch (wbw-pr)" : {
+		name : "Pocket Watch (WBW-PR)",
+		source : ["AL", "WBW"],
+		rarity : "common",
+		magicItemTable : "?",
+		description : "This lidded brass container holds a tiny sand timer suspended behind glass. No matter how the container is orientated, the sand always falls from one side of the timer to the other, taking exactly 24 hrs to deplete. Once depleted, the timer spins around to reset itself.",
+		descriptionFull : "This lidded brass container holds a tiny sand timer suspended behind glass. No matter how the container is orientated, the sand always falls from one side of the timer to the other, taking exactly 24 hours to deplete. Once depleted, the sand timer spins around to reset itself."
 		},
 	"pumpkin ring" : {
 		name : "Pumpkin Ring",
@@ -751,6 +820,7 @@ MagicItemsList["al new items"] = {
 	"selûne's owl-eye glasses" : {
 		name : "Selûne's Owl-Eye Glasses",
 		source : ["AL:LN", 2020],
+		rarity : "unique",
 		attunement : true,
 		description : "While wearing these glasses, as an action once per dawn, you can instantaneously resummon a deceased, certed or Holiday Event vanity pet or mount (only ones that can be returned to life by the find familiar or find steed spells.) If you are not attuned to your glasses, that does not kill your pet.",
 		descriptionFull : "While wearing these glasses, as an action, you can instantaneously resummon a deceased, certed or Holiday Event vanity pet or mount that can be returned to life by the find familiar or find steed spells. Once returned to life, they have no new additions to the roles and abilities they had before death (for example, these glasses do not transform them into a familiar or steed). If you are not attuned to your glasses, that does not kill your pet. The glasses can’t be used this way again until the next dawn.",
@@ -761,9 +831,18 @@ MagicItemsList["al new items"] = {
 	"shar's veil" : {
 		name : "Shar's Veil",
 		source : ["AL:LN", 2020],
-		description : "Once per long rest, while you wear this purple and black, shadowy veil, it gives the illusion of death and decay for 1 hour. Lying motionless, your body appears to be dead. In motion, you appear to be an undead creature, but your creature type is not changed to undead. To discern that you are disguised, a creature can use its action to inspect your appearance and must succeed on a DC 13 Intelligence (Investigation) check.",
+		rarity : "unique",
+		description : "Once per long rest, while wearing this purple and black shadowy veil, it gives you the illusion of death and decay for 1 hr. Lying motionless, you appear to be dead. In motion, you appear to be undead, but your creature type isn't changed. To tell that you're disguised, a creature can use its action to inspect your appearance and must succeed on a DC 13 Intelligence (Investigation) check.",
+		descriptionFull : "Once per long rest, while you wear this purple and black, shadowy veil, it gives the illusion of death and decay for 1 hour. Lying motionless, your body appears to be dead. In motion, you appear to be an undead creature, but your creature type is not changed to undead. To discern that you are disguised, a creature can use its action to inspect your appearance and must succeed on a DC 13 Intelligence (Investigation) check.",
 		usages : 1,
 		recovery : "long rest"
+		},
+	"snipe feather pillow (dc-poa-snipe-1)" : {
+		name : "Snipe Feather Pillow (DC-POA-SNIPE-1)",
+		source : ["AL", "DC-POA"],
+		rarity : "trinket",
+		description : "This feather pillow is made of snipe feathers and salvaged Ice Spider silk. It allows restful sleep without nightmares. When using this pillow during a long rest, you may roll 1d6. On a 1, you dream about a snipe mother and her baby chicks happily treading through clean snow.",
+		descriptionFull : "This feather pillow is made of snipe feathers and salvaged Ice Spider silk. It allows restful sleep without nightmares [treat like trinket #65 on the PHB trinkets table]. A PC using this pillow during a long rest may roll 1d6. On a one, their dreams are all filled with a snipe mother and her baby chicks happily treading through clean snow.",
 		},
 	"spare (ddhc-toa-13)" : {
 		name : "Spare (DDHC-TOA-13)",
@@ -796,18 +875,33 @@ MagicItemsList["al new items"] = {
 		modifiers : [2, 2]
 				},
 	},
+	"striking at the bare neck (dc-poa-snipe-1)" : {
+		name : "Striking at the Bare Neck (DC-POA-SNIPE-1)",
+		source : ["AL", "DC-POA"],
+		rarity : "trinket",
+		description : "This red-leather book is a disturbing collection of military and political strategy framed as poetry. While the insights are profound and the poetry skilled artistry, the underlying theme of mortals as prey makes reading more than a few poems in a sitting deeply unsettling to most humanoids.",
+		descriptionFull : "This red-leather book is a disturbing collection of military and political strategy framed as poetry. While the insights are profound and the poetry skilled, musical, and high artistry, the underlying theme of mortals as prey makes reading more than a few poems in a sitting deeply unsettling to most humanoids.",
+		},
 	"tarot card set" : {
 		name : "Tarot Card Set",
 		source : ["AL:LN", 2020],
+		rarity : "unique",
 		description : "Once/day, roll 1d4 to find out what your fortune produces. This item disappears at dawn & the character may roll again to reveal their next fortune. DC 1: The Flower - touching this card to a patch of earth w/i 5 ft, causes one flower of your choice to sprout. The flower is nonmagical & grows or withers as a normal flower. DC 2: The Yummy Meal - your favorite meal, the equivalent of 1 ration. DC 3: The Tea Pot - a tiny pot of tea, equivalent to 1 healing potion. DC 4: The Witch - a stone & twisted wire pendant. As an action, it gives you adv. on CHA checks w/ humanoids (<= CR1), for 1 hr.",
 		descriptionFull : "Once per day, roll 1d4 to find out what your tarot fortune produces. At dawn this product (not the card) vanishes but the character may roll again to reveal their next fortune.\n   " + toUni("DC 1: The Flower") + ". - touching this card to a patch of earth or soil, within 5 feet of you, causes one flower of your choice to sprout there. The flower is nonmagical and harmless, and it grows or withers as a normal flower would.\n   " + toUni("DC 2: The Yummy Meal") + ". - this card produces your favorite meal, the equivalent of 1 ration.\n   " + toUni("DC 3: The Tea Pot") + ". - this card produces a tiny pot of piping tea, the equivalent of one potion of healing.\n   " + toUni("DC 4: The Witch") + ". - this card produces a stone and twisted wire pendant. As an action, it gives you advantage on Charisma checks when communicating with humanoids (CR 1 or less), for 1 hour.",
 		usages : 1,
 		recovery : "dawn"
 		},
+	"wand of whimsy (wbw-pr)" : {
+		name : "Wand of Whimsy (WBW-PR)",
+		source : ["AL", "WBW"],
+		rarity : "common",
+		magicItemTable : "?",
+		description : "This wand has 8 charges. While holding it, you can expend 1 charge as an action to create one of these effects: Change the hair color or hair style of a visible creature within 50 ft; cause a small cloud of butterflies to flutter from the tip of the wand; conjure a brief tinkling melody from the wand. The wand regains 1d6 + 1 charges at dawn. If you use the last charge, roll a d20. On a 1, the wand transforms into a cloud of butterflies that flutter away.",
+		descriptionFull : "This wand has 8 charges. While holding it, you can use an action to expend 1 of its charges and create one of the following effects:\n \u2022 Change the hair color or hair style of a creature you can see within 50 feet.\n \u2022 Cause a small cloud of butterflies to flutter from the tip of the wand.\n \u2022 Conjure a brief, tinkling melody from the wand.\n   The wand regains 1d6 + 1 expended charges daily at dawn. If you expend the wand’s last charge, roll a d20. On a 1, the wand transforms into a cloud of butterflies, which flutter away."
+		},
 	"wooden gecko earrings (ddhc-toa-8)" : {
 		name : "Wooden Gecko Earrings (DDHC-TOA-8)",
 		source : [["AL","S7"]],
-		type : "wondrous item",
 		rarity : "uncommon",
 		magicItemTable : "A",
 		description : "After wearing these wooden gecko earrings for at least 1 day, you become proficient in Strength (Athletics) checks to climb, as long as your hands and feet are bare and touching the surface. However, you have an insatiable urge to eat insects.",
