@@ -11,7 +11,7 @@ Effect: This file adds new creatures that are specially made for AL into the she
 //The Sea Lion code was deleted from GoS but still appears on a Beastmaster NPC. The code for Arctic Stink Squirrel, Chwinga Squidling, Gelatinous Ice Cube, Snowy Owlbear Cub was made by Nod_Hero. It was added here to collect the extra creatures in one place.
 
 //Complete: DDCE, House of Lament Premiere, S0-S9, S9 DM Rewards (no vehicles), Holiday Events
-//WIP: Fai Chen's/Certs, S10 (Through 10-10), DC-POA, DRW
+//WIP: Fai Chen's/Certs, CCCs, DC-POA, DRW
 
 var iFileName = "AL Creatures.js";
 RequiredSheetVersion(13);
@@ -31,11 +31,12 @@ SourceList["AL:EL"] = {   //AL specific Extra Life certs
     date : "Various"
 };
 
-SourceList["AL:SE"] = {
-    name : "AL Special Events (Conventions/Opens/Premieres)",
-    abbreviation : "AL:SE",
-    group : "Adventurers League",
-    date : "Various"
+SourceList["AL:RMH"] = {  //Mist Hunters Alternate Campaign
+	name : "Mist Hunters",
+	abbreviation : "AL:RMH",
+	group : "Adventurers League",
+	url : "https://www.dmsguild.com/browse.php?filters=45470_0_0_0_0_0_0_0&src=fid45470",
+	date : "Various"
 };
  
 SourceList.DDCE = { //Only creatures from this category count as Event Awards under the new rules
@@ -346,7 +347,7 @@ CreatureList["snowy owlbear cub"] = {
 //Special cert from the Beadle & Grimm Icewind Dale Premiere. Acts as a non-combat, non-mechanical companion unless you summon it with Find Familiar.
 CreatureList["yeti tyke"] = {
 		name : "Yeti Tyke",
-		source : ["AL:SE","IDRF:BG"],
+		source : ["AL","IDRF:BG"],
 		size : 4, //Small
 		type : "Monstrosity",
 		alignment : "Lawful Evil",
@@ -708,7 +709,7 @@ CreatureList["the crazy squirrel"] = {
 //Special cert from the House of Lament premier. Only usable in Mist Hunters adventures.
 CreatureList["penumbra the gremishka"] = {
 		name : "Penumbra the Gremishka",
-		source : ["AL:SE","HoL"],
+		source : ["AL:RMH","HoL"],
 		size : 5, //Tiny
 		type : "Monstrosity",
 		subtype : "",
