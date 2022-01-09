@@ -13,9 +13,9 @@ var iFileName = "Magic_Items_Candlekeep.js";
 RequiredSheetVersion(13);
 
 // Define the source
-SourceList["CM"] = {
-	name : "Candlekeep Mysteries",
-	abbreviation : "CM",
+SourceList["CM-Alt"] = {
+	name : "Candlekeep Mysteries - Alternate",
+	abbreviation : "CM-Alt",
 	group : "Adventure Books",
 	url : "https://dnd.wizards.com/products/candlekeep-mysteries",
 	date : "2021/03/16"
@@ -23,7 +23,7 @@ SourceList["CM"] = {
 
 MagicItemsList["book flail"] = {
 	name : "Book Flail",
-	source : ["CM"],
+	source : ["CM-Alt"],
 	type : "weapon (flail)",
 	rarity : "uncommon",
 	magicItemTable : "F",
@@ -35,7 +35,7 @@ MagicItemsList["book flail"] = {
 		baseWeapon : "flail",
 		regExpSearch : /^(?=.*book)(?=.*flail).*$/i,
 		name : "Book Flail",
-		source : ["CM"],
+		source : ["CM-Alt"],
 		range : "Melee",
 		modifiers : [1,1]
 	}
@@ -43,9 +43,9 @@ MagicItemsList["book flail"] = {
 
 MagicItemsList["radiance"] = {
 	name : "Radiance, Wand of the War Mage +1",
-	source : ["CM"],
+	source : [["CM-Alt", 87]],
 	type : "wand",
-	rarity : "unique",
+	rarity : "unique",  //per AL admins on the official Discord
 	attunement : true,
 	description : "While holding this golden hand mirror, you gain a +1 bonus to spell attack rolls. In addition, you ignore half cover when making a spell attack. While in darkness, Radiance sheds dim light in a 5-foot radius. An attuned creature can use a bonus action while holding the mirror to cast the enhance ability spell, chosing itself and no other creature as the spell’s target. Once this property is used, it can’t be used again until the next dawn.",
 	descriptionFull : "This wand of the war mage takes the form of an exquisite golden hand mirror and graints a +1 bonus to spell attack rolls while you are holding it. In addition, you ignore half cover when making a spell attack. When surrounded by darkness, it sheds dim light in a 5-foot radius. A creature that is attuned to Radiance can use a bonus action while holding the mirror to cast the enhance ability spell, chosing itself and no other creature as the spell’s target. Once this property of the wand is used, it can’t be used again until the next dawn.",
@@ -62,11 +62,12 @@ MagicItemsList["radiance"] = {
 			firstCol : "oncelr"}],
 	spellChanges : {
 		"enhance ability" : {
-			time : "1 ba",
+			description : "I gain adv. on checks with 1 ability score; choosing Str, Dex, or Con gives secondary benefits",
+			time : "1 bns",
 			range : "Self",
-			changes : "Casting time is one bonus action and the range is self."
-			},
-		},
+			changes : "Using Radiance, I can cast Enhance Ability once per dawn as a bonus action instead of an action, but only on myself."
+		}
+	},
 	calcChanges : {
 		spellCalc : [
 			function (type, spellcasters, ability) {
@@ -79,7 +80,7 @@ MagicItemsList["radiance"] = {
 
 MagicItemsList["orcus figurine"] = {
 	name : "Orcus Figurine",
-	source : ["CM"],
+	source : [["CM-Alt", 44]],
 	type : "wondrous item",
 	rarity : "",
 	storyItemAL : true,
@@ -90,36 +91,37 @@ MagicItemsList["orcus figurine"] = {
 
 MagicItemsList["serpent scale armor"] = {
 	name : "Serpent Scale Armor",
-	source : ["CM"],
+	source : [["CM-Alt", 98]],
 	type : "armor (scale mail)",
 	rarity : "uncommon",
 	magicItemTable : "?",
 	attunement : false,
 	description : "This suit of magic armor is made from shimmering scales. While wearing it, you can apply your full Dexterity modifier when determining your AC. In addition, this armor does not impose disadvantage on your Dexterity (Stealth) checks.",
 	descriptionFull : "This suit of magic armor is made from shimmering scales. While wearing it, you can apply your full Dexterity modifier (instead of a maximum of +2) when determining your Armor Class. In addition, this armor does not impose disadvantage on your Dexterity (Stealth) checks.",
-	eval : function () {
+	/*eval : function () {
 		Value('Medium Armor Max Mod', 6);
 		ApplyArmor(What("AC Armor Description"));
 	},
 	removeeval : function () {
 		tDoc.resetForm(['Medium Armor Max Mod']);
 		ApplyArmor(What("AC Armor Description"));
-	},
+	},*/
 	armorAdd : "Serpent Scale Armor",
 	armorOptions : [{
 		regExpSearch : /^(?=.*serpent)(?=.*scale).*$/i,
 		name : "Serpent Scale Armor",
-		source: ["CM"],
+		source : [["CM-Alt", 98]],
 		type : "medium",
 		ac : 14,
 		stealthdis : false,
-		weight : 45
+		weight : 45,
+		dex : 100
 		}]
 }
 
 MagicItemsList["serpent's fang"] = {
 	name : "Serpent's Fang",
-	source : ["CM"],
+	source : [["CM-Alt", 98]],
 	type : "weapon (longsword)",
 	rarity : "rare",
 	magicItemTable : "?",
@@ -132,14 +134,14 @@ MagicItemsList["serpent's fang"] = {
 		baseWeapon : "longsword",
 		regExpSearch : /^(?=.*serpent)(?=.*fang).*$/i,
 		name : "Serpent's Fang",
-		source : ["CM"],
+		source : [["CM-Alt", 98]],
 		description : "Versatile (d10), +1d10 poison dmg per hit",
 	}
 }
 
 MagicItemsList["gloves of soul catching"] = {
 	name : "Gloves of Soul Catching",
-	source : ["CM"],
+	source : [["CM-Alt", 169]],
 	type : "wondrous item",
 	rarity : "legendary",	
 	notLegalAL : true,
@@ -153,15 +155,14 @@ MagicItemsList["gloves of soul catching"] = {
 		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*gloves)(?=.*soul)(?=.*catching).*$/i,
 		name : "Gloves of Soul Catching",
-		source : ["CM"],
-		range : "Melee",
+		source : [["CM-Alt", 169]],
 		description : "+2d10 force dmg. Regain hp equal to force dmg OR adv. on 1 atk/ability chk/saving throw before end of next turn",
 	}
 }
 
 MagicItemsList["watchful helm"] = {
 	name : "Watchful Helm",
-	source : ["CM"],
+	source : [["CM-Alt", 183]],
 	type : "wondrous item",
 	rarity : "very rare",
 	magicItemTable : "?",
@@ -172,8 +173,7 @@ MagicItemsList["watchful helm"] = {
 	extraAC : [{name : "Watchful Helm", mod : 1, magic : true, text : "I gain a +1 bonus to AC while attuned."}],
 	usages : 1,
 	recovery : "dawn",
-	limfeaname : "Watchful Helm (Cast See Invis.)",
-	action : ["bonus action", ""],
+	limfeaname : "Watchful Helm (See Invisibility)",
 	advantages : ["Perception", true],
 	vision : [["Adv. on Perception checks that rely on sight", 0]],
 	spellcastingBonus : {
@@ -184,7 +184,7 @@ MagicItemsList["watchful helm"] = {
 		},
 	spellChanges : {
 		"see invisibility" : {
-			time : "1 ba",
+			time : "1 bns",
 			changes : "Casting time is one bonus action."
 		}
 	}
@@ -192,8 +192,8 @@ MagicItemsList["watchful helm"] = {
 
 MagicItemsList["staff of fate"] = {
 	name : "Staff of Fate",
-	source : ["CM"],
-	type : "staff (quarterstaff)",
+	source : [["CM-Alt", 183]],
+	type : "staff",
 	rarity : "very rare",
 	magicItemTable : "?",
 	attunement : true,
@@ -201,7 +201,7 @@ MagicItemsList["staff of fate"] = {
 	descriptionFull : "This transparent crystal staff can be wielded as a magic quarterstaff that grants a +3 bonus to attack and damage rolls made with it." + "\n   " + "Altered Outcome. The staff has 6 charges. As a bonus action, you can expend 1 of the staff's charges to give yourself or one other creature that you can see a d4. The recipient can roll this d4 and add the number rolled to one ability check, attack roll, damage roll, or saving throw it makes before the start of your next turn. If this extra die is not used before then, it is lost." + "\n   " + "If you expend the staff's last charge, roll a d20. On a roll of 9 or lower, the staff becomes a nonmagical quarterstaff that breaks the first time it scores a hit and deals damage. On a roll of 10 or higher, the staff regains 1d6 of its expended charges." + "\n   " + "Proficiency with a quarterstaff allows you to add your proficiency bonus to the attack roll for any attack you make with it.",
 	weight : 4,
 	usages : 6,
-	recovery : "special",
+	recovery : "Special",
 	limfeaname : "Staff of Fate (Alter Outcome)",
 	action : ["bonus action", ""],
 	weaponsAdd : ["Staff of Fate"],
@@ -209,39 +209,74 @@ MagicItemsList["staff of fate"] = {
 		baseWeapon : "quarterstaff",
 		regExpSearch : /^(?=.*staff)(?=.*fate).*$/i,
 		name : "Staff of Fate",
-		source : ["CM"],
-		range : "Melee",
+		source : [["CM-Alt", 183]],
 		modifiers : [3,3],
 	}
 }
 
 MagicItemsList["nether scroll"] = {
 	name : "Nether Scroll of Azumar",
-	source : ["CM"],
+	source : [["CM-Alt", 210]],
 	type : "scroll",
 	rarity : "legendary",
 	storyItemAL : true,
 	attunement : false,
 	description : "After 30 days of study (8+ hrs/day), make a DC 25 Int (Arcana) check. If fail, take 16d10 psychic dmg & you must study scroll for another 30 days before repeating the attempt. On a success, your Int score increases to a max of 22, you gain adv. on saving throws against spells & magical effects, a stone golem appears w/i 60 ft in unoccupied space & acts as ally. If you die, the golem turns to dust.",
 	descriptionFull : "Unlike most scrolls, a Nether Scroll of Azumar is not a consumable magic item. It takes 30 days of concentrated study—at least 8 hours per day—to attempt to understand this scroll. After completing this study, you must make a DC 25 Intelligence (Arcana) check. If this check fails, you take 16d10 psychic damage, and you can attempt the check again after another 30 days of concentrated study." + "\n   " + "When you succeed on the check, you gain the following benefits:" + "\n   " + "Your Intelligence score increases by 2, to a maximum of 22. Once you gain this benefit, you can’t use this scroll to increase your Intelligence again. You gain advantage on saving throws against spells and other magical effects." + "\n   " + "When you gain the scroll’s benefits, a stone golem magically appears in an unoccupied space within 60 feet of you and acts as your ally. If you die, the golem turns to dust.",
-	scorestxt : "Int max changed based on score when used",
-	scores : [0, 0, 0, 2, 0, 0],
+	scorestxt : "+2 Intelligence to a maximum of 22",
 	savetxt : { text : ["Adv. on saves vs. spells and other magical effects"] },
-	choices : ["Int < 19", "Int = 19", "Int > 19"],
-	"int < 19" : {
-			scoresMaximum : [0, 0, 0, 0, 0, 0]
-		},
-	"int = 19" : {
-			scoresMaximum : [0, 0, 0, 21, 0, 0]
-		},
-	"int > 19" : {
-			scoresMaximum : [0, 0, 0, 22, 0, 0]
-		},
+	scores : [0, 0, 0, 2, 0, 0],
+	scoresMaximum : [0, 0, 0, 22, 0, 0],
+	scoresMaxLimited : true,
 }
-	
+
+//MPMB Code Version
+if (MagicItemsList["alchemy jug"]) {
+	// Make the default into a choice (if not done so already)
+	if (!MagicItemsList["alchemy jug"].choices) {
+		MagicItemsList["alchemy jug"].source = [["D", 150], ["CM-Alt", 144]];
+		MagicItemsList["alchemy jug"].allowDuplicates = true;
+		AddFeatureChoice(MagicItemsList["alchemy jug"], false, "\x1BRegular (acid and poison)", { // \x1B to fool the sorting
+			name : "Alchemy Jug (regular)",
+			source : [["D", 150]],
+			description : MagicItemsList["alchemy jug"].description,
+			descriptionLong : MagicItemsList["alchemy jug"].descriptionLong,
+			descriptionFull : MagicItemsList["alchemy jug"].descriptionFull
+		}, true);
+	};
+	// Add the blue and orange jugs as choices
+	AddFeatureChoice(MagicItemsList["alchemy jug"], false, "Blue (hot tea)", {
+		name : "Alchemy Jug (Blue)",
+		source : [["CM-Alt", 144]],
+		description: MagicItemsList["alchemy jug"].description.replace("acid (8 fl oz), basic poison (1/2 fl oz)", "boiling hot tea (1 qt)"),
+		descriptionLong : MagicItemsList["alchemy jug"].descriptionLong.replace("acid (8 fl. oz.), basic poison (1/2 fl. oz.)", "boiling hot tea (1 quart)"),
+		descriptionFull : MagicItemsList["alchemy jug"].descriptionFull.replace(/\n8 ounces[\s\S]+/, 
+			"\n4 gallons  \tBeer\t\t2 gallons  \tVinegar"+
+			"\n1 quart   \tBoiling hot tea\t8 gallons  \tWater, fresh"+
+			"\n1 gallon    \tHoney\t\t12 gallons\tWater, salt"+
+			"\n2 gallons \tMayonnaise\t1 gallon    \tWine"+
+			"\n1 quart   \tOil"
+		)
+	});
+	AddFeatureChoice(MagicItemsList["alchemy jug"], false, "Orange (soy sauce)", {
+		name : "Alchemy Jug (Orange)",
+		source : [["CM-Alt", 144]],
+		description: MagicItemsList["alchemy jug"].description.replace("acid (8 fl oz), basic poison (1/2 fl oz)", "soy sauce (1 gal)"),
+		descriptionLong : MagicItemsList["alchemy jug"].descriptionLong.replace("acid (8 fl. oz.), basic poison (1/2 fl. oz.)", "soy sauce (1 gallon)"),
+		descriptionFull : MagicItemsList["alchemy jug"].descriptionFull.replace(/\n8 ounces[\s\S]+/, 
+			"\n4 gallons  \tBeer\t\t2 gallons  \tVinegar"+
+			"\n1 gallon    \tHoney\t\t8 gallons  \tWater, fresh"+
+			"\n2 gallons \tMayonnaise\t12 gallons\tWater, salt"+
+			"\n1 quart   \tOil\t\t1 gallon    \tWine"+
+			"\n1 gallon    \tSoy sauce"
+		)
+	});
+};
+
+/*	(My original choice code)
 MagicItemsList["candlekeep alchemy jug"] = {
 	name : "Alchemy Jug (Candlekeep)",
-	source : ["CM"],
+	source : [["CM", 144]],
 	type : "wondrous item",
 	rarity : "uncommon",
 	magicItemTable : "B",
@@ -260,4 +295,4 @@ MagicItemsList["candlekeep alchemy jug"] = {
 		description: "As an action, command the jug to produce liquid; or an action to uncork it and pour 2 gal/min. After producing, it only makes the same up to its max, until next dawn. Oil (1 qt), beer (4 gal), honey/wine (1 gal), fresh water (8 gal), mayonnaise/vinegar (2 gal), salt water (12 gal), Soy Sauce (1 gal).",
 		descriptionLong: "A heavy ceramic jug. As an action, the jug can be commanded to hold a chosen liquid. With another action, I can uncork the jug and pour the liquid out at 2 gallons per minute. Once commanded to produce a liquid, it can't produce a different one or more than the maximum of one, until the next dawn.\rLiquids (with maximum): beer (4 gallons), honey (1 gallon), mayonnaise (2 gallons), oil (1 quart), vinegar (2 gallons), fresh water (8 gallons), salt water (12 gallons), soy sauce (1 gallon), wine (1 gallon)."
 		},
-};
+};*/
