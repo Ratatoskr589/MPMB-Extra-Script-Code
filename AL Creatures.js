@@ -85,7 +85,6 @@ CreatureList["sea lion"] = {
 	type : "Beast",
 	companion : "companion",
 	subtype : "",
-
 	alignment : "Unaligned",
 	ac : 16,
 	hp : 15,
@@ -219,7 +218,7 @@ CreatureList["chwinga squidling"] = {
 	name : "Chwinga Squidling (Event Award)",
 	source : ["DDCE"],
 	size : 5, //Tiny
-	type : "Beast",
+	type : "Monstrosity",
 	companion : "familiar",
 	subtype : "",
 	alignment : "Unaligned",
@@ -306,7 +305,7 @@ CreatureList["snowy owlbear cub"] = {
 	name : "Snowy Owlbear Cub (Event Award)",
 	source : ["DDCE"],
 	size : 5, //Tiny
-	type : "Beast",
+	type : "Monstrosity",
 	subtype : "",
 	companion : "familiar",
 	alignment : "Unaligned",
@@ -556,6 +555,7 @@ CreatureList["quasit (familiar variant)"] = {
 		source : [["AL","S5"]],
 		size : 5, //Tiny
 		type : "Fiend",
+		defaultExcluded : true,
 		subtype : "demon",
 		companion : "pact_of_the_chain",
 		header : "Familiar",
@@ -712,6 +712,7 @@ CreatureList["penumbra the gremishka"] = {
 		source : ["AL:RMH","HoL"],
 		size : 5, //Tiny
 		type : "Monstrosity",
+		defaultExcluded : true,
 		subtype : "",
 		ac : 12,
 		hp : 10,
@@ -907,7 +908,7 @@ CreatureList["bone whelk"] = {
 		source : [["ALDMs9"]],
 		size : 2, //Large
 		type : "Monstrosity",
-		companion : "mount",
+		defaultExcluded : true,
 		header : "Mount",
 		alignment : "Unaligned",
 		ac : 12,
@@ -943,8 +944,8 @@ CreatureList["hellwasp"] = {
 		source : [["ALDMs9"]],
 		size : 2, //Large
 		type : "Fiend",
-		companion : "mount",
 		header : "Mount",
+		defaultExcluded : true,
 		alignment : "Lawful Evil",
 		ac : 19,
 		hp : 52,
@@ -1067,6 +1068,7 @@ CreatureList["fritter the 7-legged spider"] = {
 		source : [["AL:LN",2019]],
 		size : 2, //Large
 		type : "Beast",
+		defaultExcluded : true,
 		companion : "mount",
 		header : "Mount",
 		alignment : "Unaligned",
@@ -1123,6 +1125,7 @@ CreatureList["marzipan, the skeletal warhorse"] = {
 		source : [["AL:LN",2018]],
 		size : 2, //Large
 		type : "Undead",
+		defaultExcluded : true,
 		companion : "mount",
 		header : "Mount",
 		alignment : "Unaligned",
@@ -1163,6 +1166,7 @@ CreatureList["glitter elemental"] = {
 		size : 4, //Small
 		type : "Elemental",
 		companion : "familiar",
+		defaultExcluded : true,
 		alignment : "Chaotic Good",
 		ac : 12,
 		hp : 17,

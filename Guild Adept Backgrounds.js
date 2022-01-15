@@ -873,6 +873,7 @@ BackgroundList["hero of the ffolk"] = {
 BackgroundList["llewyrr wanderer"] = {
 	regExpSearch :  /^(?=.*llewyrr)(?=.*wanderer).*$/i,
 	name : "Llewyrr Wanderer",
+/*	prereqeval : function(v) { return (/elf|avariel|grugach|shadar-kai/i).test(CurrentRace.known); },*/
 eval : function () {
   if ( !(/elf|avariel|grugach|shadar-kai/i).test(CurrentRace.known) ) { // if the player is not one of these elf types, show the pop-up message
     app.alert({
