@@ -7,19 +7,20 @@ It is recommended to enter the code in a fresh sheet before adding any other inf
 */
 
 /*  Subject: Flavored Items from AL adventures
-    Effect:	This script adds the flavored versions of standard magic items found in AL adventures to the MPMB sheet. They will all be listed as AL [item category] in the Magic Item selection, which will bring a pop up for individual items sorted by item name and then module. The module codes are listed with the most complete version that I was able to track down. Your DM may have given you a shorter version.
+
+    Effect:	This script adds the flavored versions of standard magic items found in AL adventures to the MPMB sheet (and a couple flavored book items). They will all be listed as AL [item category] in the Magic Item selection, which will bring a pop up for individual items sorted by item name and then module. The module codes are listed with the most complete version that I was able to track down. Your DM may have given you a shorter version.
 
 	The main categories are as follows:
 	
 	Accessories (Belts, Bracers, Gauntlets, Gloves, Tattoos), Ammunition, Books (Books, Grimoires, Manuals, Tomes), Containers (Bags, Bottles, Bowls, Decanters, Haversacks, Holes, Jugs, Pouches, Quivers, Tankards), Eyewear (Eyes, Glasses, Goggles), Figurines, Footwear (Boots, Slippers), Headwear (Caps, Circlets, Hats, Headbands, Helms), Instruments (Bardic, Chimes, Horns, Pipes (musical)), Jewelry (Amulets, Brooches/Pins, Emblems, Medallions, Necklaces, Periapts, Scarabs. Talismans), Light Sources (Candles and Lanterns mostly), Minerals (Gems, Stones, Orbs), Outerwear (Capes, Cloaks, Mantles, Robes), Rings, Rods, Transport (Boats, Brooms, Carpets, Horseshoes, Saddles), and Wands. The Equipment category has everything else.
 	
-	For ease of coding & to cut down on the categories, all staffs are in the AL_Magic_Weapons file, regardless of whether you can use them to hit things or not. All Sentient items with actual stats are in the AL Special Items file under new items, even if they're sentient version of existing ones.
+	For ease of coding & to cut down on the categories, all staffs are in the AL_Magic_Weapons file, regardless of whether you can use them to hit things or not. All Sentient items with actual stats are in the AL Special Items file under new items, even if they're sentient version of existing things.
 	
 	This isn't a complete list since I don't have every published adventure, but it's a start. If you don't see an item listed from a season marked complete, it should be because there was no flavor.*/
 	
 	//Things I have code for and don't have to buy: GSP02-1 to 2, CCC-REAP-01, CCC-ST2-1, 
 	
-	//Complete: S0-S9, Guild Adept
+	//Complete: S0-S10, Guild Adept
 	//In progress: CCCs, DC-POA, DRW, RMH (03) 
 	
 var iFileName = "AL Flavored Items.js";
@@ -784,7 +785,7 @@ MagicItemsList["al ammunition"] = {
 		description : "Each of these 6 arrow shafts is inscribed with the name of a different fabled magic item in Elvish: Dawnbringer, Drown, Hazirawn, Tinderstrike, Waythe, & Windvane. You have a +1 bonus to attack & damage rolls made with these arrows. Once an arrow hits a target, it's no longer magical.",
 		descriptionFull : "Each arrow shaft has the name of a different fabled magic item inscribed upon it in Elvish. The names on the arrows are: Dawnbringer, Drown, Hazirawn, Tinderstrike, Waythe, and Windvane.\n   You have a +1 bonus to attack and damage rolls made with this magic ammunition. Once it hits a target, the ammunition is no longer magical.",
 		allowDuplicates : true,
-		ammoAdd : ["Arrows +1", 6],
+		ammoAdd : [["Arrows +1", 6]],
 		},
 	"arrows +1: bone-tipped (dc-poa-conmar-18)" : {
 		name : "Bone-Tipped +1 Arrows (DC-POA-CONMAR-18)",
@@ -793,7 +794,7 @@ MagicItemsList["al ammunition"] = {
 		description : "Each of these 6 arrows is tipped with bone from an animal & engraved with the animal's name in Old Illuskan: elk, bear, tiger, wolf, caribou, & seal. You have a +1 bonus to atk & damage rolls made with these arrows. Once an arrow hits a target, it's no longer magical.",
 		descriptionFull : "Each arrow is engraved with one word in Old Illuskan. Translated, they mean Elk, Bear, Tiger, Wolf, Caribou and Seal, and the tip is made from bone of that animal.\n   You have a +1 bonus to attack and damage rolls made with this magic ammunition. Once it hits a target, the ammunition is no longer magical.",
 		allowDuplicates : true,
-		ammoAdd : ["Bone Arrows +1", 6],
+		ammoAdd : [["Bone Arrows +1", 6]],
 		},
 	"arrows +1: bone-tipped (dc-poa-dragon-2)" : {
 		name : "Bone-Tipped +1 Arrows (DC-POA-DRAGON-2)",
@@ -802,7 +803,7 @@ MagicItemsList["al ammunition"] = {
 		description : "These 6 arrows have carved tips made from human bones. You have a +1 bonus to atk & damage rolls made with these arrows. Once an arrow hits a target, it's no longer magical.",
 		descriptionFull : "These 6 arrows have carved tips that are made out of human bones.\n   You have a +1 bonus to attack and damage rolls made with this magic ammunition. Once it hits a target, the ammunition is no longer magical.",
 		allowDuplicates : true,
-		ammoAdd : ["Bone Arrows +1", 6],
+		ammoAdd : [["Bone Arrows +1", 6]],
 		},
 	"arrows +1: bone-tipped (dc-poa-garyxiii-2)" : {
 		name : "Bone-Tipped +1 Arrows (DC-POA-GaryXIII-2)",
@@ -811,7 +812,7 @@ MagicItemsList["al ammunition"] = {
 		description : "These 6 arrows are tipped with bone & exude a magic aura. You have a +1 bonus to atk & damage rolls made with these arrows. Once an arrow hits a target, it's no longer magical.",
 		descriptionFull : "These arrows are tipped with bone and exude a magic aura.\n   You have a +1 bonus to attack and damage rolls made with this magic ammunition. Once it hits a target, the ammunition is no longer magical.",
 		allowDuplicates : true,
-		ammoAdd : ["Bone Arrows +1", 6],
+		ammoAdd : [["Bone Arrows +1", 6]],
 		},
 	"arrows +1: bone-tipped (dc-poa-tdg1-8)" : {
 		name : "Bone-Tipped +1 Arrows (DC-POA-TDG1-8)",
@@ -820,7 +821,7 @@ MagicItemsList["al ammunition"] = {
 		description : "These 6 arrows have pure white tips made from the tooth of an ancient white dragon. You have a +1 bonus to atk & damage rolls made with these arrows. Once an arrow hits a target, it's no longer magical.",
 		descriptionFull : "The arrow tips are pure white made from the tooth of an ancient white dragon.\n   You have a +1 bonus to attack and damage rolls made with this magic ammunition. Once it hits a target, the ammunition is no longer magical.",
 		allowDuplicates : true,
-		ammoAdd : ["Bone Arrows +1", 6],
+		ammoAdd : [["Bone Arrows +1", 6]],
 		},
 	"arrows +2: darkthorn arrows (alsrs11-a)" : {
 		name : "Darkthorn Arrows +2 (ALSRs11-A)",
@@ -831,7 +832,7 @@ MagicItemsList["al ammunition"] = {
 		description : "The heads of these 5 arrows are dark thorns of an unknown Feywild plant. When fired, they emit a greenish, glittering smoke trail. You have a +2 bonus to atk & damage rolls made with these arrows. Once an arrow hits a target, it's no longer magical.",
 		descriptionFull : "The heads of these five arrows are dark thorns of an unknown Feywild plant. When fired, they emit a greenish, glittering smoke trail.\n   You have a +2 bonus to attack and damage rolls made with this magic ammunition. Once it hits a target, the ammunition is no longer magical.",
 		allowDuplicates : true,
-		ammoAdd : ["Darkthorn Arrow +2", 5],
+		ammoAdd : [["Darkthorn Arrow +2", 5]],
 		},
 	"arrows +3 (ccc-bmg-moon12-2)" : {
 		name : "Arrows +3 (CCC-BMG-MOON12-2)",
@@ -842,7 +843,7 @@ MagicItemsList["al ammunition"] = {
 		description : "These magical arrows are fashioned from whale bone and ostrich feathers. You have a +3 bonus to atk & damage rolls made with them. Once an arrow hits a target, it's no longer magical.",
 		descriptionFull : "These magical arrows are fashioned from whale bone and ostrich feathers.\n   You have a +3 bonus to attack and damage rolls made with this magic ammunition. Once it hits a target, the ammunition is no longer magical.",
 		allowDuplicates : true,
-		ammoAdd : ["Arrow +3", 4],
+		ammoAdd : [["Arrow +3", 4]],
 		},
 	"arrows +3 (ccc-qcc2020-3)" : {
 		name : "Arrows +3 (CCC-QCC2020-3)",
@@ -853,7 +854,7 @@ MagicItemsList["al ammunition"] = {
 		description : "Each of these 6 arrow shafts has the name of a fabled magic item inscribed in Infernal: Bookmark, Deck of Many Things, Iron Flask, Ironfang, Ring of Winter & Sunsword. You have a +3 bonus to atk & damage rolls made with these arrows. Once an arrow hits a target, it's no longer magical.",
 		descriptionFull : "Each arrow shaft has the name of a different fabled magic item inscribed upon it in Infernal. The names on the arrows are: Bookmark, Deck of Many Things, Iron Flask, Ironfang, Ring of Winter, and Sunsword.\n   You have a +3 bonus to attack and damage rolls made with this magic ammunition. Once it hits a target, the ammunition is no longer magical.",
 		allowDuplicates : true,
-		ammoAdd : ["Arrow +3", 6],
+		ammoAdd : [["Arrow +3", 6]],
 		},
 	"unbreakable arrow: shadowneedle (ccc-bmg-moon4-3/ccc-druid-1/ccc-tri-26 rose1-1)" : {
 		name : "Shadowneedle (Unbreakable Arrow)",
@@ -864,7 +865,8 @@ MagicItemsList["al ammunition"] = {
 		description : "One of 20 unbreakable arrows crafted w/ Shadowsong the oathbow. A gentle hum fills your mind when you nock this arrow on the bow & aim at a target, steadying your hand & steeling your focus. When fired from Shadowsong, you may say the words, “Needles, return to your thread” to make this arrow (& any other in its set) reappear in your quiver. It can only be broken in an Antimagic Field.",
 		descriptionFull : "One of twenty unbreakable arrows crafted with Shadowsong the oathbow, when this arrow is nocked onto the oathbow and leveled at an opponent, a gentle hum fills the wielder’s mind, steadying their hand and steeling their focus (this feature bears no mechanical effect). When fired from Shadowsong, the wielder may say the words, “Needles, return to your thread” to make this arrow (and any other in its set loosed from the wielder’s hand) reappear in the wielder’s quiver. This arrow can't be broken, except when it is within an Antimagic Field.",
 		weight : 0.05,
-		ammoAdd : ["Shadowneedle", 1],
+		allowDuplicates : true,
+		ammoAdd : [["Shadowneedle", 1]],
 	},
 	"unbreakable arrow (ccc-dwb-acm-1)" : {
 		name : "Unbreakable Arrow (CCC-DWB-ACM-1)",
@@ -874,7 +876,7 @@ MagicItemsList["al ammunition"] = {
 		magicItemTable : "?",
 		description : "This arrow is made of expertly carved ice that never melts. It can only be broken in an Antimagic Field.",
 		descriptionFull : "This arrow is made of expertly carved ice that never seems to melt no matter what. It can't be broken, except when it is within an Antimagic Field.",
-		ammoAdd : ["Unbreakable Arrow", 1],
+		ammoAdd : [["Unbreakable Arrow", 1]],
 		weight : 0.05
 	},
 	"unbreakable arrow: flying fang arrow (ccc-ghc-bk3-1)" : {
@@ -885,7 +887,7 @@ MagicItemsList["al ammunition"] = {
 		magicItemTable : "?",
 		description : "This yuan-ti crafted arrow is made of carved bone shards & flying snake feathers. A hollow  space within the shaft allows you to hide liquid or small notes inside. A translucent hardened resin of melted yuan-ti viscera coats the arrow & it sounds like a hissing serpent when shot. It can only be broken in an Antimagic Field.",
 		descriptionFull : "These yuan-ti crafted arrows are made of carved bone shards and flying snake feathers. A translucent hardened resin of melted yuan-ti viscera coats them. A hollow within the shaft allows its owner to hide liquid or small notes inside. While traveling to its target, the sound of a hissing serpent resonates from it. The arrows can't be broken, except when within an Antimagic Field.",
-		ammoAdd : ["Unbreakable Arrow", 1],
+		ammoAdd : [["Unbreakable Arrow", 1]],
 		weight : 0.05
 	},
 	"unbreakable arrow: valyntis' arrow (ccc-nuke-1-4)" : {
@@ -896,7 +898,7 @@ MagicItemsList["al ammunition"] = {
 		magicItemTable : "?",
 		description : "This arrow is carved from the red-wood branch of a deceased treant. Delicate carvings of vines & leaves are engraved along its length. When fired, the arrow emits a melodic whistle all the way to its target, a reverent ode to the wood-elf hunters of Cormanthor’s past. It can only be broken in an Antimagic Field.",
 		descriptionFull : "This single arrow is carved from the red-wood branch of a deceased treant. Its delicate carvings of vines and leaves are engraved within its length. When fired, the arrow emits a melodic whistle all the way to its target, a reverent ode to the wood-elven hunters of Cormanthor’s past. It can't be broken, except when it is within an Antimagic Field.",
-		ammoAdd : ["Unbreakable Arrow", 1],
+		ammoAdd : [["Unbreakable Arrow", 1]],
 		weight : 0.05
 	},
 	"unbreakable arrow (ddal10-0)" : {
@@ -907,7 +909,7 @@ MagicItemsList["al ammunition"] = {
 		magicItemTable : "?",
 		description : "Gifted to you by Shaktal of the Reghed Wolf Tribe, this arrow proves to Wolf Tribe members loyal to Aluka that the bearer is a friend and ally. It can only be broken in an Antimagic Field.",
 		descriptionFull : "Gifted to you by Shaktal of the Reghed Wolf Tribe, this arrow proves to Wolf Tribe members loyal to Aluka that the bearer is a friend and ally. This arrow can't be broken, except when it is within an Antimagic Field.",
-		ammoAdd : ["Unbreakable Arrow", 1],
+		ammoAdd : [["Unbreakable Arrow", 1]],
 		weight : 0.05
 	},
 	"walloping arrow (ccc-druids-3)" : {
@@ -918,7 +920,7 @@ MagicItemsList["al ammunition"] = {
 		magicItemTable : "?",
 		description : "This arrow has a broad, blunt point shaped like a mailed fist, a prize for service faithful to the Order of the Gauntlet. It packs a wallop. A creature hit by this arrow must succeed on a DC 10 Strength saving throw or be knocked prone.",
 		descriptionFull : "This arrow has a broad, blunt point shaped like a mailed fist, a prize for service faithful to the Order of the Gauntlet.\n   This ammunition packs a wallop. A creature hit by the ammunition must succeed on a DC 10 Strength saving throw or be knocked prone.",
-		ammoAdd : ["Walloping Arrow", 1],
+		ammoAdd : [["Walloping Arrow", 1]],
 		allowDuplicates : true,
 	},
 	"walloping arrow (dc-poa-des-5d)" : {
@@ -929,7 +931,7 @@ MagicItemsList["al ammunition"] = {
 		magicItemTable : "?",
 		description : "When fired, this arrow whistles like fireworks & pops on impact. It packs a wallop. A creature hit by this arrow must succeed on a DC 10 Strength saving throw or be knocked prone.",
 		descriptionFull : "When fired, these arrows whistle like fireworks, and pop upon impact.\n   This ammunition packs a wallop. A creature hit by the ammunition must succeed on a DC 10 Strength saving throw or be knocked prone.",
-		ammoAdd : ["Walloping Arrow", 1],
+		ammoAdd : [["Walloping Arrow", 1]],
 		allowDuplicates : true,
 	},
 	"walloping arrow (dc-poa-gsp2-4h)" : {
@@ -940,18 +942,7 @@ MagicItemsList["al ammunition"] = {
 		magicItemTable : "?",
 		description : "The green shaft of this arrow is filled with tiny eyes that blink at random intervals. It packs a wallop. A creature hit by this arrow must succeed on a DC 10 Strength saving throw or be knocked prone.",
 		descriptionFull : "The green shaft of the arrow is filled with tiny eyes that blinks at random time intervals.\n   This ammunition packs a wallop. A creature hit by the ammunition must succeed on a DC 10 Strength saving throw or be knocked prone.",
-		ammoAdd : ["Walloping Arrow", 1],
-		allowDuplicates : true,
-	},
-	"walloping arrow (dc-poa-gsp2-4h)" : {
-		name : "Walloping Arrow (DC-POA-GSP2-4H)",
-		source : [["AL","DC-POA"]],
-		type : "weapon (arrow)",
-		rarity : "common",
-		magicItemTable : "?",
-		description : "The green shaft of this arrow is filled with tiny eyes that blink at random intervals. It packs a wallop. A creature hit by this arrow must succeed on a DC 10 Strength saving throw or be knocked prone.",
-		descriptionFull : "The green shaft of the arrow is filled with tiny eyes that blinks at random time intervals.\n   This ammunition packs a wallop. A creature hit by the ammunition must succeed on a DC 10 Strength saving throw or be knocked prone.",
-		ammoAdd : ["Walloping Arrow", 1],
+		ammoAdd : [["Walloping Arrow", 1]],
 		allowDuplicates : true,
 	},
 	"walloping arrow (dc-poa-vid-1)" : {
@@ -962,7 +953,7 @@ MagicItemsList["al ammunition"] = {
 		magicItemTable : "?",
 		description : "Helgyra claimed this arrow was lucky & it packs a wallop. A creature hit by this arrow must succeed on a DC 10 Strength saving throw or be knocked prone.",
 		descriptionFull : "Helgyra claims this arrow is lucky.\n   This ammunition packs a wallop. A creature hit by the ammunition must succeed on a DC 10 Strength saving throw or be knocked prone.",
-		ammoAdd : ["Walloping Arrow", 1],
+		ammoAdd : [["Walloping Arrow", 1]],
 		allowDuplicates : true,
 	},
 	"walloping bullet: the witchstone (ccc-cic-15)" : {
@@ -973,7 +964,7 @@ MagicItemsList["al ammunition"] = {
 		magicItemTable : "?",
 		description : "This large stone is covered in Celestial runes marking fey & undead creatures as its enemies. It packs a wallop. A creature hit by this sling bullet must succeed on a DC 10 Strength saving throw or be knocked prone.",
 		descriptionFull : "This large stone is covered in Celestial runes marking fey and undead creatures as its enemies.\n   This ammunition packs a wallop. A creature hit by the ammunition must succeed on a DC 10 Strength saving throw or be knocked prone.",
-		ammoAdd : ["Walloping Bullet", 1],
+		ammoAdd : [["Walloping Bullet", 1]],
 		allowDuplicates : true,
 	},
 	"walloping bullet: idris chardalyn bullet (dc-poa-tdg1-7)" : {
@@ -984,7 +975,7 @@ MagicItemsList["al ammunition"] = {
 		magicItemTable : "?",
 		description : "The bullet is pure black charadlyn & etched with the word - ‘HULK SMASH.’ It packs a wallop. A creature hit by this bullet must succeed on a DC 10 Strength saving throw or be knocked prone.",
 		descriptionFull : "The bullet is pure black charadlyn and etched into the bullet is the word - ‘HULK SMASH.’\n   This ammunition packs a wallop. A creature hit by the ammunition must succeed on a DC 10 Strength saving throw or be knocked prone.",
-		ammoAdd : ["Walloping Bullet", 1],
+		ammoAdd : [["Walloping Bullet", 1]],
 		allowDuplicates : true,
 	},
 }
@@ -1339,7 +1330,18 @@ MagicItemsList["al containers"] = {
 		name : "AL Containers",
 		type : "wondrous item",
 		allowDuplicates : true,
-	choices : ["Alchemy Jug (CCC-GHC-BK3-6)","Alchemy Jug (DDEX3-8)","Bag of Devouring (CCC-FC3-1-3)","Bag of Devouring: The Dragon's Gullet (CCC-SEA-1-3)","Bag of Devouring (CCC-TRI-22 STORM1-1)","Bag of Holding: Mother Pqwirli’s Pod Pouch (CCC-ELO-2)","Bag of Holding (CCC-GARY-5)","Bag of Holding (CCC-GLIP-1-2)","Bag of Holding: Devil King School Bag (CCC-GSP4-1)","Bag of Holding (CCC-WWC-3)","Bag of Holding (WBW-DC-FDC-4)","Bag of Tricks, Gray (CCC-GHC-BK1-9)","Bag of Tricks, Gray (DC-POA-Z-T1S1)","Bag of Tricks, Gray (DC-POA-ROBIN1-1)","Bag of Tricks, Rust (CCC-SQC-3-3)","Bag of Tricks, Rust (DDEP8-1)","Bag of Tricks, Tan (CCC-MAG1-2)","Bag of Tricks, Tan (CCC-STORM-2)","Bag of Tricks, Tan: The Adventures of Cherise and Antonia (CCC-ZIEGE-4-2)","Bowl of Commanding Water Elementals (CCC-YLRA1-2)","Bowl of Commanding Water Elementals (DDAL9-7)","Brazier of Commanding Fire Elementals (CCC-PFF-3-1)","Brazier of Commanding Fire Elementals (CCC-SALT2-2)","Brazier of Commanding Fire Elementals (CCC-WYC-1-1)","Chest of Preserving (DC-POA-CJK)","Chest of Preserving (DC-POA-CONMAR-16)","Chest of Preserving (DC-POA-PND-4)","Chest of Preserving: Ryboslav's Chest (DC-POA-TDG1-9)","Decanter of Endless Water (CCC-ALMOG-20 DAGON1-4)","Decanter of Endless Water: Oyang’s Kettle (CCC-ARCANA-2)","Decanter of Endless Water (CCC-ARCON1-3)","Decanter of Endless Water: Geyser Figurine (CCC-CIC-9)","Decanter of Endless Water (CCC-DES-4)","Decanter of Endless Water (CCC-DWB-TLA-1)","Decanter of Endless Water (CCC-GHC-BK2-2)","Decanter of Endless Water (CCC-MMT1-5)","Decanter of Endless Water: Brewmaster 2000 Dedicated Water Module (CCC-ODFC4-1)","Decanter of Endless Water (CCC-RPSG-5)","Decanter of Endless Water (CCC-SDREAM1-1)","Decanter of Endless Water (CCC-SEA-1-1)","Decanter of Endless Water (CCC-TTS-3)","Decanter of Endless Water: Malik's Decanter (RMH-3/RMH-4)","Eversmoking Bottle: Hag's Breath (CCC-GSP-FEAR1-1)","Eversmoking Bottle: Blizzard in a Bottle (CCC-NUKEPIP-1-1)","Eversmoking Bottle (DC-POA-INGH-1)","Eversmoking Bottle: Mix #5 (DC-POA-LEGIT-SV-1)","Eversmoking Bottle (DDEP7-1)","Heward's Handy Haversack (CCC-AN-3)","Heward's Handy Haversack (CCC-GOC1-2)","Heward's Handy Haversack (CCC-SKULL1-1)","Heward's Handy Haversack (DDAL9-9)","Heward's Handy Spice Pouch: Underdark Cooking (CCC-ALMOG-20 DAGON1-4)","Heward's Handy Spice Pouch (CCC-HAL-5)","Heward's Handy Spice Pouch (CCC-SEA-1-2)","Portable Hole (CCC-BMG-28 HILL2-1)","Portable Hole (CCC-BMG-34 ELMW2-1)","Portable Hole (CCC-CNE-1)","Portable Hole (CCC-COS-1)","Portable Hole (CCC-NBDD1-1)","Portable Hole (CCC-ODFC2-2)","Portable Hole (CCC-TRI-7 NIGHT1-3)","Portable Hole (DDAL10-9)","Quiver of Ehlonna: Quiver of the Centaurs (ALSRs11-A)","Quiver of Ehlonna (CCC-GHC-BK1-1)","Quiver of Ehlonna (CCC-HATMS1-1)","Quiver of Ehlonna (CCC-SALT1-3)","Quiver of Ehlonna (CCC-TRI-12 OLMA1-2)","Quiver of Ehlonna (DC-POA-OGG-2)","Tankard of Sobriety (CCC-3MAGS-ONE)","Tankard of Sobriety (CCC-ELF-2)","Tankard of Sobriety (CCC-ODFC3-3)","Tankard of Sobriety (CCC-PRIORY-1)"],
+	choices : ["Alchemy Jug (CCC-BMG-MOON1-5)","Alchemy Jug (CCC-GHC-BK3-6)","Alchemy Jug (DDEX3-8)","Bag of Devouring (CCC-FC3-1-3)","Bag of Devouring: The Dragon's Gullet (CCC-SEA-1-3)","Bag of Devouring (CCC-TRI-22 STORM1-1)","Bag of Holding: Mother Pqwirli’s Pod Pouch (CCC-ELO-2)","Bag of Holding (CCC-GARY-5)","Bag of Holding (CCC-GLIP-1-2)","Bag of Holding: Devil King School Bag (CCC-GSP4-1)","Bag of Holding (CCC-WWC-3)","Bag of Holding (WBW-DC-FDC-4)","Bag of Tricks, Gray (CCC-GHC-BK1-9)","Bag of Tricks, Gray (DC-POA-Z-T1S1)","Bag of Tricks, Gray (DC-POA-ROBIN1-1)","Bag of Tricks, Rust (CCC-SQC-3-3)","Bag of Tricks, Rust (DDEP8-1)","Bag of Tricks, Tan (CCC-MAG1-2)","Bag of Tricks, Tan (CCC-STORM-2)","Bag of Tricks, Tan: The Adventures of Cherise and Antonia (CCC-ZIEGE-4-2)","Bowl of Commanding Water Elementals (CCC-YLRA1-2)","Bowl of Commanding Water Elementals (DDAL9-7)","Brazier of Commanding Fire Elementals (CCC-PFF-3-1)","Brazier of Commanding Fire Elementals (CCC-SALT2-2)","Brazier of Commanding Fire Elementals (CCC-WYC-1-1)","Chest of Preserving (DC-POA-CJK)","Chest of Preserving (DC-POA-CONMAR-16)","Chest of Preserving (DC-POA-PND-4)","Chest of Preserving: Ryboslav's Chest (DC-POA-TDG1-9)","Decanter of Endless Water (CCC-ALMOG-20 DAGON1-4)","Decanter of Endless Water: Oyang’s Kettle (CCC-ARCANA-2)","Decanter of Endless Water (CCC-ARCON1-3)","Decanter of Endless Water: Geyser Figurine (CCC-CIC-9)","Decanter of Endless Water (CCC-DES-4)","Decanter of Endless Water (CCC-DWB-TLA-1)","Decanter of Endless Water (CCC-GHC-BK2-2)","Decanter of Endless Water (CCC-MMT1-5)","Decanter of Endless Water: Brewmaster 2000 Dedicated Water Module (CCC-ODFC4-1)","Decanter of Endless Water (CCC-RPSG-5)","Decanter of Endless Water (CCC-SDREAM1-1)","Decanter of Endless Water (CCC-SEA-1-1)","Decanter of Endless Water (CCC-TTS-3)","Decanter of Endless Water: Malik's Decanter (RMH-3/RMH-4)","Eversmoking Bottle: Hag's Breath (CCC-GSP-FEAR1-1)","Eversmoking Bottle: Blizzard in a Bottle (CCC-NUKEPIP-1-1)","Eversmoking Bottle (DC-POA-INGH-1)","Eversmoking Bottle: Mix #5 (DC-POA-LEGIT-SV-1)","Eversmoking Bottle (DDEP7-1)","Heward's Handy Haversack (CCC-AN-3)","Heward's Handy Haversack (CCC-GOC1-2)","Heward's Handy Haversack (CCC-SKULL1-1)","Heward's Handy Haversack (DDAL9-9)","Heward's Handy Spice Pouch: Underdark Cooking (CCC-ALMOG-20 DAGON1-4)","Heward's Handy Spice Pouch (CCC-HAL-5)","Heward's Handy Spice Pouch (CCC-SEA-1-2)","Portable Hole (CCC-BMG-28 HILL2-1)","Portable Hole (CCC-BMG-34 ELMW2-1)","Portable Hole (CCC-CNE-1)","Portable Hole (CCC-COS-1)","Portable Hole (CCC-NBDD1-1)","Portable Hole (CCC-ODFC2-2)","Portable Hole (CCC-TRI-7 NIGHT1-3)","Portable Hole (DDAL10-9)","Quiver of Ehlonna: Quiver of the Centaurs (ALSRs11-A)","Quiver of Ehlonna (CCC-GHC-BK1-1)","Quiver of Ehlonna (CCC-HATMS1-1)","Quiver of Ehlonna (CCC-SALT1-3)","Quiver of Ehlonna (CCC-TRI-12 OLMA1-2)","Quiver of Ehlonna (DC-POA-OGG-2)","Tankard of Sobriety (CCC-3MAGS-ONE)","Tankard of Sobriety (CCC-ELF-2)","Tankard of Sobriety (CCC-ODFC3-3)","Tankard of Sobriety (CCC-PRIORY-1)"],
+	"alchemy jug (ccc-bmg-moon1-5)" : {  
+		name : "Alchemy Jug (CCC-BMG-MOON1-5)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "B",
+		description : "This ceramic jug is covered in several kinds of green moss & has an earthy springtime smell. As an action, you can command it to produce liquid or uncork it and pour 2 gal/min. After producing, it only makes the same up to its max, until next dawn. Oil (1 qt), acid (8 fl oz), basic poison (1/2 fl oz), beer (4 gal), honey/wine (1 gal), fresh water (8 gal), mayonnaise/vinegar (2 gal), salt water (12 gal).",
+		weight : 12,
+		descriptionLong : "This ceramic jug is covered in several different kinds of green moss and has an earthy springtime smell. As an action, it can be commanded to hold a chosen liquid. With another action, you can uncork the jug and pour the liquid out at 2 gallons per minute. Once commanded to produce a liquid, it can't produce a different one or more than the maximum of one, until the next dawn.\rLiquids (with maximum): acid (8 fl. oz.), basic poison (1/2 fl. oz.), beer (4 gallons), honey (1 gallon), mayonnaise (2 gallons), oil (1 quart), vinegar (2 gallons), fresh water (8 gallons), salt water (12 gallons), wine (1 gallon).",
+		descriptionFull : "This ceramic jug appears to be able to hold a gallon of liquid and weighs 12 pounds whether full or empty. Sloshing sounds can be heard from within the jug when it is shaken, even if the jug is empty. The jug is covered in several different kinds of green moss, and it has an earthy springtime smell." + "\n   " + "You can use an action and name one liquid from the table below to cause the jug to produce the chosen liquid. Afterward, you can uncork the jug as an action and pour that liquid out, up to 2 gallons per minute. The maximum amount of liquid the jug can produce depends on the liquid you named." + "\n   " + "Once the jug starts producing a liquid, it can't produce a different one, or more of one that has reached its maximum, until the next dawn.\n\n" + toUni("Max\tLiquid\t\tMax\tLiquid") + "\n8 ounces\tAcid\t\t1 quart\tOil\n1/2 ounce\tBasic poison\t2 gallons\tVinegar\n4 gallons\tBeer\t\t8 gallons\tWater, fresh\n1 gallon\tHoney\t\t12 gallons\tWater, salt\n2 gallons\tMayonnaise\t1 gallon\tWine",
+		action : [["action", "Alchemy Jug (Create/Pour)"]]
+		},
 	"alchemy jug (ccc-ghc-bk3-6)" : {  //the beer or cake versions will depend on the DM. Player can delete unused version.
 		name : "Alchemy Jug (CCC-GHC-BK3-6)",
 		source : [["AL","CCC"]],
@@ -1348,7 +1350,8 @@ MagicItemsList["al containers"] = {
 		description : "As an action, you can command this ceramic jug to produce liquid; or an action to uncork it and pour 2 gal/min. After producing, it only makes the same up to its max, until next dawn. Oil (1 qt), acid (8 fl oz), basic poison (1/2 fl oz), beer (4 gal), honey/wine (1 gal), fresh water (8 gal), mayonnaise/vinegar (2 gal), salt water (12 gal). When pouring beer, the jug pours the beer that won the Splondarren Harvest Festival. (Alternate) Every liquid tastes like the cake that won the contest.",
 		weight : 12,
 		descriptionLong : "As an action, this ceramic jug can be commanded to hold a chosen liquid. With another action, you can uncork the jug and pour the liquid out at 2 gallons per minute. Once commanded to produce a liquid, it can't produce a different one or more than the maximum of one, until the next dawn.\rLiquids (with maximum): acid (8 fl. oz.), basic poison (1/2 fl. oz.), beer (4 gallons), honey (1 gallon), mayonnaise (2 gallons), oil (1 quart), vinegar (2 gallons), fresh water (8 gallons), salt water (12 gallons), wine (1 gallon). When the jug pours beer, it pours the beer that won the Splondarren Harvest Festival. (Alternate version) Every liquid tastes like the cake that won the contest.",
-		descriptionFull : "This ceramic jug appears to be able to hold a gallon of liquid and weighs 12 pounds whether full or empty. Sloshing sounds can be heard from within the jug when it is shaken, even if the jug is empty. When it pours beer, it pours the beer that won the Splondarren Harvest Festival contest. (Alternate version) Every liquid tastes like the batter of the cake that won the contest." + "\n   " + "You can use an action and name one liquid from the table below to cause the jug to produce the chosen liquid. Afterward, you can uncork the jug as an action and pour that liquid out, up to 2 gallons per minute. The maximum amount of liquid the jug can produce depends on the liquid you named." + "\n   " + "Once the jug starts producing a liquid, it can't produce a different one, or more of one that has reached its maximum, until the next dawn.\n\n" + toUni("Max\tLiquid\t\tMax\tLiquid") + "\n8 ounces\tAcid\t\t1 quart\tOil\n1/2 ounce\tBasic poison\t2 gallons\tVinegar\n4 gallons\tBeer\t\t8 gallons\tWater, fresh\n1 gallon\tHoney\t\t12 gallons\tWater, salt\n2 gallons\tMayonnaise\t1 gallon\tWine"
+		descriptionFull : "This ceramic jug appears to be able to hold a gallon of liquid and weighs 12 pounds whether full or empty. Sloshing sounds can be heard from within the jug when it is shaken, even if the jug is empty. When it pours beer, it pours the beer that won the Splondarren Harvest Festival contest. (Alternate version) Every liquid tastes like the batter of the cake that won the contest." + "\n   " + "You can use an action and name one liquid from the table below to cause the jug to produce the chosen liquid. Afterward, you can uncork the jug as an action and pour that liquid out, up to 2 gallons per minute. The maximum amount of liquid the jug can produce depends on the liquid you named." + "\n   " + "Once the jug starts producing a liquid, it can't produce a different one, or more of one that has reached its maximum, until the next dawn.\n\n" + toUni("Max\tLiquid\t\tMax\tLiquid") + "\n8 ounces\tAcid\t\t1 quart\tOil\n1/2 ounce\tBasic poison\t2 gallons\tVinegar\n4 gallons\tBeer\t\t8 gallons\tWater, fresh\n1 gallon\tHoney\t\t12 gallons\tWater, salt\n2 gallons\tMayonnaise\t1 gallon\tWine",
+		action : [["action", "Alchemy Jug (Create/Pour)"]]
 		},
 	"alchemy jug (ddex3-8)" : {
 		name : "Alchemy Jug (DDEX3-8)",
@@ -1358,7 +1361,8 @@ MagicItemsList["al containers"] = {
 		description : "This jug is made of a thin metal strips bolted together. It is covered in dwarven runes in the form of night sky constellations. As an action, command the jug to produce liquid; or an action to uncork it and pour 2 gal/min. After producing, it only makes the same up to its max, until next dawn. Oil (1 qt), acid (8 fl oz), basic poison (1/2 fl oz), beer (4 gal), honey/wine (1 gal), fresh water (8 gal), mayonnaise/vinegar (2 gal), salt water (12 gal).",
 		weight : 12,
 		descriptionLong : "This jug is made of a thin metal strips bolted together. It is covered in dwarven runes in the form of night sky constellations. As an action, the jug can be commanded to hold a chosen liquid. With another action, you can uncork the jug and pour the liquid out at 2 gallons per minute. Once commanded to produce a liquid, it can't produce a different one or more than the maximum of one, until the next dawn.\rLiquids (with maximum): acid (8 fl. oz.), basic poison (1/2 fl. oz.), beer (4 gallons), honey (1 gallon), mayonnaise (2 gallons), oil (1 quart), vinegar (2 gallons), fresh water (8 gallons), salt water (12 gallons), wine (1 gallon).",
-		descriptionFull : "This jug is made of a thin metal strips bolted together. It is covered in dwarven runes in the form of night sky constellations. The jug appears to be able to hold a gallon of liquid and weighs 12 pounds whether full or empty. Sloshing sounds can be heard from within the jug when it is shaken, even if the jug is empty." + "\n   " + "You can use an action and name one liquid from the table below to cause the jug to produce the chosen liquid. Afterward, you can uncork the jug as an action and pour that liquid out, up to 2 gallons per minute. The maximum amount of liquid the jug can produce depends on the liquid you named." + "\n   " + "Once the jug starts producing a liquid, it can't produce a different one, or more of one that has reached its maximum, until the next dawn.\n\n" + toUni("Max\tLiquid\t\tMax\tLiquid") + "\n8 ounces\tAcid\t\t1 quart\tOil\n1/2 ounce\tBasic poison\t2 gallons\tVinegar\n4 gallons\tBeer\t\t8 gallons\tWater, fresh\n1 gallon\tHoney\t\t12 gallons\tWater, salt\n2 gallons\tMayonnaise\t1 gallon\tWine"
+		descriptionFull : "This jug is made of a thin metal strips bolted together. It is covered in dwarven runes in the form of night sky constellations. The jug appears to be able to hold a gallon of liquid and weighs 12 pounds whether full or empty. Sloshing sounds can be heard from within the jug when it is shaken, even if the jug is empty." + "\n   " + "You can use an action and name one liquid from the table below to cause the jug to produce the chosen liquid. Afterward, you can uncork the jug as an action and pour that liquid out, up to 2 gallons per minute. The maximum amount of liquid the jug can produce depends on the liquid you named." + "\n   " + "Once the jug starts producing a liquid, it can't produce a different one, or more of one that has reached its maximum, until the next dawn.\n\n" + toUni("Max\tLiquid\t\tMax\tLiquid") + "\n8 ounces\tAcid\t\t1 quart\tOil\n1/2 ounce\tBasic poison\t2 gallons\tVinegar\n4 gallons\tBeer\t\t8 gallons\tWater, fresh\n1 gallon\tHoney\t\t12 gallons\tWater, salt\n2 gallons\tMayonnaise\t1 gallon\tWine",
+		action : [["action", "Alchemy Jug (Create/Pour)"]]
 		},
 	"bag of devouring (ccc-fc3-1-3)" : {
 		name : "Bag of Devouring (CCC-FC3-1-3)",
@@ -1876,7 +1880,7 @@ MagicItemsList["al containers"] = {
 	},
 	"decanter of endless water: malik's decanter (rmh-3/rmh-4)" : {
 		name : "Malik's Decanter (Decanter of Endless Water)",
-		source : ["AL:RMH","3&4"],
+		source : [["AL:RMH","3&4"]],
 		rarity : "uncommon",
 		magicItemTable : "C",
 		description : "This red leather flask is stoppered w/ cobalt glass. It costs life to use. As action, open item \u0026 speak command word, pouring out fresh/salt water (25% chance blood) until next turn starts. “Stream” for 1 gal (1 hit die). “Fountain” for 5 gal (3 hit dice). “Geyser” for 30 gal in 30 ft \xD7 1 ft line. As a bonus action, aim geyser at visible target which makes DC 13 Str save or takes 1d4 bludgeoning & falls prone. If object, knock over or push 15 ft (1 lvl exhaustion). “Tsunami” for 20-ft radius sphere 30-ft away. All in area DC 15 Str save or fall prone & take 6d6 bludgeoning (1/2 on save) (DC 13 Con Save or 0 hp, pass = 3 lvls exhaustion).",
@@ -1960,7 +1964,7 @@ MagicItemsList["al containers"] = {
 	},
 	"heward's handy spice pouch: underdark cooking (ccc-almog-20 dagon1-4)" : {
 		name : "The Joys of Underdark Cooking (Heward's Handy Spice Pouch)",
-		source : ["AL", "CCC"],
+		source : [["AL", "CCC"]],
 		rarity : "common",
 		description : "The Joys of Underdark Cooking is a tattered book decorated with bioluminescent blue & purple mushrooms on the cover. A description in Undercommon reads “They can’t all taste the same, can they?” Expend 1 charge & flip the book to an appropriate page; a pinch of seasoning will appear in your hand. 1 pinch will season a single meal. Anyone eating a meal seasoned by this book feels fortunate & optimistic about the future. It has 10 charges & regains 1d6+4 at dawn.",
 		descriptionFull : "The Joys of Underdark Cooking takes the form of a tattered book instead of a belt pouch. The book is decorated with the image of bioluminescent blue and purple mushrooms on the cover. A description in undercommon reads “they can’t all taste the same, can they?” Users expend a charge by flipping the book to an appropriate page, and then the pinch of seasoning appears in a free hand.\n   Anyone eating a meal seasoned by The Joys of Underdark Cooking feels fortunate and optimistic about what the future holds.\n   This belt pouch appears empty and has 10 charges. While holding the pouch, you can use an action to expend 1 of its charges, speak the name of any nonmagical food seasoning (such as salt, pepper, saffron, or cilantro), and remove a pinch of the desired seasoning from the pouch. A pinch is enough to season a single meal. The pouch regains 1d6+4 expended charges daily at dawn.",
@@ -1972,7 +1976,7 @@ MagicItemsList["al containers"] = {
 	},
 	"heward's handy spice pouch (ccc-hal-5)" : {
 		name : "Heward's Handy Spice Pouch (CCC-HAL-5)",
-		source : ["AL", "CCC"],
+		source : [["AL", "CCC"]],
 		rarity : "common",
 		description : "This leather pouch appears empty & has 10 charges. While holding the pouch, you can use an action to expend 1 charge, speak the name of a nonmagical food seasoning (e.g salt, saffron, or cilantro plus 2 common Underdark spices: Firelichen Spicy Sprinkles & Dried Bloodfruit Wine Powder) & remove a pinch of the named seasoning from the pouch. This is enough to season a single meal. The pouch regains 1d6+4 charges at dawn.",
 		descriptionFull : "This particular pouch has a list of two common spices used in the Underdark written into it, they are: Firelichen Spicy Sprinkles and Dried Bloodfruit Wine Powder.\n   This belt pouch appears empty and has 10 charges. While holding the pouch, you can use an action to expend 1 of its charges, speak the name of any nonmagical food seasoning (such as salt, pepper, saffron, or cilantro), and remove a pinch of the desired seasoning from the pouch. A pinch is enough to season a single meal. The pouch regains 1d6+4 expended charges daily at dawn.",
@@ -1984,7 +1988,7 @@ MagicItemsList["al containers"] = {
 	},
 	"heward's handy spice pouch (ccc-sea-1-2)" : {
 		name : "Heward's Handy Spice Pouch (CCC-SEA-1-2)",
-		source : ["AL", "CCC"],
+		source : [["AL", "CCC"]],
 		rarity : "common",
 		description : "This leather pouch is small & always slightly damp. It appears empty & has 10 charges. While holding the pouch, you can use an action to expend 1 charge, speak the name of a nonmagical food seasoning (e.g salt, saffron, or cilantro) & remove a pinch of the named seasoning from the pouch. This is enough to season a single meal. To release the seasoning, you must say “BAM!” as loudly as possible. Otherwise, you're unable to let it go. The pouch regains 1d6+4 charges at dawn.",
 		descriptionFull : "This leather pouch is small and always slightly damp. In order for you to release the pinch of seasoning, you must say “BAM!” as loudly as possible. Otherwise, you are unable to let go of the seasoning.\n   This belt pouch appears empty and has 10 charges. While holding the pouch, you can use an action to expend 1 of its charges, speak the name of any nonmagical food seasoning (such as salt, pepper, saffron, or cilantro), and remove a pinch of the desired seasoning from the pouch. A pinch is enough to season a single meal. The pouch regains 1d6+4 expended charges daily at dawn.",
@@ -2194,7 +2198,7 @@ MagicItemsList["al equipment"] = {
 	choices : ["All Purpose Tool +1 (DC-POA-CODEX-3)","All Purpose Tool +1: Omega #5 Power Rod (DC-POA-TDG1-6)","All Purpose Tool +1 (DC-POA-Z-T2S2)","Charlatan's Die (CCC-AETHER2-3)","Charlatan's Die (CCC-DES-1-6)","Charlatan's Die: The Vampire's Die (CCC-GSP2-3)","Charlatan's Die (DC-POA-CONMAR-11)","Charlatan's Die (DC-POA-DCAF11)","Charlatan's Die: DaleVision Dice (DC-POA-TDG1-11)","Charlatan's Die (DC-POA-TLOH-1)","Charlatan's Die (DDEP10-1)","Clothes of Mending: Devil King School Uniform (CCC-GSP4-1)","Cube of Force (CCC-RPSG-3)","Daern's Instant Fortress (CCC-ALMOG-ESC-3-3)","Daern's Instant Fortress (CCC-BWM-7-3)","Daern's Instant Fortress: The Slug Lord's Tower (CCC-DES-4-3)","Daern's Instant Fortress (CCC-DWB-GNA-1)","Daern's Instant Fortress (CCC-SDREAM-1-3)","Deck of Illusions (CCC-BFG1-2)","Deck of Illusions: Deck of Illusory Desires (CCC-UNITE-GD-1)","Dimensional Shackles (CCC-TRI-31)","Dimensional Shackles: Bonds of Fear (DDAL4-12)","Dust of Disappearance (CCC-KUMORI-3-2)","Dust of Disappearance (DC-POA-HARM-1-2)","Dust of Disappearance: Ko-Nip (DC-POA-TDG1-1)","Dust of Dryness (CCC-UK-1)","Ersatz Eye: Emerald Eye (CCC-VOTE-1-1)","Ersatz Eye (DDAL10-0)","Ersatz Eye (DDIA-XGE)","Iron Bands of Bilarro: Asharam’s Orb of Ensnaring (CCC-DRUID-1)","Iron Bands of Bilarro: Bands of the Black Unicorn (CCC-DES-3-1)","Keoghtom's Ointment: The Aloe of Ch (CCC-ELO-1)","Keoghtom's Ointment: Rotsalve (RMHEP-1)","Keoghtom's Ointment (WBW-DC-ZEP-T1S1)","Mirror of the Past (DC-POA-CONMAR-18)","Mirror of the Past (DC-POA-GaryXIII-2)","Mirror of the Past: Nether Mirror (DC-POA-TDG1-8)","Pipe of Smoke Monsters (CCC-3MAGS-ONE)","Pipe of Smoke Monsters (CCC-GSP1-2)","Pipe of Smoke Monsters (CCC-SQC-3-1)","Pole of Angling (CCC-CNE-1)","Pole of Angling (CCC-MWGF-1)","Pole of Angling (DC-POA-CODEX-1)","Pole of Angling (DC-POA-CONMAR-14)","Pole of Angling (DC-POA-GSP1-1)","Pole of Angling: Boatman's Walking Stick (DC-POA-LEGIT-SV-3)","Pole of Angling (DC-POA-PESCH-1)","Pole of Angling (DC-POA-PND-3)","Pot of Awakening (CCC-CONMAR1-2)","Pot of Awakening (DDIA-XGE)","Pot of Awakening: Paranoid (WBW-DC-ZEP-T1S1)","Prosthetic Limb (DDAL10-6)","Quaal's Feather Token: Tree (CCC-BMG-MOON9-1)","Rope of Climbing (CCC-BMG-MOON4-1)","Rope of Climbing (DDEP8-3)","Rope of Entanglement (CCC-ODFC1-2)","Rope of Entanglement (DDAL7-7)","Talking Doll: Chass the Unfortunate (CCC-PIPYAPS-DH1)","Talking Doll (CCC-SEA-1-1)","Veteran's Cane (CCC-DRUIDS-3)","Wind Fan (DDAL0-9)","Wind Fan (DDAL4-5)"],
 	"all purpose tool +1 (dc-poa-codex-3)" : {
 	    name : "All Purpose Tool +1 (DC-POA-CODEX-3)",
-		source : ["AL", "DC-POA"],
+		source : [["AL", "DC-POA"]],
 	    rarity : "uncommon",
         magicItemTable : "F",
 		limfeaname : "All Purpose Tool +1",
@@ -2219,7 +2223,7 @@ MagicItemsList["al equipment"] = {
 	},
 	"all purpose tool +1: omega #5 power rod (dc-poa-tdg1-6)" : {
 	    name : "Omega #5 Power Rod (All Purpose Tool +1)",
-		source : ["AL", "DC-POA"],
+		source : [["AL", "DC-POA"]],
 	    rarity : "uncommon",
         magicItemTable : "F",
 		limfeaname : "All Purpose Tool +1",
@@ -2244,7 +2248,7 @@ MagicItemsList["al equipment"] = {
 	},
 	"all purpose tool +1 (dc-poa-z-t2s2)" : {
 	    name : "All Purpose Tool +1 (DC-POA-Z-T2S2)",
-		source : ["AL", "DC-POA"],
+		source : [["AL", "DC-POA"]],
 	    rarity : "uncommon",
         magicItemTable : "F",
 		limfeaname : "All Purpose Tool +1",
@@ -2750,7 +2754,7 @@ MagicItemsList["al equipment"] = {
 		description : "This artificial eye replaces a real one that was lost or removed. This particular eye was recovered from an ancient orc burial site and it appears oversized and orcish while embedded in your eye socket. It can't be removed by anyone but you, and you can see through the orb as though it were a normal eye. While you’re attuned to the ersatz eye, you can read and understand, but not speak Orc.",
 		descriptionFull : "This particular eye was recovered from an ancient orc burial site and it appears oversized and orcish while embedded in your eye socket. While you’re attuned to the ersatz eye, you can read and understand, but not speak Orc.\n   This artificial eye replaces a real one that was lost or removed. While the ersatz eye is embedded in your eye socket, it can't be removed by anyone other than you, and you can see through the tiny orb as though it were a normal eye.",
 		attunement : true,
-		languageProfs : ["Orcish (can't speak)"]
+		languageProfs : ["Orc (can't speak)"]
 	},
 	"ersatz eye (ddia-xge)" : {
 		name : "Ersatz Eye (DDIA-XGE)",
@@ -3177,13 +3181,13 @@ MagicItemsList["al equipment"] = {
 			baseWeapon : "shortsword",
 			name : "Open Wind Fan",
 			regExpSearch : /^(?=.*open)(?=.*wind).*$/i,
-			source : ["AL","S4"],
+			source : [["AL","S4"]],
 			damage : [1, 6, "slashing"],
 		},{
 			baseWeapon : "club",
 			name : "Closed Wind Fan",
 			regExpSearch : /^(?=.*closed)(?=.*fan).*$/i,	
-			source : ["AL","S4"],			
+			source : [["AL","S4"]],			
 		}],
 		spellcastingBonus : {
 			name : "Once per dawn",
@@ -4231,7 +4235,7 @@ MagicItemsList["al headwear"] = {
 		name : "AL Headwear",
 		type : "wondrous item",
 		allowDuplicates : true,
-	choices : ["Circlet (Eye Patch) of Blasting (CCC-CIC-11)","Circlet of Blasting (CCC-GHC-BK1-6)","Circlet of Blasting (CCC-MCX-1)","Circlet of Blasting: Thenturian Circlet (CCC-TAROT1-7)","Circlet of Blasting: Coldfire Circlet (DC-POA-CD1)","Circlet of Blasting: Crown of the Night Sky (DC-POA-DES-5A)","Circlet of Blasting (DC-POA-RH01)","Dread Helm (CCC-AETHER-1-2)","Dread Helm (CCC-GAD1-2)","Dread Helm (CCC-OCC-2)","Dread Helm (Generic DC-POA)","Dread Helm (DC-POA-DUCKS-OS-02)","Dread Helm (DC-POA-HARM-1-1)","Dread Helm (DC-POA-LEGIT-CIPH-1)","Dread Helm: Ko's Visage (DC-POA-TDG1-2)","Dread Helm (Liar's Night - Green)","Dread Helm (Liar's Night - Pumpkin)","Hat of Disguise (CCC-AETHER2-1)","Hat of Disguise (CCC-GHC-BK2-7)","Hat of Disguise (CCC-NBDD1-2)","Hat of Disguise: Infiltrator Cowl (CCC-NUKE-1-4)","Hat of Disguise: Wolfskin Cap (DDAL4-3)","Hat of Disguise (DDAL8-3)","Hat of Vermin: Bulaga Wizard Hat (CCC-GSP2-1)","Hat of Vermin (CCC-TAROT1-5)","Headband of Intellect (DDEP0-1)","Headband of Intellect (DDEX1-6)", "Headband of Intellect (DDAL5-16)","Headband of Intellect (DDEP7-2)","Headband of Intellect: Chardalyn Earring (DDEP10-1)","Helm of Brilliance: The Mask of Wompona Yarp (DDAL7-14)","Helm of Brilliance (DDAL-DRW3)","Helm of Comprehending Languages (CCC-AETHER-1-1)","Helm of Comprehending Languages (CCC-ALMOG-40 ESC1)","Helm of Comprehending Languages (CCC-DWB-ESR-1)","Helm of Comprehending Languages (CCC-DWB-TRM-1)","Helm of Comprehending Languages (CCC-FCC-1)","Helm of Comprehending Languages (CCC-HERO-BK3-1)","Helm of Comprehending Languages (CCC-KUMORI-3-3)","Helm of Comprehending Languages (CCC-MMT1-1)","Helm of Comprehending Languages: Superb Beret of the Librarian (CCC-OA-1-1)","Helm of Comprehending Languages (CCC-TCW-WSF-1)","Helm of Comprehending Languages (CCC-UBCON1-1)","Helm of Comprehending Languages: Tricorn Hat (CCC-UCON-2-1)","Helm of Telepathy (CCC-AN-1)","Helm of Telepathy (CCC-GHC-BK1-7)","Helm of Telepathy: Mask of Chakalakhan (CCC-PRETZ-PLA3)","Helm of Telepathy (DC-POA-CJK)","Helm of Telepathy (DC-POA-CONMAR-16)","Helm of Telepathy: Ryboslav's Helm (DC-POA-TDG1-9)","Helm of Telepathy (DDAL9-15)","Helm of Telepathy (DDEP9-1)","Helm of Teleportation (CCC-BMG-43 PHLAN4-1)","Helm of Teleportation: Weave (CCC-PHA-1)"],
+	choices : ["Circlet (Eye Patch) of Blasting (CCC-CIC-11)","Circlet of Blasting (CCC-GHC-BK1-6)","Circlet of Blasting (CCC-MCX-1)","Circlet of Blasting: Thenturian Circlet (CCC-TAROT1-7)","Circlet of Blasting: Coldfire Circlet (DC-POA-CD1)","Circlet of Blasting: Crown of the Night Sky (DC-POA-DES-5A)","Circlet of Blasting (DC-POA-RH01)","Dread Helm (CCC-AETHER-1-2)","Dread Helm (CCC-GAD1-2)","Dread Helm (CCC-OCC-2)","Dread Helm (Generic DC-POA)","Dread Helm (DC-POA-DUCKS-OS-02)","Dread Helm (DC-POA-HARM-1-1)","Dread Helm (DC-POA-LEGIT-CIPH-1)","Dread Helm: Ko's Visage (DC-POA-TDG1-2)","Dread Helm: Green (Liar's Night)","Dread Helm: Pumpkin (Liar's Night)","Hat of Disguise (CCC-AETHER2-1)","Hat of Disguise (CCC-GHC-BK2-7)","Hat of Disguise (CCC-NBDD1-2)","Hat of Disguise: Infiltrator Cowl (CCC-NUKE-1-4)","Hat of Disguise: Wolfskin Cap (DDAL4-3)","Hat of Disguise (DDAL8-3)","Hat of Vermin: Bulaga Wizard Hat (CCC-GSP2-1)","Hat of Vermin (CCC-TAROT1-5)","Headband of Intellect (DDEP0-1)","Headband of Intellect (DDEX1-6)", "Headband of Intellect (DDAL5-16)","Headband of Intellect (DDEP7-2)","Headband of Intellect: Chardalyn Earring (DDEP10-1)","Helm of Brilliance: The Mask of Wompona Yarp (DDAL7-14)","Helm of Brilliance (DDAL-DRW3)","Helm of Comprehending Languages (CCC-AETHER-1-1)","Helm of Comprehending Languages (CCC-ALMOG-40 ESC1)","Helm of Comprehending Languages (CCC-DWB-ESR-1)","Helm of Comprehending Languages (CCC-DWB-TRM-1)","Helm of Comprehending Languages (CCC-FCC-1)","Helm of Comprehending Languages (CCC-HERO-BK3-1)","Helm of Comprehending Languages (CCC-KUMORI-3-3)","Helm of Comprehending Languages (CCC-MMT1-1)","Helm of Comprehending Languages: Superb Beret of the Librarian (CCC-OA-1-1)","Helm of Comprehending Languages (CCC-TCW-WSF-1)","Helm of Comprehending Languages (CCC-UBCON1-1)","Helm of Comprehending Languages: Tricorn Hat (CCC-UCON-2-1)","Helm of Telepathy (CCC-AN-1)","Helm of Telepathy (CCC-GHC-BK1-7)","Helm of Telepathy: Mask of Chakalakhan (CCC-PRETZ-PLA3)","Helm of Telepathy (DC-POA-CJK)","Helm of Telepathy (DC-POA-CONMAR-16)","Helm of Telepathy: Ryboslav's Helm (DC-POA-TDG1-9)","Helm of Telepathy (DDAL9-15)","Helm of Telepathy (DDEP9-1)","Helm of Teleportation (CCC-BMG-43 PHLAN4-1)","Helm of Teleportation: Weave (CCC-PHA-1)"],
 	"circlet (eye patch) of blasting (ccc-cic-11)" : { // contains contributions by Larry Hoy
 		name : "Eye Patch of Blasting (Circlet of Blasting)",
 		source : [["AL","CCC"]],
@@ -4419,14 +4423,14 @@ MagicItemsList["al headwear"] = {
 		description : "This fearsome helm fashioned from a white wyrmling's skull makes your eyes glow white while you wear it and you feel an urge to assert your dominance over any creature that appears weaker than you.",
 		descriptionFull : "This fearsome helm fashioned from a white wyrmling's skull makes your eyes glow white while you wear it. While wearing this helm, you feel an urge to assert your dominance over any creature that appears weaker than you."
 		},
-	"dread helm (liar's night - green)" : {
+	"dread helm: green (liar's night)" : {
 		name : "Dread Helm (Green)",
 		source : ["AL:LN", 2019],
 		rarity : "common",
 		magicItemTable : "?",
 		description : "This fearsome skull helm is wreathed in illusory green flames and makes your eyes glow red."
 		},
-	"dread helm (liar's night - pumpkin)" : {
+	"dread helm: pumpkin (liar's night)" : {
 		name : "Dread Helm (Pumpkin)",
 		source : ["AL:LN", 2018],
 		rarity : "common",
@@ -5771,10 +5775,10 @@ MagicItemsList["al instruments"] = {
 		rarity : "rare",
 		type : "wondrous item",
 		magicItemTable : "G",
-		description : "Luthik’s Call is a holy relic, given to the faithful of Luthik for the bravest deeds, & resists being used by anyone else. It's made from a hollowed giant eland horn, adorned with silver filigree that glimmers in moonlight. Followers of Luthik revere those who bear this item in battle & tales of your heroic deeds are etched on its surface in orcish. As an action once per 7 days, you can blow the horn to summon 2d4+2 warrior spirits from Ysgard w/i 60 ft. These berserkers disappear after 1 hr or at 0 hp. They are friendly & follow your commands. You can spreak Orcish while you have this item.",
+		description : "Luthik’s Call is a holy relic, given to the faithful of Luthik for the bravest deeds, & resists being used by anyone else. It's made from a hollowed giant eland horn, adorned with silver filigree that glimmers in moonlight. Followers of Luthik revere those who bear this item in battle & tales of your heroic deeds are etched on its surface in orcish. As an action once per 7 days, you can blow the horn to summon 2d4+2 warrior spirits from Ysgard w/i 60 ft. These berserkers disappear after 1 hr or at 0 hp. They are friendly & follow your commands. You can spreak Orc while you have this item.",
 		descriptionFull : "You can use an action to blow this horn. In response, warrior spirits from the plane of Ysgard appear within 60 feet of you. These spirits use the berserker statistics. They return to Ysgard after 1 hour or when they drop to 0 hit points. Once you use the horn, it can't be used again until 7 days have passed.\n    The silver horn summons 2d4+2 berserkers. The berserkers are friendly to you and your companions and follow your commands.\n    This item is a blessed holy relic, granted to the faithful of Luthik for only the most valorous of deeds. Luthik’s Call is made from a hollowed giant eland horn, adorned with silver filigree that glimmers in moonlight. Tales of the wielder’s mettle are etched upon its surface in orcish, chronicling for all to read the heroic deeds of its owner. Followers of Luthik will revere those who bear this item in battle. Enemies of the Den Mother may try to steal it away but will be disappointed, as Luthik’s Call resists use by any person except the one to whom it was gifted.\n    The horn’s owner can speak and understand the orc language while Luthik’s Call is on their person.",
 		weight : 2,
-		languageProfs : ["Orcish"],
+		languageProfs : ["Orc"],
 		limfeaname : "Silver Horn of Valhalla",
 		usages : 1,
 		recovery : "7 days",
@@ -5829,8 +5833,8 @@ MagicItemsList["al jewelry"] = {
 		source : [["AL","S8"]],
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "An electrum pendant in the shape of an eye surrounded by a grasping tentacle hangs from this mithril chain. While you wear the amulet, your Constitution score is set to 19 & you have the feeling that you are being watched. It has no effect if your Constitution score is already 19 or higher.",
-		descriptionFull : "An electrum pendant in the shape of an eye surrounded by a grasping tentacle hangs from this mithril chain. Whenever you wear the amulet, your Constitution score is set to 19 and you have the feeling that you are being watched. It has no effect if your Constitution score is already 19 or higher without it.",
+		description : "An electrum pendant shaped like an eye surrounded by a grasping tentacle hangs from this mithral chain. While you wear the amulet, your Constitution score is set to 19 & you feel like you're being watched. It has no effect if your Constitution score is already 19 or higher.",
+		descriptionFull : "An electrum pendant in the shape of an eye surrounded by a grasping tentacle hangs from this mithral chain. Whenever you wear the amulet, your Constitution score is set to 19 and you have the feeling that you are being watched. It has no effect if your Constitution score is already 19 or higher without it.",
 		attunement : true,
 		weight : 1,
 		scoresOverride : [0, 0, 19, 0, 0, 0]
@@ -6723,6 +6727,7 @@ MagicItemsList["al jewelry"] = {
 		spellFirstColTitle : "Us",
 		spellcastingBonus : {
 			name : "Bead Spell",
+			firstCol : "oncelr",
 			spells : ["bless", "cure wounds", "lesser restoration", "greater restoration"],
 			selection : ["bless", "cure wounds", "lesser restoration", "greater restoration"],
 			times : 4  //only listing spells from the curing bead once since listing them twice is awkward
@@ -6760,6 +6765,7 @@ MagicItemsList["al jewelry"] = {
 		spellFirstColTitle : "Us",
 		spellcastingBonus : {
 			name : "Bead Spell",
+			firstCol : "oncelr",
 			spells : ["bless", "cure wounds", "lesser restoration", "greater restoration", "branding smite", "planar ally", "wind walk"],
 			times : 6  //extra bead slot is to list both spells in the curing bead
 		},
@@ -6957,7 +6963,7 @@ MagicItemsList["al light sources"] = {
 		name : "AL Light Sources",
 		type : "wondrous item",
 		allowDuplicates : true,
-	choices : ["Candle of the Deep (CCC-AETHER2-1)","Candle of the Deep: Last Light of Northkeep (CCC-BWM-2)","Candle of the Deep (CCC-ELO-2)","Candle of the Deep (CCC-TRI-34)","Candle of the Deep: Midwinter Candle (DC-POA-CD1)","Candle of the Deep (DC-POA-JAK1)","Candle of the Deep: Chultan Midwinter Candle (DDAL0-4)","Driftglobe: Faint (CCC-HAL-1)","Gem of Brightness (CCC-BMG-MOON8-1)","Gem of Brightness: Moonfire Globe (CCC-TXLIFE-1)","Gem of Brightness (CCC-KUMORI-1-1)","Gem of Brightness (CCC-ROLL20-2)","Lantern of Revealing (CCC-BMG-MOON9-2)","Lantern of Revealing (CCC-BMG-32 PHLAN3-2)","Lantern of Revealing (CCC-CONMAR1-1)","Lantern of Revealing (CCC-DRUIDS-3)","Lantern of Revealing (CCC-DWB-EOG-1)","Lantern of Revealing (CCC-DWB-Q1)","Lantern of Revealing (CCC-DWB-TMG-1)","Lantern of Revealing (CCC-HERO-BK2-4)","Lantern of Revealing (CCC-KKALGO-2-1)","Lantern of Revealing (CCC-MALTH-1)","Lantern of Revealing (CCC-MAYDAYS-1)","Lantern of Revealing (CCC-MELB-2)","Lantern of Revealing: Lantern of Truffle Finding (CCC-NUKE-2-1)","Lantern of Revealing (CCC-PP-TDD1-1)","Lantern of Revealing (CCC-PSA-1)","Lantern of Revealing (CCC-RPSG-4)","Lantern of Revealing (CCC-SCAR3-1)","Lantern of Revealing (CCC-UBCON1-3)","Lantern of Revealing (CCC-ZIEGE-4-1)","Lantern of Revealing: Ghost Light (RMH-1)","Lantern of Tracking Abberations (DC-POA-HARM-1-3)","Lantern of Tracking Abberations (DC-POA-Z-T1S3)"],
+	choices : ["Candle of the Deep (CCC-AETHER2-1)","Candle of the Deep: Last Light of Northkeep (CCC-BWM-2)","Candle of the Deep (CCC-ELO-2)","Candle of the Deep (CCC-TRI-34)","Candle of the Deep: Midwinter Candle (DC-POA-CD1)","Candle of the Deep (DC-POA-JAK1)","Candle of the Deep: Chultan Midwinter Candle (DDAL0-4)","Driftglobe: Faint (CCC-HAL-1)","Gem of Brightness (CCC-BMG-MOON8-1)","Gem of Brightness: Moonfire Globe (CCC-TXLIFE-1)","Gem of Brightness (CCC-KUMORI-1-1)","Gem of Brightness (CCC-ROLL20-2)","Lantern of Revealing (CCC-BMG-MOON1-4)","Lantern of Revealing (CCC-BMG-MOON9-2)","Lantern of Revealing (CCC-BMG-32 PHLAN3-2)","Lantern of Revealing (CCC-CONMAR1-1)","Lantern of Revealing (CCC-DRUIDS-3)","Lantern of Revealing (CCC-DWB-EOG-1)","Lantern of Revealing (CCC-DWB-Q1)","Lantern of Revealing (CCC-DWB-TMG-1)","Lantern of Revealing (CCC-HERO-BK2-4)","Lantern of Revealing (CCC-KKALGO-2-1)","Lantern of Revealing (CCC-MALTH-1)","Lantern of Revealing (CCC-MAYDAYS-1)","Lantern of Revealing (CCC-MELB-2)","Lantern of Revealing: Lantern of Truffle Finding (CCC-NUKE-2-1)","Lantern of Revealing (CCC-PP-TDD1-1)","Lantern of Revealing (CCC-PSA-1)","Lantern of Revealing (CCC-RPSG-4)","Lantern of Revealing (CCC-SCAR3-1)","Lantern of Revealing (CCC-UBCON1-3)","Lantern of Revealing (CCC-ZIEGE-4-1)","Lantern of Revealing: Ghost Light (RMH-1)","Lantern of Tracking Abberations (DC-POA-HARM-1-3)","Lantern of Tracking Abberations (DC-POA-Z-T1S3)"],
 	"candle of the deep (ccc-aether2-1)" : {
 		name : "Candle of the Deep (CCC-AETHER2-1)",
 		source : [["AL","CCC"]],
@@ -7107,6 +7113,16 @@ MagicItemsList["al light sources"] = {
 		usages : 50,
 		recovery : "Never",
 		action : [["action", "Gem of Brightness"], ["bonus action", " (Stop Glow)"]]
+	},
+	"lantern of revealing (ccc-bmg-moon1-4)" : {
+		name : "Lantern of Revealing (CCC-BMG-MOON1-4)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "B",
+		description : "The circular lantern is made from undecorated dark cast iron with a greenish tint. The glass is frosted. When lit, it emits the faint odor of a peat fire & soft warmth reminiscent of a hearth. The lantern burns for 12 hrs on 1 pint of oil. It sheds bright light in a 30-ft radius & dim light for another 30 ft. Invisible objects & creatures are visible in the bright light. If you lower the hood as an action, it sheds dim light in a 5-ft radius.",
+		descriptionFull : "The lantern is circular, made from dark cast iron with a greenish tint and no decorations. The glass is frosted. When the flame is lit, it emits a faint odor of a peat fire and a soft warmth reminiscent of a hearth.\n   While lit, this hooded lantern burns for 6 hours on 1 pint of oil, shedding bright light in a 30-foot radius and dim light for an additional 30 feet. Invisible creatures and objects are visible as long as they are in the lantern's bright light. You can use an action to lower the hood, reducing the light to dim light in a 5-foot radius.",
+		weight : 2,
+		action : [["action", "Lantern of Revealing (hood up/down)"]]
 	},
 	"lantern of revealing (ccc-bmg-moon9-2)" : {
 		name : "Lantern of Revealing (CCC-BMG-MOON9-2)",
@@ -8360,7 +8376,7 @@ MagicItemsList["al outerwear"] = {
 		rarity : "uncommon",
 		magicItemTable : "F",
 		attunement : true,
-		description: "This supple light green cloak embroidered with a delicate leaf pattern makes you feel comfortable when worn, suffering no harm in temperatures from 0 ̊ F to 120 ̊ F. While you wear this cloak with its hood up, Wisdom (Perception) checks made to see you have disadv., & you have adv. on Dexterity (Stealth) checks made to hide, as the cloak's color shifts to camouflage you. Pulling the hood up or down requires an action.",
+		description: "This supple light green cloak embroidered with a delicate leaf pattern lets you suffer no harm in temperatures from 0 ̊ F to 120 ̊ F. While you wear this cloak with its hood up, Wisdom (Perception) checks made to see you have disadv. & you have adv. on Dexterity (Stealth) checks made to hide, as the cloak's color shifts to camouflage you. Pulling the hood up or down requires an action.",
 		descriptionFull: "This supple light green cloak embroidered with a delicate leaf pattern makes you feel comfortable when worn, suffering no harm from temperatures as cold as 0 ̊ Farenheit or as warm as 120 ̊ Farenheit. While you wear this cloak with its hood up, Wisdom (Perception) checks made to see you have disadvantage, and you have advantage on Dexterity (Stealth) checks made to hide, as the cloak's color shifts to camouflage you. Pulling the hood up or down requires an action.",
 		action : [["action", "Cloak of Elvenkind (hood up/down)"]],
 		savetxt : { immune : ["temps btwn 0 ̊ & 120 ̊ F"] },

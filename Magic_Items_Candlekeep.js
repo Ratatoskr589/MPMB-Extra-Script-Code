@@ -132,7 +132,7 @@ MagicItemsList["serpent's fang"] = {
 	weaponsAdd : ["Serpent's Fang"],
 	weaponOptions : {
 		baseWeapon : "longsword",
-		regExpSearch : /^(?=.*serpent)(?=.*fang).*$/i,
+		regExpSearch : /^(?=.*serpent|s)(?=.*fang).*$/i,
 		name : "Serpent's Fang",
 		source : [["CM-Alt", 98]],
 		description : "Versatile (d10), +1d10 poison dmg per hit",

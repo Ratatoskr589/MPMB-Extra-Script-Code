@@ -7,11 +7,12 @@ Additionally, due to the length of some descriptions, I recommend auto-sizing fo
 */
 
 /*  Subject: Flavored Weapons from AL adventures
-    Effect:	This script adds the flavored versions of standard magic weapons found in AL adventures to the MPMB sheet. They will all be listed as AL [item category] in the Magic Item selection, with further choices as needed. The main categories are as follows: Maces (special maces), Staffs (all special staffs, whether specifically called out as weapons or not), Swords (special swords - including ones where the mod just gave a sword version), Weapons +1/+2/+3, Weapons (Other) (all other special weapons).  All Rods can be found in the AL Magic Items script, even those that can be used as a weapon.
+
+    Effect:	This script adds the flavored versions of standard magic weapons found in AL adventures to the MPMB sheet (and a couple flavored book items). They will all be listed as AL [item category] in the Magic Item selection, with further choices as needed. The main categories are as follows: Maces (special maces), Staffs (all special staffs, whether specifically called out as weapons or not), Swords (special swords - including ones where the mod only gave a sword version), Weapons +1/+2/+3, Weapons (Other) (all other special weapons).  All Rods can be found in the AL Magic Items script, even those that can be used as a weapon.
 	
-	This is not a complete list since I do not have every published adventure, but it's a start. If you do not see an item listed from a season marked complete, it should be because there was no flavor.*/
+	This is not a complete list since I don't have every published adventure yet, but it's a start. If you do not see an item listed from a season marked complete, it should be because there was no flavor.*/
 	
-	//Complete: S0-S9, Guild Adept
+	//Complete: S0-S10, Guild Adept
 	//In progress: CCCs, DC-POA, DRW
 	
 var iFileName = "AL Flavored Weapons.js";

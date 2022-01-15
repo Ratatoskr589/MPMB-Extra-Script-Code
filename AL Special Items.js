@@ -8,7 +8,7 @@ It is recommended to enter the code in a fresh sheet before adding any other inf
 /*  Subject: New AL Items
     Effect:	This script adds the new items, armor, and weapons found in AL modules and Guild Adept adventures to the MPMB sheet. It also includes some Story Awards that grant blessings, boons, or other mechanical effects. This is not a complete list, but it's a start.*/
 	
-	//Complete: S0-S9, DDCE, Holiday Events, Guild Adept
+	//Complete: S0-S10, DDCE, Holiday Events, Guild Adept
 	//In progress: CCCs, DC-POA, DRW, 
 	
 var iFileName = "AL Special Items.js";

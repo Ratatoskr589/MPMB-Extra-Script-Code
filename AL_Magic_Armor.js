@@ -11,7 +11,7 @@ Additionally, due to the length of some descriptions, I recommend auto-sizing fo
 	
 	This is not a complete list since I do not have every published adventure, but it's a start. If you do not see an item listed from a season marked complete, it should be because there was no flavor.*/
 	
-	//Complete: S0-S9, Guild Adept
+	//Complete: S0-S10, Guild Adept
 	//In progress: CCCs, DC-POA, DRW
 	
 var iFileName = "AL Flavored Armor.js";
