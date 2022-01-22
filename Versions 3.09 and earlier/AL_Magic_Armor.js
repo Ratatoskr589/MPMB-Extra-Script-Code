@@ -18,7 +18,7 @@ var iFileName = "AL Flavored Armor.js";
 RequiredSheetVersion(13);
 
 // Define the source
-SourceList.AL = {
+SourceList["AL"] = {
 	name : "AL Modules",
 	abbreviation : "AL",
 	group : "Adventurers League",
@@ -26,7 +26,7 @@ SourceList.AL = {
 	date : "Various"
 };
 
-SourceList.ALSRs11 = {  //Season 11 Service Rewards
+SourceList["ALSRs11"] = {  //Season 11 Service Rewards
     name : "AL Season 11 Service Rewards",
     abbreviation : "ALSRs11",
     group : "Adventurers League",
