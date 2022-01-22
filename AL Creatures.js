@@ -14,7 +14,10 @@ Effect: This file adds new creatures that are specially made for AL into the she
 //WIP: Fai Chen's/Certs, CCCs, DC-POA, DRW
 
 var iFileName = "AL Creatures.js";
-RequiredSheetVersion(13);
+RequiredSheetVersion("13.1.0");
+
+//As far as I'm aware, the only thing that doesn't currently function in older versions of the sheet is the companions that can be summoned by both Find Steed and Find Greater Steed. They won't appear under the Companion Option selections, though you can choose them and then adjust to a steed manually.
+
 
 // Define the source
 SourceList["AL:FC"] = {   //Fai Chen 
@@ -39,7 +42,7 @@ SourceList["AL:RMH"] = {  //Mist Hunters Alternate Campaign
 	date : "Various"
 };
  
-SourceList.DDCE = { //Only creatures from this category count as Event Awards under the new rules
+SourceList["DDCE"] = { //Only creatures from this category count as Event Awards under the new rules
     name : "D&D Celebration",
     abbreviation : "DDCE",
     group : "Adventurers League",
@@ -69,11 +72,19 @@ SourceList["AL:LN"] = {  //Liar's Night and Wandering Monsters
     date : "Various"
 };
 
-SourceList.ALDMs9 = {  //Season 9 DM Rewards (Several of these are from BG:DiA, but cannot normally be used by players)
+SourceList["ALDMs9"] = {  //Season 9 DM Rewards (Several of these are from BG:DiA, but cannot normally be used by players)
     name : "AL Season 9 DM Rewards",
     abbreviation : "ALDMs9",
     group : "Adventurers League",
     date : "2019/09/16"
+};
+
+SourceList["RotF"] = {
+	name : "Icewind Dale: Rime of the Frostmaiden [creatures, items, spells]",
+	abbreviation : "RotF",
+	group : "Adventure Books",
+	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/icewind-dale-rime-frostmaiden",
+	date : "2020/09/15"
 };
 
 
@@ -388,7 +399,14 @@ CreatureList["yeti tyke"] = {
 //Creatures from Fai Chen Certs
 CreatureList["euphio the watch hound"] = {
 		name : "Euphio the Watch Hound",
+		nameAlt : ["Watch Hound"],
 		source : ["AL:FC",2018],
+eval : function(prefix) {
+  Value(prefix + "Comp.Desc.Name", "Euphio");
+},
+removeeval : function(prefix) {
+  Value(prefix + "Comp.Desc.Name", "");
+},
 		size : 3, //Medium
 		type : "Beast",
 		companion : "familiar",
@@ -425,7 +443,14 @@ CreatureList["euphio the watch hound"] = {
 	
 CreatureList["rollando, war rothe"] = {
 		name : "Rollando, War Roth\xE9",
+		nameAlt : ["War Roth\xE9"],
 		source : ["AL:FC",2018],
+eval : function(prefix) {
+  Value(prefix + "Comp.Desc.Name", "Rollando");
+},
+removeeval : function(prefix) {
+  Value(prefix + "Comp.Desc.Name", "");
+},
 		size : 2, //Large
 		type : "Beast",
 		companion : "mount",
@@ -558,6 +583,7 @@ CreatureList["quasit (familiar variant)"] = {
 		defaultExcluded : true,
 		subtype : "demon",
 		companion : "pact_of_the_chain",
+		companionApply : "pact_of_the_chain",
 		header : "Familiar",
 		alignment : "Chaotic Evil",
 		ac : 13,
@@ -659,8 +685,8 @@ CreatureList["celestial gold pseudodragon"] = {
 		}, {
 			name : "Limited Telepathy",
 			description : "The pseudodragon can magically communicate simple ideas, emotions, and images telepathically with any creature within 100 ft of it that can understand a language."
-		}],
-	}
+		}]
+	},
 
 //Story award from CCC-SQC-2-1
 CreatureList["the crazy squirrel"] = {
@@ -703,17 +729,25 @@ CreatureList["the crazy squirrel"] = {
 		name : "Keen Smell",
 		description : "The crazy squirrel has advantage on Wisdom (Perception) checks that rely on smell."
 		}]
-}
+},
 	
 	
 //Special cert from the House of Lament premier. Only usable in Mist Hunters adventures.
-CreatureList["penumbra the gremishka"] = {
+CreatureList["gremishka (adjusted)"] = {
 		name : "Penumbra the Gremishka",
-		source : ["AL:RMH","HoL"],
+		nameAlt : ["Gremishka (Adjusted)", "Gremishka (AL)", "AL Gremishka"],
+		source : [["AL:RMH","HoL"]],
 		size : 5, //Tiny
 		type : "Monstrosity",
 		defaultExcluded : true,
+eval : function(prefix) {
+  Value(prefix + "Comp.Desc.Name", "Penumbra");
+},
+removeeval : function(prefix) {
+  Value(prefix + "Comp.Desc.Name", "");
+},
 		subtype : "",
+		alignment : "Unaligned",
 		ac : 12,
 		hp : 10,
 		hd : [4, 4],
@@ -744,7 +778,7 @@ CreatureList["penumbra the gremishka"] = {
 			name : "Magical Allergy (1/day)",
 			description : "Immediately after a creature within 30 feet of the gremishka casts a spell, the gremishka can spontaneously react to the magic. Roll a d4 to determine the effect:\n   " + "1–2. The gremishka emanates magical energy. Each creature within 30 feet of the gremishka must succeed on a DC 10 Constitution saving throw or take 3 (1d6) force damage.\n   " + "3–4. The gremishka surges with magical energy and regains 3 (1d6) hit points."
 		}]
-}
+},
 	
 //Season 9 DM Reward Options
 CreatureList["imp courier"] = {
@@ -1065,11 +1099,18 @@ CreatureList["foxwere"] = {
 	
 CreatureList["fritter the 7-legged spider"] = {
 		name : "Fritter the 7-legged Spider",
+		nameAlt : ["7-legged Spider"],
 		source : [["AL:LN",2019]],
+eval : function(prefix) {
+  Value(prefix + "Comp.Desc.Name", "Fritter");
+},
+removeeval : function(prefix) {
+  Value(prefix + "Comp.Desc.Name", "");
+},
 		size : 2, //Large
 		type : "Beast",
 		defaultExcluded : true,
-		companion : "mount",
+		companion : ["mount", "steed"],
 		header : "Mount",
 		alignment : "Unaligned",
 		ac : 14,
@@ -1122,11 +1163,18 @@ CreatureList["fritter the 7-legged spider"] = {
 	
 CreatureList["marzipan, the skeletal warhorse"] = {
 		name : "Marzipan, the Skeletal Warhorse",
+		nameAlt : ["Skeletal Warhorse"],
 		source : [["AL:LN",2018]],
+eval : function(prefix) {
+  Value(prefix + "Comp.Desc.Name", "Marzipan");
+},
+removeeval : function(prefix) {
+  Value(prefix + "Comp.Desc.Name", "");
+},
 		size : 2, //Large
 		type : "Undead",
 		defaultExcluded : true,
-		companion : "mount",
+		companion : ["mount", "steed"],
 		header : "Mount",
 		alignment : "Unaligned",
 		ac : 11,
@@ -1215,7 +1263,141 @@ CreatureList["glitter elemental"] = {
 		}]
 	}
 
-
+//Griffon's at various ages for the Griffon Taming option in RotF
+CreatureList["griffon (baby)"] = {
+		name : "Griffon (Baby)",
+		source : [["RotF", 318]],
+		size : 5, //Tiny
+		type : "Monstrosity",
+		defaultExcluded : true,
+		alignment : "Unaligned",
+		ac : 12,
+		hp : 5,
+		hd : [1, 4],
+		speed : "30 ft, fly 40 ft",
+		scores : [2, 15, 16, 2, 13, 8],
+		skills : {
+			"perception" : 5
+		},
+		senses : "Darkvision 60 ft; Adv. on Wis (Perception) checks using sight",
+		passivePerception : 15,
+		challengeRating : "0",
+		proficiencyBonus : 2,
+		attacksAction : 2,
+		attacks : [{
+			name : "Beak",
+			ability : 2,
+			modifiers : ["Str", ""],
+			damage : [1, "", "piercing"],
+			range : "Melee (5 ft)",
+			description : "One beak and one claws attack as an Attack action",
+			abilitytodamage : false,
+		}, {
+			name : "Claws",
+			ability : 2,
+			modifiers : ["Str", ""],
+			damage : [1, "", "slashing"],
+			range : "Melee (5 ft)",
+			description : "One claws and one beak attack as an Attack action",
+			abilitytodamage : false,
+		}],
+		actions : [{
+			name : "Multiattack",
+			description : "The griffon makes two attacks: one with its beak and one with its claws."
+		}],
+		traits : [{
+			name : "Keen Sight",
+			description : "The griffon has advantage on Wisdom (Perception) checks that rely on sight."
+		}]
+	}
+	
+CreatureList["griffon (1 year)"] = {
+		name : "Griffon (1 Year)",
+		source : [["RotF", 318]],
+		size : 4, //Small
+		type : "Monstrosity",
+		defaultExcluded : true,
+		alignment : "Unaligned",
+		ac : 12,
+		hp : 13,
+		hd : [2, 6],
+		speed : "30 ft, fly 80 ft",
+		scores : [8, 15, 16, 2, 13, 8],
+		skills : {
+			"perception" : 5
+		},
+		senses : "Darkvision 60 ft; Adv. on Wis (Perception) checks using sight",
+		passivePerception : 15,
+		challengeRating : "1/4",
+		proficiencyBonus : 2,
+		attacksAction : 2,
+		attacks : [{
+			name : "Beak",
+			ability : 1,
+			damage : [1, 4, "piercing"],
+			range : "Melee (5 ft)",
+			description : "One beak and one claws attack as an Attack action",
+			abilitytodamage : false,
+		}, {
+			name : "Claws",
+			ability : 1,
+			damage : [1, 4, "slashing"],
+			range : "Melee (5 ft)",
+			description : "One claws and one beak attack as an Attack action",
+			abilitytodamage : false,
+		}],
+		actions : [{
+			name : "Multiattack",
+			description : "The griffon makes two attacks: one with its beak and one with its claws."
+		}],
+		traits : [{
+			name : "Keen Sight",
+			description : "The griffon has advantage on Wisdom (Perception) checks that rely on sight."
+		}]
+	}
+	
+CreatureList["griffon (2 years)"] = {
+		name : "Griffon (2 Years)",
+		source : [["RotF", 318]],
+		size : 3, //Medium
+		type : "Monstrosity",
+		defaultExcluded : true,
+		alignment : "Unaligned",
+		ac : 12,
+		hp : 32,
+		hd : [5, 6],
+		speed : "30 ft, fly 80 ft",
+		scores : [12, 15, 16, 2, 13, 8],
+		skills : {
+			"perception" : 5
+		},
+		senses : "Darkvision 60 ft; Adv. on Wis (Perception) checks using sight",
+		passivePerception : 15,
+		challengeRating : "1",
+		proficiencyBonus : 2,
+		attacksAction : 2,
+		attacks : [{
+			name : "Beak",
+			ability : 1,
+			damage : [1, 6, "piercing"],
+			range : "Melee (5 ft)",
+			description : "One beak and one claws attack as an Attack action",
+		}, {
+			name : "Claws",
+			ability : 1,
+			damage : [2, 4, "slashing"],
+			range : "Melee (5 ft)",
+			description : "One claws and one beak attack as an Attack action",
+		}],
+		actions : [{
+			name : "Multiattack",
+			description : "The griffon makes two attacks: one with its beak and one with its claws."
+		}],
+		traits : [{
+			name : "Keen Sight",
+			description : "The griffon has advantage on Wisdom (Perception) checks that rely on sight."
+		}]
+	}
 
 
 /*	"the runt (ccc-tarot2-9)" : {
