@@ -16,7 +16,7 @@ RequiredSheetVersion(13);
 
 // Define the source
 
-SourceList.AL = {
+SourceList["AL"] = {
 	name : "AL Modules",
 	abbreviation : "AL",
 	group : "Adventurers League",
@@ -24,7 +24,7 @@ SourceList.AL = {
 	date : "Various"
 };
 
-SourceList.DDCE = { //All items in this category count as event awards
+SourceList["DDCE"] = { //All items in this category count as event awards
     name : "D&D Celebration",
     abbreviation : "DDCE",
     group : "Adventurers League",
@@ -137,11 +137,11 @@ MagicItemsList["al story awards"] = {
 		creaturesAdd : [["Unicorn (Brightstar Moonsilver)", true]],
 		creatureOptions : [{
 			name : "Unicorn (Brightstar Moonsilver)",
-			nameAlt : ["Unicorn"],
-			source : [["M", 294] ["AL","CCC"]],
+			nameAlt : ["Brightstar Moonsilver"],
+			source : [["AL","CCC"]],
 			size : 2, //Large,
 			type : "Celestial",
-			companion : "mount",
+			header: "Mount",
 			alignment : "Lawful Good",
 			ac : 12,
 			hp : 67,
@@ -156,12 +156,14 @@ MagicItemsList["al story awards"] = {
 			challengeRating : "5",
 			proficiencyBonus : 3,
 			attacksAction : 2,
-				eval : function(prefix, lvl) {
+			eval : function(prefix, lvl) {
 				AddString(prefix + 'Cnote.Left', 'Legendary Actions:\n \u2022 The Unicorn can take 3 legendary actions, choosing from the options below. Only one legendary action can be used at a time and only at the end of another turn. The Unicorn regains spent legendary actions at the start of its turn.\n \u2022 Hooves: The unicorn makes one attack with its hooves.\n \u2022 Shimmering Shield (Costs 2 Actions): The unicorn creates a shimmering, magical field around itself or another creature it can see within 60 feet of it. The target gains a +2 bonus to AC until the end of its next turn.\n \u2022 Heal Self (Costs 3 Actions): The unicorn magically regains 11 (2d8 + 2) hit points.', true);
-						},
+				Value(prefix + "Comp.Desc.Name", "Brightstar Moonsilver");
+				},
 				removeeval : function(prefix, lvl) {
-				RemoveString(prefix + 'Cnote.Left', 'Legendary Actions:\n   The Unicorn can take 3 legendary actions, choosing from the options below. Only one legendary action can be used at a time and only at the end of another turn. The Unicorn regains spent legendary actions at the start of its turn.\n \u2022 Hooves: The unicorn makes one attack with its hooves.\n \u2022 Shimmering Shield (Costs 2 Actions): The unicorn creates a shimmering, magical field around itself or another creature it can see within 60 feet of it. The target gains a +2 bonus to AC until the end of its next turn.\n \u2022 Heal Self (Costs 3 Actions): The unicorn magically regains 11 (2d8 + 2) hit points.', true);
-						},
+				RemoveString(prefix + 'Cnote.Left', 'Legendary Actions:\n \u2022 The Unicorn can take 3 legendary actions, choosing from the options below. Only one legendary action can be used at a time and only at the end of another turn. The Unicorn regains spent legendary actions at the start of its turn.\n \u2022 Hooves: The unicorn makes one attack with its hooves.\n \u2022 Shimmering Shield (Costs 2 Actions): The unicorn creates a shimmering, magical field around itself or another creature it can see within 60 feet of it. The target gains a +2 bonus to AC until the end of its next turn.\n \u2022 Heal Self (Costs 3 Actions): The unicorn magically regains 11 (2d8 + 2) hit points.', true);
+				Value(prefix + "Comp.Desc.Name", "");
+				},
 			attacks : [{
 				name : "Hooves",
 				ability : 1,

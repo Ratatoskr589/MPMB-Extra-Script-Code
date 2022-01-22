@@ -19,7 +19,7 @@ var iFileName = "AL Flavored Weapons.js";
 RequiredSheetVersion(13);
 
 // Define the source
-SourceList.AL = {
+SourceList["AL"] = {
 	name : "AL Modules",
 	abbreviation : "AL",
 	group : "Adventurers League",
@@ -43,7 +43,7 @@ SourceList["KOSC"]={
 	date : "2020/15/10"
 };
 
-SourceList.ALSRs11 = {  //Season 11 Service Rewards
+SourceList["ALSRs11"] = {  //Season 11 Service Rewards
     name : "AL Season 11 Service Rewards",
     abbreviation : "ALSRs11",
     group : "Adventurers League",
@@ -203,7 +203,7 @@ MagicItemsList["al maces"] = {
 			regExpSearch : /^(?=.*mace)(?=.*vicious).*$/i,
 			name : "Vicious Mace",
 			source : [["SRD", 248], ["D", 209], ["AL","CCC"]],
-			description : "On nat 20 to hit: +7 damage",
+			description : "On natural 20 to hit: +7 damage",
 		}
 	},
 }
@@ -1970,12 +1970,12 @@ MagicItemsList["al swords"] = {
 		magicItemTable : "?",
 		description : "A sturdy tortoise adorns the ebony sheath of this magical shortsword. Engraved roughly into the pommel in Chultan is the following githzerai aphorism: “Endure. In enduring, grow strong”. The unsheathed blade sheds moonlight in darkness, creating bright light in a 15-ft radius & dim light for another 15 ft.",
 		descriptionFull : "A sturdy tortoise adorns this sword’s ebony sheath. Engraved roughly into the pommel in Chultan is the following githzerai aphorism: “Endure. In enduring, grow strong”.\n   In darkness, the unsheathed blade of this magical shortsword sheds moonlight, creating bright light in a 15-ft radius and dim light for an additional 15 ft.",
-		weaponsAdd : ["Blade of the Black Tortoise, Moon-Touched Shortsword"],
+		weaponsAdd : ["Blade of the Black Tortoise"],
 		weaponOptions : {
 			baseWeapon : "shortsword",
 			regExpSearch : /^(?=.*black)(?=.*tortoise)(?=.*blade).*$/i,
 			source : [["AL","DC-POA"]],
-			name : "Blade of the Black Tortoise",
+			name : "Blade of the Black Tortoise, Moon-Touched Shortsword",
 			description : "Finesse, light; Counts as magical.",
 			},
 	},
@@ -1987,12 +1987,12 @@ MagicItemsList["al swords"] = {
 		magicItemTable : "?",
 		description : "A wise imperious dragon is entwined around the jade sheath of this magical shortsword. The Chultan word for “Patience” is carved into the pommel in a flowing script. The unsheathed blade sheds moonlight in darkness, creating bright light in a 15-ft radius & dim light for another 15 ft.",
 		descriptionFull : "A wise, imperious dragon is entwined around this sword’s jade sheath. The Chultan word for “Patience” is carved into the sword’s pommel in a flowing script.\n   In darkness, the unsheathed blade of this magical shortsword sheds moonlight, creating bright light in a 15-ft radius and dim light for an additional 15 ft.",
-		weaponsAdd : ["Green Dragon Gladius, Moon-Touched Shortsword"],
+		weaponsAdd : ["Green Dragon Gladius"],
 		weaponOptions : {
 			baseWeapon : "shortsword",
 			regExpSearch : /^(?=.*green)(?=.*dragon)(?=.*gladius).*$/i,
 			source : [["AL","DC-POA"]],
-			name : "Green Dragon Gladius",
+			name : "Green Dragon Gladius, Moon-Touched Shortsword",
 			description : "Finesse, light; Counts as magical.",
 			},
 	},
@@ -2004,12 +2004,12 @@ MagicItemsList["al swords"] = {
 		magicItemTable : "?",
 		description : "A fiery phoenix bursting from ashes is engraved on the red lacquered sheath of this magical shortsword. A Chultan proverbial poem is carved around the pommel: “The water is calm / but only a fool would cross / sharp teeth lurk below.” The unsheathed blade sheds moonlight in darkness, creating bright light in a 15-ft radius & dim light for another 15 ft.",
 		descriptionFull : "A fiery phoenix bursting from ashes is engraved on this sword’s red lacquered sheath. A Chultan proverbial poem is carved around the pommel: “The water is calm / but only a fool would cross / sharp teeth lurk below.”\n   In darkness, the unsheathed blade of this magical shortsword sheds moonlight, creating bright light in a 15-ft radius and dim light for an additional 15 ft.",
-		weaponsAdd : ["Red Phoenix Falchion, Moon-Touched Shortsword"],
+		weaponsAdd : ["Red Phoenix Falchion"],
 		weaponOptions : {
 			baseWeapon : "shortsword",
 			regExpSearch : /^(?=.*red)(?=.*phoenix)(?=.*falchion).*$/i,
 			source : [["AL","DC-POA"]],
-			name : "Red Phoenix Falchion",
+			name : "Red Phoenix Falchion, Moon-Touched Shortsword",
 			description : "Finesse, light; Counts as magical.",
 			},
 	},
@@ -2021,12 +2021,12 @@ MagicItemsList["al swords"] = {
 		magicItemTable : "?",
 		description : "The mammoth ivory sheath of this magical shortsword bears a carving of a tiger, teeth bared & claws extended, captured forever in mid-pounce. The pommel is polished to a high sheen & bears a Chultan inscription: “Swift, as a coursing river.” The unsheathed blade sheds moonlight in darkness, creating bright light in a 15-ft radius & dim light for another 15 ft.",
 		descriptionFull : "This sword’s sheath is made of mammoth ivory, and bears a relief carving of mighty tiger, teeth bared and claws extended, captured forever in mid-pounce. The sword’s pommel is polished to a high sheen, and bears the following inscription in Chultan: “Swift, as a coursing river.”\n   In darkness, the unsheathed blade of this magical shortsword sheds moonlight, creating bright light in a 15-ft radius and dim light for an additional 15 ft.",
-		weaponsAdd : ["White Tiger Tulwar, Moon-Touched Shortsword"],
+		weaponsAdd : ["White Tiger Tulwar"],
 		weaponOptions : {
 			baseWeapon : "shortsword",
 			regExpSearch : /^(?=.*white)(?=.*tiger)(?=.*tulwar).*$/i,
 			source : [["AL","DC-POA"]],
-			name : "White Tiger Tulwar",
+			name : "White Tiger Tulwar, Moon-Touched Shortsword",
 			description : "Finesse, light; Counts as magical.",
 			},
 	},
@@ -2425,7 +2425,7 @@ MagicItemsList["al swords"] = {
 			regExpSearch : /^(?=.*longsword)(?=.*vicious).*$/i,
 			name : "Vicious Longsword",
 			source : [["AL","CCC"]],
-			description : "On nat 20 to hit: +7 damage",
+			description : "On natural 20 to hit: +7 damage",
 		}
 	},
 	"vicious rapier: hag's clawblade (alsrs11-a)" : {
@@ -3311,7 +3311,7 @@ MagicItemsList["al weapons +1, +2, or +3"] = {
 			rarity : "very rare",
 			allowDuplicates : true,
 			magicItemTable : "H",
-			description : "The hilt of this shortsword is decorated with images of frolicking harengon & the blade is made of a shimmering dark purple crystal. When wielded, you gain a +2 bonus to initiative if not incapacitated & have +3 bonus to attack & damage rolls made with this magic weapon.",
+			description : "The hilt of this shortsword is decorated with images of frolicking harengon & the blade is made of a shimmering dark purple crystal. When wielded, you gain a +2 bonus to initiative if not incapacitated & have +3 bonus to atk & dmg rolls made with this magic weapon.",
 			descriptionFull : "The hilt of this shortswordis decorated with images of frolicking harengonand the blade is constructed of a shimmering dark purple crystal. When wielded, you gain a +2 bonus to initiative if you’re not incapacitated. You have a +3 bonus to attack and damage rolls made with this magic weapon.",
 			addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
 			weaponsAdd : ["Harengon's Freedom, +3 Shortsword"],

@@ -26,8 +26,11 @@ It is recommended to enter the code in a fresh sheet before adding any other inf
 var iFileName = "AL Flavored Items.js";
 RequiredSheetVersion("13.0.9");
 
+//I believe the only thing that won't function properly on older versions is the AL Ammunition section since MPMB added that specially for me as of 13.0.9. However, there may be other errors that I'm not currently aware of.
+
+
 // Define the source
-SourceList.AL = {
+SourceList["AL"] = {
 	name : "AL Modules",
 	abbreviation : "AL",
 	group : "Adventurers League",
@@ -35,14 +38,14 @@ SourceList.AL = {
 	date : "Various"
 };
 
-SourceList.ALDMs9 = {  //Season 9 DM Rewards 
+SourceList["ALDMs9"] = {  //Season 9 DM Rewards 
     name : "AL Season 9 DM Rewards",
     abbreviation : "ALDMs9",
     group : "Adventurers League",
     date : "2019/09/16"
 };
 
-SourceList.ALSRs11 = {  //Season 11 Service Rewards
+SourceList["ALSRs11"] = {  //Season 11 Service Rewards
     name : "AL Season 11 Service Rewards",
     abbreviation : "ALSRs11",
     group : "Adventurers League",
@@ -130,7 +133,8 @@ MagicItemsList["al accessories"] = {
 		source : [["AL","CCC"]],
 		rarity : "very rare",
 		magicItemTable : "H",
-		description : "This belt is made from plates of steel embossed with golden filigree connected by metal pins. A fire giant's face adorns the buckle. The giant appears to be having a hearty laugh as she wears an enormous smile on her face. While wearing this belt, your Strength score is set to 25 as long as it isn't already 25 or more.",
+		description : "This belt is made from plates of steel embossed with golden filigree connected by metal pins. A fire giant's face adorns the buckle & appears to be having a hearty laugh as she wears an enormous smile. While wearing this belt, your Strength score is set to 25 unless it's already 25 or more.",
+		descriptionFull : "This belt is made from plates of steel embossed with golden filigree connected by metal pins. A fire giant's face adorns the buckle. The giant appears to be having a hearty laugh as she wears an enormous smile on her face. While wearing this belt, your Strength score is set to 25 as long as it isn't already 25 or more.",
 		attunement : true,
 		scoresOverride : [25, 0, 0, 0, 0, 0]
 		},
@@ -139,7 +143,8 @@ MagicItemsList["al accessories"] = {
 		source : [["AL","S3"]],
 		rarity : "very rare",
 		magicItemTable : "H",
-		description : "This wide belt is made of what appears to be supple, black leather studded with mithral. Closer examination reveals the grisly truth — it is made from the tanned hides of drow. While wearing this belt, your Strength score is set to 25 as long as it isn't already 25 or more.",
+		description : "This wide belt is made of what appears to be supple, black leather studded with mithral. Closer examination reveals the grisly truth — it's made from the tanned hides of drow. While wearing this belt, your Strength score is set to 25 unless it's already 25 or more.",
+		descriptionFull : "This wide belt is made of what appears to be supple, black leather studded with mithral. Closer examination reveals the grisly truth — it is made from the tanned hides of drow. While wearing this belt, your Strength score is set to 25 as long as it isn't already 25 or more.",
 		attunement : true,
 		scoresOverride : [25, 0, 0, 0, 0, 0]
 		},
@@ -148,7 +153,7 @@ MagicItemsList["al accessories"] = {
 		source : [["AL","CCC"]],		
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "Markoth – “Fat Mar” to those that didn’t truly know him – treasured this reinforced, velvety waistband above all else. He wore it every day but never fully grasped its benefits: while attuned, your strength becomes 21 and, once per day, you have adv on 1 save against exhaustion.",
+		description : "Markoth – “Fat Mar” to those that didn’t truly know him – treasured this reinforced, velvety waistband above all else. He wore it every day but never fully grasped its benefits: while attuned, your strength becomes 21 unless already 21 or higher & once per day, you have adv on 1 save against exhaustion.",
 		descriptionFull : "Markoth – “Fat Mar” to those that didn’t truly know him – treasured this reinforced, velvety waistband above all other possessions. He wore it every day in life but was never able to fully grasp its benefits despite being attuned to it: while attuned, the wearer’s strength becomes 21 unless already 21 or higher and, once per day, the wearer has advantage on one saving throw that might otherwise result in a level of exhaustion.",
 		limfeaname : "Cummerbund (Adv. Exhaustion Save)",
 		usages : 1,
@@ -169,7 +174,7 @@ MagicItemsList["al accessories"] = {
 		source : [["AL","S9"]],		
 		rarity : "very rare",
 		magicItemTable : "H",
-		description : "This belt is made of iron plates riveted to a wide belt of burnished leather and buckled with a series of straps gilt in polished steel. As an action while worn, you can cause your voice to carry clearly for up to 300 ft until the end of your next turn. Your Strength score is 23 while wearing the belt, provided it's not already 23 or higher.",
+		description : "This belt is made of iron plates riveted to a wide belt of burnished leather & buckled with a series of straps gilt in polished steel. While worn your Strength score is set to 23 unless it's already 23 or higher. As an action, you can make your voice carry clearly for up to 300 ft until the end of your next turn. ",
 		descriptionFull : "This belt is made of iron plates riveted to a wide belt of burnished leather, and buckled with a series of straps gilt in polished steel. While worn, you can use an action to cause your voice to carry clearly for up to 300 feet until the end of your next turn. Your Strength score is 23 while wearing this belt, provided that it's not already 23 or higher.",
 		action : [["action", "Stone Giant Belt (300ft Voice)"]],
 		scoresOverride : [23, 0, 0, 0, 0, 0]
@@ -179,7 +184,7 @@ MagicItemsList["al accessories"] = {
 		source : [["AL","DRW"]],		
 		rarity : "very rare",
 		magicItemTable : "H",
-		description : "This belt is made of dozens of writhing mauve tentacles covered in blinking eyes. The tentacles wrap around your waist & frequently squeeze you of their own accord. Your Strength score is 23 while wearing the belt, provided it's not already 23 or higher.",
+		description : "This belt is made of dozens of writhing mauve tentacles covered in blinking eyes. The tentacles wrap around your waist & frequently squeeze you of their own accord. Your Strength score is set to 23 while wearing the belt unless it's already 23 or higher.",
 		descriptionFull : "This belt is made of dozens of writhing mauve tentacles covered in blinking eyes. The tentacles wrap around your waist and frequently squeeze you of their own accord. Your Strength score is 23 while wearing this belt, provided that it's not already 23 or higher.",
 		scoresOverride : [23, 0, 0, 0, 0, 0]
 		},
@@ -188,7 +193,8 @@ MagicItemsList["al accessories"] = {
 		source : [["AL","S6"]],
 		rarity : "very rare",
 		magicItemTable : "H",
-		description : "The storm giant quintessent Dessa imbued this belt with her elemental strength. When the belt’s fantastic strength is used, lightning dances around the wearer and a warm desert wind blows in the area. While wearing this belt, your Strength score is set to 29 as long as it isn't already 29 or more.",
+		description : "The storm giant quintessent Dessa imbued this belt with her elemental strength. When its fantastic strength is used, lightning dances around you and a warm desert wind blows in the area. While wearing this belt, your Strength score is set to 29 unless it's already 29 or more.",
+		descriptionFull : "The storm giant quintessent Dessa imbued this belt with her elemental strength. When the belt’s fantastic strength is used, lightning dances around the wearer and a warm desert wind blows in the area. While wearing this belt, your Strength score is set to 29 as long as it isn't already 29 or more.",
 		attunement : true,
 		scoresOverride : [29, 0, 0, 0, 0, 0]
 		},
@@ -3202,7 +3208,7 @@ MagicItemsList["al eyewear"] = {
 		name : "AL Eyewear",
 		type : "wondrous item",
 		allowDuplicates : true,
-	choices : ["Eyes of Charming (CCC-AMER-1)","Eyes of Charming (DDAL4-4)","Eyes of the Eagle (CCC-SHINY-2)","Eyes of the Eagle (DDAL9-2)","Eyes of Minute Seeing (CCC-DES-4-1)","Eyes of Minute Seeing (CCC-GSP-PHIL1-2)","Eyes of Minute Seeing (CCC-HERO-BK2-5)","Eyes of Minute Seeing (DDEX3-12)","Goggles of Night: The Night Queen's Eyes (ALSRs11-A)","Goggles of Night (CCC-ALMOG-24 DAGON2-2)","Goggles of Night (CCC-GAD2-1)","Goggles of Night (CCC-TTS-1)","Goggles of Night (DDAL7-4)", "Goggles of Night (DDAL8-2)","Goggles of Night (DDAL10-1)","Goggles of Night (DDEX1-4)","Goggles of Night: Doomseers Lenses (RMH-2)"],
+	choices : ["Eyes of Charming (CCC-AMER-1)","Eyes of Charming (DDAL4-4)","Eyes of the Eagle (CCC-SHINY-2)","Eyes of the Eagle (DDAL9-2)","Eyes of Minute Seeing (CCC-DES-4-1)","Eyes of Minute Seeing (CCC-GSP-PHIL1-2)","Eyes of Minute Seeing (CCC-HERO-BK2-5)","Eyes of Minute Seeing (DDEX3-12)","Eyes of Minute Seeing (RotF)","Goggles of Night: The Night Queen's Eyes (ALSRs11-A)","Goggles of Night (CCC-ALMOG-24 DAGON2-2)","Goggles of Night (CCC-GAD2-1)","Goggles of Night (CCC-TTS-1)","Goggles of Night (DDAL7-4)", "Goggles of Night (DDAL8-2)","Goggles of Night (DDAL10-1)","Goggles of Night (DDEX1-4)","Goggles of Night: Doomseers Lenses (RMH-2)"],
 	"eyes of charming (ccc-amer-1)" : {
 		name : "Eyes of Charming (CCC-AMER-1)",
 		source : [["AL","CCC"]],
@@ -3298,6 +3304,15 @@ MagicItemsList["al eyewear"] = {
 		description : "These smoky crystal lenses are set in a brass frame and allow the wearer to read Abyssal. While using them, you can see much better than normal out to a range of 1 ft. You have advantage on Int (Investigation) checks that rely on sight while searching an area or studying an object within that range.",
 		vision : [["Adv. on Investigation checks based on sight", 1]],
 		languageProfs : ["Abyssal (reading only)"]
+	},
+	"eyes of minute seeing (rotf)" : {  // contains contributions by Soilentbrad
+		name : "Eyes of Minute Seeing (RotF)",
+		source : [["RotF",""]],
+		rarity : "uncommon",
+		magicItemTable : "C",
+		description : "This sticky metal monocle has a kaleidoscopic lens. While using it, you can see much better than normal out to a range of 1 ft. You have advantage on Int (Investigation) checks that rely on sight while searching an area or studying an object within that range.",
+		descriptionFull : "This sticky, metal monocle with a kaleidoscopic lens functions like Eyes of Minute Seeing. While using them, you can see much better than normal out to a range of 1 ft. You have advantage on Int (Investigation) checks that rely on sight while searching an area or studying an object within that range.",
+		vision : [["Adv. on Investigation checks based on sight", 1]],
 	},
 	"goggles of night: the night queen's eyes (alsrs11-a)" : {   // contributions by AelarTheElfRogue
 		name : "The Night Queen's Eyes (Goggles of Night)",
@@ -4235,7 +4250,7 @@ MagicItemsList["al headwear"] = {
 		name : "AL Headwear",
 		type : "wondrous item",
 		allowDuplicates : true,
-	choices : ["Circlet (Eye Patch) of Blasting (CCC-CIC-11)","Circlet of Blasting (CCC-GHC-BK1-6)","Circlet of Blasting (CCC-MCX-1)","Circlet of Blasting: Thenturian Circlet (CCC-TAROT1-7)","Circlet of Blasting: Coldfire Circlet (DC-POA-CD1)","Circlet of Blasting: Crown of the Night Sky (DC-POA-DES-5A)","Circlet of Blasting (DC-POA-RH01)","Dread Helm (CCC-AETHER-1-2)","Dread Helm (CCC-GAD1-2)","Dread Helm (CCC-OCC-2)","Dread Helm (Generic DC-POA)","Dread Helm (DC-POA-DUCKS-OS-02)","Dread Helm (DC-POA-HARM-1-1)","Dread Helm (DC-POA-LEGIT-CIPH-1)","Dread Helm: Ko's Visage (DC-POA-TDG1-2)","Dread Helm: Green (Liar's Night)","Dread Helm: Pumpkin (Liar's Night)","Hat of Disguise (CCC-AETHER2-1)","Hat of Disguise (CCC-GHC-BK2-7)","Hat of Disguise (CCC-NBDD1-2)","Hat of Disguise: Infiltrator Cowl (CCC-NUKE-1-4)","Hat of Disguise: Wolfskin Cap (DDAL4-3)","Hat of Disguise (DDAL8-3)","Hat of Vermin: Bulaga Wizard Hat (CCC-GSP2-1)","Hat of Vermin (CCC-TAROT1-5)","Headband of Intellect (DDEP0-1)","Headband of Intellect (DDEX1-6)", "Headband of Intellect (DDAL5-16)","Headband of Intellect (DDEP7-2)","Headband of Intellect: Chardalyn Earring (DDEP10-1)","Helm of Brilliance: The Mask of Wompona Yarp (DDAL7-14)","Helm of Brilliance (DDAL-DRW3)","Helm of Comprehending Languages (CCC-AETHER-1-1)","Helm of Comprehending Languages (CCC-ALMOG-40 ESC1)","Helm of Comprehending Languages (CCC-DWB-ESR-1)","Helm of Comprehending Languages (CCC-DWB-TRM-1)","Helm of Comprehending Languages (CCC-FCC-1)","Helm of Comprehending Languages (CCC-HERO-BK3-1)","Helm of Comprehending Languages (CCC-KUMORI-3-3)","Helm of Comprehending Languages (CCC-MMT1-1)","Helm of Comprehending Languages: Superb Beret of the Librarian (CCC-OA-1-1)","Helm of Comprehending Languages (CCC-TCW-WSF-1)","Helm of Comprehending Languages (CCC-UBCON1-1)","Helm of Comprehending Languages: Tricorn Hat (CCC-UCON-2-1)","Helm of Telepathy (CCC-AN-1)","Helm of Telepathy (CCC-GHC-BK1-7)","Helm of Telepathy: Mask of Chakalakhan (CCC-PRETZ-PLA3)","Helm of Telepathy (DC-POA-CJK)","Helm of Telepathy (DC-POA-CONMAR-16)","Helm of Telepathy: Ryboslav's Helm (DC-POA-TDG1-9)","Helm of Telepathy (DDAL9-15)","Helm of Telepathy (DDEP9-1)","Helm of Teleportation (CCC-BMG-43 PHLAN4-1)","Helm of Teleportation: Weave (CCC-PHA-1)"],
+	choices : ["Circlet (Eye Patch) of Blasting (CCC-CIC-11)","Circlet of Blasting (CCC-GHC-BK1-6)","Circlet of Blasting (CCC-MCX-1)","Circlet of Blasting: Thenturian Circlet (CCC-TAROT1-7)","Circlet of Blasting: Coldfire Circlet (DC-POA-CD1)","Circlet of Blasting: Crown of the Night Sky (DC-POA-DES-5A)","Circlet of Blasting (DC-POA-RH01)","Dread Helm (CCC-AETHER-1-2)","Dread Helm (CCC-GAD1-2)","Dread Helm (CCC-OCC-2)","Dread Helm (Generic DC-POA)","Dread Helm (DC-POA-DUCKS-OS-02)","Dread Helm (DC-POA-HARM-1-1)","Dread Helm (DC-POA-LEGIT-CIPH-1)","Dread Helm: Ko's Visage (DC-POA-TDG1-2)","Dread Helm: Green (Liar's Night)","Dread Helm: Pumpkin (Liar's Night)","Hat of Disguise (CCC-AETHER2-1)","Hat of Disguise (CCC-GHC-BK2-7)","Hat of Disguise (CCC-NBDD1-2)","Hat of Disguise: Infiltrator Cowl (CCC-NUKE-1-4)","Hat of Disguise: Wolfskin Cap (DDAL4-3)","Hat of Disguise (DDAL8-3)","Hat of Vermin: Bulaga Wizard Hat (CCC-GSP2-1)","Hat of Vermin (CCC-TAROT1-5)","Headband of Intellect (DDEP0-1)","Headband of Intellect (DDEX1-6)", "Headband of Intellect (DDAL5-16)","Headband of Intellect (DDEP7-2)","Headband of Intellect: Chardalyn Earring (DDEP10-1)","Helm of Brilliance: The Mask of Wompona Yarp (DDAL7-14)","Helm of Brilliance (DDAL-DRW3)","Helm of Comprehending Languages (CCC-AETHER-1-1)","Helm of Comprehending Languages (CCC-ALMOG-40 ESC1)","Helm of Comprehending Languages (CCC-DWB-ESR-1)","Helm of Comprehending Languages (CCC-DWB-TRM-1)","Helm of Comprehending Languages (CCC-FCC-1)","Helm of Comprehending Languages (CCC-HERO-BK3-1)","Helm of Comprehending Languages (CCC-KUMORI-3-3)","Helm of Comprehending Languages (CCC-MMT1-1)","Helm of Comprehending Languages: Superb Beret of the Librarian (CCC-OA-1-1)","Helm of Comprehending Languages (CCC-TCW-WSF-1)","Helm of Comprehending Languages (CCC-UBCON1-1)","Helm of Comprehending Languages: Tricorn Hat (CCC-UCON-2-1)","Helm of Telepathy (CCC-AN-1)","Helm of Telepathy (CCC-GHC-BK1-7)","Helm of Telepathy: Mask of Chakalakhan (CCC-PRETZ-PLA3)","Helm of Telepathy (DC-POA-CJK)","Helm of Telepathy (DC-POA-CONMAR-16)","Helm of Telepathy: Ryboslav's Helm (DC-POA-TDG1-9)","Helm of Telepathy (DDAL9-15)","Helm of Telepathy (DDEP9-1)","Helm of Telepathy (RotF)","Helm of Teleportation (CCC-BMG-43 PHLAN4-1)","Helm of Teleportation: Weave (CCC-PHA-1)"],
 	"circlet (eye patch) of blasting (ccc-cic-11)" : { // contains contributions by Larry Hoy
 		name : "Eye Patch of Blasting (Circlet of Blasting)",
 		source : [["AL","CCC"]],
@@ -4561,7 +4576,8 @@ MagicItemsList["al headwear"] = {
 		source : [["AL","S0"]],
 		rarity : "uncommon",
 		magicItemTable : "F",
-		description: "This broad, polished headband is forged of purple stone struck through with veins of mithral. While attuned, the wearer gains the flaw: “Patience is a virtue; I slowly and ponderously weigh all possible options before acting.” Your Intelligence score is 19 while you wear this headband. It has no effect on you if your Intelligence is already 19 or higher without it.",
+		description: "This broad, polished headband is forged of purple stone struck through with veins of mithral. While attuned, you gain the flaw: “Patience is a virtue; I slowly and ponderously weigh all possible options before acting.” Your Intelligence score is set to 19 while you wear the headband unless your Intelligence is already 19 or higher without it.",
+		descriptionFull: "This broad, polished headband is forged of purple stone struck through with veins of mithral. While attuned, the wearer gains the flaw: “Patience is a virtue; I slowly and ponderously weigh all possible options before acting.” Your Intelligence score is set to 19 while you wear this headband unless your Intelligence is already 19 or higher without it.",
 		attunement : true,
 		scoresOverride : [0, 0, 0, 19, 0, 0]
 		},
@@ -4570,7 +4586,8 @@ MagicItemsList["al headwear"] = {
 		source : [["AL","S1"]],
 		rarity : "uncommon",
 		magicItemTable : "F",
-		description: "This headband made of bone bears the sigil of the wizard Denlor, whose tower still stands in the city of Phlan. Your Intelligence score is 19 while you wear this headband. It has no effect on you if your Intelligence is already 19 or higher without it.",
+		description: "This headband made of bone bears the sigil of the wizard Denlor, whose tower still stands in the city of Phlan. Your Intelligence score is set to 19 while you wear this headband unless your Intelligence is already 19 or higher without it.",
+		descriptionFull: "This headband made of bone bears the sigil of the wizard Denlor, whose tower still stands in the city of Phlan. Your Intelligence score is 19 while you wear this headband. It has no effect on you if your Intelligence is already 19 or higher without it.",
 		attunement : true,
 		scoresOverride : [0, 0, 0, 19, 0, 0]
 		},
@@ -4579,7 +4596,8 @@ MagicItemsList["al headwear"] = {
 		source : [["AL","S5"]],
 		rarity : "uncommon",
 		magicItemTable : "F",
-		description: "Shining with a polished brilliance this golden headband never dulls. The sound of heavenly chimes can be heard when the wearer has a new idea. Your Intelligence score is 19 while you wear this headband. It has no effect on you if your Intelligence is already 19 or higher without it.",
+		description: "Shining with a polished brilliance, this golden headband never dulls. The sound of heavenly chimes can be heard when you have a new idea. Your Intelligence score is set to 19 while you wear this headband unless your Intelligence is already 19 or higher without it.",
+		descriptionFull: "Shining with a polished brilliance this golden headband never dulls. The sound of heavenly chimes can be heard when the wearer has a new idea. Your Intelligence score is 19 while you wear this headband. It has no effect on you if your Intelligence is already 19 or higher without it.",
 		attunement : true,
 		scoresOverride : [0, 0, 0, 19, 0, 0]
 		},
@@ -4588,7 +4606,8 @@ MagicItemsList["al headwear"] = {
 		source : [["AL","S7"]],
 		rarity : "uncommon",
 		magicItemTable : "F",
-		description: "This broad circlet is set with a single, lusterless grey stone—into which has been engraved a sigil of unknown meaning. When worn, you gain the flaw: “I know everything, & nothing makes me happier than letting people know.” Your Intelligence score is 19 while you wear this circlet. It has no effect on you if your Intelligence is already 19 or higher without it.",
+		description: "This broad circlet is set with a single lusterless grey stone into which has been engraved an unknown sigil. When worn, you gain the flaw: “I know everything, & nothing makes me happier than letting people know,” & your Intelligence score is set to 19 unless your Intelligence is already 19 or higher without it.",
+		descriptionFull: "This broad circlet is set with a single, lusterless grey stone—into which has been engraved a sigil of unknown meaning. When worn, you gain the flaw: “I know everything, & nothing makes me happier than letting people know.” Your Intelligence score is 19 while you wear this circlet. It has no effect on you if your Intelligence is already 19 or higher without it.",
 		attunement : true,
 		scoresOverride : [0, 0, 0, 19, 0, 0]
 		},
@@ -4597,6 +4616,7 @@ MagicItemsList["al headwear"] = {
 		source : [["AL","S10"]],
 		rarity : "uncommon",
 		magicItemTable : "F",
+		description: "This earring is crafted from the unusual material chardalyn, which retains much of the cruel mindset of the Crenshinibon. This provides its intellect-boosting properties, but also whispers notions of grandeur & words of confidence into your mind, urging you to accumulate more & greater power. Your Intelligence score is set to 19 while you wear the earring unless your Intelligence is already 19 or higher without it.",
 		description: "This earring is crafted from the unusual material chardalyn, which retains much of the cruel mindset of the Crenshinibon. This provides the earring's intellect-boosting properties, but it often whispers notions of grandeur and words of confidence into its wearer's mind and urges them to accumulate more and greater power. Your Intelligence score is 19 while you wear this earring. It has no effect on you if your Intelligence is already 19 or higher without it.",
 		attunement : true,
 		scoresOverride : [0, 0, 0, 19, 0, 0]
@@ -5132,6 +5152,30 @@ MagicItemsList["al headwear"] = {
 			firstCol : "oncelr"
 		}]
 	},
+	"helm of telepathy (rotf)" : {
+		name : "Helm of Telepathy (RotF)",
+		source : [["RotF",""]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "This slimy coif is made from a living space slug. While attuned, you can pick up the telepathic distress beacon from the Id Ascendant nautiloid & cast Detect Thoughts (DC 13). As a bonus action, you can send a telepathic message to a creature you're focusing on w/ Detect Thoughts. They can reply as a bonus action. Once per day, you can cast Suggestion (DC 13) on a creature you're focusing on w/ Detect Thoughts.",
+		descriptionFull : "The second item is a slimy coif made from a living space slug, that functions like a helm of telepathy. A creature that attunes to this headgear can pick up the nautiloid’s telepathic distress beacon.\n   While wearing this helm, you can use an action to cast the Detect Thoughts spell (save DC 13) from it. As long as you maintain concentration on the spell, you can use a bonus action to send a telepathic message to a creature you are focused on. It can reply - using a bonus action - while your focus on it continues.\n   While focusing on a creature with Detect Thoughts, you can use an action to cast the Suggestion spell (save DC 13) from the helm on that creature. Once used, the suggestion property can't be used again until the next dawn.",
+		attunement : true,
+		limfeaname : "Helm of Telepathy: Suggestion",
+		usages : 1,
+		recovery : "dawn",
+		fixedDC : 13,
+		spellcastingBonus : [{
+			name : "At will",
+			spells : ["detect thoughts"],
+			selection : ["detect thoughts"],
+			firstCol : "atwill"
+		}, {
+			name : "Once per dawn",
+			spells : ["suggestion"],
+			selection : ["suggestion"],
+			firstCol : "oncelr"
+		}]
+	},
 	"helm of teleportation (ccc-bmg-43 phlan4-1)" : {
 		name : "Helm of Teleportation (CCC-BMG-43 PHLAN4-1)",
 		source : [["AL","CCC"]],
@@ -5185,7 +5229,7 @@ MagicItemsList["al instruments"] = {
 		rarity : "very rare",
 		magicItemTable : "H",
 		attunement : true,
-		description: "This 2-inch fiddle is made of gilded wood with strings of silver unicorn hair. When held, it resizes for its wielder but shrinks down to its original size when not in use. If you try to play w/o attuning, DC 15 Wis save or 2d4 psychic dmg. Action to play & cast a spell: Fly, Invisibility, Levitate, Protection from Evil & Good, Cure Wounds (5th lvl), Control Weather, or Wall of Thorns. Each can be cast once per dawn using your spellcasting ability & save DC. Play the fiddle while casting a charm effect spell & you can impose disadv. on the save if the spell has a somatic or a material component.",
+		description: "This 2-inch fiddle is made of gilded wood with strings of silver unicorn hair. When held, it resizes for its wielder but shrinks down to its original size when not in use. If you try to play w/o attuning, DC 15 Wis save or 2d4 psychic dmg. Action to play & cast 1 of 7 spells (see spell sheet). Each can be cast once per dawn using your spellcasting ability & save DC. Play the fiddle while casting a charm effect spell & you can impose disadv. on the save if the spell has a somatic or a material component.",
 		descriptionFull : "This two-inch fiddle is constructed of gilded wood, with strings made of silver unicorn hair. When held, the fiddle resizes appropriately for its wielder, though it shrinks back down to its original size when not in use.\n   An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Anstruth harp can be used to cast Control Weather, Cure Wounds (5th level), and Wall of Thorns.",
 		weight : 3, // Magic of Faerûn (2001) page 161
 		prerequisite : "Requires attunement by a bard",
@@ -5217,7 +5261,7 @@ MagicItemsList["al instruments"] = {
 		rarity : "very rare",
 		magicItemTable : "H",
 		attunement : true,
-		description: "The harp is made from white bone carved to look like a kraken w/ tentacles ending in the strings. It's well-suited for dirges & sea shanties & glows when a celestial is w/i 100 ft. If you try to play w/o attuning, DC 15 Wis save or 2d4 psychic dmg. Action to play & cast a spell: Fly, Invisibility, Levitate, Protection from Evil & Good, Cure Wounds (5th lvl), Control Weather or Wall of Thorns. Each can be cast once per dawn using your spellcasting ability & save DC. Play the harp while casting a charm effect spell & you can impose disadv. on the save if the spell has a somatic or a material component.",
+		description: "The harp is made from white bone carved to look like a kraken w/ tentacles ending in the strings. It's well-suited for dirges & sea shanties & glows when a celestial is w/i 100 ft. If you try to play w/o attuning, DC 15 Wis save or 2d4 psychic dmg. Action to play & cast 1 of 7 spells (see spell sheet). Each can be cast once per dawn using your spellcasting ability & save DC. Play the harp while casting a charm effect spell & you can impose disadv. on the save if the spell has a somatic or a material component.",
 		descriptionFull : "The harp is made out of white bone, carved to look like a kraken with its tentacles ending in the strings. The sounds it produces are especially well-suited for dirges and sea shanties. It glows when a celestial approaches within 100 feet of the harp.\n   An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Anstruth harp can be used to cast Control Weather, Cure Wounds (5th level), and Wall of Thorns.",
 		weight : 3, // Magic of Faerûn (2001) page 161
 		prerequisite : "Requires attunement by a bard",
@@ -5279,7 +5323,7 @@ MagicItemsList["al instruments"] = {
 		rarity : "rare",
 		magicItemTable : "G",
 		attunement : true,
-		description: "Made of fine, dark wood, this mandolin is inlaid with mithral & mother-of-pearl in the shape of lightning bolts. You can use an action to make your voice carry clearly for up to 300 ft until your next turn ends. If you try to play w/o attuning, DC 15 Wis save or 2d4 psychic dmg. Action to play & cast a spell: Fly, Invisibility, Levitate, Protection from Evil & Good, Cure Wounds (3rd lvl), Dispel Magic, or Protection from Energy (lightning). Each can be cast once per dawn using your spellcasting ability & save DC. Play while casting a charm effect spell & you can impose disadv. on the save if the spell has a somatic or a material component.",
+		description: "Made of fine, dark wood, this mandolin is inlaid with mithral & mother-of-pearl in the shape of lightning bolts. You can use an action to make your voice carry clearly for up to 300 ft until your next turn ends. If you try to play w/o attuning, DC 15 Wis save or 2d4 psychic dmg. Action to play & cast 1 of 7 spells (see spell sheet). Each can be cast once per dawn using your spellcasting ability & save DC. Play while casting a charm effect spell & you can impose disadv. on the save if the spell has a somatic or a material component.",
 		descriptionFull : "Made of fine, dark wood, this mandolin is inlaid with mithral and mother-of-pearl in the shape of forked lightning bolts. The bearer of this instrument can use an action to make their voice carry clearly for up to 300 ft until the end of their next turn.\n   An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Canaith mandolin can be used to cast Cure Wounds (3rd level), Dispel Magic, and Protection from Energy (lightning only).",
 		action : [["action", "Canaith Mandolin (300ft Voice)"]],
 		weight : 3, // Magic of Faerûn (2001) page 161
@@ -5324,7 +5368,7 @@ MagicItemsList["al instruments"] = {
 		rarity : "rare",
 		magicItemTable : "G",
 		attunement : true,
-		description: "This lyre is expertly crafted & embossed with dark mother-of-pearl stingrays. If you try to play w/o attuning, DC 15 Wis save or 2d4 psychic dmg. Action to play the instrument & cast spell: Fly, Invisibility, Levitate, Protection from Evil & Good, Stone Shape, Wall of Fire, or Wind Wall. Each can be cast once per dawn using your spellcasting ability & save DC. Play the lyre while casting a charm effect spell & you can impose disadv. on the save if the spell has somatic or material components.",
+		description: "This lyre is expertly crafted & embossed with dark mother-of-pearl stingrays. If you try to play w/o attuning, DC 15 Wis save or 2d4 psychic dmg. Action to play the instrument & cast 1 of 7 spells (see spell sheet). Each can be cast once per dawn using your spellcasting ability & save DC. Play the lyre while casting a charm effect spell & you can impose disadv. on the save if the spell has somatic or material components.",
 		descriptionFull : "An expertly crafted lyre embossed with dark mother-of-pearl stingrays.\n   An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Cli lyre can be used to cast Stone Shape, Wall of Fire, and Wind Wall.",
 		weight : 3, // Magic of Faerûn (2001) page 161
 		prerequisite : "Requires attunement by a bard",
@@ -5371,7 +5415,7 @@ MagicItemsList["al instruments"] = {
 		source : [["AL","CCC"]],
 		magicItemTable : "F",
 		attunement : true,
-		description: "This Doss lute is carved from alder wood in a graceful pear-shape. Its soundboard is inlaid w/ copper images of wolves, rabbits & other animals. If you try to play w/o attuning, DC 15 Wis save or 2d4 psychic dmg. Action to play the lute & cast spell: Fly, Invisibility, Levitate, Protection from Evil & Good, Animal Friendship, Protection from Energy (fire only), & Protection from Poison. Each can be cast once per dawn using your spellcasting ability & save DC. Play the lute while casting a charm effect spell & you can impose disadv. on the save if the spell has somatic or material components.",
+		description: "This Doss lute is carved from alder wood in a graceful pear-shape. Its soundboard is inlaid w/ copper images of wolves, rabbits & other animals. If you try to play w/o attuning, DC 15 Wis save or 2d4 psychic dmg. Action to play the lute & cast 1 of 7 spells (see spell sheet). Each can be cast once per dawn using your spellcasting ability & save DC. Play the lute while casting a charm effect spell & you can impose disadv. on the save if the spell has somatic or material components.",
 		descriptionFull : "This Doss lute is carved from alder wood in a graceful, pear-shaped form. Its soundboard is inlaid with copper images of wolves, rabbits, and other animals.\n   An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Doss lute can be used to cast Animal Friendship, Protection from Energy (fire only), and Protection from Poison.",
 		weight : 3, // Magic of Faerûn (2001) page 161
 		prerequisite : "Requires attunement by a bard",
@@ -5475,7 +5519,7 @@ MagicItemsList["al instruments"] = {
 		source : [["AL","CCC"]],
 		magicItemTable : "F",
 		attunement : true,
-		description: "This bandore is made of smooth grey driftwood, slightly wet & smelling of the sea. While attuned, you're excited when confronted with physical challenges, especially competitions & sailing. You also never suffer from non-magical sea & motion sickness. If you play w/o attuning, DC 15 Wis save or 2d4 psychic dmg. Action to play & cast spell: Fly, Invisibility, Levitate, Protection from Evil & Good, Entangle, Faerie Fire, Shillelagh & Speak with Animals. Each can be cast once per dawn using your spellcasting ability & save DC. Play while casting a charm effect spell & you can impose disadv. on the save if the spell has somatic or material components.",
+		description: "This bandore is made of smooth grey driftwood, slightly wet & smelling of the sea. While attuned, you're excited when confronted with physical challenges, especially competitions & sailing. You also never suffer from non-magical sea & motion sickness. If you play w/o attuning, DC 15 Wis save or 2d4 psychic dmg. Action to play & cast 1 of 8 spells (see spell sheet). Each can be cast once per dawn using your spellcasting ability & save DC. Play while casting a charm effect spell & you can impose disadv. on the save if the spell has somatic or material components.",
 		descriptionFull : "The bandore appears to be made out of drift wood, gray colored and smooth slightly wet to the touch and smelling of the sea. The wielder of the bandore feels a sense of excitement when confronted with physical challenges, especially competitions and sailing. The wielder never suffers from non-magical sea and motion sickness.\n   An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Fochlucan bandore can be used to cast Entangle, Faerie Fire, Shillelagh, and Speak with Animals.",
 		weight : 3, // Magic of Faerûn (2001) page 161
 		prerequisite : "Requires attunement by a bard",
@@ -5626,7 +5670,7 @@ MagicItemsList["al instruments"] = {
 		rarity : "uncommon",
 		magicItemTable : "F",
 		attunement : true,
-		description: "This cittern is pure, pearly white. A light blue, cloud like design of shou origin is engraved on its body. When used to cast a spell, tiny pink flower petals swirl around your body, blown by a harmless gust of wind to the song's rhythm. If you try to play w/o attuning, DC 15 Wis save or 2d4 psychic dmg. Action to play the instrument & cast spell: Fly, Invisibility, Levitate, Protection from Evil & Good, Barkskin, Cure Wounds, or Fog Cloud. Each can be cast once per dawn using your spellcasting ability & save DC. Play the instrument while casting a charm effect spell & you can impose disadv. on the save if the spell has somatic or material components.",
+		description: "This cittern is pure, pearly white. A light blue, cloud like design of shou origin is engraved on its body. When used to cast a spell, tiny pink flower petals swirl around your body, blown by a harmless gust of wind to the song's rhythm. If you try to play w/o attuning, DC 15 Wis save or 2d4 psychic dmg. Action to play the instrument & cast 1 of 7 spells (see spell sheet). Each can be cast once per dawn using your spellcasting ability & save DC. Play the instrument while casting a charm effect spell & you can impose disadv. on the save if the spell has somatic or material components.",
 		descriptionFull : "This cittern is pure, pearly white. A light blue, cloud like design of shou origin is engraved on the instrument's body. When used to cast a spell, tiny pink flower petals swirls around the caster's body as it gets blown away by a harmless gust of wind. The petals' movement matches the tempo of the song being played.\n   An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Mac-Fuirmidh cittern can be used to cast Barkskin, Cure Wounds, and Fog Cloud.",
 		weight : 3, // Magic of Faerûn (2001) page 161
 		prerequisite : "Requires attunement by a bard",
@@ -5646,7 +5690,7 @@ MagicItemsList["al instruments"] = {
 		rarity : "uncommon",
 		magicItemTable : "F",
 		attunement : true,
-		description: "This stringed instrument is made of a purplish wood, with grain that whorls rather than lies straight. A sun of worked silver seems to be rising from its base. If you try to play w/o attuning, DC 15 Wis save or 2d4 psychic dmg. Action to play & cast a spell: Fly, Invisibility, Levitate, Protection from Evil & Good, Barkskin, Cure Wounds, or Fog Cloud. Each can be cast once per dawn using your spellcasting ability & save DC. Play the instrument while casting a charm effect spell & you can impose disadv. on the save if the spell has somatic or material components.",
+		description: "This stringed instrument is made of a purplish wood, with grain that whorls rather than lies straight. A sun of worked silver seems to be rising from its base. If you try to play w/o attuning, DC 15 Wis save or 2d4 psychic dmg. Action to play & cast 1 of 7 spells (see spell sheet). Each can be cast once per dawn using your spellcasting ability & save DC. Play the instrument while casting a charm effect spell & you can impose disadv. on the save if the spell has somatic or material components.",
 		descriptionFull : "This stringed instrument is made of a purplish wood, with grain that whorls rather than lies in straight lines. A sun of worked silver seems to be rising from the base of the cittern.\n   An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Mac-Fuirmidh cittern can be used to cast Barkskin, Cure Wounds, and Fog Cloud.",
 		weight : 3, // Magic of Faerûn (2001) page 161
 		prerequisite : "Requires attunement by a bard",
@@ -5666,7 +5710,7 @@ MagicItemsList["al instruments"] = {
 		rarity : "uncommon",
 		magicItemTable : "F",
 		attunement : true,
-		description: "When using this fine harp, roll a d6. On a 1, a string breaks, lashing out at a random creature within 5 ft (+4 to hit, 5 [1d10] slashing). The harp can’t be used once 5 strings are broken & magically repairs all strings at dawn. If you try to play w/o attuning, DC 15 Wis save or 2d4 psychic dmg. Action to play & cast spell: Fly, Invisibility, Levitate, Protection from Evil & Good, Barkskin, Cure Wounds, or Fog Cloud. Each can be cast once per dawn using your spellcasting ability & save DC. Play harp while casting a charm effect spell & you can impose disadv. on the save if the spell has somatic or material components.",
+		description: "When using this fine harp, roll a d6. On a 1, a string breaks, lashing out at a random creature within 5 ft (+4 to hit, 5 [1d10] slashing). The harp can’t be used once 5 strings are broken & magically repairs all strings at dawn. If you try to play w/o attuning, DC 15 Wis save or 2d4 psychic dmg. Action to play & cast 1 of 7 spells (see spell sheet). Each can be cast once per dawn using your spellcasting ability & save DC. Play harp while casting a charm effect spell & you can impose disadv. on the save if the spell has somatic or material components.",
 		descriptionFull : "When using this fine harp, roll a d6. On a result of 1, a string breaks, lashing out at a random creature within 5 feet of the instrument (+4 to hit). On a hit, the target takes 5 (1d10) slashing damage. The instrument can’t be used if more than four of its strings are broken. Each dawn, the harp magically repairs any broken strings.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Mac-Fuirmidh cittern can be used to cast Barkskin, Cure Wounds, and Fog Cloud.",
 		weight : 3, // Magic of Faerûn (2001) page 161
 		limfeaname : "Cittern (Broken Strings)",
@@ -5805,13 +5849,13 @@ MagicItemsList["al jewelry"] = {
 		name : "AL Jewelry",
 		type : "wondrous item",
 		allowDuplicates : true,
-	choices : ["Amulet of Health (CCC-GSP-NTHR1-1)","Amulet of Health (CCC-SFBAY-2-2)","Amulet of Health (DDAL8-10)","Amulet of Health (DDEP0-1)","Amulet of Health (DDEP1)","Amulet of the Planes: Naerth's Planar Compass (ALSRs11-A)","Amulet of the Planes (DDEP6-3)","Amulet of Proof Against Detection and Location (CCC-MMT2-1)","Amulet of Proof Against Detection and Location (CCC-TAROT2-6)","Amulet of Proof Against Detection and Location (CCC-TRI-32 DAGGR1-1)","Brooch of Shielding: Amulet of Shielding (CCC-BMG-27 CORE3-3)","Brooch of Shielding (CCC-BMG-MOON5-2)","Brooch of Shielding (CCC-WWC-6)","Brooch of Shielding (DC-POA-CONMAR-11)","Brooch of Shielding (DC-POA-DCAF11)","Brooch of Shielding (DC-POA-NBDD-1)","Brooch of Shielding: Gorg-Eous Brooch (DC-POA-TDG1-11)","Brooch of Shielding (DC-POA-TLOH-1)","Brooch of Shielding (DDAL5-3)","Brooch of Shielding (DDEX2-5)","Clockwork Amulet (CCC-CENTRIC1-3)","Clockwork Amulet: Chronostat of Precision (CCC-GAD1-3)","Clockwork Amulet: Modron Communication Device (CCC-MAYDAYS2-1)","Clockwork Amulet: Yul's Holy Symbol of Gond (CCC-UCON-3)","Clockwork Amulet (DDAL10-8)","Clockwork Amulet (DDAL10-10)","Dark Shard Amulet (CCC-DES-1-6)","Dark Shard Amulet (CCC-GEL-1)","Dark Shard Amulet: Booyahg Necklace (CCC-MAYDAYS2-1)","Dark Shard Amulet: Amarantha’s Heart (CCC-TAROT1-7)","Dark Shard Amulet (DDAL10-7)","Guardian Emblem (DC-POA-CONMAR-6)","Guardian Emblem (DC-POA-GaryXIII-4)","Guardian Emblem (DC-POA-HAG-SF4)","Medallion of Thoughts (CCC-BMG-MOON11-3)","Medallion of Thoughts (DC-POA-CONMAR-13)","Medallion of Thoughts (DC-POA-DCAF10)","Medallion of Thoughts: Aramesha's Wisdom (DDEX2-16)","Necklace of Adaptation (CCC-MWGF-1)","Necklace of Adaptation (CCC-RPSG-2)","Necklace of Adaptation (DDEP9-1)","Necklace of Fireballs (CCC-CIC-15)","Necklace of Fireballs (CCC-MALTH-3)","Necklace of Fireballs: Necklace of the Legions (CCC-OHAYO-CON1-3)","Necklace of Prayer Beads (CCC-BMG-35 ELMW2-2)","Necklace of Prayer Beads (DDEP2)","Periapt of Health (CCC-AN-2)","Periapt of Health: Porpherio’s Heart (CCC-BMG-MOON4-3)","Periapt of Health (CCC-BMG-MOON10-1)","Periapt of Health: Ward of the Martyr (CCC-TAROT1-3)","Periapt of Health (DDAL9-4)","Periapt of Proof Against Poison: Prospector's Chronoglass (CCC-GAD1-3)","Periapt of Proof Against Poison (CCC-RCC-1-6)","Periapt of Wound Closure (CCC-BLD1-1)","Periapt of Wound Closure (CCC-BMG-11 HILL1-2)","Periapt of Wound Closure (CCC-BMG-MOON3-1)","Periapt of Wound Closure (CCC-THENT1-2)","Periapt of Wound Closure (DDEP5-2)","Scarab of Protection (DDAL7-18)","Scarab of Protection (DDAL-DRW8)","Talisman of Ultimate Evil: Holy Symbol of Kyuss (DDAL0-10)"],
+	choices : ["Amulet of Health (CCC-GSP-NTHR1-1)","Amulet of Health (CCC-SFBAY-2-2)","Amulet of Health (DDAL8-10)","Amulet of Health (DDEP0-1)","Amulet of Health (DDEP1)","Amulet of Health (RotF)","Amulet of the Planes: Naerth's Planar Compass (ALSRs11-A)","Amulet of the Planes (DDEP6-3)","Amulet of Proof Against Detection and Location (CCC-MMT2-1)","Amulet of Proof Against Detection and Location (CCC-TAROT2-6)","Amulet of Proof Against Detection and Location (CCC-TRI-32 DAGGR1-1)","Brooch of Shielding: Amulet of Shielding (CCC-BMG-27 CORE3-3)","Brooch of Shielding (CCC-BMG-MOON5-2)","Brooch of Shielding (CCC-WWC-6)","Brooch of Shielding (DC-POA-CONMAR-11)","Brooch of Shielding (DC-POA-DCAF11)","Brooch of Shielding (DC-POA-NBDD-1)","Brooch of Shielding: Gorg-Eous Brooch (DC-POA-TDG1-11)","Brooch of Shielding (DC-POA-TLOH-1)","Brooch of Shielding (DDAL5-3)","Brooch of Shielding (DDEX2-5)","Clockwork Amulet (CCC-CENTRIC1-3)","Clockwork Amulet: Chronostat of Precision (CCC-GAD1-3)","Clockwork Amulet: Modron Communication Device (CCC-MAYDAYS2-1)","Clockwork Amulet: Yul's Holy Symbol of Gond (CCC-UCON-3)","Clockwork Amulet (DDAL10-8)","Clockwork Amulet (DDAL10-10)","Dark Shard Amulet (CCC-DES-1-6)","Dark Shard Amulet (CCC-GEL-1)","Dark Shard Amulet: Booyahg Necklace (CCC-MAYDAYS2-1)","Dark Shard Amulet: Amarantha’s Heart (CCC-TAROT1-7)","Dark Shard Amulet (DDAL10-7)","Guardian Emblem (DC-POA-CONMAR-6)","Guardian Emblem (DC-POA-GaryXIII-4)","Guardian Emblem (DC-POA-HAG-SF4)","Medallion of Thoughts (CCC-BMG-MOON11-3)","Medallion of Thoughts (DC-POA-CONMAR-13)","Medallion of Thoughts (DC-POA-DCAF10)","Medallion of Thoughts: Aramesha's Wisdom (DDEX2-16)","Necklace of Adaptation (CCC-MWGF-1)","Necklace of Adaptation (CCC-RPSG-2)","Necklace of Adaptation (DDEP9-1)","Necklace of Fireballs (CCC-CIC-15)","Necklace of Fireballs (CCC-MALTH-3)","Necklace of Fireballs: Necklace of the Legions (CCC-OHAYO-CON1-3)","Necklace of Prayer Beads (CCC-BMG-35 ELMW2-2)","Necklace of Prayer Beads (DDEP2)","Periapt of Health (CCC-AN-2)","Periapt of Health: Porpherio’s Heart (CCC-BMG-MOON4-3)","Periapt of Health (CCC-BMG-MOON10-1)","Periapt of Health: Ward of the Martyr (CCC-TAROT1-3)","Periapt of Health (DDAL9-4)","Periapt of Proof Against Poison: Prospector's Chronoglass (CCC-GAD1-3)","Periapt of Proof Against Poison (CCC-RCC-1-6)","Periapt of Wound Closure (CCC-BLD1-1)","Periapt of Wound Closure (CCC-BMG-11 HILL1-2)","Periapt of Wound Closure (CCC-BMG-MOON3-1)","Periapt of Wound Closure (CCC-THENT1-2)","Periapt of Wound Closure (DDEP5-2)","Scarab of Protection (DDAL7-18)","Scarab of Protection (DDAL-DRW8)","Talisman of Ultimate Evil: Holy Symbol of Kyuss (DDAL0-10)"],
 	"amulet of health (ccc-gsp-nthr1-1)" : {
 		name : "Amulet of Health (CCC-GSP-NTHR1-1)",
 		source : [["AL","CCC"]],
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "This obsidian amulet was given to Tenebris Umbra by Kothys. When attuned to this item, the essence of the Shadowfell imbued into it turns your body deathly cold & numbs the skin it touches. Whenever you wear the amulet, your Constitution score is set to 19. It has no effect if your Constitution score is already 19 or higher.",
+		description : "This obsidian amulet was given to Tenebris Umbra by Kothys. When you're attuned, the essence of the Shadowfell imbued into it turns your body deathly cold & numbs the skin it touches. Your Constitution score is also set to 19 unless your Constitution score is already 19 or higher.",
 		descriptionFull : "This obsidian amulet was given to Tenebris Umbra by Kothys. When attuned to this item, the essence of the Shadowfell imbued into it by Kothys turns its owner’s body deathly cold and numbs the skin it touches. Whenever you wear the amulet, your Constitution score is set to 19. It has no effect if your Constitution score is already 19 or higher without it.",
 		attunement : true,
 		weight : 1,
@@ -5822,7 +5866,7 @@ MagicItemsList["al jewelry"] = {
 		source : [["AL","CCC"]],
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "This amulet is made of a bloodstone flanked by troll fangs & with a troll hide cord. Whenever you wear the amulet, your Constitution score is set to 19. It has no effect if your Constitution score is already 19 or higher.",
+		description : "This amulet is made of a bloodstone flanked by troll fangs & with a troll hide cord. Whenever you wear the amulet, your Constitution score is set to 19 unless your Constitution score is already 19 or higher.",
 		descriptionFull : "This amulet is made up of a bloodstone flanked by troll fangs. The cord that holds it is made of troll hide. Whenever you wear the amulet, your Constitution score is set to 19. It has no effect if your Constitution score is already 19 or higher without it.",
 		attunement : true,
 		weight : 1,
@@ -5844,7 +5888,7 @@ MagicItemsList["al jewelry"] = {
 		source : [["AL","S0"]],
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "A heavy iron amulet bears the holy symbol of Loviatar, the Maiden of Pain. Suspended from an iron chain w/ short-barbed links, the amulet is uncomfortable & constantly scratches your neck. While you wear it, your Constitution score is set to 19. It has no effect if your Constitution score is already 19 or higher.",
+		description : "A heavy iron amulet bears the holy symbol of Loviatar, the Maiden of Pain. Suspended from an iron chain w/ short-barbed links, the amulet is uncomfortable & constantly scratches your neck. While you wear it, your Constitution score is set to 19 unless your Constitution score is already 19 or higher.",
 		descriptionFull : "A heavy iron amulet bears the inscribed holy symbol of Loviatar, the Maiden of Pain. Suspended from an iron chain with short-barbed links, the amulet is uncomfortable and constantly scratches the wearer’s neck. Whenever you wear the amulet, your Constitution score is set to 19. It has no effect if your Constitution score is already 19 or higher without it.",
 		attunement : true,
 		weight : 1,
@@ -5855,8 +5899,19 @@ MagicItemsList["al jewelry"] = {
 		source : [["AL","S1"]],
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "This amulet is made of gold, with a large ruby inset in it. While you wear it, your Constitution score is set to 19. It has no effect if your Constitution score is already 19 or higher.",
+		description : "This amulet is made of gold, with a large ruby inset in it. While you wear it, your Constitution score is set to 19 unless your Constitution score is already 19 or higher.",
 		descriptionFull : "This amulet is made of gold, with a large ruby inset in it. Whenever you wear the amulet, your Constitution score is set to 19. It has no effect if your Constitution score is already 19 or higher without it.",
+		attunement : true,
+		weight : 1,
+		scoresOverride : [0, 0, 19, 0, 0, 0]
+	},
+	"amulet of health (rotf)" : {
+		name : "Amulet of Health (RotF)",
+		source : [["AL","S1"]],
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "This gold pendant & chain was used by Macreadus as a holy symbol. The pendant bears the symbol of two hands cupping the sun. While you wear it, your Constitution score is set to 19 unless your Constitution score is already 19 or higher.",
+		descriptionFull : "The amulet’s pendant and chain are made of gold, and the pendant bears the symbol of two hands cupping the sun. It was used by Macreadus as a holy symbol. Whenever you wear the amulet, your Constitution score is set to 19. It has no effect if your Constitution score is already 19 or higher without it.",
 		attunement : true,
 		weight : 1,
 		scoresOverride : [0, 0, 19, 0, 0, 0]
