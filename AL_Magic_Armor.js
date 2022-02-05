@@ -446,6 +446,7 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		},
 }
 
+RunFunctionAtEnd(function () {
 MagicItemsList["al armor (common)"] = {
 		name : "AL Armor (Common)",
 		allowDuplicates : true,
@@ -686,7 +687,7 @@ MagicItemsList["al armor (common)"] = {
 				}]
 		},	
 }
-
+})
 
 MagicItemsList["al armor (other)"] = {
 		name : "AL Armor (Other)",

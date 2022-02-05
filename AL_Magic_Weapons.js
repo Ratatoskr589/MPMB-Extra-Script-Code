@@ -51,7 +51,7 @@ SourceList["ALSRs11"] = {  //Season 11 Service Rewards
 };
 
 
-
+RunFunctionAtEnd(function () {
 //AL flavored Weapons
 MagicItemsList["al maces"] = {
 		name : "AL Maces",
@@ -210,10 +210,10 @@ MagicItemsList["al maces"] = {
 		
 
 MagicItemsList["al staffs"] = {
-		name : "AL Staffs:",
+		name : "AL Staffs",
 		allowDuplicates : true,
 		type : "staff",
-		choices : ["Staff of the Adder (CCC-SRCC1-3)","Staff of Adornment (CCC-3MAGS-ONE)","Staff of Birdcalls (WBW-DC-CONMAR-3)","Staff of Birdcalls (WBW-DC-FDC-3)","Staff of Charming (DDEX2-2)","Staff of Flowers (CCC-KUMORI-3-1)","Staff of Frost (DDAL0-11E)","Staff of Frost (DDAL-DRW05)","Staff of Healing: Driftwood Staff (CCC-DES-1-2)","Staff of Healing (CCC-GHC-BK2-8)","Staff of Healing (CCC-WYC-2-1)","Staff of Healing (DDEP4)","Staff of the Magi (DDAL7-17)","Staff of Power (DDAL5-19)","Staff of Power (DDEP4)","Staff of the Python (CCC-BMG-MOON7-1)","Staff of the Python: Earth Tender's Branch (CCC-BMG-MOON8-2)","Staff of the Python: Bulkawa's Benevolence (CCC-GSP2-2)","Staff of Striking (CCC-TRI-14 YUL1-3)","Staff of Striking (DDAL7-12)","Staff of Striking (DDAL10-10)","Staff of Swarming Insects (DDEX3-3)","Staff of Thunder and Lightning (DDAL5-8)","Staff of Thunder and Lightning (DDEP5-2)","Staff of Withering (DDEX2-13)","Staff of Withering (DDAL8-13)","Staff of the Woodlands (CCC-BMG-MOON12-1)","Staff of the Woodlands (CCC-GARY-9)","Staff of the Woodlands (DDAL7-8/DDEP7-1)"],
+		choices : ["Staff of the Adder (CCC-SRCC1-3)","Staff of Adornment (CCC-3MAGS-ONE)","Staff of Birdcalls (WBW-DC-CONMAR-3)","Staff of Birdcalls (WBW-DC-FDC-3)","Staff of Birdcalls (WBW-DC-HBK-1)","Staff of Charming (DDEX2-2)","Staff of Flowers (CCC-KUMORI-3-1)","Staff of Frost (DDAL0-11E)","Staff of Frost (DDAL-DRW05)","Staff of Healing: Driftwood Staff (CCC-DES-1-2)","Staff of Healing (CCC-GHC-BK2-8)","Staff of Healing (CCC-QCC2019-3)","Staff of Healing (CCC-WYC-2-1)","Staff of Healing (DDEP4)","Staff of the Magi (DDAL7-17)","Staff of Power (DDAL5-19)","Staff of Power (DDEP4)","Staff of the Python (CCC-BMG-MOON7-1)","Staff of the Python: Earth Tender's Branch (CCC-BMG-MOON8-2)","Staff of the Python: Bulkawa's Benevolence (CCC-GSP2-2)","Staff of Striking (CCC-TRI-14 YUL1-3)","Staff of Striking (DDAL7-12)","Staff of Striking (DDAL10-10)","Staff of Swarming Insects (DDEX3-3)","Staff of Thunder and Lightning (DDAL5-8)","Staff of Thunder and Lightning (DDEP5-2)","Staff of Withering (DDEX2-13)","Staff of Withering (DDAL8-13)","Staff of the Woodlands (CCC-BMG-MOON12-1)","Staff of the Woodlands (CCC-GARY-9)","Staff of the Woodlands (DDAL7-8/DDEP7-1)","Staff of the Woodlands: Temperate (WBW-DC-CONMAR-6)"],
 	"staff of the adder (ccc-srcc1-3)" : {
 		name : "Staff of the Adder (CCC-SRCC1-3)",
 		source : [["AL","CCC"]],
@@ -271,6 +271,20 @@ MagicItemsList["al staffs"] = {
 		magicItemTable : "?",
 		description : "This staff is decorated with bird carvings & feathers attached on one end. It has 10 charges, regaining 1d6+4 at dawn, 5% chance it's destroyed when last charge used. As an action, you can use 1 charge to create a sound out to a range of 60 ft: a finch's chirp, raven's caw, duck's quack, chicken's cluck, goose's book, loon's call, turkey's gobble, seagull's cry, owl's hoot, or eagle's shriek.",
 		descriptionFull : "This wooden staff is decorated with bird carvings. It has 10 charges. While holding it, you can use an action to expend 1 charge from the staff and cause it to create one of the following sounds out to a range of 60 feet: a finch's chirp, a raven's caw, a duck's quack, a chicken's cluck, a goose's book, a loon's call, a turkey's gobble, a seagull's cry, an owl's hoot, or an eagle's shriek.\n   The staff is also decorated with different bird feathers attached on one of its ends.\n   The staff regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff explodes in a harmless cloud of bird feathers and is lost forever.",
+		weight : 4,
+		limfeaname : "Staff of Birdcalls",
+		usages : 10,
+		recovery : "dawn",
+		additional : "regains 1d6+4",
+		action : [["action", ""]]
+	},
+	"staff of birdcalls (wbw-dc-hbk-1)" : {
+		name : "Staff of Birdcalls (WBW-DC-HBK-1)",
+		source : [["AL","WBW-DC"]],
+		rarity : "common",
+		magicItemTable : "?",
+		description : "This staff is decorated with bird carvings & whenever it's struck or strikes a foe, you hear a few beats of a taiko drum. The staff has 10 charges, regaining 1d6+4 at dawn, 5% chance it's destroyed when last charge used. As an action, you can use 1 charge to create a sound out to a range of 60 ft: a finch's chirp, raven's caw, duck's quack, chicken's cluck, goose's book, loon's call, turkey's gobble, seagull's cry, owl's hoot, or eagle's shriek.",
+		descriptionFull : "This wooden staff is decorated with bird carvings. It has 10 charges. While holding it, you can use an action to expend 1 charge from the staff and cause it to create one of the following sounds out to a range of 60 feet: a finch's chirp, a raven's caw, a duck's quack, a chicken's cluck, a goose's book, a loon's call, a turkey's gobble, a seagull's cry, an owl's hoot, or an eagle's shriek.\n   The staff regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff explodes in a harmless cloud of bird feathers and is lost forever.\n   Minor Property: Song Craft. Whenever this item is struck or is used to strike a foe, its bearer hears a fragment of an ancient song: a few beats of a taiko drum.",
 		weight : 4,
 		limfeaname : "Staff of Birdcalls",
 		usages : 10,
@@ -406,7 +420,7 @@ MagicItemsList["al staffs"] = {
 		source : [["AL","CCC"]],
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "This item floats on water and other liquids. Its bearer has advantage on Strength (Athletic) checks to swim. The staff has 10 charges, regaining 1d6+4 at dawn. If use last charge, roll d20. On a 1, it vanishes. Charges can cast Cure Wounds (1/level, max 4th), Lesser Restoration (2), & Mass Cure Wounds (5) using your spellcasting ability.",
+		description : "This staff floats on water and other liquids. Its bearer has advantage on Strength (Athletic) checks to swim. The staff has 10 charges, regaining 1d6+4 at dawn. If last charge used, roll d20. On a 1, it vanishes. Charges can cast Cure Wounds (1/level, max 4th), Lesser Restoration (2) & Mass Cure Wounds (5) using your spellcasting ability.",
 		descriptionFull : "This item floats on water and other liquids. Its bearer has advantage on Strength (Athletic) checks to swim. This staff has 10 charges. While holding it, you can use an action to expend 1 or more of its charges to cast one of the following spells from it, using your spell save DC and spellcasting ability modifier: Cure Wounds (1 charge per spell level, up to 4th), Lesser Restoration (2 charges), or Mass Cure Wounds (5 charges).\n   The staff regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1. the staff vanishes in a flash of light, lost forever.",
 		attunement : true,
 		weight : 4,
@@ -447,8 +461,48 @@ MagicItemsList["al staffs"] = {
 		source : [["AL","CCC"]],
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "This smoky gray staff is made from the hardiest of duskwood trees & intricately carved with white & green lacquered symbols of the goddess Eldath. The staff has 10 charges, regaining 1d6+4 at dawn. If use last charge, roll d20. On a 1, it vanishes. Charges can cast Cure Wounds (1/level, max 4th), Lesser Restoration (2), & Mass Cure Wounds (5) using your spellcasting ability.",
+		description : "This smoky gray staff is made from the hardiest of duskwood trees & intricately carved with white & green lacquered symbols of the goddess Eldath. The staff has 10 charges, regaining 1d6+4 at dawn. If last charge used, roll d20. On a 1, it vanishes. Charges can cast Cure Wounds (1/level, max 4th), Lesser Restoration (2) & Mass Cure Wounds (5) using your spellcasting ability.",
 		descriptionFull : "This smoky gray staff is carved from the hardiest of duskwood trees. It is intricately carved with white and green lacquered symbols, all dedicated to the goddess Eldath.\n   This staff has 10 charges. While holding it, you can use an action to expend 1 or more of its charges to cast one of the following spells from it, using your spell save DC and spellcasting ability modifier: Cure Wounds (1 charge per spell level, up to 4th), Lesser Restoration (2 charges), or Mass Cure Wounds (5 charges).\n   The staff regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1. the staff vanishes in a flash of light, lost forever.",
+		attunement : true,
+		weight : 4,
+		prerequisite : "Requires attunement by a bard, cleric, or druid",
+		prereqeval : function(v) { return classes.known.bard || classes.known.cleric || classes.known.druid ? true : false; },
+		limfeaname : "Staff of Healing",
+		usages : 10,
+		recovery : "dawn",
+		additional : "regains 1d6+4",
+		spellcastingAbility : "class",
+		spellFirstColTitle : "Ch",
+		spellcastingBonus : [{
+			name : "1+ charges",
+			spells : ["cure wounds"],
+			selection : ["cure wounds"],
+			firstCol : "1+"
+		}, {
+			name : "2 charges",
+			spells : ["lesser restoration"],
+			selection : ["lesser restoration"],
+			firstCol : 2
+		}, {
+			name : "5 charges",
+			spells : ["mass cure wounds"],
+			selection : ["mass cure wounds"],
+			firstCol : 5
+		}],
+		spellChanges : {
+			"cure wounds" : {
+				description : "1 living creature heals 1d8+spellcasting ability modifier HP, +1d8 per charge spend after the 1st",
+				changes : "The spell level Cure Wounds is cast at depends on the amount of charges spend, 1 charge per spell slot level."
+			}
+		}
+	},
+	"staff of healing (ccc-qcc2019-3)" : {
+		name : "Staff of Healing (CCC-QCC2019-3)",
+		source : [["AL","CCC"]],
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "This ivory staff has a painted red carving of a coiled snake around its length and 10 charges, regaining 1d6+4 at dawn. If the last charge used, roll a d20. On a 1, it vanishes. Charges can cast Cure Wounds (1/level, max 4th), Lesser Restoration (2) and Mass Cure Wounds (5) using your spellcasting ability.",
+		descriptionFull : "This ivory staff has a red painted carving of a coiled snake around its length.\n   This staff has 10 charges. While holding it, you can use an action to expend 1 or more of its charges to cast one of the following spells from it, using your spell save DC and spellcasting ability modifier: Cure Wounds (1 charge per spell level, up to 4th), Lesser Restoration (2 charges), or Mass Cure Wounds (5 charges).\n   The staff regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1. the staff vanishes in a flash of light, lost forever.",
 		attunement : true,
 		weight : 4,
 		prerequisite : "Requires attunement by a bard, cleric, or druid",
@@ -487,7 +541,7 @@ MagicItemsList["al staffs"] = {
 		source : [["AL","CCC"]],
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "This golden metal staff is prominently inscribed with the iconography of Amaunator, clearly identifying the wielder as a follower of the Inquisition. The staff has 10 charges, regaining 1d6+4 at dawn. If use last charge, roll d20. On a 1, it vanishes. Charges can cast Cure Wounds (1/level, max 4th), Lesser Restoration (2), & Mass Cure Wounds (5) using your spellcasting ability.",
+		description : "This golden metal staff is prominently inscribed with the iconography of Amaunator, clearly identifying the wielder as a follower of the Inquisition. The staff has 10 charges, regaining 1d6+4 at dawn. If last charge used, roll d20. On a 1, it vanishes. Charges can cast Cure Wounds (1/level, max 4th), Lesser Restoration (2) & Mass Cure Wounds (5) using your spellcasting ability.",
 		descriptionFull : "A staff of golden metal prominently inscribed with iconography of Aumunator, this item clearly identifies the wielder as a follower of the Inquisition.\n   This staff has 10 charges. While holding it, you can use an action to expend 1 or more of its charges to cast one of the following spells from it, using your spell save DC and spellcasting ability modifier: Cure Wounds (1 charge per spell level, up to 4th), Lesser Restoration (2 charges), or Mass Cure Wounds (5 charges).\n   The staff regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1. the staff vanishes in a flash of light, lost forever.",
 		attunement : true,
 		weight : 4,
@@ -1090,6 +1144,7 @@ MagicItemsList["al staffs"] = {
 		rarity : "rare",
 		magicItemTable : "G",
 		description : "This +2 quarterstaff adds +2 to spell atks. It's made from entwined snake-like branches, 1 brown & 1 bright green. Tiny leafed branches sprout from the top of the staff: half red & gold, & half spring green. With each use, the autumn leaves fall & sprout fresh green bark & new leaves, & the spring side turns to autumn colors. The staff has 10 charges to cast its spells (your save DC), regaining 1d6+4 at dawn, 5% chance of losing magic when last charge used. As an action, plant it into the ground & expend 1 charge to grow it into a 60 ft tree. Action to change back.",
+		descriptionLong : "This +2 quarterstaff adds a +2 to spell attack rolls. Two entwined snake-like branches comprise the stalk of the staff. One is brown and the other is bright green. The top of the staff sprouts tiny leafed branches, one side has red and gold autumn leaves and the other spring green. With each power used, the autumn leaves fall and sprout new green leaves and fresh green bark, while the green side turns brown and its green leaves turn to autumn colors. The staff has 10 charges, regaining 1d6+4 at dawn. If the last charge is used, roll a d20. On a 1 it turns nonmagical. As an action, expend charges to cast 1 of these spells using your DC: Pass Without Trace (0 charges), Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges). You can also use 1 charge & an action to plant the staff in fertile earth & turn it into a 60 ft tree. It has a 5-ft-diameter trunk & a 20-ft radius of branches at the top. Speak the command word (action) while touching the tree to return it to a staff.",
 		descriptionFull : "Two snake-like branches entwined together comprise the stalk of the staff. One is brown and the other is bright green. The top of the staff sprouts tiny limbs with equally tiny leaves, one side has red and gold autumn leaves and the other spring green. With each power that is used, the autumn leaves fall and begin to sprout new green leaves and fresh green bark, while the green side turns brown and its green leaves turn to autumn colors.\n   The staff can be wielded as a magic quarterstaff that grants a +2 bonus to attack and damage rolls made with it. While holding it, you have a +2 bonus to spell attack rolls.\n   The staff has 10 charges for the following properties. It regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff loses its properties and becomes a nonmagical quarterstaff.\n   " + toUni("Spells") + ". You can use an action to expend 1 or more of the staff's charges to cast one of the following spells from it, using your spell save DC: Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges).\n   You can also use an action to cast the Pass Without Trace spell from the staff without using any charges.\n   " + toUni("Tree Form") + ". You can use an action to plant one end of the staff in fertile earth and expend 1 charge to transform the staff into a healthy tree. The tree is 60 feet tall and has a 5-foot-diameter trunk, and its branches at the top spread out in a 20-foot radius. The tree appears ordinary but radiates a faint aura of transmutation magic if targeted by Detect Magic. While touching the tree and using another action to speak its command word, you return the staff to its normal form. Any creature in the tree falls when it reverts to a staff.",
 		attunement : true,
 		weight : 4,
@@ -1164,6 +1219,7 @@ MagicItemsList["al staffs"] = {
 		rarity : "rare",
 		magicItemTable : "G",
 		description : "This +2 quarterstaff adds +2 to spell atks & is made from unblemished maple wood topped with three small white flowers in bloom. The staff has 10 charges to cast its spells (your save DC), regaining 1d6+4 at dawn, 5% chance of losing magic when last charge used. As an action, plant it into the ground & expend 1 charge to grow it into a 60 ft tree. Action to change back.",
+		descriptionLong : "This +2 quarterstaff adds a +2 to spell attack rolls. It's made from unblemished maple wood topped with three small white flowers in bloom & has 10 charges, regaining 1d6+4 at dawn. If the last charge is used, roll a d20. On a 1 it turns nonmagical. As an action, expend charges to cast 1 of these spells using your DC: Pass Without Trace (0 charges), Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges). You can also use 1 charge & an action to plant the staff in fertile earth & turn it into a 60 ft tree. It has a 5-ft-diameter trunk & a 20-ft radius of branches at the top. Speak the command word (action) while touching the tree to return it to a staff.",
 		descriptionFull : "This staff is made from unblemished maple wood topped with three small white flowers in bloom. The staff can be wielded as a magic quarterstaff that grants a +2 bonus to attack and damage rolls made with it. While holding it, you have a +2 bonus to spell attack rolls.\n   The staff has 10 charges for the following properties. It regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff loses its properties and becomes a nonmagical quarterstaff.\n   " + toUni("Spells") + ". You can use an action to expend 1 or more of the staff's charges to cast one of the following spells from it, using your spell save DC: Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges).\n   You can also use an action to cast the Pass Without Trace spell from the staff without using any charges.\n   " + toUni("Tree Form") + ". You can use an action to plant one end of the staff in fertile earth and expend 1 charge to transform the staff into a healthy tree. The tree is 60 feet tall and has a 5-foot-diameter trunk, and its branches at the top spread out in a 20-foot radius. The tree appears ordinary but radiates a faint aura of transmutation magic if targeted by Detect Magic. While touching the tree and using another action to speak its command word, you return the staff to its normal form. Any creature in the tree falls when it reverts to a staff.",
 		attunement : true,
 		weight : 4,
@@ -1238,6 +1294,7 @@ MagicItemsList["al staffs"] = {
 		rarity : "rare",
 		magicItemTable : "G",
 		description : "This +2 quarterstaff adds a +2 bonus on spell atks. It's been trimmed to look like a smaller version of an immense Chultan jungle tree. There's even a small diorama of a tiny village in the upper reaches of the staff’s branches - w/ tiny, string bridges connecting tiny, straw houses. The staff has 10 charges for its spells, regaining 1d6+4 at dawn, 5% chance of losing magic when last charge used. As an action, plant it into the ground & expend 1 charge to grow it into a 60 ft tree.",
+		descriptionLong : "This +2 quarterstaff adds a +2 to spell attack rolls. It's been meticulously trimmed so it appears to be a smaller version of the immense jungle trees in Chult. There's even a small diorama of a tiny village in the upper reaches of the staff’s branches — complete with tiny, string bridges connecting tiny, straw houses. It has 10 charges, regaining 1d6+4 at dawn. If the last charge is used, roll a d20. On a 1 it turns nonmagical. As an action, expend charges to cast 1 of these spells using your DC: Pass Without Trace (0 charges), Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges). You can also use 1 charge & an action to plant the staff in fertile earth & turn it into a 60 ft tree. It has a 5-ft-diameter trunk & a 20-ft radius of branches at the top. Speak the command word (action) while touching the tree to return it to a staff.",
 		descriptionFull : "This item has been meticulously trimmed and tended to in such a way that it appears to be a smaller version of one of the immense jungle trees in Chult. The staff’s creator even went so far as to create a small diorama of what looks like a tiny village in the upper reaches of the staff’s branches—complete with tiny, string bridges connecting tiny, straw houses. This staff can be wielded as a magic quarterstaff that grants a +2 bonus to attack and damage rolls made with it. While holding it, you have a +2 bonus to spell attack rolls.\n   The staff has 10 charges for the following properties. It regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff loses its properties and becomes a nonmagical quarterstaff.\n   " + toUni("Spells") + ". You can use an action to expend 1 or more of the staff's charges to cast one of the following spells from it, using your spell save DC: Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges).\n   You can also use an action to cast the Pass Without Trace spell from the staff without using any charges.\n   " + toUni("Tree Form") + ". You can use an action to plant one end of the staff in fertile earth and expend 1 charge to transform the staff into a healthy tree. The tree is 60 feet tall and has a 5-foot-diameter trunk, and its branches at the top spread out in a 20-foot radius. The tree appears ordinary but radiates a faint aura of transmutation magic if targeted by Detect Magic. While touching the tree and using another action to speak its command word, you return the staff to its normal form. Any creature in the tree falls when it reverts to a staff.",
 		attunement : true,
 		weight : 4,
@@ -1303,8 +1360,84 @@ MagicItemsList["al staffs"] = {
 			"awaken" : {
 				time : "1 a",
 				changes : "Casting time is only 1 action instead of 8 hours."
+				}
 			}
-		}
+		},
+	"staff of the woodlands: temperate (wbw-dc-conmar-6)" : {
+		name : "Temperate Staff of the Woodlands (WBW-DC-CONMAR-6)",
+		source : [["AL","WBW-DC"]],
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "This +2 quarterstaff adds a +2 bonus on spell atks. The braid of bone ends in antlers emerging from a nest of oak leaves & acorns. It's warm to the touch & smells of rich earth. (If you fought the Childe) The staff was once infused with the glow of Turanok’s love for his daughter, now gone after she wielded it against him. A shadow of its former self, the staff holds a sliver of nature’s power. While attuned, you suffer no harm in temperatures from -20 to 120 ̊ F. The staff has 10 charges for its spells, regaining 1d6+4 at dawn, 5% chance of losing magic when last charge used. As an action, plant it into the ground & expend 1 charge to grow it into a 60 ft tree.",
+		descriptionLong : "This +2 quarterstaff adds a +2 to spell attack rolls. The braid of bone ends with antlers emerging from a nest of oak leaves & acorns. It's warm to the touch & smells of rich earth. (If you fought the Childe) The staff was once infused with the searing glow of Turanok’s love for his daughter, now gone after she wielded it against him. A shadow of its former self, the staff still holds a sliver of nature’s power. While attuned, you suffer no harm in temperatures from -20 to 120 degrees Fareneheit. It has 10 charges, regaining 1d6+4 at dawn. If the last charge is used, roll a d20. On a 1 it turns nonmagical. As an action, expend charges to cast 1 of these spells using your DC: Pass Without Trace (0 charges), Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges). You can also use 1 charge & an action to plant the staff in fertile earth & turn it into a 60 ft tree. It has a 5-ft-diameter trunk & a 20-ft radius of branches at the top. Speak the command word (action) while touching the tree to return it to a staff.",
+		descriptionFull : "This staff is a braid of bone that ends with antlers emerging from a nest of oak leaves and acorns. It feels warm to the touch, and it smells of the rich earth of Lohringar. If the characters fought the Childe, add the following: This staff was once infused with the searing glow of Turanok’s love for his daughter, now gone after she wielded it against him. Though it is now a shadow of its former self, the staff still holds a sliver of nature’s power.\n   The staff feels warm to the touch, or cool, depending on the weather, as if it regulates the temperature around you. This staff has the temperate minor property from page 148 of the Dungeon Master’s Guide. While attuned to this staff, you suffer no harm in temperatures as cold as -20 degrees Fahrenheit or as warm as 120 degrees Fahrenheit.\n   This staff can be wielded as a magic quarterstaff that grants a +2 bonus to attack and damage rolls made with it. While holding it, you have a +2 bonus to spell attack rolls.\n   The staff has 10 charges for the following properties. It regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff loses its properties and becomes a nonmagical quarterstaff.\n   " + toUni("Spells") + ". You can use an action to expend 1 or more of the staff's charges to cast one of the following spells from it, using your spell save DC: Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges).\n   You can also use an action to cast the Pass Without Trace spell from the staff without using any charges.\n   " + toUni("Tree Form") + ". You can use an action to plant one end of the staff in fertile earth and expend 1 charge to transform the staff into a healthy tree. The tree is 60 feet tall and has a 5-foot-diameter trunk, and its branches at the top spread out in a 20-foot radius. The tree appears ordinary but radiates a faint aura of transmutation magic if targeted by Detect Magic. While touching the tree and using another action to speak its command word, you return the staff to its normal form. Any creature in the tree falls when it reverts to a staff.",
+		attunement : true,
+		savetxt : { immune : ["temps btwn -20 ̊ & 120 ̊ F"] },
+		weight : 4,
+		prerequisite : "Requires attunement by a druid",
+		prereqeval : function(v) { return classes.known.druid ? true : false; },
+		limfeaname : "Staff of the Woodlands",
+		action : [["action", " (grow/revert)"]],
+		usages : 10,
+		recovery : "dawn",
+		additional : "regains 1d6+4",
+		weaponsAdd : ["Staff of the Woodlands"],
+		weaponOptions : {
+			baseWeapon : "quarterstaff",
+			regExpSearch : /^(?=.*staff)(?=.*woodlands).*$/i,
+			name : "Staff of the Woodlands",
+			source : [["SRD", 245], ["D", 204], ["AL","S7"]],
+			modifiers : [2, 2]
+		},
+		calcChanges : {
+			spellCalc : [
+				function (type, spellcasters, ability) {
+					if (type == "attack") return 2;
+				},
+				"While holding the Staff of the Woodlands, I have a +2 bonus to spell attack rolls."
+			]
+		},
+		spellcastingAbility : "class",
+		spellFirstColTitle : "Ch",
+		spellcastingBonus : [{
+			name : "At will",
+			spells : ["pass without trace"],
+			selection : ["pass without trace"],
+			firstCol : "atwill"
+		}, {
+			name : "1 charge",
+			spells : ["animal friendship", "speak with animals"],
+			selection : ["animal friendship", "speak with animals"],
+			firstCol : 1,
+			times : 2
+		}, {
+			name : "2 charges",
+			spells : ["barkskin", "locate animals or plants"],
+			selection : ["barkskin", "locate animals or plants"],
+			firstCol : 2,
+			times : 2
+		}, {
+			name : "3 charges",
+			spells : ["speak with plants"],
+			selection : ["speak with plants"],
+			firstCol : 3
+		}, {
+			name : "5 charges",
+			spells : ["awaken"],
+			selection : ["awaken"],
+			firstCol : 5
+		}, {
+			name : "6 charges",
+			spells : ["wall of thorns"],
+			selection : ["wall of thorns"],
+			firstCol : 6
+		}],
+		spellChanges : {
+			"awaken" : {
+				time : "1 a",
+				changes : "Casting time is only 1 action instead of 8 hours."
+				}
+			}
 		},
 	}
 	
@@ -1645,7 +1778,7 @@ MagicItemsList["al swords"] = {
 		rarity : "uncommon",
 		magicItemTable : "F",
 		attunement : true,
-		description : "This beautiful longsword with a gold-trimmed hilt gives +1 to hit & dmg & is cursed. You can't part with it & have disadv. on attacks with other weapons. If you take dmg in combat, DC 15 Wis save or you must attack your attacker until it drops to 0 HP or you can't attack it in melee anymore. Banishment turns sword into normal +1 weapon.",
+		description : "This beautiful +1 longsword has a gold-trimmed hilt & is cursed. You're unwilling to give it up & have disadvantage on atks with other weapons. If you take dmg in combat, DC 15 Wis save or you must attack your attacker until it drops to 0 HP or you can't attack it in melee anymore. Banishment turns sword into normal +1 weapon.",
 		descriptionFull : "You gain a +1 bonus to attack and damage rolls made with this beautiful longsword with a gold-trimmed hilt.\n   " + toUni("Curse") + ". This sword is cursed and possessed by a vengeful spirit. Becoming attuned to it extends the curse to you. As long as you remain cursed, you are unwilling to part with the sword, keeping it on your person at all times. While attuned to this weapon, you have disadvantage on attack rolls made with weapons other than this one.\n   In addition, while the sword is on your person, you must succeed on a DC 15 Wisdom saving throw whenever you take damage in combat. On a failed save you must attack the creature that damaged you until you drop to 0 hit points or it does, or until you can't reach the creature to make a melee attack against it.\n   You can break the curse in the usual ways. Alternatively, casting banishment on the sword forces the vengeful spirit to leave it. The sword then becomes a +1 weapon with no other properties.",
 		weaponsAdd : ["Longsword of Vengeance"],
 		weaponOptions : {
@@ -1678,7 +1811,7 @@ MagicItemsList["al swords"] = {
 		rarity : "uncommon",
 		magicItemTable : "F",
 		attunement : true,
-		description : "This black metal longsword has a sheen of red. The black leather-wrapped hilt ends in a pommel shaped like a human skull. This sword gives +1 to hit & dmg & is cursed. It's possessed by the spirit of the orc warchief K’tagh Redeye, who urges you to violence against humans. You can't part w/ it & have disadv. on attacks w/ other weapons. If you take dmg in combat, DC 15 Wis save or you must atk your attacker until drops to 0 HP or you can't atk it in melee anymore. Banishment turns sword into normal +1 weapon.",
+		description : "This +1 black metal longsword has a sheen of red. The black leather-wrapped hilt ends in a pommel shaped like a human skull. This sword is cursed. It's possessed by the spirit of the orc warchief K’tagh Redeye, who urges you to violence against humans. You can't part w/ it & have disadv. on attacks w/ other weapons. If you take dmg in combat, DC 15 Wis save or you must atk your attacker until drops to 0 HP or you can't atk it in melee anymore. Banishment turns sword into normal +1 weapon.",
 		descriptionFull : "You gain a +1 bonus to attack and damage rolls made with this longsword. The blackened metal of this longsword has a sheen of red. The black leather-wrapped hilt ends in a pommel shaped like a human skull.\n  The longsword is inhabited by an orc warchief, K’tagh Redeye, a berserker who has a terrible loathing of humans. If K’tagh is banished or otherwise removed from the sword, the blade loses its red sheen.\n  While holding the sword, the voice of K’tagh Redeye echoes in the wielder’s mind, cursing and nudging the owner to greater violence, especially toward humans. If the person wielding the sword is a human, K’tagh constantly casts insults and threats. The spirit cannot withhold the benefits of the sword from a wielder, however.\n   " + toUni("Curse") + ". This sword is cursed and possessed by a vengeful spirit. Becoming attuned to it extends the curse to you. As long as you remain cursed, you are unwilling to part with the sword, keeping it on your person at all times. While attuned to this weapon, you have disadvantage on attack rolls made with weapons other than this one.\n   In addition, while the sword is on your person, you must succeed on a DC 15 Wisdom saving throw whenever you take damage in combat. On a failed save you must attack the creature that damaged you until you drop to 0 hit points or it does, or until you can't reach the creature to make a melee attack against it.\n   You can break the curse in the usual ways. Alternatively, casting banishment on the sword forces the vengeful spirit to leave it. The sword then becomes a +1 weapon with no other properties.",
 		weaponsAdd : ["Longsword of Vengeance"],
 		weaponOptions : {
@@ -1711,7 +1844,7 @@ MagicItemsList["al swords"] = {
 		rarity : "uncommon",
 		magicItemTable : "F",
 		attunement : true,
-		description : "The pommel of this sword is carved into a skull wreathed in purple flames. You hear faint mumbling voices when attuned. The sword carries a hidden message that you don't know how to find. You can't part w/ it & have disadv. on attacks w/ other weapons. If you take dmg in combat, DC 15 Wis save or you must atk your attacker until drops to 0 HP or you can't atk it in melee anymore. Banishment turns sword into normal +1 weapon.",
+		description : "The pommel of this +1 cursed sword is carved into a skull wreathed in purple flames. You hear faint mumbling voices when attuned. The sword carries a hidden message that you don't know how to find. You're unwilling to give it up & have disadv. on attacks w/ other weapons. If you take dmg in combat, DC 15 Wis save or you must atk your attacker until drops to 0 HP or you can't atk it in melee anymore. Banishment turns sword into normal +1 weapon.",
 		descriptionFull : "You gain a +1 bonus to attack and damage rolls made with this longsword. The pommel of this sword is carved to look like a skull wreathed in purple flames. You hear faint, mumbling voices when you are attuned to the sword. The sword carries a hidden message but you have no idea how to find it.\n   " + toUni("Curse") + ". This sword is cursed and possessed by a vengeful spirit. Becoming attuned to it extends the curse to you. As long as you remain cursed, you are unwilling to part with the sword, keeping it on your person at all times. While attuned to this weapon, you have disadvantage on attack rolls made with weapons other than this one.\n   In addition, while the sword is on your person, you must succeed on a DC 15 Wisdom saving throw whenever you take damage in combat. On a failed save you must attack the creature that damaged you until you drop to 0 hit points or it does, or until you can't reach the creature to make a melee attack against it.\n   You can break the curse in the usual ways. Alternatively, casting banishment on the sword forces the vengeful spirit to leave it. The sword then becomes a +1 weapon with no other properties.",
 		weaponsAdd : ["Longsword of Vengeance"],
 		weaponOptions : {
@@ -2489,7 +2622,7 @@ MagicItemsList["al weapons +1, +2, or +3"] = {
 		descriptionFull : "You have a bonus to attack and damage rolls made with this magic weapon. The bonus is determined by the weapon's rarity: uncommon (+1), rare (+2), or very rare (+3).",
 		allowDuplicates : true,
 		choicesNotInMenu : true,
-		choices : ["+1 Battleaxe: Rebel's Yell (CCC-RPR-1)","+1 Battleaxe (DDEX2-11)","+1 Dagger: The Wolves' Claw (CCC-BMG-MOON2-1)","+1 Dagger: Arthyn Dagger (CCC-GHC-BK3-1)","+1 Dagger: Ornate (CCC-SCAR1-1)","+1 Glaive: Bone-Pommeled (CCC-BMG-33 PHLAN3-3)","+1 Glaive (CCC-TRI-17 ALLY1-2)","+1 Greatsword: Arrk's Sword (CCC-GLIP-1-1)","+1 Halberd (DDEP5-2)","+1 Hand Crossbow: Widowmaker (CCC-BMG-29 HILL2-2)","+1 Lance: Duergar Drill Bit (CCC-APL1-1)","+1 Longbow (CCC-BMG-MOON2-2)","+1 Longbow: Gwa'thern Faln (DDHC-MORD-1)","+1 Longsword (DDEP1)","+1 Mace: Mace of the Tranquil Oasis (CCC-SALT1-2)","+1 Quarterstaff (CCC-TRI-11 OLMA1-1)","+1 Quarterstaff (DDAL7-3)","+1 Quarterstaff (DDEX3-16)", "+1 Rapier (DDEX3-2)","+1 Scimitar: Ripper's Claw (CCC-ODFC2-1)","+1 Scimitar (CCC-PRIORY-2)","+1 Shortbow (CCC-ANIME1-1)","+1 Shortbow: Moon Strike (CCC-TAROT1-6)","+1 Shortbow (DDEX3-16)","+1 Shortsword (CCC-CIC-6)","+1 Shortsword: Icicle (CCC-GHC-5)","+1 Shortsword: Foxblade (CCC-SRCC1-2)","+1 Shortsword (DDEP7-1)","+1 Trident (DDEP7-1)","+1 War Pick (CCC-TRI-9 BHC1-0)","+1 Warhammer: Torag's Hammer (CCC-TAROT1-4)","+1 Weapon (DDHC-TOA-8)","+2 Bow (DDEX3-7)","+2 Dagger (CCC-GHC-6)","+2 Greataxe: Whisper (DDHC-TOA-8)","+2 Greatsword: Tyr's Justice (CCC-GHC-8)","+2 Greatsword: Githyanki Greater Silver Sword (CCC-TRI-27 ROSE1-2)","+2 Longbow: Deep's Reach (CCC-BMG-MOON12-2)","+2 Longbow: Giant's Bane (CCC-GHC-9)","+2 Longbow (DDEP5-2)","+2 Longsword: Elven Blade of the Third Age (CCC-BWM-2)","+2 Longsword: Stout (CCC-GHC-BK1-5)","+2 Rapier: The Sixth Sword (CCC-HAL-3)","+2 Shortsword: Smoke (CCC-SFBAY1-1)","+2 Shortsword (DDAL0-13)","+2 Trident (CCC-CIC-12)","+2 War Pick (CCC-MYR1-1)","+3 Battleaxe: Skeggöx (DDAL5-9)","+3 Dagger (CCC-TRI-29 TIDE1-1)","+3 Lance: Dream Whirl (CCC-BMG-39 HULB3-3)","+3 Piercing Weapon: Midnight Phaeton's Horn (CCC-ODFC2-3)","+3 Pike: Krahharuan Fork (DDAL7-10)","+3 Scimitar (DDEP6-2)","+3 Shortsword: Harengon's Freedom (ALSRs11-A)"],
+		choices : ["+1 Battleaxe: Rebel's Yell (CCC-RPR-1)","+1 Battleaxe (DDEX2-11)","+1 Dagger: The Wolves' Claw (CCC-BMG-MOON2-1)","+1 Dagger: Arthyn Dagger (CCC-GHC-BK3-1)","+1 Dagger: Ornate (CCC-SCAR1-1)","+1 Glaive: Bone-Pommeled (CCC-BMG-33 PHLAN3-3)","+1 Glaive (CCC-TRI-17 ALLY1-2)","+1 Greatsword: Arrk's Sword (CCC-GLIP-1-1)","+1 Halberd (DDEP5-2)","+1 Hand Crossbow: Widowmaker (CCC-BMG-29 HILL2-2)","+1 Lance: Duergar Drill Bit (CCC-APL1-1)","+1 Longbow (CCC-BMG-MOON2-2)","+1 Longbow: Gwa'thern Faln (DDHC-MORD-1)","+1 Longsword (DDEP1)","+1 Mace: Mace of the Tranquil Oasis (CCC-SALT1-2)","+1 Quarterstaff (CCC-TRI-11 OLMA1-1)","+1 Quarterstaff (DDAL7-3)","+1 Quarterstaff (DDEX3-16)", "+1 Rapier (DDEX3-2)","+1 Scimitar: Ripper's Claw (CCC-ODFC2-1)","+1 Scimitar (CCC-PRIORY-2)","+1 Shortbow (CCC-ANIME1-1)","+1 Shortbow: Moon Strike (CCC-TAROT1-6)","+1 Shortbow (DDEX3-16)","+1 Shortsword (CCC-CIC-6)","+1 Shortsword: Icicle (CCC-GHC-5)","+1 Shortsword: Foxblade (CCC-SRCC1-2)","+1 Shortsword (DDEP7-1)","+1 Trident (DDEP7-1)","+1 War Pick (CCC-TRI-9 BHC1-0)","+1 Warhammer: Torag's Hammer (CCC-TAROT1-4)","+1 Weapon (DDHC-TOA-8)","+2 Bow (DDEX3-7)","+2 Dagger (CCC-GHC-6)","+2 Greataxe: Whisper (DDHC-TOA-8)","+2 Greatsword: Tyr's Justice (CCC-GHC-8)","+2 Greatsword: Githyanki Greater Silver Sword (CCC-TRI-27 ROSE1-2)","+2 Longbow: Deep's Reach (CCC-BMG-MOON12-2)","+2 Longbow: Giant's Bane (CCC-GHC-9)","+2 Longbow (DDEP5-2)","+2 Longsword: Elven Blade of the Third Age (CCC-BWM-2)","+2 Longsword: Stout (CCC-GHC-BK1-5)","+2 Rapier: The Sixth Sword (CCC-HAL-3)","+2 Shortsword: Smoke (CCC-SFBAY1-1)","+2 Shortsword (DDAL0-13)","+2 Trident (CCC-CIC-12)","+2 War Pick (CCC-MYR1-1)","+3 Battleaxe: Skeggöx (DDAL5-9)","+3 Dagger (CCC-TRI-29 TIDE1-1)","+3 Lance: Dream Whirl (CCC-BMG-39 HULB3-3)","+3 Piercing Weapon: Midnight Phaeton's Horn (CCC-ODFC2-3)","+3 Pike: Krahharuan Fork (DDAL7-10)","+3 Scimitar (DDEP6-2)","+3 Shortsword: Harengon's Freedom (ALSRs11-A)","+3 Spear: Blood-Drinker's Backbone (RMH-5/RMH-6)"],
 		"+1 battleaxe: rebel's yell (ccc-rpr-1)" : {
 			name : "Rebel's Yell, +1 Battleaxe (CCC-RPR-1)",
 			source : [["AL","CCC"]],
@@ -3312,7 +3445,7 @@ MagicItemsList["al weapons +1, +2, or +3"] = {
 			allowDuplicates : true,
 			magicItemTable : "H",
 			description : "The hilt of this shortsword is decorated with images of frolicking harengon & the blade is made of a shimmering dark purple crystal. When wielded, you gain a +2 bonus to initiative if not incapacitated & have +3 bonus to atk & dmg rolls made with this magic weapon.",
-			descriptionFull : "The hilt of this shortswordis decorated with images of frolicking harengonand the blade is constructed of a shimmering dark purple crystal. When wielded, you gain a +2 bonus to initiative if you’re not incapacitated. You have a +3 bonus to attack and damage rolls made with this magic weapon.",
+			descriptionFull : "The hilt of this shortswordis decorated with images of frolicking harengon and the blade is constructed of a shimmering dark purple crystal. When wielded, you gain a +2 bonus to initiative if you’re not incapacitated. You have a +3 bonus to attack and damage rolls made with this magic weapon.",
 			addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
 			weaponsAdd : ["Harengon's Freedom, +3 Shortsword"],
 				weaponOptions : {
@@ -3320,6 +3453,22 @@ MagicItemsList["al weapons +1, +2, or +3"] = {
 				source : [["ALSRs11","A"]],
 				regExpSearch : /^(?=.*freedom)(?=.*harengon|harengon's).*$/i,
 				name : "Harengon's Freedom, +3 Shortsword",
+				}
+			},
+		"+3 spear: blood-drinker's backbone (RMH-5/RMH-6)" : {
+		name : "Blood-Drinker's Backbone, +3 Spear (RMH-5/RMH-6)",
+			source : [["AL:RMH","5&6"]],
+			rarity : "very rare",
+			allowDuplicates : true,
+			magicItemTable : "H",
+			description : "This formidable spear has a slightly curved maroon blade made of iridescent stone set into a haft of polished vertebrae — each engraved with a long-forgotten ancient rune. You have a +3 bonus to atk & dmg rolls made with this magic weapon. If you miss, you suffer necrotic dmg equal to what the atk would've dealt, & gain 1 lvl of exhaustion as the spear feeds on your lifeforce.",
+			descriptionFull : "You have a +3 bonus to attack and damage rolls made with this magic weapon.\n   It is a formidable weapon sporting a slightly curved maroon blade made from iridescent stone set into a haft of polished vertebrae—each engraved with an ancient, long-forgotten rune.\n   If the attack misses its target, you suffer necrotic damage equal to the damage that the attack would have normally dealt as the weapon feeds upon your lifeforce, and you gain one level of exhaustion.",
+			weaponsAdd : ["Blood-Drinker's Backbone, +3 Spear"],
+				weaponOptions : {
+				baseWeapon : "spear",
+				source : [["AL:RMH","5&6"]],
+				regExpSearch : /^(?=.*blood)(?=.*drinker|drinker's)(?=.*backbone).*$/i,
+				name : "Blood-Drinker's Backbone, +3 Spear",
 				}
 			},
 }
@@ -3932,3 +4081,4 @@ MagicItemsList["al weapons (other)"] = {
 				}
 			},
 }
+})

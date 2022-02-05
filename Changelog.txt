@@ -1,0 +1,32 @@
+Changelog (After 1/14/22):
+
+Guild Adept Backgrounds:
+-Added missing gold to Yallaschan background
+
+AL Creatures:
+-Added code so the names for special named companions will fill in automatically
+-Added the younger griffon options from Rime of the Frostmaiden
+
+AL Special Items:
+-Corrected issue with legendary actions not being removed for Brightstar Moonsilver.
+-Separated non-mechanical AL trinkets from the AL New Items section to make them easier to ignore if you don't care. The AL New Items section still includes silly pointless items that are at least Common.
+-Added several new trinkets from WBW-DC modules. Also added all of the magical trinket items from DDEX2-10.
+-Added code so common items aren't infusion options for artificer (This code won't work if you don't install the artificer script first)
+-Added the Dagger of the Hidden Lord
+
+AL Magic Items:
+-Added additional flavored items for Rime of the Frostmaiden (Ogolai's Cloak, Helm of Telepathy, Eyes of Minute Seeing)
+-Various minor changes to item descriptions 
+-Added additional items, mostly from WBW-DC modules
+-Added Long descriptions to bardic instruments
+-Added code so common items aren't infusion options for artificer
+
+AL Magic Weapons:
+-Corrected typo in AL Staffs name
+-Added a long description to the Staff of the Woodlands
+-Added additional items from WBW-DC modules
+-Added code so common items aren't infusion options for artificer
+-Various minor description changes
+
+AL Magic Armor:
+-Added code so common items aren't infusion options for artificer

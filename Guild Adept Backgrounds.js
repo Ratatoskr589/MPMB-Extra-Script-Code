@@ -1827,6 +1827,7 @@ BackgroundList["yallaschan"] = {
 	name : "Yallaschan",
 	source : [["TBK", 122]],
 	skills : ["History", "Perception"],
+	gold : 10,
 	equipleft : [
 		["Carpenter's Tools", "", 6],
 		["Longshoreman's Hook", "", 1],
