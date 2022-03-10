@@ -13,7 +13,7 @@ Additionally, due to the length of some descriptions, I recommend auto-sizing fo
 	This is not a complete list since I don't have every published adventure yet, but it's a start. If you do not see an item listed from a season marked complete, it should be because there was no flavor.*/
 	
 	//Complete: S0-S10, Guild Adept
-	//In progress: CCCs, DC-POA, DRW
+	//In progress: CCCs, DC-POA, DRW, RMH
 	
 var iFileName = "AL Flavored Weapons.js";
 RequiredSheetVersion(13);
@@ -48,6 +48,14 @@ SourceList["ALSRs11"] = {  //Season 11 Service Rewards
     abbreviation : "ALSRs11",
     group : "Adventurers League",
     date : "2021/11/02"
+};
+
+SourceList["AL:RMH"] = {  //Mist Hunters Alternate Campaign
+	name : "Mist Hunters",
+	abbreviation : "AL:RMH",
+	group : "Adventurers League",
+	url : "https://www.dmsguild.com/browse.php?filters=45470_0_0_0_0_0_0_0&src=fid45470",
+	date : "Various"
 };
 
 
@@ -213,7 +221,7 @@ MagicItemsList["al staffs"] = {
 		name : "AL Staffs",
 		allowDuplicates : true,
 		type : "staff",
-		choices : ["Staff of the Adder (CCC-SRCC1-3)","Staff of Adornment (CCC-3MAGS-ONE)","Staff of Birdcalls (WBW-DC-CONMAR-3)","Staff of Birdcalls (WBW-DC-FDC-3)","Staff of Birdcalls (WBW-DC-HBK-1)","Staff of Charming (DDEX2-2)","Staff of Flowers (CCC-KUMORI-3-1)","Staff of Frost (DDAL0-11E)","Staff of Frost (DDAL-DRW05)","Staff of Healing: Driftwood Staff (CCC-DES-1-2)","Staff of Healing (CCC-GHC-BK2-8)","Staff of Healing (CCC-QCC2019-3)","Staff of Healing (CCC-WYC-2-1)","Staff of Healing (DDEP4)","Staff of the Magi (DDAL7-17)","Staff of Power (DDAL5-19)","Staff of Power (DDEP4)","Staff of the Python (CCC-BMG-MOON7-1)","Staff of the Python: Earth Tender's Branch (CCC-BMG-MOON8-2)","Staff of the Python: Bulkawa's Benevolence (CCC-GSP2-2)","Staff of Striking (CCC-TRI-14 YUL1-3)","Staff of Striking (DDAL7-12)","Staff of Striking (DDAL10-10)","Staff of Swarming Insects (DDEX3-3)","Staff of Thunder and Lightning (DDAL5-8)","Staff of Thunder and Lightning (DDEP5-2)","Staff of Withering (DDEX2-13)","Staff of Withering (DDAL8-13)","Staff of the Woodlands (CCC-BMG-MOON12-1)","Staff of the Woodlands (CCC-GARY-9)","Staff of the Woodlands (DDAL7-8/DDEP7-1)","Staff of the Woodlands: Temperate (WBW-DC-CONMAR-6)"],
+		choices : ["Staff of the Adder (CCC-SRCC1-3)","Staff of Adornment (CCC-3MAGS-ONE)","Staff of Birdcalls (WBW-DC-CONMAR-3)","Staff of Birdcalls (WBW-DC-FDC-3)","Staff of Birdcalls (WBW-DC-HBK-1)","Staff of Charming (DDEX2-2)","Staff of Flowers (CCC-KUMORI-3-1)","Staff of Frost (DDAL0-11E)","Staff of Frost (DDAL-DRW5)","Staff of Healing: Driftwood Staff (CCC-DES-1-2)","Staff of Healing (CCC-GHC-BK2-8)","Staff of Healing (CCC-QCC2019-3)","Staff of Healing (CCC-WYC-2-1)","Staff of Healing (DDEP4)","Staff of the Magi (DDAL7-17)","Staff of Power (DDAL5-19)","Staff of Power (DDEP4)","Staff of the Python (CCC-BMG-MOON7-1)","Staff of the Python: Earth Tender's Branch (CCC-BMG-MOON8-2)","Staff of the Python: Bulkawa's Benevolence (CCC-GSP2-2)","Staff of Striking (CCC-TRI-14 YUL1-3)","Staff of Striking (DDAL7-12)","Staff of Striking (DDAL10-10)","Staff of Swarming Insects (DDEX3-3)","Staff of Thunder and Lightning (DDAL5-8)","Staff of Thunder and Lightning (DDEP5-2)","Staff of Withering (DDEX2-13)","Staff of Withering (DDAL8-13)","Staff of the Woodlands (CCC-BMG-MOON12-1)","Staff of the Woodlands (CCC-GARY-9)","Staff of the Woodlands (DDAL7-8/DDEP7-1)","Staff of the Woodlands: Temperate (WBW-DC-CONMAR-6)","Staff of the Woodlands: Sunlit (WBW-DC-Sunlit-6)"],
 	"staff of the adder (ccc-srcc1-3)" : {
 		name : "Staff of the Adder (CCC-SRCC1-3)",
 		source : [["AL","CCC"]],
@@ -379,8 +387,8 @@ MagicItemsList["al staffs"] = {
 			firstCol : 5
 		}]
 	},
-	"staff of frost (ddal-drw05)" : {
-		name : "Staff of Frost (DDAL-DRW05)",
+	"staff of frost (ddal-drw5)" : {
+		name : "Staff of Frost (DDAL-DRW5)",
 		source : [["AL","DRW"]],
 		rarity : "very rare",
 		magicItemTable : "H",
@@ -1363,21 +1371,20 @@ MagicItemsList["al staffs"] = {
 				}
 			}
 		},
-	"staff of the woodlands: temperate (wbw-dc-conmar-6)" : {
-		name : "Temperate Staff of the Woodlands (WBW-DC-CONMAR-6)",
+	"staff of the woodlands: sunlit (wbw-dc-sunlit-6)" : {
+		name : "Staff of the Sunlit Woodlands (WBW-DC-Sunlit-6)",
 		source : [["AL","WBW-DC"]],
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "This +2 quarterstaff adds a +2 bonus on spell atks. The braid of bone ends in antlers emerging from a nest of oak leaves & acorns. It's warm to the touch & smells of rich earth. (If you fought the Childe) The staff was once infused with the glow of Turanok’s love for his daughter, now gone after she wielded it against him. A shadow of its former self, the staff holds a sliver of nature’s power. While attuned, you suffer no harm in temperatures from -20 to 120 ̊ F. The staff has 10 charges for its spells, regaining 1d6+4 at dawn, 5% chance of losing magic when last charge used. As an action, plant it into the ground & expend 1 charge to grow it into a 60 ft tree.",
-		descriptionLong : "This +2 quarterstaff adds a +2 to spell attack rolls. The braid of bone ends with antlers emerging from a nest of oak leaves & acorns. It's warm to the touch & smells of rich earth. (If you fought the Childe) The staff was once infused with the searing glow of Turanok’s love for his daughter, now gone after she wielded it against him. A shadow of its former self, the staff still holds a sliver of nature’s power. While attuned, you suffer no harm in temperatures from -20 to 120 degrees Fareneheit. It has 10 charges, regaining 1d6+4 at dawn. If the last charge is used, roll a d20. On a 1 it turns nonmagical. As an action, expend charges to cast 1 of these spells using your DC: Pass Without Trace (0 charges), Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges). You can also use 1 charge & an action to plant the staff in fertile earth & turn it into a 60 ft tree. It has a 5-ft-diameter trunk & a 20-ft radius of branches at the top. Speak the command word (action) while touching the tree to return it to a staff.",
-		descriptionFull : "This staff is a braid of bone that ends with antlers emerging from a nest of oak leaves and acorns. It feels warm to the touch, and it smells of the rich earth of Lohringar. If the characters fought the Childe, add the following: This staff was once infused with the searing glow of Turanok’s love for his daughter, now gone after she wielded it against him. Though it is now a shadow of its former self, the staff still holds a sliver of nature’s power.\n   The staff feels warm to the touch, or cool, depending on the weather, as if it regulates the temperature around you. This staff has the temperate minor property from page 148 of the Dungeon Master’s Guide. While attuned to this staff, you suffer no harm in temperatures as cold as -20 degrees Fahrenheit or as warm as 120 degrees Fahrenheit.\n   This staff can be wielded as a magic quarterstaff that grants a +2 bonus to attack and damage rolls made with it. While holding it, you have a +2 bonus to spell attack rolls.\n   The staff has 10 charges for the following properties. It regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff loses its properties and becomes a nonmagical quarterstaff.\n   " + toUni("Spells") + ". You can use an action to expend 1 or more of the staff's charges to cast one of the following spells from it, using your spell save DC: Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges).\n   You can also use an action to cast the Pass Without Trace spell from the staff without using any charges.\n   " + toUni("Tree Form") + ". You can use an action to plant one end of the staff in fertile earth and expend 1 charge to transform the staff into a healthy tree. The tree is 60 feet tall and has a 5-foot-diameter trunk, and its branches at the top spread out in a 20-foot radius. The tree appears ordinary but radiates a faint aura of transmutation magic if targeted by Detect Magic. While touching the tree and using another action to speak its command word, you return the staff to its normal form. Any creature in the tree falls when it reverts to a staff.",
+		description : "This +2 quarterstaff adds a +2 bonus on spell atks & lets you use an action to learn which way is north. The staff has 10 charges for its spells (see spells sheet), regaining 1d6+4 at dawn, 5% chance of losing magic when last charge used. As an action, plant it into the ground & expend 1 charge to grow it into a 60 ft tree.",
+		descriptionLong : "This +2 quarterstaff adds +2 to spell attack rolls & you can use an action to learn which way is north. It has 10 charges, regaining 1d6+4 at dawn. If the last charge is used, roll a d20. On a 1 it turns nonmagical. As an action, expend charges to cast 1 of these spells using your DC: Pass Without Trace (0 charges), Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges). You can also use 1 charge & an action to plant the staff in fertile earth & turn it into a 60 ft tree. It has a 5-ft-diameter trunk & a 20-ft radius of branches at the top. Speak the command word (action) while touching the tree to return it to a staff.",
+		descriptionFull : "Minor property Compass. The wielder can use an action to learn which way is north.\n   This staff can be wielded as a magic quarterstaff that grants a +2 bonus to attack and damage rolls made with it. While holding it, you have a +2 bonus to spell attack rolls.\n   The staff has 10 charges for the following properties. It regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff loses its properties and becomes a nonmagical quarterstaff.\n   " + toUni("Spells") + ". You can use an action to expend 1 or more of the staff's charges to cast one of the following spells from it, using your spell save DC: Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges).\n   You can also use an action to cast the Pass Without Trace spell from the staff without using any charges.\n   " + toUni("Tree Form") + ". You can use an action to plant one end of the staff in fertile earth and expend 1 charge to transform the staff into a healthy tree. The tree is 60 feet tall and has a 5-foot-diameter trunk, and its branches at the top spread out in a 20-foot radius. The tree appears ordinary but radiates a faint aura of transmutation magic if targeted by Detect Magic. While touching the tree and using another action to speak its command word, you return the staff to its normal form. Any creature in the tree falls when it reverts to a staff.",
 		attunement : true,
-		savetxt : { immune : ["temps btwn -20 ̊ & 120 ̊ F"] },
 		weight : 4,
 		prerequisite : "Requires attunement by a druid",
 		prereqeval : function(v) { return classes.known.druid ? true : false; },
 		limfeaname : "Staff of the Woodlands",
-		action : [["action", " (grow/revert)"]],
+		action : [["action", " (grow/revert)"],["action", " (North)"]],
 		usages : 10,
 		recovery : "dawn",
 		additional : "regains 1d6+4",
@@ -1446,7 +1453,7 @@ MagicItemsList["al swords"] = {
 		name : "AL Swords",
 		type : "weapon (any sword)",
 		allowDuplicates : true,
-	choices : ["Dancing Rapier: Angel's Sting (CCC-GHC-BK1-10)","Dancing Rapier: Raptor (CCC-LINKS-2)","Defender Greatsword: Deathshield (DDAL9-20)","Dragon Slayer: Wyrmripper (DDEP5-1)","Flame Tongue Longsword: Velahr’kerym (DDAL0-2D)","Flame Tongue Longsword (DDAL-DRW13)","Flame Tongue Shortsword: Flare (CCC-WYC-1-2)","Flame Tongue Sword (CCC-YLRA-2)","Frost Brand Rapier: Bitter Wrath (DDAL7-9)","Frost Brand Scimitar (DDEP5-2)","Giant Slayer Greatsword (DDEP5-2)","Greatsword of Sharpness: Desolation (DDAL8-14)","Greatsword of Warning: Ever Vigilant (CCC-BMG-MOON3-3)","Greatsword of Wounding (DDEX2-15)","Longsword of Vengeance (CCC-GARY-8)","Longsword of Vengeance (CCC-HATMS1-2)","Longsword of Vengeance (CCC-MACE1-3)","Moon-Touched Longsword (CCC-GHC-BK1-1)","Moon-Touched Longsword (CCC-TAROT2-6)","Moon-Touched Longsword (DDAL0-11D)","Moon-Touched Rapier (CCC-GAD2-1)","Moon-Touched Rapier (CCC-SAC-4)","Moon-Touched Rapier (CCC-UNITE-5)","Moon-Touched Shortsword (DC-POA-CONMAR-9)","Moon-Touched Shortsword (DC-POA-DES-5B)","Moon-Touched Shortsword (DC-POA-GSP2-3H)","Moon-Touched Shortsword: Fang (DC-POA-GSP3-2)","Moon-Touched Shortsword (DC-POA-JCDC-1)","Moon-Touched Shortsword (DC-POA-MCWWS-2)","Moon-Touched Shortsword: Tsukuyomi (DC-POA-TDG1-3)","Moon-Touched Shortsword: Blade of the Black Tortoise (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: Green Dragon Gladius (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: Red Phoenix Falchion (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: White Tiger Tulwar (DC-POA-VAN-MT-1)","Moon-Touched Sword (CCC-BMG-MOON6-2)","Moon-Touched Sword (CCC-BMG-MOON10-2)","Nine Lives Stealer Longsword: Love's Bite (DDAL7-11)","Nine Lives Stealer Scimitar (CCC-QCC2018-1)","Rapier of Life Stealing (CCC-PDXAGE-2-1)","Scimitar of Life Stealing: Night Cutter (CCC-RCC-1-4)","Scimitar of Warning: Miir (CCC-BWM-4-1)","Sun Blade: The Seventh Sword (CCC-6SWORDS-1)","Sun Blade: Dawnfire (CCC-STORM-1)","Sun Blade (CCC-WYC-2-2)","Sun Blade: Scintilmorn (WDotMM)","Sword of Vengeance (CCC-SAF2-2)","Sword of Wounding (DDAL-CGB)","Vicious Longsword (CCC-HATMS2-1)","Vicious Rapier: Hag's Clawblade (ALSRs11-A)","Vorpal Scimitar (DDAL7-16)"],
+	choices : ["Dancing Rapier: Angel's Sting (CCC-GHC-BK1-10)","Dancing Rapier: Raptor (CCC-LINKS-2)","Defender Greatsword: Deathshield (DDAL9-20)","Dragon Slayer: Wyrmripper (DDEP5-1)","Flame Tongue Longsword: Velahr’kerym (DDAL0-2D)","Flame Tongue Longsword (DDAL-DRW13)","Flame Tongue Shortsword: Flare (CCC-WYC-1-2)","Flame Tongue Sword (CCC-YLRA-2)","Frost Brand Rapier: Bitter Wrath (DDAL7-9)","Frost Brand Scimitar (DDEP5-2)","Giant Slayer Greatsword (DDEP5-2)","Greatsword of Sharpness: Desolation (DDAL8-14)","Greatsword of Warning: Ever Vigilant (CCC-BMG-MOON3-3)","Greatsword of Wounding (DDEX2-15)","Longsword of Vengeance (CCC-GARY-8)","Longsword of Vengeance (CCC-HATMS1-2)","Longsword of Vengeance (CCC-MACE1-3)","Moon-Touched Longsword (CCC-GHC-BK1-1)","Moon-Touched Longsword (CCC-TAROT2-6)","Moon-Touched Longsword (DDAL0-11D)","Moon-Touched Rapier (CCC-GAD2-1)","Moon-Touched Rapier (CCC-SAC-4)","Moon-Touched Rapier (CCC-UNITE-5)","Moon-Touched Shortsword (DC-POA-CONMAR-9)","Moon-Touched Shortsword (DC-POA-DES-5B)","Moon-Touched Shortsword (DC-POA-GSP2-3H)","Moon-Touched Shortsword: Fang (DC-POA-GSP3-2)","Moon-Touched Shortsword (DC-POA-JCDC-1)","Moon-Touched Shortsword (DC-POA-MCWWS-2)","Moon-Touched Shortsword: Tsukuyomi (DC-POA-TDG1-3)","Moon-Touched Shortsword: Blade of the Black Tortoise (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: Green Dragon Gladius (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: Red Phoenix Falchion (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: White Tiger Tulwar (DC-POA-VAN-MT-1)","Moon-Touched Sword (CCC-BMG-MOON6-2)","Moon-Touched Sword (CCC-BMG-MOON10-2)","Nine Lives Stealer Longsword: Love's Bite (DDAL7-11)","Nine Lives Stealer Scimitar (CCC-QCC2018-1)","Rapier of Life Stealing (CCC-PDXAGE-2-1)","Scimitar of Life Stealing: Night Cutter (CCC-RCC-1-4)","Scimitar of Warning: Miir (CCC-BWM-4-1)","Sun Blade: The Seventh Sword (CCC-6SWORDS-1)","Sun Blade: Dawnfire (CCC-STORM-1)","Sun Blade (CCC-WYC-2-2)","Sun Blade: Scintilmorn (WDotMM)","Sword of Vengeance (CCC-SAF2-2)","Sword of Wounding (DDAL-CGB)","Vicious Longsword (CCC-HATMS2-1)","Vicious Rapier: Hag's Clawblade (ALSRs11-A)","Vorpal Scimitar (DDAL7-16)","Vorpal Scimitar: Abi Teos's Machete (RMH-9/RMH-10)"],
 	"dancing rapier: angel's sting (ccc-ghc-bk1-10)" : {
 		name : "Angel's Sting, Dancing Rapier (CCC-GHC-BK1-10)",
 		source : [["AL","CCC"]],
@@ -2581,7 +2588,7 @@ MagicItemsList["al swords"] = {
 	"vorpal scimitar (ddal7-16)" : {
 		name : "Vorpal Scimitar (DDAL7-16)",
 		source : [["AL","S7"]],
-		type : "weapon (any sword that deals slashing damage)",
+		type : "weapon (scimitar)",
 		rarity : "legendary",
 		magicItemTable : "I",
 		attunement : true,
@@ -2614,6 +2621,45 @@ MagicItemsList["al swords"] = {
 			]
 		},
 	},
+	"vorpal scimitar: abi teos's machete (rmh-9/rmh-10)" : {
+		name : "Abi Teos's Machete (Vorpal Scimitar)",
+		source : [["AL:RMH","9&10"]],
+		type : "weapon (scimitar)",
+		rarity : "legendary",
+		magicItemTable : "I",
+		attunement : true,
+		allowDuplicates : true,
+		description : "This 17-in machete is deceptively dull & chipped. Its azabache hilt is carved with writhing bloated leeches & blonde hair dangles from the pommel. The weapon's namesake wantonly cut selva & conducted excessive ritual sacrifice. At the right angle, a phrase appears on the hilt: “A mi, volpal” which means “A blade for me.” The +3 sword ignores slashing dmg resistance & does +2d8 dmg to plants. When you hit, you take 1d6 necrotic. On a 20 to hit, it cuts off 1 head (possibly = death). If target has no head, is immune to slashing dmg, has legendary actions, or its neck is too wide, +6d8 slashing dmg instead. On a 1, you gain 1 lvl exhaustion. Remove by DC 12 Con save or long rest. If fail, gain anoher lvl.",
+		descriptionFull : "The 17-inch blade of this tool-weapon appears deceptively dull and chipped, its hilt is carved azabache (a mystical stone believed to ward off malevolent spirits), and its handle is carved with a disturbing depiction of writhing, bloated leeches. The bohika (shaman) after which the weapon is named used it to wantonly cut down selva and conduct excessive ritual sacrifice to their patron. A lock of unmarred blonde hair dangles from the pommel, its significance lost to time. If the blade is held at the right angle in light, a scrawled phrase appears on the hilt: “A mi, volpal” which translates from its indigenous tongue as “A blade for me.”"+
+		"\n   You gain a +3 bonus to attack and damage rolls made with this magic weapon. In addition, the weapon ignores resistance to slashing damage and deals an extra 2d8 slashing damage to plants and Plant creatures."+
+		"\n   When you attack a creature that has at least one head with this weapon and roll a 20 on the attack roll, you cut off one of the creature's heads. The creature dies if it can't survive without the lost head. A creature is immune to this effect if it is immune to slashing damage, doesn't have or need a head, has legendary actions, or the DM decides that the creature is too big for its head to be cut off with this weapon. Such a creature instead takes an extra 6d8 slashing damage from the hit."+
+		"\n   " + toUni("Curse") + ". Whenever you deal damage with Abi-Teos’s machete, you take 1d6 necrotic damage as the weapon drains your blood. If you roll a 1 on an attack roll made with the weapon, the leeches carved into the handle animate and crawl down your throat—infesting you with throat leeches (a disease). You must succeed on a DC 12 Constitution saving throw or gain 1 level of exhaustion that can only be removed by succeeding on a DC 12 Constitution saving throw upon completing a long rest. If the saving throw fails, you gain another level of exhaustion. If a successful saving throw reduces your exhaustion level below 1, you recover from the disease.",
+		weaponsAdd : ["Abi Teos's Machete, Vorpal Scimitar"],
+		weaponOptions : {
+			baseWeapon : "scimitar",
+			name : "Abi Teos's Machete, Vorpal Scimitar",
+			source : [["AL:RMH","9&10"]],
+			},
+		calcChanges : {  //For Vorpal Sword
+			atkAdd : [
+				function (fields, v) {
+					if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/vorpal/i).test(v.WeaponText) && v.theWea.damage[2] == "slashing") {
+						v.theWea.isMagicWeapon = true;
+						fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+						fields.Description += (fields.Description ? '; ' : '') + 'Ignores slashing resistance; On 20 to hit: cut off head';
+					}
+				},
+				'If I include the word "Vorpal" in a the name of a sword that deals slashing damage, it will be treated as the magic weapon Vorpal Sword. It has +3 to hit and damage and on a roll of 20 on the attack roll, it cuts off a head of the target.'
+			],
+			atkCalc : [
+				function (fields, v, output) {
+					if (v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/vorpal/i).test(v.WeaponText) && v.theWea.damage[2] == "slashing") {
+						output.magic = v.thisWeapon[1] + 3;
+					}
+				}, ''
+			]
+		},
+	},
 }
 	
 MagicItemsList["al weapons +1, +2, or +3"] = {
@@ -2622,7 +2668,7 @@ MagicItemsList["al weapons +1, +2, or +3"] = {
 		descriptionFull : "You have a bonus to attack and damage rolls made with this magic weapon. The bonus is determined by the weapon's rarity: uncommon (+1), rare (+2), or very rare (+3).",
 		allowDuplicates : true,
 		choicesNotInMenu : true,
-		choices : ["+1 Battleaxe: Rebel's Yell (CCC-RPR-1)","+1 Battleaxe (DDEX2-11)","+1 Dagger: The Wolves' Claw (CCC-BMG-MOON2-1)","+1 Dagger: Arthyn Dagger (CCC-GHC-BK3-1)","+1 Dagger: Ornate (CCC-SCAR1-1)","+1 Glaive: Bone-Pommeled (CCC-BMG-33 PHLAN3-3)","+1 Glaive (CCC-TRI-17 ALLY1-2)","+1 Greatsword: Arrk's Sword (CCC-GLIP-1-1)","+1 Halberd (DDEP5-2)","+1 Hand Crossbow: Widowmaker (CCC-BMG-29 HILL2-2)","+1 Lance: Duergar Drill Bit (CCC-APL1-1)","+1 Longbow (CCC-BMG-MOON2-2)","+1 Longbow: Gwa'thern Faln (DDHC-MORD-1)","+1 Longsword (DDEP1)","+1 Mace: Mace of the Tranquil Oasis (CCC-SALT1-2)","+1 Quarterstaff (CCC-TRI-11 OLMA1-1)","+1 Quarterstaff (DDAL7-3)","+1 Quarterstaff (DDEX3-16)", "+1 Rapier (DDEX3-2)","+1 Scimitar: Ripper's Claw (CCC-ODFC2-1)","+1 Scimitar (CCC-PRIORY-2)","+1 Shortbow (CCC-ANIME1-1)","+1 Shortbow: Moon Strike (CCC-TAROT1-6)","+1 Shortbow (DDEX3-16)","+1 Shortsword (CCC-CIC-6)","+1 Shortsword: Icicle (CCC-GHC-5)","+1 Shortsword: Foxblade (CCC-SRCC1-2)","+1 Shortsword (DDEP7-1)","+1 Trident (DDEP7-1)","+1 War Pick (CCC-TRI-9 BHC1-0)","+1 Warhammer: Torag's Hammer (CCC-TAROT1-4)","+1 Weapon (DDHC-TOA-8)","+2 Bow (DDEX3-7)","+2 Dagger (CCC-GHC-6)","+2 Greataxe: Whisper (DDHC-TOA-8)","+2 Greatsword: Tyr's Justice (CCC-GHC-8)","+2 Greatsword: Githyanki Greater Silver Sword (CCC-TRI-27 ROSE1-2)","+2 Longbow: Deep's Reach (CCC-BMG-MOON12-2)","+2 Longbow: Giant's Bane (CCC-GHC-9)","+2 Longbow (DDEP5-2)","+2 Longsword: Elven Blade of the Third Age (CCC-BWM-2)","+2 Longsword: Stout (CCC-GHC-BK1-5)","+2 Rapier: The Sixth Sword (CCC-HAL-3)","+2 Shortsword: Smoke (CCC-SFBAY1-1)","+2 Shortsword (DDAL0-13)","+2 Trident (CCC-CIC-12)","+2 War Pick (CCC-MYR1-1)","+3 Battleaxe: Skeggöx (DDAL5-9)","+3 Dagger (CCC-TRI-29 TIDE1-1)","+3 Lance: Dream Whirl (CCC-BMG-39 HULB3-3)","+3 Piercing Weapon: Midnight Phaeton's Horn (CCC-ODFC2-3)","+3 Pike: Krahharuan Fork (DDAL7-10)","+3 Scimitar (DDEP6-2)","+3 Shortsword: Harengon's Freedom (ALSRs11-A)","+3 Spear: Blood-Drinker's Backbone (RMH-5/RMH-6)"],
+		choices : ["+1 Battleaxe: Rebel's Yell (CCC-RPR-1)","+1 Battleaxe (DDEX2-11)","+1 Dagger: The Wolves' Claw (CCC-BMG-MOON2-1)","+1 Dagger: Arthyn Dagger (CCC-GHC-BK3-1)","+1 Dagger: Ornate (CCC-SCAR1-1)","+1 Glaive: Bone-Pommeled (CCC-BMG-33 PHLAN3-3)","+1 Glaive (CCC-TRI-17 ALLY1-2)","+1 Greatsword: Arrk's Sword (CCC-GLIP-1-1)","+1 Halberd (DDEP5-2)","+1 Hand Crossbow: Widowmaker (CCC-BMG-29 HILL2-2)","+1 Lance: Duergar Drill Bit (CCC-APL1-1)","+1 Longbow (CCC-BMG-MOON2-2)","+1 Longbow: Gwa'thern Faln (DDHC-MORD-1)","+1 Longsword (DDEP1)","+1 Mace: Mace of the Tranquil Oasis (CCC-SALT1-2)","+1 Quarterstaff (CCC-TRI-11 OLMA1-1)","+1 Quarterstaff (DDAL7-3)","+1 Quarterstaff (DDEX3-16)", "+1 Rapier (DDEX3-2)","+1 Scimitar: Ripper's Claw (CCC-ODFC2-1)","+1 Scimitar (CCC-PRIORY-2)","+1 Shortbow (CCC-ANIME1-1)","+1 Shortbow: Moon Strike (CCC-TAROT1-6)","+1 Shortbow (DDEX3-16)","+1 Shortsword (CCC-CIC-6)","+1 Shortsword: Icicle (CCC-GHC-5)","+1 Shortsword: Foxblade (CCC-SRCC1-2)","+1 Shortsword (DDEP7-1)","+1 Trident (DDEP7-1)","+1 War Pick (CCC-TRI-9 BHC1-0)","+1 Warhammer: Torag's Hammer (CCC-TAROT1-4)","+1 Weapon (DDHC-TOA-8)","+2 Bow (DDEX3-7)","+2 Dagger (CCC-GHC-6)","+2 Greataxe: Whisper (DDHC-TOA-8)","+2 Greatsword: Tyr's Justice (CCC-GHC-8)","+2 Greatsword: Githyanki Greater Silver Sword (CCC-TRI-27 ROSE1-2)","+2 Longbow: Deep's Reach (CCC-BMG-MOON12-2)","+2 Longbow: Giant's Bane (CCC-GHC-9)","+2 Longbow (DDEP5-2)","+2 Longsword: Elven Blade of the Third Age (CCC-BWM-2)","+2 Longsword: Stout (CCC-GHC-BK1-5)","+2 Rapier: The Sixth Sword (CCC-HAL-3)","+2 Shortsword: Smoke (CCC-SFBAY1-1)","+2 Shortsword (DDAL0-13)","+2 Trident (CCC-CIC-12)","+2 War Pick (CCC-MYR1-1)","+3 Battleaxe: Skeggöx (DDAL5-9)","+3 Dagger (CCC-TRI-29 TIDE1-1)","+3 Glaive: Empyrean’s Unbreaking Glaive (WBW-DC-Sunlit-6)","+3 Lance: Dream Whirl (CCC-BMG-39 HULB3-3)","+3 Piercing Weapon: Midnight Phaeton's Horn (CCC-ODFC2-3)","+3 Pike: Krahharuan Fork (DDAL7-10)","+3 Scimitar (DDEP6-2)","+3 Shortsword: Harengon's Freedom (ALSRs11-A)","+3 Spear: Blood-Drinker's Backbone (RMH-5/RMH-6)"],
 		"+1 battleaxe: rebel's yell (ccc-rpr-1)" : {
 			name : "Rebel's Yell, +1 Battleaxe (CCC-RPR-1)",
 			source : [["AL","CCC"]],
@@ -3374,6 +3420,21 @@ MagicItemsList["al weapons +1, +2, or +3"] = {
 			name : "Dagger +3",
 				}
 			},
+		"+3 glaive: empyrean’s unbreaking glaive (wbw-dc-sunlit-6)" : {
+		name : "Empyrean’s Unbreaking Glaive +3 (WBW-DC-Sunlit-6)",
+			source : [["AL","WBW-DC"]],
+			rarity : "very rare",
+			allowDuplicates : true,
+			magicItemTable : "H",
+			description : "The head of this glaive is made from a concentration of Empyrean’s special blood that glitters & undulates like mercury. The blood makes the entire weapon, including the shaft, unbreakable by anything but special means (i.e. anti-magic field). You have a +3 bonus to atk & dmg rolls made with this magic glaive.",
+			descriptionFull : "The head of this glaive is not made of metal, and is instead a concentration of Empyrean’s special blood. The blade glitters like, well, glitter, and undulates like mercury. The blood gives the entire weapon, including the shaft, the minor property unbreakable: the item can’t be broken. Special means must be used to destroy it (ie. antimagic field). You have a +3 bonus to attack and damage rolls made with this magic weapon.",
+			weaponsAdd : ["Empyrean’s Unbreaking Glaive +3"],
+			weaponOptions : {
+			baseWeapon : "glaive",
+			regExpSearch : /^(?=.*empyrean’s)(?=.*unbreaking)(?=.*glaive).*$/i,
+			name : "Empyrean’s Unbreaking Glaive +3",
+				}
+			},
 		"+3 lance: dream whirl (ccc-bmg-39 hulb3-3)" : {
 		name : "Dream Whirl, +3 Lance (CCC-BMG-39 HULB3-3)",
 			source : [["AL","CCC"]],
@@ -3476,7 +3537,7 @@ MagicItemsList["al weapons +1, +2, or +3"] = {
 MagicItemsList["al weapons (other)"] = {
 		name : "AL Weapons (Other)",
 		allowDuplicates : true,
-	choices : ["Berserker Flail (CCC-UCON-1)","Dagger of Venom: Fang of Sibyl (CCC-GARY-1)","Dagger of Venom (DDAL4-11)", "Dagger of Venom (DDAL5-17)","Drow-made Dagger (WDotMM)","Dwarven Thrower: Skyfist (DDEP4)","Glaive of Warning: The Harbinger (CCC-EPI1-2)","Javelin of Lightning (CCC-BFG1-3)","Javelin of Lightning (CCC-BMG-MOON6-3)","Javelin of Lightning (CCC-BMG-MOON16-1)","Javelin of Lightning (CCC-GAD2-2)","Javelin of Lightning (CCC-SAC-4)","Javelin of Lightning (CCC-SFBAY-4-1)","Javelin of Lightning (DDAL8-5)","Javelin of Warning: Jeny's Hairpin (CCC-VOTE-1-1)","Net of Warning (CCC-ELF-3-1)","Oathbow: Syranna's Folly (CCC-OCC-1)","Oathbow (DDAL-DRW8)","Trident of Fish Command (CCC-BMG-MOON14-1)","Trident of Fish Command (CCC-TAROT2-8)","Trident of Fish Command (CCC-WWC-2)","Trident of Warning (DDEX2-3)","Vicious Glaive: Ptahrek’s Glaive (CCC-SVH1-2)","Vicious Spear (DDAL0-13)","Trident of Warning (CCC-TRI-34)","Weapon of Warning (DDAL0-7)","Whip of Warning (CCC-GHC-BK2-10)","Whip of Warning (DDAL4-2)"],
+	choices : ["Berserker Flail (CCC-UCON-1)","Dagger of Blindsight: Panther's Claw (RMH-9)","Dagger of Venom: Fang of Sibyl (CCC-GARY-1)","Dagger of Venom (DDAL4-11)", "Dagger of Venom (DDAL5-17)","Drow-made Dagger (WDotMM)","Dwarven Thrower: Skyfist (DDEP4)","Glaive of Warning: The Harbinger (CCC-EPI1-2)","Glaive of Warning: Losspatan's War-scythe (CCC-GGC-2-1)","Javelin of Lightning (CCC-BFG1-3)","Javelin of Lightning (CCC-BMG-MOON6-3)","Javelin of Lightning (CCC-BMG-MOON16-1)","Javelin of Lightning (CCC-GAD2-2)","Javelin of Lightning (CCC-SAC-4)","Javelin of Lightning (CCC-SFBAY-4-1)","Javelin of Lightning (DDAL8-5)","Javelin of Warning: Jeny's Hairpin (CCC-VOTE-1-1)","Moon Sickle +1 (DDAL-DRW10)","Moon Sickle +2: Tsukikama (WBW-DC-PHP-1)","Net of Warning (CCC-ELF-3-1)","Oathbow: Syranna's Folly (CCC-OCC-1)","Oathbow (DDAL-DRW8)","Trident of Fish Command (CCC-BMG-MOON14-1)","Trident of Fish Command (CCC-TAROT2-8)","Trident of Fish Command (CCC-WWC-2)","Trident of Warning (DDEX2-3)","Vicious Glaive: Ptahrek’s Glaive (CCC-SVH1-2)","Vicious Spear (DDAL0-13)","Trident of Warning (CCC-TRI-34)","Weapon of Warning (DDAL0-7)","Whip of Warning (CCC-GHC-BK2-10)","Whip of Warning (DDAL4-2)"],
 	"berserker flail (ccc-ucon-1)" : {
 		name : "Berserker Flail (CCC-UCON-1)",
 		source : [["AL","CCC"]],
@@ -3498,6 +3559,19 @@ MagicItemsList["al weapons (other)"] = {
 			hp : function (totalHD) { return [totalHD]; }
 		}
 	},
+	"dagger of blindsight: panther's claw (rmh-9)" : {
+		name : "Panther's Claw (Dagger of Blindsight)",
+		source : [["AL:RMH",9]],
+		type : "weapon (dagger)",
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "This magical dagger is made from an immense panther claw, set into a hilt of polished bone & wrapped in glossy black fur. While attuned, you have blindsight to a range of 30 ft and gain a penchant for consuming raw, bloody meat.",
+		descriptionFull : "This dagger is fashioned from the claw of an immense panther, set into a hilt of polished bone wrapped in glossy, black fur. A creature attuned to the dagger gains a penchant for consuming raw, bloody meat.\n   This rare magic item requires attunement. A creature attuned to it gains blindsight out to a range of 30 feet. The dagger has a saw-toothed edge and a black pearl nested in its pommel.",
+		attunement : true,
+		weight : 1,
+		weaponsAdd : ["Panther's Claw, Dagger of Blindsight"],
+		vision : [["Blindsight", 30]]
+	},
 	"dagger of venom: fang of sibyl (ccc-gary-1)" : {
 		name : "Fang of Sibyl (Dagger of Venom)",
 		source : [["AL","CCC"]],
@@ -3511,12 +3585,12 @@ MagicItemsList["al weapons (other)"] = {
 		usages : 1,
 		recovery : "dawn",
 		action : [["action", " (Coat)"]],
-		weaponsAdd : ["Dagger of Venom"],
+		weaponsAdd : ["Dang of Sibyl, Dagger of Venom"],
 		weaponOptions : {
 			baseWeapon : "dagger",
 			regExpSearch : /^(?=.*fang)(?=.*sibyl).*$/i,
-			name : "Dagger of Venom",
-			source : [["SRD", 215], ["D", 161] ["AL","CCC"]],
+			name : "Fang of Sibyl, Dagger of Venom",
+			source : [["AL","CCC"]],
 			description : "Finesse, light, thrown; If coated, DC 15 Con save or +2d10 poison damage \u0026 1 min poisoned",
 			modifiers : [1, 1]
 		}
@@ -3539,7 +3613,7 @@ MagicItemsList["al weapons (other)"] = {
 			baseWeapon : "dagger",
 			regExpSearch : /^(?=.*dagger)(?=.*venom).*$/i,
 			name : "Dagger of Venom",
-			source : [["SRD", 215], ["D", 161] ["AL","S4"]],
+			source : [["AL","S4"]],
 			description : "Finesse, light, thrown; If coated, DC 15 Con save or +2d10 poison damage \u0026 1 min poisoned",
 			modifiers : [1, 1]
 		}
@@ -3562,7 +3636,7 @@ MagicItemsList["al weapons (other)"] = {
 			baseWeapon : "dagger",
 			regExpSearch : /^(?=.*dagger)(?=.*venom).*$/i,
 			name : "Dagger of Venom",
-			source : [["SRD", 215], ["D", 161] ["AL","S5"]],
+			source : [["AL","S5"]],
 			description : "Finesse, light, thrown; If coated, DC 15 Con save or +2d10 poison damage \u0026 1 min poisoned",
 			modifiers : [1, 1]
 		}
@@ -3602,7 +3676,7 @@ MagicItemsList["al weapons (other)"] = {
 			baseWeapon : "warhammer",
 			regExpSearch : /^(?=.*dwarven)(?=.*thrower)(?=.*skyfist).*$/i,
 			name : "Skyfist, Dwarven Thrower",
-			source : [["SRD", 220], ["D", 167] ["AL","S4"]],
+			source : [["AL","S4"]],
 			range : "Melee, 20/60 ft",
 			description : "Thrown, versatile (1d10); +1d8 dmg when thrown (2d8 vs. giants) and returns immediately",
 			modifiers : [3, 3] // add 3 to each to hit and damage because of the magical bonus
@@ -3618,12 +3692,30 @@ MagicItemsList["al weapons (other)"] = {
 			advantages : [["Initiative", true]],
 			savetxt : { immune : ["surprised"] },
 			description : "This massive scythe, the Harbinger, was forged from the darkest shadows of the plane of Gehenna, home of the orcish god Shaargas. The weapon's material is light & doesn't cast a shadow, though shadows warn its wielder of impending danger. While it's on your person, you have adv. on initiative. Also, you & your allies w/i 30 ft can't be surprised & the weapon magically awakens all of you when combat starts, unless incapacitated by something other than nonmagical sleep.",
-			descriptionFull : "The Harbinger is a massive scythe was forged from the darkest shadows from the plane of Gehenna, home of the orcish god Shaargas. The material is light, and does not cast its own shadow. However, the item gives its user an uncanny ability for shadows to warn the user of impending danger. While the weapon is on your person, you have advantage on initiative rolls. In addition, you and any of your companions within 30 feet of you can't be surprised, except when incapacitated by something other than nonmagical sleep. The weapon magically awakens you and your companions within range if any of you are sleeping naturally when combat begins.",
+			descriptionFull : "The Harbinger is a massive scythe was forged from the darkest shadows from the plane of Gehenna, home of the orcish god Shaargas. The material is light, and does not cast its own shadow. However, the item gives its user an uncanny ability for shadows to warn the user of impending danger.\n   While the weapon is on your person, you have advantage on initiative rolls. In addition, you and any of your companions within 30 feet of you can't be surprised, except when incapacitated by something other than nonmagical sleep. The weapon magically awakens you and your companions within range if any of you are sleeping naturally when combat begins.",
 			weaponsAdd : ["Harbinger, Glaive of Warning"],
 			weaponOptions : {
-			baseWeapon : "glaive",
-			regExpSearch : /^(?=.*glaive)(?=.*warning)(?=.*harbinger).*$/i,
-			name : "Harbinger, Glaive of Warning",
+				baseWeapon : "glaive",
+				regExpSearch : /^(?=.*glaive)(?=.*warning)(?=.*harbinger).*$/i,
+				name : "Harbinger, Glaive of Warning",
+				}
+			},
+	"glaive of warning: losspatan's war-scythe (ccc-ggc-2-1)" : {
+			name : "Losspatan’s War-scythe, Glaive of Warning (CCC-GGC-2-1)",
+			source : [["AL","CCC"]],
+			type : "weapon (glaive)",
+			rarity : "uncommon",
+			magicItemTable : "F",
+			attunement : true,
+			advantages : [["Initiative", true]],
+			savetxt : { immune : ["surprised"] },
+			description : "This war-scythe consists of a reddish 10-ft wooden pole with a curved scythe-like blade at the top that's etched with infernal runes. Along the base of the pole is the preserved tail of a fiendish creature, which emanates a foul odor of rot. When trouble is nearby, the tail whips & thrashes to warn of impending danger. While it's on your person, you have adv. on initiative. Also, you & your allies w/i 30 ft can't be surprised & the weapon magically awakens all of you when combat starts, unless incapacitated by something other than nonmagical sleep.",
+			descriptionFull : "This war-scythe consists of a long reddish wooden pole about 10 feet in length with an attached curved scythe-like blade on the top end. The blade is etched with infernal runes. Along the base of the pole is the preserved tail of some fiendish creature. When trouble is nearby the tail whips and thrashes about warnings of the impending situation. Although preserved, the tail emanates a foul odor of rot.\n   This magic weapon warns you of danger. While the weapon is on your person, you have advantage on initiative rolls. In addition, you and any of your companions within 30 feet of you can't be surprised, except when incapacitated by something other than nonmagical sleep. The weapon magically awakens you and your companions within range if any of you are sleeping naturally when combat begins.",
+			weaponsAdd : ["Losspatan’s War-scythe, Glaive of Warning"],
+			weaponOptions : {
+				baseWeapon : "glaive",
+				regExpSearch : /^(?=.*glaive)(?=.*warning)(?=.*losspatan|losspatan's)(?=.*war-scythe).*$/i,
+				name : "Losspatan’s War-scythe, Glaive of Warning",
 				}
 			},
 	"javelin of lightning (ccc-bfg1-3)" : { // contains contributions by Larry Hoy
@@ -3643,7 +3735,7 @@ MagicItemsList["al weapons (other)"] = {
 			baseWeapon : "javelin",
 			regExpSearch : /^(?=.*javelin)(?=.*lightning).*$/i,
 			name : "Javelin of Lightning",
-			source : [["SRD", 228], ["D", 178] ["AL","CCC"]],
+			source : [["AL","CCC"]],
 			description : "Thrown; Once per dawn special attack, see item description"
 		}
 	},
@@ -3664,7 +3756,7 @@ MagicItemsList["al weapons (other)"] = {
 			baseWeapon : "javelin",
 			regExpSearch : /^(?=.*javelin)(?=.*lightning).*$/i,
 			name : "Javelin of Lightning",
-			source : [["SRD", 228], ["D", 178] ["AL","CCC"]],
+			source : [["AL","CCC"]],
 			description : "Thrown; Once per dawn special attack, see item description"
 		}
 	},
@@ -3685,7 +3777,7 @@ MagicItemsList["al weapons (other)"] = {
 			baseWeapon : "javelin",
 			regExpSearch : /^(?=.*javelin)(?=.*lightning).*$/i,
 			name : "Javelin of Lightning",
-			source : [["SRD", 228], ["D", 178] ["AL","CCC"]],
+			source : [["AL","CCC"]],
 			description : "Thrown; Once per dawn special attack, see item description"
 		}
 	},
@@ -3706,7 +3798,7 @@ MagicItemsList["al weapons (other)"] = {
 			baseWeapon : "javelin",
 			regExpSearch : /^(?=.*javelin)(?=.*lightning).*$/i,
 			name : "Javelin of Lightning",
-			source : [["SRD", 228], ["D", 178] ["AL","CCC"]],
+			source : [["AL","CCC"]],
 			description : "Thrown; Once per dawn special attack, see item description"
 		}
 	},
@@ -3727,7 +3819,7 @@ MagicItemsList["al weapons (other)"] = {
 			baseWeapon : "javelin",
 			regExpSearch : /^(?=.*javelin)(?=.*lightning).*$/i,
 			name : "Javelin of Lightning",
-			source : [["SRD", 228], ["D", 178] ["AL","CCC"]],
+			source : [["AL","CCC"]],
 			description : "Thrown; Once per dawn special attack, see item description"
 		}
 	},
@@ -3748,7 +3840,7 @@ MagicItemsList["al weapons (other)"] = {
 			baseWeapon : "javelin",
 			regExpSearch : /^(?=.*javelin)(?=.*lightning).*$/i,
 			name : "Javelin of Lightning",
-			source : [["SRD", 228], ["D", 178] ["AL","CCC"]],
+			source : [["AL","CCC"]],
 			description : "Thrown; Once per dawn special attack, see item description"
 		}
 	},
@@ -3769,7 +3861,7 @@ MagicItemsList["al weapons (other)"] = {
 			baseWeapon : "javelin",
 			regExpSearch : /^(?=.*javelin)(?=.*lightning).*$/i,
 			name : "Javelin of Lightning",
-			source : [["SRD", 228], ["D", 178] ["AL","S8"]],
+			source : [["AL","S8"]],
 			description : "Thrown; Once per dawn special attack, see item description"
 		}
 	},
@@ -3791,6 +3883,56 @@ MagicItemsList["al weapons (other)"] = {
 			name : "Jeny's Hairpin, Javelin of Warning",
 				}
 			},
+	"moon sickle +1 (ddal-drw10)" : {
+			name : "Moon Sickle +1 (DDAL-DRW10)",
+			source : [["AL","DRW"]],
+			type : "weapon (sickle)",
+			attunement : true,
+			rarity : "uncommon",
+			prerequisite : "Requires attunement by a druid or ranger",
+			prereqeval : function(v) {
+				return classes.known.druid || classes.known.ranger || classes.known.rangerua ? true : false;
+				},
+			description : "This silver sickle glimmers softly with moonlight. While holding this +1 sickle, you also gain a +1 bonus to spell atk rolls & saving throw DCs of druid & ranger spells. Spells you cast that restore HP add 1d4 to the total & a number of ivy leaves equal to the hp restored sprout from the haft & fall away.",
+			descriptionFull : "This moonsickle is handcrafted with sophistication in mind. The blade is artisanally forged and is very sharp. The handle is made of oakwood, is varnished and is finished with a bright sheen. The phrase “Mithral Chef” is also etched on the base of the handle."+
+			"\n   This silver-bladed sickle glimmers softly with moonlight. While holding this magic weapon, you gain a bonus to attack and damage rolls made with it, and you gain a bonus to spell attack rolls and the saving throw DCs of your druid and ranger spells. The bonus is determined by the weapon's rarity. In addition, you can use the sickle as a spellcasting focus for your druid and ranger spells."+
+			"\n   When you cast a spell that restores hit points, you can roll a d4 and add the number rolled to the amount of hit points restored, provided you are holding the sickle.",
+			weight : 2,
+		calcChanges : {
+				spellCalc : [
+				function (type, spellcasters, ability) {
+					if (type !== "prepare" && (/druid|ranger/).test(spellcasters)) return 1;
+				},
+				"While holding the Moon Sickle, I gain a +1 bonus to the spell attack rolls and saving throw DCs of my druid and ranger spells."
+			]
+		},
+		weaponsAdd : ["Tsukikama, Moon Sickle +2"]
+	},
+	"moon sickle +2: tsukikama (wbw-dc-php-1)" : {
+			name : "Tsukikama, Moon Sickle +2 (WBW-DC-PHP-1)",
+			source : [["AL","WBW-DC"]],
+			type : "weapon (sickle)",
+			attunement : true,
+			rarity : "rare",
+			prerequisite : "Requires attunement by a druid or ranger",
+			prereqeval : function(v) {
+				return classes.known.druid || classes.known.ranger || classes.known.rangerua ? true : false;
+				},
+			description : "This sophisticated handcrafted silver sickle glimmers softly with moonlight. The sharp blade is artisanally forged & the handle is made of oak, varnished & finished with a bright sheen. The phrase “Mithral Chef” is etched on the handle. While holding this +2 sickle, you also gain a +2 bonus to spell atk rolls & saving throw DCs of druid & ranger spells. Spells you cast that restore HP add 1d4 to the total restored.",
+			descriptionFull : "This moonsickle is handcrafted with sophistication in mind. The blade is artisanally forged and is very sharp. The handle is made of oakwood, is varnished and is finished with a bright sheen. The phrase “Mithral Chef” is also etched on the base of the handle."+
+			"\n   This silver-bladed sickle glimmers softly with moonlight. While holding this magic weapon, you gain a bonus to attack and damage rolls made with it, and you gain a bonus to spell attack rolls and the saving throw DCs of your druid and ranger spells. The bonus is determined by the weapon's rarity. In addition, you can use the sickle as a spellcasting focus for your druid and ranger spells."+
+			"\n   When you cast a spell that restores hit points, you can roll a d4 and add the number rolled to the amount of hit points restored, provided you are holding the sickle.",
+			weight : 2,
+		calcChanges : {
+				spellCalc : [
+				function (type, spellcasters, ability) {
+					if (type !== "prepare" && (/druid|ranger/).test(spellcasters)) return 2;
+				},
+				"While holding the Moon Sickle, I gain a +2 bonus to the spell attack rolls and saving throw DCs of my druid and ranger spells."
+			]
+		},
+		weaponsAdd : ["Tsukikama, Moon Sickle +2"]
+	},
 	"net of warning (ccc-elf-3-1)" : {
 			name : "Net of Warning (CCC-ELF-3-1)",
 			source : [["AL","CCC"]],
@@ -3826,7 +3968,7 @@ MagicItemsList["al weapons (other)"] = {
 			baseWeapon : "longbow",
 			regExpSearch : /^(?=.*oathbow)(?=.*syranna|syranna's)(?=.*folly).*$/i,
 			name : "Syranna's Folly, Oathbow",
-			source : [["SRD", 231], ["D", 183] ["AL","CCC"]],
+			source : [["AL","CCC"]],
 			description : "Ammunition, heavy, two-handed; Vs. sworn enemy: adv, +3d6 damage, no cover/range penalties"
 		}
 	},
@@ -3846,7 +3988,7 @@ MagicItemsList["al weapons (other)"] = {
 			baseWeapon : "longbow",
 			regExpSearch : /oathbow/i,
 			name : "Oathbow",
-			source : [["SRD", 231], ["D", 183] ["AL","DRW"]],
+			source : [["AL","DRW"]],
 			description : "Ammunition, heavy, two-handed; Vs. sworn enemy: adv, +3d6 damage, no cover/range penalties"
 		}
 	},
@@ -3869,7 +4011,7 @@ MagicItemsList["al weapons (other)"] = {
 			baseWeapon : "trident",
 			regExpSearch : /^(?=.*trident)(?=.*fish)(?=.*command).*$/i,
 			name : "Trident of Fish Command",
-			source : [["SRD", 247], ["D", 209] ["AL","CCC"]],
+			source : [["AL","CCC"]],
 		},
 		fixedDC : 15,
 		spellFirstColTitle : "Ch",
@@ -3905,7 +4047,7 @@ MagicItemsList["al weapons (other)"] = {
 			baseWeapon : "trident",
 			regExpSearch : /^(?=.*trident)(?=.*fish)(?=.*command).*$/i,
 			name : "Trident of Fish Command",
-			source : [["SRD", 247], ["D", 209] ["AL","CCC"]],
+			source : [["AL","CCC"]],
 		},
 		fixedDC : 15,
 		spellFirstColTitle : "Ch",
@@ -3941,7 +4083,7 @@ MagicItemsList["al weapons (other)"] = {
 			baseWeapon : "trident",
 			regExpSearch : /^(?=.*trident)(?=.*fish)(?=.*command).*$/i,
 			name : "Trident of Fish Command",
-			source : [["SRD", 247], ["D", 209] ["AL","CCC"]],
+			source : [["AL","CCC"]],
 		},
 		fixedDC : 15,
 		spellFirstColTitle : "Ch",
@@ -3974,6 +4116,7 @@ MagicItemsList["al weapons (other)"] = {
 				baseWeapon : "trident",
 				regExpSearch : /^(?=.*trident)(?=.*warning).*$/i,
 				name : "Trident of Warning",
+				source : [["AL","S2"]],
 				}
 			},
 	"vicious glaive: ptahrek’s glaive (ccc-svh1-2)" : {
@@ -3988,7 +4131,7 @@ MagicItemsList["al weapons (other)"] = {
 			baseWeapon : "glaive",
 			regExpSearch : /^(?=.*glaive)(?=.*vicious)(?=.*ptahrek|ptharek's).*$/i,
 			name : "Ptahrek’s Vicious Glaive",
-			source : [["SRD", 248], ["D", 209] ["AL","CCC"]],
+			source : [["AL","CCC"]],
 			description : "Heavy, reach, two-handed; On nat 20 to hit: +7 damage",
 		}
 	},
@@ -4004,7 +4147,7 @@ MagicItemsList["al weapons (other)"] = {
 			baseWeapon : "spear",
 			regExpSearch : /^(?=.*spear)(?=.*vicious).*$/i,
 			name : "Vicious Spear",
-			source : [["SRD", 248], ["D", 209] ["KOSC",82]],
+			source : [["KOSC",82]],
 			description : "Thrown, versatile (1d8); On nat 20 to hit: +7 damage",
 		}
 	},

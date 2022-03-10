@@ -533,7 +533,7 @@ MagicItemsList["al new items"] = {
 		name : "AL New Items",
 		type : "wondrous item",
 		allowDuplicates : true,
-		choices : ["Achis Atracta (CCC-BMG-30 HILL2-3)","Bag of Tricks or Treats","Bookmark of Memory (WBW-PR)","Cariboots","Dagger of the Hidden Lord (DDHC-DIA-2)","Discord (DDAL-DRW15)","Eye of Xxiphu (DDAL5-19)","Fey Hound Collar","Fold-Up Friend (WBW-PR)","Giant's Gloves (WBW-PR)","Ghost Sheet","Hat of Witchery","Hellrider's Badge (DDEP9-2)","Lemure Onesie","Mind-Poison Dagger (DDHC-MORD-05)","Mist Hunters Magnificent Cap (RMH Safety Tools)","Nettle (DDEP4)","Oathbinder (DDHC-TOA-15)","Order of the Guardians Ring (RMH Safety Tools)","Owlbear Snowshoes","Pearl of Elocution (WBW-PR)","Pipes of Remembrance","Pocket Watch (WBW-PR)","Pumpkin Ring","Selûne's Owl-Eye Glasses","Shar's Veil","Spare (DDHC-TOA-13)","Tarot Card Set","Wand of Whimsy (WBW-PR)","Wooden Gecko Earrings (DDHC-TOA-8)"],
+		choices : ["Achis Atracta (CCC-BMG-30 HILL2-3)","Bag of Tricks or Treats","Bookmark of Memory (WBW-PR)","Cariboots","Dagger of the Hidden Lord (DDHC-DIA-2)","Discord (DDAL-DRW15)","Eye of Xxiphu (DDAL5-19)","Fey Hound Collar","Fold-Up Friend (WBW-PR)","Giant's Gloves (WBW-PR)","Ghost Sheet","Hat of Witchery","Hellrider's Badge (DDEP9-2)","Lemure Onesie","Mind-Poison Dagger (DDHC-MORD-05)","Mist Hunters Magnificent Cap (RMH Safety Tools)","Nettle (DDEP4)","Oathbinder (DDHC-TOA-15)","Order of the Guardians Ring (RMH Safety Tools)","Owlbear Snowshoes","Pearl of Elocution (WBW-PR)","Pipes of Remembrance","Pocket Watch (WBW-PR)","Pumpkin Ring","Selûne's Owl-Eye Glasses","Shar's Veil","Spare (DDHC-TOA-13)","Tarot Card Set","Wand of Whimsy (WBW-PR)","Woe (DDAL-DRW16)","Wooden Gecko Earrings (DDHC-TOA-8)"],
 	"achis atracta (ccc-bmg-30 hill2-3)" : { // contributed by AelarTheElfRogue
 		name : "Achis Atracta (CCC-BMG-30 HILL2-3)",
 		source : [["AL","CCC"]],
@@ -595,7 +595,7 @@ MagicItemsList["al new items"] = {
 		source : [["AL","DRW"]],
 		rarity : "unique",
 		allowDuplicates : true,
-		description : "This magical armor is made of sharp interlocking spikes of green crystal & extinguishes all nonmagical flames within 30 ft. You hear insidious whispers from just beyond your peripheral vision. Unless deafened, you have disadvantage on saving throws caused by, & Wisdom checks related to, Father Llymic & its allies. Once per dawn, you can use your reaction to see normally in magical & nonmagical darkness for 120 ft until your next turn starts. If also wielding Woe (a longsword), you're unharmed by temps as low as −60 \u00B0F",
+		description : "This magical armor is made of sharp interlocking spikes of green crystal & extinguishes all nonmagical flames in 30 ft. You hear insidious whispers from just beyond your peripheral vision. Unless deafened, you have disadvantage on saving throws caused by, & Wisdom checks related to, Father Llymic & its allies. As a reaction once per dawn, you can see normally in magical & nonmagical darkness for 120 ft until your next turn starts. If also wielding Woe, you're unharmed by temps as low as −60 \u00B0F",
 		descriptionFull : "Discord is comprised of sharp, interlocking spikes of green crystal and extinguishes all nonmagical flames within 30 feet of it. A creature wearing Discord hears insidious whispers originating from a point just beyond their peripheral vision. Unless deafened, the creature has disadvantage on saving throws caused by, and on Wisdom checks related to, Father Llymic and its allies.\n   While wearing this armor, you gain a +2 bonus to AC. In addition, you can use your reaction to see normally in darkness, both magical and nonmagical, out to a distance of 120 feet until the start of your next turn. Discord can’t be used this way again until the next dawn.\n   If a character wields Woe (a longsword) while wearing Discord, they are unharmed by temperatures as low as −60 degrees Fahrenheit.",
 		action : [["reaction", "Discord (120 ft Devil Sight)"]],
 		limfeaname : "Discord (120 ft Devil Sight)",
@@ -895,6 +895,23 @@ MagicItemsList["al new items"] = {
 		description : "This wand has 8 charges. While holding it, you can expend 1 charge as an action to create one of these effects: Change the hair color or hair style of a visible creature within 50 ft; cause a small cloud of butterflies to flutter from the tip of the wand; conjure a brief tinkling melody from the wand. The wand regains 1d6 + 1 charges at dawn. If you use the last charge, roll a d20. On a 1, the wand transforms into a cloud of butterflies that flutter away.",
 		descriptionFull : "This wand has 8 charges. While holding it, you can use an action to expend 1 of its charges and create one of the following effects:\n \u2022 Change the hair color or hair style of a creature you can see within 50 feet.\n \u2022 Cause a small cloud of butterflies to flutter from the tip of the wand.\n \u2022 Conjure a brief, tinkling melody from the wand.\n   The wand regains 1d6 + 1 expended charges daily at dawn. If you expend the wand’s last charge, roll a d20. On a 1, the wand transforms into a cloud of butterflies, which flutter away."
 		},
+	"woe (ddal-drw16)" : {
+		name : "Woe (DDAL-DRW16)",
+		source : [["AL","DRW"]],
+		type : "weapon (longsword)",
+		rarity : "unique",
+		attunement : true,
+		description : "This blade, formed from Father Llymic’s urge to destroy, is made from a bizarre icy crystal that appears to bend & twist when viewed peripherally. You have a +3 bonus to atk & dmg rolls made with this magic longsword & when presented with the chance to act violently, Woe heightens your urge to do so. If you wield Woe while wearing Discord, you're unharmed by temperatures as low as −60 degrees Fahrenheit. Until you remove Discord, you gain the flaw “Bright light enrages me.”",
+		descriptionLong : "This blade, formed from Father Llymic’s urge to destroy, is made from a bizarre, icy crystal that appears to bend and twist when viewed peripherally. When Woe’s bearer is presented with an opportunity to act violently, Woe heightens its urge to do so. You have a +3 bonus to attack and damage rolls made with this magic weapon. If you wield Woe while wearing Discord, you're unharmed by temperatures as low as −60 degrees Fahrenheit. Additionally, until you remove Discord, you gain the flaw “Bright light enrages me.”",
+		descriptionFull : "This blade, formed from Father Llymic’s urge to destroy, is made from a bizarre, icy crystal that appears to bend and twist when viewed peripherally. When Woe’s bearer is presented with an opportunity to act violently, Woe heightens its urge to do so.\n   You have a +3 bonus to attack and damage rolls made with this magic weapon.\n   If a character wields Woe while wearing Discord (plate armor from DDAL-DRW-15 Frozen Whispers), they are unharmed by temperatures as low as −60 degrees Fahrenheit. Additionally, until the character removes Discord, they gain the flaw “Bright light enrages me.”",
+	weaponsAdd : ["Woe"],
+		weaponOptions : {
+		baseWeapon : "longsword",
+		regExpSearch : /^(?=.*woe).*$/i,
+		name : "Woe",
+		modifiers : [3, 3]
+				},
+	},
 	"wooden gecko earrings (ddhc-toa-8)" : {
 		name : "Wooden Gecko Earrings (DDHC-TOA-8)",
 		source : [["AL","S7"]],

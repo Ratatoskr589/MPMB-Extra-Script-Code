@@ -1,3 +1,21 @@
+Changelog (After 2/4/22):
+
+AL Magic Items:
+-Removed the item from WBW-DC-Sunlit-4 since it was removed from the module
+-Added full descriptions to Wands of the War Mage
+-Added additional items from modules
+
+AL Weapons:
+-Added additional RMH items
+-Added additional items from modules
+
+AL Armor:
+-Added additional items from modules
+
+AL Special Items:
+-Added additional items from modules
+
+
 Changelog (After 1/14/22):
 
 Guild Adept Backgrounds:

@@ -41,7 +41,7 @@ MagicItemsList["al adamantine/mithral armor"] = {
 		rarity : "uncommon",
 		allowDuplicates : true,
 		choicesNotInMenu : true,		
-	choices : ["Adamantine Armor (DDAL0-1)","Adamantine Chain (CCC-SALT1-1)","Adamantine Chain Shirt (CCC-BMG-MOON3-2)","Adamantine Chain Shirt (CCC-PDXAGE-1-1)","Adamantine Chain Shirt (DDEP5-2)","Adamantine Chain Mail (CCC-BMG-MOON5-1)","Adamantine Plate: Durgeddin's Unbreakable Auspice (DDEP6-1)","Mithral Scale Barding (DC-POA-CONMAR-18)","Mithral Scale Barding (DC-POA-DRAGON-2)","Mithral Scale Barding (DC-POA-GaryXIII-2)","Mithral Scale Barding: G.O.A.T. Barding (DC-POA-TDG1-8)","Mithral Scale Mail (CCC-ODFC2-1)","Mithral Scale Mail: Hulk-Buster Armor (DC-POA-TDG1-7)","Mithral Breastplate (CCC-BMG-MOON16-2)","Mithral Half Plate (CCC-GLIP-1-3)","Mithral Splint: Armor of Insults (CCC-GSP-OOZE1-1)","Mithral Splint (DDAL5-4)","Mithral Plate (DDHC-MORD-1)"],	
+	choices : ["Adamantine Armor (DDAL0-1)","Adamantine Chain (CCC-SALT1-1)","Adamantine Chain Shirt (CCC-BMG-MOON3-2)","Adamantine Chain Shirt (CCC-PDXAGE-1-1)","Adamantine Chain Shirt (DDEP5-2)","Adamantine Chain Mail (CCC-BMG-MOON5-1)","Adamantine Plate: Durgeddin's Unbreakable Auspice (DDEP6-1)","Mithral Scale Barding (DC-POA-CONMAR-18)","Mithral Scale Barding (DC-POA-DRAGON-2)","Mithral Scale Barding (DC-POA-GaryXIII-2)","Mithral Scale Barding: G.O.A.T. Barding (DC-POA-TDG1-8)","Mithral Scale Mail (CCC-ODFC2-1)","Mithral Scale Mail: Hulk-Buster Armor (DC-POA-TDG1-7)","Mithral Breastplate (CCC-BMG-MOON16-2)","Mithral Half Plate (CCC-GLIP-1-3)","Mithral Chain Mail (CCC-SAF2-1)","Mithral Splint (CCC-DES-2-2)","Mithral Splint: Armor of Insults (CCC-GSP-OOZE1-1)","Mithral Splint (DDAL5-4)","Mithral Plate (DDHC-MORD-1)"],	
 		"adamantine armor (ddal0-1)" : {
 			name: "Adamantine Armor (DDAL0-1)",
 			source : [["AL","S0"]],
@@ -209,6 +209,31 @@ MagicItemsList["al adamantine/mithral armor"] = {
 				source : [["AL", "CCC"]],
 				}]
 		},
+		"mithral chain mail (ccc-saf2-1)" : {
+			name: "Mithral Chain Mail (CCC-SAF2-1)",
+			source : [["AL","CCC"]],
+			magicItemTable : "F",
+			description : "Mithral is a light, flexible metal, and this chain mail doesn't impose disadvantage on Dex (Stealth) checks. While wearing it, you also suffer no harm in temps from -20 ̊ F to 120 ̊ F. ",
+			descriptionFull : "The armor has the Temperate minor property. The bearer suffers no harm in temperatures as cold as −20 degrees Fahrenheit or as warm as 120 degrees Fahrenheit. Mithral is a light, flexible metal. A mithral chain shirt or breastplate can be worn under normal clothes. If the armor normally imposes disadvantage on Dexterity (Stealth) checks or has a Strength requirement, the mithral version of the armor doesn't.",
+			savetxt : { immune : ["temps btwn -20 ̊ & 120 ̊ F"] },
+			armorAdd : "Mithral Chain Mail",
+			armorOptions : [{
+				name : "Mithral Chain Mail",
+				source : [["AL", "CCC"]],
+				}]
+		},
+	"mithral splint (ccc-des-2-2)" : {
+		name : "Mithral Splint (CCC-DES-2-2)",
+		source : [["AL","CCC"]],
+		magicItemTable : "B",
+		description : "Stylized into the plates & embossed on the gauntlets of this armor is the symbol of Torin Nomerthal, the former First Lord of Hillsfar. This tyrannical leader reinstated the “Great Law of Humanity” that barred nonhumans from entering the city. While wearing this armor, you suffer disadvantage on Charisma checks against creatures who opposed the law. Mithral is a light, flexible metal, & this splint doesn't impose disadv. on Dex (Stealth) checks or require 15 Str.",
+		descriptionFull : "Stylized into the plates and embossed on the gauntlets is the symbol of the former First Lord of Hillsfar, Torin Nomerthal. This tyrannical leader reinstated the “Great Law of Humanity” which barred nonhumans from entering the city. Any character wearing this set of armor suffers disadvantage on Charisma checks against creatures who were against the “Great Law of Humanity”.\n   Mithral is a light, flexible metal. A mithral chain shirt or breastplate can be worn under normal clothes. If the armor normally imposes disadvantage on Dexterity (Stealth) checks or has a Strength requirement, the mithral version of the armor doesn't.",
+			armorAdd : "Mithral Splint",
+			armorOptions : [{
+				name : "Mithral Splint",
+				source : [["AL", "CCC"]],
+				}]
+		},
 	"mithral splint: armor of insults (ccc-gsp-ooze1-1)" : {
 		name : "Armor of Insults (Mithral Splint)",
 		source : [["AL","CCC"]],
@@ -264,7 +289,7 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		"\n  I\t  +3\tSpiked Armor, Splint, Studded Leather",
 		allowDuplicates : true,
 		choicesNotInMenu : true,
-		choices : ["+1 Leather (DDEP7-1)","+1 Studded Leather (CCC-BMG-21 HULB2-3)","+1 Scale Mail: Shroud of the Mourning Warrior (DDAL5-13)","+1 Breastplate: Glass (DDAL0-1)","+1 Half Plate: Bone (CCC-TRI-6 NIGHT1-2)", "+1 Half Plate (DDEP4)","+1 Splint (DDEX1-12)","+1 Splint (DDAL5-4)","+2 Studded Leather (CCC-TRI-23 STORM1-2)","+2 Half Plate: Stone (DDEP7-2)","+2 Splint: Remorhaz (DDEP10-2)","+2 Plate: Stone (CCC-JGD-1)","+3 Hide: Daphnaie Armor (ALSRs11-A)"],
+		choices : ["+1 Leather (DDEP7-1)","+1 Studded Leather (CCC-BMG-21 HULB2-3)","+1 Scale Mail: Shroud of the Mourning Warrior (DDAL5-13)","+1 Breastplate: Glass (DDAL0-1)","+1 Half Plate: Bone (CCC-TRI-6 NIGHT1-2)", "+1 Half Plate (DDEP4)","+1 Splint (DDEX1-12)","+1 Splint (DDAL5-4)","+1 Splint: Remorhaz (DDEP10-2)","+2 Studded Leather (CCC-TRI-23 STORM1-2)","+2 Half Plate: Stone (DDEP7-2)","+2 Splint: Remorhaz (DDEP10-2)","+2 Plate: Stone (CCC-JGD-1)","+3 Hide: Daphnaie Armor (ALSRs11-A)"],
 		"+1 leather (ddep7-1)" : {
 			name : "+1 Leather (DDEP7-1)",
 			source : [["AL","S7"]],
@@ -373,6 +398,20 @@ MagicItemsList["al armor +1, +2, +3"] = {
 			armorOptions : [{
 				name : "+1 Splint",
 				source : [["AL", "S5"]],
+				}]
+			},
+		"+1 splint: remorhaz (ddep10-2)" : {
+			name : "+1 Remorhaz Splint (DDEP10-2)",
+			source : [["AL","S10"]],
+			rarity : "rare",
+			magicItemTable : "H",
+			allowDuplicates : true,
+			description : "This armor is magically treated remorhaz hide that's trimmed with black fur and decorated with feathers and beads. It grants a +1 bonus to AC while worn.",
+			descriptionFull : "This armor is made of magically treated remorhaz hide and is trimmed with black fur and decorated with feathers and beads. It grants a +1 bonus to AC while worn.",
+			armorAdd : "+1 Remorhaz Splint",
+			armorOptions : [{
+				name : "+1 Remorhaz Splint",
+				source : [["AL", "S10"]],
 				}]
 			},
 		"+2 studded leather (ccc-tri-23 storm1-2)" : {
@@ -692,7 +731,7 @@ MagicItemsList["al armor (common)"] = {
 MagicItemsList["al armor (other)"] = {
 		name : "AL Armor (Other)",
 		allowDuplicates : true,
-	choices : ["Breastplate of Necrotic Resistance: Chardalyn (DDAL10-5)","Demon Armor (DDEX3-16)","Efreeti Chain (DDAL7-15)","Elven Chain (CCC-BMG-36 ELMW2-3)","Elven Chain (CCC-SQC-2-2)","Glamoured Studded Leather (DDAL4-9)","Glamoured Studded Leather (DDAL8-11)","Glamoured Studded Leather (DDAL9-6)","Half Plate of Poison Resistance: Mushroom (DDEX3-11)","Mariner's Breastplate (CCC-AETHER-1-2)","Mariner's Breastplate (CCC-MMT1-2)","Mariner's Scale Mail (ALSRs11-A)","Plate Armor of Etherealness (DDAL8-16)","Red Dragon Scale Mail (DDEP5-1)","Red Dragon Scale Mail (DDAL9-15)","Scale Mail of Psychic Resistance: Resin (CCC-TRI-21 YUL1-6)","Studded Leather of Fire Resistance (DDAL0-11C)"],
+	choices : ["Breastplate of Necrotic Resistance: Chardalyn (DDAL10-5)","Demon Armor (DDEX3-16)","Efreeti Chain (DDAL7-15)","Elven Chain (CCC-BMG-36 ELMW2-3)","Elven Chain (CCC-SQC-2-2)","Glamoured Studded Leather (DDAL4-9)","Glamoured Studded Leather (DDAL8-11)","Glamoured Studded Leather (DDAL9-6)","Half Plate of Poison Resistance: Mushroom (DDEX3-11)","Mariner's Studded Leather (DDAL-DRW9)","Mariner's Breastplate (CCC-AETHER-1-2)","Mariner's Breastplate (CCC-MMT1-2)","Mariner's Scale Mail (ALSRs11-A)","Plate Armor of Etherealness (DDAL8-16)","Red Dragon Scale Mail (DDEP5-1)","Red Dragon Scale Mail (DDAL9-15)","Scale Mail of Psychic Resistance: Resin (CCC-TRI-21 YUL1-6)","Studded Leather of Fire Resistance (DDAL0-11C)"],
 	"breastplate of necrotic resistance: chardalyn (ddal10-5)" : {
 			name : "Chardalyn Breastplate of Necrotic Resist. (DDAL10-5)",
 			source : [["AL","S10"]],
@@ -876,6 +915,22 @@ MagicItemsList["al armor (other)"] = {
 				source : [["AL", "S3"]],
 				}]
 		},
+	"mariner's studded leather (ddal-drw9)" : {
+		name : "Mariner's Studded Leather (DDAL-DRW9)",
+		source : [["AL","DRW"]],
+		type : "armor (breastplate)",
+		rarity : "uncommon",
+		magicItemTable : "B",
+		description : "Made from tough, flexible shark leather, this armor is reinforced with close-set coral spikes. While wearing it, you have a swimming speed equal to your walking speed. In addition, whenever you start your turn underwater with 0 hp, you rise 60 ft toward the surface. The armor is decorated with fish & shell motifs.",
+		descriptionFull : "Made from tough, flexible shark leather, this armor is reinforced with close-set coral spikes. While wearing this armor, you have a swimming speed equal to your walking speed. In addition, whenever you start your turn underwater with 0 hit points, the armor causes you to rise 60 feet toward the surface. The armor is decorated with fish and shell motifs.",
+		allowDuplicates : true,
+		armorAdd : "Mariner's Studded Leather",
+		armorOptions : [{
+				name : "Mariner's Studded Leather",
+				source : [["AL", "DRW"]],
+				}],
+		speed : { swim : { spd : "walk", enc : "walk" } }
+	},
 	"mariner's breastplate (ccc-aether-1-2)" : {
 		name : "Mariner's Breastplate (CCC-AETHER-1-2)",
 		source : [["AL","CCC"]],
@@ -1133,7 +1188,7 @@ MagicItemsList["al shields (other)"] = {
 		allowDuplicates : true,
 		type : "shield",
 		weight : 6,
-	choices : ["Animated Shield (DDEP5-2)","Animated Shield (DDEP8-3)","Arrow-Catching Shield (CCC-BMG-MOON13-3)","Arrow-Catching Shield (CCC-GLIP-2-1)","Arrow-Catching Shield (DDAL9-8)","Sentinel Shield (CCC-BMG-MOON11-1)","Sentinel Shield (CCC-WWC-7)","Sentinel Shield (DDAL-CGB)","Sentinel Shield (DDEX2-12)","Spellguard Shield: Warden (CCC-ODFC1-3)","Spellguard Shield (CCC-ROZK1-3)","Spellguard Shield (DDEP7-2)","Spellguard Shield (DDAL-DRWEP02)"],
+	choices : ["Animated Shield (DDEP5-2)","Animated Shield (DDEP8-3)","Arrow-Catching Shield (CCC-BMG-MOON13-3)","Arrow-Catching Shield (CCC-GLIP-2-1)","Arrow-Catching Shield (DDAL9-8)","Arrow-Catching Shield (DDAL-DRWEP3)","Sentinel Shield (CCC-BMG-MOON11-1)","Sentinel Shield (CCC-WWC-7)","Sentinel Shield (DDAL-CGB)","Sentinel Shield (DDEX2-12)","Spellguard Shield: Warden (CCC-ODFC1-3)","Spellguard Shield (CCC-ROZK1-3)","Spellguard Shield (DDEP7-2)","Spellguard Shield (DDAL-DRWEP2)"],
 	"animated shield (ddep5-2)" : {  // contains contributions by Larry Hoy
 		name : "Animated Shield (DDEP5-2)",
 		source : [["AL","S5"]],
@@ -1187,6 +1242,18 @@ MagicItemsList["al shields (other)"] = {
 		magicItemTable : "G",
 		description : "This round, metal shield is decorated w/ braids of hair from the unicorn Zhalruban & emblazoned w/ the insignia of the Hellriders. While wielding it, you gain an additional +2 bonus to AC against ranged attacks (not calculated in 1st page AC). If an attacker makes a ranged atk against a target w/i 5 ft of you, you can become the target of the atk as a reaction. When you do this, the shield pulses with magic.",
 		descriptionFull : "This round, metal shield is decorated with braids of hair from the unicorn Zhalruban and emblazoned with the insignia of the Hellriders on the boss of the shield. The boss itself pulses with magic when the shield attracts ranged attacks.\n   You gain a +2 bonus to AC against ranged attacks while you wield this shield. This bonus is in addition to the shield's normal bonus to AC. In addition, whenever an attacker makes a ranged attack against a target within 5 feet of you, you can use your reaction to become the target of the attack instead.",
+		attunement : true,
+		weight : 6,
+		action : [["reaction", "Arrow-Catching Shield"]],
+		shieldAdd : "Arrow-Catching Shield (+\u200A2 vs. ranged)"
+	},
+	"arrow-catching shield (ddal-drwep3)" : { // contains contributions by Larry Hoy
+		name : "Arrow-Catching Shield (DDAL-DRWEP3)",
+		source : [["AL","DRW"]],
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "This gold-trimmed red shield is emblazoned with Candlekeep’s coat of arms. While wielding it, you gain an additional +2 bonus to AC against ranged attacks (not calculated in 1st page AC). If an attacker makes a ranged atk against a target w/i 5 ft of you, you can become the target of the atk as a reaction. When you do this, the shield pulses with magic.",
+		descriptionFull : "This gold-trimmed red shield is emblazoned with Candlekeep’s coat of arms.\n   You gain a +2 bonus to AC against ranged attacks while you wield this shield. This bonus is in addition to the shield's normal bonus to AC. In addition, whenever an attacker makes a ranged attack against a target within 5 feet of you, you can use your reaction to become the target of the attack instead.",
 		attunement : true,
 		weight : 6,
 		action : [["reaction", "Arrow-Catching Shield"]],
@@ -1270,8 +1337,8 @@ MagicItemsList["al shields (other)"] = {
 		shieldAdd : "Spellguard Shield",
 		savetxt : { adv_vs : ["spells", "magical effects"] }
 	},
-	"spellguard shield (ddal-drwep02)" : {
-		name : "Spellguard Shield (DDAL-DRWEP02)",
+	"spellguard shield (ddal-drwep2)" : {
+		name : "Spellguard Shield (DDAL-DRWEP2)",
 		source : [["AL","DRW"]],
 		rarity : "very rare",
 		magicItemTable : "H",
