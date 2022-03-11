@@ -221,7 +221,7 @@ MagicItemsList["al staffs"] = {
 		name : "AL Staffs",
 		allowDuplicates : true,
 		type : "staff",
-		choices : ["Staff of the Adder (CCC-SRCC1-3)","Staff of Adornment (CCC-3MAGS-ONE)","Staff of Birdcalls (WBW-DC-CONMAR-3)","Staff of Birdcalls (WBW-DC-FDC-3)","Staff of Birdcalls (WBW-DC-HBK-1)","Staff of Charming (DDEX2-2)","Staff of Flowers (CCC-KUMORI-3-1)","Staff of Frost (DDAL0-11E)","Staff of Frost (DDAL-DRW5)","Staff of Healing: Driftwood Staff (CCC-DES-1-2)","Staff of Healing (CCC-GHC-BK2-8)","Staff of Healing (CCC-QCC2019-3)","Staff of Healing (CCC-WYC-2-1)","Staff of Healing (DDEP4)","Staff of the Magi (DDAL7-17)","Staff of Power (DDAL5-19)","Staff of Power (DDEP4)","Staff of the Python (CCC-BMG-MOON7-1)","Staff of the Python: Earth Tender's Branch (CCC-BMG-MOON8-2)","Staff of the Python: Bulkawa's Benevolence (CCC-GSP2-2)","Staff of Striking (CCC-TRI-14 YUL1-3)","Staff of Striking (DDAL7-12)","Staff of Striking (DDAL10-10)","Staff of Swarming Insects (DDEX3-3)","Staff of Thunder and Lightning (DDAL5-8)","Staff of Thunder and Lightning (DDEP5-2)","Staff of Withering (DDEX2-13)","Staff of Withering (DDAL8-13)","Staff of the Woodlands (CCC-BMG-MOON12-1)","Staff of the Woodlands (CCC-GARY-9)","Staff of the Woodlands (DDAL7-8/DDEP7-1)","Staff of the Woodlands: Temperate (WBW-DC-CONMAR-6)","Staff of the Woodlands: Sunlit (WBW-DC-Sunlit-6)"],
+		choices : ["Staff of the Adder (CCC-SRCC1-3)","Staff of Adornment (CCC-3MAGS-ONE)","Staff of Birdcalls (WBW-DC-CONMAR-3)","Staff of Birdcalls (WBW-DC-FDC-3)","Staff of Birdcalls (WBW-DC-HBK-1)","Staff of Charming (DDEX2-2)","Staff of Flowers (CCC-KUMORI-3-1)","Staff of Frost (DDAL0-11E)","Staff of Frost (DDAL-DRW5)","Staff of Healing: Driftwood Staff (CCC-DES-1-2)","Staff of Healing (CCC-GHC-BK2-8)","Staff of Healing (CCC-QCC2019-3)","Staff of Healing (CCC-WYC-2-1)","Staff of Healing (DDEP4)","Staff of the Magi (DDAL7-17)","Staff of Power (DDAL5-19)","Staff of Power (DDEP4)","Staff of the Python (CCC-BMG-MOON7-1)","Staff of the Python: Earth Tender's Branch (CCC-BMG-MOON8-2)","Staff of the Python: Bulkawa's Benevolence (CCC-GSP2-2)","Staff of Striking (CCC-TRI-14 YUL1-3)","Staff of Striking (DDAL7-12)","Staff of Striking (DDAL10-10)","Staff of Swarming Insects (DDEX3-3)","Staff of Thunder and Lightning (DDAL5-8)","Staff of Thunder and Lightning (DDEP5-2)","Staff of Withering (DDEX2-13)","Staff of Withering (DDAL8-13)","Staff of the Woodlands (CCC-BMG-MOON12-1)","Staff of the Woodlands (CCC-GARY-9)","Staff of the Woodlands (DDAL7-8/DDEP7-1)","Staff of the Woodlands: Temperate (WBW-DC-CONMAR-6)","Staff of the Woodlands: Guardian (WBW-DC-HH-2)","Staff of the Woodlands: Sunlit (WBW-DC-Sunlit-6)"],
 	"staff of the adder (ccc-srcc1-3)" : {
 		name : "Staff of the Adder (CCC-SRCC1-3)",
 		source : [["AL","CCC"]],
@@ -1313,6 +1313,158 @@ MagicItemsList["al staffs"] = {
 		usages : 10,
 		recovery : "dawn",
 		additional : "regains 1d6+4",
+		weaponsAdd : ["Staff of the Woodlands"],
+		weaponOptions : {
+			baseWeapon : "quarterstaff",
+			regExpSearch : /^(?=.*staff)(?=.*woodlands).*$/i,
+			name : "Staff of the Woodlands",
+			source : [["SRD", 245], ["D", 204], ["AL","S7"]],
+			modifiers : [2, 2]
+		},
+		calcChanges : {
+			spellCalc : [
+				function (type, spellcasters, ability) {
+					if (type == "attack") return 2;
+				},
+				"While holding the Staff of the Woodlands, I have a +2 bonus to spell attack rolls."
+			]
+		},
+		spellcastingAbility : "class",
+		spellFirstColTitle : "Ch",
+		spellcastingBonus : [{
+			name : "At will",
+			spells : ["pass without trace"],
+			selection : ["pass without trace"],
+			firstCol : "atwill"
+		}, {
+			name : "1 charge",
+			spells : ["animal friendship", "speak with animals"],
+			selection : ["animal friendship", "speak with animals"],
+			firstCol : 1,
+			times : 2
+		}, {
+			name : "2 charges",
+			spells : ["barkskin", "locate animals or plants"],
+			selection : ["barkskin", "locate animals or plants"],
+			firstCol : 2,
+			times : 2
+		}, {
+			name : "3 charges",
+			spells : ["speak with plants"],
+			selection : ["speak with plants"],
+			firstCol : 3
+		}, {
+			name : "5 charges",
+			spells : ["awaken"],
+			selection : ["awaken"],
+			firstCol : 5
+		}, {
+			name : "6 charges",
+			spells : ["wall of thorns"],
+			selection : ["wall of thorns"],
+			firstCol : 6
+		}],
+		spellChanges : {
+			"awaken" : {
+				time : "1 a",
+				changes : "Casting time is only 1 action instead of 8 hours."
+				}
+			}
+		},
+	"staff of the woodlands: temperate (wbw-dc-conmar-6)" : {
+		name : "Temperate Staff of the Woodlands (WBW-DC-CONMAR-6)",
+		source : [["AL","WBW-DC"]],
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "This +2 quarterstaff adds a +2 bonus on spell atks. The braid of bone ends in antlers emerging from a nest of oak leaves & acorns. It's warm to the touch & smells of rich earth. (If you fought the Childe) The staff was once infused with the glow of Turanok’s love for his daughter, now gone after she wielded it against him. A shadow of its former self, the staff holds a sliver of nature’s power. While attuned, you suffer no harm in temperatures from -20 to 120 ̊ F. The staff has 10 charges for spells, regaining 1d6+4 at dawn, 5% chance of losing magic when last charge used. As an action, plant it into the ground & expend 1 charge to grow it into a 60 ft tree.",
+		descriptionLong : "This +2 quarterstaff adds a +2 to spell attack rolls. The braid of bone ends with antlers emerging from a nest of oak leaves & acorns. It's warm to the touch & smells of rich earth. (If you fought the Childe) The staff was once infused with the searing glow of Turanok’s love for his daughter, now gone after she wielded it against him. A shadow of its former self, the staff still holds a sliver of nature’s power. While attuned, you suffer no harm in temperatures from -20 to 120 degrees Fareneheit. It has 10 charges, regaining 1d6+4 at dawn. If the last charge is used, roll a d20. On a 1 it turns nonmagical. As an action, expend charges to cast 1 of these spells using your DC: Pass Without Trace (0 charges), Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges). You can also use 1 charge & an action to plant the staff in fertile earth & turn it into a 60 ft tree. It has a 5-ft-diameter trunk & a 20-ft radius of branches at the top. Speak the command word (action) while touching the tree to return it to a staff.",
+		descriptionFull : "This staff is a braid of bone that ends with antlers emerging from a nest of oak leaves and acorns. It feels warm to the touch, and it smells of the rich earth of Lohringar. If the characters fought the Childe, add the following: This staff was once infused with the searing glow of Turanok’s love for his daughter, now gone after she wielded it against him. Though it is now a shadow of its former self, the staff still holds a sliver of nature’s power.\n   The staff feels warm to the touch, or cool, depending on the weather, as if it regulates the temperature around you. This staff has the temperate minor property from page 148 of the Dungeon Master’s Guide. While attuned to this staff, you suffer no harm in temperatures as cold as -20 degrees Fahrenheit or as warm as 120 degrees Fahrenheit.\n   This staff can be wielded as a magic quarterstaff that grants a +2 bonus to attack and damage rolls made with it. While holding it, you have a +2 bonus to spell attack rolls.\n   The staff has 10 charges for the following properties. It regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff loses its properties and becomes a nonmagical quarterstaff.\n   " + toUni("Spells") + ". You can use an action to expend 1 or more of the staff's charges to cast one of the following spells from it, using your spell save DC: Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges).\n   You can also use an action to cast the Pass Without Trace spell from the staff without using any charges.\n   " + toUni("Tree Form") + ". You can use an action to plant one end of the staff in fertile earth and expend 1 charge to transform the staff into a healthy tree. The tree is 60 feet tall and has a 5-foot-diameter trunk, and its branches at the top spread out in a 20-foot radius. The tree appears ordinary but radiates a faint aura of transmutation magic if targeted by Detect Magic. While touching the tree and using another action to speak its command word, you return the staff to its normal form. Any creature in the tree falls when it reverts to a staff.",
+		attunement : true,
+		savetxt : { immune : ["temps btwn -20 ̊ & 120 ̊ F"] },
+		weight : 4,
+		prerequisite : "Requires attunement by a druid",
+		prereqeval : function(v) { return classes.known.druid ? true : false; },
+		limfeaname : "Staff of the Woodlands",
+		action : [["action", " (grow/revert)"]],
+		usages : 10,
+		recovery : "dawn",
+		additional : "regains 1d6+4",
+		weaponsAdd : ["Staff of the Woodlands"],
+		weaponOptions : {
+			baseWeapon : "quarterstaff",
+			regExpSearch : /^(?=.*staff)(?=.*woodlands).*$/i,
+			name : "Staff of the Woodlands",
+			source : [["SRD", 245], ["D", 204], ["AL","S7"]],
+			modifiers : [2, 2]
+		},
+		calcChanges : {
+			spellCalc : [
+				function (type, spellcasters, ability) {
+					if (type == "attack") return 2;
+				},
+				"While holding the Staff of the Woodlands, I have a +2 bonus to spell attack rolls."
+			]
+		},
+		spellcastingAbility : "class",
+		spellFirstColTitle : "Ch",
+		spellcastingBonus : [{
+			name : "At will",
+			spells : ["pass without trace"],
+			selection : ["pass without trace"],
+			firstCol : "atwill"
+		}, {
+			name : "1 charge",
+			spells : ["animal friendship", "speak with animals"],
+			selection : ["animal friendship", "speak with animals"],
+			firstCol : 1,
+			times : 2
+		}, {
+			name : "2 charges",
+			spells : ["barkskin", "locate animals or plants"],
+			selection : ["barkskin", "locate animals or plants"],
+			firstCol : 2,
+			times : 2
+		}, {
+			name : "3 charges",
+			spells : ["speak with plants"],
+			selection : ["speak with plants"],
+			firstCol : 3
+		}, {
+			name : "5 charges",
+			spells : ["awaken"],
+			selection : ["awaken"],
+			firstCol : 5
+		}, {
+			name : "6 charges",
+			spells : ["wall of thorns"],
+			selection : ["wall of thorns"],
+			firstCol : 6
+		}],
+		spellChanges : {
+			"awaken" : {
+				time : "1 a",
+				changes : "Casting time is only 1 action instead of 8 hours."
+				}
+			}
+		},
+	"staff of the woodlands: guardian (wbw-dc-hh-2)" : {
+		name : "Guardian Staff of the Woodlands (WBW-DC-HH-2)",
+		source : [["AL","WBW-DC"]],
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "This +2 quarterstaff adds +2 to spell atk rolls & grants +2 bonus to initiative when not incapacitated. Crafted by the Lady of The Lake herself from the oldest tree in Monster Timberland & imbued by the power of the forest, it's given to those who pass the Trial of Flower. The staff has 10 charges for its spells (see sheet), regaining 1d6+4 at dawn, 5% chance of losing magic when last charge used. As an action, plant it into the ground & expend 1 charge to grow it into a 60 ft tree.",
+		descriptionLong : "Crafted by the Lady of The Lake herself, this staff is made from the branch of the oldest tree in Monster Timberland and imbued by the power of the forest. Gifted to those who passed the Trial of Flower. This +2 quarterstaff adds +2 to spell attack rolls & whispers warnings, granting a +2 bonus to initiative if you're not incapacitated. It has 10 charges, regaining 1d6+4 at dawn. If the last charge is used, roll a d20. On a 1 it turns nonmagical. As an action, expend charges to cast 1 of these spells using your DC: Pass Without Trace (0 charges), Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges). You can also use 1 charge & an action to plant the staff in fertile earth & turn it into a 60 ft tree. It has a 5-ft-diameter trunk & a 20-ft radius of branches at the top. Speak the command word (action) while touching the tree to return it to a staff.",
+		descriptionFull : "Crafted by the Lady of The Lake itself, this staff is made from the branch of the oldest tree in Monster Timberland and imbued by the power of the forest itself. Instruct by the Lady to the Guardian to hand the staff to those who passed the Trial of Flower.\n   " + toUni("Guardian") + ". The item whispers warnings to its bearer,granting a +2 bonus to initiative if the bearer isn’t incapacitated.\n   This staff can be wielded as a magic quarterstaff that grants a +2 bonus to attack and damage rolls made with it. While holding it, you have a +2 bonus to spell attack rolls.\n   The staff has 10 charges for the following properties. It regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff loses its properties and becomes a nonmagical quarterstaff.\n   " + toUni("Spells") + ". You can use an action to expend 1 or more of the staff's charges to cast one of the following spells from it, using your spell save DC: Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges).\n   You can also use an action to cast the Pass Without Trace spell from the staff without using any charges.\n   " + toUni("Tree Form") + ". You can use an action to plant one end of the staff in fertile earth and expend 1 charge to transform the staff into a healthy tree. The tree is 60 feet tall and has a 5-foot-diameter trunk, and its branches at the top spread out in a 20-foot radius. The tree appears ordinary but radiates a faint aura of transmutation magic if targeted by Detect Magic. While touching the tree and using another action to speak its command word, you return the staff to its normal form. Any creature in the tree falls when it reverts to a staff.",
+		attunement : true,
+		weight : 4,
+		prerequisite : "Requires attunement by a druid",
+		prereqeval : function(v) { return classes.known.druid ? true : false; },
+		limfeaname : "Staff of the Woodlands",
+		action : [["action", " (grow/revert)"],["action", " (North)"]],
+		usages : 10,
+		recovery : "dawn",
+		additional : "regains 1d6+4",
+		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
 		weaponsAdd : ["Staff of the Woodlands"],
 		weaponOptions : {
 			baseWeapon : "quarterstaff",
