@@ -1,3 +1,13 @@
+Changelog (After 3/11/22):
+-Add additional WBW-DC items
+-Added RMH option to AL Magic Armor document.
+-Added DDAL-DRW17 and WBW-DC-RKS-01
+-Added items from new RMH documents
+-Corrected module on Glass Breastplate
+-Added Heresy types to the Heretic background
+-Added items from MOON15
+
+
 Changelog (After 2/4/22):
 
 AL Magic Items:

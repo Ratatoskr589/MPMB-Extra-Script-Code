@@ -533,7 +533,7 @@ MagicItemsList["al new items"] = {
 		name : "AL New Items",
 		type : "wondrous item",
 		allowDuplicates : true,
-		choices : ["Achis Atracta (CCC-BMG-30 HILL2-3)","Bag of Tricks or Treats","Bookmark of Memory (WBW-PR)","Cariboots","Dagger of the Hidden Lord (DDHC-DIA-2)","Discord (DDAL-DRW15)","Eye of Xxiphu (DDAL5-19)","Fey Hound Collar","Fold-Up Friend (WBW-PR)","Giant's Gloves (WBW-PR)","Ghost Sheet","Hat of Witchery","Hellrider's Badge (DDEP9-2)","Lemure Onesie","Mind-Poison Dagger (DDHC-MORD-05)","Mist Hunters Magnificent Cap (RMH Safety Tools)","Nettle (DDEP4)","Oathbinder (DDHC-TOA-15)","Order of the Guardians Ring (RMH Safety Tools)","Owlbear Snowshoes","Pearl of Elocution (WBW-PR)","Pipes of Remembrance","Pocket Watch (WBW-PR)","Pumpkin Ring","Selûne's Owl-Eye Glasses","Shar's Veil","Spare (DDHC-TOA-13)","Tarot Card Set","Wand of Whimsy (WBW-PR)","Woe (DDAL-DRW16)","Wooden Gecko Earrings (DDHC-TOA-8)"],
+		choices : ["Achis Atracta (CCC-BMG-30 HILL2-3)","Bag of Tricks or Treats","Bone Compass (RMH-12)","Bookmark of Memory (WBW-PR)","Cariboots","Dagger of the Hidden Lord (DDHC-DIA-2)","Discord (DDAL-DRW15)","Eye of Xxiphu (DDAL5-19)","Fey Hound Collar","Fold-Up Friend (WBW-PR)","Giant's Gloves (WBW-PR)","Ghost Sheet","Hat of Witchery","Hellrider's Badge (DDEP9-2)","Lemure Onesie","Mind-Poison Dagger (DDHC-MORD-05)","Mist Hunters Magnificent Cap (RMH Safety Tools)","Nettle (DDEP4)","Oathbinder (DDHC-TOA-15)","Order of the Guardians Ring (RMH Safety Tools)","Owlbear Snowshoes","Pearl of Elocution (WBW-PR)","Pipes of Remembrance","Pocket Watch (WBW-PR)","Pumpkin Ring","Selûne's Owl-Eye Glasses","Shar's Veil","Spare (DDHC-TOA-13)","Tarot Card Set","Wand of Whimsy (WBW-PR)","Woe (DDAL-DRW16)","Wooden Gecko Earrings (DDHC-TOA-8)"],
 	"achis atracta (ccc-bmg-30 hill2-3)" : { // contributed by AelarTheElfRogue
 		name : "Achis Atracta (CCC-BMG-30 HILL2-3)",
 		source : [["AL","CCC"]],
@@ -557,6 +557,16 @@ MagicItemsList["al new items"] = {
 		usages : 3,
 		recovery : "dawn",
 	},
+	"bone compass (rmh-12)" : {
+			name : "Bone Compass (RMH-12)",
+			source : [["AL:RMH",12]],
+			rarity : "rare",
+			attunement : true,
+			dmgres : ["Necrotic"],
+			description : "This bone-wrought compass mask melds into your flesh to become a macabre bracelet. While attuned, you resist necrotic dmg & Undead have disadv. to atk you. As an action, command the compass to swing toward any Undead within 120 ft. The needle points to each Undead & changes color based on its relative strength. Green denotes an easy or medium encounter, red signals hard or deadly. Spells & abilities that affect or target Undead also affect & target you. While attuned to the compass, you don’t regain hp when you long rest or when you spend Hit Dice during a short rest.",
+			descriptionFull : "This bone-wrought compass mask melds into your flesh to become a macabre mounted bracelet. While attuned to the compass, you have resistance to necrotic damage and Undead have disadvantage on attack rolls that target you. As an action, you can command the compass to point toward an Undead or group of Undead within 120 feet. The needle swings around, pointing to each Undead and changing color based on its strength relative to you. Green denotes an easy or medium encounter, red signals hard or deadly.\n   " + toUni("Curse") + ". Spells and abilities that affect or target Undead also affect and can target you. While attuned to the compass, you don’t regain hit points when you complete a long rest or when you spend Hit Dice at the end of a short rest.",
+			action : [["action", "Bone Compass"]],
+		},
 	"bookmark of memory (wbw-pr)" : {
 		name : "Bookmark of Memory (WBW-PR)",
 		source : ["AL", "WBW"],

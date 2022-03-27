@@ -33,6 +33,14 @@ SourceList["ALSRs11"] = {  //Season 11 Service Rewards
     date : "2021/11/02"
 };
 
+SourceList["AL:RMH"] = {  //Mist Hunters Alternate Campaign
+	name : "Mist Hunters",
+	abbreviation : "AL:RMH",
+	group : "Adventurers League",
+	url : "https://www.dmsguild.com/browse.php?filters=45470_0_0_0_0_0_0_0&src=fid45470",
+	date : "Various"
+};
+
 
 //AL Flavored Armor
 MagicItemsList["al adamantine/mithral armor"] = {
@@ -289,7 +297,7 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		"\n  I\t  +3\tSpiked Armor, Splint, Studded Leather",
 		allowDuplicates : true,
 		choicesNotInMenu : true,
-		choices : ["+1 Leather (DDEP7-1)","+1 Studded Leather (CCC-BMG-21 HULB2-3)","+1 Scale Mail: Shroud of the Mourning Warrior (DDAL5-13)","+1 Breastplate: Glass (DDAL0-1)","+1 Half Plate: Bone (CCC-TRI-6 NIGHT1-2)", "+1 Half Plate (DDEP4)","+1 Splint (DDEX1-12)","+1 Splint (DDAL5-4)","+1 Splint: Remorhaz (DDEP10-2)","+2 Studded Leather (CCC-TRI-23 STORM1-2)","+2 Half Plate: Stone (DDEP7-2)","+2 Splint: Remorhaz (DDEP10-2)","+2 Plate: Stone (CCC-JGD-1)","+3 Hide: Daphnaie Armor (ALSRs11-A)"],
+		choices : ["+1 Leather (DDEP7-1)","+1 Studded Leather (CCC-BMG-21 HULB2-3)","+1 Scale Mail: Shroud of the Mourning Warrior (DDAL5-13)","+1 Breastplate: Glass (DDEP0-1)","+1 Half Plate: Bone (CCC-TRI-6 NIGHT1-2)", "+1 Half Plate (DDEP4)","+1 Splint (DDEX1-12)","+1 Splint (DDAL5-4)","+1 Splint: Remorhaz (DDEP10-2)","+2 Studded Leather (CCC-TRI-23 STORM1-2)","+2 Half Plate: Stone (DDEP7-2)","+2 Splint: Remorhaz (DDEP10-2)","+2 Plate: Stone (CCC-JGD-1)","+3 Hide: Daphnaie Armor (ALSRs11-A)"],
 		"+1 leather (ddep7-1)" : {
 			name : "+1 Leather (DDEP7-1)",
 			source : [["AL","S7"]],
@@ -331,8 +339,8 @@ MagicItemsList["al armor +1, +2, +3"] = {
 				source : [["AL", "S5"]],
 				}]
 		},
-		"+1 breastplate: glass (ddal0-1)" : {
-			name : "+1 Glass Breastplate (DDAL0-1)",
+		"+1 breastplate: glass (ddep0-1)" : {
+			name : "+1 Glass Breastplate (DDEP0-1)",
 			source : [["AL","S0"]],
 			rarity : "rare",
 			magicItemTable : "H",
@@ -1188,7 +1196,7 @@ MagicItemsList["al shields (other)"] = {
 		allowDuplicates : true,
 		type : "shield",
 		weight : 6,
-	choices : ["Animated Shield (DDEP5-2)","Animated Shield (DDEP8-3)","Arrow-Catching Shield (CCC-BMG-MOON13-3)","Arrow-Catching Shield (CCC-GLIP-2-1)","Arrow-Catching Shield (DDAL9-8)","Arrow-Catching Shield (DDAL-DRWEP3)","Sentinel Shield (CCC-BMG-MOON11-1)","Sentinel Shield (CCC-WWC-7)","Sentinel Shield (DDAL-CGB)","Sentinel Shield (DDEX2-12)","Spellguard Shield: Warden (CCC-ODFC1-3)","Spellguard Shield (CCC-ROZK1-3)","Spellguard Shield (DDEP7-2)","Spellguard Shield (DDAL-DRWEP2)"],
+	choices : ["Animated Shield (DDEP5-2)","Animated Shield (DDEP8-3)","Arrow-Catching Shield (CCC-BMG-MOON13-3)","Arrow-Catching Shield (CCC-GLIP-2-1)","Arrow-Catching Shield (DDAL9-8)","Arrow-Catching Shield (DDAL-DRWEP3)","Sentinel Shield (CCC-BMG-MOON11-1)","Sentinel Shield (CCC-WWC-7)","Sentinel Shield (DDAL-CGB)","Sentinel Shield (DDEX2-12)","Shield of Missile Attraction: Ward of Chimali (RMH-10)","Spellguard Shield: Warden (CCC-ODFC1-3)","Spellguard Shield (CCC-ROZK1-3)","Spellguard Shield (DDEP7-2)","Spellguard Shield (DDAL-DRWEP2)"],
 	"animated shield (ddep5-2)" : {  // contains contributions by Larry Hoy
 		name : "Animated Shield (DDEP5-2)",
 		source : [["AL","S5"]],
@@ -1303,6 +1311,19 @@ MagicItemsList["al shields (other)"] = {
 		description: "This oblong shield has an obvious eye motif with several eyes on its surface that occasionally blink. While holding this shield, you have adv. on initiative rolls & Wisdom (Perception) checks.",
 		descriptionFull: "This oblong shield has an obvious eye motif with several eyes on its surface that occasionally blink. While holding this shield, you have advantage on initiative rolls and Wisdom (Perception) checks. The shield is emblazoned with a symbol of an eye."
 		},
+	"shield of missile attraction: ward of chimali (rmh-10)" : {
+		name : "Ward of Chimali (Shield of Missile Attraction)",
+		source : [["AL:RMH",10]],
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "This shield is fashioned from a sheet of magically hardened gold set with unpolished chunks of amber & a fist-sized ruby. While holding it, you have resistance to dmg from ranged weapon atks. Once attuned, you're cursed & whenever a ranged weapon atk is made against a target within 10 ft of you, it targets you instead.",
+		descriptionFull : "The Ward of Chimali is fashioned from a sheet of magically hardened gold set with unpolished chunks of amber and a fist-sized ruby. While holding this shield, you have resistance to damage from ranged weapon attacks.\n   " + toUni("Curse") + ". This shield is cursed. Attuning to it curses you until you are targeted by the Remove Curse spell or similar magic. Removing the shield fails to end the curse on you. Whenever a ranged weapon attack is made against a target within 10 feet of you, the curse causes you to become the target instead.",
+		attunement : true,
+		weight : 6,
+		shieldAdd : "Shield of Missile Attraction",
+		cursed : true,
+		dmgres : ["Ranged Weapons"]
+	},
 	"spellguard shield: warden (ccc-odfc1-3)" : {
 		name : "Warden, Spellguard Shield (CCC-ODFC1-3)",
 		source : [["AL","CCC"]],

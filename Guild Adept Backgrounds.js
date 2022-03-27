@@ -1954,6 +1954,17 @@ BackgroundList["heretic"] = {
 		"I’m obsessed with my studies, often to the detriment of other concerns.",
 		"I’m deeply mistrustful of temple hierarchies."
 	],
+	extra : [
+		"Select a Heresy",
+		"Dark Moon",
+		"Fatemakers",
+		"Threefold God",
+		"Forsaken One",
+		"Three-Faced Sun",
+		"Shared Suffering",
+		"Entropy",
+		"Harlot’s Coin",
+	],
 	languageProfs : [2],
 };
 

@@ -1605,7 +1605,7 @@ MagicItemsList["al swords"] = {
 		name : "AL Swords",
 		type : "weapon (any sword)",
 		allowDuplicates : true,
-	choices : ["Dancing Rapier: Angel's Sting (CCC-GHC-BK1-10)","Dancing Rapier: Raptor (CCC-LINKS-2)","Defender Greatsword: Deathshield (DDAL9-20)","Dragon Slayer: Wyrmripper (DDEP5-1)","Flame Tongue Longsword: Velahr’kerym (DDAL0-2D)","Flame Tongue Longsword (DDAL-DRW13)","Flame Tongue Shortsword: Flare (CCC-WYC-1-2)","Flame Tongue Sword (CCC-YLRA-2)","Frost Brand Rapier: Bitter Wrath (DDAL7-9)","Frost Brand Scimitar (DDEP5-2)","Giant Slayer Greatsword (DDEP5-2)","Greatsword of Sharpness: Desolation (DDAL8-14)","Greatsword of Warning: Ever Vigilant (CCC-BMG-MOON3-3)","Greatsword of Wounding (DDEX2-15)","Longsword of Vengeance (CCC-GARY-8)","Longsword of Vengeance (CCC-HATMS1-2)","Longsword of Vengeance (CCC-MACE1-3)","Moon-Touched Longsword (CCC-GHC-BK1-1)","Moon-Touched Longsword (CCC-TAROT2-6)","Moon-Touched Longsword (DDAL0-11D)","Moon-Touched Rapier (CCC-GAD2-1)","Moon-Touched Rapier (CCC-SAC-4)","Moon-Touched Rapier (CCC-UNITE-5)","Moon-Touched Shortsword (DC-POA-CONMAR-9)","Moon-Touched Shortsword (DC-POA-DES-5B)","Moon-Touched Shortsword (DC-POA-GSP2-3H)","Moon-Touched Shortsword: Fang (DC-POA-GSP3-2)","Moon-Touched Shortsword (DC-POA-JCDC-1)","Moon-Touched Shortsword (DC-POA-MCWWS-2)","Moon-Touched Shortsword: Tsukuyomi (DC-POA-TDG1-3)","Moon-Touched Shortsword: Blade of the Black Tortoise (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: Green Dragon Gladius (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: Red Phoenix Falchion (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: White Tiger Tulwar (DC-POA-VAN-MT-1)","Moon-Touched Sword (CCC-BMG-MOON6-2)","Moon-Touched Sword (CCC-BMG-MOON10-2)","Nine Lives Stealer Longsword: Love's Bite (DDAL7-11)","Nine Lives Stealer Scimitar (CCC-QCC2018-1)","Rapier of Life Stealing (CCC-PDXAGE-2-1)","Scimitar of Life Stealing: Night Cutter (CCC-RCC-1-4)","Scimitar of Warning: Miir (CCC-BWM-4-1)","Sun Blade: The Seventh Sword (CCC-6SWORDS-1)","Sun Blade: Dawnfire (CCC-STORM-1)","Sun Blade (CCC-WYC-2-2)","Sun Blade: Scintilmorn (WDotMM)","Sword of Vengeance (CCC-SAF2-2)","Sword of Wounding (DDAL-CGB)","Vicious Longsword (CCC-HATMS2-1)","Vicious Rapier: Hag's Clawblade (ALSRs11-A)","Vorpal Scimitar (DDAL7-16)","Vorpal Scimitar: Abi Teos's Machete (RMH-9/RMH-10)"],
+	choices : ["Dancing Rapier: Angel's Sting (CCC-GHC-BK1-10)","Dancing Rapier: Raptor (CCC-LINKS-2)","Defender Greatsword: Deathshield (DDAL9-20)","Dragon Slayer: Wyrmripper (DDEP5-1)","Flame Tongue Longsword: Velahr’kerym (DDAL0-2D)","Flame Tongue Longsword (DDAL-DRW13)","Flame Tongue Shortsword: Flare (CCC-WYC-1-2)","Flame Tongue Sword (CCC-YLRA-2)","Frost Brand Rapier: Bitter Wrath (DDAL7-9)","Frost Brand Scimitar (DDEP5-2)","Giant Slayer Greatsword (DDEP5-2)","Greatsword of Sharpness: Desolation (DDAL8-14)","Greatsword of Warning: Ever Vigilant (CCC-BMG-MOON3-3)","Greatsword of Wounding (DDEX2-15)","Longsword of Vengeance (CCC-BMG-MOON15-2)","Longsword of Vengeance (CCC-GARY-8)","Longsword of Vengeance (CCC-HATMS1-2)","Longsword of Vengeance (CCC-MACE1-3)","Moon-Touched Greatsword (DDAL-DRW17)","Moon-Touched Longsword (CCC-GHC-BK1-1)","Moon-Touched Longsword (CCC-TAROT2-6)","Moon-Touched Longsword (DDAL0-11D)","Moon-Touched Rapier (CCC-GAD2-1)","Moon-Touched Rapier (CCC-SAC-4)","Moon-Touched Rapier (CCC-UNITE-5)","Moon-Touched Shortsword (DC-POA-CONMAR-9)","Moon-Touched Shortsword (DC-POA-DES-5B)","Moon-Touched Shortsword (DC-POA-GSP2-3H)","Moon-Touched Shortsword: Fang (DC-POA-GSP3-2)","Moon-Touched Shortsword (DC-POA-JCDC-1)","Moon-Touched Shortsword (DC-POA-MCWWS-2)","Moon-Touched Shortsword: Tsukuyomi (DC-POA-TDG1-3)","Moon-Touched Shortsword: Blade of the Black Tortoise (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: Green Dragon Gladius (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: Red Phoenix Falchion (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: White Tiger Tulwar (DC-POA-VAN-MT-1)","Moon-Touched Sword (CCC-BMG-MOON6-2)","Moon-Touched Sword (CCC-BMG-MOON10-2)","Nine Lives Stealer Longsword: Love's Bite (DDAL7-11)","Nine Lives Stealer Scimitar (CCC-QCC2018-1)","Rapier of Life Stealing (CCC-PDXAGE-2-1)","Scimitar of Life Stealing: Night Cutter (CCC-RCC-1-4)","Scimitar of Warning: Miir (CCC-BWM-4-1)","Sun Blade: The Seventh Sword (CCC-6SWORDS-1)","Sun Blade: Dawnfire (CCC-STORM-1)","Sun Blade (CCC-WYC-2-2)","Sun Blade: Starshard (RMH-12)","Sun Blade: Scintilmorn (WDotMM)","Sword of Vengeance (CCC-SAF2-2)","Sword of Wounding (DDAL-CGB)","Vicious Longsword (CCC-HATMS2-1)","Vicious Rapier: Hag's Clawblade (ALSRs11-A)","Vorpal Scimitar (DDAL7-16)","Vorpal Scimitar: Abi Teos's Machete (RMH-9/RMH-10)"],
 	"dancing rapier: angel's sting (ccc-ghc-bk1-10)" : {
 		name : "Angel's Sting, Dancing Rapier (CCC-GHC-BK1-10)",
 		source : [["AL","CCC"]],
@@ -1931,6 +1931,39 @@ MagicItemsList["al swords"] = {
 			description : "Heavy, two-handed; Dmg only healed by resting; 1/turn, wound target. 1d4 necrotic/wound. DC 15 Con save to end."
 		},
 	},
+	"longsword of vengeance (ccc-bmg-moon15-2)" : {
+		name : "Longsword of Vengeance (CCC-BMG-MOON15-2)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		attunement : true,
+		description : "The clear crystal sword is no longer tainted by Malar’s corruption but is cursed. The +1 longsword is only loyal to you, becoming a dull blade to anyone else, & leaves a blue-white trail in its wake when striking a target. You're unwilling to give it up & have disadvantage on atks with other weapons. If you take dmg in combat, DC 15 Wis save or you must attack your attacker until it drops to 0 HP or you can't attack it in melee anymore. Banishment turns sword into normal +1 weapon.",
+		descriptionFull : "The sword, no longer tainted by Malar’s corruption, is now a clear crystal. The sword is only loyal to the wielder, becoming a dull blade to anyone else. When the sword strikes a target, a blue-white trail is left briefly in its wake. You gain a +1 bonus to attack and damage rolls made with this magic weapon.\n   " + toUni("Curse") + ". This sword is cursed and possessed by a vengeful spirit. Becoming attuned to it extends the curse to you. As long as you remain cursed, you are unwilling to part with the sword, keeping it on your person at all times. While attuned to this weapon, you have disadvantage on attack rolls made with weapons other than this one.\n   In addition, while the sword is on your person, you must succeed on a DC 15 Wisdom saving throw whenever you take damage in combat. On a failed save you must attack the creature that damaged you until you drop to 0 hit points or it does, or until you can't reach the creature to make a melee attack against it.\n   You can break the curse in the usual ways. Alternatively, casting banishment on the sword forces the vengeful spirit to leave it. The sword then becomes a +1 weapon with no other properties.",
+		weaponsAdd : ["Longsword of Vengeance"],
+		weaponOptions : {
+			baseWeapon : "longsword",
+			name : "Longsword of Vengeance",
+			},
+		calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/of vengeance/i).test(v.WeaponText)) {
+					v.theWea.isMagicWeapon = true;
+					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+					fields.Description += (fields.Description ? '; ' : '') + 'Cursed';
+				}
+			},
+			'If I include the words "of Vengeance" in the name of a sword, it will be treated as the magic weapon Sword of Vengeance. It has +1 to hit and damage, but also bears a curse.'
+		],
+		atkCalc : [
+			function (fields, v, output) {
+				if (v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/of vengeance/i).test(v.WeaponText)) {
+					output.magic = v.thisWeapon[1] + 1;
+				}
+			}, ''
+			]
+		}
+	},
 	"longsword of vengeance (ccc-gary-8)" : {
 		name : "Longsword of Vengeance (CCC-GARY-8)",
 		source : [["AL","CCC"]],
@@ -2030,6 +2063,23 @@ MagicItemsList["al swords"] = {
 			}, ''
 			]
 		}
+	},
+	"moon-touched greatsword (ddal-drw17)" : {
+		name : "Moon-Touched Greatsword (DDAL-DRW17)",
+		source : [["AL","DRW"]],
+		type : "weapon (greatsword)",
+		rarity : "common",
+		magicItemTable : "?",
+		description : "The flats of this blade act like windows onto a night sky with blinking stars & a large viridian sphere shifting slowly in different directions. 3 sluggish, green tentacles protrude from 1 end, acting as guard & grip. When unsheathed in darkness, it sheds green moonlight from the viridian sphere, creating bright light in a 15-ft radius & dim light for another 15 ft.",
+		descriptionFull : "The flats of the blade act like windows onto a night sky with blinking stars and a large viridian sphere shifting slowly in different directions. Three sluggish, green tentacles protrude from one end of the blade, acting as its guard and grip. The light the blade produces is green, and is emitted from the viridian sphere.\n   In darkness, the unsheathed blade of this magical sword sheds moonlight, creating bright light in a 15-ft radius and dim light for an additional 15 ft.",
+		weaponsAdd : ["Moon-Touched Greatsword"],
+		weaponOptions : {
+			baseWeapon : "greatsword",
+			regExpSearch : /^(?=.*greatsword)(?=.*moon)(?=.*touched).*$/i,
+			name : "Moon-Touched Greatsword",
+			source : [["AL","DRW"]],
+			description : "Heavy; two-handed; Counts as magical.",
+			},
 	},
 	"moon-touched longsword (ccc-ghc-bk1-1)" : {
 		name : "Moon-Touched Longsword (CCC-GHC-BK1-1)",
@@ -2512,7 +2562,7 @@ MagicItemsList["al swords"] = {
 		rarity : "rare",
 		magicItemTable : "G",
 		attunement : true,
-		description : "This sword is of unknown origin & unique design. There is no guard, only the handle, which is adorned w/ ivory figureheads on both ends - a devil & a dragon. When used 1-handed, the dragon's eyes glow red & a reddish blade extends from its mouth. When used 2-handed, a 2nd blade extends from the devil's mouth, making the sword look like a staff. As a bonus action, you can create/dismiss blades. While blade exists, weapon acts like a +2 longsword that does radiant dmg (+1d8 to undead), has finesse, emits bright sunlight in a 15-ft radius & dim light in another 15 ft. As an action, you can change the radius by 5 ft/type.",
+		description : "This sword is of unknown origin & unique design. There is no guard, only the handle, which is adorned w/ ivory figureheads on both ends - a devil & a dragon. When used 1-handed, the dragon's eyes glow red & a reddish blade extends from its mouth. When used 2-handed, a 2nd blade extends from the devil's mouth, making the sword look like a staff. As a bonus action, you can create/dismiss blades. While blade exists, weapon acts like a +2 longsword that does radiant dmg (+1d8 to undead), has finesse, emits bright sunlight in a 15-ft radius & dim light in another 15 ft. As an action, you can change the radius by 5 ft/type (max 30).",
 		descriptionLong : "This sword is of unknown origin & unique design. There is no guard, only the handle, which is adorned with ivory figureheads on either end - a devil & a dragon. When used 1-handed, the dragon's eyes glow red & a reddish blade extends from its mouth. When used 2-handed, a second blade extends from the devil's mouth, giving the weapon the appearance of a staff. As a bonus action, you can create or dismiss the blades of pure radiance. While a blade exists, it acts like a longsword that grants a +2 bonus to atk & damage rolls, does radiant damage & has the finesse property. It also deals +1d8 radiant damage to undead & emits sunlight, bright light in a 15-ft radius & dim light in an additional 15-ft radius. As an action, you can expand or reduce the bright & dim light's radius by 5 ft each, to a maximum of 30 ft each or a minimum of 10 ft each. You are proficient with this weapon if proficient with either longswords or shortswords.",
 		descriptionFull : "The origin of this sword is unknown, but its design is highly unique. Unlike typical sun blades that have a metal guard on their hilts, this one is comprised only of handle. The handle is adorned with ivory figureheads on either side - a devil and a dragon. When used one-handed, the dragon's eyes light up red and a blade of reddish sunlight extends from its mouth. When used two-handed, a second blade extends from the devil side of the hilt, resulting in a weapon that is closer in appearance to a staff.\n   This item appears to be a longsword hilt. While grasping the hilt, you can use a bonus action to cause a blade of pure radiance to spring into existence, or make the blade disappear. While the blade exists, this magic longsword has the finesse property. If you are proficient with shortswords or longswords, you are proficient with the sun blade.\n   You gain a +2 bonus to attack and damage rolls made with this weapon, which deals radiant damage instead of slashing damage. When you hit an undead with it, that target takes an extra 1d8 radiant damage.\n   The sword's luminous blade emits bright light in a 15-foot radius and dim light for an additional 15 feet. The light is sunlight. While the blade persists, you can use an action to expand or reduce its radius of bright and dim light by 5 feet each, to a maximum of 30 feet each or a minimum of 10 feet each.",
 		weight : 3,
@@ -2544,7 +2594,7 @@ MagicItemsList["al swords"] = {
 		rarity : "rare",
 		magicItemTable : "G",
 		attunement : true,
-		description : "This ancient sword hilt is made of orichalcum & known as Dawnfire. The ruby in its pommel sheds dim light for 10 ft when undead w/i 60 ft. As a bonus action, you can create or dismiss a blade of radiance from the hilt. While the blade exists, the weapon acts like a +2 longsword that does radiant dmg (+1d8 to undead), has finesse, emits bright sunlight in a 15-ft radius & dim light for another 15 ft. As an action, you can change the radius by 5 ft per type. Proficient if proficient w/ short or longswords.",
+		description : "This ancient sword hilt is made of orichalcum & known as Dawnfire. The ruby in its pommel sheds dim light for 10 ft when undead w/i 60 ft. As a bonus action, you can create or dismiss a blade of radiance from the hilt. While the blade exists, the weapon acts like a +2 longsword that does radiant dmg (+1d8 to undead), has finesse, emits bright sunlight in a 15-ft radius & dim light for another 15 ft. As an action, you can change the radius by 5 ft per type (max 30). Proficient if proficient w/ short or longswords.",
 		descriptionLong : "This ancient sword hilt is made of orichalcum & known as Dawnfire. The ruby in its pommel sheds dim light for 10 feet when within 60 feet of undead. As a bonus action, you can create or dismiss a blade of pure radiance from the hilt. While the blade exists, it acts like a longsword that grants a +2 bonus to atk & damage rolls, does radiant damage & has the finesse property. It also deals +1d8 radiant damage to undead & emits sunlight, bright light in a 15-ft radius & dim light in an additional 15-ft radius. As an action, you can expand or reduce the bright & dim light's radius by 5 ft each, to a maximum of 30 ft each or a minimum of 10 ft each. You are proficient with this weapon if proficient with either longswords or shortswords.",
 		descriptionFull : "This ancient sword hilt is made of orichalcum. The ruby in Dawnfire's pommel sheds dim light for 10 feet when within 60 feet of undead.\n   This item appears to be a longsword hilt. While grasping the hilt, you can use a bonus action to cause a blade of pure radiance to spring into existence, or make the blade disappear. While the blade exists, this magic longsword has the finesse property. If you are proficient with shortswords or longswords, you are proficient with the sun blade.\n   You gain a +2 bonus to attack and damage rolls made with this weapon, which deals radiant damage instead of slashing damage. When you hit an undead with it, that target takes an extra 1d8 radiant damage.\n   The sword's luminous blade emits bright light in a 15-foot radius and dim light for an additional 15 feet. The light is sunlight. While the blade persists, you can use an action to expand or reduce its radius of bright and dim light by 5 feet each, to a maximum of 30 feet each or a minimum of 10 feet each.",
 		weight : 3,
@@ -2576,7 +2626,7 @@ MagicItemsList["al swords"] = {
 		rarity : "rare",
 		magicItemTable : "G",
 		attunement : true,
-		description : "This pure gold hilt always shines in your eyes, no matter how dark the environment. It's engraved with holy symbols of the Netherese god Amaunator: ancient on 1 side & current on the other. As a bonus action, you can create or dismiss a blade of radiance from the hilt. While the blade exists, it's a +2 longsword that does radiant dmg (+1d8 to undead), has finesse, emits bright sunlight in a 15-ft radius & dim light for another 15 ft. As an action, you can change the radius by 5 ft per type. Proficient if proficient w/ short or longswords.",
+		description : "This pure gold hilt always shines in your eyes, no matter how dark the environment. It's engraved with holy symbols of the Netherese god Amaunator: ancient on 1 side & current on the other. As a bonus action, you can create or dismiss a blade of radiance from the hilt. While the blade exists, it's a +2 longsword that does radiant dmg (+1d8 to undead), has finesse, emits bright sunlight in a 15-ft radius & dim light for another 15 ft. As an action, you can change the radius by 5 ft per type (max 30). Proficient if proficient w/ short or longswords.",
 		descriptionLong : "This hilt is made of pure gold & seems to always be shining to you, no matter how dark the environment. It's engraved on both sides, on one side with the ancient holy symbol of the Netherese god Amaunator & on the other his more recent holy symbol. As a bonus action, you can create or dismiss a blade of pure radiance from the hilt. While the blade exists, it acts like a longsword that grants a +2 bonus to atk & damage rolls, does radiant damage & has the finesse property. It also deals +1d8 radiant damage to undead & emits sunlight, bright light in a 15-ft radius & dim light in an additional 15-ft radius. As an action, you can expand or reduce the bright & dim light's radius by 5 ft each, to a maximum of 30 ft each or a minimum of 10 ft each. You are proficient with this weapon if proficient with either longswords or shortswords.",
 		descriptionFull : "This Sun Blade’s hilt is made of pure gold and seems to always be shining to whoever holds it, no matter how dark the environment. It is engraved on both sides, on one side with the ancient holy symbol of Amunator as known by the Netherese and on the other his more recent holy symbol.\n   This item appears to be a longsword hilt. While grasping the hilt, you can use a bonus action to cause a blade of pure radiance to spring into existence, or make the blade disappear. While the blade exists, this magic longsword has the finesse property. If you are proficient with shortswords or longswords, you are proficient with the sun blade.\n   You gain a +2 bonus to attack and damage rolls made with this weapon, which deals radiant damage instead of slashing damage. When you hit an undead with it, that target takes an extra 1d8 radiant damage.\n   The sword's luminous blade emits bright light in a 15-foot radius and dim light for an additional 15 feet. The light is sunlight. While the blade persists, you can use an action to expand or reduce its radius of bright and dim light by 5 feet each, to a maximum of 30 feet each or a minimum of 10 feet each.",
 		weight : 3,
@@ -2601,6 +2651,38 @@ MagicItemsList["al swords"] = {
 			]
 		}
 	},
+	"sun blade: starshard (rmh-12)" : {
+		name : "Starshard, Sun Blade (RMH-12)",
+		source : [["AL:RMH",12]],
+		type : "weapon (longsword)",
+		rarity : "rare",
+		magicItemTable : "G",
+		attunement : true,
+		description : "Starshard is a jagged 3-ft shard of white-stained glass that depicts half a celestial creature. It’s wrapped with a bloody strip of linen as a grip. If you roll a natural 1 on an atk with Starshard, you must pass a DC 17 Con save or be blinded until your next turn ends. As a bonus action, you can create or dismiss radiant energy from the hilt. While the radiance exists, it's a +2 longsword that does radiant dmg (+1d8 to undead), has finesse, emits bright sunlight in a 15-ft radius & dim light for another 15 ft. As an action, you can change the radius by 5 ft per type (max 30). Proficient if proficient w/ short or longswords.",
+		descriptionLong : "Starshard is a jagged, 3-ft shard of white-stained glass that depicts half a celestial creature. It’s wrapped with a bloody strip of linen that serves as a grip. If you roll a natural 1 on an attack with Starshard, you must pass a DC 17 Constitution save or be blinded until your next turn ends. As a bonus action, you can create or dismiss a blade of pure radiance from the hilt. While the blade exists, it acts like a longsword that grants a +2 bonus to atk & damage rolls, does radiant damage & has the finesse property. It also deals +1d8 radiant damage to undead & emits sunlight, bright light in a 15-ft radius & dim light in an additional 15-ft radius. As an action, you can expand or reduce the bright & dim light's radius by 5 ft each, to a maximum of 30 ft each or a minimum of 10 ft each. You are proficient with this weapon if proficient with either longswords or shortswords.",
+		descriptionFull : "Starshard’s blade is a jagged, three-foot-long shard of white stained glass that depicts half a celestial creature. It’s wrapped with a bloody strip of linen that serves as a grip. If the wielder rolls a natural 1 on an attack roll made with Starshard, they must succeed on a DC 17 Constitution saving throw or be blinded until the end of their next turn.\n   This item appears to be a longsword hilt. While grasping the hilt, you can use a bonus action to cause a blade of pure radiance to spring into existence, or make the blade disappear. While the blade exists, this magic longsword has the finesse property. If you are proficient with shortswords or longswords, you are proficient with the sun blade.\n   You gain a +2 bonus to attack and damage rolls made with this weapon, which deals radiant damage instead of slashing damage. When you hit an undead with it, that target takes an extra 1d8 radiant damage.\n   The sword's luminous blade emits bright light in a 15-foot radius and dim light for an additional 15 feet. The light is sunlight. While the blade persists, you can use an action to expand or reduce its radius of bright and dim light by 5 feet each, to a maximum of 30 feet each or a minimum of 10 feet each.",
+		weight : 3,
+		action : [["bonus action", "Sun Blade (start/stop)"], ["action", "Sun Blade (change light)"]],
+		weaponsAdd : ["Starshard, Sun Blade"],
+		weaponOptions : {
+			baseWeapon : "longsword",
+			regExpSearch : /^(?=.*starshard).*$/i,
+			name : "Starshard, Sun Blade",
+			source : [["AL:RMH",10]],
+			damage : [1, 8, "radiant"],
+			description : "Finesse, versatile (1d10); +1d8 damage to undead",
+			modifiers : [2, 2]
+		},
+		calcChanges : {
+			atkAdd : [
+				function (fields, v) {
+					if (v.theWea.name == "Sun Blade" && !fields.Proficiency) {
+						fields.Proficiency = CurrentProfs.weapon.otherWea && CurrentProfs.weapon.otherWea.finalProfs.indexOf("shortsword") !== -1;
+					}
+				}, ''
+			]
+		}
+	},
 	"sun blade: scintilmorn (wdotmm)" : {
 		name : "Scintilmorn, Sun Blade (WDotMM)",
 		source : [["WDotMM", 234]],
@@ -2608,7 +2690,7 @@ MagicItemsList["al swords"] = {
 		rarity : "rare",
 		magicItemTable : "G",
 		attunement : true,
-		description : "This sword hilt resembles a bronze dragon w/ wings spread & mouth agape. It's had many names over the years, including Sunlight's Wrath & Shar's Bane. Legend Lore reveals it's true name: Scintilmorn, & its purpose: to destroy creatures of the night. As a bonus action, create or dismiss a blade of radiance from the hilt. While the blade exists, it's a +2 longsword that does radiant dmg (+1d8 to undead), has finesse, emits bright sunlight in a 15-ft radius & dim light for 15 ft more. As an action, you can change the radius by 5 ft per type. Proficient if proficient w/ short or longswords.",
+		description : "This sword hilt resembles a bronze dragon w/ wings spread & mouth agape. It's had many names over the years, including Sunlight's Wrath & Shar's Bane. Legend Lore reveals it's true name: Scintilmorn, & its purpose: to destroy creatures of the night. As a bonus action, create or dismiss a blade of radiance from the hilt. While the blade exists, it's a +2 longsword that does radiant dmg (+1d8 to undead), has finesse, emits bright sunlight in a 15-ft radius & dim light for 15 ft more. As an action, you can change the radius by 5 ft per type (max 30). Proficient if proficient w/ short or longswords.",
 		descriptionLong : "This hilt is carved to resemble a bronze dragon with its wings spread and its mouth agape. It's held many names over the years, including Sunlight's Wrath and Shar's Bane. A legend lore spell reveals its true name (Scintilmorn) and its original purpose: to destroy vampires and other creatures of the night. As a bonus action, you can create or dismiss a blade of pure radiance from the hilt. While the blade exists, it acts like a longsword that grants a +2 bonus to atk & damage rolls, does radiant damage & has the finesse property. It also deals +1d8 radiant damage to undead & emits sunlight, bright light in a 15-ft radius & dim light in an additional 15-ft radius. As an action, you can expand or reduce the bright & dim light's radius by 5 ft each, to a maximum of 30 ft each or a minimum of 10 ft each. You are proficient with this weapon if proficient with either longswords or shortswords.",
 		descriptionFull : "The hilt lying on the floor is carved to resemble a bronze dragon with its wings spread and its mouth agape. This device is a sun blade that has held many names over the years, including Sunlight's Wrath and Shar's Bane. A legend lore spell reveals its true name (Scintilmorn) and its original purpose: to destroy vampires and other creatures of the night.\n   This item appears to be a longsword hilt. While grasping the hilt, you can use a bonus action to cause a blade of pure radiance to spring into existence, or make the blade disappear. While the blade exists, this magic longsword has the finesse property. If you are proficient with shortswords or longswords, you are proficient with the sun blade.\n   You gain a +2 bonus to attack and damage rolls made with this weapon, which deals radiant damage instead of slashing damage. When you hit an undead with it, that target takes an extra 1d8 radiant damage.\n   The sword's luminous blade emits bright light in a 15-foot radius and dim light for an additional 15 feet. The light is sunlight. While the blade persists, you can use an action to expand or reduce its radius of bright and dim light by 5 feet each, to a maximum of 30 feet each or a minimum of 10 feet each.",
 		weight : 3,
