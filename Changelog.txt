@@ -1,3 +1,16 @@
+Changelog (After 3/26/22):
+-Removed Keoghtom's Ointment for JOQ-3 because it was removed from the adventure.
+-Added PO-BK adventures
+-Added more WBW-DC items
+-Corrected description of Hat of Vermin (TAROT)
+-Added usage information for the Ring of the Ram
+-Changed item in TAROT-1-1 to better match the actual module text.
+-Added Shadowsong Oathbow as alternate for DDEX3-7
+-Adjusted some descriptions for spacing
+-Added 2 new special items from DDHC-TOA-8
+-Fixed a capitalization error in the Weapons file that was breaking the Magic Items exclusion button
+
+
 Changelog (After 3/11/22):
 -Add additional WBW-DC items
 -Added RMH option to AL Magic Armor document.

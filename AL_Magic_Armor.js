@@ -11,8 +11,8 @@ Additionally, due to the length of some descriptions, I recommend auto-sizing fo
 	
 	This is not a complete list since I do not have every published adventure, but it's a start. If you do not see an item listed from a season marked complete, it should be because there was no flavor.*/
 	
-	//Complete: S0-S10, Guild Adept
-	//In progress: CCCs, DC-POA, DRW
+	//Complete: S0-S10, Guild Adept, DC-POA,
+	//In progress: CCCs DRW, WBW-DCs
 	
 var iFileName = "AL Flavored Armor.js";
 RequiredSheetVersion(13);
@@ -297,7 +297,7 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		"\n  I\t  +3\tSpiked Armor, Splint, Studded Leather",
 		allowDuplicates : true,
 		choicesNotInMenu : true,
-		choices : ["+1 Leather (DDEP7-1)","+1 Studded Leather (CCC-BMG-21 HULB2-3)","+1 Scale Mail: Shroud of the Mourning Warrior (DDAL5-13)","+1 Breastplate: Glass (DDEP0-1)","+1 Half Plate: Bone (CCC-TRI-6 NIGHT1-2)", "+1 Half Plate (DDEP4)","+1 Splint (DDEX1-12)","+1 Splint (DDAL5-4)","+1 Splint: Remorhaz (DDEP10-2)","+2 Studded Leather (CCC-TRI-23 STORM1-2)","+2 Half Plate: Stone (DDEP7-2)","+2 Splint: Remorhaz (DDEP10-2)","+2 Plate: Stone (CCC-JGD-1)","+3 Hide: Daphnaie Armor (ALSRs11-A)"],
+		choices : ["+1 Leather (DDEP7-1)","+1 Studded Leather (CCC-BMG-21 HULB2-3)","+1 Scale Mail: Shroud of the Mourning Warrior (DDAL5-13)","+1 Breastplate: Glass (DDEP0-1)","+1 Half Plate: Bone (CCC-TRI-6 NIGHT1-2)", "+1 Half Plate (DDEP4)","+1 Splint (DDEX1-12)","+1 Splint (DDAL5-4)","+1 Splint: Remorhaz (DDEP10-2)","+2 Studded Leather (CCC-TRI-23 STORM1-2)","+2 Studded Leather (PO-BK-1-5)","+2 Half Plate: Stone (DDEP7-2)","+2 Splint: Remorhaz (DDEP10-2)","+2 Plate: Stone (CCC-JGD-1)","+3 Hide: Daphnaie Armor (ALSRs11-A)"],
 		"+1 leather (ddep7-1)" : {
 			name : "+1 Leather (DDEP7-1)",
 			source : [["AL","S7"]],
@@ -433,6 +433,20 @@ MagicItemsList["al armor +1, +2, +3"] = {
 			armorOptions : [{
 				name : "+2 Studded Leather",
 				source : [["AL", "CCC"]],
+				}]
+		},
+		"+2 studded leather (po-bk-1-5)" : {
+			name : "+2 Studded Leather (PO-BK-1-5)",
+			source : [["AL","PO"]],
+			rarity : "very rare",
+			magicItemTable : "I",
+			allowDuplicates : true,
+			description : "This set of studded leather armor is fashioned to look like the Shield Guardian Akar in his newest form and grants a +2 bonus to AC while worn.",
+			descriptionFull : "This set of studded leather is fashioned to look like the Shield Guardian Akar in his newest form (as described by the players at the beginning of PO-BK-1-5). The armor grants a +2 bonus to AC while worn.",
+			armorAdd : "+2 Studded Leather",
+			armorOptions : [{
+				name : "+2 Studded Leather",
+				source : [["AL", "PO"]],
 				}]
 		},
 		"+2 half plate: stone (ddep7-2)" : {
@@ -739,7 +753,7 @@ MagicItemsList["al armor (common)"] = {
 MagicItemsList["al armor (other)"] = {
 		name : "AL Armor (Other)",
 		allowDuplicates : true,
-	choices : ["Breastplate of Necrotic Resistance: Chardalyn (DDAL10-5)","Demon Armor (DDEX3-16)","Efreeti Chain (DDAL7-15)","Elven Chain (CCC-BMG-36 ELMW2-3)","Elven Chain (CCC-SQC-2-2)","Glamoured Studded Leather (DDAL4-9)","Glamoured Studded Leather (DDAL8-11)","Glamoured Studded Leather (DDAL9-6)","Half Plate of Poison Resistance: Mushroom (DDEX3-11)","Mariner's Studded Leather (DDAL-DRW9)","Mariner's Breastplate (CCC-AETHER-1-2)","Mariner's Breastplate (CCC-MMT1-2)","Mariner's Scale Mail (ALSRs11-A)","Plate Armor of Etherealness (DDAL8-16)","Red Dragon Scale Mail (DDEP5-1)","Red Dragon Scale Mail (DDAL9-15)","Scale Mail of Psychic Resistance: Resin (CCC-TRI-21 YUL1-6)","Studded Leather of Fire Resistance (DDAL0-11C)"],
+	choices : ["Breastplate of Necrotic Resistance: Chardalyn (DDAL10-5)","Demon Armor (DDEX3-16)","Efreeti Chain (DDAL7-15)","Elven Chain (CCC-BMG-36 ELMW2-3)","Elven Chain (CCC-SQC-2-2)","Elven Chain (WBW-DC-Rook-2-1)","Glamoured Studded Leather (DDAL4-9)","Glamoured Studded Leather (DDAL8-11)","Glamoured Studded Leather (DDAL9-6)","Half Plate of Poison Resistance: Mushroom (DDEX3-11)","Mariner's Studded Leather (DDAL-DRW9)","Mariner's Breastplate (CCC-AETHER-1-2)","Mariner's Breastplate (CCC-MMT1-2)","Mariner's Scale Mail (ALSRs11-A)","Plate Armor of Etherealness (DDAL8-16)","Red Dragon Scale Mail (DDEP5-1)","Red Dragon Scale Mail (DDAL9-15)","Scale Mail of Psychic Resistance: Resin (CCC-TRI-21 YUL1-6)","Studded Leather of Fire Resistance (DDAL0-11C)"],
 	"breastplate of necrotic resistance: chardalyn (ddal10-5)" : {
 			name : "Chardalyn Breastplate of Necrotic Resist. (DDAL10-5)",
 			source : [["AL","S10"]],
@@ -826,7 +840,7 @@ MagicItemsList["al armor (other)"] = {
 		armorOptions : [{
 			regExpSearch : /^(?=.*elven)(?=.*chain).*$/i,
 			name : "Elven Chain",
-			source : [["SRD", 220], ["D", 168] ["AL","CCC"]],
+			source : [["AL","CCC"]],
 			type : "medium",
 			ac : 14,
 			weight : 20
@@ -841,11 +855,30 @@ MagicItemsList["al armor (other)"] = {
 		description : "This chain shirt is made of magically hardened sandalwood that smells like incense at all times. You gain a +1 bonus to AC while you wear it & are considered proficient even if you lack proficiency with medium armor.",
 		descriptionFull : "This shirt is made of magically hardened sandalwood that smells like incense at all times. You gain a +1 bonus to AC while you wear this armor. You are considered proficient with this armor even if you lack proficiency with medium armor.",
 		weight : 20,
-		armorAdd : "Elven Chain",
+		armorAdd : "Elven Chain (Sandalwood)",
 		armorOptions : [{
 			regExpSearch : /^(?=.*elven)(?=.*chain).*$/i,
 			name : "Elven Chain (Sandalwood)",
-			source : [["SRD", 220], ["D", 168] ["AL","CCC"]],
+			source : [["AL","CCC"]],
+			type : "medium",
+			ac : 14,
+			weight : 20
+		}]
+	},
+	"elven chain (wbw-dc-rook-2-1)" : {
+		name : "Elven Chain (WBW-DC-Rook-2-1)",
+		source : [["AL","CCC"]],
+		type : "armor (chain shirt)",
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "Made of interlocking amorywood rings as strong as mithral, this chain shirt is of obvious elven design & glows faintly when goblinoids are within 120 ft. You gain a +1 bonus to AC while you wear it & are considered proficient even if you lack proficiency with medium armor.",
+		descriptionFull : "Made of interlocking amorywood rings, this armor is of obvious elven design. These rings are as strong as mithral.\n   " + toUni("Sentinel") + ". This item glows faintly when goblinoids are within 120 feet of it.\n   You gain a +1 bonus to AC while you wear this armor. You are considered proficient with this armor even if you lack proficiency with medium armor.",
+		weight : 20,
+		armorAdd : "Elven Chain (Amorywood)",
+		armorOptions : [{
+			regExpSearch : /^(?=.*elven)(?=.*chain).*$/i,
+			name : "Elven Chain (Amorywood)",
+			source : [["AL","CCC"]],
 			type : "medium",
 			ac : 14,
 			weight : 20

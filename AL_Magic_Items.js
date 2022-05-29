@@ -20,8 +20,8 @@ It is recommended to enter the code in a fresh sheet before adding any other inf
 	
 	//Things I have code for and don't have to buy: GSP02-1 to 2, 
 	
-	//Complete: S0-S10, Guild Adept
-	//In progress: CCCs, DC-POA, DRW, RMH (09)
+	//Complete: S0-S10, Guild Adept, DC-POA
+	//In progress: CCCs, DRW, RMH (12), WBW-DCs
 	
 var iFileName = "AL Flavored Items.js";
 RequiredSheetVersion("13.0.9");
@@ -116,13 +116,13 @@ magicTattoosTxt = { // a public variable to be used for any magical tattoo that 
 };
 
 
-RunFunctionAtEnd(function () {
+RunFunctionAtEnd(function () {   //this code makes it so the AL variations of common items don't appear as an option for artificers to create
 //AL flavored items
 MagicItemsList["al accessories"] = {
 		name : "AL Accessories",
 		type : "wondrous item",
 		allowDuplicates : true,
-	choices : ["Belt of Dwarvenkind (DDEX2-4)","Belt of Fire Giant Strength (CCC-ALMOG-3 TALES3-1)","Belt of Fire Giant Strength (DDEP3)","Belt of Hill Giant Strength: Fat Markoth's Cummerbund (CCC-LINKS-1)","Belt of Hill Giant Strength (CCC-SFBAY-2-3)","Belt of Stone Giant Strength (DDAL9-14)","Belt of Stone Giant Strength (DDAL-DRW14)","Belt of Storm Giant Strength (DDAL6-3)","Bracers of Archery: Bands of the Tharkul (CCC-ALMOG-1 TALES1-1)","Bracers of Archery (CCC-GOC1-1)","Bracers of Archery (DC-POA-HARM-1-1)","Bracers of Archery: Haunted (DC-POA-LEGIT-CIPH-1)","Bracers of Archery: Vambracers of Blood (DC-POA-TDG1-2)","Bracers of Archery (DDAL5-2)","Bracers of Archery (DDEP2)","Bracers of Archery (DDEP10-1)","Bracers of Archery (DDEX3-14)","Bracers of Defense (CCC-BMG-17 ELMW1-2)","Bracers of Defense (CCC-CIC-10)","Bracers of Defense (CCC-SQC-2-1)","Bracers of Defense (DDAL0-2C)","Bracers of Defense (DDAL4-14)","Bracers of Defense (DDAL-DRW14)","Bracers of Defense (DDAL-DRWEP2)","Bracers of Defense (DDAL-DRWEP3)","Bracers of Defense: Spectral Vambraces (RMH-11)","Coiling Grasp Tattoo: Vambraces of the Coiled Serpent (RMH-7)","Gauntlets of Ogre Power (CCC-CIC-8)","Gauntlets of Ogre Power (CCC-ODFC1-1)","Gauntlets of Ogre Power (DDAL5-12)","Gloves of Swimming and Climbing (CCC-PRETZ-PLA1)","Gloves of Thievery: Emerald Kidgloves (CCC-BMG-10 HILL1-1)","Gloves of Thievery: The Vines of Avarice (CCC-ELF-3-2)","Gloves of Thievery: Welcomer's Gloves (CCC-FAD-1)","Gloves of Thievery (DDAL9-3)","Illuminator's Tattoo (DC-POA-CONMAR-19)","Illuminator's Tattoo (DC-POA-GaryXIII-5)","Illuminator's Tattoo (DC-POA-SH1)","Illuminator's Tattoo: Windcrester Tattoo (DC-POA-TDG1-10)","Illuminator's Tattoo (WBW-DC-CONMAR-4)","Illuminator's Tattoo: Ox Tattoo (WBW-DC-ZODIAC-2)","Masquerade Tattoo (DC-POA-CG-1-1)","Masquerade Tattoo: Jeny's Mark (DC-POA-DES-5D)","Masquerade Tattoo (DC-POA-GSP2-4H)","Masquerade Tattoo (DC-POA-VID-1)","Masquerade Tattoo (DC-POA-Z-T1S1)","Masquerade Tattoo (WBW-DC-DGE-1)","Masquerade Tattoo (WBW-DC-FDC-5)"],
+	choices : ["Belt of Dwarvenkind (DDEX2-4)","Belt of Fire Giant Strength (CCC-ALMOG-3 TALES3-1)","Belt of Fire Giant Strength (DDEP3)","Belt of Hill Giant Strength: Fat Markoth's Cummerbund (CCC-LINKS-1)","Belt of Hill Giant Strength (CCC-SFBAY-2-3)","Belt of Stone Giant Strength (DDAL9-14)","Belt of Stone Giant Strength (DDAL-DRW14)","Belt of Storm Giant Strength (DDAL6-3)","Bracers of Archery: Bands of the Tharkul (CCC-ALMOG-1 TALES1-1)","Bracers of Archery (CCC-GOC1-1)","Bracers of Archery (DC-POA-HARM-1-1)","Bracers of Archery: Haunted (DC-POA-LEGIT-CIPH-1)","Bracers of Archery: Vambracers of Blood (DC-POA-TDG1-2)","Bracers of Archery (DDAL5-2)","Bracers of Archery (DDEP2)","Bracers of Archery (DDEP10-1)","Bracers of Archery (DDEX3-14)","Bracers of Archery: Centaur's (WBW-DC-LSN-2)","Bracers of Defense (CCC-BMG-17 ELMW1-2)","Bracers of Defense (CCC-CIC-10)","Bracers of Defense (CCC-SQC-2-1)","Bracers of Defense (DDAL0-2C)","Bracers of Defense (DDAL4-14)","Bracers of Defense (DDAL-DRW14)","Bracers of Defense (DDAL-DRWEP2)","Bracers of Defense (DDAL-DRWEP3)","Bracers of Defense: Spectral Vambraces (RMH-11)","Coiling Grasp Tattoo: Vambraces of the Coiled Serpent (RMH-7)","Gauntlets of Ogre Power (CCC-CIC-8)","Gauntlets of Ogre Power (CCC-ODFC1-1)","Gauntlets of Ogre Power (DDAL5-12)","Gloves of Swimming and Climbing (CCC-PRETZ-PLA1)","Gloves of Thievery: Emerald Kidgloves (CCC-BMG-10 HILL1-1)","Gloves of Thievery: The Vines of Avarice (CCC-ELF-3-2)","Gloves of Thievery: Welcomer's Gloves (CCC-FAD-1)","Gloves of Thievery (DDAL9-3)","Illuminator's Tattoo (DC-POA-CONMAR-19)","Illuminator's Tattoo (DC-POA-GaryXIII-5)","Illuminator's Tattoo (DC-POA-SH1)","Illuminator's Tattoo: Windcrester Tattoo (DC-POA-TDG1-10)","Illuminator's Tattoo (WBW-DC-CONMAR-4)","Illuminator's Tattoo: Ox Tattoo (WBW-DC-ZODIAC-2)","Masquerade Tattoo (DC-POA-CG-1-1)","Masquerade Tattoo: Jeny's Mark (DC-POA-DES-5D)","Masquerade Tattoo (DC-POA-GSP2-4H)","Masquerade Tattoo (DC-POA-VID-1)","Masquerade Tattoo (DC-POA-Z-T1S1)","Masquerade Tattoo (WBW-DC-DGE-1)","Masquerade Tattoo (WBW-DC-FDC-5)","Masquerade Tattoo: Fey Dragon Tattoo (WBW-DC-ZODIAC-5)","Shadowfell Brand Tattoo: Balhannoth Flesh Fold (PO-BK-1-1)"],
 	"belt of dwarvenkind (ddex2-4)" : {
 		name : "Belt of Dwarvenkind (DDEX2-4)",
 		source : [["AL","S2"]],
@@ -375,6 +375,26 @@ MagicItemsList["al accessories"] = {
 		rarity : "uncommon",
 		magicItemTable : "F",
 		description : "Etched around these bracers are words in Elvish that read “Strike True.” While wearing these bracers, you have proficiency with the longbow and shortbow, and you gain a +2 bonus to damage rolls on ranged attacks made with such weapons.",
+		attunement : true,
+		weaponProfs : [false, false, ["longbow", "shortbow"]],
+		calcChanges : {
+			atkCalc : [
+				function (fields, v, output) {
+					if (v.baseWeaponName == "shortbow" || v.baseWeaponName == "longbow") {
+						output.extraDmg += 2;
+					}
+				},
+				'I add +2 to the damage of attacks I make with shortbows and longbows.'
+				],
+			}
+		},
+	"bracers of archery: centaur's (wbw-dc-lsn-2)" : {
+		name : "Centaur's Bracers of Archery (WBW-DC-LSN-2)",
+		source : [["AL","WBW-DC"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "This set of bracers is made of smooth buckskin embossed with images of centaur archers & can be attuned to in 1 minute. While wearing the bracers, you have proficiency with the longbow and shortbow, and you gain a +2 bonus to damage rolls on ranged attacks made with such weapons.",
+		descriptionFull : "This particular set of bracers is made of smooth buckskin embossed with images of centaur archers. It has the Minor Property – Harmonious: Attuning to this item takes only 1 minute.\n   While wearing these bracers, you have proficiency with the longbow and shortbow, and you gain a +2 bonus to damage rolls on ranged attacks made with such weapons.",
 		attunement : true,
 		weaponProfs : [false, false, ["longbow", "shortbow"]],
 		calcChanges : {
@@ -880,6 +900,47 @@ MagicItemsList["al accessories"] = {
 			firstCol : "oncelr"
 			}
 	},
+	"masquerade tattoo: fey dragon tattoo (wbw-dc-zodiac-5)" : {  
+		name : "Fey Dragon Tattoo (Masquerade Tattoo)",
+		source : [["AL","WBW-DC"]],
+		rarity : "common",
+		attunement : true,
+		magicItemTable : "?",
+		description : "When you attune to this magic needle, it disappears & you gain a magical tattoo in the form of an amethyst-scaled oriental dragon that coils and weaves animatedly. You can speak Draconic while its on your person. As a bonus action, you can change its size, color, pattern, & location, but it's always clearly a tattoo. As an action once per dawn, you can use the tattoo to cast Disguise Self (DC 13).",
+		descriptionFull : "Produced by a special needle, this magic tattoo appears on your body as whatever you desire. By default the tattoo coils and weaves animatedly in the form of an amethyst-scaled oriental dragon. Language: The bearer can speak and understand draconic while the item is on the bearer’s person."+
+		"\n   " + toUni("Fluid Ink") + ". As a bonus action, you can shape the tattoo into any color or pattern and move it to any area of your skin. Whatever form it takes, it is always obviously a tattoo. It can range in size from no smaller than a copper piece to an intricate work of art that covers all your skin."+
+		"\n   " + toUni("Disguise Self.") + ". As an action, you can use the tattoo to cast the disguise self spell (DC 13 to discern the disguise). Once the spell is cast from the tattoo, it can't be cast from the tattoo again until the next dawn." + magicTattoosTxt.unicode,
+		limfeaname : "Masquerade Tattoo",
+		usages : 1,
+		recovery : "dawn",
+		additional : "Disguise Self",
+		languageProfs : ["Draconic"],
+		action : [["bonus action", " (change)"]],
+		fixedDC : 13,
+		spellcastingBonus : {
+			name : "Disguise Self",
+			spells : ["disguise self"],
+			selection : ["disguise self"],
+			firstCol : "oncelr"
+			}
+	},
+	"shadowfell brand tattoo: balhannoth flesh fold (po-bk-1-1)" : {  
+		name : "Balhannoth Flesh Fold (Shadowfell Brand Tattoo)",
+		source : [["AL","PO"]],
+		rarity : "rare",
+		attunement : true,
+		description : "This folded piece of leathery grey flesh is tied by a desiccated tentacle. On its inner folds are the words “For Thay” in Deep Speech. Within the skin is a 5-in needle-like bristle containing purple ink. When you attune, the needle disappears & a vast cosmic expanse strobes in your mind along with the echoing growl of a Far Realm evil. It seems to grow closer as you gain a dark abstract tattoo, giving you 60 ft darkvision & advantage on Dex (Stealth) checks. As a reaction once per sunset when you take dmg, you can become insubstantial to halve the dmg.",
+		descriptionFull : "The folded piece of leathery, gray-mottled aberration’s flesh is tied shut by a thin, desiccated tentacle. Upon its inner folds the words “For Thay” are emblazoned into the skin in Deep Speech. Within the folded skin is a 5-inch long, sharp, needle-like bristle containing a purple-hued ink. While activated, the image of a vast cosmic expanse strobes in the user’s mind accompanied by the echoing growl of an unspeakable Far Realm evil that seemingly grows closer."+
+		"\n   Produced by a special needle, this magic tattoo is dark in color and abstract."+
+		"\n   " + toUni("Shadow Essence") + ". You gain darkvision with a range of 60 feet, and you have advantage on Dexterity (Stealth) checks."+
+		"\n   " + toUni("Shadowy Defense.") + ". When you take damage, you can use your reaction to become insubstantial for a moment, halving the damage you take. Then the reaction can't be used again until the next sunset." + magicTattoosTxt.unicode,
+		limfeaname : "Shadowfell Brand Tattoo",
+		usages : 1,
+		recovery : "sunset",
+		action : ["reaction", " (halve damage)"],
+		advantages : ["Stealth", true],
+		vision : [["Darkvision", 60]]
+	},
 }
 
 MagicItemsList["al ammunition"] = {
@@ -889,7 +950,7 @@ MagicItemsList["al ammunition"] = {
 		choicesNotInMenu : true,
 		rarity : "uncommon",
 		magicItemTable : "B",
-	choices : ["Arrows +1 (CCC-UBCON1-1)","Arrows +1: Bone-Tipped (DC-POA-CONMAR-18)","Arrows +1: Bone-Tipped (DC-POA-DRAGON-2)","Arrows +1: Bone-Tipped (DC-POA-GaryXIII-2)","Arrows +1: Bone-Tipped (DC-POA-TDG1-8)","Arrows +2: Darkthorn Arrows (ALSRs11-A)","Arrows +3 (CCC-BMG-MOON12-2)","Arrows +3 (CCC-QCC2020-3)","Crossbow Bolts +1 (DDAL-DRW9)","Sling Bullets +1 (WBW-DC-JOQ-3)","Unbreakable Arrow: Shadowneedle (CCC-BMG-MOON4-3/CCC-DRUID-1/CCC-KUMORI-2-4/CCC-TRI-26 ROSE1-1)","Unbreakable Arrow (CCC-DWB-ACM-1)","Unbreakable Arrow: Flying Fang Arrow (CCC-GHC-BK3-1)","Unbreakable Arrow: Valyntis' Arrow (CCC-NUKE-1-4)","Unbreakable Arrow (DDAL10-0)","Walloping Arrow (CCC-DRUIDS-3)","Walloping Arrow (DC-POA-DES-5D)","Walloping Arrow (DC-POA-GSP2-4H)","Walloping Arrow (DC-POA-VID-1)","Walloping Bullet: The Witchstone (CCC-CIC-15)","Walloping Bullet: Idris Chardalyn Bullet (DC-POA-TDG1-7)"],
+	choices : ["Arrows +1 (CCC-UBCON1-1)","Arrows +1: Bone-Tipped (DC-POA-CONMAR-18)","Arrows +1: Bone-Tipped (DC-POA-DRAGON-2)","Arrows +1: Bone-Tipped (DC-POA-GaryXIII-2)","Arrows +1: Bone-Tipped (DC-POA-TDG1-8)","Arrows +1 (WBW-DC-LSN-2)","Arrows +2: Darkthorn Arrows (ALSRs11-A)","Arrows +3 (CCC-BMG-MOON12-2)","Arrows +3 (CCC-QCC2020-3)","Crossbow Bolts +1 (DDAL-DRW9)","Sling Bullets +1 (WBW-DC-JOQ-3)","Unbreakable Arrow: Shadowneedle (CCC-BMG-MOON4-3/CCC-DRUID-1/CCC-KUMORI-2-4/CCC-TRI-26 ROSE1-1)","Unbreakable Arrow (CCC-DWB-ACM-1)","Unbreakable Arrow: Flying Fang Arrow (CCC-GHC-BK3-1)","Unbreakable Arrow: Valyntis' Arrow (CCC-NUKE-1-4)","Unbreakable Arrow (DDAL10-0)","Walloping Arrow (CCC-DRUIDS-3)","Walloping Arrow (DC-POA-DES-5D)","Walloping Arrow (DC-POA-GSP2-4H)","Walloping Arrow (DC-POA-VID-1)","Walloping Bullet: The Witchstone (CCC-CIC-15)","Walloping Bullet: Idris Chardalyn Bullet (DC-POA-TDG1-7)"],
 	"arrows +1 (ccc-ubcon1-1)" : {
 		name : "Arrows +1 (CCC-UBCON1-1)",
 		source : [["AL","CCC"]],
@@ -934,6 +995,15 @@ MagicItemsList["al ammunition"] = {
 		descriptionFull : "The arrow tips are pure white made from the tooth of an ancient white dragon.\n   You have a +1 bonus to attack and damage rolls made with this magic ammunition. Once it hits a target, the ammunition is no longer magical.",
 		allowDuplicates : true,
 		ammoAdd : [["Bone Arrows +1", 6]],
+		},
+	"arrows +1 (wbw-dc-lsn-2)" : {
+		name : "Arrows +1 (WBW-DC-LSN-2)",
+		source : [["AL","WBW-DC"]],
+		type : "weapon (arrow)",
+		description : "These particular arrows emit the sound of a slide whistle when fired. You have a +1 bonus to atk & damage rolls made with the arrows. Once an arrow hits a target, it's no longer magical.",
+		descriptionFull : "These particular arrows emit the sound of a slide whistle when fired.\n   You have a +1 bonus to attack and damage rolls made with this magic ammunition. Once it hits a target, the ammunition is no longer magical.",
+		allowDuplicates : true,
+		ammoAdd : [["Arrows +1", 5]],
 		},
 	"arrows +2: darkthorn arrows (alsrs11-a)" : {
 		name : "Darkthorn Arrows +2 (ALSRs11-A)",
@@ -1114,7 +1184,7 @@ MagicItemsList["al books"] = {
 		name : "AL Books",
 		type : "wondrous item",
 		allowDuplicates : true,
-	choices : ["Alchemical Compendium: Treatise on Ethical Mutilations (RMH-5)","Arcane Grimoire +1 (DC-POA-CONMAR-19)","Arcane Grimoire +1 (DC-POA-GaryXIII-5)","Arcane Grimoire +1 (DC-POA-SH1)","Arcane Grimoire +1: The Archivist's Grimoire (DC-POA-TDG1-10)","Arcane Grimoire +1 (DC-POA-Z-T2S1)","Atlas of Endless Horizons: Blink Dog's Guide (ALSRs11-A)","Enduring Spellbook (CCC-BMG-MOON6-1)","Enduring Spellbook (CCC-HAL-6)","Enduring Spellbook (CCC-PRIORY-3)","Enduring Spellbook (DC-POA-JGD-5)","Enduring Spellbook: Goodmunn's Book (DC-POA-MDV1)","Manual of Bodily Health (CCC-QCC2017)","Manual of Gainful Exercise (CCC-TRI-24 STORM1-3)","Tome of Leadership and Influence (CCC-ROZK1-2)","Tome of Leadership and Influence (CCC-TRI-15 YUL1-4)","Tome of the Stilled Tongue (CCC-GHC-BK3-9)","Tome of the Stilled Tongue: Quaryl's Codex (DDAL0-2F)","Tome of Understanding (CCC-BMG-14 PHLAN1-2)","Tome of Understanding (DDAL5-19)"],
+	choices : ["Alchemical Compendium: Treatise on Ethical Mutilations (RMH-5)","Arcane Grimoire +1 (DC-POA-CONMAR-19)","Arcane Grimoire +1 (DC-POA-GaryXIII-5)","Arcane Grimoire +1 (DC-POA-SH1)","Arcane Grimoire +1: The Archivist's Grimoire (DC-POA-TDG1-10)","Arcane Grimoire +1 (DC-POA-Z-T2S1)","Atlas of Endless Horizons: Blink Dog's Guide (ALSRs11-A)","Duplicitous Manuscript (PO-BK-1-2)","Enduring Spellbook (CCC-BMG-MOON6-1)","Enduring Spellbook (CCC-HAL-6)","Enduring Spellbook (CCC-PRIORY-3)","Enduring Spellbook (DC-POA-JGD-5)","Enduring Spellbook: Goodmunn's Book (DC-POA-MDV1)","Manual of Bodily Health (CCC-QCC2017)","Manual of Gainful Exercise (CCC-TRI-24 STORM1-3)","Tome of Leadership and Influence (CCC-ROZK1-2)","Tome of Leadership and Influence (CCC-TRI-15 YUL1-4)","Tome of the Stilled Tongue (CCC-GHC-BK3-9)","Tome of the Stilled Tongue: Quaryl's Codex (DDAL0-2F)","Tome of Understanding (CCC-BMG-14 PHLAN1-2)","Tome of Understanding (DDAL5-19)"],
 	"alchemical compendium: treatise on ethical mutilations (rmh-5)" : {
 		name : "A Treatise on Ethical Mutilations (Alchemical Compendium)",
 		source : [["AL:RMH",5]],
@@ -1279,6 +1349,36 @@ MagicItemsList["al books"] = {
 			addToKnown : ["arcane gate", "dimension door", "gate", "misty step", "plane shift", "teleportation circle"]
 		},
 		action : [["reaction", "Teleport 10ft (1 charge)"]]
+	},
+	"duplicitous manuscript (po-bk-1-2)" : {
+			name : "Duplicitous Manuscript (PO-BK-1-2)",
+			source : [["AL","PO"]],
+			rarity : "rare",
+			attunement : true,
+			prerequisite : "Requires attunement by a wizard",
+			prereqeval : function(v) { return classes.known.wizard ? true : false; },
+			description : "This spellbook starts with 7 spells, is a wizard arcane focus & looks like a romance novel: 'Swords and Sensibilities' - Dorthea Musgrave, 'Smothering Wights' - Emilia Dante, or 'The Tiefling and I' - Juliette Jonquil. It has 3 charges, regaining 1d3 at dawn. For 1 charge \u0026 1 min of study, you can change a prepared spell to an illusion spell within. As a reaction when visible creature makes a save or Investigation chk vs. your illusion spells, use 1 charge to impose disadv.",
+			descriptionLong : "This book looks like a volume of romance fiction to everyone else. As an action, you can change it between 'Swords and Sensibilities' by Dorthea Musgrave, 'Smothering Wights' by Emilia Dante, or 'The Tiefling and I' by Juliette Jonquil. You can use it as your wizard spellbook and as a spellcasting focus for wizard spells when held. It contains several spells and has 3 charges, regaining 1d3 charges at dawn. Study the book for 1 minute and expend 1 charge to change one of your prepared spells to an illusion spell within. While holding the book, when a visible creature makes a save or Intelligence (Investigation) check against an illusion spell you cast, you can expend 1 charge as a reaction to impose disadvantage on the roll.",
+			descriptionFull : "To you, this book is a magical spellbook. To anyone else, the book appears to be a volume of verbose romance fiction. As an action, you can change the book's appearance and alter the plot of the romance."+
+			"\n   This book is disguised as one of the books they’ve seen earlier in this adventure, Swords and Sensibilities by Dorthea Musgrave, Smothering Wights by Emilia Dante, or The Tiefling and I by Juliette Jonquil."+
+			"\n   When found, the book contains the following spells: hallucinatory terrain, major image, mirror image, mislead, Nystul's magic aura, phantasmal force, and silent image. It functions as a spellbook for you."+
+			"\n   While you are holding the book, you can use it as a spellcasting focus for your wizard spells."+
+			"\n   The book has 3 charges, and it regains 1d3 expended charges daily at dawn. You can use the charges in the following ways while holding it:"+
+			"\n \u2022 If you spend 1 minute studying the book, you can expend 1 charge to replace one of your prepared wizard spells with a different spell in the book. The new spell must be of the illusion school."+
+			"\n \u2022 When a creature you can see makes an Intelligence (Investigation) check to discern the true nature of an illusion spell you cast, or makes a saving throw against an illusion spell you cast, you can use your reaction and expend 1 charge to impose disadvantage on the roll.",
+			weight : 3, // as spellbook
+			limfeaname : "Duplicitous Manuscript",
+			usages : 3,
+			recovery : "dawn",
+			additional : "regains 1d3",
+		spellcastingBonusElsewhere : {
+			addTo : "wizard",
+			addToKnown : ["hallucinatory terrain", "major image", "mirror image", "mislead", "nystul's magic aura", "phantasmal force", "silent image"]
+		},
+		action : [
+			["reaction", " (impose disadv.)"],
+			["action", " (change book)"]
+		]
 	},
 	"enduring spellbook (ccc-bmg-moon6-1)" : {
 		name : "Enduring Spellbook (CCC-BMG-MOON6-1)",
@@ -1485,14 +1585,14 @@ MagicItemsList["al containers"] = {
 		name : "AL Containers",
 		type : "wondrous item",
 		allowDuplicates : true,
-	choices : ["Alchemy Jug (CCC-BMG-MOON1-5)","Alchemy Jug (CCC-GHC-BK3-6)","Alchemy Jug (CCC-ODFC3-2)","Alchemy Jug (DDEX3-8)","Bag of Devouring (CCC-FC3-1-3)","Bag of Devouring: The Dragon's Gullet (CCC-SEA-1-3)","Bag of Devouring (CCC-TRI-22 STORM1-1)","Bag of Holding: Mother Pqwirli’s Pod Pouch (CCC-ELO-2)","Bag of Holding (CCC-GARY-5)","Bag of Holding (CCC-GLIP-1-2)","Bag of Holding: Devil King School Bag (CCC-GSP4-1)","Bag of Holding (CCC-WWC-3)","Bag of Holding (WBW-DC-DCAF01B)","Bag of Holding (WBW-DC-FDC-4)","Bag of Holding (WBW-DC-KCB-1)","Bag of Holding (WBW-DC-TRI-2)","Bag of Holding: Luna Carnival Tote (WBW-DC-ZODIAC-0)","Bag of Tricks, Gray (CCC-GHC-BK1-9)","Bag of Tricks, Gray (DC-POA-Z-T1S1)","Bag of Tricks, Gray (DC-POA-ROBIN1-1)","Bag of Tricks, Rust (CCC-BMG-MOON15-3)","Bag of Tricks, Rust (CCC-SQC-3-3)","Bag of Tricks, Rust (DDEP8-1)","Bag of Tricks, Tan (CCC-MAG1-2)","Bag of Tricks, Tan (CCC-STORM-2)","Bag of Tricks, Tan: The Adventures of Cherise and Antonia (CCC-ZIEGE-4-2)","Bowl of Commanding Water Elementals (CCC-YLRA1-2)","Bowl of Commanding Water Elementals (DDAL9-7)","Brazier of Commanding Fire Elementals (CCC-PFF-3-1)","Brazier of Commanding Fire Elementals (CCC-SALT2-2)","Brazier of Commanding Fire Elementals (CCC-WYC-1-1)","Brazier of Commanding Fire Elementals: Wǎn of fiery spirits (RMH-8)","Chest of Preserving (DC-POA-CJK)","Chest of Preserving (DC-POA-CONMAR-16)","Chest of Preserving (DC-POA-PND-4)","Chest of Preserving: Ryboslav's Chest (DC-POA-TDG1-9)","Decanter of Endless Water (CCC-ALMOG-20 DAGON1-4)","Decanter of Endless Water: Oyang’s Kettle (CCC-ARCANA-2)","Decanter of Endless Water (CCC-ARCON1-3)","Decanter of Endless Water: Geyser Figurine (CCC-CIC-9)","Decanter of Endless Water (CCC-DES-4)","Decanter of Endless Water (CCC-DWB-TLA-1)","Decanter of Endless Water (CCC-GHC-BK2-2)","Decanter of Endless Water (CCC-MMT1-5)","Decanter of Endless Water: Sunboughs Nectaroule (CCC-NUKE-1-5)","Decanter of Endless Water: Brewmaster 2000 Dedicated Water Module (CCC-ODFC4-1)","Decanter of Endless Water (CCC-RPSG-5)","Decanter of Endless Water (CCC-SDREAM1-1)","Decanter of Endless Water (CCC-SEA-1-1)","Decanter of Endless Water (CCC-TTS-3)","Decanter of Endless Water: Malik's Decanter (RMH-3/RMH-4)","Eversmoking Bottle: Hag's Breath (CCC-GSP-FEAR1-1)","Eversmoking Bottle: Blizzard in a Bottle (CCC-NUKEPIP-1-1)","Eversmoking Bottle (DC-POA-INGH-1)","Eversmoking Bottle: Mix #5 (DC-POA-LEGIT-SV-1)","Eversmoking Bottle (DDEP7-1)","Heward's Handy Haversack (CCC-AN-3)","Heward's Handy Haversack (CCC-GOC1-2)","Heward's Handy Haversack (CCC-SKULL1-1)","Heward's Handy Haversack (DDAL9-9)","Heward's Handy Haversack: The Bagman's Gambit (RMH-7/RMH-8)","Heward's Handy Spice Pouch: Underdark Cooking (CCC-ALMOG-20 DAGON1-4)","Heward's Handy Spice Pouch (CCC-HAL-5)","Heward's Handy Spice Pouch (CCC-KUMORI-2-1)","Heward's Handy Spice Pouch (CCC-ODFC3-2)","Heward's Handy Spice Pouch (CCC-SEA-1-2)","Portable Hole (CCC-BMG-28 HILL2-1)","Portable Hole (CCC-BMG-34 ELMW2-1)","Portable Hole (CCC-CNE-1)","Portable Hole (CCC-COS-1)","Portable Hole (CCC-NBDD1-1)","Portable Hole (CCC-ODFC2-2)","Portable Hole (CCC-TRI-7 NIGHT1-3)","Portable Hole (DDAL10-9)","Portable Hole (DDAL-DRW17)","Quiver of Ehlonna: Quiver of the Centaurs (ALSRs11-A)","Quiver of Ehlonna (CCC-GHC-BK1-1)","Quiver of Ehlonna (CCC-HATMS1-1)","Quiver of Ehlonna (CCC-SALT1-3)","Quiver of Ehlonna (CCC-TRI-12 OLMA1-2)","Quiver of Ehlonna (DC-POA-OGG-2)","Tankard of Sobriety (CCC-3MAGS-ONE)","Tankard of Sobriety (CCC-ELF-2)","Tankard of Sobriety (CCC-ODFC3-3)","Tankard of Sobriety (CCC-PRIORY-1)"],
+	choices : ["Alchemy Jug (CCC-BMG-MOON1-5)","Alchemy Jug (CCC-GHC-BK3-6)","Alchemy Jug (CCC-ODFC3-2)","Alchemy Jug (DDEX3-8)","Bag of Devouring (CCC-FC3-1-3)","Bag of Devouring: The Dragon's Gullet (CCC-SEA-1-3)","Bag of Devouring (CCC-TRI-22 STORM1-1)","Bag of Holding: Mother Pqwirli’s Pod Pouch (CCC-ELO-2)","Bag of Holding (CCC-GARY-5)","Bag of Holding (CCC-GLIP-1-2)","Bag of Holding: Devil King School Bag (CCC-GSP4-1)","Bag of Holding (CCC-WWC-3)","Bag of Holding (WBW-DC-CONMAR-9)","Bag of Holding (WBW-DC-DCAF01B)","Bag of Holding (WBW-DC-FDC-4)","Bag of Holding (WBW-DC-KCB-1)","Bag of Holding (WBW-DC-TRI-2)","Bag of Holding: Luna Carnival Tote (WBW-DC-ZODIAC-0)","Bag of Tricks, Gray (CCC-GHC-BK1-9)","Bag of Tricks, Gray (DC-POA-Z-T1S1)","Bag of Tricks, Gray (DC-POA-ROBIN1-1)","Bag of Tricks, Rust (CCC-BMG-MOON15-3)","Bag of Tricks, Rust (CCC-SQC-3-3)","Bag of Tricks, Rust (DDEP8-1)","Bag of Tricks, Tan (CCC-MAG1-2)","Bag of Tricks, Tan (CCC-STORM-2)","Bag of Tricks, Tan: The Adventures of Cherise and Antonia (CCC-ZIEGE-4-2)","Bowl of Commanding Water Elementals (CCC-YLRA1-2)","Bowl of Commanding Water Elementals (DDAL9-7)","Brazier of Commanding Fire Elementals (CCC-PFF-3-1)","Brazier of Commanding Fire Elementals (CCC-SALT2-2)","Brazier of Commanding Fire Elementals (CCC-WYC-1-1)","Brazier of Commanding Fire Elementals: Wǎn of fiery spirits (RMH-8)","Chest of Preserving (DC-POA-CJK)","Chest of Preserving (DC-POA-CONMAR-16)","Chest of Preserving (DC-POA-PND-4)","Chest of Preserving: Ryboslav's Chest (DC-POA-TDG1-9)","Decanter of Endless Water (CCC-ALMOG-20 DAGON1-4)","Decanter of Endless Water: Oyang’s Kettle (CCC-ARCANA-2)","Decanter of Endless Water (CCC-ARCON1-3)","Decanter of Endless Water: Geyser Figurine (CCC-CIC-9)","Decanter of Endless Water (CCC-DES-4)","Decanter of Endless Water (CCC-DWB-TLA-1)","Decanter of Endless Water (CCC-GHC-BK2-2)","Decanter of Endless Water (CCC-MMT1-5)","Decanter of Endless Water: Sunboughs Nectaroule (CCC-NUKE-1-5)","Decanter of Endless Water: Brewmaster 2000 Dedicated Water Module (CCC-ODFC4-1)","Decanter of Endless Water (CCC-RPSG-5)","Decanter of Endless Water (CCC-SDREAM1-1)","Decanter of Endless Water (CCC-SEA-1-1)","Decanter of Endless Water (CCC-TTS-3)","Decanter of Endless Water: Malik's Decanter (RMH-3/RMH-4)","Eversmoking Bottle: Hag's Breath (CCC-GSP-FEAR1-1)","Eversmoking Bottle: Blizzard in a Bottle (CCC-NUKEPIP-1-1)","Eversmoking Bottle (DC-POA-INGH-1)","Eversmoking Bottle: Mix #5 (DC-POA-LEGIT-SV-1)","Eversmoking Bottle (DDEP7-1)","Heward's Handy Haversack (CCC-AN-3)","Heward's Handy Haversack (CCC-GOC1-2)","Heward's Handy Haversack (CCC-SKULL1-1)","Heward's Handy Haversack (DDAL9-9)","Heward's Handy Haversack: The Bagman's Gambit (RMH-7/RMH-8)","Heward's Handy Spice Pouch: Underdark Cooking (CCC-ALMOG-20 DAGON1-4)","Heward's Handy Spice Pouch (CCC-HAL-5)","Heward's Handy Spice Pouch (CCC-KUMORI-2-1)","Heward's Handy Spice Pouch (CCC-ODFC3-2)","Heward's Handy Spice Pouch (CCC-SEA-1-2)","Portable Hole (CCC-BMG-28 HILL2-1)","Portable Hole (CCC-BMG-34 ELMW2-1)","Portable Hole (CCC-CNE-1)","Portable Hole (CCC-COS-1)","Portable Hole (CCC-NBDD1-1)","Portable Hole (CCC-ODFC2-2)","Portable Hole (CCC-TRI-7 NIGHT1-3)","Portable Hole (DDAL10-9)","Portable Hole (DDAL-DRW17)","Quiver of Ehlonna: Quiver of the Centaurs (ALSRs11-A)","Quiver of Ehlonna (CCC-GHC-BK1-1)","Quiver of Ehlonna (CCC-HATMS1-1)","Quiver of Ehlonna (CCC-SALT1-3)","Quiver of Ehlonna (CCC-TRI-12 OLMA1-2)","Quiver of Ehlonna (DC-POA-OGG-2)","Tankard of Sobriety (CCC-3MAGS-ONE)","Tankard of Sobriety (CCC-ELF-2)","Tankard of Sobriety (CCC-ODFC3-3)","Tankard of Sobriety (CCC-PRIORY-1)"],
 	"alchemy jug (ccc-bmg-moon1-5)" : {  
 		name : "Alchemy Jug (CCC-BMG-MOON1-5)",
 		source : [["AL","CCC"]],
 		rarity : "uncommon",
 		magicItemTable : "B",
 		weight : 12,
-		description : "This ceramic jug is covered in several kinds of green moss & has an earthy springtime smell. As an action, you can command it to produce liquid or uncork it and pour 2 gal/min. After producing, it only makes the same up to its max, until next dawn. Oil (1 qt), acid (8 fl oz), basic poison (1/2 fl oz), beer (4 gal), honey/wine (1 gal), fresh water (8 gal), mayonnaise/vinegar (2 gal), salt water (12 gal).",
+		description : "This ceramic jug is covered in several kinds of green moss and has an earthy springtime smell. As an action, you can command it to produce liquid or uncork it and pour 2 gal/min. After producing, it only makes the same up to its max, until next dawn. Oil (1 qt), acid (8 fl oz), basic poison (1/2 fl oz), beer (4 gal), honey/wine (1 gal), fresh water (8 gal), mayonnaise/vinegar (2 gal), salt water (12 gal).",
 		descriptionLong : "This ceramic jug is covered in several different kinds of green moss and has an earthy springtime smell. As an action, it can be commanded to hold a chosen liquid. With another action, you can uncork the jug and pour the liquid out at 2 gallons per minute. Once commanded to produce a liquid, it can't produce a different one or more than the maximum of one, until the next dawn.\rLiquids (with maximum): acid (8 fl. oz.), basic poison (1/2 fl. oz.), beer (4 gallons), honey (1 gallon), mayonnaise (2 gallons), oil (1 quart), vinegar (2 gallons), fresh water (8 gallons), salt water (12 gallons), wine (1 gallon).",
 		descriptionFull : "This ceramic jug appears to be able to hold a gallon of liquid and weighs 12 pounds whether full or empty. Sloshing sounds can be heard from within the jug when it is shaken, even if the jug is empty. The jug is covered in several different kinds of green moss, and it has an earthy springtime smell." + "\n   " + "You can use an action and name one liquid from the table below to cause the jug to produce the chosen liquid. Afterward, you can uncork the jug as an action and pour that liquid out, up to 2 gallons per minute. The maximum amount of liquid the jug can produce depends on the liquid you named." + "\n   " + "Once the jug starts producing a liquid, it can't produce a different one, or more of one that has reached its maximum, until the next dawn.\n\n" + toUni("Max\tLiquid\t\tMax\tLiquid") + "\n8 ounces\tAcid\t\t1 quart\tOil\n1/2 ounce\tBasic poison\t2 gallons\tVinegar\n4 gallons\tBeer\t\t8 gallons\tWater, fresh\n1 gallon\tHoney\t\t12 gallons\tWater, salt\n2 gallons\tMayonnaise\t1 gallon\tWine",
 		action : [["action", "Alchemy Jug (Create/Pour)"]]
@@ -1566,7 +1666,7 @@ MagicItemsList["al containers"] = {
 		rarity : "uncommon",
 		magicItemTable : ["A", "B"],
 		description : "The small bloated mauve organism has tiny tentacles that sprout from its body & wrap around your shoulder. Squeezing the surface of the pod releases a translucent slime over its surface before it opens, revealing a throat-like interior. This bag is 2 ft in diameter, 4 ft deep, & 15 lb. It holds 500 lbs & a volume of 64 cu ft. Action to retrieve item. If overloaded, pierced, or torn, it's destroyed & its contents go to the Astral plane. If turned inside out, contents spill forth.",
-		descriptionLong : "The small bloated mauve organism has tiny tentacles that sprout from its body & wrap around your shoulder. Squeezing the surface of the pod releases a translucent slime over its surface before it opens, revealing a throat-like interior. This bag is 2 ft in diameter at the mouth, 4 ft deep, & 15 lb regardless of contents. It can hold up to 500 lb, not exceeding a volume of 64 cu ft. Retrieving an item requires an action. If overloaded, pierced, or torn, it's destroyed, leaving its contents in the Astral plane. If turned inside out, all its contents spill forth unharmed. Creatures inside the bag can breath for 10 min divided by the # of creatures (minimum 1 min), after which they suffocate. Placing the bag in another extradimensional space destroys both & opens a gate to the Astral Plane that sucks all within 10 ft inside.",
+		descriptionLong : "The small bloated mauve organism has tiny tentacles that sprout from its body & wrap around your shoulder. Squeezing the surface of the pod releases a translucent slime over its surface before it opens, revealing a throat-like interior. This bag is 2 ft in diameter at the mouth, 4 ft deep, & 15 lb regardless of contents. It can hold up to 500 lb, not exceeding a volume of 64 cu ft. Retrieving an item requires an action. If overloaded, pierced, or torn, it's destroyed, leaving its contents in the Astral plane. If turned inside out, all its contents spill forth unharmed. Creatures inside the bag can breath for 10 min divided by the # of creatures (minimum 1 min), after which they suffocate. Placing the bag in another extradimensional space from item destroys both & opens a gate to the Astral Plane that sucks all within 10 ft inside.",
 		descriptionFull : "The small, mauve-hued, bloated organism has tiny tentacles that sprout from around its body and wrap around the owner’s shoulder. Squeezing the knotty surface of the pod causes the organism to gestate a translucent slime over its surface before opening, revealing a throat-like pinkish interior.\n   This bag has an interior space considerably larger than its outside dimensions, roughly 2 feet in diameter at the mouth and 4 feet deep. The bag can hold up to 500 pounds, not exceeding a volume of 64 cubic feet. The bag weighs 15 pounds, regardless of its contents. Retrieving an item from the bag requires an action.\n   If the bag is overloaded, pierced, or torn, it ruptures and is destroyed, and its contents are scattered in the Astral Plane. If the bag is turned inside out, its contents spill forth, unharmed, but the bag must be put right before it can be used again. Breathing creatures inside the bag can survive up to a number of minutes equal to 10 divided by the number of creatures (minimum 1 minute), after which time they begin to suffocate.\n   Placing a bag of holding inside an extradimensional space created by a Heward's handy haversack, portable hole, or similar item instantly destroys both items and opens a gate to the Astral Plane. The gate originates where the one item was placed inside the other. Any creature within 10 feet of the gate is sucked through it to a random location on the Astral Plane. The gate then closes. The gate is one-way only and can't be reopened.",
 		weight : 15,
 		action : [["action", "Bag of Holding)"]]
@@ -1577,7 +1677,7 @@ MagicItemsList["al containers"] = {
 		rarity : "uncommon",
 		magicItemTable : ["A", "B"],
 		description : "This plain burlap sack is embroidered with the rune for infinity at its base. It's 2 ft in diameter, 4 ft deep, & 15 lb regardless of contents. It holds up to 500 lbs & 64 cu ft in volume. Action to retrieve item. If overloaded, pierced, or torn, it's destroyed & its contents go to the Astral plane. If turned inside out, contents spill forth.",
-		descriptionLong : "This plain burlap sack is embroidered with the rune for infinity at its base. The bag is 2 ft in diameter at the mouth, 4 ft deep, & 15 lb regardless of contents. It can hold up to 500 lb, not exceeding a volume of 64 cu ft. Retrieving an item requires an action. If overloaded, pierced, or torn, it's destroyed, leaving its contents in the Astral plane. If turned inside out, all its contents spill forth unharmed. Creatures inside the bag can breath for 10 min divided by the # of creatures (minimum 1 min), after which they suffocate. Placing the bag in another extradimensional space destroys both & opens a gate to the Astral Plane that sucks all within 10 ft inside.",
+		descriptionLong : "This plain burlap sack is embroidered with the rune for infinity at its base. The bag is 2 ft in diameter at the mouth, 4 ft deep, & 15 lb regardless of contents. It can hold up to 500 lb, not exceeding a volume of 64 cu ft. Retrieving an item requires an action. If overloaded, pierced, or torn, it's destroyed, leaving its contents in the Astral plane. If turned inside out, all its contents spill forth unharmed. Creatures inside the bag can breath for 10 min divided by the # of creatures (minimum 1 min), after which they suffocate. Placing the bag in another extradimensional space from item destroys both & opens a gate to the Astral Plane that sucks all within 10 ft inside.",
 		descriptionFull : "This plain burlap sack is embroidered with the rune for infinity at its base.\n   The bag has an interior space considerably larger than its outside dimensions, roughly 2 feet in diameter at the mouth and 4 feet deep. The bag can hold up to 500 pounds, not exceeding a volume of 64 cubic feet. The bag weighs 15 pounds, regardless of its contents. Retrieving an item from the bag requires an action.\n   If the bag is overloaded, pierced, or torn, it ruptures and is destroyed, and its contents are scattered in the Astral Plane. If the bag is turned inside out, its contents spill forth, unharmed, but the bag must be put right before it can be used again. Breathing creatures inside the bag can survive up to a number of minutes equal to 10 divided by the number of creatures (minimum 1 minute), after which time they begin to suffocate.\n   Placing a bag of holding inside an extradimensional space created by a Heward's handy haversack, portable hole, or similar item instantly destroys both items and opens a gate to the Astral Plane. The gate originates where the one item was placed inside the other. Any creature within 10 feet of the gate is sucked through it to a random location on the Astral Plane. The gate then closes. The gate is one-way only and can't be reopened.",
 		weight : 15,
 		action : [["action", "Bag of Holding (retrieve item)"]]
@@ -1588,7 +1688,7 @@ MagicItemsList["al containers"] = {
 		rarity : "uncommon",
 		magicItemTable : ["A", "B"],
 		description : "This burlap sack is unremarkable in every way until its properties are revealed. It's 2 ft in diameter, 4 ft deep, & 15 lb regardless of contents. It holds up to 500 lbs & 64 cu ft in volume. Action to retrieve item. If overloaded, pierced, or torn, it's destroyed & its contents go to the Astral plane. If turned inside out, contents spill forth.",
-		descriptionLong : "This burlap sack is unremarkable in every way until its properties are revealed. The bag is 2 ft in diameter at the mouth, 4 ft deep, & 15 lb regardless of contents. It can hold up to 500 lb, not exceeding a volume of 64 cu ft. Retrieving an item requires an action. If overloaded, pierced, or torn, it's destroyed, leaving its contents in the Astral plane. If turned inside out, all its contents spill forth unharmed. Creatures inside the bag can breath for 10 min divided by the # of creatures (minimum 1 min), after which they suffocate. Placing the bag in another extradimensional space destroys both & opens a gate to the Astral Plane that sucks all within 10 ft inside.",
+		descriptionLong : "This burlap sack is unremarkable in every way until its properties are revealed. The bag is 2 ft in diameter at the mouth, 4 ft deep, & 15 lb regardless of contents. It can hold up to 500 lb, not exceeding a volume of 64 cu ft. Retrieving an item requires an action. If overloaded, pierced, or torn, it's destroyed, leaving its contents in the Astral plane. If turned inside out, all its contents spill forth unharmed. Creatures inside the bag can breath for 10 min divided by the # of creatures (minimum 1 min), after which they suffocate. Placing the bag in another extradimensional space from item destroys both & opens a gate to the Astral Plane that sucks all within 10 ft inside.",
 		descriptionFull : "This burlap sack is in every regard unremarkable until its properties are revealed.\n   The bag has an interior space considerably larger than its outside dimensions, roughly 2 feet in diameter at the mouth and 4 feet deep. The bag can hold up to 500 pounds, not exceeding a volume of 64 cubic feet. The bag weighs 15 pounds, regardless of its contents. Retrieving an item from the bag requires an action.\n   If the bag is overloaded, pierced, or torn, it ruptures and is destroyed, and its contents are scattered in the Astral Plane. If the bag is turned inside out, its contents spill forth, unharmed, but the bag must be put right before it can be used again. Breathing creatures inside the bag can survive up to a number of minutes equal to 10 divided by the number of creatures (minimum 1 minute), after which time they begin to suffocate.\n   Placing a bag of holding inside an extradimensional space created by a Heward's handy haversack, portable hole, or similar item instantly destroys both items and opens a gate to the Astral Plane. The gate originates where the one item was placed inside the other. Any creature within 10 feet of the gate is sucked through it to a random location on the Astral Plane. The gate then closes. The gate is one-way only and can't be reopened.",
 		weight : 15,
 		action : [["action", "Bag of Holding (retrieve item)"]]
@@ -1599,7 +1699,7 @@ MagicItemsList["al containers"] = {
 		rarity : "uncommon",
 		magicItemTable : ["A", "B"],
 		description : "This bag is dark blue with grey straps & a metallic fastener at the top that binds the opening (zipper). The bag also has the school’s logo on the side with a devil toy trinket hanging from one strap. It's 2 ft in diameter, 4 ft deep, & 15 lb regardless of contents. It holds up to 500 lbs & 64 cu ft in volume. Action to retrieve item. If overloaded, pierced, or torn, it's destroyed & its contents go to the Astral plane. If turned inside out, contents spill forth.",
-		descriptionLong : "This bag is dark blue with grey straps & a strap of metallic fastener at the top that binds the edges of the opening. The bag also has the school’s logo at the side with a small devil toy trinket hanging from one of the straps. The bag is 2 ft in diameter at the mouth, 4 ft deep, & 15 lb regardless of contents. It can hold up to 500 lb, not exceeding a volume of 64 cu ft. Retrieving an item requires an action. If overloaded, pierced, or torn, it's destroyed, leaving its contents in the Astral plane. If turned inside out, all its contents spill forth unharmed. Creatures inside the bag can breath for 10 min divided by the # of creatures (minimum 1 min), after which they suffocate. Placing the bag in another extradimensional space destroys both & opens a gate to the Astral Plane that sucks all within 10 ft inside.",
+		descriptionLong : "This bag is dark blue with grey straps & a strap of metallic fastener at the top that binds the edges of the opening. The bag also has the school’s logo at the side with a small devil toy trinket hanging from one of the straps. The bag is 2 ft in diameter at the mouth, 4 ft deep, & 15 lb regardless of contents. It can hold up to 500 lb, not exceeding a volume of 64 cu ft. Retrieving an item requires an action. If overloaded, pierced, or torn, it's destroyed, leaving its contents in the Astral plane. If turned inside out, all its contents spill forth unharmed. Creatures inside the bag can breath for 10 min divided by the # of creatures (minimum 1 min), after which they suffocate. Placing the bag in another extradimensional space from item destroys both & opens a gate to the Astral Plane that sucks all within 10 ft inside.",
 		descriptionFull : "The bag is dark blue with grey straps and a strap of metallic fastener at the top that binds the edges of the opening. The bag of holding also has the school’s logo at the side with a small devil toy trinket hanging from one of the straps.\n   The bag has an interior space considerably larger than its outside dimensions, roughly 2 feet in diameter at the mouth and 4 feet deep. The bag can hold up to 500 pounds, not exceeding a volume of 64 cubic feet. The bag weighs 15 pounds, regardless of its contents. Retrieving an item from the bag requires an action.\n   If the bag is overloaded, pierced, or torn, it ruptures and is destroyed, and its contents are scattered in the Astral Plane. If the bag is turned inside out, its contents spill forth, unharmed, but the bag must be put right before it can be used again. Breathing creatures inside the bag can survive up to a number of minutes equal to 10 divided by the number of creatures (minimum 1 minute), after which time they begin to suffocate.\n   Placing a bag of holding inside an extradimensional space created by a Heward's handy haversack, portable hole, or similar item instantly destroys both items and opens a gate to the Astral Plane. The gate originates where the one item was placed inside the other. Any creature within 10 feet of the gate is sucked through it to a random location on the Astral Plane. The gate then closes. The gate is one-way only and can't be reopened.",
 		weight : 15,
 		action : [["action", "Bag of Holding (retrieve item)"]]
@@ -1610,8 +1710,19 @@ MagicItemsList["al containers"] = {
 		rarity : "uncommon",
 		magicItemTable : ["A", "B"],
 		description : "This worn bag is made from unusual black leather. Its drawstrings are woven from long strands of white hair. It's 2 ft in diameter, 4 ft deep, & 15 lb regardless of contents. It holds up to 500 lbs & 64 cu ft in volume. Action to retrieve item. If overloaded, pierced, or torn, it's destroyed & its contents go to the Astral plane. If turned inside out, contents spill forth.",
-		descriptionLong : "This worn bag is made from unusual black leather. Its drawstrings are woven from long strands of white hair. The bag is 2 ft in diameter at the mouth, 4 ft deep, & 15 lb regardless of contents. It can hold up to 500 lb, not exceeding a volume of 64 cu ft. Retrieving an item requires an action. If overloaded, pierced, or torn, it's destroyed, leaving its contents in the Astral plane. If turned inside out, all its contents spill forth unharmed. Creatures inside the bag can breath for 10 min divided by the # of creatures (minimum 1 min), after which they suffocate. Placing the bag in another extradimensional space destroys both & opens a gate to the Astral Plane that sucks all within 10 ft inside.",
+		descriptionLong : "This worn bag is made from unusual black leather. Its drawstrings are woven from long strands of white hair. The bag is 2 ft in diameter at the mouth, 4 ft deep, & 15 lb regardless of contents. It can hold up to 500 lb, not exceeding a volume of 64 cu ft. Retrieving an item requires an action. If overloaded, pierced, or torn, it's destroyed, leaving its contents in the Astral plane. If turned inside out, all its contents spill forth unharmed. Creatures inside the bag can breath for 10 min divided by the # of creatures (minimum 1 min), after which they suffocate. Placing the bag in another extradimensional space from item destroys both & opens a gate to the Astral Plane that sucks all within 10 ft inside.",
 		descriptionFull : "This worn bag is made from unusual black leather. Its drawstrings seem to be woven from many long strands of white hair.\n   The bag has an interior space considerably larger than its outside dimensions, roughly 2 feet in diameter at the mouth and 4 feet deep. The bag can hold up to 500 pounds, not exceeding a volume of 64 cubic feet. The bag weighs 15 pounds, regardless of its contents. Retrieving an item from the bag requires an action.\n   If the bag is overloaded, pierced, or torn, it ruptures and is destroyed, and its contents are scattered in the Astral Plane. If the bag is turned inside out, its contents spill forth, unharmed, but the bag must be put right before it can be used again. Breathing creatures inside the bag can survive up to a number of minutes equal to 10 divided by the number of creatures (minimum 1 minute), after which time they begin to suffocate.\n   Placing a bag of holding inside an extradimensional space created by a Heward's handy haversack, portable hole, or similar item instantly destroys both items and opens a gate to the Astral Plane. The gate originates where the one item was placed inside the other. Any creature within 10 feet of the gate is sucked through it to a random location on the Astral Plane. The gate then closes. The gate is one-way only and can't be reopened.",
+		weight : 15,
+		action : [["action", "Bag of Holding (retrieve item)"]]
+	},
+	"bag of holding (wbw-dc-conmar-9)" : {
+		name : "Bag of Holding (WBW-DC-CONMAR-9)",
+		source : [["AL","WBW-DC"]],
+		rarity : "uncommon",
+		magicItemTable : ["A", "B"],
+		description : "This bag is 2 ft in diameter, 4 ft deep, & 15 lb regardless of contents. It holds up to 500 lbs & 64 cu ft in volume. Action to retrieve item. Whenever it's opened, an aroma of honey surrounds you. If overloaded, pierced, or torn, it's destroyed & its contents go to the Astral plane. If turned inside out, contents spill forth.",
+		descriptionLong : "This bag is 2 ft in diameter at the mouth, 4 ft deep, & 15 lb regardless of contents. It holds up to 500 lbs & 64 cu ft in volume. Retrieving an item requires an action. Whenever it's opened, an aroma of honey surrounds you. If overloaded, pierced, or torn, it's destroyed, leaving its contents in the Astral plane. If turned inside out, all its contents spill forth unharmed. Creatures inside the bag can breath for 10 min divided by the # of creatures (minimum 1 min), after which they suffocate. Placing the bag in another extradimensional space from item destroys both & opens a gate to the Astral Plane that sucks all within 10 ft inside.",
+		descriptionFull : "This bag has an interior space considerably larger than its outside dimensions, roughly 2 feet in diameter at the mouth and 4 feet deep. The bag can hold up to 500 pounds, not exceeding a volume of 64 cubic feet. The bag weighs 15 pounds, regardless of its contents. Retrieving an item from the bag requires an action.\n   Whenever the bag is opened, an aroma of honey surrounds you.\n   If the bag is overloaded, pierced, or torn, it ruptures and is destroyed, and its contents are scattered in the Astral Plane. If the bag is turned inside out, its contents spill forth, unharmed, but the bag must be put right before it can be used again. Breathing creatures inside the bag can survive up to a number of minutes equal to 10 divided by the number of creatures (minimum 1 minute), after which time they begin to suffocate.\n   Placing a bag of holding inside an extradimensional space created by a Heward's handy haversack, portable hole, or similar item instantly destroys both items and opens a gate to the Astral Plane. The gate originates where the one item was placed inside the other. Any creature within 10 feet of the gate is sucked through it to a random location on the Astral Plane. The gate then closes. The gate is one-way only and can't be reopened.",
 		weight : 15,
 		action : [["action", "Bag of Holding (retrieve item)"]]
 	},
@@ -1621,7 +1732,7 @@ MagicItemsList["al containers"] = {
 		rarity : "uncommon",
 		magicItemTable : ["A", "B"],
 		description : "This silky blue bag never gets dirty & is embroidered with a mirrored alto clef resembling a butterfly. The bag is 2 ft in diameter, 4 ft deep, & 15 lb regardless of contents. It holds up to 500 lbs & 64 cu ft in volume. Action to retrieve item. If overloaded, pierced, or torn, it's destroyed & its contents go to the Astral plane. If turned inside out, contents spill forth.",
-		descriptionLong : "This item never gets dirty. Its silky blue exterior is embroidered with the image of a mirrored alto clef resembling a butterfly. The bag is 2 ft in diameter at the mouth, 4 ft deep, & 15 lb regardless of contents. It holds up to 500 lbs & 64 cu ft in volume. Retrieving an item requires an action. If overloaded, pierced, or torn, it's destroyed, leaving its contents in the Astral plane. If turned inside out, all its contents spill forth unharmed. Creatures inside the bag can breath for 10 min divided by the # of creatures (minimum 1 min), after which they suffocate. Placing the bag in another extradimensional space destroys both & opens a gate to the Astral Plane that sucks all within 10 ft inside.",
+		descriptionLong : "This item never gets dirty. Its silky blue exterior is embroidered with the image of a mirrored alto clef resembling a butterfly. The bag is 2 ft in diameter at the mouth, 4 ft deep, & 15 lb regardless of contents. It holds up to 500 lbs & 64 cu ft in volume. Retrieving an item requires an action. If overloaded, pierced, or torn, it's destroyed, leaving its contents in the Astral plane. If turned inside out, all its contents spill forth unharmed. Creatures inside the bag can breath for 10 min divided by the # of creatures (minimum 1 min), after which they suffocate. Placing the bag in another extradimensional space from item destroys both & opens a gate to the Astral Plane that sucks all within 10 ft inside.",
 		descriptionFull : "This item never gets dirty. Its silky blue exterior is embroidered with the image of a mirrored alto clef resembling a butterfly.\n   The bag has an interior space considerably larger than its outside dimensions, roughly 2 feet in diameter at the mouth and 4 feet deep. The bag can hold up to 500 pounds, not exceeding a volume of 64 cubic feet. The bag weighs 15 pounds, regardless of its contents. Retrieving an item from the bag requires an action.\n   If the bag is overloaded, pierced, or torn, it ruptures and is destroyed, and its contents are scattered in the Astral Plane. If the bag is turned inside out, its contents spill forth, unharmed, but the bag must be put right before it can be used again. Breathing creatures inside the bag can survive up to a number of minutes equal to 10 divided by the number of creatures (minimum 1 minute), after which time they begin to suffocate.\n   Placing a bag of holding inside an extradimensional space created by a Heward's handy haversack, portable hole, or similar item instantly destroys both items and opens a gate to the Astral Plane. The gate originates where the one item was placed inside the other. Any creature within 10 feet of the gate is sucked through it to a random location on the Astral Plane. The gate then closes. The gate is one-way only and can't be reopened.",
 		weight : 15,
 		action : [["action", "Bag of Holding (retrieve item)"]]
@@ -1632,7 +1743,7 @@ MagicItemsList["al containers"] = {
 		rarity : "uncommon",
 		magicItemTable : ["A", "B"],
 		description : "This soft brown leather bag has “Wonderia” in Sylvan embroidered in red letters on the side. It holds a recipe for hot yellow cereal. When you contemplate or do a malevolent act, you remember Wonderia & feel pangs of conscience. The bag is 2 ft in diameter, 4 ft deep, & 15 lb regardless of contents. It holds up to 500 lbs & 64 cu ft in volume. Action to retrieve item. If overloaded, pierced, or torn, it's destroyed & its contents go to the Astral plane. If turned inside out, contents spill forth.",
-		descriptionLong : "This soft brown leather bag has “Wonderia” in Sylvan embroidered in red letters on the side. Inside the bag is a rolled-up recipe for hot yellow cereal. When you contemplate or do a malevolent act, you remember Wonderia & feel pangs of conscience. The bag is 2 ft in diameter at the mouth, 4 ft deep, & 15 lb regardless of contents. It holds up to 500 lbs & 64 cu ft in volume. Retrieving an item requires an action. If overloaded, pierced, or torn, it's destroyed, leaving its contents in the Astral plane. If turned inside out, all its contents spill forth unharmed. Creatures inside the bag can breath for 10 min divided by the # of creatures (minimum 1 min), after which they suffocate. Placing the bag in another extradimensional space destroys both & opens a gate to the Astral Plane that sucks all within 10 ft inside.",
+		descriptionLong : "This soft brown leather bag has “Wonderia” in Sylvan embroidered in red letters on the side. Inside the bag is a rolled-up recipe for hot yellow cereal. When you contemplate or do a malevolent act, you remember Wonderia & feel pangs of conscience. The bag is 2 ft in diameter at the mouth, 4 ft deep, & 15 lb regardless of contents. It holds up to 500 lbs & 64 cu ft in volume. Retrieving an item requires an action. If overloaded, pierced, or torn, it's destroyed, leaving its contents in the Astral plane. If turned inside out, all its contents spill forth unharmed. Creatures inside the bag can breath for 10 min divided by the # of creatures (minimum 1 min), after which they suffocate. Placing the bag in another extradimensional space from item destroys both & opens a gate to the Astral Plane that sucks all within 10 ft inside.",
 		descriptionFull : "This specific bag of holding is made of a soft brown leather with red letters embroidered on the side that spells, “Wonderia” in Sylvan. Inside the bag of holding is a rolled-up recipe for yellow hot cereal. When the bearer of this item contemplates or undertakes a malevolent act, they remember Wonderia and the bag of holding enhances pangs of conscience.\n   The bag has an interior space considerably larger than its outside dimensions, roughly 2 feet in diameter at the mouth and 4 feet deep. The bag can hold up to 500 pounds, not exceeding a volume of 64 cubic feet. The bag weighs 15 pounds, regardless of its contents. Retrieving an item from the bag requires an action.\n   If the bag is overloaded, pierced, or torn, it ruptures and is destroyed, and its contents are scattered in the Astral Plane. If the bag is turned inside out, its contents spill forth, unharmed, but the bag must be put right before it can be used again. Breathing creatures inside the bag can survive up to a number of minutes equal to 10 divided by the number of creatures (minimum 1 minute), after which time they begin to suffocate.\n   Placing a bag of holding inside an extradimensional space created by a Heward's handy haversack, portable hole, or similar item instantly destroys both items and opens a gate to the Astral Plane. The gate originates where the one item was placed inside the other. Any creature within 10 feet of the gate is sucked through it to a random location on the Astral Plane. The gate then closes. The gate is one-way only and can't be reopened.",
 		weight : 15,
 		action : [["action", "Bag of Holding (retrieve item)"]]
@@ -1643,7 +1754,7 @@ MagicItemsList["al containers"] = {
 		rarity : "uncommon",
 		magicItemTable : ["A", "B"],
 		description : "Jean Luc’s bag has rope handles & says “Sweets or Cheats?” in an acid green scrawl. Once per day, you can reach into the bag & retrieve one piece of small candy (your choice) that may allow you to travel safely through Harvest. The bag is 2 ft in diameter, 4 ft deep, & 15 lb regardless of contents. It holds up to 500 lbs & 64 cu ft in volume. Action to retrieve item. If overloaded, pierced, or torn, it's destroyed & its contents go to the Astral plane. If turned inside out, contents spill forth.",
-		descriptionLong : "Jean Luc’s bag has rope handles and says “Sweets or Cheats?” in an acid green scrawl. Once per day, you can reach into the bag as though retrieving a stored item and grab a single piece of candy (your choice) small enough to fit in a halfling’s hand. This candy may serve as the key to traveling unmolested through Harvest. The bag is 2 ft in diameter at the mouth, 4 ft deep, & 15 lb regardless of contents. It holds up to 500 lbs & 64 cu ft in volume. Retrieving an item requires an action. If overloaded, pierced, or torn, it's destroyed, leaving its contents in the Astral plane. If turned inside out, all its contents spill forth unharmed. Creatures inside the bag can breath for 10 min divided by the # of creatures (minimum 1 min), after which they suffocate. Placing the bag in another extradimensional space destroys both & opens a gate to the Astral Plane that sucks all within 10 ft inside.",
+		descriptionLong : "Jean Luc’s bag has rope handles and says “Sweets or Cheats?” in an acid green scrawl. Once per day, you can reach into the bag as though retrieving a stored item and grab a single piece of candy (your choice) small enough to fit in a halfling’s hand. This candy may serve as the key to traveling unmolested through Harvest. The bag is 2 ft in diameter at the mouth, 4 ft deep, & 15 lb regardless of contents. It holds up to 500 lbs & 64 cu ft in volume. Retrieving an item requires an action. If overloaded, pierced, or torn, it's destroyed, leaving its contents in the Astral plane. If turned inside out, all its contents spill forth unharmed. Creatures inside the bag can breath for 10 min divided by the # of creatures (minimum 1 min), after which they suffocate. Placing the bag in another extradimensional space from item destroys both & opens a gate to the Astral Plane that sucks all within 10 ft inside.",
 		descriptionFull : "Jean Luc’s bag of holding has rope handles and in acid green scrawl says “Sweets or Cheats?” Once per day, you can reach into the bag as though retrieving any other item placed into the bag and retrieve a single piece of candy (of the character’s preference and description) small enough to fit in a halfling’s hand. This candy may serve as the key to traveling unmolested through Harvest. It can only perform this trick once per day. It otherwise functions as a normal bag of holding.\n   The bag has an interior space considerably larger than its outside dimensions, roughly 2 feet in diameter at the mouth and 4 feet deep. The bag can hold up to 500 pounds, not exceeding a volume of 64 cubic feet. The bag weighs 15 pounds, regardless of its contents. Retrieving an item from the bag requires an action.\n   If the bag is overloaded, pierced, or torn, it ruptures and is destroyed, and its contents are scattered in the Astral Plane. If the bag is turned inside out, its contents spill forth, unharmed, but the bag must be put right before it can be used again. Breathing creatures inside the bag can survive up to a number of minutes equal to 10 divided by the number of creatures (minimum 1 minute), after which time they begin to suffocate.\n   Placing a bag of holding inside an extradimensional space created by a Heward's handy haversack, portable hole, or similar item instantly destroys both items and opens a gate to the Astral Plane. The gate originates where the one item was placed inside the other. Any creature within 10 feet of the gate is sucked through it to a random location on the Astral Plane. The gate then closes. The gate is one-way only and can't be reopened.",
 		weight : 15,
 		action : [["action", "Bag of Holding (retrieve item)"]]
@@ -1654,7 +1765,7 @@ MagicItemsList["al containers"] = {
 		rarity : "uncommon",
 		magicItemTable : ["A", "B"],
 		description : "This bag is bright orange because of the influence of Keirenkork. It's 2 ft in diameter, 4 ft deep, & 15 lb regardless of contents. The bag holds up to 500 lbs & 64 cu ft in volume. Action to retrieve item. If overloaded, pierced, or torn, it's destroyed & its contents go to the Astral plane. If turned inside out, contents spill forth. Placing bag instead of other extradimensional item space opens one-way gate to Astral plane, all within 10 ft sucked inside.",
-		descriptionLong : "This bag is bright orange because of the influence of Keirenkork. It's 2 ft in diameter at the mouth, 4 ft deep, & 15 lb regardless of contents. The bag holds up to 500 lbs & 64 cu ft in volume. Retrieving an item requires an action. If overloaded, pierced, or torn, it's destroyed, leaving its contents in the Astral plane. If turned inside out, all its contents spill forth unharmed. Creatures inside the bag can breath for 10 min divided by the # of creatures (minimum 1 min), after which they suffocate. Placing the bag in another extradimensional space destroys both & opens a gate to the Astral Plane that sucks all within 10 ft inside.",
+		descriptionLong : "This bag is bright orange because of the influence of Keirenkork. It's 2 ft in diameter at the mouth, 4 ft deep, & 15 lb regardless of contents. The bag holds up to 500 lbs & 64 cu ft in volume. Retrieving an item requires an action. If overloaded, pierced, or torn, it's destroyed, leaving its contents in the Astral plane. If turned inside out, all its contents spill forth unharmed. Creatures inside the bag can breath for 10 min divided by the # of creatures (minimum 1 min), after which they suffocate. Placing the bag in another extradimensional space from item destroys both & opens a gate to the Astral Plane that sucks all within 10 ft inside.",
 		descriptionFull : "This item version of the bag is bright orange because of the influence of Keirenkork.\n   The bag has an interior space considerably larger than its outside dimensions, roughly 2 feet in diameter at the mouth and 4 feet deep. The bag can hold up to 500 pounds, not exceeding a volume of 64 cubic feet. The bag weighs 15 pounds, regardless of its contents. Retrieving an item from the bag requires an action.\n   If the bag is overloaded, pierced, or torn, it ruptures and is destroyed, and its contents are scattered in the Astral Plane. If the bag is turned inside out, its contents spill forth, unharmed, but the bag must be put right before it can be used again. Breathing creatures inside the bag can survive up to a number of minutes equal to 10 divided by the number of creatures (minimum 1 minute), after which time they begin to suffocate.\n   Placing a bag of holding inside an extradimensional space created by a Heward's handy haversack, portable hole, or similar item instantly destroys both items and opens a gate to the Astral Plane. The gate originates where the one item was placed inside the other. Any creature within 10 feet of the gate is sucked through it to a random location on the Astral Plane. The gate then closes. The gate is one-way only and can't be reopened.",
 		weight : 15,
 		action : [["action", "Bag of Holding (retrieve item)"]]
@@ -1665,7 +1776,7 @@ MagicItemsList["al containers"] = {
 		rarity : "uncommon",
 		magicItemTable : ["A", "B"],
 		description : "This silk bag is deep red with intricate golden embossed details of clouds, lanterns & flowers around a full moon. While on your person, you can speak primordial. The bag is 2 ft in diameter, 4 ft deep, & 15 lb regardless of contents. It holds up to 500 lbs & 64 cu ft in volume. Action to retrieve item. If overloaded, pierced, or torn, it's destroyed & its contents go to the Astral plane. If turned inside out, all contents spill forth.",
-		descriptionLong : "This silk bag is deep red with intricate embossed golden details of clouds, lanterns and flowers; with a full moon in the center. You can speak primordial while it's on your person. The bag is 2 ft in diameter at the mouth, 4 ft deep, & 15 lb regardless of contents. It holds up to 500 lbs & 64 cu ft in volume. Retrieving an item requires an action. If overloaded, pierced, or torn, it's destroyed, leaving its contents in the Astral plane. If turned inside out, all its contents spill forth unharmed. Creatures inside the bag can breath for 10 min divided by the # of creatures (minimum 1 min), after which they suffocate. Placing the bag in another extradimensional space destroys both & opens a gate to the Astral Plane that sucks all within 10 ft inside.",
+		descriptionLong : "This silk bag is deep red with intricate embossed golden details of clouds, lanterns and flowers; with a full moon in the center. You can speak primordial while it's on your person. The bag is 2 ft in diameter at the mouth, 4 ft deep, & 15 lb regardless of contents. It holds up to 500 lbs & 64 cu ft in volume. Retrieving an item requires an action. If overloaded, pierced, or torn, it's destroyed, leaving its contents in the Astral plane. If turned inside out, all its contents spill forth unharmed. Creatures inside the bag can breath for 10 min divided by the # of creatures (minimum 1 min), after which they suffocate. Placing the bag in another extradimensional space from item destroys both & opens a gate to the Astral Plane that sucks all within 10 ft inside.",
 		descriptionFull : "This silk bag is deep red with intricate embossed golden details of clouds, lanterns and flowers; with a full moon in the center. The bearer can speak and understand primordial while the item is on the bearer’s person.\n   The bag has an interior space considerably larger than its outside dimensions, roughly 2 feet in diameter at the mouth and 4 feet deep. The bag can hold up to 500 pounds, not exceeding a volume of 64 cubic feet. The bag weighs 15 pounds, regardless of its contents. Retrieving an item from the bag requires an action.\n   If the bag is overloaded, pierced, or torn, it ruptures and is destroyed, and its contents are scattered in the Astral Plane. If the bag is turned inside out, its contents spill forth, unharmed, but the bag must be put right before it can be used again. Breathing creatures inside the bag can survive up to a number of minutes equal to 10 divided by the number of creatures (minimum 1 minute), after which time they begin to suffocate.\n   Placing a bag of holding inside an extradimensional space created by a Heward's handy haversack, portable hole, or similar item instantly destroys both items and opens a gate to the Astral Plane. The gate originates where the one item was placed inside the other. Any creature within 10 feet of the gate is sucked through it to a random location on the Astral Plane. The gate then closes. The gate is one-way only and can't be reopened.",
 		weight : 15,
 		languageProfs : ["Primordial"],
@@ -2507,7 +2618,7 @@ MagicItemsList["al equipment"] = {
 		name : "AL Equipment",
 		type : "wondrous item",
 		allowDuplicates : true,
-	choices : ["All Purpose Tool +1 (DC-POA-CODEX-3)","All Purpose Tool +1: Omega #5 Power Rod (DC-POA-TDG1-6)","All Purpose Tool +1 (DC-POA-Z-T2S2)","Charlatan's Die (CCC-AETHER2-3)","Charlatan's Die (CCC-DES-1-6)","Charlatan's Die: The Vampire's Die (CCC-GSP2-3)","Charlatan's Die (DC-POA-CONMAR-11)","Charlatan's Die (DC-POA-DCAF11)","Charlatan's Die: DaleVision Dice (DC-POA-TDG1-11)","Charlatan's Die (DC-POA-TLOH-1)","Charlatan's Die (DDEP10-1)","Clothes of Mending: Devil King School Uniform (CCC-GSP4-1)","Cube of Force (CCC-RPSG-3)","Daern's Instant Fortress (CCC-ALMOG-ESC-3-3)","Daern's Instant Fortress (CCC-BWM-7-3)","Daern's Instant Fortress: The Slug Lord's Tower (CCC-DES-4-3)","Daern's Instant Fortress (CCC-DWB-GNA-1)","Daern's Instant Fortress (CCC-SDREAM-1-3)","Deck of Illusions (CCC-BFG1-2)","Deck of Illusions: Wild Monster Capture Cards (CCC-KUMORI-2-4)","Deck of Illusions: Deck of Illusory Desires (CCC-UNITE-GD-1)","Deck of Illusions (WBW-DC-JOQ-4)","Dimensional Shackles (CCC-TRI-31)","Dimensional Shackles: Bonds of Fear (DDAL4-12)","Dust of Disappearance (CCC-KUMORI-3-2)","Dust of Disappearance (DC-POA-HARM-1-2)","Dust of Disappearance: Ko-Nip (DC-POA-TDG1-1)","Dust of Dryness (CCC-UK-1)","Ear Horn of Hearing: Clarion of Clarity (CCC-PFF2-1)","Ersatz Eye: Emerald Eye (CCC-VOTE-1-1)","Ersatz Eye (DDAL10-0)","Ersatz Eye (DDIA-XGE)","Iron Bands of Bilarro: Asharam’s Orb of Ensnaring (CCC-DRUID-1)","Iron Bands of Bilarro: Bands of the Black Unicorn (CCC-DES-3-1)","Keoghtom's Ointment: The Aloe of Ch (CCC-ELO-1)","Keoghtom's Ointment: Rotsalve (RMHEP-1)","Keoghtom's Ointment (WBW-DC-JOQ-3)","Keoghtom's Ointment (WBW-DC-ZEP-T1S1)","Keoghtom's Ointment: Luna Honey Milk Tea (WBW-DC-ZODIAC-0)","Keoghtom's Ointment: Premium Honey Milk Salve (WBW-DC-ZODIAC-2)","Keoghtom's Ointment: Desert Elixir (WBW-DC-ZODIAC-3)","Mirror of the Past (DC-POA-CONMAR-18)","Mirror of the Past (DC-POA-GaryXIII-2)","Mirror of the Past: Nether Mirror (DC-POA-TDG1-8)","Pipe of Smoke Monsters (CCC-3MAGS-ONE)","Pipe of Smoke Monsters (CCC-GSP1-2)","Pipe of Smoke Monsters (CCC-SQC-3-1)","Pipe of Smoke Monsters: Tiger's Pipe (WBW-DC-ZODIAC-3)","Pole of Angling (CCC-CNE-1)","Pole of Angling (CCC-MWGF-1)","Pole of Angling (DC-POA-CODEX-1)","Pole of Angling (DC-POA-CONMAR-14)","Pole of Angling (DC-POA-GSP1-1)","Pole of Angling: Boatman's Walking Stick (DC-POA-LEGIT-SV-3)","Pole of Angling (DC-POA-PESCH-1)","Pole of Angling (DC-POA-PND-3)","Pole of Collapsing: Twig (WBW-DC-LEGIT-SV-4)","Pot of Awakening (CCC-CONMAR1-2)","Pot of Awakening (DDIA-XGE)","Pot of Awakening: Paranoid (WBW-DC-ZEP-T1S1)","Prosthetic Limb (DDAL10-6)","Quaal's Feather Token: Tree (CCC-BMG-MOON9-1)","Rope of Climbing (CCC-BMG-MOON4-1)","Rope of Climbing (CCC-QCC2019-1)","Rope of Climbing (DDEP8-3)","Rope of Entanglement (CCC-ODFC1-2)","Rope of Entanglement (DDAL7-7)","Talking Doll: Grim (CCC-DES-2-1)","Talking Doll: Chass the Unfortunate (CCC-PIPYAPS-DH1)","Talking Doll (CCC-SEA-1-1)","Talking Doll (WBW-DC-JOQ-4)","Talking Doll (WBW-DC-KCB-2)","Veteran's Cane (CCC-DRUIDS-3)","Veteran's Cane (WBW-DC-JOQ-2)","Veteran's Cane (WBW-DC-RKS-1)","Veteran's Cane (WBW-DC-THAL-1)","Wind Fan (DDAL0-9)","Wind Fan (DDAL4-5)"],
+	choices : ["All Purpose Tool +1 (DC-POA-CODEX-3)","All Purpose Tool +1: Omega #5 Power Rod (DC-POA-TDG1-6)","All Purpose Tool +1 (DC-POA-Z-T2S2)","Charlatan's Die (CCC-AETHER2-3)","Charlatan's Die (CCC-DES-1-6)","Charlatan's Die: The Vampire's Die (CCC-GSP2-3)","Charlatan's Die (DC-POA-CONMAR-11)","Charlatan's Die (DC-POA-DCAF11)","Charlatan's Die: DaleVision Dice (DC-POA-TDG1-11)","Charlatan's Die (DC-POA-TLOH-1)","Charlatan's Die (DDEP10-1)","Clothes of Mending: Devil King School Uniform (CCC-GSP4-1)","Cube of Force (CCC-RPSG-3)","Daern's Instant Fortress (CCC-ALMOG-ESC-3-3)","Daern's Instant Fortress (CCC-BWM-7-3)","Daern's Instant Fortress: The Slug Lord's Tower (CCC-DES-4-3)","Daern's Instant Fortress (CCC-DWB-GNA-1)","Daern's Instant Fortress (CCC-SDREAM-1-3)","Deck of Illusions (CCC-BFG1-2)","Deck of Illusions: Wild Monster Capture Cards (CCC-KUMORI-2-4)","Deck of Illusions: Deck of Illusory Desires (CCC-UNITE-GD-1)","Deck of Illusions (WBW-DC-JOQ-4)","Dimensional Shackles (CCC-TRI-31)","Dimensional Shackles: Bonds of Fear (DDAL4-12)","Dust of Disappearance (CCC-KUMORI-3-2)","Dust of Disappearance (DC-POA-HARM-1-2)","Dust of Disappearance: Ko-Nip (DC-POA-TDG1-1)","Dust of Dryness (CCC-UK-1)","Ear Horn of Hearing: Clarion of Clarity (CCC-PFF2-1)","Ersatz Eye: Emerald Eye (CCC-VOTE-1-1)","Ersatz Eye (DDAL10-0)","Ersatz Eye (DDIA-XGE)","Iron Bands of Bilarro: Asharam’s Orb of Ensnaring (CCC-DRUID-1)","Iron Bands of Bilarro: Bands of the Black Unicorn (CCC-DES-3-1)","Keoghtom's Ointment: The Aloe of Ch (CCC-ELO-1)","Keoghtom's Ointment: Rotsalve (RMHEP-1)","Keoghtom's Ointment: Restorative (WBW-DC-CONMAR-9)","Keoghtom's Ointment (WBW-DC-ZEP-T1S1)","Keoghtom's Ointment: Luna Honey Milk Tea (WBW-DC-ZODIAC-0)","Keoghtom's Ointment: Premium Honey Milk Salve (WBW-DC-ZODIAC-2)","Keoghtom's Ointment: Desert Elixir (WBW-DC-ZODIAC-3)","Keoghtom's Ointment: Healing Elixir (WBW-DC-ZODIAC-4)","Keoghtom's Ointment: Ryboslav’s Rum (WBW-DC-ZODIAC-5)","Mirror of the Past (DC-POA-CONMAR-18)","Mirror of the Past (DC-POA-GaryXIII-2)","Mirror of the Past: Nether Mirror (DC-POA-TDG1-8)","Pipe of Smoke Monsters (CCC-3MAGS-ONE)","Pipe of Smoke Monsters (CCC-GSP1-2)","Pipe of Smoke Monsters (CCC-SQC-3-1)","Pipe of Smoke Monsters: Tiger's Pipe (WBW-DC-ZODIAC-3)","Pole of Angling (CCC-CNE-1)","Pole of Angling (CCC-MWGF-1)","Pole of Angling (DC-POA-CODEX-1)","Pole of Angling (DC-POA-CONMAR-14)","Pole of Angling (DC-POA-GSP1-1)","Pole of Angling: Boatman's Walking Stick (DC-POA-LEGIT-SV-3)","Pole of Angling (DC-POA-PESCH-1)","Pole of Angling (DC-POA-PND-3)","Pole of Collapsing: Twig (WBW-DC-LEGIT-SV-4)","Pot of Awakening (CCC-CONMAR1-2)","Pot of Awakening (DDIA-XGE)","Pot of Awakening: Paranoid (WBW-DC-ZEP-T1S1)","Prosthetic Limb (DDAL10-6)","Quaal's Feather Token: Tree (CCC-BMG-MOON9-1)","Rope of Climbing (CCC-BMG-MOON4-1)","Rope of Climbing (CCC-QCC2019-1)","Rope of Climbing (DDEP8-3)","Rope of Entanglement (CCC-ODFC1-2)","Rope of Entanglement (DDAL7-7)","Talking Doll: Grim (CCC-DES-2-1)","Talking Doll: Chass the Unfortunate (CCC-PIPYAPS-DH1)","Talking Doll (CCC-SEA-1-1)","Talking Doll (WBW-DC-JOQ-4)","Talking Doll (WBW-DC-KCB-2)","Talking Doll (WBW-DC-Rook-1-2)","Veteran's Cane (CCC-DRUIDS-3)","Veteran's Cane (WBW-DC-JOQ-2)","Veteran's Cane (WBW-DC-LSN-2)","Veteran's Cane (WBW-DC-RKS-1)","Veteran's Cane (WBW-DC-Rook-1-1)","Veteran's Cane (WBW-DC-THAL-1)","Wind Fan (DDAL0-9)","Wind Fan (DDAL4-5)"],
 	"all purpose tool +1 (dc-poa-codex-3)" : {
 	    name : "All Purpose Tool +1 (DC-POA-CODEX-3)",
 		source : [["AL", "DC-POA"]],
@@ -3251,13 +3362,13 @@ MagicItemsList["al equipment"] = {
 		usages : "1d4+1",
 		recovery : "Never"
 	},
-	"keoghtom's ointment (wbw-dc-joq-3)" : {
-		name : "Keoghtom's Ointment (WBW-DC-JOQ-3)",
+	"keoghtom's ointment: restorative (wbw-dc-conmar-9)" : {
+		name : "Restorative Ointment (Keoghtom’s Ointment)",
 		source : [["AL","WBW-DC"]],
 		rarity : "uncommon",
 		magicItemTable : "B",
-		description : "This glass jar, 3 inches in diameter, holds 1d4+1 doses of magical spring water from a mysterious shrine in the backwoods of Joquiet, dedicated to the domain's former archfey. As an action, 1 dose of the ointment can be swallowed or applied to the skin. The creature that receives it regains 2d8+2 hp, ceases to be poisoned & is cured of any disease.",
-		descriptionFull : "This glass jar, 3 inches in diameter, contains 1d4+1 doses of a thick mixture that smells faintly of aloe. The jar and its contents weigh \xBD pound. This is a portion of magical spring water from a mysterious shrine in the backwoods of Joquiet, dedicated to the former archfey of the land.\n   As an action, one dose of the ointment can be swallowed or applied to the skin. The creature that receives it regains 2d8+2 hit points, ceases to be poisoned, and is cured of any disease.",
+		description : "This jar of honey is from Grandma Cookie in Sweetfields. It's 3 inches in diameter & holds 1d4+1 doses of a thick mixture that smells faintly of aloe. As an action, 1 dose of the ointment can be swallowed or applied to the skin. The creature that receives it regains 2d8+2 hp, ceases to be poisoned & is cured of any disease.",
+		descriptionFull : "This glass jar, 3 inches in diameter, contains 1d4+1 doses of a thick mixture that smells faintly of aloe. The jar and its contents weigh \xBD pound. As an action, one dose of the ointment can be swallowed or applied to the skin. The creature that receives it regains 2d8+2 hit points, ceases to be poisoned, and is cured of any disease.\n   This is a jar of honey from Grandma Cookie in Sweetfields.",
 		weight : 0.5,
 		limfeaname : "Keoghtom's Ointment",
 		usages : "1d4+1",
@@ -3306,6 +3417,30 @@ MagicItemsList["al equipment"] = {
 		magicItemTable : "B",
 		description : "This glass jar, 3 inches in diameter, holds 1d4+1 doses of a thick liquid that tastes & smells like a golden fruit. As an action, 1 dose of the liquid can be swallowed or applied to the skin. The creature that receives it regains 2d8+2 hp, ceases to be poisoned & is cured of any disease.",
 		descriptionFull : "A golden fruit, flavored and smelt, emanates from the liquid.\n   This glass jar, 3 inches in diameter, contains 1d4+1 doses of a thick mixture that smells faintly of aloe. The jar and its contents weigh \xBD pound.\n   As an action, one dose of the ointment can be swallowed or applied to the skin. The creature that receives it regains 2d8+2 hit points, ceases to be poisoned, and is cured of any disease.",
+		weight : 0.5,
+		limfeaname : "Keoghtom's Ointment",
+		usages : "1d4+1",
+		recovery : "Never"
+	},
+	"keoghtom's ointment: healing elixir (wbw-dc-zodiac-4)" : {
+		name : "Healing Elixir (Keoghtom's Ointment)",
+		source : [["AL","WBW-DC"]],
+		rarity : "uncommon",
+		magicItemTable : "B",
+		description : "This glass jar, 3 inches in diameter, holds 1d4+1 doses of a golden-silver liquid that smells of spring. As an action, 1 dose of the liquid can be swallowed or applied to the skin. The creature that receives it regains 2d8+2 hp, ceases to be poisoned & is cured of any disease.",
+		descriptionFull : "The smell of spring emanates from the golden-silver liquid.\n   This glass jar, 3 inches in diameter, contains 1d4+1 doses of a thick mixture that smells faintly of aloe. The jar and its contents weigh \xBD pound.\n   As an action, one dose of the ointment can be swallowed or applied to the skin. The creature that receives it regains 2d8+2 hit points, ceases to be poisoned, and is cured of any disease.",
+		weight : 0.5,
+		limfeaname : "Keoghtom's Ointment",
+		usages : "1d4+1",
+		recovery : "Never"
+	},
+	"keoghtom's ointment: ryboslav’s rum (wbw-dc-zodiac-5)" : {
+		name : "Ryboslav’s Rum (Keoghtom's Ointment)",
+		source : [["AL","WBW-DC"]],
+		rarity : "uncommon",
+		magicItemTable : "B",
+		description : "This glass jar, 3 inches in diameter, holds 1d4+1 doses of an azure-emerald liquid that smells of the sea. As an action, 1 dose of the liquid can be swallowed or applied to the skin. The creature that receives it regains 2d8+2 hp, ceases to be poisoned & is cured of any disease.",
+		descriptionFull : "The smell of the sea emanates from the azure-emerald liquid.\n   This glass jar, 3 inches in diameter, contains 1d4+1 doses of a thick mixture that smells faintly of aloe. The jar and its contents weigh \xBD pound.\n   As an action, one dose of the ointment can be swallowed or applied to the skin. The creature that receives it regains 2d8+2 hit points, ceases to be poisoned, and is cured of any disease.",
 		weight : 0.5,
 		limfeaname : "Keoghtom's Ointment",
 		usages : "1d4+1",
@@ -3649,6 +3784,15 @@ MagicItemsList["al equipment"] = {
 		description : "This doll, fished from a lagoon near The Couatl's Blessing, is stained green by exposure to algae & catoblepas corruption. Its hair has 1/2 fallen out & carries a permanent septic smell. During a short rest with the doll within 5 ft, you can teach it up to 6 phrases of up to 6 words each, & set an observable condition that triggers each phrase. Conditions must happen within 5 ft. The doll can only learn 6 phrases, which are lost when your attunement ends.",
 		descriptionFull : "While this stuffed doll is within 5 feet of you, you can spend a short rest telling it to say up to six phrases, none of which can be more than six words long, and set an observable condition under which the doll speaks each phrase. You can also replace old phrases with new ones. Whatever the condition, it must occur within 5 feet of the doll to make it speak. For example, whenever someone picks up the doll, it might say, \"I want a piece of candy.\" The doll's phrases are lost when your attunement to the doll ends.\n   This doll, fished from the lagoon near The Couatl's Blessing, has been stained green by exposure to algae for who knows how long, and catoblepas corruption more recently. Its hair has half fallen out, and it carries a permanent septic smell."
 	},
+	"talking doll (wbw-dc-rook-1-2)" : {
+		name : "Talking Doll (WBW-DC-Rook-1-2)",
+		source : [["AL","WBW-DC"]],
+		magicItemTable : "?",
+		rarity : "common",
+		attunement : true,
+		description : "This gingham doll is shaped like a rabbit with long soft ears & a button for a nose. It permanently smells like sulfurt & its mouth is stitched in neither a smile nor frown. The eyes are black glass & stare expressionlessly. During a short rest with the doll within 5 ft, you can teach it up to 6 phrases of up to 6 words each, & set an observable condition that triggers each phrase. Conditions must happen within 5 ft. The doll can only learn 6 phrases, which are lost when your attunement ends.",
+		descriptionFull : "While this stuffed doll is within 5 feet of you, you can spend a short rest telling it to say up to six phrases, none of which can be more than six words long, and set an observable condition under which the doll speaks each phrase. You can also replace old phrases with new ones. Whatever the condition, it must occur within 5 feet of the doll to make it speak. For example, whenever someone picks up the doll, it might say, \"I want a piece of candy.\" The doll's phrases are lost when your attunement to the doll ends.\n   This gingham doll is shaped like a rabbit with long soft ears and a button for a nose. Its mouth is stitched straight in not quite a smile and not quite a frown. The eyes are black glass and stare expressionlessly.\n   " + toUni("Reek") + ". The item consistently smells like sulfur. Nothing the bearer can do, including magically, will ever get rid of the stench."
+	},
 	"veteran's cane (ccc-druids-3)" : {
 		name : "Veteran's Cane (CCC-DRUIDS-3)",
 		source : [["AL","CCC"]],
@@ -3669,6 +3813,16 @@ MagicItemsList["al equipment"] = {
 		weight : 4,
 		action : [["bonus action", "Veteran's Cane"]]
 	},
+	"veteran's cane (wbw-dc-lsn-2)" : {
+		name : "Veteran's Cane (WBW-DC-LSN-2)",
+		source : [["AL","WBW-DC"]],
+		rarity : "common",
+		magicItemTable : "?",
+		description : "This cane is made of luxurious ebony with a brilliant mother-of-pearl pommel. The Elvish word: “Ivae” (“light”), is engraved around the pommel’s base. When you grasp this walking cane & use a bonus action to speak the command word, it transforms into an ordinary longsword & ceases to be magical. While a cane, you can use a bonus action to make it shed bright light in a 10-ft radius & dim light for another 10-ft, or extinguish it.",
+		descriptionFull : "Once as a bonus action, you can grasp this walking cane and speak its command word to have it transform into an ordinary longsword. Once transformed, the longsword is nonmagical and can't revert back to a walking cane.\n   This particular cane is made of a luxurious ebony with a brilliant mother-of-pearl pommel. The command word – “Ivae” (“light” in Elvish) – is engraved around the pommel’s base. While it remains a cane, it has the Minor Property – Beacon: The bearer can use a bonus action to cause the cane to shed bright light in a 10 ft radius and dim light for an additional 10 ft, or to extinguish the light.",
+		weight : 4,
+		action : [["bonus action", "Veteran's Cane (Beacon/Transform)"]],
+	},
 	"veteran's cane (wbw-dc-rks-1)" : {
 		name : "Veteran's Cane (WBW-DC-RKS-1)",
 		source : [["AL","WBW-DC"]],
@@ -3678,6 +3832,16 @@ MagicItemsList["al equipment"] = {
 		descriptionFull : "Once as a bonus action, you can grasp this walking cane and speak its command word to have it transform into an ordinary longsword. Once transformed, the longsword is nonmagical and can't revert back to a walking cane.\n   This gnarled, twisted cane is engraved with softly glowing runes. When activated, most of the wood dissolves away and a broad blade of ice grows from a twisted hilt. The ice is cold, but as strong and durable as steel.",
 		weight : 4,
 		action : [["bonus action", "Veteran's Cane"]]
+	},
+	"veteran's cane (wbw-dc-rook-1-1)" : {
+		name : "Veteran's Cane (WBW-DC-Rook-1-1)",
+		source : [["AL","WBW-DC"]],
+		rarity : "common",
+		magicItemTable : "?",
+		description : "This walking cane has a slight curve & a handle made of carved boar tusk. You can use a bonus action to make it shed bright light in a 10-ft radius & dim light for another 10 ft, or to extinguish the light. When you grasp the cane & speak the command word as a bonus action, it turns into an ordinary nonmagical longsword. The hidden blade is etched in ancient Sylvan script that reads, “To light your darkest hour.”",
+		descriptionFull : "Once as a bonus action, you can grasp this walking cane and speak its command word to have it transform into an ordinary longsword. Once transformed, the longsword is nonmagical and can't revert back to a walking cane.\n   This walking cane is built at a slight curve. It has a handle made of carved boar tusk and the hidden blade is etched in ancient Sylvan script that reads, “To light your darkest hour.”\n   " + toUni("Beacon") + ". The bearer can use a bonus action to cause the item to shed bright light in a 10-foot radius and dim light for an additional 10 feet, or to extinguish the light.",
+		weight : 4,
+		action : [["bonus action", "Veteran's Cane (light on/off)"], ["bonus action", "Veteran's Cane (transform)"]],
 	},
 	"veteran's cane (wbw-dc-thal-1)" : {
 		name : "Veteran's Cane (WBW-DC-THAL-1)",
@@ -3960,7 +4124,7 @@ MagicItemsList["al figurines"] = {  // contains contributions by Larry Hoy
 		choicesNotInMenu : true,
 		descriptionFull: "A figurine of wondrous power is a statuette of a beast small enough to fit in a pocket. If you use an action to speak the command word and throw the figurine to a point on the ground within 60 feet of you, the figurine becomes a living creature. If the space where the creature would appear is occupied by other creatures or objects, or if there isn't enough space for the creature, the figurine doesn't become a creature.\n   The creature is friendly to you and your companions. It understands your languages and obeys your spoken commands. If you issue no commands, the creature defends itself but takes no other actions.\n   The creature exists for a duration specific to each figurine. At the end of the duration, the creature reverts to its figurine form. It reverts to a figurine early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature becomes a figurine again, its property can't be used again until a certain amount of time has passed, as specified in the figurine's description.",
 		action : [["action", "Figurine of Wondrous Power"]],
-		choices : ["Bronze Griffon (CCC-QCC2018-2)", "Ebony Fly - The Plague Fly (CCC-TAROT2-1)","Golden Lions (CCC-BWM-7-2)", "Golden Lions (CCC-FC3-1-2)", "Ivory Goats (CCC-BMG-16 ELMW1-1)", "Ivory Goats (CCC-DES-1-1)", "Ivory Goats (CCC-ZIEGE-1)", "Ivory Goats - Chocolate (WBW-DC-CONMAR-5)","Steel Elephant - Mammoth (CCC-ODFC3-3)", "Obsidian Steed (DDEP0-1)", "Onyx Dog (CCC-CIC-2)", "Serpentine Owl - Giant Snowy Owl (DDEX2-9)", "Silver Raven (CCC-ALMOG-ESC3-2)","Silver Raven - Hummingbird (CCC-DWB-ACM-1)","Silver Raven (CCC-MOON11-2)","Silver Raven (DC-POA-CONMAR-9)","Silver Raven (DC-POA-JCDC-1)","Silver Raven (DC-POA-MCWWS-2)","Silver Raven - Owl Totem (DC-POA-TDG1-3)","Silver Raven (DC-POA-VAN-MT-1)","Silver Raven - Snowy Owl (DDEP10-0)","Silver Raven - Egg (WBW-DC-FDC-3)"],
+		choices : ["Bronze Griffon (CCC-QCC2018-2)", "Ebony Fly - The Plague Fly (CCC-TAROT2-1)","Golden Lions (CCC-BWM-7-2)", "Golden Lions (CCC-FC3-1-2)", "Ivory Goats (CCC-BMG-16 ELMW1-1)", "Ivory Goats (CCC-DES-1-1)", "Ivory Goats (CCC-ZIEGE-1)", "Ivory Goats - Chocolate (WBW-DC-CONMAR-5)","Ivory Goats - Sheep (WBW-DCMV-1)","Steel Elephant - Mammoth (CCC-ODFC3-3)", "Obsidian Steed (DDEP0-1)", "Onyx Dog (CCC-CIC-2)", "Serpentine Owl - Giant Snowy Owl (DDEX2-9)", "Silver Raven (CCC-ALMOG-ESC3-2)","Silver Raven - Hummingbird (CCC-DWB-ACM-1)","Silver Raven (CCC-MOON11-2)","Silver Raven (DC-POA-CONMAR-9)","Silver Raven (DC-POA-JCDC-1)","Silver Raven (DC-POA-MCWWS-2)","Silver Raven - Owl Totem (DC-POA-TDG1-3)","Silver Raven (DC-POA-VAN-MT-1)","Silver Raven - Snowy Owl (DDEP10-0)","Silver Raven - Egg (WBW-DC-FDC-3)"],
 		"bronze griffon (ccc-qcc2018-2)" : {
 			name : "Bronze Griffon (CCC-QCC2018-2)",
 			rarity : "rare",
@@ -4178,6 +4342,52 @@ MagicItemsList["al figurines"] = {  // contains contributions by Larry Hoy
 					"The goat of traveling can become a Large goat with the same statistics as a riding horse. It has 24 charges, and each hour or portion thereof it spends in beast form costs 1 charge. While it has charges, you can use it as often as you wish. When it runs out of charges, it reverts to a figurine and can't be used again until 7 days have passed, when it regains all its charges.",
 					"The goat of travail becomes a giant goat for up to 3 hours. Once it has been used, it can't be used again until 30 days have passed.",
 					"The goat of terror becomes a giant goat for up to 3 hours. The goat can't attack, but I can remove its horns and use them as weapons. One horn becomes a +1 lance, and the other becomes a +2 longsword. Removing a horn requires an action, and the weapons disappear and the horns return when the goat reverts to figurine form. In addition, the goat radiates a 30-ft radius aura of terror while I am riding it. Any creature hostile to me that starts its turn in the aura must succeed on a DC 15 Wisdom saving throw or be frightened of the goat for 1 minute, or until the goat reverts to figurine form. The frightened creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. Once it successfully saves against the effect, a creature is immune to the goat's aura for the next 24 hours. Once the figurine has been used, it can't be used again until 15 days have passed."
+				]
+			}],
+			weaponsAdd : ["Lance +1, Ivory Goat Horn", "Longsword +2, Ivory Goat Horn"],
+			weaponOptions : [{
+				baseWeapon : "lance",
+				regExpSearch : /^(?=.*ivory)(?=.*goat)(?=.*lance).*$/i,
+				name : "Lance +1, Ivory Goat Horn",
+				source : [["SRD", 222], ["D", 170], ["AL","CCC"]],
+			}, {
+				baseWeapon : "longsword",
+				regExpSearch : /^(?=.*ivory)(?=.*goat)(?=.*longsword).*$/i,
+				name : "Longsword +2, Ivory Goat Horn",
+				source : [["SRD", 222], ["D", 170], ["AL","CCC"]],
+			}]
+		},
+		"ivory goats - sheep (wbw-dcmv-1)" : {
+			name : "Floofy Sheep Stack (Ivory Goats: WBW-DCMV-1)",
+			rarity : "rare",
+			magicItemTable : "G",
+			source : [["AL","WBW-DC"]],
+			allowDuplicates : true,
+			description: "While holding these stuffed sheep, you feel at ease. Within 120 ft of a plant creature, they baa softly at regular intervals. As an action, you can speak the command word & throw 1 or more of the sheep to an unoccupied space within 60 ft, where each becomes a sheep until you use the command word again or it reaches 0 hp. They're friendly, understand your languages & obey your commands. See Notes page.",
+			descriptionLong: "While holding these stuffed sheep, you feel at ease like everything will be okay in the end. Within 120 ft of a plant creature, they baa softly at regular intervals to alert you. As an action, you can speak the command word and throw 1+ of the sheep to an unoccupied space within 60 ft, where each becomes a large fluffy sheep until you use an action to repeat the command word or it reaches 0 hp. The sheep are friendly to you and your allies, understand your languages, and obey your spoken commands. If no commands issued, the creature defends itself but takes no other actions. When it reverts back to a plushy, it can't be used again until a certain amount of time has passed. See Notes page for details about each of the sheep.",
+			descriptionFull: "These three stuffed sheep have been imbued by the magic of the Feywild, they are incredibly soft to the touch. Instead of summoning goats they summon large fluffy sheep. When they are within 120 feet of a plant creature they baa softly at regular intervals to alert you. While you hold one of the sheep you feel at ease as if everything will be okay in the end.\n   Each goat looks unique and functions differently from the others. If you use an action to speak the command word and throw one or more of the figurines to a point on the ground within 60 feet of you, each figurine becomes a living creature. If the space where the creature would appear is occupied by other creatures or objects, or if there isn't enough space for the creature, the figurine doesn't become a creature.\n   The creature is friendly to you and your companions. It understands your languages and obeys your spoken commands. If you issue no commands, the creature defends itself but takes no other actions.\n   The creature exists for a duration specific to each figurine. At the end of the duration, the creature reverts to its figurine form. It reverts to a figurine early if it drops to 0 hit points or if you use an action to speak the command word again while touching it. When the creature becomes a figurine again, its property can't be used again until a certain amount of time has passed, as specified in the figurine's description." +
+			"\n \u2022 The goat of traveling can become a Large goat with the same statistics as a riding horse. It has 24 charges, and each hour or portion thereof it spends in beast form costs 1 charge. While it has charges, you can use it as often as you wish. When it runs out of charges, it reverts to a figurine and can't be used again until 7 days have passed, when it regains all its charges." +
+			"\n \u2022 The goat of travail becomes a giant goat for up to 3 hours. Once it has been used, it can't be used again until 30 days have passed." +
+			"\n \u2022 The goat of terror becomes a giant goat for up to 3 hours. The goat can't attack, but you can remove its horns and use them as weapons. One horn becomes a +1 lance, and the other becomes a +2 longsword. Removing a horn requires an action, and the weapons disappear and the horns return when the goat reverts to figurine form. In addition, the goat radiates a 30-foot-radius aura of terror while you are riding it. Any creature hostile to you that starts its turn in the aura must succeed on a DC 15 Wisdom saving throw or be frightened of the goat for 1 minute, or until the goat reverts to figurine form. The frightened creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. Once it successfully saves against the effect, a creature is immune to the goat's aura for the next 24 hours. Once the figurine has been used, it can't be used again until 15 days have passed.",
+			extraLimitedFeatures : [{
+				name : "Figurine [Ivory Sheep of Traveling]",
+				usages : 24,
+				recovery : "7 days"
+			}, {
+				name : "Figurine [Ivory Sheep of Travail]",
+				usages : 1,
+				recovery : "30 days"
+			}, {
+				name : "Figurine [Ivory Sheep of Terror]",
+				usages : 1,
+				recovery : "15 days"
+			}],
+			toNotesPage : [{
+				name : "Ivory Stuffed Sheep (Goats) Details",
+				note : [
+					"The sheep of traveling can become a Large sheep with the same statistics as a riding horse. It has 24 charges, and each hour or portion thereof it spends in beast form costs 1 charge. While it has charges, you can use it as often as you wish. When it runs out of charges, it reverts to a figurine and can't be used again until 7 days have passed, when it regains all its charges.",
+					"The sheep of travail becomes a giant sheep (giant goat statblock) for up to 3 hours. Once it has been used, it can't be used again until 30 days have passed.",
+					"The sheep of terror becomes a giant sheep (giant goat statblock) for up to 3 hours. The sheep can't attack, but I can remove its horns and use them as weapons. One horn becomes a +1 lance, and the other becomes a +2 longsword. Removing a horn requires an action, and the weapons disappear and the horns return when the sheep reverts to figurine form. In addition, the sheep radiates a 30-ft radius aura of terror while I am riding it. Any creature hostile to me that starts its turn in the aura must succeed on a DC 15 Wisdom saving throw or be frightened of the sheep for 1 minute, or until the sheep reverts to figurine form. The frightened creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. Once it successfully saves against the effect, a creature is immune to the sheep's aura for the next 24 hours. Once the figurine has been used, it can't be used again until 15 days have passed."
 				]
 			}],
 			weaponsAdd : ["Lance +1, Ivory Goat Horn", "Longsword +2, Ivory Goat Horn"],
@@ -4492,7 +4702,7 @@ MagicItemsList["al footwear"] = {
 		name : "AL Footwear",
 		type : "wondrous item",
 		allowDuplicates : true,
-	choices : ["Boots of Elvenkind: Eladrin (CCC-BMG-MOON6-2)","Boots of Elvenkind: Red's Slippers (CCC-KUMORI-2-2)","Boots of Elvenkind (CCC-SFBAY-4-2)","Boots of Elvenkind (DDAL4-6)","Boots of False Tracks (CCC-CENTRIC1-2)","Boots of False Tracks (CCC-PRETZ-PLA2)","Boots of False Tracks (DC-POA-CODEX-3)","Boots of False Tracks (DC-POA-HARM-1-2)","Boots of False Tracks (DC-POA-JAT-3)","Boots of False Tracks: Lucky Kobold's Foot (DC-POA-TDG1-1)","Boots of False Tracks: Dale Ranger Boots (DC-POA-TDG1-6)","Boots of False Tracks (DDAL0-8)","Boots of False Tracks (DDAL10-0/DC-POA/DC-POA-GaryXIII-1)","Boots of Levitation (CCC-GHC-BK3-8)","Boots of Levitation (DDAL10-8)","Boots of Speed (DDAL6-2)","Boots of Speed: Escape Kit (WBW-DC-Sunlit-5)","Boots of Striding and Springing: Shoes of the Glacier Walker (CCC-TRI-26)","Boots of Striding and Springing (DDAL10-3)","Boots of Striding and Springing (LLoK)","Boots of Striding and Springing (WBW-DC-RKS-1)","Boots of the Winterlands (CCC-BMG-19 HULB2-1)","Boots of the Winterlands (CCC-CIC-1)","Boots of the Winterlands: Fey Commander's (CCC-PFF2-1)","Boots of the Winterlands (DC-POA-CODEX-1)","Boots of the Winterlands (DC-POA-CONMAR-14)","Boots of the Winterlands (DC-POA-GSP1-1)","Boots of the Winterlands (DC-POA-LEGIT-SV-3)","Boots of the Winterlands (DC-POA-PESCH-1)","Slippers of Spider Climbing: Arachnomancer (CCC-MTL-3)","Slippers of Spider Climbing (CCC-SRCC1-1)","Slippers of Spider Climbing: Hobnail Boots (RMH-4)","Slippers of Spider Climbing (WBW-DC-AMQ-2)","Slippers of Spider Climbing (WBW-DC-JOQ-2)","Slippers of Spider Climbing (WBW-DC-TRI-1)","Winged Boots: Pixie (ALSRs11-A)","Winged Boots: Magpie's Wings (CCC-DES-1-5)","Winged Boots (CCC-SEA-1-2)","Winged Boots (CCC-SQC-3-2)","Winged Boots: The Auftrag’s Buskins (CCC-TAROT2-5)","Winged Boots (DDEP0-1)","Winged Boots (DDEP8-3)"],
+	choices : ["Boots of Elvenkind: Eladrin (CCC-BMG-MOON6-2)","Boots of Elvenkind: Red's Slippers (CCC-KUMORI-2-2)","Boots of Elvenkind (CCC-SFBAY-4-2)","Boots of Elvenkind (DDAL4-6)","Boots of False Tracks (CCC-CENTRIC1-2)","Boots of False Tracks (CCC-PRETZ-PLA2)","Boots of False Tracks (DC-POA-CODEX-3)","Boots of False Tracks (DC-POA-HARM-1-2)","Boots of False Tracks (DC-POA-JAT-3)","Boots of False Tracks: Lucky Kobold's Foot (DC-POA-TDG1-1)","Boots of False Tracks: Dale Ranger Boots (DC-POA-TDG1-6)","Boots of False Tracks (DDAL0-8)","Boots of False Tracks (DDAL10-0/DC-POA/DC-POA-GaryXIII-1)","Boots of Levitation (CCC-GHC-BK3-8)","Boots of Levitation (DDAL10-8)","Boots of Speed (DDAL6-2)","Boots of Speed: Escape Kit (WBW-DC-Sunlit-5)","Boots of Striding and Springing: Shoes of the Glacier Walker (CCC-TRI-26)","Boots of Striding and Springing (DDAL10-3)","Boots of Striding and Springing (LLoK)","Boots of Striding and Springing (WBW-DC-RKS-1)","Boots of Striding and Springing: The Lucky Jade Hare’s Boots (WBW-DC-ZODIAC-4)","Boots of the Winterlands (CCC-BMG-19 HULB2-1)","Boots of the Winterlands (CCC-CIC-1)","Boots of the Winterlands: Fey Commander's (CCC-PFF2-1)","Boots of the Winterlands (DC-POA-CODEX-1)","Boots of the Winterlands (DC-POA-CONMAR-14)","Boots of the Winterlands (DC-POA-GSP1-1)","Boots of the Winterlands (DC-POA-LEGIT-SV-3)","Boots of the Winterlands (DC-POA-PESCH-1)","Slippers of Spider Climbing: Arachnomancer (CCC-MTL-3)","Slippers of Spider Climbing (CCC-SRCC1-1)","Slippers of Spider Climbing: Hobnail Boots (RMH-4)","Slippers of Spider Climbing (WBW-DC-AMQ-2)","Slippers of Spider Climbing (WBW-DC-JOQ-2)","Slippers of Spider Climbing (WBW-DC-TRI-1)","Winged Boots: Pixie (ALSRs11-A)","Winged Boots: Magpie's Wings (CCC-DES-1-5)","Winged Boots (CCC-SEA-1-2)","Winged Boots (CCC-SQC-3-2)","Winged Boots: The Auftrag’s Buskins (CCC-TAROT2-5)","Winged Boots (DDEP0-1)","Winged Boots (DDEP8-3)"],
 	"boots of elvenkind: eladrin (ccc-bmg-moon6-2)" : { // contains contributions by AelarTheElfRogue
 		name : "Eladrin Boots of Elvenkind (CCC-BMG-MOON6-2)",
 		source : [["AL","CCC"]],
@@ -4752,6 +4962,17 @@ MagicItemsList["al footwear"] = {
 		descriptionFull : "These fur lined boots are wrapped in the finest strips of red dyed leather. Golden buckles line the middle of the boot, each engraved with a separate rune.\n   While you wear these boots, your walking speed becomes 30 feet, unless your walking speed is higher, and your speed isn't reduced if you are encumbered or wearing heavy armor. In addition, you can jump three times the normal distance, though you can't jump farther than your remaining movement would allow.",
 		speed : { walk : { spd : "fixed 30", enc : "fixed 30" } }
 	},
+	"boots of striding and springing: the lucky jade hare’s boots (wbw-dc-zodiac-4)" : { // includes contributions by AelarTheElfRogue
+		name : "The Lucky Jade Hare’s Boots (Boots of Striding and Springing)",
+		source : [["AL","WBW-DC"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		attunement : true,
+		description : "These fluffy white fur boots are studded with moonstones & were soaked for 8 days in a luck potion. The boots yelp warnings, granting a +2 bonus to initiative when you're not incapacitated. While wearing them, your walking speed is 30 ft, unless higher, & your speed isn't reduced by encumbrance or wearing heavy armor. You can also jump 3 times the normal distance, but not farther than your remaining movement.",
+		descriptionFull : "Fluffy white fur pair of boots studded with moonstones and soaked for eight days in a luck potion.\n   " + toUni("Guardian") + ". The item yelps a warnings to its bearer, granting a +2 bonus to initiative if the bearer isn’t incapacitated.\n   While you wear these boots, your walking speed becomes 30 feet, unless your walking speed is higher, and your speed isn't reduced if you are encumbered or wearing heavy armor. In addition, you can jump three times the normal distance, though you can't jump farther than your remaining movement would allow.",
+		speed : { walk : { spd : "fixed 30", enc : "fixed 30" } },
+		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." }
+	},
 	"boots of the winterlands (ccc-bmg-19 hulb2-1)" : {
 		name : "Boots of the Winterlands (CCC-BMG-19 HULB2-1)",
 		source : [["AL","CCC"]],
@@ -4991,7 +5212,7 @@ MagicItemsList["al headwear"] = {
 		name : "AL Headwear",
 		type : "wondrous item",
 		allowDuplicates : true,
-	choices : ["Circlet (Eye Patch) of Blasting (CCC-CIC-11)","Circlet of Blasting (CCC-GHC-BK1-6)","Circlet of Blasting (CCC-MCX-1)","Circlet of Blasting: Thenturian Circlet (CCC-TAROT1-7)","Circlet of Blasting: Coldfire Circlet (DC-POA-CD1)","Circlet of Blasting: Crown of the Night Sky (DC-POA-DES-5A)","Circlet of Blasting (DC-POA-RH01)","Dread Helm (CCC-AETHER-1-2)","Dread Helm (CCC-GAD1-2)","Dread Helm: Klicklikak Control Helm (CCC-NUKE-1-5)","Dread Helm (CCC-OCC-2)","Dread Helm (Generic DC-POA)","Dread Helm (DC-POA-DUCKS-OS-02)","Dread Helm (DC-POA-HARM-1-1)","Dread Helm (DC-POA-LEGIT-CIPH-1)","Dread Helm: Ko's Visage (DC-POA-TDG1-2)","Dread Helm: Green (Liar's Night)","Dread Helm: Pumpkin (Liar's Night)","Hat of Disguise (CCC-AETHER2-1)","Hat of Disguise (CCC-GHC-BK2-7)","Hat of Disguise (CCC-NBDD1-2)","Hat of Disguise: Infiltrator Cowl (CCC-NUKE-1-4)","Hat of Disguise: Wolfskin Cap (DDAL4-3)","Hat of Disguise (DDAL8-3)","Hat of Disguise: Party (WBW-DC-CONMAR-1)","Hat of Vermin: Bulaga Wizard Hat (CCC-GSP2-1)","Hat of Vermin (CCC-TAROT1-5)","Hat of Vermin: Sylvan Sock (WBW-DC-CONMAR-6)","Hat of Vermin (WBW-DC-TIC-1)","Hat of Vermin: Piper's Hat (WBW-DC-ZODIAC-1)","Headband of Intellect (DDEP0-1)","Headband of Intellect (DDEX1-6)", "Headband of Intellect (DDAL5-16)","Headband of Intellect (DDEP7-2)","Headband of Intellect: Chardalyn Earring (DDEP10-1)","Helm of Brilliance: The Mask of Wompona Yarp (DDAL7-14)","Helm of Brilliance (DDAL-DRW3)","Helm of Comprehending Languages (CCC-AETHER-1-1)","Helm of Comprehending Languages (CCC-ALMOG-40 ESC1)","Helm of Comprehending Languages (CCC-DWB-ESR-1)","Helm of Comprehending Languages (CCC-DWB-TRM-1)","Helm of Comprehending Languages (CCC-FCC-1)","Helm of Comprehending Languages (CCC-HERO-BK3-1)","Helm of Comprehending Languages (CCC-KUMORI-3-3)","Helm of Comprehending Languages (CCC-MMT1-1)","Helm of Comprehending Languages: Superb Beret of the Librarian (CCC-OA-1-1)","Helm of Comprehending Languages (CCC-TCW-WSF-1)","Helm of Comprehending Languages (CCC-UBCON1-1)","Helm of Comprehending Languages: Tricorn Hat (CCC-UCON-2-1)","Helm of Telepathy (CCC-AN-1)","Helm of Telepathy (CCC-GHC-BK1-7)","Helm of Telepathy: Mask of Chakalakhan (CCC-PRETZ-PLA3)","Helm of Telepathy: Auto-communication Linking Instrument (CCC-TAROT2-10)","Helm of Telepathy (DC-POA-CJK)","Helm of Telepathy (DC-POA-CONMAR-16)","Helm of Telepathy: Ryboslav's Helm (DC-POA-TDG1-9)","Helm of Telepathy (DDAL9-15)","Helm of Telepathy (DDEP9-1)","Helm of Telepathy (RotF)","Helm of Teleportation (CCC-BMG-43 PHLAN4-1)","Helm of Teleportation: Weave (CCC-PHA-1)"],
+	choices : ["Circlet (Eye Patch) of Blasting (CCC-CIC-11)","Circlet of Blasting (CCC-GHC-BK1-6)","Circlet of Blasting (CCC-MCX-1)","Circlet of Blasting: Thenturian Circlet (CCC-TAROT1-7)","Circlet of Blasting: Coldfire Circlet (DC-POA-CD1)","Circlet of Blasting: Crown of the Night Sky (DC-POA-DES-5A)","Circlet of Blasting (DC-POA-RH01)","Dread Helm (CCC-AETHER-1-2)","Dread Helm (CCC-GAD1-2)","Dread Helm: Klicklikak Control Helm (CCC-NUKE-1-5)","Dread Helm (CCC-OCC-2)","Dread Helm (Generic DC-POA)","Dread Helm (DC-POA-DUCKS-OS-02)","Dread Helm (DC-POA-HARM-1-1)","Dread Helm (DC-POA-LEGIT-CIPH-1)","Dread Helm: Ko's Visage (DC-POA-TDG1-2)","Dread Helm: Green (Liar's Night)","Dread Helm: Pumpkin (Liar's Night)","Hat of Disguise (CCC-AETHER2-1)","Hat of Disguise (CCC-GHC-BK2-7)","Hat of Disguise (CCC-NBDD1-2)","Hat of Disguise: Infiltrator Cowl (CCC-NUKE-1-4)","Hat of Disguise: Wolfskin Cap (DDAL4-3)","Hat of Disguise (DDAL8-3)","Hat of Disguise: Party (WBW-DC-CONMAR-1)","Hat of Vermin: Bulaga Wizard Hat (CCC-GSP2-1)","Hat of Vermin (CCC-TAROT1-5)","Hat of Vermin: Sylvan Sock (WBW-DC-CONMAR-6)","Hat of Vermin: Bella's Tricorn Hat (WBW-DC-Rook-2-1)","Hat of Vermin (WBW-DC-TIC-1)","Hat of Vermin: Piper's Hat (WBW-DC-ZODIAC-1)","Headband of Intellect (DDEP0-1)","Headband of Intellect (DDEX1-6)", "Headband of Intellect (DDAL5-16)","Headband of Intellect (DDEP7-2)","Headband of Intellect: Chardalyn Earring (DDEP10-1)","Helm of Brilliance: The Mask of Wompona Yarp (DDAL7-14)","Helm of Brilliance (DDAL-DRW3)","Helm of Comprehending Languages (CCC-AETHER-1-1)","Helm of Comprehending Languages (CCC-ALMOG-40 ESC1)","Helm of Comprehending Languages (CCC-DWB-ESR-1)","Helm of Comprehending Languages (CCC-DWB-TRM-1)","Helm of Comprehending Languages (CCC-FCC-1)","Helm of Comprehending Languages (CCC-HERO-BK3-1)","Helm of Comprehending Languages (CCC-KUMORI-3-3)","Helm of Comprehending Languages (CCC-MMT1-1)","Helm of Comprehending Languages: Superb Beret of the Librarian (CCC-OA-1-1)","Helm of Comprehending Languages (CCC-TCW-WSF-1)","Helm of Comprehending Languages (CCC-UBCON1-1)","Helm of Comprehending Languages: Tricorn Hat (CCC-UCON-2-1)","Helm of Telepathy (CCC-AN-1)","Helm of Telepathy (CCC-GHC-BK1-7)","Helm of Telepathy: Mask of Chakalakhan (CCC-PRETZ-PLA3)","Helm of Telepathy: Auto-communication Linking Instrument (CCC-TAROT2-10)","Helm of Telepathy (DC-POA-CJK)","Helm of Telepathy (DC-POA-CONMAR-16)","Helm of Telepathy: Ryboslav's Helm (DC-POA-TDG1-9)","Helm of Telepathy (DDAL9-15)","Helm of Telepathy (DDEP9-1)","Helm of Telepathy (RotF)","Helm of Teleportation (CCC-BMG-43 PHLAN4-1)","Helm of Teleportation: Weave (CCC-PHA-1)"],
 	"circlet (eye patch) of blasting (ccc-cic-11)" : { // contains contributions by Larry Hoy
 		name : "Eye Patch of Blasting (Circlet of Blasting)",
 		source : [["AL","CCC"]],
@@ -5330,7 +5551,7 @@ MagicItemsList["al headwear"] = {
 		name : "Hat of Vermin (CCC-TAROT1-5)",
 		source : [["AL","CCC"]],
 		rarity : "common",
-		description : "This dusty old cap has 3 charges, all regained at dawn. As an action while holding it, you can expend 1 charge & speak a command word to have 1 bat, frog, or rat appear in the hat. It acts like a normal animal & disappears after 1 hr or at 0 HP. You don't control it.",
+		description : "While wearing this black hat with 2 large felt ears, your name is magically embroidered on it in yellow. When removed, the name disappears. The hat has 3 charges, regained at dawn. As an action while holding it, expend 1 charge & speak a command word to create 1 bat, frog, or rat in the hat. It acts like a normal animal & disappears after 1 hr or at 0 HP. You don't control it.",
 		descriptionFull : "This hat has 3 charges. While holding the hat, you can use an action to expend 1 of its charges and speak a command word that summons your choice of a bat, a frog, or a rat. The summoned creature magically appears in the hat and tries to get away from you as quickly as possible. The creature is neither friendly nor hostile, and it isn't under your control. It behaves as an ordinary creature of its kind and disappears after 1 hour or when it drops to 0 hit points. The hat regains all expended charges daily at dawn.\n   While wearing this black hat, with two large felt ears, your name is magically written on it in yellow stitching. When you take it off, the name disappears.",
 		limfeaname : "Hat of Vermin",
 		action : [["action", " (Summon)"]],
@@ -5345,6 +5566,18 @@ MagicItemsList["al headwear"] = {
 		descriptionFull : "This is a smelly large sock. It can be pulled over a humanoid’s head, just like a beanie, tam, or Phrygian hat since it was designed to fit an ogre’s foot. The bearer of this sock can speak and understand Sylvan while the sock is on the bearer’s person.\n   This hat has 3 charges. While holding the hat, you can use an action to expend 1 of its charges and speak a command word that summons your choice of a bat, a frog, or a rat. The summoned creature magically appears in the hat and tries to get away from you as quickly as possible. The creature is neither friendly nor hostile, and it isn't under your control. It behaves as an ordinary creature of its kind and disappears after 1 hour or when it drops to 0 hit points. The hat regains all expended charges daily at dawn.",
 		limfeaname : "Hat of Vermin",
 		languageProfs : ["Sylvan"],
+		action : [["action", " (Summon)"]],
+		usages : 3,
+		recovery : "dawn"
+	},
+	"hat of vermin: bella's tricorn hat (wbw-dc-rook-2-1)" : {
+		name : "Bella's Tricorn Hat (Hat of Vermin)",
+		source : [["AL","WBW-DC"]],
+		rarity : "common",
+		description : "This black tricorn cap is made of tough leather with intricate stitching. It floats on water & other liquids, & gives you advantage on Strength (Athletics) checks to swim. As an action while holding the sock, you can expend 1 charge & speak a command word to have 1 bat, frog, or rat appear in the hat. It acts like a normal animal & disappears after 1 hr or at 0 HP. You don't control it.",
+		descriptionFull : "This black tricorn cap is made of tough leather with intricate stitching.\n   " + toUni("Waterborne") + ". This item floats on water and other liquids. Its bearer has advantage on Strength (Athletics) checks to swim.\n   This hat has 3 charges. While holding the hat, you can use an action to expend 1 of its charges and speak a command word that summons your choice of a bat, a frog, or a rat. The summoned creature magically appears in the hat and tries to get away from you as quickly as possible. The creature is neither friendly nor hostile, and it isn't under your control. It behaves as an ordinary creature of its kind and disappears after 1 hour or when it drops to 0 hit points. The hat regains all expended charges daily at dawn.",
+		savetxt : { text : ["Adv on Str (Athletic) chks to swim"] },
+		limfeaname : "Hat of Vermin",
 		action : [["action", " (Summon)"]],
 		usages : 3,
 		recovery : "dawn"
@@ -6047,7 +6280,7 @@ MagicItemsList["al instruments"] = {
 		name : "AL Instruments",
 		type : "Instrument",
 		allowDuplicates : true,
-	choices : ["Anstruth Harp: Grig Fiddle (ALSRs11-A)","Anstruth Harp (CCC-BMG-40 HULB4-1)","Brass Horn of Valhalla (CCC-GAD2-3)","Brass Horn of Valhalla: Biguris' Fury (CCC-GSP2-3)","Canaith Mandolin (DDEX3-9)","Chime of Opening (DDAL10-6)","Cli Lyre (CCC-TRI-25 DEAD1-2)","Doss Lute: Shadowsong Lute (CCC-DES-4-2)","Doss Lute (CCC-MALTH-2)","Doss Lute (CCC-TAROT2-2)","Doss Lute (WBW-DC-DCAF2)","Doss Lute (WBW-DC-HBK-1)","Doss Lute (WBW-DC-JOQ-3)","Doss Lute: Spectacular (WBW-DC-ZEP-T1S1)","Doss Lute: Piper’s pípá (WBW-DC-ZODIAC-1)","Fochlucan Bandore (CCC-BMG-MOON9-3)","Horn of Blasting (DDEX1-11)","Horn of Silent Alarm (CCC-BMG-MOON6-3)","Horn of Silent Alarm (CCC-KUMORI-3-3)","Horn of Silent Alarm (CCC-SQC-3-3)","Horn of Silent Alarm: Bell of Silent Carols (DDAL0-5)","Instrument of Illusions (CCC-ODFC3-1)","Instrument of Illusions (DDHC-MORD-5)","Instrument of Scribing: Flute (CCC-BWM-7-2)","Instrument of Scribing (DC-POA-CONMAR-13)","Instrument of Scribing (DC-POA-DCAF10)","Mac-Fuirmidh Cittern: Dragon's Lullaby (CCC-GSP1-1)","Mac-Fuirmidh Cittern (CCC-THENT1-3)","Mac-Fuirmidh Cittern: Sensurset's Lament (RMH-3)","Pipes of Haunting (CCC-BMG-MOON14-3)","Pipes of Haunting (CCC-MACE1-1)","Pipes of the Sewers (DDEX3-6)","Pipes of the Sewers (DDHC-XGE-01)","Silver Horn of Valhalla: Luthik's Call (CCC-MAYDAYS2-1)","Silver Horn of Valhalla (CCC-TRI-5 NIGHT1-1)","Silver Horn of Valhalla: The Dream Serpent's Horn (WBW-DC-LEGIT-SV-5)","Silver Horn of Valhalla: Maharani’s War Horn (WBW-DC-ZODIAC-3)"],
+	choices : ["Anstruth Harp: Grig Fiddle (ALSRs11-A)","Anstruth Harp (CCC-BMG-40 HULB4-1)","Anstruth Harp (DDAL-DRW18)","Brass Horn of Valhalla (CCC-GAD2-3)","Brass Horn of Valhalla: Biguris' Fury (CCC-GSP2-3)","Canaith Mandolin (DDEX3-9)","Chime of Opening (DDAL10-6)","Cli Lyre (CCC-TRI-25 DEAD1-2)","Doss Lute: Shadowsong Lute (CCC-DES-4-2)","Doss Lute (CCC-MALTH-2)","Doss Lute (CCC-TAROT2-2)","Doss Lute (WBW-DC-DCAF2)","Doss Lute (WBW-DC-HBK-1)","Doss Lute (WBW-DC-JOQ-3)","Doss Lute: Spectacular (WBW-DC-ZEP-T1S1)","Doss Lute: Piper’s pípá (WBW-DC-ZODIAC-1)","Fochlucan Bandore (CCC-BMG-MOON9-3)","Horn of Blasting (DDEX1-11)","Horn of Silent Alarm (CCC-BMG-MOON6-3)","Horn of Silent Alarm (CCC-KUMORI-3-3)","Horn of Silent Alarm (CCC-SQC-3-3)","Horn of Silent Alarm: Bell of Silent Carols (DDAL0-5)","Instrument of Illusions (CCC-ODFC3-1)","Instrument of Illusions (DDHC-MORD-5)","Instrument of Scribing: Flute (CCC-BWM-7-2)","Instrument of Scribing (DC-POA-CONMAR-13)","Instrument of Scribing (DC-POA-DCAF10)","Mac-Fuirmidh Cittern: Dragon's Lullaby (CCC-GSP1-1)","Mac-Fuirmidh Cittern (CCC-THENT1-3)","Mac-Fuirmidh Cittern: Sensurset's Lament (RMH-3)","Pipes of Haunting (CCC-BMG-MOON14-3)","Pipes of Haunting (CCC-MACE1-1)","Pipes of the Sewers (DDEX3-6)","Pipes of the Sewers (DDHC-XGE-01)","Silver Horn of Valhalla: Luthik's Call (CCC-MAYDAYS2-1)","Silver Horn of Valhalla (CCC-TRI-5 NIGHT1-1)","Silver Horn of Valhalla: The Dream Serpent's Horn (WBW-DC-LEGIT-SV-5)","Silver Horn of Valhalla: Maharani’s War Horn (WBW-DC-ZODIAC-3)"],
 	"anstruth harp: grig fiddle (alsrs11-a)" : {
 		name : "Grig Fiddle (Anstruth Harp)",
 		source : [["ALSRs11","A"]],
@@ -6090,6 +6323,39 @@ MagicItemsList["al instruments"] = {
 		description: "The harp is made from white bone carved to look like a kraken w/ tentacles ending in the strings. It's well-suited for dirges & sea shanties & glows when a celestial is w/i 100 ft. If you try to play w/o attuning, DC 15 Wis save or 2d4 psychic dmg. Action to play & cast 1 of 7 spells (see spell sheet). Each can be cast once per dawn using your spellcasting ability & save DC. Play the harp while casting a charm effect spell & you can impose disadv. on the save if the spell has a somatic or a material component.",
 		descriptionLong: "The harp is made from white bone carved to look like a kraken with tentacles ending in the strings. It's well-suited for dirges & sea shanties & glows when a celestial is within 100 ft. If you try to play without attuning, DC 15 Wis save or 2d4 psychic dmg. Action to play & cast 1 of 7 spells: Fly, Invisibility, Levitate, Protection from Evil and Good, Control Weather, Cure Wounds (5th level), and Wall of Thorns. Each can be cast once per dawn using your spellcasting ability & save DC. If you play the fiddle while casting a charm effect spell, you can impose disadvantage on the save if the spell has a somatic or a material component.",
 		descriptionFull : "The harp is made out of white bone, carved to look like a kraken with its tentacles ending in the strings. The sounds it produces are especially well-suited for dirges and sea shanties. It glows when a celestial approaches within 100 feet of the harp.\n   An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Anstruth harp can be used to cast Control Weather, Cure Wounds (5th level), and Wall of Thorns.",
+		weight : 3, // Magic of Faerûn (2001) page 161
+		prerequisite : "Requires attunement by a bard",
+		prereqeval : function(v) { return classes.known.bard ? true : false; },
+		spellcastingBonus : {
+			name : "Once per long rest",
+			spells : ["fly", "invisibility", "levitate", "protection from evil and good", "control weather", "cure wounds", "wall of thorns"],
+			selection : ["fly", "invisibility", "levitate", "protection from evil and good", "control weather", "cure wounds", "wall of thorns"],
+			firstCol : "oncelr",
+			times : 7,
+			spellcastingAbility : "class"
+		},
+		spellChanges : {
+			"cure wounds" : {
+				description : "1 living creature heals 5d8+spellcasting ability modifier HP",
+				changes : "When using the Anstruth Harp to cast Cure Wounds, it is cast at 5th-level."
+			},
+			spellChanges : {
+				"control weather" : {
+					time : "1 a",
+					changes : "Casting time is only an action."
+				}
+			}
+		}
+	},
+	"anstruth harp (ddal-drw18)" : {
+		name : "Anstruth Harp (DDAL-DRW18)",
+		source : [["AL","DRW"]],
+		rarity : "very rare",
+		magicItemTable : "H",
+		attunement : true,
+		description: "This harp has graceful curves, intricate decoration, & a peerless sound. Carvings in its golden wood depict the gods dancing to the music of Milil, god of song. If you try to play w/o attuning, DC 15 Wis save or 2d4 psychic dmg. Action to play & cast 1 of 7 spells (see spell sheet). Each can be cast once per dawn using your spellcasting ability & save DC. Play the harp while casting a charm effect spell & you can impose disadv. on the save if the spell has a somatic or a material component.",
+		descriptionLong: "The graceful curves, intricate decoration, & peerless sound of this harp mark it as one of greatest musical instruments ever made. Carvings in its golden wood depict the gods dancing to the music of Milil, god of song. If you try to play without attuning, DC 15 Wis save or 2d4 psychic dmg. Action to play & cast 1 of 7 spells: Fly, Invisibility, Levitate, Protection from Evil and Good, Control Weather, Cure Wounds (5th level), and Wall of Thorns. Each can be cast once per dawn using your spellcasting ability & save DC. If you play the fiddle while casting a charm effect spell, you can impose disadvantage on the save if the spell has a somatic or a material component.",
+		descriptionFull : "The graceful curves, intricate decoration, and peerless sound of this harp mark it as one of greatest musical instruments ever fashioned. Carvings in the harp’s golden wood depict the gods dancing to the music of Milil, god of song.\n   An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.\n   You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Anstruth harp can be used to cast Control Weather, Cure Wounds (5th level), and Wall of Thorns.",
 		weight : 3, // Magic of Faerûn (2001) page 161
 		prerequisite : "Requires attunement by a bard",
 		prereqeval : function(v) { return classes.known.bard ? true : false; },
@@ -6798,7 +7064,7 @@ MagicItemsList["al jewelry"] = {
 		name : "AL Jewelry",
 		type : "wondrous item",
 		allowDuplicates : true,
-	choices : ["Amulet of Health (CCC-GSP-NTHR1-1)","Amulet of Health (CCC-SFBAY-2-2)","Amulet of Health (DDAL8-10)","Amulet of Health (DDAL-DRW9)","Amulet of Health (DDEP0-1)","Amulet of Health (DDEP1)","Amulet of Health (RotF)","Amulet of Health: Emotional Well-Being (WBW-DC-Sunlit-4)","Amulet of the Planes: Naerth's Planar Compass (ALSRs11-A)","Amulet of the Planes (DDEP6-3)","Amulet of Proof Against Detection and Location (CCC-MMT2-1)","Amulet of Proof Against Detection and Location (CCC-TAROT2-6)","Amulet of Proof Against Detection and Location (CCC-TRI-32 DAGGR1-1)","Brooch of Shielding: Amulet of Shielding (CCC-BMG-27 CORE3-3)","Brooch of Shielding (CCC-BMG-MOON5-2)","Brooch of Shielding (CCC-WWC-6)","Brooch of Shielding (DC-POA-CONMAR-11)","Brooch of Shielding (DC-POA-DCAF11)","Brooch of Shielding (DC-POA-NBDD-1)","Brooch of Shielding: Gorg-Eous Brooch (DC-POA-TDG1-11)","Brooch of Shielding (DC-POA-TLOH-1)","Brooch of Shielding (DDAL5-3)","Brooch of Shielding (DDEX2-5)","Clockwork Amulet (CCC-CENTRIC1-3)","Clockwork Amulet: Chronostat of Precision (CCC-GAD1-3)","Clockwork Amulet: Modron Communication Device (CCC-MAYDAYS2-1)","Clockwork Amulet: Homing Impact Talisman - H.I.T. (CCC-TAROT2-10)","Clockwork Amulet: Yul's Holy Symbol of Gond (CCC-UCON-3)","Clockwork Amulet (DDAL10-8)","Clockwork Amulet (DDAL10-10)","Dark Shard Amulet (CCC-DES-1-6)","Dark Shard Amulet (CCC-GEL-1)","Dark Shard Amulet: Booyahg Necklace (CCC-MAYDAYS2-1)","Dark Shard Amulet: Amarantha’s Heart (CCC-TAROT1-7)","Dark Shard Amulet (DDAL10-7)","Guardian Emblem (DC-POA-CONMAR-6)","Guardian Emblem (DC-POA-GaryXIII-4)","Guardian Emblem (DC-POA-HAG-SF4)","Medallion of Thoughts (CCC-BMG-MOON11-3)","Medallion of Thoughts (DC-POA-CONMAR-13)","Medallion of Thoughts (DC-POA-DCAF10)","Medallion of Thoughts: Aramesha's Wisdom (DDEX2-16)","Necklace of Adaptation (CCC-MWGF-1)","Necklace of Adaptation (CCC-RPSG-2)","Necklace of Adaptation (DDEP9-1)","Necklace of Fireballs (CCC-CIC-15)","Necklace of Fireballs (CCC-GSP-MON1-1)","Necklace of Fireballs (CCC-MALTH-3)","Necklace of Fireballs: Necklace of the Legions (CCC-OHAYO-CON1-3)","Necklace of Prayer Beads (CCC-BMG-35 ELMW2-2)","Necklace of Prayer Beads (DDEP2)","Periapt of Health (CCC-AN-2)","Periapt of Health: Porpherio’s Heart (CCC-BMG-MOON4-3)","Periapt of Health (CCC-BMG-MOON10-1)","Periapt of Health: Ward of the Martyr (CCC-TAROT1-3)","Periapt of Health (CCC-YLRA-SDCC1-3)","Periapt of Health (DDAL9-4)","Periapt of Proof Against Poison: Prospector's Chronoglass (CCC-GAD1-3)","Periapt of Proof Against Poison (CCC-RCC-1-6)","Periapt of Wound Closure (CCC-BLD1-1)","Periapt of Wound Closure (CCC-BMG-11 HILL1-2)","Periapt of Wound Closure (CCC-BMG-MOON3-1)","Periapt of Wound Closure: Ilmater's Bleeding Heart (CCC-GHC-BK1-8)","Periapt of Wound Closure (CCC-THENT1-2)","Periapt of Wound Closure (DDEP5-2)","Scarab of Protection (DDAL7-18)","Scarab of Protection (DDAL-DRW8)","Talisman of Ultimate Evil: Holy Symbol of Kyuss (DDAL0-10)"],
+	choices : ["Amulet of Health (CCC-GSP-NTHR1-1)","Amulet of Health (CCC-SFBAY-2-2)","Amulet of Health (DDAL8-10)","Amulet of Health (DDAL-DRW9)","Amulet of Health (DDEP0-1)","Amulet of Health (DDEP1)","Amulet of Health (RotF)","Amulet of Health: Emotional Well-Being (WBW-DC-Sunlit-4)","Amulet of the Planes: Naerth's Planar Compass (ALSRs11-A)","Amulet of the Planes (DDEP6-3)","Amulet of Proof Against Detection and Location (CCC-MMT2-1)","Amulet of Proof Against Detection and Location (CCC-TAROT2-6)","Amulet of Proof Against Detection and Location (CCC-TRI-32 DAGGR1-1)","Brooch of Shielding: Amulet of Shielding (CCC-BMG-27 CORE3-3)","Brooch of Shielding (CCC-BMG-MOON5-2)","Brooch of Shielding (CCC-WWC-6)","Brooch of Shielding (DC-POA-CONMAR-11)","Brooch of Shielding (DC-POA-DCAF11)","Brooch of Shielding (DC-POA-NBDD-1)","Brooch of Shielding: Gorg-Eous Brooch (DC-POA-TDG1-11)","Brooch of Shielding (DC-POA-TLOH-1)","Brooch of Shielding (DDAL5-3)","Brooch of Shielding (DDEX2-5)","Clockwork Amulet (CCC-CENTRIC1-3)","Clockwork Amulet: Chronostat of Precision (CCC-GAD1-3)","Clockwork Amulet: Modron Communication Device (CCC-MAYDAYS2-1)","Clockwork Amulet: Homing Impact Talisman - H.I.T. (CCC-TAROT2-10)","Clockwork Amulet: Yul's Holy Symbol of Gond (CCC-UCON-3)","Clockwork Amulet (DDAL10-8)","Clockwork Amulet (DDAL10-10)","Dark Shard Amulet (CCC-DES-1-6)","Dark Shard Amulet (CCC-GEL-1)","Dark Shard Amulet: Booyahg Necklace (CCC-MAYDAYS2-1)","Dark Shard Amulet: Amarantha’s Heart (CCC-TAROT1-7)","Dark Shard Amulet (DDAL10-7)","Guardian Emblem (DC-POA-CONMAR-6)","Guardian Emblem (DC-POA-GaryXIII-4)","Guardian Emblem (DC-POA-HAG-SF4)","Medallion of Thoughts (CCC-BMG-MOON11-3)","Medallion of Thoughts (DC-POA-CONMAR-13)","Medallion of Thoughts (DC-POA-DCAF10)","Medallion of Thoughts: Aramesha's Wisdom (DDEX2-16)","Necklace of Adaptation (CCC-MWGF-1)","Necklace of Adaptation (CCC-RPSG-2)","Necklace of Adaptation (DDEP9-1)","Necklace of Fireballs (CCC-CIC-15)","Necklace of Fireballs (CCC-GSP-MON1-1)","Necklace of Fireballs (CCC-MALTH-3)","Necklace of Fireballs: Necklace of the Legions (CCC-OHAYO-CON1-3)","Necklace of Fireballs (DDAL-DRW18)","Necklace of Prayer Beads (CCC-BMG-35 ELMW2-2)","Necklace of Prayer Beads (DDEP2)","Periapt of Health (CCC-AN-2)","Periapt of Health: Porpherio’s Heart (CCC-BMG-MOON4-3)","Periapt of Health (CCC-BMG-MOON10-1)","Periapt of Health: Ward of the Martyr (CCC-TAROT1-3)","Periapt of Health (CCC-YLRA-SDCC1-3)","Periapt of Health (DDAL9-4)","Periapt of Proof Against Poison: Prospector's Chronoglass (CCC-GAD1-3)","Periapt of Proof Against Poison (CCC-RCC-1-6)","Periapt of Wound Closure (CCC-BLD1-1)","Periapt of Wound Closure (CCC-BMG-11 HILL1-2)","Periapt of Wound Closure (CCC-BMG-MOON3-1)","Periapt of Wound Closure: Ilmater's Bleeding Heart (CCC-GHC-BK1-8)","Periapt of Wound Closure (CCC-THENT1-2)","Periapt of Wound Closure (DDEP5-2)","Scarab of Protection (DDAL7-18)","Scarab of Protection (DDAL-DRW8)","Talisman of Ultimate Evil: Holy Symbol of Kyuss (DDAL0-10)"],
 	"amulet of health (ccc-gsp-nthr1-1)" : {
 		name : "Amulet of Health (CCC-GSP-NTHR1-1)",
 		source : [["AL","CCC"]],
@@ -7739,7 +8005,7 @@ MagicItemsList["al jewelry"] = {
 		descriptionFull : "This copper chain necklace has 1d6+3 carnelian beads hanging from it.\n   You can use an action to detach a bead and throw it up to 60 feet away. When it reaches the end of its trajectory, the bead detonates as a 3rd-level Fireball spell (save DC 15).\n   You can hurl multiple beads, or even the whole necklace, as one action. When you do so, increase the level of the Fireball by 1 for each bead beyond the first.",
 		weight : 1,
 		limfeaname : "Necklace of Fireballs",
-		usages : "6",
+		usages : "1d6+3",
 		recovery : "Never",
 		spellcastingBonus : {
 			name : "Fireball",
@@ -7766,6 +8032,32 @@ MagicItemsList["al jewelry"] = {
 		weight : 1,
 		limfeaname : "Necklace of Fireballs",
 		usages : "7",
+		recovery : "Never",
+		spellcastingBonus : {
+			name : "Fireball",
+			spells : ["fireball"],
+			selection : ["fireball"]
+		},
+		fixedDC : 15,
+		spellChanges : {
+			"fireball" : {
+				description : "20-ft rad all crea 8d6 (+1d6/extra bead) Fire dmg; save halves; unattended flammable objects ignite",
+				components : "M\u2020",
+				compMaterial : "Using the Necklace of Fireballs to cast Fireball requires removing and destorying one or more of the beads from it.",
+				changes : "Using the Necklace of Fireballs to cast Fireball requires removing and destorying one or more of the beads from it. The damage is that of a Fireball cast a 3rd-level, +1 level per bead thrown as part of the same action beyond the first."
+			}
+		}
+	},
+	"necklace of fireballs (ddal-drw18)" : {
+		name : "Necklace of Fireballs (DDAL-DRW18)",
+		source : [["AL","DRW"]],
+		rarity : "rare",
+		magicItemTable : "C",
+		description : "Carnelian orbs in clawlike settings hang from a heavy gold chain. Each stone is hot to the touch & can easily detach from its setting. As an action, you can detach a bead & throw it up to 60 ft where it detonates as a 3rd-lvl Fireball (save DC 15). You can hurl multiple beads at a time, increasing the lvl of the Fireball by 1 for each bead past the 1st. ",
+		descriptionFull : "Carnelian orbs in clawlike settings hang from a heavy gold chain. Each stone is hot to the touch and feels as if it could easily detach from its setting.\n   This necklace has 1d6 + 3 beads hanging from it. You can use an action to detach a bead and throw it up to 60 feet away. When it reaches the end of its trajectory, the bead detonates as a 3rd-level Fireball spell (save DC 15).\n   You can hurl multiple beads, or even the whole necklace, as one action. When you do so, increase the level of the Fireball by 1 for each bead beyond the first.",
+		weight : 1,
+		limfeaname : "Necklace of Fireballs",
+		usages : "1d6+3",
 		recovery : "Never",
 		spellcastingBonus : {
 			name : "Fireball",
@@ -8483,7 +8775,36 @@ MagicItemsList["al minerals"] = {
 		name : "AL Minerals",
 		type : "wondrous item",
 		allowDuplicates : true,
-	choices : ["Crystal Ball (CCC-MIND1-1)","Elemental Gem - Red (CCC-BMG-MOON7-2)","Elemental Gem - Red: The Heart of Baga (CCC-GSP2-1)","Feywild Shard: Other Sorcerer (WBW-DC-JOQ-4)","Feywild Shard: Wild Mage (WBW-DC-JOQ-4)","Feywild Shard: Other Sorcerer (WBW-DC-NJ-COU-1)","Feywild Shard: Wild Mage (WBW-DC-NJ-COU-1)","Feywild Shard: Other Sorcerer (WBW-DC-THAL-1)","Feywild Shard: Wild Mage (WBW-DC-THAL-1)","Feywild Shard: Other Sorcerer (WBW-DC-TIC-1)","Feywild Shard: Wild Mage (WBW-DC-TIC-1)","Gem of Seeing (CCC-SHINY-4)","Gem of Seeing (DDAL8-12)","Gem of Seeing (DDAL9-5)","Gem of Seeing: Crystallized Fire (RMH-6)","Ioun Stone - Greater Absorption (DDAL0-10)","Ioun Stone - Insight (DDEP3)","Ioun Stone - Intellect (DDAL-DRW17)","Ioun Stone - Mastery (DDAL0-11F)","Ioun Stone - Protection (CCC-HATMS1-3)","Ioun Stone - Protection (DDAL0-11D)","Ioun Stone - Protection (WBW-DC-CONMAR-2)","Ioun Stone - Protection (WBW-DC-NBDD-1)","Ioun Stone - Reserve (CCC-BMG-48 HILL3-3)","Ioun Stone - Reserve (CCC-YLRA1-1)","Orb of Direction: Corsair's Star (CCC-COTN-1-1)","Orb of Direction: Navigator's Orb (CCC-GAD2-2)","Orb of Direction (CCC-HAL-4)","Orb of Direction (CCC-JGD-2)","Orb of Time (CCC-DES-2-2)","Orb of Time (DC-POA-OGG-2)","Orb of Time (DC-POA-SSM-1)","Pearl of Power (CCC-BMG-MOON13-2)","Pearl of Power (CCC-BMG-MOON14-2)","Pearl of Power (CCC-DDSC-1)","Pearl of Power: Aier (CCC-EPI1-1)","Pearl of Power (CCC-JGD-3)","Pearl of Power (CCC-THENT1-1)","Pearl of Power (DDAL7-5)","Pearl of Power (DDAL-DRW13)","Pearl of Power (WBW-DC-SQT-1)","Psi Crystal (DC-POA-GSP1-2)","Psi Crystal (DC-POA-HARM-1-3)","Psi Crystal (DC-POA-X-T1S3)","Ruby of the War Mage: Selfaril's Soul Gem (CCC-GAD1-1)","Ruby of the War Mage (DDAL10-9)","Ruby (Emerald) of the War Mage (DDHC-MORD-1)","Sending (Audience) Stones (CCC-BMG-12 HILL1-3)","Sending Stones (CCC-BMG-MOON10-3)","Sending Stones (CCC-CIC-4)","Sending Stones (DDAL0-8)","Sending Stones (DDAL10-2)","Stone of Controlling Earth Elementals (CCC-BLD1-3)","Stone of Controlling Earth Elementals: Traveler's Heart (CCC-SFBAY-4-2)","Stone of Good Luck (CCC-BMG-MOON8-3)","Stone of Good Luck (CCC-DWB-TFG-1)","Stone of Good Luck (CCC-HATMS2-3)","Stone of Good Luck: Durgin's Dice (CCC-NUKE-1-1)","Stone of Good Luck (CCC-SCAR1-2)","Stone of Good Luck (DDAL0-2B)","Stone of Good Luck (DDAL0-11B)","Stone of Good Luck (DDEP4)","Stone of Good Luck (DDHC-MORD-4)","Stone of Good Luck: Trophy Cup (RotF)"],
+	choices : ["Amethyst Lodestone: Dragon's Heartscale (WBW-DC-ZODIAC-5)","Crystal Ball (CCC-MIND1-1)","Elemental Gem - Red (CCC-BMG-MOON7-2)","Elemental Gem - Red: The Heart of Baga (CCC-GSP2-1)","Feywild Shard: Other Sorcerer (WBW-DC-JOQ-4)","Feywild Shard: Wild Mage (WBW-DC-JOQ-4)","Feywild Shard: Other Sorcerer (WBW-DC-NJ-COU-1)","Feywild Shard: Wild Mage (WBW-DC-NJ-COU-1)","Feywild Shard: Other Sorcerer (WBW-DC-THAL-1)","Feywild Shard: Wild Mage (WBW-DC-THAL-1)","Feywild Shard: Other Sorcerer (WBW-DC-TIC-1)","Feywild Shard: Wild Mage (WBW-DC-TIC-1)","Gem of Seeing (CCC-SHINY-4)","Gem of Seeing (DDAL8-12)","Gem of Seeing (DDAL9-5)","Gem of Seeing: Crystallized Fire (RMH-6)","Ioun Stone - Greater Absorption (DDAL0-10)","Ioun Stone - Insight (DDEP3)","Ioun Stone - Intellect (DDAL-DRW17)","Ioun Stone - Mastery (DDAL0-11F)","Ioun Stone - Protection (CCC-HATMS1-3)","Ioun Stone - Protection (DDAL0-11D)","Ioun Stone - Protection (WBW-DC-CONMAR-2)","Ioun Stone - Protection (WBW-DC-NBDD-1)","Ioun Stone - Reserve (CCC-BMG-48 HILL3-3)","Ioun Stone - Reserve (CCC-YLRA1-1)","Orb of Direction: Corsair's Star (CCC-COTN-1-1)","Orb of Direction: Navigator's Orb (CCC-GAD2-2)","Orb of Direction (CCC-HAL-4)","Orb of Direction (CCC-JGD-2)","Orb of Time (CCC-DES-2-2)","Orb of Time (DC-POA-OGG-2)","Orb of Time (DC-POA-SSM-1)","Pearl of Power (CCC-BMG-MOON13-2)","Pearl of Power (CCC-BMG-MOON14-2)","Pearl of Power (CCC-DDSC-1)","Pearl of Power: Aier (CCC-EPI1-1)","Pearl of Power (CCC-JGD-3)","Pearl of Power (CCC-THENT1-1)","Pearl of Power (DDAL7-5)","Pearl of Power (DDAL-DRW13)","Pearl of Power (WBW-DC-Rook-1-2)","Pearl of Power (WBW-DC-SQT-1)","Pearl of Power (WBW-DC-TBLCMB-3)","Psi Crystal (DC-POA-GSP1-2)","Psi Crystal (DC-POA-HARM-1-3)","Psi Crystal (DC-POA-X-T1S3)","Ruby of the War Mage: Selfaril's Soul Gem (CCC-GAD1-1)","Ruby of the War Mage (DDAL10-9)","Ruby (Emerald) of the War Mage (DDHC-MORD-1)","Sending (Audience) Stones (CCC-BMG-12 HILL1-3)","Sending Stones (CCC-BMG-MOON10-3)","Sending Stones (CCC-CIC-4)","Sending Stones (DDAL0-8)","Sending Stones (DDAL10-2)","Stone of Controlling Earth Elementals (CCC-BLD1-3)","Stone of Controlling Earth Elementals: Traveler's Heart (CCC-SFBAY-4-2)","Stone of Good Luck (CCC-BMG-MOON8-3)","Stone of Good Luck (CCC-DWB-TFG-1)","Stone of Good Luck (CCC-HATMS2-3)","Stone of Good Luck: Durgin's Dice (CCC-NUKE-1-1)","Stone of Good Luck (CCC-SCAR1-2)","Stone of Good Luck (DDAL0-2B)","Stone of Good Luck (DDAL0-11B)","Stone of Good Luck (DDEP4)","Stone of Good Luck (DDHC-MORD-4)","Stone of Good Luck: Trophy Cup (RotF)"],
+	"amethyst lodestone: dragon's heartscale (wbw-dc-zodiac-5)" : {
+		name : "Dragon's Heartscale (Amethyst Lodestone)",
+		type : "wondrous item",
+		rarity : "very rare",
+		source : [["AL","WBW-DC"]],
+		attunement : true,
+		defaultExcluded : true,
+		description : "This fist-sized amethyst scale shimmers with the roaring waves of the sea & grants you adv. on Str saves. You can speak Draconic while its on your person. It has 6 charges, regaining 1d6 at dawn. As a bonus action, spend 1 charge to get a fly speed equal to your walk speed for 10 min & hover. As an action: \u2022 1 charge: have a visible creature in 60 ft make a DC 18 Str save or be pushed 20 ft in any direction. \u2022 3 charges: cast Reverse Gravity (DC 18).",
+		descriptionFull : "This magical item can only be used in the domain of Samsara and adventures in the WBW-DC-ZODIAC series.\n   The scale shimmers with the roaring waves of the sea. Language Property: The bearer can speak and understand draconic while the item is on the bearer’s person.\n   This fist-sized chunk of amethyst is infused with an amethyst dragon's ability to bend gravitational forces. While you are carrying the lodestone, you have advantage on Strength saving throws."+
+		"\n   The lodestone has 6 charges for the following properties, which you can use while you are holding the stone. The stone regains 1d6 expended charges daily at dawn."+
+		"\n   " + toUni("Flight") + ". As a bonus action, you can expend 1 charge to gain the power of flight for 10 minutes. For the duration, you gain a flying speed equal to your walking speed, and you can hover."+
+		"\n   " + toUni("Gravitational Thrust") + ". As an action, you can expend 1 charge to focus gravity around a creature you can see within 60 feet of you. The target must succeed on a DC 18 Strength saving throw or be pushed up to 20 feet in a direction of your choice."+
+		"\n   " + toUni("Reverse Gravity") + ". As an action, you can expend 3 charges to cast reverse gravity from the stone (save DC 18).",
+		languageProfs : ["Draconic"],
+		limfeaname : "Amethyst Lodestone",
+		usages : 6,
+		recovery : "dawn",
+		additional : "regains 1d6",
+		spellFirstColTitle : "Ch",
+		fixedDC : 18,
+		spellcastingBonus : {
+			name : "3 charges",
+			spells : ["reverse gravity"],
+			selection : ["reverse gravity"],
+			firstCol : 3
+		},
+	advantages : [["Strength", true]],
+	savetxt : { text : ["Adv. on Str saves"] },
+	},
 	"crystal ball (ccc-mind1-1)" : {
 		name : "Crystal Ball (CCC-MIND1-1)",
 		source : [["AL","CCC"]],
@@ -9026,6 +9347,19 @@ MagicItemsList["al minerals"] = {
 		recovery : "dawn",
 		action : [["action", ""]]
 	},
+	"pearl of power (wbw-dc-rook-1-2)" : { // contains contributions by AelarTheElfRogue
+		name : "Pearl of Power (WBW-DC-Rook-1-2)",
+		source : [["AL","WBW-DC"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "This giant pearl resembles a large humanoid eyeball with a sea-blue iris. When set on a hard surface (with an action), the orb rotates until the eye points due north. Once per dawn as an action, you can speak its command word & regain 1 expended spell slot. If the slot was of 4th lvl or higher, the new slot is 3rd lvl.",
+		descriptionFull : "This giant pearl is sculpted to resemble a large humanoid eyeball with a sea-blue iris. When set on a hard surface the orb rotates until the eye is pointed due north.\n   " + toUni("Compass") + ". The wielder can use an action to learn which way is north.\n   While this pearl is on your person, you can use an action to speak its command word and regain one expended spell slot. If the expended slot was of 4th level or higher, the new slot is 3rd level. Once you have used the pearl, it can't be used again until the next dawn.",
+		attunement : true,
+		limfeaname : "Pearl of Power",
+		usages : 1,
+		recovery : "dawn",
+		action : [["action", " (North/Regain Slot)"]],
+	},
 	"pearl of power (wbw-dc-sqt-1)" : { // contains contributions by AelarTheElfRogue
 		name : "Pearl of Power (WBW-DC-SQT-1)",
 		source : [["AL","WBW-DC"]],
@@ -9039,6 +9373,20 @@ MagicItemsList["al minerals"] = {
 		recovery : "dawn",
 		action : [["action", ""]],
 		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." }
+	},
+	"pearl of power (wbw-dc-tblcmb-3)" : { // contains contributions by AelarTheElfRogue
+		name : "Pearl of Power (WBW-DC-TBLCMB-3)",
+		source : [["AL","WBW-DC"]],
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "Once per dawn while this pearl is on your person, you can speak its command word as an action and regain 1 expended spell slot. If the slot was of 4th level or higher, the new slot is 3rd level. This pearl also grants you the ability to speak Sylvan.",
+		descriptionFull : "While this pearl is on your person, you can use an action to speak its command word and regain one expended spell slot. If the expended slot was of 4th level or higher, the new slot is 3rd level. Once you have used the pearl, it can't be used again until the next dawn.\n   Minor Property - Language. The language this pearl of power gives is Sylvan.",
+		attunement : true,
+		languageProfs : ["Sylvan"],
+		limfeaname : "Pearl of Power",
+		usages : 1,
+		recovery : "dawn",
+		action : [["action", ""]],
 	},
 	"psi crystal (dc-poa-gsp1-2)" : { //contains contributions by BraabHimself
 		name : "Psi Crystal (DC-POA-GSP1-2)",
@@ -9443,14 +9791,31 @@ MagicItemsList["al outerwear"] = {
 		name : "AL Outerwear",
 		allowDuplicates : true,
 		type : "wondrous item",
-	choices : ["Cape of the Mountebank (DDAL4-7)","Cloak of Arachnida (DDAL9-12)","Cloak of the Bat (CCC-BMG-44 PHLAN4-2)","Cloak of the Bat (CCC-CNE-3)","Cloak of the Bat (DDEP7-1)","Cloak of the Bat (DDHC-MORD-1)","Cloak of Billowing: Jagged Drumstick (CCC-NUKE-2-1)","Cloak of Billowing: Mantle of Freedom (CCC-TAROT2-8)","Cloak of Billowing (DDHC-XGE-1)","Cloak of Billowing: Cloak of the Sages (WBW-DC-ANDL-2)","Cloak of Displacement (CCC-SFBAY-2-1)","Cloak of Displacement (DDAL5-5)","Cloak of Elvenkind: Llyneth’s Cloak of Mists (CCC-BMG-MOON2-3)","Cloak of Elvenkind: Piwafwi (CCC-GARY-7)","Cloak of Elvenkind (DDEX1-8)","Cloak of Invisibility (DDEP6-3)","Cloak of Many Fashions: Crimson Courtesan's Cape (CCC-GGC-2-1)","Cloak of Many Fashions (CCC-GSP1-3)","Cloak of Many Fashions: Firam's Shadow (CCC-MELB-1)","Cloak of Many Fashions (CCC-QUAKE-1)","Cloak of Many Fashions (CCC-ROLL20-2)","Cloak of Many Fashions: The Advertiser (CCC-SEA-1-3)","Cloak of Many Fashions (CCC-TRI-30)","Cloak of Many Fashions (DC-POA-GSP2-1H)","Cloak of Many Fashions (WBW-DC-JOQ-1)","Cloak of Many Fashions: Somnambulist's Cloak (WBW-DC-LEGIT-SV-5)","Cloak of the Manta Ray: Nereid Shawl (ALSRs11-A)","Cloak of the Manta Ray (CCC-BMG-MOON4-2)","Cloak of the Manta Ray: Sekolah’Thriss, the Sharkskin Cloak (CCC-DES-2-3)","Cloak of the Manta Ray: Sea Hag's Cloak (CCC-GAD1-1)","Cloak of the Manta Ray (CCC-GARY-17)","Cloak of the Manta Ray (CCC-GHC-BK2-3)","Cloak of the Manta Ray: Darkest Depths (CCC-HAL-6)","Cloak of the Manta Ray (CCC-UK-4)","Cloak of the Manta Ray (DC-POA-CONMAR-12)","Cloak of the Manta Ray (DC-POA-PND-1)","Cloak of the Manta Ray: Lucius' Scientist Robe (DC-POA-TDG1-5)","Cloak of Protection: Fey (CCC-BMG-MOON6-1)","Cloak of Protection (CCC-BMG-MOON7-3)","Cloak of Protection (CCC-BWM-4-2)","Cloak of Protection: Underdark (CCC-HAL-5)","Cloak of Protection (CCC-WWC-4)","Cloak of Protection: Dryad's (DDAL0-2A)","Cloak of Protection (DDAL6-1)","Cloak of Protection (DDAL8-6)","Cloak of Protection (DDEP2)","Cloak of Protection (DDIA04 - Premiere)","Cloak of Protection: Ogolai's Cloak (RotF)","Cloak of Protection (WBW-DC-AMQ-1)","Cloak of Protection (WBW-DC-CONMAR-3)","Cloak of Protection (WBW-DC-DCAF1)","Cloak of Protection (WBW-DC-TLRMB-2)","Gray Robe of the Archmagi (DDAL0-3)","Hell Hound Cloak: Winter Wolf Cloak (DDAL0-13)","Mantle of Spell Resistance: Faerie Dragon's Favor (ALSRs11-A)","Mantle of Spell Resistance: Thayvian Mantle (CCC-ST2-1)","Mantle of Spell Resistance (DDAL-DRW11)","Mantle of Spell Resistance (DDEX1-13)","Mantle of Spell Resistance (DDEP9-1)","Mantle of Spell Resistance: Bahaghari (WBW-DC-ANDL-1)","Mantle of Spell Resistance (WBW-DC-KCB-2)","Nature's Mantle (WBW-DC-FDC-5)","Nature's Mantle (WBW-DC-JOQ-1)","Nature's Mantle: Herder's Mutela (WBW-DC-ZODIAC-2)","Robe of Eyes (CCC-BMG-42 HULB4-3)","Robe of Eyes (DDEX1-14)","Robe of Scintillating Colors (CCC-TRI-1)","Robe of Stars: Cosmic Chasuble (CCC-TRI-28 ROSE1-3)","Robe of Stars (DDEX3-16)","Robe of Useful Items (CCC-GSP-PHIL1-3)","Robe of Useful Items (CCC-JGD-2)","Robe of Useful Items (CCC-KUMORI-1-2)","Robe of Useful Items: Ordine Sage's Robes (CCC-TAROT1-1)","Robe of Useful Items (DDAL10-4)","Wings of Flying (CCC-BMG-MOON12-3)","Wings of Flying (CCC-TRI-4 ROC1-2)","Wings of Flying (DDEP2)"],
+	choices : ["Cape of the Mountebank (DDAL4-7)","Cape of the Mountebank (PO-BK-1-5)","Cloak of Arachnida (DDAL9-12)","Cloak of the Bat (CCC-BMG-44 PHLAN4-2)","Cloak of the Bat (CCC-CNE-3)","Cloak of the Bat (DDEP7-1)","Cloak of the Bat (DDHC-MORD-1)","Cloak of Billowing: Jagged Drumstick (CCC-NUKE-2-1)","Cloak of Billowing: Mantle of Freedom (CCC-TAROT2-8)","Cloak of Billowing (DDHC-XGE-1)","Cloak of Billowing: Cloak of the Sages (WBW-DC-ANDL-2)","Cloak of Billowing: Lunar Cloak (WBW-DC-ZODIAC-4)","Cloak of Displacement (CCC-SFBAY-2-1)","Cloak of Displacement (DDAL5-5)","Cloak of Elvenkind: Llyneth’s Cloak of Mists (CCC-BMG-MOON2-3)","Cloak of Elvenkind: Piwafwi (CCC-GARY-7)","Cloak of Elvenkind (DDEX1-8)","Cloak of Invisibility (DDEP6-3)","Cloak of Many Fashions: Crimson Courtesan's Cape (CCC-GGC-2-1)","Cloak of Many Fashions (CCC-GSP1-3)","Cloak of Many Fashions: Firam's Shadow (CCC-MELB-1)","Cloak of Many Fashions (CCC-QUAKE-1)","Cloak of Many Fashions (CCC-ROLL20-2)","Cloak of Many Fashions: The Advertiser (CCC-SEA-1-3)","Cloak of Many Fashions (CCC-TRI-30)","Cloak of Many Fashions (DC-POA-GSP2-1H)","Cloak of Many Fashions (WBW-DC-JOQ-1)","Cloak of Many Fashions: Somnambulist's Cloak (WBW-DC-LEGIT-SV-5)","Cloak of the Manta Ray: Nereid Shawl (ALSRs11-A)","Cloak of the Manta Ray (CCC-BMG-MOON4-2)","Cloak of the Manta Ray: Sekolah’Thriss, the Sharkskin Cloak (CCC-DES-2-3)","Cloak of the Manta Ray: Sea Hag's Cloak (CCC-GAD1-1)","Cloak of the Manta Ray (CCC-GARY-17)","Cloak of the Manta Ray (CCC-GHC-BK2-3)","Cloak of the Manta Ray: Darkest Depths (CCC-HAL-6)","Cloak of the Manta Ray (CCC-UK-4)","Cloak of the Manta Ray (DC-POA-CONMAR-12)","Cloak of the Manta Ray (DC-POA-PND-1)","Cloak of the Manta Ray: Lucius' Scientist Robe (DC-POA-TDG1-5)","Cloak of Protection: Fey (CCC-BMG-MOON6-1)","Cloak of Protection (CCC-BMG-MOON7-3)","Cloak of Protection (CCC-BWM-4-2)","Cloak of Protection: Underdark (CCC-HAL-5)","Cloak of Protection (CCC-WWC-4)","Cloak of Protection: Dryad's (DDAL0-2A)","Cloak of Protection (DDAL6-1)","Cloak of Protection (DDAL8-6)","Cloak of Protection (DDEP2)","Cloak of Protection (DDIA04 - Premiere)","Cloak of Protection: Ogolai's Cloak (RotF)","Cloak of Protection (WBW-DC-AMQ-1)","Cloak of Protection (WBW-DC-CONMAR-3)","Cloak of Protection (WBW-DC-DCAF1)","Cloak of Protection (WBW-DC-TLRMB-2)","Gray Robe of the Archmagi (DDAL0-3)","Hell Hound Cloak: Winter Wolf Cloak (DDAL0-13)","Mantle of Spell Resistance: Faerie Dragon's Favor (ALSRs11-A)","Mantle of Spell Resistance: Thayvian Mantle (CCC-ST2-1)","Mantle of Spell Resistance (DDAL-DRW11)","Mantle of Spell Resistance (DDEX1-13)","Mantle of Spell Resistance (DDEP9-1)","Mantle of Spell Resistance: Bahaghari (WBW-DC-ANDL-1)","Mantle of Spell Resistance (WBW-DC-KCB-2)","Nature's Mantle (WBW-DC-FDC-5)","Nature's Mantle (WBW-DC-JOQ-1)","Nature's Mantle: Herder's Mutela (WBW-DC-ZODIAC-2)","Robe of Eyes (CCC-BMG-42 HULB4-3)","Robe of Eyes (DDEX1-14)","Robe of Scintillating Colors (CCC-TRI-1)","Robe of Stars: Cosmic Chasuble (CCC-TRI-28 ROSE1-3)","Robe of Stars (DDEX3-16)","Robe of Useful Items (CCC-GSP-PHIL1-3)","Robe of Useful Items (CCC-JGD-2)","Robe of Useful Items (CCC-KUMORI-1-2)","Robe of Useful Items: Ordine Sage's Robes (CCC-TAROT1-1)","Robe of Useful Items (DDAL10-4)","Wings of Flying (CCC-BMG-MOON12-3)","Wings of Flying (CCC-TRI-4 ROC1-2)","Wings of Flying (DDEP2)"],
 	"cape of the mountebank (ddal4-7)" : {  // contains contributions by Smashman
 		name : "Cape of the Mountebank (DDAL4-7)",
 		source : [["AL","S4"]],
 		rarity : "rare",
 		magicItemTable : "G",
 		description : "This long cape is made of light-grey silk trimmed in coarse, black fur. Although obviously high quality, it appears tattered & worn & smells faintly of brimstone. You can use the cape to cast Dimension Door as an action once per day. When you disappear, you leave behind a cloud of stale dust & appear in a similar cloud at your destination. The dust lightly obscures both spaces & dissipates at the end of your next turn, or in a light or stronger wind.",
-		descriptionFull : "This long cape is made of light-grey silk trimmed in coarse, black fur. Although it is obviously of high quality, it appears tattered and worn. Instead of smoke, a cloud of stale dust is left behind when the wearer disappears. This cape smells faintly of brimstone. While wearing it, you can use it to cast the Dimension Door spell as an action. This property of the cape can't be used again until the next dawn.\n   When you disappear, you leave behind a cloud of smoke, and you appear in a similar cloud of smoke at your destination. The smoke lightly obscures the space you left and the space you appear in, and it dissipates at the end of your next turn. A light or stronger wind disperses the smoke.",
+		descriptionFull : "This long cape is made of light-grey silk trimmed in coarse, black fur. Although it is obviously of high quality, it appears tattered and worn. Instead of smoke, a cloud of stale dust is left behind when the wearer disappears.\n   This cape smells faintly of brimstone. While wearing it, you can use it to cast the Dimension Door spell as an action. This property of the cape can't be used again until the next dawn.\n   When you disappear, you leave behind a cloud of smoke, and you appear in a similar cloud of smoke at your destination. The smoke lightly obscures the space you left and the space you appear in, and it dissipates at the end of your next turn. A light or stronger wind disperses the smoke.",
+		limfeaname : "Cape of the Mountebank",
+		usages : 1,
+		recovery : "dawn",
+		spellcastingBonus : {
+			name: "Cape of the Mountebank",
+			spells: ["dimension door"],
+			selection: ["dimension door"],
+			firstCol : "oncelr"
+			}
+		},
+	"cape of the mountebank (po-bk-1-5)" : {  // contains contributions by Smashman
+		name : "Cape of the Mountebank (PO-BK-1-5)",
+		source : [["AL","PO"]],
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "This cape is made of illithid technology & smells faintly of brimstone. You can use the cape to cast Dimension Door as an action once per day. When you disappear, you leave behind a cloud of smoke & appear in a similar cloud at your destination. The smoke lightly obscures both spaces & dissipates at the end of your next turn, or in a light or stronger wind.",
+		descriptionFull : "This item is made of an illithid technology.\n   This cape smells faintly of brimstone. While wearing it, you can use it to cast the Dimension Door spell as an action. This property of the cape can't be used again until the next dawn.\n   When you disappear, you leave behind a cloud of smoke, and you appear in a similar cloud of smoke at your destination. The smoke lightly obscures the space you left and the space you appear in, and it dissipates at the end of your next turn. A light or stronger wind disperses the smoke.",
 		limfeaname : "Cape of the Mountebank",
 		usages : 1,
 		recovery : "dawn",
@@ -9631,6 +9996,16 @@ MagicItemsList["al outerwear"] = {
 		description : "This black satin cloak has an embroidered symbol of Mystryl in the corner. It's evidence that visitors from strange lands & all sorts of things find themselves in the depths of the Feydark. While wearing this cloak, you can speak Ancient Netherese & use a bonus action to make it billow dramatically.",
 		descriptionFull : "There is an embroidered symbol of Mystryl in the corner of this black satin cloak. Finding a cloak of this nature here is evidence that visitors from strange lands and all sorts of things can find itself in the depths of the Feydark.\n   In addition, the cloak has the Language minor property: The bearer can speak and understand Ancient Netherese while the item is on the bearer’s person.\n   While wearing this cloak, you can use a bonus action to make it billow dramatically.",
 		languageProfs : ["Ancient Netherese"],
+		action : [["bonus action", "Cloak of Billowing"]]
+		},
+	"cloak of billowing: lunar cloak (wbw-dc-zodiac-4)" : {
+		name : "Lunar Cloak (Cloak of Billowing)",
+		source : [["AL","WBW-DC"]],
+		rarity : "common",
+		magicItemTable : "?",
+		description : "This silk cloak shifts in shade & brightness based on the phases of the moon. While wearing this cloak, you can speak Celestial, understand the language of rabbits & use a bonus action to make it billow dramatically.",
+		descriptionFull : "The silk cloak shifts in shade and brightness based on the phases of the moon.\n   " + toUni("Language") + ". The bearer can speak and understand celestial as well as understand the language of rabbits while the item is on the bearer’s person.\n   While wearing this cloak, you can use a bonus action to make it billow dramatically.",
+		languageProfs : [["Celestial"],["Rabbits (Understand)"]],
 		action : [["bonus action", "Cloak of Billowing"]]
 		},
 	"cloak of displacement (ccc-sfbay-2-1)" : {   // contains contributions by Smashman
@@ -10033,6 +10408,7 @@ MagicItemsList["al outerwear"] = {
 	"cloak of protection (ddia04 - premiere)" : { 
 		name : "Cloak of Protection (DDIA04 - Premiere)",
 		source : [["AL","S4"]],
+		defaultExcluded : true,
 		rarity : "uncommon",
 		magicItemTable : "F",
 		description : "This heavy black cloak is made of rough wool with a hood trimmed in black wolf fur. When worn, you find that your sense of smell is heightened - as is your hunger for undercooked meat. The cloak grants a +2 bonus to initiative checks & a +1 bonus to AC & saving throws.",
@@ -10209,7 +10585,7 @@ MagicItemsList["al outerwear"] = {
 		rarity : "rare",
 		magicItemTable : "G",
 		attunement : true,
-		savetxt : { text : ["Adv on Str (Athletic) cks to swim"], adv_vs : ["spells"] },
+		savetxt : { text : ["Adv on Str (Athletic) chks to swim"], adv_vs : ["spells"] },
 		description: "Stone-Eye’s citizens powdered a flail snail's shell to impregnate this life vest's fabric. It has the gleam & iridescence of a flail snail shell. When dry, it's no thicker than a normal vest. When wet, it swells an inch thick & floats on water & other liquids, giving you advantage on Strength (Athletics) checks to swim. While wearing this vest, you have advantage on saving throws against spells.",
 		descriptionFull: "Stone-Eye’s most adept citizens processed a flail snail’s shell into powder which impregnates the fabric of this life vest. It gives the vest the gleam and iridescence of a flail snail shell. The vest has the waterborne property. When dry, it is no thicker than a normal vest. But when wet, it swells an inch thick and floats on water and other liquids. Its wearer has advantage on Strength (Athletics) checks made to swim. While attuned to and wearing this cloak, you have advantage on saving throws against spells."
 		},
@@ -10401,7 +10777,7 @@ MagicItemsList["al outerwear"] = {
 		rarity : "uncommon",
 		magicItemTable : "B",
 		description : "This white robe has gold detailing & very orderly patterns. The robe gives you a sense of assuredness, as if there's a purpose to everything. As an action while donned, you can detach 1 patch, which becomes the item shown. The robe turns ordinary once out of patches. It has 4 patches determined by DM, 4 potions of healing, 1st lvl spell scroll, 100 gp, a mechanical riding horse w/ saddle bags & 2 each: dagger, bullseye lantern (filled & lit), steel mirror, 10-ft pole, 50 ft hemp rope, sack.",
-		descriptionFull : "This white robe has gold detailing, and all of its patterns look very orderly. The robe itself gives its wearer a sense of assuredness, as if there is a purpose to every action taken and seen. While wearing the robe, you can use an action to detach one of the patches, causing it to become the object or creature it represents. Once the last patch is removed, the robe becomes an ordinary garment.\n\nThe robe has two of each of the following patches:\n \u2022 Dagger\n \u2022 Bullseye lantern (filled and lit)\n \u2022 Steel mirror\n \u2022 10-foot pole\n \u2022 Hempen rope (50 feet, coiled)\n \u2022 Sack\n\nIn addition, the robe has 4 potions of healing, 1st lvl spell scroll, 100 gp, a mechanical riding horse w/ saddle bags & 4 patches determined by the DM. The DM chooses the patches or determines them randomly.\n\n" + toUni("d100\tPatch") + "\n01-08\tBag of 100 gp\n09-15\tSilver coffer (1 foot long, 6 inches wide and deep) worth 500 gp\n16-22\tIron door (up to 10 feet wide and 10 feet high, barred on one side of your choice), which you can place in an opening you can reach; it conforms to fit the opening, attaching and hinging itself\n23-30\t10 gems worth 100 gp each\n31-44\tWooden ladder (24 feet long)\n45-51\tA riding horse with saddle bags\n52-59\tPit (a cube 10 feet on a side), which you can place on the ground within 10 feet of you\n60-68\t4 potions of healing\n69-75\tRowboat (12 feet long)\n76-83\tSpell scroll containing one spell of 1st to 3rd level\n84-90\t2 mastiffs\n91-96\tWindow (2 feet by 4 feet, up to 2 feet deep), which you can place on a vertical surface you can reach\n97-00\tPortable ram",
+		descriptionFull : "This white robe has gold detailing, and all of its patterns look very orderly. The robe itself gives its wearer a sense of assuredness, as if there is a purpose to every action taken and seen. While wearing the robe, you can use an action to detach one of the patches, causing it to become the object or creature it represents. Once the last patch is removed, the robe becomes an ordinary garment.\n   This robe has the following patches left: Dagger, Steel mirror, Hempen rope (50 feet, coiled), 4 potions of healing, 1st lvl spell scroll, a bag of 100 gp, and a mechanical riding horse w/ saddle bags.\n   A standard robe has two of each of the following patches:\n \u2022 Dagger\n \u2022 Bullseye lantern (filled and lit)\n \u2022 Steel mirror\n \u2022 10-foot pole\n \u2022 Hempen rope (50 feet, coiled)\n \u2022 Sack\n\nIn addition, the robe has 4d4 other patches. The DM chooses the patches or determines them randomly.\n\n" + toUni("d100\tPatch") + "\n01-08\tBag of 100 gp\n09-15\tSilver coffer (1 foot long, 6 inches wide and deep) worth 500 gp\n16-22\tIron door (up to 10 feet wide and 10 feet high, barred on one side of your choice), which you can place in an opening you can reach; it conforms to fit the opening, attaching and hinging itself\n23-30\t10 gems worth 100 gp each\n31-44\tWooden ladder (24 feet long)\n45-51\tA riding horse with saddle bags\n52-59\tPit (a cube 10 feet on a side), which you can place on the ground within 10 feet of you\n60-68\t4 potions of healing\n69-75\tRowboat (12 feet long)\n76-83\tSpell scroll containing one spell of 1st to 3rd level\n84-90\t2 mastiffs\n91-96\tWindow (2 feet by 4 feet, up to 2 feet deep), which you can place on a vertical surface you can reach\n97-00\tPortable ram",
 		weight : 4,
 		action : ["action", "Robe of Useful Items"],
 	},
@@ -10461,7 +10837,7 @@ MagicItemsList["al rings"] = {
 		name : "AL Rings",
 		type : "ring",
 		allowDuplicates : true,
-	choices : ["Ring of Animal Influence (DDAL4-13)","Ring of Earth Elemental Command (DDAL-DRWEP2)","Ring of Evasion (DDAL-DRW16)","Ring of Evasion (DDEP7-2)","Ring of Evasion (DDEX1-3)","Ring of Feather Falling: Sprite's Rescue (ALSRs11-A)","Ring of Fire Resistance (CCC-GHC-BK1-4)","Ring of Fire Resistance (DDAL8-8)","Ring of Fire Resistance (DDEX1-5)","Ring of Free Action (CCC-BMG-MOON13-1)", "Ring of Free Action (DDAL9-10)","Ring of Free Action (WBW-DC-AEG-1)","Ring of Free Action (WBW-DC-ANDL-2)","Ring of Free Action (WBW-DC-CONMAR-4)","Ring of Invisibility (DDEP8-3)","Ring of Jumping (CCC-DDSC-2)","Ring of Jumping (DC-POA-CODEX-2)","Ring of Jumping (DC-POA-CONMAR-8)","Ring of Jumping (DC-POA-LEGIT-SV-2)","Ring of Jumping (DC-POA-OGG-1)","Ring of Jumping: Cat's Ring (DC-POA-TDG1-4)","Ring of Jumping (DDAL5-10)","Ring of Jumping (DDEP7-2)","Ring of Mind Shielding (CCC-BMG-MOON5-3)","Ring of Mind Shielding (CCC-GARY-15)","Ring of Mind Shielding: The Mind Fortress (CCC-GHC-BK2-6)","Ring of Mind Shielding (CCC-MTL-2)","Ring of Mind Shielding (CCC-TRI-33 DAGGR1-2)","Ring of Mind Shielding (DDAL8-4)","Ring of Mind Shielding (DDEX2-6)","Ring of Protection (DDEX3-15)", "Ring of the Ram (CCC-GHC-7)","Ring of the Ram (CCC-TRI-8 NIGHT1-4)","Ring of Regeneration (CCC-MIND1-2)","Ring of Regeneration (DDAL-DRW15)","Ring of Shooting Stars: Fairy Mushroom Ring (ALSRs11-A)","Ring of Shooting Stars (DDAL8-15)","Ring of Shooting Stars (DDEP5-2)","Ring of Spell Storing: Dark Mother's Ring (CCC-HAL-2)","Ring of Spell Storing (CCC-WYC-2-3)","Ring of Spell Storing (CCC-ZIEGE-3)","Ring of Spell Storing (DDAL4-8)", "Ring of Spell Storing (DDEP5-2)","Ring of Swimming (CCC-ALMOG-27 DAGON1-2)","Ring of Swimming (DDAL5-6)","Ring of Telekinesis (DDEP0-1)","Ring of Truth Telling (DC-POA-CONMAR-15)","Ring of Warmth (CCC-CIC-16)","Ring of Warmth (CCC-ELF-1)","Ring of Warmth (CCC-WWC-5)","Ring of Water Walking (DDEX2-7)","Ring of X-Ray Vision (DDAL-DRW10)"],
+	choices : ["Ring of Animal Influence (DDAL4-13)","Ring of Earth Elemental Command (DDAL-DRWEP2)","Ring of Evasion (DDAL-DRW16)","Ring of Evasion (DDEP7-2)","Ring of Evasion (DDEX1-3)","Ring of Feather Falling: Sprite's Rescue (ALSRs11-A)","Ring of Fire Resistance (CCC-GHC-BK1-4)","Ring of Fire Resistance (DDAL8-8)","Ring of Fire Resistance (DDEX1-5)","Ring of Free Action (CCC-BMG-MOON13-1)", "Ring of Free Action (DDAL9-10)","Ring of Free Action (WBW-DC-AEG-1)","Ring of Free Action (WBW-DC-ANDL-2)","Ring of Free Action (WBW-DC-CONMAR-4)","Ring of Invisibility (DDEP8-3)","Ring of Jumping (CCC-DDSC-2)","Ring of Jumping (DC-POA-CODEX-2)","Ring of Jumping (DC-POA-CONMAR-8)","Ring of Jumping (DC-POA-LEGIT-SV-2)","Ring of Jumping (DC-POA-OGG-1)","Ring of Jumping: Cat's Ring (DC-POA-TDG1-4)","Ring of Jumping (DDAL5-10)","Ring of Jumping (DDEP7-2)","Ring of Mind Shielding (CCC-BMG-MOON5-3)","Ring of Mind Shielding (CCC-GARY-15)","Ring of Mind Shielding: The Mind Fortress (CCC-GHC-BK2-6)","Ring of Mind Shielding (CCC-MTL-2)","Ring of Mind Shielding (CCC-TRI-33 DAGGR1-2)","Ring of Mind Shielding (DDAL8-4)","Ring of Mind Shielding (DDEX2-6)","Ring of Protection (DDEX3-15)", "Ring of the Ram (CCC-GHC-7)","Ring of the Ram (CCC-TRI-8 NIGHT1-4)","Ring of Regeneration (CCC-MIND1-2)","Ring of Regeneration (DDAL-DRW15)","Ring of Shooting Stars: Fairy Mushroom Ring (ALSRs11-A)","Ring of Shooting Stars (DDAL8-15)","Ring of Shooting Stars (DDEP5-2)","Ring of Shooting Stars (PO-BK-1-6)","Ring of Spell Storing: Dark Mother's Ring (CCC-HAL-2)","Ring of Spell Storing (CCC-WYC-2-3)","Ring of Spell Storing (CCC-ZIEGE-3)","Ring of Spell Storing (DDAL4-8)", "Ring of Spell Storing (DDEP5-2)","Ring of Swimming (CCC-ALMOG-27 DAGON1-2)","Ring of Swimming (DDAL5-6)","Ring of Telekinesis (DDEP0-1)","Ring of Truth Telling (DC-POA-CONMAR-15)","Ring of Warmth (CCC-CIC-16)","Ring of Warmth (CCC-ELF-1)","Ring of Warmth (CCC-WWC-5)","Ring of Water Walking (DDEX2-7)","Ring of X-Ray Vision (DDAL-DRW10)"],
 	"ring of animal influence (ddal4-13)" : {
 		name : "Ring of Animal Influence (DDAL4-13)",
 		source : [["AL","S4"]],
@@ -10647,7 +11023,7 @@ MagicItemsList["al rings"] = {
 		description : "This ring floats on water & other liquids. You have advantage on Strength (Athletics) checks to swim & difficult terrain doesn't cost you extra movement. Also, magic can neither reduce your speed nor cause you to be paralyzed or restrained.",
 		descriptionFull : "This item floats on water and other liquids. Its bearer has advantage on Strength (Athletics) checks to swim. Additionally, difficult terrain doesn't cost you extra movement, and magic can neither reduce your speed nor cause you to be paralyzed or restrained.",
 		attunement : true,
-		savetxt : { text : ["Adv on Str (Athletic) cks to swim"], immune : ["paralyzed (by magic)", "restrained (by magic)"] }
+		savetxt : { text : ["Adv on Str (Athletic) chks to swim"], immune : ["paralyzed (by magic)", "restrained (by magic)"] }
 	},
 	"ring of invisibility (ddep8-3)" : {
 		name : "Ring of Invisibility (DDEP8-3)",
@@ -10933,6 +11309,9 @@ MagicItemsList["al rings"] = {
 		description : "Crafted of cold iron in the likeness of a jutting fist, this ring is always slightly cold to the touch. You have an itching desire to break small, fragile objects while wearing it. The ring has 3 charges, regaining 1d3 at dawn. As an action, you can make a ranged atk on a target in 60 ft, w/ a +7 to hit. Per charge used: 2d10 force dmg & pushed 5ft. If you target an unattended object, you can try to break it w/ +5 per charge on the Str check.",
 		descriptionFull : "Crafted of cold iron and fashioned with the likeness of a jutting fist, this ring is always slightly cold to the touch. You have an itching desire to break small, fragile objects while wearing the ring.\n   This ring has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing the ring, you can use an action to expend 1 to 3 of its charges to attack one creature you can see within 60 feet of you. The ring produces a spectral ram's head and makes its attack roll with a +7 bonus. On a hit, for each charge you spend, the target takes 2d10 force damage and is pushed 5 feet away from you.\n   Alternatively, you can expend 1 to 3 of the ring's charges as an action to try to break an object you can see within 60 feet of you that isn't being worn or carried. The ring makes a Strength check with a +5 bonus for each charge you spend.",
 		attunement : true,
+		limfeaname : "Ring of the Ram",
+		usages : 3,
+		recovery : "dawn",
 		weaponsAdd : ["Ring of the Ram"],
 		weaponOptions : {
 			regExpSearch : /^(?=.*ring)(?=.*ram).*$/i,
@@ -10955,6 +11334,9 @@ MagicItemsList["al rings"] = {
 		description : "This ring is made of the bones & crystallized fog left by the spellplagued leviathan, Aipelon. With each use, a whale’s head emerges instead of a ram & its cry of pain & anger fills your ears. The ring has 3 charges, regaining 1d3 at dawn. As an action, you can make a ranged atk on a target in 60 ft, w/ a +7 to hit. Per charge used: 2d10 force dmg & pushed 5ft. If you target an unattended object, you can try to break it w/ +5 per charge on the Str check.",
 		descriptionFull : "This ring is made from the bones and crystallized fog left from the spellplagued leviathan, Aipelon. When activated, a whale’s head emerges rather than a ram, and its cry of pain and anger fills the user’s ears with each use.\n   This ring has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing the ring, you can use an action to expend 1 to 3 of its charges to attack one creature you can see within 60 feet of you. The ring produces a spectral ram's head and makes its attack roll with a +7 bonus. On a hit, for each charge you spend, the target takes 2d10 force damage and is pushed 5 feet away from you.\n   Alternatively, you can expend 1 to 3 of the ring's charges as an action to try to break an object you can see within 60 feet of you that isn't being worn or carried. The ring makes a Strength check with a +5 bonus for each charge you spend.",
 		attunement : true,
+		limfeaname : "Ring of the Ram",
+		usages : 3,
+		recovery : "dawn",
 		weaponsAdd : ["Ring of the Ram"],
 		weaponOptions : {
 			regExpSearch : /^(?=.*ring)(?=.*ram).*$/i,
@@ -10992,7 +11374,7 @@ MagicItemsList["al rings"] = {
 		source : [["ALSRs11","A"]],
 		rarity : "very rare",
 		magicItemTable : "H",
-		description : "This delicate ring is a circle of miniature red, blue, white, & purple mushrooms, & glows with its own inner light. While wearing the ring in dim light/darkness, you can cast Dancing Lights & Light at will. The ring has 6 charges & regains 1d6 charges at dawn. As an action, you can expend charges to cast Faerie Fire, Ball Lightning, or Shooting Stars (see 3rd page notes). All spell DC 15. When a charge is used, a swarm of multicolored dragonflies appears in your space & flies about for 1 min. ",
+		description : "This delicate ring is a circle of miniature red, blue, white, & purple mushrooms, & glows with its own inner light. While wearing the ring in dim light/darkness, you can cast Dancing Lights & Light at will. The ring has 6 charges & regains 1d6 charges at dawn. As an action, expend charges to cast Faerie Fire, Ball Lightning, or Shooting Stars (see notes). Spell DC 15. When a charge is used, a swarm of multicolored dragonflies appears in your space & flies about for 1 min. ",
 		descriptionFull : "This delicate ring is shaped into a circle of miniature red, blue, white, and purple mushrooms, and glows with its own inner light. Whenever a charge is expended for another property, a swarm of harmless, multicolored dragonflies appear in your space and fly about for 1 minute.\n   While wearing this ring in dim light or darkness, you can cast Dancing Lights and Light from the ring at will. Casting either spell from the ring requires an action.\n   The ring has 6 charges for the following other properties. The ring regains 1d6 expended charges daily at dawn.\n   " + toUni("Faerie Fire") + ". You can expend 1 charge as an action to cast Faerie Fire from the ring.\n   " + toUni("Ball Lightning") + ". You can expend 2 charges as an action to create one to four 3-foot-diameter spheres of lightning. The more spheres you create, the less powerful each sphere is individually.\n   Each sphere appears in an unoccupied space you can see within 120 feet of you. The spheres last as long as you concentrate (as if concentrating on a spell), up to 1 minute. Each sphere sheds dim light in a 30-foot radius.\n   As a bonus action, you can move each sphere up to 30 feet, but no farther than 120 feet away from you. When a creature other than you comes within 5 feet of a sphere, the sphere discharges lightning at that creature and disappears. That creature must make a DC 15 Dexterity saving throw. On a failed save, the creature takes lightning damage based on the number of spheres you created (4 spheres = 2d4, 3 spheres = 2d6, 2 spheres = 5d4, 1 sphere = 4d12).\n   " + toUni("Shooting Stars") + ". \n   You can expend 1 to 3 charges as an action. For every charge you expend, you launch a glowing mote of light from the ring at a point you can see within 60 feet of you. Each creature within a 15-foot cube originating from that point is showered in sparks and must make a DC 15 Dexterity saving throw. taking 5d4 fire damage on a failed save, or half as much damage on a successful one.",
 		attunement : true,
 		toNotesPage : [{
@@ -11180,8 +11562,102 @@ MagicItemsList["al rings"] = {
 		source : [["AL","S5"]],
 		rarity : "very rare",
 		magicItemTable : "H",
-		description : "This ring appears to be made of pure light w/ motes of twinkling radiance within. When used, rainbow sparks dance around the wearer’s hand. The ring has 6 charges & regains 1d6 charges at dawn. While wearing the ring in dim light/darkness, you can cast Dancing Lights & Light at will. As an action, expend charges to cast Faerie Fire, Ball Lightning, or Shooting Stars (see 3rd page notes). All spell DC 15.",
+		description : "This ring appears to be made of pure light with motes of twinkling radiance within. When used, rainbow sparks dance around your hand. The ring has 6 charges & regains 1d6 charges at dawn. While wearing the ring in dim light/darkness, you can cast Dancing Lights & Light at will. As an action, expend charges to cast Faerie Fire, Ball Lightning, or Shooting Stars (see notes). All spell DC 15.",
 		descriptionFull : "This ring appears to be made of pure light w/ motes of twinkling radiance within. When used, rainbow sparks dance around the wearer’s hand. While wearing this ring in dim light or darkness, you can cast Dancing Lights and Light from the ring at will. Casting either spell from the ring requires an action.\n   The ring has 6 charges for the following other properties. The ring regains 1d6 expended charges daily at dawn.\n   " + toUni("Faerie Fire") + ". You can expend 1 charge as an action to cast Faerie Fire from the ring.\n   " + toUni("Ball Lightning") + ". You can expend 2 charges as an action to create one to four 3-foot-diameter spheres of lightning. The more spheres you create, the less powerful each sphere is individually.\n   Each sphere appears in an unoccupied space you can see within 120 feet of you. The spheres last as long as you concentrate (as if concentrating on a spell), up to 1 minute. Each sphere sheds dim light in a 30-foot radius.\n   As a bonus action, you can move each sphere up to 30 feet, but no farther than 120 feet away from you. When a creature other than you comes within 5 feet of a sphere, the sphere discharges lightning at that creature and disappears. That creature must make a DC 15 Dexterity saving throw. On a failed save, the creature takes lightning damage based on the number of spheres you created (4 spheres = 2d4, 3 spheres = 2d6, 2 spheres = 5d4, 1 sphere = 4d12).\n   " + toUni("Shooting Stars") + ". \n   You can expend 1 to 3 charges as an action. For every charge you expend, you launch a glowing mote of light from the ring at a point you can see within 60 feet of you. Each creature within a 15-foot cube originating from that point is showered in sparks and must make a DC 15 Dexterity saving throw. taking 5d4 fire damage on a failed save, or half as much damage on a successful one.",
+		attunement : true,
+		toNotesPage : [{
+			name : "Ball Lightning",
+			popupName : "Ball Lightning function of Ring of Shooting Stars",
+			page3notes : true,
+			additional : "2 charges",
+			note : [
+				"As an action, I can create 1-4 spheres of lightning of 3-ft diameter within 120 ft",
+				"These last while I concentrate, up to 1 min; As a bonus action, I can more them 30 ft",
+				"When a creature (not me) comes within 5 ft of a sphere, it discharges and disappears",
+				"The target must make a DC 15 Dex save or take lightning damage",
+				"A sphere sheds dim light in 30-ft radius, its damage depends on the number created:",
+				" \u2022 1 sphere: 4d12;    \u2022 2 spheres: 5d4;    \u2022 3 spheres: 2d6;    \u2022 4 spheres: 2d4"
+			]
+		}, {
+			name : "Shooting Stars",
+			popupName : "Shooting Stars function of Ring of Shooting Stars",
+			page3notes : true,
+			additional : "1-3 charges",
+			note : [
+				"As an action, I can launch one mote of light per expended charge to a point within 60 ft",
+				"All creatures within a 15-ft cube originating from those points take 5d4 fire damage",
+				"The targets can make a DC 15 Dexterity saving throw to halve the damage"
+			]
+		}],
+		limfeaname : "Ring of Shooting Stars",
+		usages : 6,
+		recovery : "dawn",
+		additional : "regains 1d6",
+		fixedDC : 15,
+		spellFirstColTitle : "Ch",
+		spellcastingBonus : [{
+			name : "At will",
+			spells : ["dancing lights", "light"],
+			selection : ["dancing lights", "light"],
+			firstCol : "atwill",
+			times : 2
+		}, {
+			name : "1 charge",
+			spells : ["faerie fire"],
+			selection : ["faerie fire"],
+			firstCol : 1
+		}, {
+			name : "Ball lightning (2 chr)",
+			spells : ["flaming sphere"],
+			selection : ["flaming sphere"],
+			firstCol : 2
+		}, {
+			name : "Shooting stars (1-3 chr)",
+			spells : ["magic missile"],
+			selection : ["magic missile"],
+			firstCol : "1+"
+		}],
+		spellChanges : {
+			"flaming sphere" : { // change into Ball Lightning
+				name : "Ball Lightning",
+				source : [["SRD", 237], ["D", 192]],
+				level : "",
+				school : "Evoc",
+				time : "1 a",
+				range : "120 ft",
+				components : "M\u0192",
+				compMaterial : "Spells cast by magic items don't require any components other than the magic item itself.",
+				duration : "Conc, 1 min",
+				save : "Dex",
+				description : "1-4 spheres; bns a move all 30 ft; 1st crea in 5 ft save or Lightning dmg (1:4d12, 2:5d4, 3:2d6, 4:2d4)",
+				descriptionFull : "You can expend 2 charges from the ring of shooting starts as an action to create one to four 3-foot-diameter spheres of lightning. The more spheres you create, the less powerful each sphere is individually.\n   Each sphere appears in an unoccupied space you can see within 120 feet of you. The spheres last as long as you concentrate (as if concentrating on a spell), up to 1 minute. Each sphere sheds dim light in a 30-foot radius.\n   As a bonus action, you can move each sphere up to 30 feet, but no farther than 120 feet away from you. When a creature other than you comes within 5 feet of a sphere, the sphere discharges lightning at that creature and disappears. That creature must make a DC 15 Dexterity saving throw. On a failed save, the creature takes lightning damage based on the number of spheres you created (4 spheres = 2d4, 3 spheres = 2d6, 2 spheres = 5d4, 1 sphere = 4d12).",
+				completeRewrite : true, // indicates that the changes here even overwrite the tooltip
+				changes : "The listing of 'Flaming Sphere' has been completely changed to reflect the 'Ball Lightning' ability of the Ring of Shooting Stars. Even the information above is changed."
+			},
+			"magic missile" : { // change into Shooting Stars
+				name : "Shooting Stars",
+				source : [["SRD", 237], ["D", 192]],
+				level : "",
+				school : "Evoc",
+				time : "1 a",
+				range : "60 ft",
+				components : "M\u0192",
+				compMaterial : "Spells cast by magic items don't require any components other than the magic item itself.",
+				duration : "Instantaneous",
+				description : "15-ft cube in range per expended charge; all crea in cubes take 5d4 Fire damage, save halves",
+				descriptionFull : "You can expend 1 to 3 charges from the ring of shooting starts as an action. For every charge you expend, you launch a glowing mote of light from the ring at a point you can see within 60 feet of you. Each creature within a 15-foot cube originating from that point is showered in sparks and must make a DC 15 Dexterity saving throw. taking 5d4 fire damage on a failed save, or half as much damage on a successful one.",
+				completeRewrite : true, // indicates that the changes here even overwrite the tooltip
+				changes : "The listing of 'Magic Missile' has been completely changed to reflect the 'Shooting Stars' ability of the Ring of Shooting Stars. Even the information above is changed."
+			}
+		}
+	},
+	"ring of shooting stars (po-bk-1-6)" : {
+		name : "Ring of Shooting Stars (PO-BK-1-6)",
+		source : [["AL","PO"]],
+		rarity : "very rare",
+		magicItemTable : "H",
+		description : "This ring is black with purple gemstones that give the illusion of a small galaxy filled with shooting stars. The names Ferrez & Tasharra are engraved on the inside. The ring has 6 charges & regains 1d6 charges at dawn. While wearing the ring in dim light/darkness, you can cast Dancing Lights & Light at will. As an action, expend charges to cast Faerie Fire, Ball Lightning, or Shooting Stars (see 3rd page notes). All spell DC 15.",
+		descriptionFull : "This ring is black with purple gemstones that give the illusion of a small galaxy with shooting stars inside them. The names Ferrez and Tasharra are engraved on the inside.\n   While wearing this ring in dim light or darkness, you can cast Dancing Lights and Light from the ring at will. Casting either spell from the ring requires an action.\n   The ring has 6 charges for the following other properties. The ring regains 1d6 expended charges daily at dawn.\n   " + toUni("Faerie Fire") + ". You can expend 1 charge as an action to cast Faerie Fire from the ring.\n   " + toUni("Ball Lightning") + ". You can expend 2 charges as an action to create one to four 3-foot-diameter spheres of lightning. The more spheres you create, the less powerful each sphere is individually.\n   Each sphere appears in an unoccupied space you can see within 120 feet of you. The spheres last as long as you concentrate (as if concentrating on a spell), up to 1 minute. Each sphere sheds dim light in a 30-foot radius.\n   As a bonus action, you can move each sphere up to 30 feet, but no farther than 120 feet away from you. When a creature other than you comes within 5 feet of a sphere, the sphere discharges lightning at that creature and disappears. That creature must make a DC 15 Dexterity saving throw. On a failed save, the creature takes lightning damage based on the number of spheres you created (4 spheres = 2d4, 3 spheres = 2d6, 2 spheres = 5d4, 1 sphere = 4d12).\n   " + toUni("Shooting Stars") + ". \n   You can expend 1 to 3 charges as an action. For every charge you expend, you launch a glowing mote of light from the ring at a point you can see within 60 feet of you. Each creature within a 15-foot cube originating from that point is showered in sparks and must make a DC 15 Dexterity saving throw. taking 5d4 fire damage on a failed save, or half as much damage on a successful one.",
 		attunement : true,
 		toNotesPage : [{
 			name : "Ball Lightning",

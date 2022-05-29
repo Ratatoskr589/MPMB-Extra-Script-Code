@@ -8,8 +8,8 @@ It is recommended to enter the code in a fresh sheet before adding any other inf
 /*  Subject: New AL Items
     Effect:	This script adds the new items, armor, and weapons found in AL modules and Guild Adept adventures to the MPMB sheet. It also includes some Story Awards that grant blessings, boons, or other mechanical effects. This is not a complete list, but it's a start.*/
 	
-	//Complete: S0-S10, DDCE, Holiday Events, Guild Adept
-	//In progress: CCCs, DC-POA, DRW, 
+	//Complete: S0-S10, DDCE, Holiday Events, Guild Adept, DC-POA, 
+	//In progress: CCCs, DRW, WBW-DCs
 	
 var iFileName = "AL Special Items.js";
 RequiredSheetVersion(13);
@@ -533,7 +533,7 @@ MagicItemsList["al new items"] = {
 		name : "AL New Items",
 		type : "wondrous item",
 		allowDuplicates : true,
-		choices : ["Achis Atracta (CCC-BMG-30 HILL2-3)","Bag of Tricks or Treats","Bone Compass (RMH-12)","Bookmark of Memory (WBW-PR)","Cariboots","Dagger of the Hidden Lord (DDHC-DIA-2)","Discord (DDAL-DRW15)","Eye of Xxiphu (DDAL5-19)","Fey Hound Collar","Fold-Up Friend (WBW-PR)","Giant's Gloves (WBW-PR)","Ghost Sheet","Hat of Witchery","Hellrider's Badge (DDEP9-2)","Lemure Onesie","Mind-Poison Dagger (DDHC-MORD-05)","Mist Hunters Magnificent Cap (RMH Safety Tools)","Nettle (DDEP4)","Oathbinder (DDHC-TOA-15)","Order of the Guardians Ring (RMH Safety Tools)","Owlbear Snowshoes","Pearl of Elocution (WBW-PR)","Pipes of Remembrance","Pocket Watch (WBW-PR)","Pumpkin Ring","Selûne's Owl-Eye Glasses","Shar's Veil","Spare (DDHC-TOA-13)","Tarot Card Set","Wand of Whimsy (WBW-PR)","Woe (DDAL-DRW16)","Wooden Gecko Earrings (DDHC-TOA-8)"],
+		choices : ["Achis Atracta (CCC-BMG-30 HILL2-3)","Bag of Tricks or Treats","Bone Compass (RMH-12)","Bookmark of Memory (WBW-PR)","Cariboots","Dagger of the Hidden Lord (DDHC-DIA-2)","Darkling Necklace (DDHC-TOA-8)","Discord (DDAL-DRW15)","Eye of Xxiphu (DDAL5-19)","Fey Hound Collar","Fold-Up Friend (WBW-PR)","Giant's Gloves (WBW-PR)","Ghost Sheet","Hat of Witchery","Hellrider's Badge (DDEP9-2)","Lemure Onesie","Mind-Poison Dagger (DDHC-MORD-05)","Mist Hunters Magnificent Cap (RMH Safety Tools)","Nettle (DDEP4)","Oathbinder (DDHC-TOA-15)","Order of the Guardians Ring (RMH Safety Tools)","Owlbear Snowshoes","Pearl of Elocution (WBW-PR)","Pipes of Remembrance","Pocket Watch (WBW-PR)","Pumpkin Ring","Selûne's Owl-Eye Glasses","Shar's Veil","Spare (DDHC-TOA-13)","Tarot Card Set","Wand of Whimsy (WBW-PR)","Woe (DDAL-DRW16)","Wooden Gecko Earrings (DDHC-TOA-8)"],
 	"achis atracta (ccc-bmg-30 hill2-3)" : { // contributed by AelarTheElfRogue
 		name : "Achis Atracta (CCC-BMG-30 HILL2-3)",
 		source : [["AL","CCC"]],
@@ -600,11 +600,30 @@ MagicItemsList["al new items"] = {
 			modifiers : [1, 1],
 		}
 	},
+	"darkling necklace (ddhc-toa-8)" : {
+		name : "Darkling Necklace (DDHC-TOA-8)",
+		source : ["AL", "S7"],
+		rarity : "rare",
+		attunement : true,
+		defaultExcluded : true,
+		magicItemTable : "?",
+		description : "This necklace includes a black pearl that contains part of a darkling’s soul & gives advantage on Stealth checks made in dim light or darkness. As an action once per day, you can cast Darkness. You must then pass a DC 10 Int save or be blinded as long as the spell lasts. Once donned, the necklace can only be removed with a remove curse spell.",
+		descriptionFull : "This necklace includes a black pearl that contains a part of a darkling’s soul. Once attuned, the wearer gains advantage on Stealth checks made in dim light or total darkness. Also, once per day as an action the wearer can cast darkness as per the 2nd-level evocation spell. However, the user must succeed on a DC 10 Intelligence saving throw or be blinded for as long as the spell lasts. Once it is donned, it can only be removed with a remove curse spell.",
+		limfeaname : "Darkling Necklace",
+		usages : 1,
+		recovery : "dawn",
+		savetxt : { text : ["Adv on Stealth chks in dim light/darkness"] },
+		spellcastingBonus : {
+			name : "Darkness",
+			spells : ["darkness"],
+			selection : ["darkness"],
+			firstCol : "oncelr"
+			}
+		},
 	"discord (ddal-drw15)" : {
 		name : "Discord (DDAL-DRW15)",
 		source : [["AL","DRW"]],
 		rarity : "unique",
-		allowDuplicates : true,
 		description : "This magical armor is made of sharp interlocking spikes of green crystal & extinguishes all nonmagical flames in 30 ft. You hear insidious whispers from just beyond your peripheral vision. Unless deafened, you have disadvantage on saving throws caused by, & Wisdom checks related to, Father Llymic & its allies. As a reaction once per dawn, you can see normally in magical & nonmagical darkness for 120 ft until your next turn starts. If also wielding Woe, you're unharmed by temps as low as −60 \u00B0F",
 		descriptionFull : "Discord is comprised of sharp, interlocking spikes of green crystal and extinguishes all nonmagical flames within 30 feet of it. A creature wearing Discord hears insidious whispers originating from a point just beyond their peripheral vision. Unless deafened, the creature has disadvantage on saving throws caused by, and on Wisdom checks related to, Father Llymic and its allies.\n   While wearing this armor, you gain a +2 bonus to AC. In addition, you can use your reaction to see normally in darkness, both magical and nonmagical, out to a distance of 120 feet until the start of your next turn. Discord can’t be used this way again until the next dawn.\n   If a character wields Woe (a longsword) while wearing Discord, they are unharmed by temperatures as low as −60 degrees Fahrenheit.",
 		action : [["reaction", "Discord (120 ft Devil Sight)"]],
@@ -892,7 +911,7 @@ MagicItemsList["al new items"] = {
 		name : "Tarot Card Set",
 		source : ["AL:LN", 2020],
 		rarity : "unique",
-		description : "Once/day, roll 1d4 to find out what your fortune produces. This item disappears at dawn & the character may roll again to reveal their next fortune. DC 1: The Flower - touching this card to a patch of earth w/i 5 ft, causes one flower of your choice to sprout. The flower is nonmagical & grows or withers as a normal flower. DC 2: The Yummy Meal - your favorite meal, the equivalent of 1 ration. DC 3: The Tea Pot - a tiny pot of tea, equivalent to 1 healing potion. DC 4: The Witch - a stone & twisted wire pendant. As an action, it gives you adv. on CHA checks w/ humanoids (<= CR1), for 1 hr.",
+		description : "Once per day, draw a card & roll 1d4 to find out what it produces. The item disappears at dawn & you may roll again to reveal your next fortune. 1: The Flower - touching this card to a patch of earth in 5 ft sprouts 1 flower of your choice. The flower is nonmagical & grows or withers like normal. 2: The Yummy Meal - your favorite meal, the equivalent of 1 ration. 3: The Tea Pot - a tiny pot of tea, equivalent to 1 healing potion. 4: The Witch - a stone & twisted wire pendant. As an action, it gives you adv. on CHA checks w/ humanoids (<= CR1), for 1 hr.",
 		descriptionFull : "Once per day, roll 1d4 to find out what your tarot fortune produces. At dawn this product (not the card) vanishes but the character may roll again to reveal their next fortune.\n   " + toUni("DC 1: The Flower") + ". - touching this card to a patch of earth or soil, within 5 feet of you, causes one flower of your choice to sprout there. The flower is nonmagical and harmless, and it grows or withers as a normal flower would.\n   " + toUni("DC 2: The Yummy Meal") + ". - this card produces your favorite meal, the equivalent of 1 ration.\n   " + toUni("DC 3: The Tea Pot") + ". - this card produces a tiny pot of piping tea, the equivalent of one potion of healing.\n   " + toUni("DC 4: The Witch") + ". - this card produces a stone and twisted wire pendant. As an action, it gives you advantage on Charisma checks when communicating with humanoids (CR 1 or less), for 1 hour.",
 		usages : 1,
 		recovery : "dawn"
@@ -1229,3 +1248,90 @@ MagicItemsList["al trinkets"] = {
 		},
 }
 })
+
+//Tree Spirit Item from DDHC-TOA-8. In the past, only allowed with special campaign documentation. The PHB doesn't actually specify which weapons are made of wood, so the restrictions I've entered are largely just what seems right to me.
+MagicItemsList["tree spirit weapon"] = {
+		name : "Tree Spirit Weapon",
+		source : [["AL","S7"]],
+		type : "weapon (wooden bludgeoning or piercing)",
+		rarity : "rare",
+		attunement : true,
+		defaultExcluded : true,
+		description : "A tree spirit weapon is crafted from the wood of a sentient tree. The spirit of the tree remains in the wood so the weapon contains a sentience. The bonuses provided by a tree spirit weapon depend on the level of the attuned wielder. It gets more powerful — and more dangerous to wield — as you become more powerful as well.",
+		descriptionLong : "A tree spirit weapon is one crafted from the wood of a sentient tree. The spirit of the tree remains in the wood, and therefore the weapon contains a sentience. The bonuses provided by a tree spirit weapon are dependent on the level of the person to whom it is attuned. In this way, the tree spirit weapon is progressive: it gets more powerful — and more dangerous to wield — as the attuned wielder becomes more powerful as well.",
+		descriptionFull : "A tree spirit weapon is one crafted from the wood of a sentient tree. It must be made of wood and deal bludgeoning or piercing damage. The spirit of the tree remains in the wood, and therefore the weapon contains a sentience. The bonuses provided by a tree spirit weapon are dependent on the level of the person to whom it is attuned. In this way, the tree spirit weapon is progressive: it gets more powerful — and more dangerous to wield — as the attuned wielder becomes more powerful as well."+
+		"\n   Levels 1-4: +1 bonus to attack and damage rolls, wielder feels the desires of the tree spirit."+
+		"\n   Levels 5-10: +2 bonus to attack and damage rolls, wielder gains flaw “constantly hears the voice of the tree spirit”"+
+		"\n   Levels 11-16: +3 bonus to attack and damage rolls, wielder makes Constitution saving throws at advantage, wielder’s movement is reduced by 10 feet"+
+		"\n   Levels 17-20: +4 bonus to attack and damage rolls, wielder gains resistance to bludgeoning damage, wielder gains vulnerability to fire damage that cannot be removed",
+	choices : ["Tier 1", "Tier 2", "Tier 3", "Tier 4"],
+	"tier 1" : {
+		name : "T1 Tree Spirit",
+		description : "A tree spirit weapon is crafted from the wood of a sentient tree. The weapon contains that sentience and you feel the desires of the tree spirit. You also gain a +1 bonus to attack and damage rolls made with this magic weapon.",
+		descriptionLong : "A tree spirit weapon is one crafted from the wood of a sentient tree. The spirit of the tree remains in the wood, and therefore the weapon contains a sentience. You feel the desires of the tree spirit. You also gain a +1 bonus to attack and damage rolls made with this magic weapon.",
+		defaultExcluded : true,
+		chooseGear : {
+			type : "weapon",
+			prefixOrSuffix : "suffix",
+			descriptionChange : ["replace", "weapon"],
+			itemName1stPage : ["suffix", "+1 Tree Spirit"],
+			excludeCheck : function (inObjKey, inObj) {
+			var testRegex = /gun|rifle|pistol|musket|revolver|net|sling|flail|oversized/i;
+				return ((testRegex).test(inObjKey) && (!inObj.baseWeapon || !(testRegex).test(inObj.baseWeapon))) || (inObj.baseWeapon && !inObj.damage ? WeaponsList[inObj.baseWeapon].damage : inObj.damage)[2] == "slashing";
+					}
+				},
+	},
+	"tier 2" : {
+		name : "T2 Tree Spirit",
+		description : "A tree spirit weapon is crafted from the wood of a sentient tree. You feel the desires of the tree spirit & gain the flaw “constantly hears the voice of the tree spirit”. You also gain a +2 bonus to attack and damage rolls made with this magic weapon.",
+		descriptionLong : "A tree spirit weapon is one crafted from the wood of a sentient tree. The spirit of the tree remains in the wood, and therefore the weapon contains a sentience. You feel the desires of the tree spirit and gain the flaw “constantly hears the voice of the tree spirit”. You also gain a +2 bonus to attack and damage rolls made with this magic weapon.",
+		defaultExcluded : true,
+		chooseGear : {
+			type : "weapon",
+			prefixOrSuffix : "suffix",
+			descriptionChange : ["replace", "weapon"],
+			itemName1stPage : ["suffix", "+2 Tree Spirit"],
+			excludeCheck : function (inObjKey, inObj) {
+			var testRegex = /gun|rifle|pistol|musket|revolver|net|sling|flail|oversized/i;
+				return ((testRegex).test(inObjKey) && (!inObj.baseWeapon || !(testRegex).test(inObj.baseWeapon))) || (inObj.baseWeapon && !inObj.damage ? WeaponsList[inObj.baseWeapon].damage : inObj.damage)[2] == "slashing";
+					}
+				},
+	},
+	"tier 3" : {
+		name : "T3 Tree Spirit",
+		description : "A tree spirit weapon is crafted from the wood of a sentient tree. You feel the desires of the tree spirit & gain the flaw “constantly hears the voice of the tree spirit”. You also have advantage on Constitution saves & your movement is reduced by 10 ft. You gain a +3 bonus to attack & damage rolls made with this magic weapon.",
+		descriptionLong : "A tree spirit weapon is one crafted from the wood of a sentient tree. The spirit of the tree remains in the wood, and therefore the weapon contains a sentience. You feel the desires of the tree spirit and gain the flaw “constantly hears the voice of the tree spirit”. You also have advantage on Constitution saving throws and your movement is reduced by 10 feet. You gain a +3 bonus to attack & damage rolls made with this magic weapon",
+		savetxt : { text : ["Adv on Con saves"] },
+		speed : { allModes : "-10" },
+		defaultExcluded : true,
+		chooseGear : {
+			type : "weapon",
+			prefixOrSuffix : "suffix",
+			descriptionChange : ["replace", "weapon"],
+			itemName1stPage : ["suffix", "+3 Tree Spirit"],
+			excludeCheck : function (inObjKey, inObj) {
+			var testRegex = /gun|rifle|pistol|musket|revolver|net|sling|flail|oversized/i;
+				return ((testRegex).test(inObjKey) && (!inObj.baseWeapon || !(testRegex).test(inObj.baseWeapon))) || (inObj.baseWeapon && !inObj.damage ? WeaponsList[inObj.baseWeapon].damage : inObj.damage)[2] == "slashing";
+					}
+				},
+	},
+	"tier 4" : {
+		name : "T4 Tree Spirit",
+		description : "A tree spirit weapon is crafted from the wood of a sentient tree. You feel the desires of the tree spirit & gain the flaw “constantly hears the voice of the tree spirit”. You also have advantage on CON saves & resistance to bludgeoning dmg, but your speed is reduced by 10 ft & you have vulnerability to fire dmg. You gain a +4 bonus to atk & dmg rolls made with this magic weapon.",
+		descriptionLong : "A tree spirit weapon is one crafted from the wood of a sentient tree. The spirit of the tree remains in the wood, and therefore the weapon contains a sentience. You feel the desires of the tree spirit and gain the flaw “constantly hears the voice of the tree spirit”. You also have advantage on Constitution saving throws and resistance to bludgeoning damage, but your movement is reduced by 10 feet and you have vulnerability to fire damage that can't be removed. You also gain a +4 bonus to attack and damage rolls made with this magic weapon.",
+		defaultExcluded : true,
+		dmgres : ["Bludgeoning"],
+		speed : { allModes : "-10" },
+		savetxt : { text : ["Adv on Con saves; Vulnerable to fire damage"] },
+		chooseGear : {
+			type : "weapon",
+			prefixOrSuffix : "suffix",
+			descriptionChange : ["replace", "weapon"],
+			itemName1stPage : ["suffix", "+4 Tree Spirit"],
+			excludeCheck : function (inObjKey, inObj) {
+			var testRegex = /gun|rifle|pistol|musket|revolver|net|sling|flail|oversized/i;
+				return ((testRegex).test(inObjKey) && (!inObj.baseWeapon || !(testRegex).test(inObj.baseWeapon))) || (inObj.baseWeapon && !inObj.damage ? WeaponsList[inObj.baseWeapon].damage : inObj.damage)[2] == "slashing";
+					}
+				},
+	}
+}

@@ -12,8 +12,8 @@ Additionally, due to the length of some descriptions, I recommend auto-sizing fo
 	
 	This is not a complete list since I don't have every published adventure yet, but it's a start. If you do not see an item listed from a season marked complete, it should be because there was no flavor.*/
 	
-	//Complete: S0-S10, Guild Adept
-	//In progress: CCCs, DC-POA, DRW, RMH
+	//Complete: S0-S10, Guild Adept, DC-POA
+	//In progress: CCCs, DRW, RMH, WBW-DCs
 	
 var iFileName = "AL Flavored Weapons.js";
 RequiredSheetVersion(13);
@@ -81,7 +81,7 @@ MagicItemsList["al maces"] = {
 			baseWeapon : "mace",
 			regExpSearch : /^(?=.*mace)(?=.*green)(?=.*flame).*$/i,
 			name : "Umberlee's Fury, Green-Flame Mace",
-			source : [["OotA", 35], ["AL","CCC"]],
+			source : [["AL","CCC"]],
 			description : "Counts as magical; +1 fire dmg while lit"
 		}
 	},
@@ -99,7 +99,7 @@ MagicItemsList["al maces"] = {
 			baseWeapon : "mace",
 			regExpSearch : /^(?=.*mace)(?=.*disruption).*$/i,
 			name : "Mace of Disruption",
-			source : [["SRD", 229], ["D", 179], ["AL","CCC"]],
+			source : [["AL","CCC"]],
 			description : "Fiend/undead +2d6 radiant damage, frightened until my next turn ends; if hp<26, DC 15 Wis save or die"
 		}
 	},
@@ -134,7 +134,7 @@ MagicItemsList["al maces"] = {
 			baseWeapon : "mace",
 			regExpSearch : /^(?=.*mace)(?=.*smiting).*$/i,
 			name : "Mace of Smiting",
-			source : [["SRD", 229], ["D", 179], ["AL","S7"]],
+			source : [["AL","S7"]],
 			description : "+2 to hit/damage vs. constructs; On 20 to hit: +7 damage (+14 vs. constructs); Constructs hp<26 destroyed",
 			modifiers : [1,1]
 		}
@@ -152,7 +152,7 @@ MagicItemsList["al maces"] = {
 			baseWeapon : "mace",
 			regExpSearch : /^(?=.*mace)(?=.*smiting).*$/i,
 			name : "Mace of Smiting",
-			source : [["SRD", 229], ["D", 179], ["AL","S8"]],
+			source : [["AL","S8"]],
 			description : "+2 to hit/damage vs. constructs; On 20 to hit: +7 damage (+14 vs. constructs); Constructs hp<26 destroyed",
 			modifiers : [1,1]
 		}
@@ -170,7 +170,7 @@ MagicItemsList["al maces"] = {
 			baseWeapon : "mace",
 			regExpSearch : /^(?=.*mace)(?=.*smiting).*$/i,
 			name : "Mace of Smiting",
-			source : [["SRD", 229], ["D", 179], ["AL","S10"]],
+			source : [["AL","S10"]],
 			description : "+2 to hit/damage vs. constructs; On 20 to hit: +7 damage (+14 vs. constructs); Constructs hp<26 destroyed",
 			modifiers : [1,1]
 		}
@@ -210,7 +210,7 @@ MagicItemsList["al maces"] = {
 			baseWeapon : "mace",
 			regExpSearch : /^(?=.*mace)(?=.*vicious).*$/i,
 			name : "Vicious Mace",
-			source : [["SRD", 248], ["D", 209], ["AL","CCC"]],
+			source : [["AL","CCC"]],
 			description : "On natural 20 to hit: +7 damage",
 		}
 	},
@@ -221,7 +221,7 @@ MagicItemsList["al staffs"] = {
 		name : "AL Staffs",
 		allowDuplicates : true,
 		type : "staff",
-		choices : ["Staff of the Adder (CCC-SRCC1-3)","Staff of Adornment (CCC-3MAGS-ONE)","Staff of Birdcalls (WBW-DC-CONMAR-3)","Staff of Birdcalls (WBW-DC-FDC-3)","Staff of Birdcalls (WBW-DC-HBK-1)","Staff of Charming (DDEX2-2)","Staff of Flowers (CCC-KUMORI-3-1)","Staff of Frost (DDAL0-11E)","Staff of Frost (DDAL-DRW5)","Staff of Healing: Driftwood Staff (CCC-DES-1-2)","Staff of Healing (CCC-GHC-BK2-8)","Staff of Healing (CCC-QCC2019-3)","Staff of Healing (CCC-WYC-2-1)","Staff of Healing (DDEP4)","Staff of the Magi (DDAL7-17)","Staff of Power (DDAL5-19)","Staff of Power (DDEP4)","Staff of the Python (CCC-BMG-MOON7-1)","Staff of the Python: Earth Tender's Branch (CCC-BMG-MOON8-2)","Staff of the Python: Bulkawa's Benevolence (CCC-GSP2-2)","Staff of Striking (CCC-TRI-14 YUL1-3)","Staff of Striking (DDAL7-12)","Staff of Striking (DDAL10-10)","Staff of Swarming Insects (DDEX3-3)","Staff of Thunder and Lightning (DDAL5-8)","Staff of Thunder and Lightning (DDEP5-2)","Staff of Withering (DDEX2-13)","Staff of Withering (DDAL8-13)","Staff of the Woodlands (CCC-BMG-MOON12-1)","Staff of the Woodlands (CCC-GARY-9)","Staff of the Woodlands (DDAL7-8/DDEP7-1)","Staff of the Woodlands: Temperate (WBW-DC-CONMAR-6)","Staff of the Woodlands: Guardian (WBW-DC-HH-2)","Staff of the Woodlands: Sunlit (WBW-DC-Sunlit-6)"],
+		choices : ["Staff of the Adder (CCC-SRCC1-3)","Staff of Adornment (CCC-3MAGS-ONE)","Staff of Birdcalls (WBW-DC-CONMAR-3)","Staff of Birdcalls (WBW-DC-FDC-3)","Staff of Birdcalls (WBW-DC-HBK-1)","Staff of Charming (DDEX2-2)","Staff of Flowers (CCC-KUMORI-3-1)","Staff of Frost (DDAL0-11E)","Staff of Frost (DDAL-DRW5)","Staff of Healing: Driftwood Staff (CCC-DES-1-2)","Staff of Healing (CCC-GHC-BK2-8)","Staff of Healing (CCC-QCC2019-3)","Staff of Healing (CCC-WYC-2-1)","Staff of Healing (DDEP4)","Staff of the Magi (DDAL7-17)","Staff of Power (DDAL5-19)","Staff of Power (DDEP4)","Staff of the Python (CCC-BMG-MOON7-1)","Staff of the Python: Earth Tender's Branch (CCC-BMG-MOON8-2)","Staff of the Python: Bulkawa's Benevolence (CCC-GSP2-2)","Staff of Striking (CCC-TRI-14 YUL1-3)","Staff of Striking (DDAL7-12)","Staff of Striking (DDAL10-10)","Staff of Swarming Insects (DDEX3-3)","Staff of Thunder and Lightning (DDAL5-8)","Staff of Thunder and Lightning (DDEP5-2)","Staff of Withering (DDEX2-13)","Staff of Withering (DDAL8-13)","Staff of the Woodlands (CCC-BMG-MOON12-1)","Staff of the Woodlands (CCC-GARY-9)","Staff of the Woodlands (DDAL7-8/DDEP7-1)","Staff of the Woodlands: Temperate (WBW-DC-CONMAR-6)","Staff of the Woodlands: Guardian (WBW-DC-HH-2)","Staff of the Woodlands: Sunlit (WBW-DC-Sunlit-6)","Staff of the Woodlands: Dragon's Seed (WBW-DC-ZODIAC-5)"],
 	"staff of the adder (ccc-srcc1-3)" : {
 		name : "Staff of the Adder (CCC-SRCC1-3)",
 		source : [["AL","CCC"]],
@@ -238,7 +238,7 @@ MagicItemsList["al staffs"] = {
 		weaponOptions : {
 			regExpSearch : /^(?=.*snake)(?=.*head)(?=.*staff)(?=.*adder).*$/i,
 			name : "Animated Snake Head from Staff of the Adder",
-			source : [["D", 203], ["AL","CCC"]],
+			source : [["AL","CCC"]],
 			list : "melee",
 			ability : 1,
 			type : "Natural",
@@ -428,7 +428,7 @@ MagicItemsList["al staffs"] = {
 		source : [["AL","CCC"]],
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "This staff floats on water and other liquids. Its bearer has advantage on Strength (Athletic) checks to swim. The staff has 10 charges, regaining 1d6+4 at dawn. If last charge used, roll d20. On a 1, it vanishes. Charges can cast Cure Wounds (1/level, max 4th), Lesser Restoration (2) & Mass Cure Wounds (5) using your spellcasting ability.",
+		description : "This staff floats on water & other liquids, & gives you advantage on Strength (Athletic) checks to swim. It has 10 charges, regaining 1d6+4 at dawn. Charges can cast Cure Wounds (1/lvl, max 4th), Lesser Restoration (2) & Mass Cure Wounds (5) using your spellcasting ability. If the last charge used, roll d20. On a 1, it vanishes.",
 		descriptionFull : "This item floats on water and other liquids. Its bearer has advantage on Strength (Athletic) checks to swim. This staff has 10 charges. While holding it, you can use an action to expend 1 or more of its charges to cast one of the following spells from it, using your spell save DC and spellcasting ability modifier: Cure Wounds (1 charge per spell level, up to 4th), Lesser Restoration (2 charges), or Mass Cure Wounds (5 charges).\n   The staff regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1. the staff vanishes in a flash of light, lost forever.",
 		attunement : true,
 		weight : 4,
@@ -643,7 +643,7 @@ MagicItemsList["al staffs"] = {
 			baseWeapon : "quarterstaff",
 			regExpSearch : /^(?=.*staff)(?=.*magi).*$/i,
 			name : "Staff of the Magi",
-			source : [["SRD", 244], ["D", 203], ["AL","S7"]],
+			source : [["AL","S7"]],
 			modifiers : [2, 2]
 		},
 		calcChanges : {
@@ -764,7 +764,7 @@ MagicItemsList["al staffs"] = {
 			baseWeapon : "quarterstaff",
 			regExpSearch : /^(?=.*staff)(?=.*power).*$/i,
 			name : "Staff of Power",
-			source : [["SRD", 243], ["D", 202], ["AL","S5"]],
+			source : [["AL","S5"]],
 			description : "Versatile (1d8); On hit, 1 charge for +1d6 force damage",
 			modifiers : [2, 2]
 		},
@@ -845,7 +845,7 @@ MagicItemsList["al staffs"] = {
 			baseWeapon : "quarterstaff",
 			regExpSearch : /^(?=.*staff)(?=.*power).*$/i,
 			name : "Staff of Power",
-			source : [["SRD", 243], ["D", 202], ["AL","S4"]],
+			source : [["AL","S4"]],
 			description : "Versatile (1d8); On hit, 1 charge for +1d6 force damage",
 			modifiers : [2, 2]
 		},
@@ -964,7 +964,7 @@ MagicItemsList["al staffs"] = {
 			baseWeapon : "quarterstaff",
 			regExpSearch : /^(?=.*staff)(?=.*striking).*$/i,
 			name : "Staff of Striking",
-			source : [["SRD", 244], ["D", 203], ["AL","CCC"]],
+			source : [["AL","CCC"]],
 			modifiers : [3, 3],
 			description : "Versatile (1d8); On hit, 1-3 charges for +1d6 force damage per charge"
 		}
@@ -987,7 +987,7 @@ MagicItemsList["al staffs"] = {
 			baseWeapon : "quarterstaff",
 			regExpSearch : /^(?=.*staff)(?=.*striking).*$/i,
 			name : "Staff of Striking",
-			source : [["SRD", 244], ["D", 203], ["AL","S7"]],
+			source : [["AL","S7"]],
 			modifiers : [3, 3],
 			description : "Versatile (1d8); On hit, 1-3 charges for +1d6 force damage per charge"
 		}
@@ -1010,7 +1010,7 @@ MagicItemsList["al staffs"] = {
 			baseWeapon : "quarterstaff",
 			regExpSearch : /^(?=.*staff)(?=.*striking).*$/i,
 			name : "Staff of Striking",
-			source : [["SRD", 244], ["D", 203], ["AL","S10"]],
+			source : [["AL","S10"]],
 			modifiers : [3, 3],
 			description : "Versatile (1d8); On hit, 1-3 charges for +1d6 force damage per charge"
 		}
@@ -1061,7 +1061,7 @@ MagicItemsList["al staffs"] = {
 			baseWeapon : "quarterstaff",
 			regExpSearch : /^(?=.*staff)(?=.*thunder)(?=.*lightning).*$/i,
 			name : "Staff of Thunder and Lightning",
-			source : [["SRD", 245], ["D", 204], ["AL","S5"]],
+			source : [["AL","S5"]],
 			description : "Versatile (1d8); Lightning: 1/dawn, +2d6 lightning damage; Thunder: 1/dawn DC 17 Con save or 1 round stunned",
 			modifiers : [2, 2]
 		},
@@ -1087,7 +1087,7 @@ MagicItemsList["al staffs"] = {
 			baseWeapon : "quarterstaff",
 			regExpSearch : /^(?=.*staff)(?=.*thunder)(?=.*lightning).*$/i,
 			name : "Staff of Thunder and Lightning",
-			source : [["SRD", 245], ["D", 204], ["AL","S5"]],
+			source : [["AL","S5"]],
 			description : "Versatile (1d8); Lightning: 1/dawn, +2d6 lightning damage; Thunder: 1/dawn DC 17 Con save or 1 round stunned",
 			modifiers : [2, 2]
 		},
@@ -1168,7 +1168,7 @@ MagicItemsList["al staffs"] = {
 			baseWeapon : "quarterstaff",
 			regExpSearch : /^(?=.*staff)(?=.*woodlands).*$/i,
 			name : "Staff of the Woodlands",
-			source : [["SRD", 245], ["D", 204], ["AL","CCC"]],
+			source : [["AL","CCC"]],
 			modifiers : [2, 2]
 		},
 		calcChanges : {
@@ -1243,7 +1243,7 @@ MagicItemsList["al staffs"] = {
 			baseWeapon : "quarterstaff",
 			regExpSearch : /^(?=.*staff)(?=.*woodlands).*$/i,
 			name : "Staff of the Woodlands",
-			source : [["SRD", 245], ["D", 204], ["AL","CCC"]],
+			source : [["AL","CCC"]],
 			modifiers : [2, 2]
 		},
 		calcChanges : {
@@ -1318,7 +1318,7 @@ MagicItemsList["al staffs"] = {
 			baseWeapon : "quarterstaff",
 			regExpSearch : /^(?=.*staff)(?=.*woodlands).*$/i,
 			name : "Staff of the Woodlands",
-			source : [["SRD", 245], ["D", 204], ["AL","S7"]],
+			source : [["AL","S7"]],
 			modifiers : [2, 2]
 		},
 		calcChanges : {
@@ -1394,7 +1394,7 @@ MagicItemsList["al staffs"] = {
 			baseWeapon : "quarterstaff",
 			regExpSearch : /^(?=.*staff)(?=.*woodlands).*$/i,
 			name : "Staff of the Woodlands",
-			source : [["SRD", 245], ["D", 204], ["AL","S7"]],
+			source : [["AL","WBW-DC"]],
 			modifiers : [2, 2]
 		},
 		calcChanges : {
@@ -1470,7 +1470,7 @@ MagicItemsList["al staffs"] = {
 			baseWeapon : "quarterstaff",
 			regExpSearch : /^(?=.*staff)(?=.*woodlands).*$/i,
 			name : "Staff of the Woodlands",
-			source : [["SRD", 245], ["D", 204], ["AL","S7"]],
+			source : [["AL","WBW-DC"]],
 			modifiers : [2, 2]
 		},
 		calcChanges : {
@@ -1545,7 +1545,83 @@ MagicItemsList["al staffs"] = {
 			baseWeapon : "quarterstaff",
 			regExpSearch : /^(?=.*staff)(?=.*woodlands).*$/i,
 			name : "Staff of the Woodlands",
-			source : [["SRD", 245], ["D", 204], ["AL","S7"]],
+			source : [["AL","WBW-DC"]],
+			modifiers : [2, 2]
+		},
+		calcChanges : {
+			spellCalc : [
+				function (type, spellcasters, ability) {
+					if (type == "attack") return 2;
+				},
+				"While holding the Staff of the Woodlands, I have a +2 bonus to spell attack rolls."
+			]
+		},
+		spellcastingAbility : "class",
+		spellFirstColTitle : "Ch",
+		spellcastingBonus : [{
+			name : "At will",
+			spells : ["pass without trace"],
+			selection : ["pass without trace"],
+			firstCol : "atwill"
+		}, {
+			name : "1 charge",
+			spells : ["animal friendship", "speak with animals"],
+			selection : ["animal friendship", "speak with animals"],
+			firstCol : 1,
+			times : 2
+		}, {
+			name : "2 charges",
+			spells : ["barkskin", "locate animals or plants"],
+			selection : ["barkskin", "locate animals or plants"],
+			firstCol : 2,
+			times : 2
+		}, {
+			name : "3 charges",
+			spells : ["speak with plants"],
+			selection : ["speak with plants"],
+			firstCol : 3
+		}, {
+			name : "5 charges",
+			spells : ["awaken"],
+			selection : ["awaken"],
+			firstCol : 5
+		}, {
+			name : "6 charges",
+			spells : ["wall of thorns"],
+			selection : ["wall of thorns"],
+			firstCol : 6
+		}],
+		spellChanges : {
+			"awaken" : {
+				time : "1 a",
+				changes : "Casting time is only 1 action instead of 8 hours."
+				}
+			}
+		},
+	"staff of the woodlands: dragon's seed (wbw-dc-zodiac-5)" : {
+		name : "Dragon's Seed (Staff of the Sunlit Woodlands)",
+		source : [["AL","WBW-DC"]],
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "This +2 quarterstaff is shaped & weaved from the scales of an amethyst dragon & encrusted with sea gemstones. It adds a +2 bonus on spell atks & +2 initiative if you're not incapacitated. The staff has 10 charges for its spells (see spells sheet), regaining 1d6+4 at dawn, 5% chance of losing magic when last charge used. As an action, plant it into the ground & expend 1 charge to grow it into a 60 ft tree.",
+		descriptionLong : "This +2 quarterstaff is shaped & weaved from the scales of an amethyst dragon & encrusted with sea gemstones. It adds +2 to spell attack rolls & whispers warnings, granting a +2 bonus to initiative if you're not incapacitated. It has 10 charges, regaining 1d6+4 at dawn. If the last charge is used, roll a d20. On a 1 it turns nonmagical. As an action, expend charges to cast 1 of these spells using your DC: Pass Without Trace (0 charges), Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges). You can also use 1 charge & an action to plant the staff in fertile earth & turn it into a 60 ft tree. It has a 5-ft-diameter trunk & a 20-ft radius of branches at the top. Speak the command word (action) while touching the tree to return it to a staff.",
+		descriptionFull : "A staff shaped and weaved from the scales of an amethyst dragon and encrusted with sea gemstones. Guardian Minor Property: The item roars a warnings to its bearer, granting a +2 bonus to initiative if the bearer isn’t incapacitated.\n   This staff can be wielded as a magic quarterstaff that grants a +2 bonus to attack and damage rolls made with it. While holding it, you have a +2 bonus to spell attack rolls.\n   The staff has 10 charges for the following properties. It regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff loses its properties and becomes a nonmagical quarterstaff.\n   " + toUni("Spells") + ". You can use an action to expend 1 or more of the staff's charges to cast one of the following spells from it, using your spell save DC: Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges).\n   You can also use an action to cast the Pass Without Trace spell from the staff without using any charges.\n   " + toUni("Tree Form") + ". You can use an action to plant one end of the staff in fertile earth and expend 1 charge to transform the staff into a healthy tree. The tree is 60 feet tall and has a 5-foot-diameter trunk, and its branches at the top spread out in a 20-foot radius. The tree appears ordinary but radiates a faint aura of transmutation magic if targeted by Detect Magic. While touching the tree and using another action to speak its command word, you return the staff to its normal form. Any creature in the tree falls when it reverts to a staff.",
+		attunement : true,
+		weight : 4,
+		prerequisite : "Requires attunement by a druid",
+		prereqeval : function(v) { return classes.known.druid ? true : false; },
+		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
+		limfeaname : "Staff of the Woodlands",
+		action : [["action", " (grow/revert)"]],
+		usages : 10,
+		recovery : "dawn",
+		additional : "regains 1d6+4",
+		weaponsAdd : ["Staff of the Woodlands"],
+		weaponOptions : {
+			baseWeapon : "quarterstaff",
+			regExpSearch : /^(?=.*staff)(?=.*woodlands).*$/i,
+			name : "Staff of the Woodlands",
+			source : [["AL","WBW-DC"]],
 			modifiers : [2, 2]
 		},
 		calcChanges : {
@@ -2653,7 +2729,7 @@ MagicItemsList["al swords"] = {
 	},
 	"sun blade: starshard (rmh-12)" : {
 		name : "Starshard, Sun Blade (RMH-12)",
-		source : [["AL:RMH",12]],
+		source : [["AL:RMH", 12]],
 		type : "weapon (longsword)",
 		rarity : "rare",
 		magicItemTable : "G",
@@ -2668,7 +2744,7 @@ MagicItemsList["al swords"] = {
 			baseWeapon : "longsword",
 			regExpSearch : /^(?=.*starshard).*$/i,
 			name : "Starshard, Sun Blade",
-			source : [["AL:RMH",10]],
+			source : [["AL:RMH", 12]],
 			damage : [1, 8, "radiant"],
 			description : "Finesse, versatile (1d10); +1d8 damage to undead",
 			modifiers : [2, 2]
@@ -2700,7 +2776,7 @@ MagicItemsList["al swords"] = {
 			baseWeapon : "longsword",
 			regExpSearch : /^(?=.*scintilmorn).*$/i,
 			name : "Scintilmorn, Sun Blade",
-			source : [["WDotMM",""]],
+			source : [["WDotMM", 234]],
 			damage : [1, 8, "radiant"],
 			description : "Finesse, versatile (1d10); +1d8 damage to undead",
 			modifiers : [2, 2]
@@ -3441,7 +3517,7 @@ MagicItemsList["al weapons +1, +2, or +3"] = {
 			rarity : "rare",
 			magicItemTable : "G",
 			allowDuplicates : true,
-			description : "Other than the balanced scales of Tyr's holy symbol etched into the blade, this sword is simple & unadorned in appearance. The weapon whispers warnings to its bearer granting a +2 bonus to initiative. You have a +2 bonus to atk & dmg rolls made with this magic weapon.",
+			description : "Other than the balanced scales of Tyr's holy symbol etched into the blade, this sword is simple & unadorned in appearance. The weapon whispers warnings to its bearer, granting a +2 bonus to initiative. You have a +2 bonus to atk & dmg rolls made with this magic weapon.",
 			descriptionFull : "Other than the balanced scales of Tyr's holy symbol etched into the blade, this sword is simple and unadorned in appearance. The weapon whispers warnings to the bearer granting a +2 bonus to initiative. You have a +2 bonus to attack and damage rolls made with this magic weapon.\n   From 1340 to 1385 DR, Lord Mattus Althorin ruled a small fiefdom in the Border Kingdoms near the Lake of Steam. Lord Althorin ran his council and maintained peace in his lands with the assistance of the Knights of the Holy Judgement, an order of paladins who emphasize the 'lawful' part of their dedication to Tyr.\n   To dispense Tyr’s most brutal judgments, Lord Althorin commissioned the creation of a magical greatsword, which he dubbed “Tyr’s Justice”. During his rule, several different paladins belonging to the Order of the Knights of Holy Judgement claimed the headman’s sword as their own. When the Spellplague ravaged Toril in the Year of Blue Fire, the Border Kingdoms devolved into a lawless frontier of outlaws and would-be rulers, and the sword was lost for nearly a century. It later resurfaced in the Moonsea region.\n   Other than the balanced scales of Try’s holy symbol etched into its blade, the sword is intentionally simple in appearance, mirroring Lord Althorin’s predominant belief: “Justice is not pretentious or vain. It is simple and true, and the right of every man, woman, and child, no matter how rich, poor, educated, or ignorant they may be.”",
 			addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
 			weaponsAdd : ["Tyr's Justice, Greatsword +2"],
@@ -3577,7 +3653,7 @@ MagicItemsList["al weapons +1, +2, or +3"] = {
 			},
 		"+2 shortsword (ddal0-13)" : {
 		name : "+2 Shortsword (DDAL0-13)",
-			source : [["KOSC",82]],
+			source : [["KOSC", 82]],
 			rarity : "rare",
 			magicItemTable : "G",
 			allowDuplicates : true,
@@ -3750,7 +3826,7 @@ MagicItemsList["al weapons +1, +2, or +3"] = {
 				name : "Harengon's Freedom, +3 Shortsword",
 				}
 			},
-		"+3 spear: blood-drinker's backbone (RMH-5/RMH-6)" : {
+		"+3 spear: blood-drinker's backbone (rmh-5/rmh-6)" : {
 		name : "Blood-Drinker's Backbone, +3 Spear (RMH-5/RMH-6)",
 			source : [["AL:RMH","5&6"]],
 			rarity : "very rare",
@@ -3771,7 +3847,7 @@ MagicItemsList["al weapons +1, +2, or +3"] = {
 MagicItemsList["al weapons (other)"] = {
 		name : "AL Weapons (Other)",
 		allowDuplicates : true,
-	choices : ["Berserker Flail (CCC-UCON-1)","Dagger of Blindsight: Panther's Claw (RMH-9)","Dagger of Venom: Fang of Sibyl (CCC-GARY-1)","Dagger of Venom (DDAL4-11)", "Dagger of Venom (DDAL5-17)","Drow-made Dagger (WDotMM)","Dwarven Thrower: Skyfist (DDEP4)","Glaive of Warning: The Harbinger (CCC-EPI1-2)","Glaive of Warning: Losspatan's War-scythe (CCC-GGC-2-1)","Javelin of Lightning (CCC-BFG1-3)","Javelin of Lightning (CCC-BMG-MOON6-3)","Javelin of Lightning (CCC-BMG-MOON16-1)","Javelin of Lightning (CCC-GAD2-2)","Javelin of Lightning (CCC-SAC-4)","Javelin of Lightning (CCC-SFBAY-4-1)","Javelin of Lightning (DDAL8-5)","Javelin of Warning: Jeny's Hairpin (CCC-VOTE-1-1)","Moon Sickle +1 (DDAL-DRW10)","Moon Sickle +2: Tsukikama (WBW-DC-PHP-1)","Net of Warning (CCC-ELF-3-1)","Oathbow: Syranna's Folly (CCC-OCC-1)","Oathbow (DDAL-DRW8)","Trident of Fish Command (CCC-BMG-MOON14-1)","Trident of Fish Command (CCC-TAROT2-8)","Trident of Fish Command (CCC-WWC-2)","Trident of Warning (DDEX2-3)","Vicious Glaive: Ptahrek’s Glaive (CCC-SVH1-2)","Vicious Spear (DDAL0-13)","Trident of Warning (CCC-TRI-34)","Weapon of Warning (DDAL0-7)","Whip of Warning (CCC-GHC-BK2-10)","Whip of Warning (DDAL4-2)"],
+	choices : ["Berserker Flail (CCC-UCON-1)","Dagger of Blindsight: Panther's Claw (RMH-9)","Dagger of Venom: Fang of Sibyl (CCC-GARY-1)","Dagger of Venom (DDAL4-11)", "Dagger of Venom (DDAL5-17)","Drow-made Dagger (WDotMM)","Dwarven Thrower: Skyfist (DDEP4)","Glaive of Warning: The Harbinger (CCC-EPI1-2)","Glaive of Warning: Losspatan's War-scythe (CCC-GGC-2-1)","Javelin of Lightning (CCC-BFG1-3)","Javelin of Lightning (CCC-BMG-MOON6-3)","Javelin of Lightning (CCC-BMG-MOON16-1)","Javelin of Lightning (CCC-GAD2-2)","Javelin of Lightning (CCC-SAC-4)","Javelin of Lightning (CCC-SFBAY-4-1)","Javelin of Lightning (DDAL8-5)","Javelin of Warning: Jeny's Hairpin (CCC-VOTE-1-1)","Moon Sickle +1 (DDAL-DRW10)","Moon Sickle +2: Tsukikama (WBW-DC-PHP-1)","Net of Warning (CCC-ELF-3-1)","Oathbow: Syranna's Folly (CCC-OCC-1)","Oathbow (DDAL-DRW8)","Oathbow: Shadowsong (DDEX3-7)","Trident of Fish Command (CCC-BMG-MOON14-1)","Trident of Fish Command (CCC-TAROT2-8)","Trident of Fish Command (CCC-WWC-2)","Trident of Warning (DDEX2-3)","Vicious Glaive: Ptahrek’s Glaive (CCC-SVH1-2)","Vicious Spear (DDAL0-13)","Trident of Warning (CCC-TRI-34)","Weapon of Warning (DDAL0-7)","Whip of Warning (CCC-GHC-BK2-10)","Whip of Warning (DDAL4-2)"],
 	"berserker flail (ccc-ucon-1)" : {
 		name : "Berserker Flail (CCC-UCON-1)",
 		source : [["AL","CCC"]],
@@ -3795,7 +3871,7 @@ MagicItemsList["al weapons (other)"] = {
 	},
 	"dagger of blindsight: panther's claw (rmh-9)" : {
 		name : "Panther's Claw (Dagger of Blindsight)",
-		source : [["AL:RMH",9]],
+		source : [["AL:RMH", 9]],
 		type : "weapon (dagger)",
 		rarity : "rare",
 		magicItemTable : "G",
@@ -3877,7 +3953,7 @@ MagicItemsList["al weapons (other)"] = {
 	},
 	"drow-made dagger (wdotmm)" : {
 		name : "Drow-made Dagger (WDotMM)",
-		source : [["WDotMM",228]],
+		source : [["WDotMM", 228]],
 		type : "weapon (dagger)",
 		rarity : "trinket",
 		description : "A drow-made dagger with silver web filigree. The dagger magically plays a fragment of a guitar solo when struck or used to strike a foe. ",
@@ -3888,7 +3964,7 @@ MagicItemsList["al weapons (other)"] = {
 			baseWeapon : "dagger",
 			regExpSearch : /^(?=.*drow|-made)(?=.*dagger).*$/i,
 			name : "Drow-made Dagger",
-			source : [["WDotMM",228]],
+			source : [["WDotMM", 228]],
 			description : "Finesse, light, thrown; plays a fragment of a guitar solo when it hits. "
 		}
 	},
@@ -4226,6 +4302,30 @@ MagicItemsList["al weapons (other)"] = {
 			description : "Ammunition, heavy, two-handed; Vs. sworn enemy: adv, +3d6 damage, no cover/range penalties"
 		}
 	},
+	"oathbow: shadowsong (ddex3-7)" : {
+		name : "Shadowsong (Oathbow)",
+		source : [["AL","S7"]],
+		type : "weapon (longbow)",
+		rarity : "very rare",
+		magicItemTable : "H",
+		description : "Shadowsong is hewn from yew & features green metal tendrils snaking through its length. It glows dimly in the presence of humans & whispers 'Swift defeat to my enemies' when nocked. When you atk with the bow & say its command phrase, the target becomes your sworn enemy (if you don't have one) for 7 days or until it dies. Atks with this bow vs. it get adv, +3d6 dmg, ignore cover (not full), & suffer no disadv. from long range. While it lives, you have disadv. with other weapons. Property can't be used again until next dawn after enemy dies.",
+		descriptionLong : "Each of the elven oathbows are possessed of mythical power. Shadowsong is hewn from yew and features curious green metal tendrils snaking through its length. It glows dimly in the presence of humans. When you use this weapon to make a ranged attack and say its command phrase \"Swift death to you who have wronged me.\", the target of that attack becomes your sworn enemy until it dies or until dawn seven days later. You can have only one such sworn enemy at a time and when it dies, you can choose a new one after the next dawn. Your ranged attack rolls with this weapon against your sworn enemy have advantage, do +3d6 piercing damage, ignore all cover except full, and don't suffer disadvantage due to long range. While your sworn enemy lives, you have disadvantage on attack rolls with all other weapons.",
+		descriptionFull : 'Each of the elven oathbows are possessed of mythical power and ancient legends. Shadowsong is hewn from a supple length of yew and features curious green metal tendrils snaking through its length. It glows dimly in the presence of humans.\n   When you nock an arrow on this bow, it whispers in Elvish, "Swift defeat to my enemies." When you use this weapon to make a ranged attack, you can, as a command phrase, say, "Swift death to you who have wronged me." The target of your attack becomes your sworn enemy until it dies or until dawn seven days later. You can have only one such sworn enemy at a time. When your sworn enemy dies, you can choose a new one after the next dawn.\n   When you make a ranged attack roll with this weapon against your sworn enemy, you have advantage on the roll. In addition, your target gains no benefit from cover, other than total cover, and you suffer no disadvantage due to long range. If the attack hits, your sworn enemy takes an extra 3d6 piercing damage.\n   While your sworn enemy lives, you have disadvantage on attack rolls with all other weapons.',
+		attunement : true,
+		prerequisite : "Requires attunement by a ranger.",
+		prereqeval : function(v) {
+			return classes.known.ranger || classes.known.rangerua ? true : false;
+		},
+		weight : 2,
+		weaponsAdd : ["Shadowsong Oathbow"],
+		weaponOptions : {
+			baseWeapon : "longbow",
+			regExpSearch : /shadowsong/i,
+			name : "Shadowsong Oathbow",
+			source : [["AL","S7"]],
+			description : "Ammunition, heavy, two-handed; Vs. sworn enemy: adv, +3d6 damage, no cover/range penalties"
+		}
+	},
 	"trident of fish command (ccc-bmg-moon14-1)" : {
 		name : "Trident of Fish Command (CCC-BMG-MOON14-1)",
 		source : [["AL","CCC"]],
@@ -4371,7 +4471,7 @@ MagicItemsList["al weapons (other)"] = {
 	},
 	"vicious spear (ddal0-13)" : {
 		name : "Vicious Spear (DDAL0-13)",
-		source : [["KOSC",82]],
+		source : [["KOSC", 82]],
 		type : "weapon (spear)",
 		rarity : "rare",
 		magicItemTable : "G",
@@ -4381,7 +4481,7 @@ MagicItemsList["al weapons (other)"] = {
 			baseWeapon : "spear",
 			regExpSearch : /^(?=.*spear)(?=.*vicious).*$/i,
 			name : "Vicious Spear",
-			source : [["KOSC",82]],
+			source : [["KOSC", 82]],
 			description : "Thrown, versatile (1d8); On nat 20 to hit: +7 damage",
 		}
 	},

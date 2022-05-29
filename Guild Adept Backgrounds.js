@@ -41,7 +41,7 @@ SourceList["DGtT"]={
 	date : "2016"
 };
 
- //This includes Rats of Waterdeep & Ruins of Mezro/Lost City of Mezro. They're 1 background each & that matches how the items are coded
+ //This includes Rats of Waterdeep & Ruins of Mezro/Lost City of Mezro. They each have 1 background & that matches how the items are coded
 SourceList["AL"] = {
 	name : "AL Modules",
 	abbreviation : "AL",
