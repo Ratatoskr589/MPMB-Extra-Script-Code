@@ -55,7 +55,8 @@ SourceList["AL:RMH"] = {  //Mist Hunters Alternate Campaign
 	abbreviation : "AL:RMH",
 	group : "Adventurers League",
 	url : "https://www.dmsguild.com/browse.php?filters=45470_0_0_0_0_0_0_0&src=fid45470",
-	date : "Various"
+	date : "Various",
+	defaultExcluded : true
 };
 
 
@@ -90,7 +91,7 @@ MagicItemsList["al maces"] = {
 		source : [["AL","CCC"]],
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "This black metal mace is decorated with holy symbols of Auril, Talos, & Velsharoon. It sheds bright light in a 20-ft radius & dim light for another 20 ft. This light flickers like lightning & generates occasional swirls of snowflakes. Fiends & undead hit w/ mace take +2d6 radiant dmg & are frightened of you until your next turn ends. If the target has less than 26 HP after taking the dmg, it must make a DC 15 Wis save or be destroyed.",
+		description : "This black metal mace is decorated with holy symbols of Auril, Talos, & Velsharoon. It sheds bright light in a 20-ft radius & dim light for another 20 ft. This light flickers like lightning & generates occasional swirls of snowflakes. Fiends & undead hit w/ mace take +2d6 radiant dmg. If they have under 26 HP after taking the dmg, DC 15 Wis save or destroyed. If pass, frightened of you until your next turn ends.",
 		descriptionFull : "This black metal mace is decorated with the holy symbols of Auril, Talos, and Velsharoon. The light shed by this mace flickers like lightning and generates occasional swirls of snowflakes. When you hit a fiend or an undead with this magic weapon, that creature takes an extra 2d6 radiant damage. If the target has 25 hit points or fewer after taking this damage, it must succeed on a DC 15 Wisdom saving throw or be destroyed. On a successful save, the creature becomes frightened of you until the end of your next turn.\n   While you hold this weapon, it sheds bright light in a 20-foot radius and dim light for an additional 20 feet.",
 		attunement : true,
 		weight : 4,
@@ -100,7 +101,7 @@ MagicItemsList["al maces"] = {
 			regExpSearch : /^(?=.*mace)(?=.*disruption).*$/i,
 			name : "Mace of Disruption",
 			source : [["AL","CCC"]],
-			description : "Fiend/undead +2d6 radiant damage, frightened until my next turn ends; if hp<26, DC 15 Wis save or die"
+			description : "Fiend/undead +2d6 radiant damage; if hp<26, DC 15 Wis save. Fail = death, pass = frightened until my next turn ends"
 		}
 	},
 	"mace of disruption: death's head (ccc-ghc-bk1-2)" : {
@@ -108,7 +109,7 @@ MagicItemsList["al maces"] = {
 		source : [["AL","CCC"]],
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "This mace has a long stout handle wrapped in black leather & can be attuned to in 1 min. The top is an ornately carved skull w/ curved ram-like horns & an open screaming mouth. It sheds bright light in a 20-ft radius & dim light for another 20 ft. Golden sparks of flame burst forth when the mace hits fiends or undead, sounding a single ominous bell toll. These creatures take +2d6 radiant dmg & are frightened of you until your next turn ends. If they have less than 26 HP after taking the dmg, DC 15 Wis save or destroyed.",
+		description : "This mace has a long stout handle wrapped in black leather & can be attuned to in 1 min. The top is a ornate carved skull w/ curved ram-like horns & screaming mouth. It sheds bright light in a 20-ft radius & dim light for another 20 ft. Golden sparks of flame burst forth when the mace hits fiends or undead, adding +2d6 radiant dmg & sounding a single ominous bell toll. If the creature has under 26 HP after taking the dmg, DC 15 Wis save or destroyed. If pass, frightened of you until your next turn ends.",
 		descriptionFull : "This magical mace has a long, stout handle wrapped in black leather. The top is an ornately carved skull, its mouth opened as if screaming. Curved ram-like horns protrude from temples of the skull. When it strikes an undead or fiendish foe, golden sparks, tinged with flame burst forth, and the mace rings forth a single ominous toll, as if from a large bell.\n   This item has the harmonious minor property. Attuning to it takes only 1 minute.\n   When you hit a fiend or an undead with this magic weapon, that creature takes an extra 2d6 radiant damage. If the target has 25 hit points or fewer after taking this damage, it must succeed on a DC 15 Wisdom saving throw or be destroyed. On a successful save, the creature becomes frightened of you until the end of your next turn.\n   While you hold this weapon, it sheds bright light in a 20-foot radius and dim light for an additional 20 feet.",
 		attunement : true,
 		weight : 4,
@@ -118,7 +119,7 @@ MagicItemsList["al maces"] = {
 			regExpSearch : /^(?=.*death)(?=.*head).*$/i,
 			name : "Death's Head, Mace of Disruption",
 			source : [["AL","CCC"]],
-			description : "Fiend/undead +2d6 radiant damage, frightened until my next turn ends; if hp<26, DC 15 Wis save or die"
+			description : "Fiend/undead +2d6 radiant damage; if hp<26, DC 15 Wis save. Fail = death, pass = frightened until my next turn ends"
 		}
 	},
 	"mace of smiting (ddal7-6)" : {
@@ -126,7 +127,7 @@ MagicItemsList["al maces"] = {
 		source : [["AL","S7"]],
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "The once-fine haft of this magical mace has gone to soggy rot; even the leather wrapping its pommel doesn't stop it from soaking through your gloves. The adamantine head is carved into the giant rune Rün (ruin). Upon striking a construct, it unleashes a shower of gold sparks. This mace adds +1 (+3 vs. constructs) to atk & dmg rolls. On a nat. 20 to hit, the target takes an extra 7 bludgeoning dmg (+14 to contructs). If a construct has < 26 HP after this dmg, it's destroyed.",
+		description : "The once-fine haft of this magical mace has gone to soggy rot; even the leather wrapping its pommel doesn't stop it from soaking through your gloves. The adamantine head is carved into the giant rune Rün (ruin). Upon striking a construct, it unleashes a shower of gold sparks. This mace adds +1 (+3 vs. constructs) to atk & dmg rolls. On a nat. 20 to hit, the target takes an extra 7 bludgeoning dmg (+14 to contructs). If a construct has under 26 HP after this dmg, it's destroyed.",
 		descriptionFull : "The once-fine haft of this club has long-since gone to soggy rot; even the leather wrapping its pommel isn’t enough to stop it from soaking through the wearer’s gloves. The adamantine head of the mace is carved to resemble the giant rune Rün (ruin). Upon striking a construct with the mace, it unleashes a shower of gold sparks. You gain a +1 bonus to attack and damage rolls made with this magic weapon. The bonus increases to +3 when you use the mace to attack a construct.\n   When you roll a 20 on an attack roll made with this weapon, the target takes an extra 7 bludgeoning damage, or an extra 14 bludgeoning damage if it's a construct. If a construct has 25 hit points or fewer after taking this damage, it is destroyed.",
 		weight : 4,
 		weaponsAdd : ["Mace of Smiting"],
@@ -144,7 +145,7 @@ MagicItemsList["al maces"] = {
 		source : [["AL","S8"]],
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "This head of this magic mace features an angry dwarven face. The ghost of Reizzlerum Caskview still maintains a connection to the weapon, causing you to gain an unending thirst for good ale. As you grow intoxicated, the face appears more drunkenly joyful. The longer you go without a drink, the angrier the face appears. This mace adds +1 (+3 vs. constructs) to atk & dmg rolls. On a nat. 20 to hit, the target takes an extra 7 bludgeoning dmg (+14 to contructs). If a construct has < 26 HP after this dmg, it's destroyed.",
+		description : "This head of this magic mace features an angry dwarven face. The ghost of Reizzlerum Caskview still maintains a connection to the weapon, causing you to gain an unending thirst for good ale. As you grow intoxicated, the face appears more drunkenly joyful. The longer you go without a drink, the angrier the face appears. This mace adds +1 (+3 vs. constructs) to atk & dmg rolls. On a nat. 20 to hit, the target takes an extra 7 bludgeoning dmg (+14 to contructs). If a construct has under 26 HP after this dmg, it's destroyed.",
 		descriptionFull : "This head of the mace of smiting features an angry dwarven face. The ghost of Reizzlerum Caskview still maintains a connection to the weapon, causing the owner to gain an unending thirst for good ale. As the owner becomes intoxicated, the face on the mace shifts to appear more drunkenly joyful. The longer the owner goes without a drink, the angrier the face appears. You gain a +1 bonus to attack and damage rolls made with this magic weapon. The bonus increases to +3 when you use the mace to attack a construct.\n   When you roll a 20 on an attack roll made with this weapon, the target takes an extra 7 bludgeoning damage, or an extra 14 bludgeoning damage if it's a construct. If a construct has 25 hit points or fewer after taking this damage, it is destroyed.",
 		weight : 4,
 		weaponsAdd : ["Mace of Smiting"],
@@ -221,7 +222,7 @@ MagicItemsList["al staffs"] = {
 		name : "AL Staffs",
 		allowDuplicates : true,
 		type : "staff",
-		choices : ["Staff of the Adder (CCC-SRCC1-3)","Staff of Adornment (CCC-3MAGS-ONE)","Staff of Birdcalls (WBW-DC-CONMAR-3)","Staff of Birdcalls (WBW-DC-FDC-3)","Staff of Birdcalls (WBW-DC-HBK-1)","Staff of Charming (DDEX2-2)","Staff of Flowers (CCC-KUMORI-3-1)","Staff of Frost (DDAL0-11E)","Staff of Frost (DDAL-DRW5)","Staff of Healing: Driftwood Staff (CCC-DES-1-2)","Staff of Healing (CCC-GHC-BK2-8)","Staff of Healing (CCC-QCC2019-3)","Staff of Healing (CCC-WYC-2-1)","Staff of Healing (DDEP4)","Staff of the Magi (DDAL7-17)","Staff of Power (DDAL5-19)","Staff of Power (DDEP4)","Staff of the Python (CCC-BMG-MOON7-1)","Staff of the Python: Earth Tender's Branch (CCC-BMG-MOON8-2)","Staff of the Python: Bulkawa's Benevolence (CCC-GSP2-2)","Staff of Striking (CCC-TRI-14 YUL1-3)","Staff of Striking (DDAL7-12)","Staff of Striking (DDAL10-10)","Staff of Swarming Insects (DDEX3-3)","Staff of Thunder and Lightning (DDAL5-8)","Staff of Thunder and Lightning (DDEP5-2)","Staff of Withering (DDEX2-13)","Staff of Withering (DDAL8-13)","Staff of the Woodlands (CCC-BMG-MOON12-1)","Staff of the Woodlands (CCC-GARY-9)","Staff of the Woodlands (DDAL7-8/DDEP7-1)","Staff of the Woodlands: Temperate (WBW-DC-CONMAR-6)","Staff of the Woodlands: Guardian (WBW-DC-HH-2)","Staff of the Woodlands: Sunlit (WBW-DC-Sunlit-6)","Staff of the Woodlands: Dragon's Seed (WBW-DC-ZODIAC-5)"],
+		choices : ["Staff of the Adder (CCC-SRCC1-3)","Staff of Adornment (CCC-3MAGS-ONE)","Staff of Birdcalls (WBW-DC-CONMAR-3)","Staff of Birdcalls (WBW-DC-FDC-3)","Staff of Birdcalls (WBW-DC-HBK-1)","Staff of Charming (DDEX2-2)","Staff of Flowers (CCC-KUMORI-3-1)","Staff of Frost (DDAL0-11E)","Staff of Frost (DDAL-DRW5)","Staff of Frost (WBW-DC-AEG-2)","Staff of Healing: Driftwood Staff (CCC-DES-1-2)","Staff of Healing (CCC-GHC-BK2-8)","Staff of Healing (CCC-QCC2019-3)","Staff of Healing (CCC-WYC-2-1)","Staff of Healing (DDEP4)","Staff of Healing: Tongkat Nenek Kebayan (WBW-DC-DMMC-1)","Staff of the Magi (DDAL7-17)","Staff of Power (DDAL5-19)","Staff of Power (DDEP4)","Staff of the Python (CCC-BMG-MOON7-1)","Staff of the Python: Earth Tender's Branch (CCC-BMG-MOON8-2)","Staff of the Python: Bulkawa's Benevolence (CCC-GSP2-2)","Staff of Striking (CCC-TRI-14 YUL1-3)","Staff of Striking (DDAL7-12)","Staff of Striking (DDAL10-10)","Staff of Swarming Insects (DDEX3-3)","Staff of Swarming Insects: Scorpion Staff (WBW-DC-DGE-2)","Staff of Swarming Insects: Drone Control Rod (WBW-DC-LEGIT-SV-6)","Staff of Thunder and Lightning (DDAL5-8)","Staff of Thunder and Lightning (DDEP5-2)","Staff of Withering (DDEX2-13)","Staff of Withering (DDAL8-13)","Staff of the Woodlands (CCC-BMG-MOON12-1)","Staff of the Woodlands (CCC-GARY-9)","Staff of the Woodlands (DDAL7-8/DDEP7-1)","Staff of the Woodlands: Liwanag (WBW-DC-ANDL-3)","Staff of the Woodlands: Temperate (WBW-DC-CONMAR-6)","Staff of the Woodlands: Guardian (WBW-DC-HH-2)","Staff of the Woodlands (WBW-DC-IDL1)","Staff of the Woodlands: Sunlit (WBW-DC-Sunlit-6)","Staff of the Woodlands: Delver's (WBW-DC-ZEP-T2S2)","Staff of the Woodlands: Dragon's Seed (WBW-DC-ZODIAC-5)"],
 	"staff of the adder (ccc-srcc1-3)" : {
 		name : "Staff of the Adder (CCC-SRCC1-3)",
 		source : [["AL","CCC"]],
@@ -356,7 +357,7 @@ MagicItemsList["al staffs"] = {
 		source : [["AL","S0"]],
 		rarity : "very rare",
 		magicItemTable : "H",
-		description : "This staff is covered in carvings of infernals reading tomes. If placed atop an open book, the staff reads it aloud w/ a deep, inhuman voice, using the language of the book. You have resistance to cold while holding this staff. It has 10 charges, regaining 1d6+4 at dawn. If last charge used, roll a d20. On a 1, staff is destroyed. You can use charges to cast Cone of Cold (5 charges), Fog Cloud (1 charge), Ice Storm (4 charges), & Wall of Ice (4 charges) using your spellcasting ability.",
+		description : "This staff is covered in carvings of infernals reading tomes. If placed atop an open book, the staff reads it aloud w/ a deep, inhuman voice, using the language of the book. You have resistance to cold dmg while holding it. The staff has 10 charges, regaining 1d6+4 at dawn. If last charge used, roll a d20. On a 1, it's destroyed. You can use charges to cast Cone of Cold (5 charges), Fog Cloud (1 charge), Ice Storm (4 charges), & Wall of Ice (4 charges) using your spellcasting ability.",
 		descriptionFull : "This staff is covered in carvings of infernals reading various tomes. If placed atop an open book, the staff reads the book aloud with a deep, inhuman voice, using the language the book is written in. You have resistance to cold damage while you hold this staff.\n   The staff has 10 charges. While holding it, you can use an action to expend 1 or more of its charges to cast one of the following spells from it, using your spell save DC: Cone of Cold (5 charges), Fog Cloud (1 charge), Ice Storm (4 charges), or Wall of Ice (4 charges).\n   The staff regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1. the staff turns to water and is destroyed.",
 		attunement : true,
 		weight : 4,
@@ -392,8 +393,44 @@ MagicItemsList["al staffs"] = {
 		source : [["AL","DRW"]],
 		rarity : "very rare",
 		magicItemTable : "H",
-		description : "This staff is made of ice as hard as steel with a frozen skull perched at the head of it. You have resistance to cold while holding this staff. It has 10 charges, regaining 1d6+4 at dawn. If last charge used, roll a d20. On a 1, staff is destroyed. You can use charges to cast Cone of Cold (5 charges), Fog Cloud (1 charge), Ice Storm (4 charges), & Wall of Ice (4 charges) using your spellcasting ability.",
+		description : "This staff is made of ice as hard as steel with a frozen skull perched at the head of it. You have resistance to cold dmg while holding it. The staff has 10 charges, regaining 1d6+4 at dawn. If last charge used, roll a d20. On a 1, it's destroyed. You can use charges to cast Cone of Cold (5 charges), Fog Cloud (1 charge), Ice Storm (4 charges), & Wall of Ice (4 charges) using your spellcasting ability.",
 		descriptionFull : "This staff is made of ice as hard as steel with a frozen skull perched at the head of it. You have resistance to cold damage while you hold this staff.\n   The staff has 10 charges. While holding it, you can use an action to expend 1 or more of its charges to cast one of the following spells from it, using your spell save DC: Cone of Cold (5 charges), Fog Cloud (1 charge), Ice Storm (4 charges), or Wall of Ice (4 charges).\n   The staff regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1. the staff turns to water and is destroyed.",
+		attunement : true,
+		weight : 4,
+		prerequisite : "Requires attunement by a druid, sorcerer, warlock, or wizard",
+		prereqeval : function(v) { return classes.known.druid || classes.known.sorcerer || classes.known.warlock || classes.known.wizard ? true : false; },
+		limfeaname : "Staff of Frost",
+		usages : 10,
+		recovery : "dawn",
+		additional : "regains 1d6+4",
+		dmgres : ["Cold"],
+		spellcastingAbility : "class",
+		spellFirstColTitle : "Ch",
+		spellcastingBonus : [{
+			name : "1 charge",
+			spells : ["fog cloud"],
+			selection : ["fog cloud"],
+			firstCol : 1
+		}, {
+			name : "4 charges",
+			spells : ["ice storm", "wall of ice"],
+			selection : ["ice storm", "wall of ice"],
+			firstCol : 4,
+			times : 2
+		}, {
+			name : "5 charges",
+			spells : ["cone of cold"],
+			selection : ["cone of cold"],
+			firstCol : 5
+		}]
+	},
+	"staff of frost (wbw-dc-aeg-2)" : {
+		name : "Staff of Frost (WBW-DC-AEG-2)",
+		source : [["AL","WBW-DC"]],
+		rarity : "very rare",
+		magicItemTable : "H",
+		description : "This staff was formed from a bheur hag’s graystaff and changes style and color daily. You have resistance to cold dmg while holding it. The staff has 10 charges, regaining 1d6+4 at dawn. If last charge used, roll a d20. On a 1, it's destroyed. You can use charges to cast Cone of Cold (5 charges), Fog Cloud (1 charge), Ice Storm (4 charges), & Wall of Ice (4 charges) using your spellcasting ability.",
+		descriptionFull : "This staff was formed from a bheur hag’s graystaff and changes style and color daily. You have resistance to cold damage while you hold this staff.\n   The staff has 10 charges. While holding it, you can use an action to expend 1 or more of its charges to cast one of the following spells from it, using your spell save DC: Cone of Cold (5 charges), Fog Cloud (1 charge), Ice Storm (4 charges), or Wall of Ice (4 charges).\n   The staff regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1. the staff turns to water and is destroyed.",
 		attunement : true,
 		weight : 4,
 		prerequisite : "Requires attunement by a druid, sorcerer, warlock, or wizard",
@@ -591,6 +628,46 @@ MagicItemsList["al staffs"] = {
 		magicItemTable : "G",
 		description : "The smooth wood of this staff is pale & streaked w/ multi-colored veins. It's capped w/ a hollow glass sphere showing an illusory symbol of your deity. Luminescent butterflies flit around the top & you feel fortunate & optimistic about the future. This staff has 10 charges, regaining 1d6+4 at dawn. If use last charge, roll d20. On a 1, it vanishes. Charges can cast Cure Wounds (1/level, max 4th), Lesser Restoration (2), & Mass Cure Wounds (5) using your spellcasting ability.",
 		descriptionFull : "The smooth wood of this ordinary-looking staff is pale and streaked with multi-colored veins. The staff is capped with a hollow glass sphere that creates an illusory symbol of whichever deity the wielder worships. Luminescent butterflies flit around the staff's cap and while in possession of the staff, the wielder feels fortunate and optimistic about what the future holds. This staff has 10 charges. While holding it, you can use an action to expend 1 or more of its charges to cast one of the following spells from it, using your spell save DC and spellcasting ability modifier: Cure Wounds (1 charge per spell level, up to 4th), Lesser Restoration (2 charges), or Mass Cure Wounds (5 charges).\n   The staff regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1. the staff vanishes in a flash of light, lost forever.",
+		attunement : true,
+		weight : 4,
+		prerequisite : "Requires attunement by a bard, cleric, or druid",
+		prereqeval : function(v) { return classes.known.bard || classes.known.cleric || classes.known.druid ? true : false; },
+		limfeaname : "Staff of Healing",
+		usages : 10,
+		recovery : "dawn",
+		additional : "regains 1d6+4",
+		spellcastingAbility : "class",
+		spellFirstColTitle : "Ch",
+		spellcastingBonus : [{
+			name : "1+ charges",
+			spells : ["cure wounds"],
+			selection : ["cure wounds"],
+			firstCol : "1+"
+		}, {
+			name : "2 charges",
+			spells : ["lesser restoration"],
+			selection : ["lesser restoration"],
+			firstCol : 2
+		}, {
+			name : "5 charges",
+			spells : ["mass cure wounds"],
+			selection : ["mass cure wounds"],
+			firstCol : 5
+		}],
+		spellChanges : {
+			"cure wounds" : {
+				description : "1 living creature heals 1d8+spellcasting ability modifier HP, +1d8 per charge spend after the 1st",
+				changes : "The spell level Cure Wounds is cast at depends on the amount of charges spend, 1 charge per spell slot level."
+			}
+		}
+	},
+	"staff of healing: tongkat nenek kebayan (wbw-dc-dmmc-1)" : {
+		name : "Tongkat Nenek Kebayan (Staff of Healing)",
+		source : [["AL","WBW-DC"]],
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "This gnarled meranti staff is slightly longer than a regular walking stick & ends in a knot that fits in the palm of your hand. If you wield the staff without attuning, you sense that ancient spirits are watching you. It has 10 charges, regaining 1d6+4 at dawn. If use last charge, roll d20. On a 1, it vanishes. Charges can cast Cure Wounds (1/level, max 4th), Lesser Restoration (2), & Mass Cure Wounds (5) using your spellcasting ability.",
+		descriptionFull : "This is a gnarled staff made of meranti. It is slightly longer than a regular walking stick and the top ends in a knot that fits nicely in the palm of one’s hand. Every time you wield the staff without attuning to it, you get the sense that ancient spirits are watching you.\n   This staff has 10 charges. While holding it, you can use an action to expend 1 or more of its charges to cast one of the following spells from it, using your spell save DC and spellcasting ability modifier: Cure Wounds (1 charge per spell level, up to 4th), Lesser Restoration (2 charges), or Mass Cure Wounds (5 charges).\n   The staff regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1. the staff vanishes in a flash of light, lost forever.",
 		attunement : true,
 		weight : 4,
 		prerequisite : "Requires attunement by a bard, cleric, or druid",
@@ -1020,8 +1097,71 @@ MagicItemsList["al staffs"] = {
 		source : [["AL","S3"]],
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "This staff is made of finely-polished white wood. The insects summoned by the staff take the form of winged spiders with gossamer wings. It has 10 charges that can be used to cast Giant Insect or Insect Plague, regaining 1d6+4 at dawn . If the last charge used, roll d20. On a 1, staff is destroyed. As an action, use 1 charge to create a 30-ft radius swarm of flying insects that moves w/ you for 10 min., making area heavily obscured for all but you. A 10+ mph wind disperses it.",
+		description : "This staff is made of finely-polished white wood. The insects summoned by the staff take the form of winged spiders with gossamer wings. It has 10 charges, regaining 1d6+4 at dawn. You can use charges to cast staff's spells or use 1 charge to create a 30-ft radius of flying insects that moves w/ you for 10 min., making area heavily obscured for all but you. A 10+ mph wind disperses it. 5% chance destroyed if last charge used.",
 		descriptionFull : "This staff is made of finely-polished white wood and the insects summoned by the staff take the form of winged spiders with gossamer wings. The staff has 10 charges and regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, a swarm of insects consumes and destroys the staff, then disperses.\n   " + toUni("Spells") + ". While holding the staff, you can use an action to expend some of its charges to cast one of the following spells from it, using your spell save DC: Giant Insect (4 charges) or Insect Plague (5 charges).\n   " + toUni("Insect Cloud") + ". While holding the staff, you can use an action and expend 1 charge to cause a swarm of harmless flying insects to spread out in a 30-foot radius from you. The insects remain for 10 minutes, making the area heavily obscured for creatures other than you. The swarm moves with you, remaining centered on you. A wind of at least 10 miles per hour disperses the swarm and ends the effect.",
+		attunement : true,
+		allowDuplicates : true,
+		weight : 4,
+		prerequisite : "Requires attunement by a bard, cleric, druid, sorcerer, warlock, or wizard",
+		prereqeval : function(v) { return classes.known.bard || classes.known.cleric || classes.known.druid || classes.known.sorcerer || classes.known.warlock || classes.known.wizard ? true : false; },
+		limfeaname : "Staff of Swarming Insects",
+		usages : 10,
+		recovery : "dawn",
+		additional : "regains 1d6+4",
+		action : [["action", ""]],
+		spellcastingAbility : "class",
+		spellFirstColTitle : "Ch",
+		spellcastingBonus : [{
+			name : "4 charges",
+			spells : ["giant insect"],
+			selection : ["giant insect"],
+			firstCol : 4
+		}, {
+			name : "5 charges",
+			spells : ["insect plague"],
+			selection : ["insect plague"],
+			firstCol : 5
+		}]
+	},
+	"staff of swarming insects: scorpion staff (wbw-dc-dge-2)" : {
+		name : "Scorpion Staff (Staff of Swarming Insects)",
+		source : [["AL","WBW-DC"]],
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "John Dodge gave this metal staff to Mei’Shell to help him learn to swim. It has an obsidian scorpion fastened to the top but floats in liquids & gives adv. on STR (Athletics) checks for swimming. The staff has 10 charges, regaining 1d6+4 at dawn. You can use charges to cast its spells or use 1 charge to create a 30-ft radius swarm of flying insects that moves w/ you for 10 min., making area heavily obscured for all but you. A 10+ mph wind disperses it. 5% chance destroyed if last charge used.",
+		descriptionFull : "The staff has 10 charges and regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, a swarm of insects consumes and destroys the staff, then disperses.\n   " + toUni("Spells") + ". While holding the staff, you can use an action to expend some of its charges to cast one of the following spells from it, using your spell save DC: Giant Insect (4 charges) or Insect Plague (5 charges).\n   " + toUni("Insect Cloud") + ". While holding the staff, you can use an action and expend 1 charge to cause a swarm of harmless flying insects to spread out in a 30-foot radius from you. The insects remain for 10 minutes, making the area heavily obscured for creatures other than you. The swarm moves with you, remaining centered on you. A wind of at least 10 miles per hour disperses the swarm and ends the effect.\n   " + toUni("Waterborne") + ". This metal staff has an obsidian scorpion fastened to the top of it. John Dodge gave this staff to Mei’Shell to help him learn how to swim. Even though it is a metal staff with a heavy stone attached, it floats in liquids and grants its wielder advantage on any Strength (Athletics) check made to swim.",
+		attunement : true,
+		allowDuplicates : true,
+		weight : 4,
+		prerequisite : "Requires attunement by a bard, cleric, druid, sorcerer, warlock, or wizard",
+		prereqeval : function(v) { return classes.known.bard || classes.known.cleric || classes.known.druid || classes.known.sorcerer || classes.known.warlock || classes.known.wizard ? true : false; },
+		limfeaname : "Staff of Swarming Insects",
+		usages : 10,
+		recovery : "dawn",
+		additional : "regains 1d6+4",
+		action : [["action", ""]],
+		savetxt : { text : ["Adv on Str (Athletic) chks to swim"] },
+		spellcastingAbility : "class",
+		spellFirstColTitle : "Ch",
+		spellcastingBonus : [{
+			name : "4 charges",
+			spells : ["giant insect"],
+			selection : ["giant insect"],
+			firstCol : 4
+		}, {
+			name : "5 charges",
+			spells : ["insect plague"],
+			selection : ["insect plague"],
+			firstCol : 5
+		}]
+	},
+	"staff of swarming insects: drone control rod (wbw-dc-legit-sv-6)" : {
+		name : "Drone Control Rod (Staff of Swarming Insects)",
+		source : [["AL","WBW-DC"]],
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "A steel rod tipped with a chunk of crystal computer. Hexagonal tracery lights up when it's activated & attuning to it takes 1 minute. The rod has 10 charges, regaining 1d6+4 at dawn. You can use charges to cast its spells or use 1 charge to create a 30-ft radius swarm of flying insects that moves with you for 10 min., making area heavily obscured for all but you. A 10+ mph wind disperses it. 5% chance destroyed if last charge used.",
+		descriptionFull : "The staff has 10 charges and regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, a swarm of insects consumes and destroys the staff, then disperses.\n   A steel rod tipped with a chunk of crystal computer. Hexagonal tracery lights up when it is activated.\n   " + toUni("Harmonious") + ". Attuning to this item takes only 1 minute.\n   " + toUni("Spells") + ". While holding the staff, you can use an action to expend some of its charges to cast one of the following spells from it, using your spell save DC: Giant Insect (4 charges) or Insect Plague (5 charges).\n   " + toUni("Insect Cloud") + ". While holding the staff, you can use an action and expend 1 charge to cause a swarm of harmless flying insects to spread out in a 30-foot radius from you. The insects remain for 10 minutes, making the area heavily obscured for creatures other than you. The swarm moves with you, remaining centered on you. A wind of at least 10 miles per hour disperses the swarm and ends the effect.",
 		attunement : true,
 		allowDuplicates : true,
 		weight : 4,
@@ -1371,6 +1511,81 @@ MagicItemsList["al staffs"] = {
 				}
 			}
 		},
+	"staff of the woodlands: liwanag (wbw-dc-andl-3)" : {
+		name : "Liwanag (Staff of the Woodlands)",
+		source : [["AL","WBW-DC"]],
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "Made from a garden plant by Alindaya as a symbol of gratitude for your deeds, this +2 quarterstaff adds a +2 bonus on spell atks. The fireflies that guided you through Andelein illuminate the staff. As a bonus action, you can make it shed bright light in a 10-ft radius & dim light for another 10 ft, or extinguish the light. You can't get lost in Andelein as the fireflies will guide you where you wish to go. The staff has 10 charges for spells, regaining 1d6+4 at dawn, 5% chance of losing magic when last charge used. As an action, plant it into the ground & expend 1 charge to grow it into a 60 ft tree.",
+		descriptionLong : "This +2 quarterstaff adds a +2 to spell attack rolls. Alindaya created it from a plant in their garden as a symbol of gratitude for your heroic deeds. The fireflies that guided you through the Domain of Andelein illuminate this staff & can be called to guide you again. As a bonus action, you can make the staff shed bright light in a 10-ft radius & dim light for another 10 ft, or extinguish it. You can't get lost in Andelein as the fireflies will guide you wherever you wish to go. The staff has 10 charges, regaining 1d6+4 at dawn. If the last charge is used, roll a d20. On a 1 it turns nonmagical. As an action, expend charges to cast 1 of these spells using your DC: Pass Without Trace (0 charges), Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges). You can also use 1 charge & an action to plant the staff in fertile earth & turn it into a 60 ft tree. It has a 5-ft-diameter trunk & a 20-ft radius of branches at the top. Speak the command word (action) while touching the tree to return it to a staff.",
+		descriptionFull : "This staff was created by Alindaya from one of the plants in their garden as a symbol of gratitude for your heroic deeds. The same fireflies that guided you through parts of the Domain of Andelein, and back home, illuminate this staff, and can be called to guide you once again. The wielder of this staff cannot get lost in Andelein as the fireflies will guide them to wherever they wish to go in that domain.\n   In addition, this staff has the Beacon minor property: The bearer can use a bonus action to cause the item to shed bright light in a 10-foot radius and dim light for an additional 10 feet, or to extinguish the light.\n   This staff can be wielded as a magic quarterstaff that grants a +2 bonus to attack and damage rolls made with it. While holding it, you have a +2 bonus to spell attack rolls.\n   The staff has 10 charges for the following properties. It regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff loses its properties and becomes a nonmagical quarterstaff.\n   " + toUni("Spells") + ". You can use an action to expend 1 or more of the staff's charges to cast one of the following spells from it, using your spell save DC: Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges).\n   You can also use an action to cast the Pass Without Trace spell from the staff without using any charges.\n   " + toUni("Tree Form") + ". You can use an action to plant one end of the staff in fertile earth and expend 1 charge to transform the staff into a healthy tree. The tree is 60 feet tall and has a 5-foot-diameter trunk, and its branches at the top spread out in a 20-foot radius. The tree appears ordinary but radiates a faint aura of transmutation magic if targeted by Detect Magic. While touching the tree and using another action to speak its command word, you return the staff to its normal form. Any creature in the tree falls when it reverts to a staff.",
+		attunement : true,
+		weight : 4,
+		prerequisite : "Requires attunement by a druid",
+		prereqeval : function(v) { return classes.known.druid ? true : false; },
+		limfeaname : "Staff of the Woodlands",
+		action : [["action", " (grow/revert)"], ["bonus action", " (light/dim)"]],
+		usages : 10,
+		recovery : "dawn",
+		additional : "regains 1d6+4",
+		weaponsAdd : ["Staff of the Woodlands"],
+		weaponOptions : {
+			baseWeapon : "quarterstaff",
+			regExpSearch : /^(?=.*staff)(?=.*woodlands).*$/i,
+			name : "Staff of the Woodlands",
+			source : [["AL","WBW-DC"]],
+			modifiers : [2, 2]
+		},
+		calcChanges : {
+			spellCalc : [
+				function (type, spellcasters, ability) {
+					if (type == "attack") return 2;
+				},
+				"While holding the Staff of the Woodlands, I have a +2 bonus to spell attack rolls."
+			]
+		},
+		spellcastingAbility : "class",
+		spellFirstColTitle : "Ch",
+		spellcastingBonus : [{
+			name : "At will",
+			spells : ["pass without trace"],
+			selection : ["pass without trace"],
+			firstCol : "atwill"
+		}, {
+			name : "1 charge",
+			spells : ["animal friendship", "speak with animals"],
+			selection : ["animal friendship", "speak with animals"],
+			firstCol : 1,
+			times : 2
+		}, {
+			name : "2 charges",
+			spells : ["barkskin", "locate animals or plants"],
+			selection : ["barkskin", "locate animals or plants"],
+			firstCol : 2,
+			times : 2
+		}, {
+			name : "3 charges",
+			spells : ["speak with plants"],
+			selection : ["speak with plants"],
+			firstCol : 3
+		}, {
+			name : "5 charges",
+			spells : ["awaken"],
+			selection : ["awaken"],
+			firstCol : 5
+		}, {
+			name : "6 charges",
+			spells : ["wall of thorns"],
+			selection : ["wall of thorns"],
+			firstCol : 6
+		}],
+		spellChanges : {
+			"awaken" : {
+				time : "1 a",
+				changes : "Casting time is only 1 action instead of 8 hours."
+				}
+			}
+		},
 	"staff of the woodlands: temperate (wbw-dc-conmar-6)" : {
 		name : "Temperate Staff of the Woodlands (WBW-DC-CONMAR-6)",
 		source : [["AL","WBW-DC"]],
@@ -1523,6 +1738,92 @@ MagicItemsList["al staffs"] = {
 				}
 			}
 		},
+	"staff of the woodlands (wbw-dc-idl1)" : {
+		name : "Staff of the Woodlands (WBW-DC-IDL1)",
+		source : [["AL","WBW-DC"]],
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "This +2 quarterstaff adds +2 to spell atk rolls & has a Sylvan rhyme carved into its length: “1 for Sorrow, 2 for Joy/3 For a Girl, 4 for Boy/5 for Silver, 6 for Gold/7 for a Secret Never to be Told.” Turned upsidedown, it reads: “1 for Sorrow, 2 for Mirth/3 For a Funeral, 4 for Birth/5 for Heaven, 6 for Hell/7 for the Devil, His Own Self.” The staff has 10 charges for its spells (see sheet), regaining 1d6+4 at dawn, 5% chance of losing magic when last charge used. As an action, plant it into the ground & expend 1 charge to grow it into a 60 ft tree.",
+		descriptionLong : "This +2 quarterstaff adds +2 to spell atk rolls & has a Sylvan counting rhyme carved along its length: “One for Sorrow, Two for Joy/Three For a Girl, Four for Boy/Five for Silver, Six for Gold/Seven for a Secret Never to be Told.” When turned upsidedown, it reads: “One for Sorrow, Two for Mirth/Three For a Funeral, Four for Birth/Five for Heaven, Six for Hell/Seven for the Devil, His Own Self.” The staff has 10 charges, regaining 1d6+4 at dawn. If the last charge is used, roll a d20. On a 1 it turns nonmagical. As an action, expend charges to cast these spells using your DC: Pass Without Trace (0 charges), Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges). You can also use 1 charge & an action to plant the staff in fertile earth & turn it into a 60 ft tree. It has a 5-ft-diameter trunk & a 20-ft radius of branches at the top. Speak the command word (action) while touching the tree to return it to a staff.",
+		descriptionFull : "Carved in Sylvan all along the length of this oak staff is the counting rhyme:"+
+		"\n    \t \t“One for Sorrow, Two for Joy."+
+		"\n    \t \tThree For a Girl, Four for Boy."+
+		"\n    \t \tFive for Silver, Six for Gold."+
+		"\n    \t \tSeven for a Secret Never to be Told.”"+
+		"\n \n   When turned upside down, the rhyme instead reads:"+
+		"\n    \t \t“One for Sorrow, Two for Mirth."+
+		"\n    \t \tThree For a Funeral, Four for Birth."+
+		"\n    \t \tFive for Heaven, Six for Hell."+
+		"\n    \t \tSeven for the Devil, His Own Self.”"+
+		"\n \n   The staff has the song craft minor property. Whenever this item is struck or is used to strike a foe, its bearer hears a fragment of an ancient song about birds. It can be wielded as a magic quarterstaff that grants a +2 bonus to attack and damage rolls made with it. While holding it, you also have a +2 bonus to spell attack rolls.\n   The staff has 10 charges for the following properties. It regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff loses its properties and becomes a nonmagical quarterstaff.\n   " + toUni("Spells") + ". You can use an action to expend 1 or more of the staff's charges to cast one of the following spells from it, using your spell save DC: Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges).\n   You can also use an action to cast the Pass Without Trace spell from the staff without using any charges.\n   " + toUni("Tree Form") + ". You can use an action to plant one end of the staff in fertile earth and expend 1 charge to transform the staff into a healthy tree. The tree is 60 feet tall and has a 5-foot-diameter trunk, and its branches at the top spread out in a 20-foot radius. The tree appears ordinary but radiates a faint aura of transmutation magic if targeted by Detect Magic. While touching the tree and using another action to speak its command word, you return the staff to its normal form. Any creature in the tree falls when it reverts to a staff.",
+		attunement : true,
+		weight : 4,
+		prerequisite : "Requires attunement by a druid",
+		prereqeval : function(v) { return classes.known.druid ? true : false; },
+		limfeaname : "Staff of the Woodlands",
+		action : [["action", " (grow/revert)"],["action", " (North)"]],
+		usages : 10,
+		recovery : "dawn",
+		additional : "regains 1d6+4",
+		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
+		weaponsAdd : ["Staff of the Woodlands"],
+		weaponOptions : {
+			baseWeapon : "quarterstaff",
+			regExpSearch : /^(?=.*staff)(?=.*woodlands).*$/i,
+			name : "Staff of the Woodlands",
+			source : [["AL","WBW-DC"]],
+			modifiers : [2, 2]
+		},
+		calcChanges : {
+			spellCalc : [
+				function (type, spellcasters, ability) {
+					if (type == "attack") return 2;
+				},
+				"While holding the Staff of the Woodlands, I have a +2 bonus to spell attack rolls."
+			]
+		},
+		spellcastingAbility : "class",
+		spellFirstColTitle : "Ch",
+		spellcastingBonus : [{
+			name : "At will",
+			spells : ["pass without trace"],
+			selection : ["pass without trace"],
+			firstCol : "atwill"
+		}, {
+			name : "1 charge",
+			spells : ["animal friendship", "speak with animals"],
+			selection : ["animal friendship", "speak with animals"],
+			firstCol : 1,
+			times : 2
+		}, {
+			name : "2 charges",
+			spells : ["barkskin", "locate animals or plants"],
+			selection : ["barkskin", "locate animals or plants"],
+			firstCol : 2,
+			times : 2
+		}, {
+			name : "3 charges",
+			spells : ["speak with plants"],
+			selection : ["speak with plants"],
+			firstCol : 3
+		}, {
+			name : "5 charges",
+			spells : ["awaken"],
+			selection : ["awaken"],
+			firstCol : 5
+		}, {
+			name : "6 charges",
+			spells : ["wall of thorns"],
+			selection : ["wall of thorns"],
+			firstCol : 6
+		}],
+		spellChanges : {
+			"awaken" : {
+				time : "1 a",
+				changes : "Casting time is only 1 action instead of 8 hours."
+				}
+			}
+		},
 	"staff of the woodlands: sunlit (wbw-dc-sunlit-6)" : {
 		name : "Staff of the Sunlit Woodlands (WBW-DC-Sunlit-6)",
 		source : [["AL","WBW-DC"]],
@@ -1531,6 +1832,81 @@ MagicItemsList["al staffs"] = {
 		description : "This +2 quarterstaff adds a +2 bonus on spell atks & lets you use an action to learn which way is north. The staff has 10 charges for its spells (see spells sheet), regaining 1d6+4 at dawn, 5% chance of losing magic when last charge used. As an action, plant it into the ground & expend 1 charge to grow it into a 60 ft tree.",
 		descriptionLong : "This +2 quarterstaff adds +2 to spell attack rolls & you can use an action to learn which way is north. It has 10 charges, regaining 1d6+4 at dawn. If the last charge is used, roll a d20. On a 1 it turns nonmagical. As an action, expend charges to cast 1 of these spells using your DC: Pass Without Trace (0 charges), Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges). You can also use 1 charge & an action to plant the staff in fertile earth & turn it into a 60 ft tree. It has a 5-ft-diameter trunk & a 20-ft radius of branches at the top. Speak the command word (action) while touching the tree to return it to a staff.",
 		descriptionFull : "Minor property Compass. The wielder can use an action to learn which way is north.\n   This staff can be wielded as a magic quarterstaff that grants a +2 bonus to attack and damage rolls made with it. While holding it, you have a +2 bonus to spell attack rolls.\n   The staff has 10 charges for the following properties. It regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff loses its properties and becomes a nonmagical quarterstaff.\n   " + toUni("Spells") + ". You can use an action to expend 1 or more of the staff's charges to cast one of the following spells from it, using your spell save DC: Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges).\n   You can also use an action to cast the Pass Without Trace spell from the staff without using any charges.\n   " + toUni("Tree Form") + ". You can use an action to plant one end of the staff in fertile earth and expend 1 charge to transform the staff into a healthy tree. The tree is 60 feet tall and has a 5-foot-diameter trunk, and its branches at the top spread out in a 20-foot radius. The tree appears ordinary but radiates a faint aura of transmutation magic if targeted by Detect Magic. While touching the tree and using another action to speak its command word, you return the staff to its normal form. Any creature in the tree falls when it reverts to a staff.",
+		attunement : true,
+		weight : 4,
+		prerequisite : "Requires attunement by a druid",
+		prereqeval : function(v) { return classes.known.druid ? true : false; },
+		limfeaname : "Staff of the Woodlands",
+		action : [["action", " (grow/revert)"],["action", " (North)"]],
+		usages : 10,
+		recovery : "dawn",
+		additional : "regains 1d6+4",
+		weaponsAdd : ["Staff of the Woodlands"],
+		weaponOptions : {
+			baseWeapon : "quarterstaff",
+			regExpSearch : /^(?=.*staff)(?=.*woodlands).*$/i,
+			name : "Staff of the Woodlands",
+			source : [["AL","WBW-DC"]],
+			modifiers : [2, 2]
+		},
+		calcChanges : {
+			spellCalc : [
+				function (type, spellcasters, ability) {
+					if (type == "attack") return 2;
+				},
+				"While holding the Staff of the Woodlands, I have a +2 bonus to spell attack rolls."
+			]
+		},
+		spellcastingAbility : "class",
+		spellFirstColTitle : "Ch",
+		spellcastingBonus : [{
+			name : "At will",
+			spells : ["pass without trace"],
+			selection : ["pass without trace"],
+			firstCol : "atwill"
+		}, {
+			name : "1 charge",
+			spells : ["animal friendship", "speak with animals"],
+			selection : ["animal friendship", "speak with animals"],
+			firstCol : 1,
+			times : 2
+		}, {
+			name : "2 charges",
+			spells : ["barkskin", "locate animals or plants"],
+			selection : ["barkskin", "locate animals or plants"],
+			firstCol : 2,
+			times : 2
+		}, {
+			name : "3 charges",
+			spells : ["speak with plants"],
+			selection : ["speak with plants"],
+			firstCol : 3
+		}, {
+			name : "5 charges",
+			spells : ["awaken"],
+			selection : ["awaken"],
+			firstCol : 5
+		}, {
+			name : "6 charges",
+			spells : ["wall of thorns"],
+			selection : ["wall of thorns"],
+			firstCol : 6
+		}],
+		spellChanges : {
+			"awaken" : {
+				time : "1 a",
+				changes : "Casting time is only 1 action instead of 8 hours."
+				}
+			}
+		},
+	"staff of the woodlands: delver's (wbw-dc-zep-t2s2)" : {
+		name : "Delver's Staff of the Woodlands (WBW-DC-ZEP-T2S2)",
+		source : [["AL","WBW-DC"]],
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "This +2 quarterstaff adds +2 to spell atk rolls & while underground, you always know your depth below the surface & the direction to the nearest path leading upward. The staff has 10 charges for its spells (see spells sheet), regaining 1d6+4 at dawn, 5% chance of losing magic when last charge used. As an action, plant it into the ground & expend 1 charge to grow it into a 60 ft tree.",
+		descriptionLong : "This +2 quarterstaff adds +2 to spell attack rolls & while underground, its bearer always knows their depth below the surface and the direction to the nearest staircase, ramp, or other path leading upward. The staff has 10 charges, regaining 1d6+4 at dawn. If the last charge is used, roll a d20. On a 1 it turns nonmagical. As an action, expend charges to cast 1 of these spells using your DC: Pass Without Trace (0 charges), Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges). You can also use 1 charge & an action to plant the staff in fertile earth & turn it into a 60 ft tree. It has a 5-ft-diameter trunk & a 20-ft radius of branches at the top. Speak the command word (action) while touching the tree to return it to a staff.",
+		descriptionFull : "This staff can be wielded as a magic quarterstaff that grants a +2 bonus to attack and damage rolls made with it. While holding it, you have a +2 bonus to spell attack rolls.\n   While underground, the bearer of this item always knows the item’s depth below the surface and the direction to the nearest staircase, ramp, or other path leading upward.\n   The staff has 10 charges for the following properties. It regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff loses its properties and becomes a nonmagical quarterstaff.\n   " + toUni("Spells") + ". You can use an action to expend 1 or more of the staff's charges to cast one of the following spells from it, using your spell save DC: Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges).\n   You can also use an action to cast the Pass Without Trace spell from the staff without using any charges.\n   " + toUni("Tree Form") + ". You can use an action to plant one end of the staff in fertile earth and expend 1 charge to transform the staff into a healthy tree. The tree is 60 feet tall and has a 5-foot-diameter trunk, and its branches at the top spread out in a 20-foot radius. The tree appears ordinary but radiates a faint aura of transmutation magic if targeted by Detect Magic. While touching the tree and using another action to speak its command word, you return the staff to its normal form. Any creature in the tree falls when it reverts to a staff.",
 		attunement : true,
 		weight : 4,
 		prerequisite : "Requires attunement by a druid",
@@ -1681,7 +2057,7 @@ MagicItemsList["al swords"] = {
 		name : "AL Swords",
 		type : "weapon (any sword)",
 		allowDuplicates : true,
-	choices : ["Dancing Rapier: Angel's Sting (CCC-GHC-BK1-10)","Dancing Rapier: Raptor (CCC-LINKS-2)","Defender Greatsword: Deathshield (DDAL9-20)","Dragon Slayer: Wyrmripper (DDEP5-1)","Flame Tongue Longsword: Velahr’kerym (DDAL0-2D)","Flame Tongue Longsword (DDAL-DRW13)","Flame Tongue Shortsword: Flare (CCC-WYC-1-2)","Flame Tongue Sword (CCC-YLRA-2)","Frost Brand Rapier: Bitter Wrath (DDAL7-9)","Frost Brand Scimitar (DDEP5-2)","Giant Slayer Greatsword (DDEP5-2)","Greatsword of Sharpness: Desolation (DDAL8-14)","Greatsword of Warning: Ever Vigilant (CCC-BMG-MOON3-3)","Greatsword of Wounding (DDEX2-15)","Longsword of Vengeance (CCC-BMG-MOON15-2)","Longsword of Vengeance (CCC-GARY-8)","Longsword of Vengeance (CCC-HATMS1-2)","Longsword of Vengeance (CCC-MACE1-3)","Moon-Touched Greatsword (DDAL-DRW17)","Moon-Touched Longsword (CCC-GHC-BK1-1)","Moon-Touched Longsword (CCC-TAROT2-6)","Moon-Touched Longsword (DDAL0-11D)","Moon-Touched Rapier (CCC-GAD2-1)","Moon-Touched Rapier (CCC-SAC-4)","Moon-Touched Rapier (CCC-UNITE-5)","Moon-Touched Shortsword (DC-POA-CONMAR-9)","Moon-Touched Shortsword (DC-POA-DES-5B)","Moon-Touched Shortsword (DC-POA-GSP2-3H)","Moon-Touched Shortsword: Fang (DC-POA-GSP3-2)","Moon-Touched Shortsword (DC-POA-JCDC-1)","Moon-Touched Shortsword (DC-POA-MCWWS-2)","Moon-Touched Shortsword: Tsukuyomi (DC-POA-TDG1-3)","Moon-Touched Shortsword: Blade of the Black Tortoise (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: Green Dragon Gladius (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: Red Phoenix Falchion (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: White Tiger Tulwar (DC-POA-VAN-MT-1)","Moon-Touched Sword (CCC-BMG-MOON6-2)","Moon-Touched Sword (CCC-BMG-MOON10-2)","Nine Lives Stealer Longsword: Love's Bite (DDAL7-11)","Nine Lives Stealer Scimitar (CCC-QCC2018-1)","Rapier of Life Stealing (CCC-PDXAGE-2-1)","Scimitar of Life Stealing: Night Cutter (CCC-RCC-1-4)","Scimitar of Warning: Miir (CCC-BWM-4-1)","Sun Blade: The Seventh Sword (CCC-6SWORDS-1)","Sun Blade: Dawnfire (CCC-STORM-1)","Sun Blade (CCC-WYC-2-2)","Sun Blade: Starshard (RMH-12)","Sun Blade: Scintilmorn (WDotMM)","Sword of Vengeance (CCC-SAF2-2)","Sword of Wounding (DDAL-CGB)","Vicious Longsword (CCC-HATMS2-1)","Vicious Rapier: Hag's Clawblade (ALSRs11-A)","Vorpal Scimitar (DDAL7-16)","Vorpal Scimitar: Abi Teos's Machete (RMH-9/RMH-10)"],
+	choices : ["Dancing Rapier: Angel's Sting (CCC-GHC-BK1-10)","Dancing Rapier: Raptor (CCC-LINKS-2)","Defender Greatsword: Deathshield (DDAL9-20)","Dragon Slayer: Wyrmripper (DDEP5-1)","Flame Tongue Longsword: Velahr’kerym (DDAL0-2D)","Flame Tongue Longsword (DDAL-DRW13)","Flame Tongue Shortsword: Flare (CCC-WYC-1-2)","Flame Tongue Sword (CCC-YLRA-2)","Frost Brand Rapier: Bitter Wrath (DDAL7-9)","Frost Brand Scimitar (DDEP5-2)","Giant Slayer Greatsword (DDEP5-2)","Greatsword of Sharpness: Desolation (DDAL8-14)","Greatsword of Warning: Ever Vigilant (CCC-BMG-MOON3-3)","Greatsword of Wounding (DDEX2-15)","Longsword of Vengeance (CCC-BMG-MOON15-2)","Longsword of Vengeance (CCC-GARY-8)","Longsword of Vengeance (CCC-HATMS1-2)","Longsword of Vengeance (CCC-MACE1-3)","Moon-Touched Greatsword (DDAL-DRW17)","Moon-Touched Longsword (CCC-GHC-BK1-1)","Moon-Touched Longsword (CCC-TAROT2-6)","Moon-Touched Longsword (DDAL0-11D)","Moon-Touched Rapier (CCC-GAD2-1)","Moon-Touched Rapier (CCC-SAC-4)","Moon-Touched Rapier (CCC-UNITE-5)","Moon-Touched Shortsword (DC-POA-CONMAR-9)","Moon-Touched Shortsword (DC-POA-DES-5B)","Moon-Touched Shortsword (DC-POA-GSP2-3H)","Moon-Touched Shortsword: Fang (DC-POA-GSP3-2)","Moon-Touched Shortsword (DC-POA-JCDC-1)","Moon-Touched Shortsword (DC-POA-MCWWS-2)","Moon-Touched Shortsword: Tsukuyomi (DC-POA-TDG1-3)","Moon-Touched Shortsword: Blade of the Black Tortoise (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: Green Dragon Gladius (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: Red Phoenix Falchion (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: White Tiger Tulwar (DC-POA-VAN-MT-1)","Moon-Touched Sword (CCC-BMG-MOON6-2)","Moon-Touched Sword (CCC-BMG-MOON10-2)","Nine Lives Stealer Longsword: Love's Bite (DDAL7-11)","Nine Lives Stealer Scimitar (CCC-QCC2018-1)","Rapier of Life Stealing (CCC-PDXAGE-2-1)","Scimitar of Life Stealing: Night Cutter (CCC-RCC-1-4)","Scimitar of Speed: Manthor “Vow of the Forest” (WBW-DC-ANDL-3)","Scimitar of Warning: Miir (CCC-BWM-4-1)","Sun Blade: The Seventh Sword (CCC-6SWORDS-1)","Sun Blade: Dawnfire (CCC-STORM-1)","Sun Blade (CCC-WYC-2-2)","Sun Blade: Starshard (RMH-12)","Sun Blade: Scintilmorn (WDotMM)","Sword of Vengeance (CCC-SAF2-2)","Sword of Wounding (DDAL-CGB)","Vicious Longsword (CCC-HATMS2-1)","Vicious Rapier: Hag's Clawblade (ALSRs11-A)","Vorpal Scimitar (DDAL7-16)","Vorpal Scimitar: Abi Teos's Machete (RMH-9/RMH-10)"],
 	"dancing rapier: angel's sting (ccc-ghc-bk1-10)" : {
 		name : "Angel's Sting, Dancing Rapier (CCC-GHC-BK1-10)",
 		source : [["AL","CCC"]],
@@ -2421,7 +2797,11 @@ MagicItemsList["al swords"] = {
 		rarity : "common",
 		magicItemTable : "?",
 		description : "A fiery phoenix bursting from ashes is engraved on the red lacquered sheath of this magical shortsword. A Chultan proverbial poem is carved around the pommel: “The water is calm / but only a fool would cross / sharp teeth lurk below.” The unsheathed blade sheds moonlight in darkness, creating bright light in a 15-ft radius & dim light for another 15 ft.",
-		descriptionFull : "A fiery phoenix bursting from ashes is engraved on this sword’s red lacquered sheath. A Chultan proverbial poem is carved around the pommel: “The water is calm / but only a fool would cross / sharp teeth lurk below.”\n   In darkness, the unsheathed blade of this magical shortsword sheds moonlight, creating bright light in a 15-ft radius and dim light for an additional 15 ft.",
+		descriptionFull : "A fiery phoenix bursting from ashes is engraved on this sword’s red lacquered sheath. A Chultan proverbial poem is carved around the pommel:"+
+		"\n    \t \t“The water is calm"+
+		"\n    \t \tbut only a fool would cross"+
+		"\n    \t \tsharp teeth lurk below.”"+
+		"\n \n     In darkness, the unsheathed blade of this magical shortsword sheds moonlight, creating bright light in a 15-ft radius and dim light for an additional 15 ft.",
 		weaponsAdd : ["Red Phoenix Falchion"],
 		weaponOptions : {
 			baseWeapon : "shortsword",
@@ -2611,6 +2991,29 @@ MagicItemsList["al swords"] = {
 			source : [["AL","CCC"]],
 			description : "Light; finesse; On 20 to hit: +10 Necrotic dmg, 10 temp HP (unless against construct/undead)",
 			},
+	},
+	"scimitar of speed: manthor “vow of the forest” (wbw-dc-andl-3)" : {
+		name : "Manthor, Vow of the Forest (Scimitar of Speed)",
+		source : [["AL","WBW-DC"]],
+		type : "weapon (scimitar)",
+		rarity : "very rare",
+		magicItemTable : "H",
+		description : "You have sworn your fealty to Alindaya & were knighted as a protector of the Feywild, promising to protect nature & aid them in times of need. This +2 magical scimitar manifested from the power of your binding pact. The star metal blade is incredibly light & embossed with leaves. Feywild magic lets you use it with superior speed; you can atk with it once as a bonus action on each of your turns. The hilt bears Sylvan words in Espruar script: “Only those who vow to defend nature with swift & decisive actions may wield me”. The sword also whispers warnings, granting +2 to initiative if you aren't incapacitated.",
+		descriptionLong : "You have sworn your everlasting fealty to Alindaya, promising to forever protect nature and come to their aid in times of need. In exchange, they knighted you as a protector of the Feywild. This sword manifested itself from the power of your binding pact, that you may carry out your promises. The star metal blade is incredibly light and embossed with imprints of leaves. It's enchanted with magic from the Feywild that allows you to use it with superior speed. You gain a +2 bonus to attack and damage rolls made with this magic weapon and can make one attack with it as a bonus action on each of your turns. The hilt bears Sylvan words written in the Espruar script: “Only those who vow to defend nature with swift and decisive actions may wield me”. The sword also whispers warnings, granting a +2 bonus to initiative if you aren't incapacitated.",
+		descriptionFull : "You gain a +2 bonus to attack and damage rolls made with this magic weapon. In addition, you can make one attack with it as a bonus action on each of your turns.\n   You have promised to forever protect nature, come to Alindaya's aid in their time of need, and sworn your everlasting fealty to Alindaya. In exchange, they knighted you as a protector of the Feywild. This sword manifested itself from the power of your binding pact, that you may carry out your promises. It is yours to keep.\n   This star metal blade is incredibly light and embossed with imprints of leaves. It is enchanted with magic from the Feywild that allows the wielder to use it with superior speed. The hilt bears following words written in Sylvan using the Espruar script: “Only those who vow to defend nature with swift and decisive actions may wield me”.\n   In addition, this weapon has the Guardian minor property. The item whispers warnings to its bearer, granting a +2 bonus to initiative if the bearer isn’t incapacitated.",
+		attunement : true,
+		weight : 3,
+		action : [["bonus action", "Scimitar of Speed"]],
+		weaponsAdd : ["Manthor, Vow of the Forest"],
+		weaponOptions : {
+			baseWeapon : "scimitar",
+			regExpSearch : /^(?=.*manthor)(?=.*vow)(?=.*forest).*$/i,
+			name : "Manthor, Vow of the Forest",
+			source : [["AL","WBW-DC"]],
+			description : "Finesse, light; Extra attack as bonus action",
+			modifiers : [2, 2]
+		},
+		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
 	},
 	"scimitar of warning: miir (ccc-bwm-4-1)" : {
 			name : "Miir, Scimitar of Warning (CCC-BWM-4-1)",
@@ -3847,7 +4250,7 @@ MagicItemsList["al weapons +1, +2, or +3"] = {
 MagicItemsList["al weapons (other)"] = {
 		name : "AL Weapons (Other)",
 		allowDuplicates : true,
-	choices : ["Berserker Flail (CCC-UCON-1)","Dagger of Blindsight: Panther's Claw (RMH-9)","Dagger of Venom: Fang of Sibyl (CCC-GARY-1)","Dagger of Venom (DDAL4-11)", "Dagger of Venom (DDAL5-17)","Drow-made Dagger (WDotMM)","Dwarven Thrower: Skyfist (DDEP4)","Glaive of Warning: The Harbinger (CCC-EPI1-2)","Glaive of Warning: Losspatan's War-scythe (CCC-GGC-2-1)","Javelin of Lightning (CCC-BFG1-3)","Javelin of Lightning (CCC-BMG-MOON6-3)","Javelin of Lightning (CCC-BMG-MOON16-1)","Javelin of Lightning (CCC-GAD2-2)","Javelin of Lightning (CCC-SAC-4)","Javelin of Lightning (CCC-SFBAY-4-1)","Javelin of Lightning (DDAL8-5)","Javelin of Warning: Jeny's Hairpin (CCC-VOTE-1-1)","Moon Sickle +1 (DDAL-DRW10)","Moon Sickle +2: Tsukikama (WBW-DC-PHP-1)","Net of Warning (CCC-ELF-3-1)","Oathbow: Syranna's Folly (CCC-OCC-1)","Oathbow (DDAL-DRW8)","Oathbow: Shadowsong (DDEX3-7)","Trident of Fish Command (CCC-BMG-MOON14-1)","Trident of Fish Command (CCC-TAROT2-8)","Trident of Fish Command (CCC-WWC-2)","Trident of Warning (DDEX2-3)","Vicious Glaive: Ptahrek’s Glaive (CCC-SVH1-2)","Vicious Spear (DDAL0-13)","Trident of Warning (CCC-TRI-34)","Weapon of Warning (DDAL0-7)","Whip of Warning (CCC-GHC-BK2-10)","Whip of Warning (DDAL4-2)"],
+	choices : ["Berserker Flail (CCC-UCON-1)","Dagger of Blindsight: Panther's Claw (RMH-9)","Dagger of Venom: Fang of Sibyl (CCC-GARY-1)","Dagger of Venom (DDAL4-11)", "Dagger of Venom (DDAL5-17)","Drow-made Dagger (WDotMM)","Dwarven Thrower: Skyfist (DDEP4)","Glaive of Warning: The Harbinger (CCC-EPI1-2)","Glaive of Warning: Losspatan's War-scythe (CCC-GGC-2-1)","Greatclub of Warning: Clobber (WBW-DC-MIKE-1)","Javelin of Lightning (CCC-BFG1-3)","Javelin of Lightning (CCC-BMG-MOON6-3)","Javelin of Lightning (CCC-BMG-MOON16-1)","Javelin of Lightning (CCC-GAD2-2)","Javelin of Lightning (CCC-SAC-4)","Javelin of Lightning (CCC-SFBAY-4-1)","Javelin of Lightning (DDAL8-5)","Javelin of Warning: Jeny's Hairpin (CCC-VOTE-1-1)","Moon Sickle +1 (DDAL-DRW10)","Moon Sickle +2: Tsukikama (WBW-DC-PHP-1)","Net of Warning (CCC-ELF-3-1)","Oathbow: Syranna's Folly (CCC-OCC-1)","Oathbow (DDAL-DRW8)","Oathbow: Shadowsong (DDEX3-7)","Trident of Fish Command (CCC-BMG-MOON14-1)","Trident of Fish Command (CCC-TAROT2-8)","Trident of Fish Command (CCC-WWC-2)","Trident of Warning (DDEX2-3)","Vicious Glaive: Ptahrek’s Glaive (CCC-SVH1-2)","Vicious Spear (DDAL0-13)","Trident of Warning (CCC-TRI-34)","Weapon of Warning (DDAL0-7)","Whip of Warning (CCC-GHC-BK2-10)","Whip of Warning (DDAL4-2)"],
 	"berserker flail (ccc-ucon-1)" : {
 		name : "Berserker Flail (CCC-UCON-1)",
 		source : [["AL","CCC"]],
@@ -4026,6 +4429,24 @@ MagicItemsList["al weapons (other)"] = {
 				baseWeapon : "glaive",
 				regExpSearch : /^(?=.*glaive)(?=.*warning)(?=.*losspatan|losspatan's)(?=.*war-scythe).*$/i,
 				name : "Losspatan’s War-scythe, Glaive of Warning",
+				}
+			},
+	"greatclub of warning: clobber (wbw-dc-mike-1)" : {
+			name : "Clobber, Greatclub of Warning (WBW-DC-MIKE-1)",
+			source : [["AL","WBW-DC"]],
+			type : "weapon (greatclub)",
+			rarity : "uncommon",
+			magicItemTable : "F",
+			attunement : true,
+			advantages : [["Initiative", true]],
+			savetxt : { immune : ["surprised"] },
+			description : "To ensure that his ogre bodyguard, Clobber, couldn’t be caught unawares, Scrimshaw enchanted his greatclub with magical wards. Elaborate carved curlicues wend their way around its gnarled oaken shaft & glow a dull crimson when danger is near. While on your person, you have adv. on initiative. You & your allies w/i 30 ft can't be surprised & the weapon magically awakens all of you when combat starts, unless incapacitated by something other than nonmagical sleep.",
+			descriptionFull : "To ensure that the dim-witted ogre couldn’t be caught unawares, Scrimshaw enchanted the weapon of his bodyguard, Clobber with magical wards. The elaborate curlicues carved into this greatclub twist and wend their way around its gnarled oaken shaft. They emit a dull crimson glow when danger is near.\n   This magic weapon warns you of danger. While the weapon is on your person, you have advantage on initiative rolls. In addition, you and any of your companions within 30 feet of you can't be surprised, except when incapacitated by something other than nonmagical sleep. The weapon magically awakens you and your companions within range if any of you are sleeping naturally when combat begins.",
+			weaponsAdd : ["Clobber, Greatclub of Warning"],
+			weaponOptions : {
+				baseWeapon : "greatclub",
+				regExpSearch : /^(?=.*greatclub)(?=.*warning)(?=.*clobber).*$/i,
+				name : "Clobber, Greatclub of Warning",
 				}
 			},
 	"javelin of lightning (ccc-bfg1-3)" : { // contains contributions by Larry Hoy

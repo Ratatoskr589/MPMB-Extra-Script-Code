@@ -38,7 +38,8 @@ SourceList["AL:RMH"] = {  //Mist Hunters Alternate Campaign
 	abbreviation : "AL:RMH",
 	group : "Adventurers League",
 	url : "https://www.dmsguild.com/browse.php?filters=45470_0_0_0_0_0_0_0&src=fid45470",
-	date : "Various"
+	date : "Various",
+	defaultExcluded : true
 };
 
 
@@ -221,7 +222,7 @@ MagicItemsList["al adamantine/mithral armor"] = {
 			name: "Mithral Chain Mail (CCC-SAF2-1)",
 			source : [["AL","CCC"]],
 			magicItemTable : "F",
-			description : "Mithral is a light, flexible metal, and this chain mail doesn't impose disadvantage on Dex (Stealth) checks. While wearing it, you also suffer no harm in temps from -20 ̊ F to 120 ̊ F. ",
+			description : "Mithral is a light, flexible metal, and this chain mail doesn't impose disadvantage on Dex (Stealth) checks. While wearing it, you also suffer no harm in temps from -20 ̊ F to 120 ̊ F.",
 			descriptionFull : "The armor has the Temperate minor property. The bearer suffers no harm in temperatures as cold as −20 degrees Fahrenheit or as warm as 120 degrees Fahrenheit. Mithral is a light, flexible metal. A mithral chain shirt or breastplate can be worn under normal clothes. If the armor normally imposes disadvantage on Dexterity (Stealth) checks or has a Strength requirement, the mithral version of the armor doesn't.",
 			savetxt : { immune : ["temps btwn -20 ̊ & 120 ̊ F"] },
 			armorAdd : "Mithral Chain Mail",
@@ -753,7 +754,7 @@ MagicItemsList["al armor (common)"] = {
 MagicItemsList["al armor (other)"] = {
 		name : "AL Armor (Other)",
 		allowDuplicates : true,
-	choices : ["Breastplate of Necrotic Resistance: Chardalyn (DDAL10-5)","Demon Armor (DDEX3-16)","Efreeti Chain (DDAL7-15)","Elven Chain (CCC-BMG-36 ELMW2-3)","Elven Chain (CCC-SQC-2-2)","Elven Chain (WBW-DC-Rook-2-1)","Glamoured Studded Leather (DDAL4-9)","Glamoured Studded Leather (DDAL8-11)","Glamoured Studded Leather (DDAL9-6)","Half Plate of Poison Resistance: Mushroom (DDEX3-11)","Mariner's Studded Leather (DDAL-DRW9)","Mariner's Breastplate (CCC-AETHER-1-2)","Mariner's Breastplate (CCC-MMT1-2)","Mariner's Scale Mail (ALSRs11-A)","Plate Armor of Etherealness (DDAL8-16)","Red Dragon Scale Mail (DDEP5-1)","Red Dragon Scale Mail (DDAL9-15)","Scale Mail of Psychic Resistance: Resin (CCC-TRI-21 YUL1-6)","Studded Leather of Fire Resistance (DDAL0-11C)"],
+	choices : ["Breastplate of Necrotic Resistance: Chardalyn (DDAL10-5)","Demon Armor (DDEX3-16)","Efreeti Chain (DDAL7-15)","Elven Chain (CCC-BMG-36 ELMW2-3)","Elven Chain (CCC-SQC-2-2)","Elven Chain (WBW-DC-Rook-2-1)","Elven Chain (WBW-DC-ZEP-T2S5)","Glamoured Studded Leather (DDAL4-9)","Glamoured Studded Leather (DDAL8-11)","Glamoured Studded Leather (DDAL9-6)","Half Plate of Poison Resistance: Mushroom (DDEX3-11)","Mariner's Studded Leather (DDAL-DRW9)","Mariner's Breastplate (CCC-AETHER-1-2)","Mariner's Breastplate (CCC-MMT1-2)","Mariner's Scale Mail (ALSRs11-A)","Plate Armor of Etherealness (DDAL8-16)","Red Dragon Scale Mail (DDEP5-1)","Red Dragon Scale Mail (DDAL9-15)","Scale Mail of Psychic Resistance: Resin (CCC-TRI-21 YUL1-6)","Studded Leather of Fire Resistance (DDAL0-11C)"],
 	"breastplate of necrotic resistance: chardalyn (ddal10-5)" : {
 			name : "Chardalyn Breastplate of Necrotic Resist. (DDAL10-5)",
 			source : [["AL","S10"]],
@@ -809,7 +810,7 @@ MagicItemsList["al armor (other)"] = {
 		type : "armor (chain mail)",
 		rarity : "legendary",
 		magicItemTable : "I",
-		description : "The efreeti Prince Rashidi al-Zahar ibn Rath transmogrified an efreeti sultana into this delicate suit of crimson chain mail. While wearing this armor, you always feels a slight draft, & sometimes finds it hard to stay focused on a task. But you gain a +3 bonus to AC, are immune to fire damage, and can understand and speak Primordial. You can also stand on & walk across molten rock as if it solid ground.",
+		description : "The efreeti Prince Rashidi al-Zahar ibn Rath transmogrified an efreeti sultana into this delicate suit of crimson chain mail. While wearing this armor, you always feels a slight draft, & sometimes finds it hard to stay focused on a task. But you gain a +3 bonus to AC, are immune to fire damage, and can understand and speak Primordial. You can also stand on & walk across molten rock as if solid ground.",
 		descriptionFull : "The efreeti Prince Rashidi al-Zahar ibn Rath transmogrified an efreeti sultana into this delicate suit of crimson chain mail. The wearer of this armor always feels a slight draft, and sometimes finds it hard to stay focused on a task. While wearing this armor, you gain a +3 bonus to AC, you are immune to fire damage, and you can understand and speak Primordial. In addition, you can stand on and walk across molten rock as if it were solid ground.",
 		attunement : true,
 		weight : 55,
@@ -867,7 +868,7 @@ MagicItemsList["al armor (other)"] = {
 	},
 	"elven chain (wbw-dc-rook-2-1)" : {
 		name : "Elven Chain (WBW-DC-Rook-2-1)",
-		source : [["AL","CCC"]],
+		source : [["AL","WBW-DC"]],
 		type : "armor (chain shirt)",
 		rarity : "rare",
 		magicItemTable : "G",
@@ -878,7 +879,26 @@ MagicItemsList["al armor (other)"] = {
 		armorOptions : [{
 			regExpSearch : /^(?=.*elven)(?=.*chain).*$/i,
 			name : "Elven Chain (Amorywood)",
-			source : [["AL","CCC"]],
+			source : [["AL","WBW-DC"]],
+			type : "medium",
+			ac : 14,
+			weight : 20
+		}]
+	},
+	"elven chain (wbw-dc-zep-t2s5)" : {
+		name : "Elven Chain (WBW-DC-ZEP-T2S5)",
+		source : [["AL","WBW-DC"]],
+		type : "armor (chain shirt)",
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "Instead of silver metal, this armor appears to be an orange cloth vest embroidered with “Zep Chimelong Kingdom” that floats on water and other liquids. The inside tag reads, “Compliments of Princess Petunia”. You gain a +1 bonus to AC while you wear it & are considered proficient even if you lack proficiency with medium armor.",
+		descriptionFull : "This item floats on water and other liquids. Instead of silver metal, this armor appears to be an orange cloth vest embroidered with the words Zep Chimelong Kingdom. The inside tag reads, “Compliments of Princess Petunia”.\n   You gain a +1 bonus to AC while you wear this armor. You are considered proficient with this armor even if you lack proficiency with medium armor.",
+		weight : 20,
+		armorAdd : "Elven Chain (Cloth)",
+		armorOptions : [{
+			regExpSearch : /^(?=.*elven)(?=.*chain).*$/i,
+			name : "Elven Chain (Cloth)",
+			source : [["AL","WBW-DC"]],
 			type : "medium",
 			ac : 14,
 			weight : 20
@@ -1229,7 +1249,7 @@ MagicItemsList["al shields (other)"] = {
 		allowDuplicates : true,
 		type : "shield",
 		weight : 6,
-	choices : ["Animated Shield (DDEP5-2)","Animated Shield (DDEP8-3)","Arrow-Catching Shield (CCC-BMG-MOON13-3)","Arrow-Catching Shield (CCC-GLIP-2-1)","Arrow-Catching Shield (DDAL9-8)","Arrow-Catching Shield (DDAL-DRWEP3)","Sentinel Shield (CCC-BMG-MOON11-1)","Sentinel Shield (CCC-WWC-7)","Sentinel Shield (DDAL-CGB)","Sentinel Shield (DDEX2-12)","Shield of Missile Attraction: Ward of Chimali (RMH-10)","Spellguard Shield: Warden (CCC-ODFC1-3)","Spellguard Shield (CCC-ROZK1-3)","Spellguard Shield (DDEP7-2)","Spellguard Shield (DDAL-DRWEP2)"],
+	choices : ["Animated Shield (DDEP5-2)","Animated Shield (DDEP8-3)","Arrow-Catching Shield (CCC-BMG-MOON13-3)","Arrow-Catching Shield (CCC-GLIP-2-1)","Arrow-Catching Shield (DDAL9-8)","Arrow-Catching Shield (DDAL-DRWEP3)","Sapphire Buckler (DDAL-DRW19)","Sentinel Shield (CCC-BMG-MOON11-1)","Sentinel Shield (CCC-WWC-7)","Sentinel Shield (DDAL-CGB)","Sentinel Shield (DDEX2-12)","Shield of Missile Attraction: Ward of Chimali (RMH-10)","Spellguard Shield: Warden (CCC-ODFC1-3)","Spellguard Shield (CCC-ROZK1-3)","Spellguard Shield (DDEP7-2)","Spellguard Shield (DDAL-DRWEP2)"],
 	"animated shield (ddep5-2)" : {  // contains contributions by Larry Hoy
 		name : "Animated Shield (DDEP5-2)",
 		source : [["AL","S5"]],
@@ -1300,6 +1320,19 @@ MagicItemsList["al shields (other)"] = {
 		action : [["reaction", "Arrow-Catching Shield"]],
 		shieldAdd : "Arrow-Catching Shield (+\u200A2 vs. ranged)"
 	},
+	"sapphire buckler (ddal-drw19)" : { 
+		name : "Sapphire Buckler (DDAL-DRW19)",
+		source : [["AL","DRW"]],
+		rarity : "very rare",
+		attunement : true,
+		description : "One of Amaranthraxine’s draconic allies on Abeir gifted a scale for this crystalline blue shield. While wielding it, you have resistance to psychic & thunder dmg. When you take dmg from a creature in 5 ft, you can deal 2d6 thunder dmg as a reaction. Once per dawn as an action, you know the direction of all aberrations within 1 mile until your next turn ends.",
+		descriptionFull : "This buckler was created from a scale gifted by one of Amaranthraxine’s draconic allies on Abeir.\n   This crystalline blue shield is fashioned from a sapphire dragon's scale and is created to aid in rooting out the influence of Aberrations. While wielding the shield, you have resistance to psychic and thunder damage. Also, when you take damage from a creature that is within 5 feet of you, you can use your reaction to deal 2d6 thunder damage to that creature."+
+		"\n   As an action, you can use the shield to help you locate Aberrations until the end of your next turn. If any Aberrations are within 1 mile of you, the shield emits a low humming tone for a moment, and you know the direction of all Aberrations within that range. Once this property is used, it can't be used again until the next dawn.",
+		weight : 6,
+		shieldAdd : "Sapphire Buckler",
+		dmgres : ["Psychic", "Thunder"],
+		action : [["reaction", " (damaged in 5ft)"], ["action", " (locate aberrations"]]
+	},
 	"sentinel shield (ccc-bmg-moon11-1)" : {
 		name : "Sentinel Shield (CCC-BMG-MOON11-1)",
 		source : [["AL","CCC"]],
@@ -1308,7 +1341,7 @@ MagicItemsList["al shields (other)"] = {
 		shieldAdd : "Sentinel Shield",
 		advantages : [["Initiative", true], ["Perception", true]],
 		vision : [["Adv. on Perception checks", 0]],
-		description: "This shield is emblazoned with a symbol of an eye. Whenever it grants adv. on a roll, the eye on the front squints & the shield says “hmmmm” in a deep gravelly voice that is audible to within 30 ft. While holding this shield, you have adv. on initiative rolls & Wisdom (Perception) checks.",
+		description: "This shield is emblazoned with a symbol of an eye. Whenever it grants adv. on a roll, the eye on the front squints & says “hmmmm” in a deep gravelly voice that is audible to within 30 ft. While holding this shield, you have adv. on initiative rolls & Wisdom (Perception) checks.",
 		descriptionFull: "Whenever the Sentinel Shield grants advantage on a roll, the eye on the front squints, and the shield says “hmmmm” in a deep gravelly voice that is audible to anyone within 30 feet. While holding this shield, you have advantage on initiative rolls and Wisdom (Perception) checks. The shield is emblazoned with a symbol of an eye."
 		},
 	"sentinel shield (ccc-wwc-7)" : {

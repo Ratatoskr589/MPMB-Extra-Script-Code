@@ -24,14 +24,16 @@ SourceList["AL:FC"] = {   //Fai Chen
     name : "Fai Chen Certs",
     abbreviation : "AL:FC",
     group : "Adventurers League",
-    date : "Various"
+    date : "Various",
+	defaultExcluded : true
 };
 
 SourceList["AL:EL"] = {   //AL specific Extra Life certs
     name : "AL Extra Life Certs",
     abbreviation : "AL:EL",
     group : "Extra Life",
-    date : "Various"
+    date : "Various",
+	defaultExcluded : true
 };
 
 SourceList["AL:RMH"] = {  //Mist Hunters Alternate Campaign
@@ -39,7 +41,8 @@ SourceList["AL:RMH"] = {  //Mist Hunters Alternate Campaign
 	abbreviation : "AL:RMH",
 	group : "Adventurers League",
 	url : "https://www.dmsguild.com/browse.php?filters=45470_0_0_0_0_0_0_0&src=fid45470",
-	date : "Various"
+	date : "Various",
+	defaultExcluded : true
 };
  
 SourceList["DDCE"] = { //Only creatures from this category count as Event Awards under the new rules
@@ -62,21 +65,24 @@ SourceList["AL"] = {
 	abbreviation : "AL",
 	group : "Adventurers League",
 	url : "https://www.dmsguild.com/browse.php?filters=45470_0_0_0_0_0_0_0&src=fid45470",
-	date : "Various"
+	date : "Various",
+	defaultExcluded : true
 };
 
 SourceList["AL:LN"] = {  //Liar's Night and Wandering Monsters
     name : "AL Holiday Events - Liar's Night",
     abbreviation : "AL:LN",
     group : "Adventurers League",
-    date : "Various"
+    date : "Various",
+	defaultExcluded : true
 };
 
 SourceList["ALDMs9"] = {  //Season 9 DM Rewards (Several of these are from BG:DiA, but cannot normally be used by players)
     name : "AL Season 9 DM Rewards",
     abbreviation : "ALDMs9",
     group : "Adventurers League",
-    date : "2019/09/16"
+    date : "2019/09/16",
+	defaultExcluded : true
 };
 
 SourceList["RotF"] = {
@@ -84,7 +90,8 @@ SourceList["RotF"] = {
 	abbreviation : "RotF",
 	group : "Adventure Books",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/icewind-dale-rime-frostmaiden",
-	date : "2020/09/15"
+	date : "2020/09/15",
+	defaultExcluded : true
 };
 
 
@@ -580,7 +587,6 @@ CreatureList["quasit (familiar variant)"] = {
 		source : [["AL","S5"]],
 		size : 5, //Tiny
 		type : "Fiend",
-		defaultExcluded : true,
 		subtype : "demon",
 		companion : "pact_of_the_chain",
 		companionApply : "pact_of_the_chain",
@@ -942,7 +948,6 @@ CreatureList["bone whelk"] = {
 		source : [["ALDMs9"]],
 		size : 2, //Large
 		type : "Monstrosity",
-		defaultExcluded : true,
 		header : "Mount",
 		alignment : "Unaligned",
 		ac : 12,
@@ -979,7 +984,6 @@ CreatureList["hellwasp"] = {
 		size : 2, //Large
 		type : "Fiend",
 		header : "Mount",
-		defaultExcluded : true,
 		alignment : "Lawful Evil",
 		ac : 19,
 		hp : 52,
@@ -1214,7 +1218,6 @@ CreatureList["glitter elemental"] = {
 		size : 4, //Small
 		type : "Elemental",
 		companion : "familiar",
-		defaultExcluded : true,
 		alignment : "Chaotic Good",
 		ac : 12,
 		hp : 17,
@@ -1269,7 +1272,6 @@ CreatureList["griffon (baby)"] = {
 		source : [["RotF", 318]],
 		size : 5, //Tiny
 		type : "Monstrosity",
-		defaultExcluded : true,
 		alignment : "Unaligned",
 		ac : 12,
 		hp : 5,
@@ -1316,7 +1318,6 @@ CreatureList["griffon (1 year)"] = {
 		source : [["RotF", 318]],
 		size : 4, //Small
 		type : "Monstrosity",
-		defaultExcluded : true,
 		alignment : "Unaligned",
 		ac : 12,
 		hp : 13,
@@ -1361,7 +1362,6 @@ CreatureList["griffon (2 years)"] = {
 		source : [["RotF", 318]],
 		size : 3, //Medium
 		type : "Monstrosity",
-		defaultExcluded : true,
 		alignment : "Unaligned",
 		ac : 12,
 		hp : 32,

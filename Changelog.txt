@@ -1,3 +1,18 @@
+Changelog: (After 5/29/22)
+-Added another custom item from an unpublished WBW
+-Fixed typo in Thanks of Ilmater story award
+-Fixed typo in Efreeti Chain main
+-Fixed a typo in Radiance in the Candlekeep document
+-Fixed error in ZODIAC-1 Doss Lute
+-Fixed error in Mace of Disruption description
+-Added missing items from DRW5
+-Added code to make all RMH content excluded by default, since it's specific to the alternate campaign.
+-Made most creature sources excluded by default as well, since those creatures are specific to certs/other special situations.
+-Fixed a few minor typos in descriptions and sources
+-Added additional items from new WBW, DRW and MOON adventures
+-Attempted to move the AL Trinkets in the Special items file to excluded by default as I imagine most people won't be using those.
+-Added some extra formatting for poems/songs in descriptions
+
 Changelog (After 3/26/22):
 -Removed Keoghtom's Ointment for JOQ-3 because it was removed from the adventure.
 -Added PO-BK adventures

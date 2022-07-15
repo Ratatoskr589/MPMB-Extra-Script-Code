@@ -57,7 +57,8 @@ SourceList["AL:RMH"] = {  //Mist Hunters Alternate Campaign
 	abbreviation : "AL:RMH",
 	group : "Adventurers League",
 	url : "https://www.dmsguild.com/browse.php?filters=45470_0_0_0_0_0_0_0&src=fid45470",
-	date : "Various"
+	date : "Various",
+	defaultExcluded : true
 };
 
 RunFunctionAtEnd(function () {
@@ -326,7 +327,7 @@ MagicItemsList["al story awards"] = {
     },
     "thanks of ilmater - immortality": {
 		name : "Thanks of Ilmater - Immortality (DDAL9-20)",
-        description: "You have worked the will of the gods of light to maintain the balance of the Blood War. Now that you are 20th lvl, or when you reach 20th lvl, you may select this boon. You stop aging. You am immune to any effect that would age you, and you can't die from old age.",
+        description: "You have worked the will of the gods of light to maintain the balance of the Blood War. Now that you are 20th lvl, or when you reach 20th lvl, you may select this boon. You stop aging. You are immune to any effect that would age you, and you can't die from old age.",
         savetxt : {
             immune : ["magical aging effects"],
         },
@@ -533,7 +534,7 @@ MagicItemsList["al new items"] = {
 		name : "AL New Items",
 		type : "wondrous item",
 		allowDuplicates : true,
-		choices : ["Achis Atracta (CCC-BMG-30 HILL2-3)","Bag of Tricks or Treats","Bone Compass (RMH-12)","Bookmark of Memory (WBW-PR)","Cariboots","Dagger of the Hidden Lord (DDHC-DIA-2)","Darkling Necklace (DDHC-TOA-8)","Discord (DDAL-DRW15)","Eye of Xxiphu (DDAL5-19)","Fey Hound Collar","Fold-Up Friend (WBW-PR)","Giant's Gloves (WBW-PR)","Ghost Sheet","Hat of Witchery","Hellrider's Badge (DDEP9-2)","Lemure Onesie","Mind-Poison Dagger (DDHC-MORD-05)","Mist Hunters Magnificent Cap (RMH Safety Tools)","Nettle (DDEP4)","Oathbinder (DDHC-TOA-15)","Order of the Guardians Ring (RMH Safety Tools)","Owlbear Snowshoes","Pearl of Elocution (WBW-PR)","Pipes of Remembrance","Pocket Watch (WBW-PR)","Pumpkin Ring","Selûne's Owl-Eye Glasses","Shar's Veil","Spare (DDHC-TOA-13)","Tarot Card Set","Wand of Whimsy (WBW-PR)","Woe (DDAL-DRW16)","Wooden Gecko Earrings (DDHC-TOA-8)"],
+		choices : ["Achis Atracta (CCC-BMG-30 HILL2-3)","Bag of Tricks or Treats","Bone Compass (RMH-12)","Bookmark of Memory (WBW-PR)","Cariboots","Dagger of the Hidden Lord (DDHC-DIA-2)","Darkling Necklace (DDHC-TOA-8)","Discord (DDAL-DRW15)","Eye of Xxiphu (DDAL5-19)","Fey Hound Collar","Fold-Up Friend (WBW-PR)","Giant's Gloves (WBW-PR)","Ghost Sheet","Hat of Witchery","Hellrider's Badge (DDEP9-2)","Ioun Stone - Celebration (DDAL-DRW5)","Lemure Onesie","Mind-Poison Dagger (DDHC-MORD-05)","Mist Hunters Magnificent Cap (RMH Safety Tools)","Nettle (DDEP4)","Oathbinder (DDHC-TOA-15)","Order of the Guardians Ring (RMH Safety Tools)","Owlbear Snowshoes","Pearl of Elocution (WBW-PR)","Pipes of Remembrance","Pocket Watch (WBW-PR)","Pumpkin Ring","Selûne's Owl-Eye Glasses","Shar's Veil","Spare (DDHC-TOA-13)","Tarot Card Set","Wand of Whimsy (WBW-PR)","Woe (DDAL-DRW16)","Wooden Gecko Earrings (DDHC-TOA-8)"],
 	"achis atracta (ccc-bmg-30 hill2-3)" : { // contributed by AelarTheElfRogue
 		name : "Achis Atracta (CCC-BMG-30 HILL2-3)",
 		source : [["AL","CCC"]],
@@ -705,6 +706,16 @@ MagicItemsList["al new items"] = {
 		descriptionFull : "A Hellrider’s Badge is only usable by a member of the Hellriders, and thanks to your efforts during Klysandral’s funeral and the subsequent escape from Avernus, you have been awarded honorary membership by Duke Ulder Ravengard himself. This badge marks you as a lieutenant in the Hellriders.\n   While wearing the badge, you gain a +2 bonus to AC if you aren’t using a shield. If the badge is more than 5 feet away from you for more than one minute, it vanishes and harmlessly reappears on a surface within 5 feet of Duke Ravengard. While holding the badge, the Duke knows your location, provided the two of you are on the same plane of existence and your attunement to the badge hasn’t ended.\n   As an action, the Duke can touch the badge and end your attunement to it, as he has been granted this power by Elturel despite not being a Hellrider himself.\n   " + toUni("Special") + ". If you wish to take the Hellriders or Flaming Fist as your faction, you may do so. Additionally, this badge is made from the bones of Klysandral himself, counts as a holy reliquary, and may be used as a holy symbol of Torm if needed.\n   Despite its rarity, the Hellrider’s Badge can be equipped by anyone that has earned it via playing DDEP09-02 Hellfire Requiem.",
 		extraAC : [{name : "Hellrider's Badge", mod : 2, magic : true, text : "I gain a +2 bonus to AC when not using a shield."}],
 	},
+	"ioun stone - celebration (ddal-drw5)" : {
+		name: "Ioun Stone - Celebration (DDAL-DRW5)",
+		source : [["AL","DRW"]],
+		rarity : "common",
+		magicItemTable : "?",
+		attunement : true,
+		description : "Attuning to this pale red stone takes 1 min. Action to make orbit at 1d3ft or stow. Action to catch w/ atk or Acrobatics chk (AC/DC 24). 10 HP & resistance to dmg. While in orbit, a bonus action makes the stone: 1) pulse with colored light for 1 min, creating 10 ft dim light; 2) emit harmless effect like sparks, musical notes, smell for 1 min; 3) pause in direction of most powerful caster/magical effect in 30ft. If none, aims toward Szass Tam's palace. The stone only works in Thay.",
+		descriptionFull : "An Ioun stone is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of Ioun stone exist, each type a distinct combination of shape and color.\n   When you use an action to toss one of these stones into the air, the stone orbits your head at a distance of 1d3 feet and confers a benefit to you. Thereafter, another creature must use an action to grasp or net the stone to separate it from you, either by making a successful attack roll against AC 24 or a successful DC 24 Dexterity (Acrobatics) check. You can use an action to seize and stow the stone, ending its effect.\n   A stone has AC 24, 10 hit points, and resistance to all damage. It is considered to be an object that is being worn while it orbits your head.\n   An ioun stone of celebration has the harmonious minor property, so that attuning to it requires only 1 minute. The item must be attuned to function, and stops working outside the borders of Thay. While this pale red sphere orbits your head, you can use a bonus action to cause it to it display one of the following effects:\n \u2022 The ioun stone pulses with green, violet, or amber light for 1 minute, filling the area around you with dim light to a distance of 10 feet.\n \u2022 The ioun stone emits harmless sensory effects such as a shower of sparks, a puff of wind, faint musical notes, or an odd odor for 1 minute.\n \u2022 The stone pauses in its orbit in the direction of the most powerful spellcaster or magical effect within 30 feet of you. If there are no spellcasters or magical effects in range, it pauses in the direction of Szass Tam’s palace.",
+		action : [["bonus action", "Ioun Stone - Celebration"]]
+		},
 	"lemure onesie" : {
 		name : "Lemure Onesie",
 		source : ["AL:LN", 2019],
@@ -912,7 +923,7 @@ MagicItemsList["al new items"] = {
 		source : ["AL:LN", 2020],
 		rarity : "unique",
 		description : "Once per day, draw a card & roll 1d4 to find out what it produces. The item disappears at dawn & you may roll again to reveal your next fortune. 1: The Flower - touching this card to a patch of earth in 5 ft sprouts 1 flower of your choice. The flower is nonmagical & grows or withers like normal. 2: The Yummy Meal - your favorite meal, the equivalent of 1 ration. 3: The Tea Pot - a tiny pot of tea, equivalent to 1 healing potion. 4: The Witch - a stone & twisted wire pendant. As an action, it gives you adv. on CHA checks w/ humanoids (<= CR1), for 1 hr.",
-		descriptionFull : "Once per day, roll 1d4 to find out what your tarot fortune produces. At dawn this product (not the card) vanishes but the character may roll again to reveal their next fortune.\n   " + toUni("DC 1: The Flower") + ". - touching this card to a patch of earth or soil, within 5 feet of you, causes one flower of your choice to sprout there. The flower is nonmagical and harmless, and it grows or withers as a normal flower would.\n   " + toUni("DC 2: The Yummy Meal") + ". - this card produces your favorite meal, the equivalent of 1 ration.\n   " + toUni("DC 3: The Tea Pot") + ". - this card produces a tiny pot of piping tea, the equivalent of one potion of healing.\n   " + toUni("DC 4: The Witch") + ". - this card produces a stone and twisted wire pendant. As an action, it gives you advantage on Charisma checks when communicating with humanoids (CR 1 or less), for 1 hour.",
+		descriptionFull : "Once per day, roll 1d4 to find out what your tarot fortune produces. At dawn this product (not the card) vanishes but the character may roll again to reveal their next fortune.\n   " + toUni("DC 1: The Flower") + " - touching this card to a patch of earth or soil, within 5 feet of you, causes one flower of your choice to sprout there. The flower is nonmagical and harmless, and it grows or withers as a normal flower would.\n   " + toUni("DC 2: The Yummy Meal") + " - this card produces your favorite meal, the equivalent of 1 ration.\n   " + toUni("DC 3: The Tea Pot") + " - this card produces a tiny pot of piping tea, the equivalent of one potion of healing.\n   " + toUni("DC 4: The Witch") + " - this card produces a stone and twisted wire pendant. As an action, it gives you advantage on Charisma checks when communicating with humanoids (CR 1 or less), for 1 hour.",
 		usages : 1,
 		recovery : "dawn"
 		},
@@ -957,7 +968,8 @@ MagicItemsList["al trinkets"] = {
 		type : "Trinket",
 		rarity : "unique",
 		allowDuplicates : true,
-		choices : ["Apple Tea (WBW-DC-LEGIT-SV-4)","Arcane Curio: Belt (DDEX2-10)","Arcane Curio: Brush (DDEX2-10)","Arcane Curio: Cloak (DDEX2-10)","Arcane Curio: Inkpot (DDEX2-10)","Arcane Curio: Pipe (DDEX2-10)","Arcane Curio: Quill (DDEX2-10)","Arcane Curio: Wand (DDEX2-10)","Artor's Blood Mead: Six-pack (DC-POA-SNIPE-1)","Bag of Chardalyn Shards (WBW-DC-LEGIT-SV-4)","Bundle of Glo-Sticks (WBW-DC-LEGIT-SV-4)","Cauldron of Stars (WBW-DC-LEGIT-SV-4)","Customized Crystal Memento (WBW-DC-LEGIT-SV-4)","Dinosaur Eggshell (WBW-DC-CONMAR-6)","Efreeti Crown of Wishes (CCC-ODFC2-2)","Faded Darkling Tassel (WBW-DC-LEGIT-SV-4)","Fairy Bread (WBW-DC-LEGIT-SV-4)","Flamesoul Stone (CCC-YLRA1-3)","Gem Biscuits (WBW-DC-LEGIT-SV-4)","Glitched Astral Diamond (WBW-DC-LEGIT-SV-4)","Handheld Tele-Kaleidoscope (WBW-DC-LEGIT-SV-4)","Ice Cream Sandwich (WBW-DC-LEGIT-SV-4)","Infernal Iron Ingot (WBW-DC-LEGIT-SV-4)","Inky Darkling Extreme [Diet] (WBW-DC-LEGIT-SV-4)","Leaf With Amber Veins (WBW-DC-CONMAR-6)","Lohringan Pink Opal (WBW-DC-CONMAR-6)","Million Sun Salute (WBW-DC-LEGIT-SV-4)","Nirmala's Special Spraypaint (WBW-DC-LEGIT-SV-4)","Pandemonium Sunset Pigment (WBW-DC-LEGIT-SV-4)","Paradise Snowglobe (WBW-DC-LEGIT-SV-4)","Preserved Fashion Sense (WBW-DC-LEGIT-SV-4)","Reflection Chai Latte (WBW-DC-LEGIT-SV-4)","Shadestone Relic (WBW-DC-LEGIT-SV-4)","Snipe Feather Pillow (DC-POA-SNIPE-1)","Souvenir Mini-Lith (WBW-DC-LEGIT-SV-4)","Sprite (WBW-DC-LEGIT-SV-4)","Starmetal Ingot (WBW-DC-LEGIT-SV-4)","Striking at the Bare Neck (DC-POA-SNIPE-1)","Tressym-Eye Marbles (WBW-DC-LEGIT-SV-4)","Vial of Liquid Starlight (WBW-DC-LEGIT-SV-4)","Vial of Slumber Sand (WBW-DC-LEGIT-SV-4)","Vibrant Darkling Mask (WBW-DC-LEGIT-SV-4)","Vibrant Eldritch Pigment (WBW-DC-LEGIT-SV-4)","Violent Hibiscus Pigment (WBW-DC-LEGIT-SV-4)","Waxworks Postcard (WBW-DC-LEGIT-SV-4)"],
+		defaultExcluded : true
+		choices : ["Apple Tea (WBW-DC-LEGIT-SV-4)","Arcane Curio: Belt (DDEX2-10)","Arcane Curio: Brush (DDEX2-10)","Arcane Curio: Cloak (DDEX2-10)","Arcane Curio: Inkpot (DDEX2-10)","Arcane Curio: Pipe (DDEX2-10)","Arcane Curio: Quill (DDEX2-10)","Arcane Curio: Wand (DDEX2-10)","Artor's Blood Mead: Six-pack (DC-POA-SNIPE-1)","Bag of Chardalyn Shards (WBW-DC-LEGIT-SV-4)","Bundle of Glo-Sticks (WBW-DC-LEGIT-SV-4)","Cauldron of Stars (WBW-DC-LEGIT-SV-4)","Customized Crystal Memento (WBW-DC-LEGIT-SV-4)","Dinosaur Eggshell (WBW-DC-CONMAR-6)","Efreeti Crown of Wishes (CCC-ODFC2-2)","Faded Darkling Tassel (WBW-DC-LEGIT-SV-4)","Fairy Bread (WBW-DC-LEGIT-SV-4)","Flamesoul Stone (CCC-YLRA1-3)","Gem Biscuits (WBW-DC-LEGIT-SV-4)","Glitched Astral Diamond (WBW-DC-LEGIT-SV-4)","Handheld Tele-Kaleidoscope (WBW-DC-LEGIT-SV-4)","Ice Cream Sandwich (WBW-DC-LEGIT-SV-4)","Infernal Iron Ingot (WBW-DC-LEGIT-SV-4)","Inky Darkling Extreme [Diet] (WBW-DC-LEGIT-SV-4)","Leaf With Amber Veins (WBW-DC-CONMAR-6)","Lohringan Pink Opal (WBW-DC-CONMAR-6)","Magic Mirror (WBW-DC-VMT-1)","Million Sun Salute (WBW-DC-LEGIT-SV-4)","Nirmala's Special Spraypaint (WBW-DC-LEGIT-SV-4)","Pandemonium Sunset Pigment (WBW-DC-LEGIT-SV-4)","Paradise Snowglobe (WBW-DC-LEGIT-SV-4)","Preserved Fashion Sense (WBW-DC-LEGIT-SV-4)","Reflection Chai Latte (WBW-DC-LEGIT-SV-4)","Shadestone Relic (WBW-DC-LEGIT-SV-4)","Snipe Feather Pillow (DC-POA-SNIPE-1)","Souvenir Mini-Lith (WBW-DC-LEGIT-SV-4)","Sprite (WBW-DC-LEGIT-SV-4)","Starmetal Ingot (WBW-DC-LEGIT-SV-4)","Striking at the Bare Neck (DC-POA-SNIPE-1)","Tressym-Eye Marbles (WBW-DC-LEGIT-SV-4)","Vial of Liquid Starlight (WBW-DC-LEGIT-SV-4)","Vial of Slumber Sand (WBW-DC-LEGIT-SV-4)","Vibrant Darkling Mask (WBW-DC-LEGIT-SV-4)","Vibrant Eldritch Pigment (WBW-DC-LEGIT-SV-4)","Violent Hibiscus Pigment (WBW-DC-LEGIT-SV-4)","Waxworks Postcard (WBW-DC-LEGIT-SV-4)"],
 	"apple tea (wbw-dc-legit-sv-4)" : {
 		name: "Apple Tea (WBW-DC-LEGIT-SV-4)",
 		source : ["AL", "WBW-DC"],
@@ -1131,6 +1143,12 @@ MagicItemsList["al trinkets"] = {
 		source : ["AL", "WBW-DC"],
 		description: "This small pink opal no larger than a child’s fingernail is a symbol of love, gentleness, and healing. It glows faintly in the moonlight.",
 		descriptionFull: "This is a small, pink opal no larger than a child’s fingernail and a symbol of love, gentleness, and healing. It glows faintly in the moonlight.",
+	},
+	"magic mirror (wbw-dc-vmt-1)" : {
+		name: "Magic Mirror (WBW-DC-VMT-1)",
+		source : ["AL", "WBW-DC"],
+		description: "This silver hand mirror shows the viewer’s heart’s desire. The image reflected in the mirror’s polished surface comes purely from their memories or imagination, and can't be seen by anyone else.",
+		descriptionFull: "This silver hand mirror shows the viewer’s heart’s desire. The image reflected in the mirror’s polished surface comes purely from the viewer’s memories or imagination, and cannot be seen by anyone else.",
 	},
 	"million sun salute (wbw-dc-legit-sv-4)" : {
 		name: "Million Sun Salute (WBW-DC-LEGIT-SV-4)",
