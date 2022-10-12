@@ -94,6 +94,15 @@ SourceList["RotF"] = {
 	defaultExcluded : true
 };
 
+SourceList.FToD = {
+	name : "Fizban's Treasury of Dragons",
+	abbreviation : "FToD",
+	abbreviationSpellsheet : "FD",
+	group : "Primary Sources",
+	url : "https://dnd.wizards.com/products/treasury-dragons",
+	date : "2021/10/19"
+};
+
 
 //Creatures - here because I needed the pre-errata version
 CreatureList["sea lion"] = {
@@ -1398,6 +1407,46 @@ CreatureList["griffon (2 years)"] = {
 			description : "The griffon has advantage on Wisdom (Perception) checks that rely on sight."
 		}]
 	}
+
+
+//Approved as Find Greater Steed option in AL
+CreatureList["dragonnel"] = {
+	name : "Dragonnel",
+	source : [["FToD", 190]],
+	size : 2, //Large
+	type : "Beast",
+	companion : ["mount", "steed"],
+	alignment : "Neutral",
+	ac : 13,
+	hp : 58,
+	hd : [9, 10],
+	speed : "30 ft, fly 60 ft",
+	scores : [16, 15, 12, 8, 13, 10],
+	skills : {
+		"perception" : 3
+	},
+	senses : "Blindsight 30 ft; Darkvision 120 ft",
+	passivePerception : 13,
+	languages : "understands Draconic and Common but can't speak",
+	challengeRating : "2",
+	proficiencyBonus : 2,
+	attacksAction : 2,
+	attacks : [{
+		name : "Rend",
+		ability : 1,
+		damage : [2, 6, "slashing"],
+		range : "Melee (5 ft)",
+		description : ""
+	}],
+	actions : [{
+		name : "Multiattack",
+		description : "The dragonnel makes two Rend attacks."
+	}],
+	traits : [{
+		name : "Flyby",
+		description : "The dragonnel doesn't provoke an opportunity attack when it flies out of an enemy's reach."
+	}]
+}
 
 
 /*	"the runt (ccc-tarot2-9)" : {

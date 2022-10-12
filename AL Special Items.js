@@ -534,7 +534,7 @@ MagicItemsList["al new items"] = {
 		name : "AL New Items",
 		type : "wondrous item",
 		allowDuplicates : true,
-		choices : ["Achis Atracta (CCC-BMG-30 HILL2-3)","Bag of Tricks or Treats","Bone Compass (RMH-12)","Bookmark of Memory (WBW-PR)","Cariboots","Dagger of the Hidden Lord (DDHC-DIA-2)","Darkling Necklace (DDHC-TOA-8)","Discord (DDAL-DRW15)","Eye of Xxiphu (DDAL5-19)","Fey Hound Collar","Fold-Up Friend (WBW-PR)","Giant's Gloves (WBW-PR)","Ghost Sheet","Hat of Witchery","Hellrider's Badge (DDEP9-2)","Ioun Stone - Celebration (DDAL-DRW5)","Lemure Onesie","Mind-Poison Dagger (DDHC-MORD-05)","Mist Hunters Magnificent Cap (RMH Safety Tools)","Nettle (DDEP4)","Oathbinder (DDHC-TOA-15)","Order of the Guardians Ring (RMH Safety Tools)","Owlbear Snowshoes","Pearl of Elocution (WBW-PR)","Pipes of Remembrance","Pocket Watch (WBW-PR)","Pumpkin Ring","Selûne's Owl-Eye Glasses","Shar's Veil","Spare (DDHC-TOA-13)","Tarot Card Set","Wand of Whimsy (WBW-PR)","Woe (DDAL-DRW16)","Wooden Gecko Earrings (DDHC-TOA-8)"],
+		choices : ["Achis Atracta (CCC-BMG-30 HILL2-3)","Bag of Tricks or Treats","Bone Compass (RMH-12)","Bookmark of Memory (WBW-PR)","Bookmark of Memory: Limited Edition (WBW-DC-JSH-LIB-04PT)","Cariboots","Dagger of the Hidden Lord (DDHC-DIA-2)","Darkling Necklace (DDHC-TOA-8)","Discord (DDAL-DRW15)","Eye of Xxiphu (DDAL5-19)","Fey Hound Collar","Fold-Up Friend (WBW-PR)","Giant's Gloves (WBW-PR)","Ghost Sheet","Hat of Witchery","Hellrider's Badge (DDEP9-2)","Ioun Stone - Celebration (DDAL-DRW5)","Lemure Onesie","Mind-Poison Dagger (DDHC-MORD-05)","Mist Hunters Magnificent Cap (RMH Safety Tools)","Nettle (DDEP4)","Oathbinder (DDHC-TOA-15)","Order of the Guardians Ring (RMH Safety Tools)","Owlbear Snowshoes","Pearl of Elocution (WBW-PR)","Pipes of Remembrance","Pocket Watch (WBW-PR)","Pumpkin Ring","Selûne's Owl-Eye Glasses","Shar's Veil","Spare (DDHC-TOA-13)","Tarot Card Set","Wand of Whimsy (WBW-PR)","Woe (DDAL-DRW16)","Wooden Gecko Earrings (DDHC-TOA-8)"],
 	"achis atracta (ccc-bmg-30 hill2-3)" : { // contributed by AelarTheElfRogue
 		name : "Achis Atracta (CCC-BMG-30 HILL2-3)",
 		source : [["AL","CCC"]],
@@ -567,6 +567,14 @@ MagicItemsList["al new items"] = {
 			description : "This bone-wrought compass mask melds into your flesh to become a macabre bracelet. While attuned, you resist necrotic dmg & Undead have disadv. to atk you. As an action, command the compass to swing toward any Undead within 120 ft. The needle points to each Undead & changes color based on its relative strength. Green denotes an easy or medium encounter, red signals hard or deadly. Spells & abilities that affect or target Undead also affect & target you. While attuned to the compass, you don’t regain hp when you long rest or when you spend Hit Dice during a short rest.",
 			descriptionFull : "This bone-wrought compass mask melds into your flesh to become a macabre mounted bracelet. While attuned to the compass, you have resistance to necrotic damage and Undead have disadvantage on attack rolls that target you. As an action, you can command the compass to point toward an Undead or group of Undead within 120 feet. The needle swings around, pointing to each Undead and changing color based on its strength relative to you. Green denotes an easy or medium encounter, red signals hard or deadly.\n   " + toUni("Curse") + ". Spells and abilities that affect or target Undead also affect and can target you. While attuned to the compass, you don’t regain hit points when you complete a long rest or when you spend Hit Dice at the end of a short rest.",
 			action : [["action", "Bone Compass"]],
+		},
+	"bookmark of memory: limited edition (wbw-dc-jsh-lib-04pt)" : {
+		name : "Limited Edition Bookmark #4 (Bookmark of Memory)",
+		source : ["AL", "WBW-DC"],
+		rarity : "common",
+		magicItemTable : "?",
+		description : "This bookmark was letterpress printed with gold ink on midnight blue stock & shows a small cat proudly perched on a tall stack of books. Letters on each book form the word “INSPIRATION.” While its on your person, you feel optimistic about the future & butterflies frolic around you. When you open a book bearing this bookmark, you perfectly recall every word you’ve read from it.",
+		descriptionFull : "This bookmark has been letterpress printed with gold ink on midnight blue stock. It bears the image of a small cat proudly perched on a tall stack of books. The call number stickers on the books each bear a small letter, which when read from top to bottom form the word “INSPIRATION.” (This item is a Pact Reward for a Lesser Fey Pact, for having completed the Librarian's request that you explore the stacks and the Library's books.)\n   " + toUni("Blissful") + ". While in possession of the item, the bearer feels fortunate and optimistic about what the future holds. Butterflies and other harmless creatures might frolic in the item’s presence.\n   When you open a book bearing this bookmark, you immediately recall every word you’ve previously read from it, with perfect clarity."
 		},
 	"bookmark of memory (wbw-pr)" : {
 		name : "Bookmark of Memory (WBW-PR)",
@@ -695,6 +703,59 @@ MagicItemsList["al new items"] = {
 		attunement : true,
 		usages : 1,
 		recovery : "long rest",
+		eval : function () {
+		CurrentSpells['hat of wizardry'] = {
+			name : 'Hat of Wizardry (item)',
+			ability : "wizard",
+			list : { 'class' : 'wizard', level : [0, 0] },
+			known : { cantrips : 0, spells : 'list' },
+			bonus : {
+				bon1 : {
+					name : 'Just select "Full List"',
+					spells : []
+				},
+				bon2 : {
+					name : 'on the bottom left',
+					spells : []
+				}
+			},
+			typeList : 4,
+			refType : "item",
+			allowUpCasting : true,
+			firstCol : ""
+			};
+		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+		},
+		removeeval : function () {
+			delete CurrentSpells['hat of wizardry'];
+			SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+		},
+		calcChanges : {
+			spellList : [
+				function(spList, spName, spType) {
+					// Remove the already known cantrips, from any source except magic items
+					if (spName === 'hat of wizardry') {
+						var allSpellsKnown = [];
+						for (var sCast in CurrentSpells) {
+							if (sCast.refType === "item") continue;
+							var oCast = CurrentSpells[sCast];
+							if (oCast.selectCa) allSpellsKnown = allSpellsKnown.concat(oCast.selectCa);
+							if (oCast.selectBo) allSpellsKnown = allSpellsKnown.concat(oCast.selectBo);
+						}
+						var knownCantrips = OrderSpells(allSpellsKnown, "single", false, false, 0);
+						if (!spList.notspells) spList.notspells = [];
+						spList.notspells = spList.notspells.concat(knownCantrips);
+					}
+				},
+			],
+			spellAdd : [
+				function (spellKey, spellObj, spName, isDuplicate) {
+					if (spName === 'hat of wizardry') {
+						spellObj.firstCol = "";
+					};
+				}
+			]
+			},
 		},
 	"hellrider's badge (ddep9-2)" : {
 		name : "Hellrider's Badge (DDEP9-2)",
@@ -969,7 +1030,7 @@ MagicItemsList["al trinkets"] = {
 		rarity : "unique",
 		allowDuplicates : true,
 		defaultExcluded : true,
-		choices : ["Apple Tea (WBW-DC-LEGIT-SV-4)","Arcane Curio: Belt (DDEX2-10)","Arcane Curio: Brush (DDEX2-10)","Arcane Curio: Cloak (DDEX2-10)","Arcane Curio: Inkpot (DDEX2-10)","Arcane Curio: Pipe (DDEX2-10)","Arcane Curio: Quill (DDEX2-10)","Arcane Curio: Wand (DDEX2-10)","Artor's Blood Mead: Six-pack (DC-POA-SNIPE-1)","Bag of Chardalyn Shards (WBW-DC-LEGIT-SV-4)","Bundle of Glo-Sticks (WBW-DC-LEGIT-SV-4)","Cauldron of Stars (WBW-DC-LEGIT-SV-4)","Customized Crystal Memento (WBW-DC-LEGIT-SV-4)","Dinosaur Eggshell (WBW-DC-CONMAR-6)","Efreeti Crown of Wishes (CCC-ODFC2-2)","Faded Darkling Tassel (WBW-DC-LEGIT-SV-4)","Fairy Bread (WBW-DC-LEGIT-SV-4)","Flamesoul Stone (CCC-YLRA1-3)","Gem Biscuits (WBW-DC-LEGIT-SV-4)","Glitched Astral Diamond (WBW-DC-LEGIT-SV-4)","Handheld Tele-Kaleidoscope (WBW-DC-LEGIT-SV-4)","Ice Cream Sandwich (WBW-DC-LEGIT-SV-4)","Infernal Iron Ingot (WBW-DC-LEGIT-SV-4)","Inky Darkling Extreme [Diet] (WBW-DC-LEGIT-SV-4)","Leaf With Amber Veins (WBW-DC-CONMAR-6)","Lohringan Pink Opal (WBW-DC-CONMAR-6)","Magic Mirror (WBW-DC-VMT-1)","Million Sun Salute (WBW-DC-LEGIT-SV-4)","Nirmala's Special Spraypaint (WBW-DC-LEGIT-SV-4)","Pandemonium Sunset Pigment (WBW-DC-LEGIT-SV-4)","Paradise Snowglobe (WBW-DC-LEGIT-SV-4)","Preserved Fashion Sense (WBW-DC-LEGIT-SV-4)","Reflection Chai Latte (WBW-DC-LEGIT-SV-4)","Shadestone Relic (WBW-DC-LEGIT-SV-4)","Snipe Feather Pillow (DC-POA-SNIPE-1)","Souvenir Mini-Lith (WBW-DC-LEGIT-SV-4)","Sprite (WBW-DC-LEGIT-SV-4)","Starmetal Ingot (WBW-DC-LEGIT-SV-4)","Striking at the Bare Neck (DC-POA-SNIPE-1)","Tressym-Eye Marbles (WBW-DC-LEGIT-SV-4)","Vial of Liquid Starlight (WBW-DC-LEGIT-SV-4)","Vial of Slumber Sand (WBW-DC-LEGIT-SV-4)","Vibrant Darkling Mask (WBW-DC-LEGIT-SV-4)","Vibrant Eldritch Pigment (WBW-DC-LEGIT-SV-4)","Violent Hibiscus Pigment (WBW-DC-LEGIT-SV-4)","Waxworks Postcard (WBW-DC-LEGIT-SV-4)"],
+		choices : ["Apple Tea (WBW-DC-LEGIT-SV-4)","Arcane Curio: Belt (DDEX2-10)","Arcane Curio: Brush (DDEX2-10)","Arcane Curio: Cloak (DDEX2-10)","Arcane Curio: Inkpot (DDEX2-10)","Arcane Curio: Pipe (DDEX2-10)","Arcane Curio: Quill (DDEX2-10)","Arcane Curio: Wand (DDEX2-10)","Artor's Blood Mead: Six-pack (DC-POA-SNIPE-1)","Bag of Chardalyn Shards (WBW-DC-LEGIT-SV-4)","Bundle of Glo-Sticks (WBW-DC-LEGIT-SV-4)","Cauldron of Stars (WBW-DC-LEGIT-SV-4)","Customized Crystal Memento (WBW-DC-LEGIT-SV-4)","Dinosaur Eggshell (WBW-DC-CONMAR-6)","Efreeti Crown of Wishes (CCC-ODFC2-2)","Faded Darkling Tassel (WBW-DC-LEGIT-SV-4)","Fairy Bread (WBW-DC-LEGIT-SV-4)","Flamesoul Stone (CCC-YLRA1-3)","Gem Biscuits (WBW-DC-LEGIT-SV-4)","Glitched Astral Diamond (WBW-DC-LEGIT-SV-4)","Handheld Tele-Kaleidoscope (WBW-DC-LEGIT-SV-4)","Ice Cream Sandwich (WBW-DC-LEGIT-SV-4)","Infernal Iron Ingot (WBW-DC-LEGIT-SV-4)","Inky Darkling Extreme [Diet] (WBW-DC-LEGIT-SV-4)","Leaf With Amber Veins (WBW-DC-CONMAR-6)","Lohringan Pink Opal (WBW-DC-CONMAR-6)","Magic Mirror (WBW-DC-VMT-1)","Million Sun Salute (WBW-DC-LEGIT-SV-4)","Nirmala's Special Spraypaint (WBW-DC-LEGIT-SV-4)","Pandemonium Sunset Pigment (WBW-DC-LEGIT-SV-4)","Paradise Snowglobe (WBW-DC-LEGIT-SV-4)","Piece of the Infernal Machine of Lum the Mad (IMR)","Preserved Fashion Sense (WBW-DC-LEGIT-SV-4)","Reflection Chai Latte (WBW-DC-LEGIT-SV-4)","Shadestone Relic (WBW-DC-LEGIT-SV-4)","Snipe Feather Pillow (DC-POA-SNIPE-1)","Souvenir Mini-Lith (WBW-DC-LEGIT-SV-4)","Sprite (WBW-DC-LEGIT-SV-4)","Starmetal Ingot (WBW-DC-LEGIT-SV-4)","Striking at the Bare Neck (DC-POA-SNIPE-1)","Tressym-Eye Marbles (WBW-DC-LEGIT-SV-4)","Vial of Liquid Starlight (WBW-DC-LEGIT-SV-4)","Vial of Slumber Sand (WBW-DC-LEGIT-SV-4)","Vibrant Darkling Mask (WBW-DC-LEGIT-SV-4)","Vibrant Eldritch Pigment (WBW-DC-LEGIT-SV-4)","Violent Hibiscus Pigment (WBW-DC-LEGIT-SV-4)","Waxworks Postcard (WBW-DC-LEGIT-SV-4)"],
 	"apple tea (wbw-dc-legit-sv-4)" : {
 		name: "Apple Tea (WBW-DC-LEGIT-SV-4)",
 		source : ["AL", "WBW-DC"],
@@ -1173,6 +1234,12 @@ MagicItemsList["al trinkets"] = {
 		source : ["AL", "WBW-DC"],
 		description: "An island paradise preserved for eternity in glass.",
 		descriptionFull: "An island paradise preserved for eternity in glass.",
+	},
+	"piece of the infernal machine of lum the mad (imr)" : {
+		name: "Piece of the Machine of Lum the Mad (IMR)",
+		source : ["AL:EL", 2019],
+		description: "Once operated via its vast array of buttons, dials & levers, the Infernal Machine of Lum the Mad was dismantled & lies scattered through the world. Who knows what function this piece controlled? It appears as a jeweled button marked with a mysterious glyph, hung from a delicate chain.",
+		descriptionFull: "Once operated via its vast array of buttons, dials, and levers, the Infernal Machine of Lum the Mad has been dismantled and lies scattered throughout the world.\n   Who knows what function of it this piece controlled? This appears as a jeweled button marked with a mysterious glyph, hung from a delicate chain.",
 	},
 	"preserved fashion sense (wbw-dc-legit-sv-4)" : {
 		name: "Preserved Fashion Sense (WBW-DC-LEGIT-SV-4)",
