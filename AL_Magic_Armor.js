@@ -298,7 +298,7 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		"\n  I\t  +3\tSpiked Armor, Splint, Studded Leather",
 		allowDuplicates : true,
 		choicesNotInMenu : true,
-		choices : ["+1 Leather (DDEP7-1)","+1 Studded Leather (CCC-BMG-21 HULB2-3)","+1 Scale Mail: Shroud of the Mourning Warrior (DDAL5-13)","+1 Breastplate: Glass (DDEP0-1)","+1 Half Plate: Bone (CCC-TRI-6 NIGHT1-2)", "+1 Half Plate (DDEP4)","+1 Splint (DDEX1-12)","+1 Splint (DDAL5-4)","+1 Splint: Remorhaz (DDEP10-2)","+2 Studded Leather (CCC-TRI-23 STORM1-2)","+2 Studded Leather (PO-BK-1-5)","+2 Half Plate: Stone (DDEP7-2)","+2 Splint: Remorhaz (DDEP10-2)","+2 Plate: Stone (CCC-JGD-1)","+3 Hide: Daphnaie Armor (ALSRs11-A)"],
+		choices : ["+1 Leather (DDEP7-1)","+1 Studded Leather (CCC-BMG-21 HULB2-3)","+1 Scale Mail: Shroud of the Mourning Warrior (DDAL5-13)","+1 Breastplate: Glass (DDEP0-1)","+1 Half Plate: Bone (CCC-TRI-6 NIGHT1-2)", "+1 Half Plate (DDEP4)","+1 Splint (DDEX1-12)","+1 Splint (DDAL5-4)","+1 Splint: Remorhaz (DDEP10-2)","+2 Studded Leather (CCC-TRI-23 STORM1-2)","+2 Studded Leather (PO-BK-1-5)","+2 Half Plate: Stone (DDEP7-2)","+2 Half Plate: Glass (WBW-DC-PHP-PHAN-2)","+2 Splint: Remorhaz (DDEP10-2)","+2 Plate: Stone (CCC-JGD-1)","+3 Hide: Daphnaie Armor (ALSRs11-A)"],
 		"+1 leather (ddep7-1)" : {
 			name : "+1 Leather (DDEP7-1)",
 			source : [["AL","S7"]],
@@ -464,6 +464,20 @@ MagicItemsList["al armor +1, +2, +3"] = {
 				source : [["AL", "S7"]],
 				}]
 		},
+		"+2 half plate: glass (wbw-dc-php-phan-2)" : {
+			name : "+2 Glass Half Plate (WBW-DC-PHP-PHAN-2)",
+			source : [["AL","WBW-DC"]],
+			rarity : "very rare",
+			magicItemTable : "I",
+			allowDuplicates : true,
+			description : "This armor is made of strong yet ethereal glass and grants a +2 bonus to AC when worn. It's detailed with golden flowers and a child's doodle.",
+			descriptionFull : "You have a +2 bonus to AC while wearing this armor. The armor is detailed with golden flowers and a small child’s doodle. Additionally, the armor has the Strange Material property and appears to be made of strong yet ethereal glass, similar to the shoes Ella gave you in WBW-DC-PHP-PHAN-1.",
+			armorAdd : "+2 Glass Half Plate",
+			armorOptions : [{
+				name : "+2 Glass Half Plate",
+				source : [["AL", "WBW-DC"]],
+				}]
+		},
 		"+2 splint: remorhaz (ddep10-2)" : {
 			name : "+2 Remorhaz Splint (DDEP10-2)",
 			source : [["AL","S10"]],
@@ -515,7 +529,7 @@ MagicItemsList["al armor (common)"] = {
 		choicesNotInMenu : true,
 		rarity : "common",
 		magicItemTable : "?",
-	choices : ["Cast-Off Breastplate (DC-POA-CONMAR-6)","Cast-Off Breastplate: Ooze (DC-POA-GaryXIII-4)","Cast-Off Breastplate (DC-POA-HAG-SF4)","Cast-Off Chain Mail: Scavenger's Shroud (CCC-DES-4-1)","Shield of Expression (DC-POA-CONMAR-15)","Shield of Expression (DC-POA-SNIPE-1)","Smoldering Armor: Flurried Furs (DDAL0-4)","Smoldering Studded Leather (DC-POA-CODEX-2)","Smoldering Studded Leather (DC-POA-CONMAR-8)","Smoldering Studded Leather (DC-POA-GSP2-2H)","Smoldering Studded Leather: Smokin' Hot Leather (DC-POA-LEGIT-SV-02)","Smoldering Studded Leather (DC-POA-OGG-1)","Smoldering Studded Leather: Armor of the Dark Knight (DC-POA-TDG1-4)","Smoldering Studded Leather (DDAL10-0)","Smoldering Scale Mail: Stygian Armor (CCC-GSP2-2)","Smoldering Breastplate: Jökulsbrynja (DC-POA-CONMAR-3)","Smoldering Breastplate: Wintergreen Guard (DC-POA-LEGIT-SV-01)","Spiked Armor of Gleaming: Axehead's Coat of Beaks (CCC-MTL-3)"],
+	choices : ["Cast-Off Breastplate (DC-POA-CONMAR-6)","Cast-Off Breastplate: Ooze (DC-POA-GaryXIII-4)","Cast-Off Breastplate (DC-POA-HAG-SF4)","Cast-Off Chain Mail: Scavenger's Shroud (CCC-DES-4-1)","Shield of Expression (DC-POA-CONMAR-15)","Shield of Expression (DC-POA-SNIPE-1)","Shield of Expression (WBW-DC-CONMAR-10)","Smoldering Armor: Flurried Furs (DDAL0-4)","Smoldering Studded Leather (DC-POA-CODEX-2)","Smoldering Studded Leather (DC-POA-CONMAR-8)","Smoldering Studded Leather (DC-POA-GSP2-2H)","Smoldering Studded Leather: Smokin' Hot Leather (DC-POA-LEGIT-SV-02)","Smoldering Studded Leather (DC-POA-OGG-1)","Smoldering Studded Leather: Armor of the Dark Knight (DC-POA-TDG1-4)","Smoldering Studded Leather (DDAL10-0)","Smoldering Scale Mail: Stygian Armor (CCC-GSP2-2)","Smoldering Breastplate: Jökulsbrynja (DC-POA-CONMAR-3)","Smoldering Breastplate: Wintergreen Guard (DC-POA-LEGIT-SV-01)","Spiked Armor of Gleaming: Axehead's Coat of Beaks (CCC-MTL-3)"],
 	"cast-off breastplate (dc-poa-conmar-6)" : {
 		name : "Cast-Off Breastplate (DC-POA-CONMAR-6)",
 		source : [["AL","DC-POA"]],
@@ -590,6 +604,17 @@ MagicItemsList["al armor (common)"] = {
 			rarity : "common",
 			description : "This tapestry shows Artor Morlin, the Baron of Blood, & Halaster the Mad Mage. A memento of an uncomfortable & awkward feast, it's mounted on a round frame with a strap that makes it usable as a shield. The bottom is engraved: “Inaugural Chalet Celebration: Special Adjunct Apprentice Minion Commemorative Award Souvenir.” When it gets marred or dirty, it repairs & cleans itself in an hour. As a bonus action when bearing the shield, you can alter Artor or Halaster's expressions.",
 			descriptionFull : "Made magically by Halaster the Mad Mage of Undermountain, this is a mounted tapestry on a round frame, showing a picture of Artor Morlin, the Baron of Blood, and Halaster the Mad Mage. It is engraved on the bottom with the following: “Inaugural Chalet Celebration: Special Adjunct Apprentice Minion Commemorative Award Souvenir.”\n   Try as you might, any time this picture gets marred or dirty, it repairs and cleans itself within the hour. Although given as a useless memento of an uncomfortable and awkward feast, the strap at the back makes it usable as a passable shields.\n   While bearing the picture, you can use a bonus action to alter the expression on the faces of Morlin or Halaster.\n   The front of this shield is shaped in the likeness of a face. While bearing the shield, you can use a bonus action to alter the faces expression.",
+			weight : 6,
+			shieldAdd : "Shield of Expression",
+			action : [["bonus action", "Shield of Expression"]]
+	},
+	"shield of expression (wbw-dc-conmar-10)" : {
+			name : "Shield of Expression (WBW-DC-CONMAR-10)",
+			source : [["AL","WBW-DC"]],
+			type : "shield",
+			rarity : "common",
+			description : "This shield bears the face of one of the Hopelessly Devoted Knights, whose standard expression is a smirk. As a bonus action while holding it, you can alter the expression of the face.",
+			descriptionFull : "The shield has the face of one of the Hopelessly Devoted Knights, whose standard expression is a smirk.\n   The front of this shield is shaped in the likeness of a face. While bearing the shield, you can use a bonus action to alter the faces expression.",
 			weight : 6,
 			shieldAdd : "Shield of Expression",
 			action : [["bonus action", "Shield of Expression"]]
@@ -754,7 +779,7 @@ MagicItemsList["al armor (common)"] = {
 MagicItemsList["al armor (other)"] = {
 		name : "AL Armor (Other)",
 		allowDuplicates : true,
-	choices : ["Breastplate of Necrotic Resistance: Chardalyn (DDAL10-5)","Demon Armor (DDEX3-16)","Efreeti Chain (DDAL7-15)","Elven Chain (CCC-BMG-36 ELMW2-3)","Elven Chain (CCC-SQC-2-2)","Elven Chain (WBW-DC-Rook-2-1)","Elven Chain (WBW-DC-ZEP-T2S5)","Glamoured Studded Leather (DDAL4-9)","Glamoured Studded Leather (DDAL8-11)","Glamoured Studded Leather (DDAL9-6)","Half Plate of Poison Resistance: Mushroom (DDEX3-11)","Mariner's Studded Leather (DDAL-DRW9)","Mariner's Breastplate (CCC-AETHER-1-2)","Mariner's Breastplate (CCC-MMT1-2)","Mariner's Scale Mail (ALSRs11-A)","Plate Armor of Etherealness (DDAL8-16)","Red Dragon Scale Mail (DDEP5-1)","Red Dragon Scale Mail (DDAL9-15)","Scale Mail of Psychic Resistance: Resin (CCC-TRI-21 YUL1-6)","Studded Leather of Fire Resistance (DDAL0-11C)"],
+	choices : ["Breastplate of Necrotic Resistance: Chardalyn (DDAL10-5)","Demon Armor (DDEX3-16)","Efreeti Chain (DDAL7-15)","Elven Chain (CCC-BMG-36 ELMW2-3)","Elven Chain (CCC-SQC-2-2)","Elven Chain (WBW-DC-AMQ-5)","Elven Chain: Astral (WBW-DC-CONMAR-12)","Elven Chain: Guardian (WBW-DC-GGS-1)","Elven Chain: Loud (WBW-DC-GGS-1)","Elven Chain (WBW-DC-PHP-SPAMMY-1)","Elven Chain (WBW-DC-Rook-2-1)","Elven Chain (WBW-DC-ZEP-T2S5)","Glamoured Studded Leather (DDAL4-9)","Glamoured Studded Leather (DDAL8-11)","Glamoured Studded Leather (DDAL9-6)","Glamoured Studded Leather: Cinderella's Wedding Corset (WBW-DC-CONMAR-15)","Half Plate of Poison Resistance: Mushroom (DDEX3-11)","Mariner's Studded Leather (DDAL-DRW9)","Mariner's Breastplate (CCC-AETHER-1-2)","Mariner's Breastplate (CCC-MMT1-2)","Mariner's Scale Mail (ALSRs11-A)","Plate Armor of Etherealness (DDAL8-16)","Red Dragon Scale Mail (DDEP5-1)","Red Dragon Scale Mail (DDAL9-15)","Scale Mail of Psychic Resistance: Resin (CCC-TRI-21 YUL1-6)","Studded Leather of Fire Resistance (DDAL0-11C)"],
 	"breastplate of necrotic resistance: chardalyn (ddal10-5)" : {
 			name : "Chardalyn Breastplate of Necrotic Resist. (DDAL10-5)",
 			source : [["AL","S10"]],
@@ -866,13 +891,108 @@ MagicItemsList["al armor (other)"] = {
 			weight : 20
 		}]
 	},
+	"elven chain (wbw-dc-amq-5)" : {
+		name : "Elven Chain (WBW-DC-AMQ-5)",
+		source : [["AL","WBW-DC"]],
+		type : "armor (chain shirt)",
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "This elven chain shirt is made of interlocking black & silver metal rings. On the back, the rings form an intricate pattern of a portcullis with the letters “TM” on top. It may be the manager’s uniform for the “Dungeon of the Smelly Doom”. While wearing this chain, you gain +1 AC & are proficient even if you lack proficiency with medium armor.",
+		descriptionFull : "This elven chain was built with interlocked black and silvery metal rings. The rings form an intricate pattern at the back of the chain mail shirt. It resembles a portcullis with the “TM” letters at its top. Would this be the manager’s uniform for the staff working at the “Dungeon of the Smelly Doom”?\n   You gain a +1 bonus to AC while you wear this armor. You are considered proficient with this armor even if you lack proficiency with medium armor.",
+		weight : 20,
+		armorAdd : "Elven Chain",
+		armorOptions : [{
+			regExpSearch : /^(?=.*elven)(?=.*chain).*$/i,
+			name : "Elven Chain",
+			source : [["AL","WBW-DC"]],
+			type : "medium",
+			ac : 14,
+			weight : 20
+		}]
+	},
+	"elven chain: astral (wbw-dc-conmar-12)" : {
+		name : "Astral Elven Chain (WBW-DC-CONMAR-12)",
+		source : [["AL","WBW-DC"]],
+		type : "armor (chain shirt)",
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "This elven chain has a rare design & will make heads turn. The chain weaving is exquisite, delicate and must have been created by some machine-powered process. The trim is adorned with unidentifiable runic letters. While wearing this chain, you gain +1 AC & are proficient even if you lack proficiency with medium armor.",
+		descriptionFull : "This elven chain is made from a design rarely encountered. The weaving of the chain is quite exquisite and delicate and must have been created by some machine-powered process. The trim is adorned with unidentifiable runic letters. Wearing this elven chain will make heads turn.\n   You gain a +1 bonus to AC while you wear this armor. You are considered proficient with this armor even if you lack proficiency with medium armor.",
+		weight : 20,
+		armorAdd : "Elven Chain",
+		armorOptions : [{
+			regExpSearch : /^(?=.*elven)(?=.*chain).*$/i,
+			name : "Elven Chain",
+			source : [["AL","WBW-DC"]],
+			type : "medium",
+			ac : 14,
+			weight : 20
+		}]
+	},
+	"elven chain: guardian (wbw-dc-ggs-1)" : {
+		name : "Guardian Elven Chain (WBW-DC-GGS-1)",
+		source : [["AL","WBW-DC"]],
+		type : "armor (chain shirt)",
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "The interlocking rings of this chain shirt form a delicate black & white spider web. Fine script stenciled around the neck repeats the phrase “Granny has little patience for rudeness” in Elvish. When danger is imminent, the armor whispers “mind your manners & be polite” & you feel like dozens of tiny spiders are crawling across your body. The warning grants +2 to initiative if you're not incapacitated. While wearing this chain, you gain +1 AC & are proficient even if you lack proficiency with medium armor.",
+		descriptionFull : "The interlocking rings of this chain shirt are formed in a delicate black and white spider web pattern. Fine Elvish script is stenciled around the neck border that repeats the phrase “Granny has little patience for rudeness,” in Elvish.\n   When danger is imminent, this armor whispers to the wearer “mind your manners and be polite” and it feels like dozens of tiny spiders are crawling through the spider web pattern across the wearer’s body. This warning grants a +2 to initiative rolls as long as the wearer is not incapacitated.\n   You gain a +1 bonus to AC while you wear this armor. You are considered proficient with this armor even if you lack proficiency with medium armor.",
+		weight : 20,
+		armorAdd : "Elven Chain",
+		armorOptions : [{
+			regExpSearch : /^(?=.*elven)(?=.*chain).*$/i,
+			name : "Elven Chain",
+			source : [["AL","WBW-DC"]],
+			type : "medium",
+			ac : 14,
+			weight : 20
+		}]
+	},
+	"elven chain: loud (wbw-dc-ggs-1)" : {
+		name : "Loud Elven Chain (WBW-DC-GGS-1)",
+		source : [["AL","WBW-DC"]],
+		type : "armor (chain shirt)",
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "The interlocking rings of this chain shirt form a delicate black & white spider web. Fine script stenciled around the neck repeats the phrase “Granny has little patience for rudeness” in Elvish. When you're hit by an atk, you feel like dozens of tiny spiders are crawling across your body from the spider web. There's also a discordant violin sound & Granny Greataxe's voice saying “How rude!” at a normal speaking volume. While wearing this chain, you gain +1 AC & are proficient even if you lack proficiency with medium armor.",
+		descriptionFull : "The interlocking rings of this chain shirt are formed in a delicate black and white spider web pattern. Fine Elvish script is stenciled around the neck border that repeats the phrase “Granny has little patience for rudeness,” in Elvish.\n   Whenever the character wearing this armor is hit by a melee or ranged attack, the armor feels like dozens of tiny spiders are crawling in and out of the spider web pattern and across the wearer's body. The feeling is accompanied by an audible discordant violin sound, and Granny Greataxe's voice echoes “How rude!” at a normal speaking volume.\n   You gain a +1 bonus to AC while you wear this armor. You are considered proficient with this armor even if you lack proficiency with medium armor.",
+		weight : 20,
+		armorAdd : "Elven Chain",
+		armorOptions : [{
+			regExpSearch : /^(?=.*elven)(?=.*chain).*$/i,
+			name : "Elven Chain",
+			source : [["AL","WBW-DC"]],
+			type : "medium",
+			ac : 14,
+			weight : 20
+		}]
+	},
+	"elven chain (wbw-dc-php-spammy-1)" : {
+		name : "Elven Chain (WBW-DC-PHP-SPAMMY-1)",
+		source : [["AL","WBW-DC"]],
+		type : "armor (chain shirt)",
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "This chain shirt was crafted inside a fey domain. It reacts to your emotions and personality, changing colors based on your mood and style. If the armor gets hit, it plays a musical chime on impact. While wearing this chain, you gain +1 AC & are proficient even if you lack proficiency with medium armor.",
+		descriptionFull : "This armor has been crafted inside the domain itself. It reacts to the user's emotions and personality, changing colors based on their mood and style. If the armor gets hit, it will also play a musical chime on its impact.\n   You gain a +1 bonus to AC while you wear this armor. You are considered proficient with this armor even if you lack proficiency with medium armor.",
+		weight : 20,
+		armorAdd : "Elven Chain",
+		armorOptions : [{
+			regExpSearch : /^(?=.*elven)(?=.*chain).*$/i,
+			name : "Elven Chain",
+			source : [["AL","WBW-DC"]],
+			type : "medium",
+			ac : 14,
+			weight : 20
+		}]
+	},
 	"elven chain (wbw-dc-rook-2-1)" : {
 		name : "Elven Chain (WBW-DC-Rook-2-1)",
 		source : [["AL","WBW-DC"]],
 		type : "armor (chain shirt)",
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "Made of interlocking amorywood rings as strong as mithral, this chain shirt is of obvious elven design & glows faintly when goblinoids are within 120 ft. You gain a +1 bonus to AC while you wear it & are considered proficient even if you lack proficiency with medium armor.",
+		description : "Made of interlocking amorywood rings as strong as mithral, this chain shirt is of obvious elven design & glows faintly when goblinoids are within 120 ft. While wearing this chain, you gain +1 AC & are proficient even if you lack proficiency with medium armor.",
 		descriptionFull : "Made of interlocking amorywood rings, this armor is of obvious elven design. These rings are as strong as mithral.\n   " + toUni("Sentinel") + ". This item glows faintly when goblinoids are within 120 feet of it.\n   You gain a +1 bonus to AC while you wear this armor. You are considered proficient with this armor even if you lack proficiency with medium armor.",
 		weight : 20,
 		armorAdd : "Elven Chain (Amorywood)",
@@ -891,7 +1011,7 @@ MagicItemsList["al armor (other)"] = {
 		type : "armor (chain shirt)",
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "Instead of silver metal, this armor appears to be an orange cloth vest embroidered with “Zep Chimelong Kingdom” that floats on water and other liquids. The inside tag reads, “Compliments of Princess Petunia”. You gain a +1 bonus to AC while you wear it & are considered proficient even if you lack proficiency with medium armor.",
+		description : "Instead of silver metal, this armor appears to be an orange cloth vest embroidered with “Zep Chimelong Kingdom” that floats on water and other liquids. The inside tag reads, “Compliments of Princess Petunia”. While wearing this chain, you gain +1 AC & are proficient even if you lack proficiency with medium armor.",
 		descriptionFull : "This item floats on water and other liquids. Instead of silver metal, this armor appears to be an orange cloth vest embroidered with the words Zep Chimelong Kingdom. The inside tag reads, “Compliments of Princess Petunia”.\n   You gain a +1 bonus to AC while you wear this armor. You are considered proficient with this armor even if you lack proficiency with medium armor.",
 		weight : 20,
 		armorAdd : "Elven Chain (Cloth)",
@@ -910,13 +1030,14 @@ MagicItemsList["al armor (other)"] = {
 		type : "armor (studded leather)",
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "This studded lthr armor is tight & immodestly cut. While wearing it, you gain a +1 bonus to AC. As a bonus action, speak command word & cause armor to assume the appearance of a normal clothing or other armor type. You decide appearance, but the armor retains normal bulk. Any illusion created by this item appears to be of the finest quality. No matter what form it takes, your appearance draws the eye. The illusion lasts until you use this property again or remove the armor.",
+		description : "This studded lthr armor is tight & immodestly cut. While wearing it, you gain a +1 bonus to AC. As a bonus action, speak command word & cause the armor to look like normal clothing or another armor type. You decide appearance, but the armor retains normal bulk. Any illusion created by this item appears to be of the finest quality. No matter what form it takes, your appearance draws the eye. The illusion lasts until you use this property again or remove the armor.",
+		descriptionLong : "This studded leather armor is tight and immodestly cut. While wearing it, you gain a +1 bonus to AC. As a bonus action, speak the command word and cause the armor to look like normal clothing or another armor type. You decide its appearance, but the armor retains normal bulk. Any illusion created by this item appears to be of the finest quality. No matter what form it takes, your appearance draws the eye. The illusion lasts until you use this property again or remove the armor.",
 		descriptionFull : "In its natural state, this armor is tight and immodestly cut. While wearing this armor, you gain a +1 bonus to AC. You can also use a bonus action to speak the armor's command word and cause the armor to assume the appearance of a normal set of clothing or some other kind of armor. You decide what it looks like, including color, style, and accessories, but the armor retains its normal bulk and weight. Any illusion of normal clothing and other types of armor created by this item can appear only to be of the finest quality. No matter what form it takes, when you wear this item, your appearance draws the eye of those around you. The illusory appearance last until you use this property again or remove the armor.",
 		armorAdd : "Glamoured Studded Leather",
 		armorOptions : {
 			regExpSearch : /^(?=.*glamou?r)(?=.*(studded|studs))(?=.*leather).*$/i,
 			name : "Glamoured Studded Leather",
-			source : [["SRD", 224], ["D", 172] ["AL","S4"]],
+			source : [["AL","S4"]],
 			type : "light",
 			ac : 13,
 			weight : 13
@@ -929,13 +1050,13 @@ MagicItemsList["al armor (other)"] = {
 		type : "armor (studded leather)",
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "This studded armor is made of salmon leather that has been dyed midnight black. While wearing it, you cannot become wet unless fully immersed in a liquid & you gain a +1 bonus to AC. As a bonus action, you can speak the command word & cause armor to assume the appearance of a normal clothing or other armor type. You decide appearance, but the armor retains normal bulk. The illusion lasts until you use this property again or remove the armor.",
+		description : "This studded armor is made of salmon leather that has been dyed midnight black. While wearing it, you cannot become wet unless fully immersed in a liquid & you gain a +1 bonus to AC. As a bonus action, you can speak the command word & cause the armor to look like normal clothing or another armor type. You decide appearance, but the armor retains normal bulk. The illusion lasts until you use this property again or remove the armor.",
 		descriptionFull : "This armor is made of salmon leather that has been dyed midnight black. While wearing this studded leather, you cannot become wet unless fully immersed in a liquid & you gain a +1 bonus to AC. You can also use a bonus action to speak the armor's command word and cause the armor to assume the appearance of a normal set of clothing or some other kind of armor. You decide what it looks like, including color, style, and accessories, but the armor retains its normal bulk and weight. The illusory appearance last until you use this property again or remove the armor.",
 		armorAdd : "Glamoured Studded Leather",
 		armorOptions : {
 			regExpSearch : /^(?=.*glamou?r)(?=.*(studded|studs))(?=.*leather).*$/i,
 			name : "Glamoured Studded Leather",
-			source : [["SRD", 224], ["D", 172] ["AL","S8"]],
+			source : [["AL","S8"]],
 			type : "light",
 			ac : 13,
 			weight : 13
@@ -948,13 +1069,32 @@ MagicItemsList["al armor (other)"] = {
 		type : "armor (studded leather)",
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "Made from tough yet flexible giant abyssal crocodile hide leather & studded with what look to be teeth, this armor grants a +1 bonus to AC. As a bonus action, you can speak the command word & cause armor to assume the appearance of a normal clothing or other armor type. You decide appearance, but the armor retains normal bulk. The illusion lasts until you use this property again or remove the armor.",
+		description : "Made from tough yet flexible giant abyssal crocodile hide leather & studded with what look to be teeth, this armor grants a +1 bonus to AC. As a bonus action, you can speak the command word & cause the armor to look like normal clothing or another armor type. You decide appearance, but the armor retains normal bulk. The illusion lasts until you use this property again or remove the armor.",
 		descriptionFull : "Made from tough yet flexible giant abyssal crocodile hide leather and studded with what look to be teeth, this armor grants a +1 bonus to AC. You can also use a bonus action to speak the armor's command word and cause the armor to assume the appearance of a normal set of clothing or some other kind of armor. You decide what it looks like, including color, style, and accessories, but the armor retains its normal bulk and weight. The illusory appearance last until you use this property again or remove the armor.",
 		armorAdd : "Glamoured Studded Leather",
 		armorOptions : {
 			regExpSearch : /^(?=.*glamou?r)(?=.*(studded|studs))(?=.*leather).*$/i,
 			name : "Glamoured Studded Leather",
-			source : [["SRD", 224], ["D", 172] ["AL","S9"]],
+			source : [["AL","S9"]],
+			type : "light",
+			ac : 13,
+			weight : 13
+			},
+		action : [["bonus action", "Glamoured Studded Lthr (change)"]]
+		},
+	"glamoured studded leather: cinderella's wedding corset (wbw-dc-conmar-15)" : {
+		name : "Cinderella's Wedding Corset (Glamoured Studded Leather)",
+		source : [["AL","WBW-DC"]],
+		type : "armor (studded leather)",
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "This magical armor grants +1 to AC. It's natural state is a white corset decorated with lace & rhinestones. Speak the command word as a bonus action to make it look like normal clothing or another armor type. You decide the appearance, but the armor retains its normal bulk. The illusion lasts until you use this property again or remove the armor.",
+		descriptionFull : "This armor's natural state is a white corset decorated with lace and rhinestones. It grants a +1 bonus to AC and you can use a bonus action to speak the armor's command word and cause the armor to assume the appearance of a normal set of clothing or some other kind of armor. You decide what it looks like, including color, style, and accessories, but the armor retains its normal bulk and weight. The illusory appearance last until you use this property again or remove the armor.",
+		armorAdd : "Glamoured Studded Leather",
+		armorOptions : {
+			regExpSearch : /^(?=.*glamou?r)(?=.*(studded|studs))(?=.*leather).*$/i,
+			name : "Glamoured Studded Leather",
+			source : [["AL","S9"]],
 			type : "light",
 			ac : 13,
 			weight : 13

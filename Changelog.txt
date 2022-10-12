@@ -1,3 +1,26 @@
+Changelog (After 8/10/22):
+-Added additional items from WBW-DC items
+-Fixed an incorrect language add-on from DDEP1
+-Added additional items from unpublished WBW-DC and Infernal Machine Rebuild cert
+-Changed item in WBW-DC-MOM-2 from Stormbreaker to Faithbringer per module edits
+-Added missing attunement requirement to several giant belts
+-Added Dragonnel in Creatures as Find Greater Steed option
+-Adding missing language proficiency for the Baby Hydra Plushie
+-Fixed an issue with the Hag's Clawblade not registering as finesse
+-Corrected minor properties on several Staffs of the Woodlands. Hopefully, they're all right now.
+-Added a missing minor property to the LSN Eyes of Minute Seeing
+-Corrected a flavor error in an Eversmoking Bottle
+-Corrected a typo in the Staff of Birdcalls
+-Corrected some missing info/incorrect flavor in Ioun Stones
+
+
+Changelog (After 7/15/22):
+-Added additional items from WBW-DC items
+-Adjusted some descriptions to make them more concise
+-Adjusted some errors in listed sources
+-Fixed some errors in the Special and Magic Items files so they'd actually install.
+
+
 Changelog: (After 5/29/22)
 -Added another custom item from an unpublished WBW
 -Fixed typo in Thanks of Ilmater story award
@@ -12,6 +35,7 @@ Changelog: (After 5/29/22)
 -Added additional items from new WBW, DRW and MOON adventures
 -Attempted to move the AL Trinkets in the Special items file to excluded by default as I imagine most people won't be using those.
 -Added some extra formatting for poems/songs in descriptions
+
 
 Changelog (After 3/26/22):
 -Removed Keoghtom's Ointment for JOQ-3 because it was removed from the adventure.
