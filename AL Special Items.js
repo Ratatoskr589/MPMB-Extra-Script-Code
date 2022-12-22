@@ -698,64 +698,76 @@ MagicItemsList["al new items"] = {
 		source : ["AL:LN", 2019],
 		rarity : "common",
 		magicItemTable : "?",
-		description : "This black, cone-shaped hat has a wide-brim & is adorned with a tarnished brass buckle & a spindly-legged spider who made the hat its home. It can act as spellcasting focus for your class' spells. Once/long rest, you can try to cast a cantrip you don't know from your class' list by making a DC 10 INT (Arcana) check, wasting the attempt & the action if failed. If 3 allies are wearing & attuned to hats of witchery w/i 30 ft of each other, the check above is made with adv. The characters’ skin turns green & their voices become raspy & aged.",
+		description : "This black cone-shaped hat has a wide-brim. It's adorned with a tarnished brass buckle & a spindly-legged spider who lives there. The hat acts as a focus for your class spells. Once/long rest, you can try to cast an unknown cantrip from your class' list with a DC 10 INT (Arcana) check, wasting the attempt & action if failed. If 3 allies are wearing & attuned to hats of witchery w/i 30 ft, the check is made with adv. Their skin also turns green & their voices become raspy & aged.",
 		descriptionFull : "This black, cone-shaped hat has a wide-brim and is adorned with a tarnished brass buckle and a spindly-legged spider who has made the hat its home. While you are wearing it, you gain the following benefits:\n \u2022 You can use the hat as a spellcasting focus for your class' spells.\n \u2022 You can try to cast a cantrip that you don't know. The cantrip must be on your class' spell list, and you must make a DC 10 Intelligence (Arcana) check. If the check succeeds, you cast the spell. If the check fails, so does the spell, and the action used to cast the spell is wasted. In either case, you can't use this property again until you finish a long rest.\n \u2022 If three allies are all wearing and attuned to hats of witchery and are within 30 feet of each other, the check above is made with advantage. The characters’ skin turns green, and their voices become raspy and aged.",
 		attunement : true,
 		usages : 1,
 		recovery : "long rest",
-		eval : function () {
-		CurrentSpells['hat of wizardry'] = {
-			name : 'Hat of Wizardry (item)',
-			ability : "wizard",
-			list : { 'class' : 'wizard', level : [0, 0] },
-			known : { cantrips : 0, spells : 'list' },
-			bonus : {
-				bon1 : {
-					name : 'Just select "Full List"',
-					spells : []
-				},
-				bon2 : {
-					name : 'on the bottom left',
-					spells : []
-				}
-			},
-			typeList : 4,
-			refType : "item",
-			allowUpCasting : true,
-			firstCol : ""
-			};
-		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
-		},
-		removeeval : function () {
-			delete CurrentSpells['hat of wizardry'];
-			SetStringifieds('spells'); CurrentUpdates.types.push('spells');
-		},
-		calcChanges : {
-			spellList : [
-				function(spList, spName, spType) {
-					// Remove the already known cantrips, from any source except magic items
-					if (spName === 'hat of wizardry') {
-						var allSpellsKnown = [];
-						for (var sCast in CurrentSpells) {
-							if (sCast.refType === "item") continue;
-							var oCast = CurrentSpells[sCast];
-							if (oCast.selectCa) allSpellsKnown = allSpellsKnown.concat(oCast.selectCa);
-							if (oCast.selectBo) allSpellsKnown = allSpellsKnown.concat(oCast.selectBo);
-						}
-						var knownCantrips = OrderSpells(allSpellsKnown, "single", false, false, 0);
-						if (!spList.notspells) spList.notspells = [];
-						spList.notspells = spList.notspells.concat(knownCantrips);
-					}
-				},
-			],
-			spellAdd : [
-				function (spellKey, spellObj, spName, isDuplicate) {
-					if (spName === 'hat of wizardry') {
-						spellObj.firstCol = "";
-					};
-				}
-			]
-			},
+eval : function () {              ///With thanks to Poet of God for this code
+        var cantripClasses = ["artificer", "bard", "cleric", "druid", "sorcerer", "warlock", "wizard"]
+        var curClassOptions = [];
+        for (classname in classes.known) {
+            if (cantripClasses.indexOf(classname) !== -1) {
+                curClassOptions.push(classname);
+            }
+        };
+        if (!curClassOptions.length) {
+            app.alert({
+                cMsg : toUni("Hat of Witchery Magic Item Warning") + "\nThe Hat of Witchery gives access to cantrips dependent on your spellcasting class.\nSelecting this magic item without a class that gives cantrips will not add any spells to the spellsheet.\n\nPlease wait you've selected an appropriate spellcasting class to pick this item.",
+                nIcon : 1,
+                cTitle : "Hat of Witchery Magic Item Warning"
+            });
+            return;
+        };
+        var chc = curClassOptions
+        CurrentSpells['hat of witchery'] = {
+            name : 'Hat of Witchery (item)',
+            ability : chc,
+            list : { 'class' : chc, level : [0, 0] },
+            known : { cantrips : 0, spells : 'list' },
+            bonus : {
+                bon1 : {
+                    name : 'Just select "Full List"',
+                    spells : []
+                },
+                bon2 : {
+                    name : 'on the bottom left',
+                    spells : []
+                }
+            },
+            typeList : 4,
+            refType : "item",
+            allowUpCasting : true,
+            firstCol : ""
+        };
+        SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+    },
+changeeval : function () {
+        if (!CurrentSpells['hat of witchery']) return;
+        var cantripClasses = ["artificer", "bard", "cleric", "druid", "sorcerer", "warlock", "wizard"]
+        var curClassOptions = [];
+        for (classname in classes.known) {
+            if (cantripClasses.indexOf(classname) !== -1) {
+                curClassOptions.push(classname);
+            }
+        };
+        if (!curClassOptions.length) {
+            app.alert({
+                cMsg : toUni("Hat of Witchery Magic Item Warning") + "\nThe Hat of Witchery gives access to cantrips dependent on your spellcasting class.\nSelecting this magic item without a class that has access to cantrips will make the item unusable.\n\nPlease wait until you've selected an appropriate spellcasting class before selecting this item.",
+                nIcon : 1,
+                cTitle : "Hat of Witchery Magic Item Warning"
+            });
+            delete CurrentSpells['hat of witchery'];
+        } else {
+            CurrentSpells['hat of witchery'].ability = curClassOptions;
+            CurrentSpells['hat of witchery'].list['class'] = curClassOptions;
+        };
+        SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+},
+ removeeval : function () {
+        delete CurrentSpells['hat of witchery'];
+        SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+    },
 		},
 	"hellrider's badge (ddep9-2)" : {
 		name : "Hellrider's Badge (DDEP9-2)",
@@ -926,7 +938,8 @@ MagicItemsList["al new items"] = {
 		source : ["AL:LN", 2020],
 		rarity : "common",
 		magicItemTable : "?",
-		description : "This ring is made of polished silver, in the shape of your carved pumpkin. While wearing this ring, the glowing image of your carved pumpkin appears in front of your own face, like a mask."
+		description : "This ring is made of polished silver, in the shape of your carved pumpkin. While wearing this ring, the glowing image of your carved pumpkin appears in front of your own face, like a mask.",
+		descriptionFull : "This ring is made of polished silver, in the shape of your carved pumpkin. While wearing this ring, the glowing image of your carved pumpkin appears in front of your own face, like a mask (the image is whatever you carved during the Liar's Night pumpkin carving contest)."
 		},
 	"selûne's owl-eye glasses" : {
 		name : "Selûne's Owl-Eye Glasses",

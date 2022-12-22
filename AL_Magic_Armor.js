@@ -298,7 +298,7 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		"\n  I\t  +3\tSpiked Armor, Splint, Studded Leather",
 		allowDuplicates : true,
 		choicesNotInMenu : true,
-		choices : ["+1 Leather (DDEP7-1)","+1 Studded Leather (CCC-BMG-21 HULB2-3)","+1 Scale Mail: Shroud of the Mourning Warrior (DDAL5-13)","+1 Breastplate: Glass (DDEP0-1)","+1 Half Plate: Bone (CCC-TRI-6 NIGHT1-2)", "+1 Half Plate (DDEP4)","+1 Splint (DDEX1-12)","+1 Splint (DDAL5-4)","+1 Splint: Remorhaz (DDEP10-2)","+2 Studded Leather (CCC-TRI-23 STORM1-2)","+2 Studded Leather (PO-BK-1-5)","+2 Half Plate: Stone (DDEP7-2)","+2 Half Plate: Glass (WBW-DC-PHP-PHAN-2)","+2 Splint: Remorhaz (DDEP10-2)","+2 Plate: Stone (CCC-JGD-1)","+3 Hide: Daphnaie Armor (ALSRs11-A)"],
+		choices : ["+1 Leather (DDEP7-1)","+1 Studded Leather (CCC-BMG-21 HULB2-3)","+1 Scale Mail: Shroud of the Mourning Warrior (DDAL5-13)","+1 Breastplate: Glass (DDEP0-1)","+1 Breastplate: Bulletproof Vest (SJ-DC-LEGIT-SB-2)","+1 Half Plate: Bone (CCC-TRI-6 NIGHT1-2)", "+1 Half Plate (DDEP4)","+1 Splint (DDEX1-12)","+1 Splint (DDAL5-4)","+1 Splint: Remorhaz (DDEP10-2)","+2 Studded Leather (CCC-TRI-23 STORM1-2)","+2 Studded Leather (PO-BK-1-5)","+2 Half Plate: Stone (DDEP7-2)","+2 Half Plate: Glass (WBW-DC-PHP-PHAN-2)","+2 Splint: Remorhaz (DDEP10-2)","+2 Plate: Stone (CCC-JGD-1)","+3 Hide: Daphnaie Armor (ALSRs11-A)"],
 		"+1 leather (ddep7-1)" : {
 			name : "+1 Leather (DDEP7-1)",
 			source : [["AL","S7"]],
@@ -355,6 +355,20 @@ MagicItemsList["al armor +1, +2, +3"] = {
 				type : "medium",
 				ac : 14,
 				weight : 10
+				}]
+		},
+		"+1 breastplate: bulletproof vest (sj-dc-legit-sb-2)" : {
+			name : "Bulletproof Vest (+1 Breastplate)",
+			source : [["AL","SJ-DC"]],
+			rarity : "rare",
+			magicItemTable : "H",
+			allowDuplicates : true,
+			description : "A black tactical vest meant to block ballistic fire. A removable patch on the back reads 'SUNCORP SECURITY'. The vest is made of ceramic plates and a weave of synthetic aramid fibers, rather than leather and metal. It grants a +1 bonus to AC while worn.",
+			descriptionFull : "A black tactical vest meant to block ballistic fire. A removable patch on the back reads 'SUNCORP SECURITY'. The armor grants a +1 bonus to AC while worn.\n   " + toUni("Minor Property: Strange material") + ". This armour is composed of ceramic plates and a weave of synthetic aramid fibers, rather than leather and metal.",
+			armorAdd : "+1 Breastplate (Vest)",
+			armorOptions : [{
+				name : "+1 Breastplate (Vest)",
+				source : [["AL","SJ-DC"]],
 				}]
 		},
 		"+1 half plate: bone (ccc-tri-6 night1-2)" : {
@@ -529,7 +543,7 @@ MagicItemsList["al armor (common)"] = {
 		choicesNotInMenu : true,
 		rarity : "common",
 		magicItemTable : "?",
-	choices : ["Cast-Off Breastplate (DC-POA-CONMAR-6)","Cast-Off Breastplate: Ooze (DC-POA-GaryXIII-4)","Cast-Off Breastplate (DC-POA-HAG-SF4)","Cast-Off Chain Mail: Scavenger's Shroud (CCC-DES-4-1)","Shield of Expression (DC-POA-CONMAR-15)","Shield of Expression (DC-POA-SNIPE-1)","Shield of Expression (WBW-DC-CONMAR-10)","Smoldering Armor: Flurried Furs (DDAL0-4)","Smoldering Studded Leather (DC-POA-CODEX-2)","Smoldering Studded Leather (DC-POA-CONMAR-8)","Smoldering Studded Leather (DC-POA-GSP2-2H)","Smoldering Studded Leather: Smokin' Hot Leather (DC-POA-LEGIT-SV-02)","Smoldering Studded Leather (DC-POA-OGG-1)","Smoldering Studded Leather: Armor of the Dark Knight (DC-POA-TDG1-4)","Smoldering Studded Leather (DDAL10-0)","Smoldering Scale Mail: Stygian Armor (CCC-GSP2-2)","Smoldering Breastplate: Jökulsbrynja (DC-POA-CONMAR-3)","Smoldering Breastplate: Wintergreen Guard (DC-POA-LEGIT-SV-01)","Spiked Armor of Gleaming: Axehead's Coat of Beaks (CCC-MTL-3)"],
+	choices : ["Cast-Off Breastplate (DC-POA-CONMAR-6)","Cast-Off Breastplate: Ooze (DC-POA-GaryXIII-4)","Cast-Off Breastplate (DC-POA-HAG-SF4)","Cast-Off Chain Mail: Scavenger's Shroud (CCC-DES-4-1)","Shield of Expression (DC-POA-CONMAR-15)","Shield of Expression (DC-POA-SNIPE-1)","Shield of Expression (WBW-DC-CONMAR-10)","Shield of Expression (WBW-DC-DCS-1)","Smoldering Armor: Flurried Furs (DDAL0-4)","Smoldering Studded Leather (DC-POA-CODEX-2)","Smoldering Studded Leather (DC-POA-CONMAR-8)","Smoldering Studded Leather (DC-POA-GSP2-2H)","Smoldering Studded Leather: Smokin' Hot Leather (DC-POA-LEGIT-SV-02)","Smoldering Studded Leather (DC-POA-OGG-1)","Smoldering Studded Leather: Armor of the Dark Knight (DC-POA-TDG1-4)","Smoldering Studded Leather (DDAL10-0)","Smoldering Scale Mail: Stygian Armor (CCC-GSP2-2)","Smoldering Breastplate: Jökulsbrynja (DC-POA-CONMAR-3)","Smoldering Breastplate: Wintergreen Guard (DC-POA-LEGIT-SV-01)","Spiked Armor of Gleaming: Axehead's Coat of Beaks (CCC-MTL-3)"],
 	"cast-off breastplate (dc-poa-conmar-6)" : {
 		name : "Cast-Off Breastplate (DC-POA-CONMAR-6)",
 		source : [["AL","DC-POA"]],
@@ -618,6 +632,17 @@ MagicItemsList["al armor (common)"] = {
 			weight : 6,
 			shieldAdd : "Shield of Expression",
 			action : [["bonus action", "Shield of Expression"]]
+	},
+	"shield of expression (wbw-dc-dcs-1)" : {
+			name : "Shield of Expression (WBW-DC-DCS-1)",
+			source : [["AL","WBW-DC"]],
+			type : "shield",
+			rarity : "common",
+			description : "The face on this shield is Sune, which is also the goddess’ holy symbol. As an action while wielding it, you can cause the shield to repeat your words until your next turn ends. When repeated, your words are audible to 300 ft, sounding more confident & attractive than they are. As a bonus action, you can alter the expression of Sune's face.",
+			descriptionFull : "The face on the shield is that of Sune, which is also that goddess’ holy symbol. The wielder of the shield can use an action to cause the shield to repeat their words until the end of their next turn. When repeated in this way, their words are audible out to 300 feet, and sound more confident and attractive than they are.\n   The front of this shield is shaped in the likeness of a face. While bearing the shield, you can use a bonus action to alter the faces expression.",
+			weight : 6,
+			shieldAdd : "Shield of Expression",
+			action : [["bonus action", "Shield of Expression"], ["action", "Shield of Expression (300ft Repeat)"]],
 	},
 	"smoldering armor: flurried furs (ddal0-4)" : {
 		name : "Flurried Furs, Smoldering",
@@ -779,7 +804,7 @@ MagicItemsList["al armor (common)"] = {
 MagicItemsList["al armor (other)"] = {
 		name : "AL Armor (Other)",
 		allowDuplicates : true,
-	choices : ["Breastplate of Necrotic Resistance: Chardalyn (DDAL10-5)","Demon Armor (DDEX3-16)","Efreeti Chain (DDAL7-15)","Elven Chain (CCC-BMG-36 ELMW2-3)","Elven Chain (CCC-SQC-2-2)","Elven Chain (WBW-DC-AMQ-5)","Elven Chain: Astral (WBW-DC-CONMAR-12)","Elven Chain: Guardian (WBW-DC-GGS-1)","Elven Chain: Loud (WBW-DC-GGS-1)","Elven Chain (WBW-DC-PHP-SPAMMY-1)","Elven Chain (WBW-DC-Rook-2-1)","Elven Chain (WBW-DC-ZEP-T2S5)","Glamoured Studded Leather (DDAL4-9)","Glamoured Studded Leather (DDAL8-11)","Glamoured Studded Leather (DDAL9-6)","Glamoured Studded Leather: Cinderella's Wedding Corset (WBW-DC-CONMAR-15)","Half Plate of Poison Resistance: Mushroom (DDEX3-11)","Mariner's Studded Leather (DDAL-DRW9)","Mariner's Breastplate (CCC-AETHER-1-2)","Mariner's Breastplate (CCC-MMT1-2)","Mariner's Scale Mail (ALSRs11-A)","Plate Armor of Etherealness (DDAL8-16)","Red Dragon Scale Mail (DDEP5-1)","Red Dragon Scale Mail (DDAL9-15)","Scale Mail of Psychic Resistance: Resin (CCC-TRI-21 YUL1-6)","Studded Leather of Fire Resistance (DDAL0-11C)"],
+	choices : ["Breastplate of Necrotic Resistance: Chardalyn (DDAL10-5)","Demon Armor (DDEX3-16)","Efreeti Chain (DDAL7-15)","Elven Chain (CCC-BMG-36 ELMW2-3)","Elven Chain (CCC-SQC-2-2)","Elven Chain: Armor of the First Frost (WBW-DC-AA-ASHALON-1)","Elven Chain (WBW-DC-AMQ-5)","Elven Chain: Astral (WBW-DC-CONMAR-12)","Elven Chain: Guardian (WBW-DC-GGS-1)","Elven Chain: Loud (WBW-DC-GGS-1)","Elven Chain (WBW-DC-PHP-SPAMMY-1)","Elven Chain (WBW-DC-Rook-2-1)","Elven Chain (WBW-DC-TEN-3)","Elven Chain: Tehettan's Protection (WBW-DC-TMP-2)","Elven Chain (WBW-DC-ZEP-T2S5)","Elven Chain: Sky's Armor (WBW-DC-ZODIAC-12)","Glamoured Studded Leather (DDAL4-9)","Glamoured Studded Leather (DDAL8-11)","Glamoured Studded Leather (DDAL9-6)","Glamoured Studded Leather: Cinderella's Wedding Corset (WBW-DC-CONMAR-15)","Half Plate of Poison Resistance: Mushroom (DDEX3-11)","Mariner's Studded Leather (DDAL-DRW9)","Mariner's Breastplate (CCC-AETHER-1-2)","Mariner's Breastplate (CCC-MMT1-2)","Mariner's Scale Mail (ALSRs11-A)","Plate Armor of Etherealness (DDAL8-16)","Red Dragon Scale Mail (DDEP5-1)","Red Dragon Scale Mail (DDAL9-15)","Scale Mail of Psychic Resistance: Resin (CCC-TRI-21 YUL1-6)","Studded Leather of Fire Resistance (DDAL0-11C)"],
 	"breastplate of necrotic resistance: chardalyn (ddal10-5)" : {
 			name : "Chardalyn Breastplate of Necrotic Resist. (DDAL10-5)",
 			source : [["AL","S10"]],
@@ -891,6 +916,25 @@ MagicItemsList["al armor (other)"] = {
 			weight : 20
 		}]
 	},
+	"elven chain: armor of the first frost (wbw-dc-aa-ashalon-1)" : {
+		name : "Armor of the First Frost (Elven Chain)",
+		source : [["AL","WBW-DC"]],
+		type : "armor (chain shirt)",
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "The surface of this icy armor is cold to the touch, with tendrils of frost decorating the metal. While wearing it, you have a keener understanding of duty and responsibility. Despite the material, the temperature around you always remains comfortable, even in the hottest or coldest environments. The elven chain gives you +1 AC & you're proficient even if you lack proficiency with medium armor.",
+		descriptionFull : "The surface of this icy armor is cold to the touch, with tendrils of frost decorating the metal. While wearing this, you have a keener understanding of duty and responsibility. Despite the material it is made of, the temperature around you always remains comfortable, even in the hottest or coldest environments.\n   You gain a +1 bonus to AC while you wear this armor. You are considered proficient with this armor even if you lack proficiency with medium armor.",
+		weight : 20,
+		armorAdd : "Elven Chain (First Frost)",
+		armorOptions : [{
+			regExpSearch : /^(?=.*elven)(?=.*chain).*$/i,
+			name : "Elven Chain",
+			source : [["AL","WBW-DC"]],
+			type : "medium",
+			ac : 14,
+			weight : 20
+		}]
+	},
 	"elven chain (wbw-dc-amq-5)" : {
 		name : "Elven Chain (WBW-DC-AMQ-5)",
 		source : [["AL","WBW-DC"]],
@@ -938,6 +982,7 @@ MagicItemsList["al armor (other)"] = {
 		description : "The interlocking rings of this chain shirt form a delicate black & white spider web. Fine script stenciled around the neck repeats the phrase “Granny has little patience for rudeness” in Elvish. When danger is imminent, the armor whispers “mind your manners & be polite” & you feel like dozens of tiny spiders are crawling across your body. The warning grants +2 to initiative if you're not incapacitated. While wearing this chain, you gain +1 AC & are proficient even if you lack proficiency with medium armor.",
 		descriptionFull : "The interlocking rings of this chain shirt are formed in a delicate black and white spider web pattern. Fine Elvish script is stenciled around the neck border that repeats the phrase “Granny has little patience for rudeness,” in Elvish.\n   When danger is imminent, this armor whispers to the wearer “mind your manners and be polite” and it feels like dozens of tiny spiders are crawling through the spider web pattern across the wearer’s body. This warning grants a +2 to initiative rolls as long as the wearer is not incapacitated.\n   You gain a +1 bonus to AC while you wear this armor. You are considered proficient with this armor even if you lack proficiency with medium armor.",
 		weight : 20,
+		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
 		armorAdd : "Elven Chain",
 		armorOptions : [{
 			regExpSearch : /^(?=.*elven)(?=.*chain).*$/i,
@@ -1005,6 +1050,45 @@ MagicItemsList["al armor (other)"] = {
 			weight : 20
 		}]
 	},
+	"elven chain (wbw-dc-ten-3)" : {
+		name : "Elven Chain (WBW-DC-TEN-3)",
+		source : [["AL","WBW-DC"]],
+		type : "armor (chain shirt)",
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "While wearing this chain shirt, you gain +1 AC & are proficient even if you lack proficiency with medium armor. You also suffer no harm in temperatures from -20 to 120 ̊ F.",
+		descriptionFull : "You gain a +1 bonus to AC while you wear this armor. You are considered proficient with this armor even if you lack proficiency with medium armor.\n   " + toUni("Temperate") + ". The bearer suffers no harm in temperatures as cold as −20 degrees Fahrenheit or as warm as 120 degrees Fahrenheit.",
+		weight : 20,
+		savetxt : { immune : ["temps btwn -20 ̊ & 120 ̊ F"] },
+		armorAdd : "Elven Chain",
+		armorOptions : [{
+			regExpSearch : /^(?=.*elven)(?=.*chain).*$/i,
+			name : "Elven Chain",
+			source : [["AL","WBW-DC"]],
+			type : "medium",
+			ac : 14,
+			weight : 20
+		}]
+	},
+	"elven chain: tehettan's protection (wbw-dc-tmp-2)" : {
+		name : "Tehettan's Protection (Elven Chain)",
+		source : [["AL","WBW-DC"]],
+		type : "armor (chain shirt)",
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "The interlocking rings of Tehettan’s Protection are tightly woven vines that were magically grown together. Once in a while a leaf sprouts from the chain. While wearing it, you gain +1 AC and are proficient even if you lack proficiency with medium armor.",
+		descriptionFull : "" + toUni("Strange Material") + ". Rather than metal, the rings of Tehettan’s Protection are tightly woven vines that were magically grown together. Every once in a while a leaf sprouts from the armor.\n   You gain a +1 bonus to AC while you wear this armor. You are considered proficient with this armor even if you lack proficiency with medium armor.",
+		weight : 20,
+		armorAdd : "Elven Chain (Vines)",
+		armorOptions : [{
+			regExpSearch : /^(?=.*elven)(?=.*chain).*$/i,
+			name : "Elven Chain (Vines)",
+			source : [["AL","WBW-DC"]],
+			type : "medium",
+			ac : 14,
+			weight : 20
+		}]
+	},
 	"elven chain (wbw-dc-zep-t2s5)" : {
 		name : "Elven Chain (WBW-DC-ZEP-T2S5)",
 		source : [["AL","WBW-DC"]],
@@ -1018,6 +1102,26 @@ MagicItemsList["al armor (other)"] = {
 		armorOptions : [{
 			regExpSearch : /^(?=.*elven)(?=.*chain).*$/i,
 			name : "Elven Chain (Cloth)",
+			source : [["AL","WBW-DC"]],
+			type : "medium",
+			ac : 14,
+			weight : 20
+		}]
+	},
+	"elven chain: sky's armor (wbw-dc-zodiac-12)" : {
+		name : "Sky's Armor (Elven Chain)",
+		source : [["AL","WBW-DC"]],
+		type : "armor (chain shirt)",
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "Crafted by a master of the Summer Court, this metal armor glimmers gold & sky blue. Etched into the chain in elvish and orcish is: “It's a victory when the weapons fall silent and people speak up.” While wearing this chain, you gain +1 AC & are proficient even if you lack proficiency with medium armor. It also squeals a warning, granting +2 initiative if you're not incapacitated.",
+		descriptionFull : "Crafted by a master of the Summer Court, this metal armor glimmers in golden yellow and sky blue. Etched into the armor in elvish and orcish: “It's a victory when the weapons fall silent and people speak up.”\n   " + toUni("Guardian") + ". The item squeals a warning to its bearer, granting a +2 bonus to initiative if the bearer isn’t incapacitated.\n   You gain a +1 bonus to AC while you wear this armor. You are considered proficient with this armor even if you lack proficiency with medium armor.",
+		weight : 20,
+		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
+		armorAdd : "Elven Chain",
+		armorOptions : [{
+			regExpSearch : /^(?=.*elven)(?=.*chain).*$/i,
+			name : "Elven Chain",
 			source : [["AL","WBW-DC"]],
 			type : "medium",
 			ac : 14,
@@ -1367,7 +1471,7 @@ MagicItemsList["al shields, +1, +2, or +3"] = {
 			rarity : "very rare",
 			source : [["AL","CCC"]],
 			magicItemTable : "H",
-			description : "This shield is decorated w/ symbols of service & fealty. The shield empathically encourages service to others & whenever the bearer considers performing a selfish act, the shield enhances pangs of conscience. While holding this shield, you gain a +3 bonus to AC in addition to the shield's normal AC bonus.",
+			description : "This shield is decorated w/ symbols of service & fealty. The shield empathically encourages service to others & whenever you consider performing a selfish act, the shield enhances pangs of conscience. While holding this shield, you gain a +3 bonus to AC in addition to the shield's normal AC bonus.",
 			descriptionFull : "This shield is decorated with symbols of service and fealty. The shield empathically encourages service to others and whenever the bearer considers performing a selfish act, the shield enhances pangs of conscience. While holding this shield, you gain a +3 bonus to AC. This bonus is in addition to the shield's normal bonus to AC.",
 			allowDuplicates : true,
 			shieldAdd : "+3 Shield (Miltiades)"

@@ -1,0 +1,217 @@
+Unflavored items in AL modules (incomplete list):
+
+CCC-BMG-37 HULB3-1 Weakness of Rock
+-Dex Book
+
+CCC-BMG-38 HULB3-2 Dead Canaries
+-Int Book
+
+CCC-TRI-11 Contact
+-Dwarven Plate
+
+CCC-BMG-MOON17-1
+-Mariner's Scale Mail
+
+CCC-BMG-MOON17-2
+-Immovable Rod
+
+CCC-UCON-3
+-Decanter of Endless Water
+
+DC-POA-DOBU-1-1 Beneath a Stony Stump
+-Masquerade Tattoo
+-Grey Bag of Tricks
+
+DC-POA-Sunlit-3 A Solstice Tradition
+-Shield of Expression
+-Ring of Truth Telling
+
+DC-WBW-GaryXIV-01 The First Forest
+-Feywild Shard
+
+DC-WBW-GaryXIV-03 Of Pumpkins and Promises
+-Wand of Pyrotechnics
+-Gem of Brightness
+
+DDAL09-16 Honors Unforeseen
+-Fochlucan Bandore
+-Ioun Stone of Leadership
+
+DDAL09-17 In the Hand
+-Bag of Holding
+-Wand of the War Mage +3
+
+DDAL09-18 Consequences of Choice
+-Oathbow
+-Ring of Warmth
+
+DDAL09-19 Fang and Claw
+-Scarab of Protection
+-Shield +2
+
+DDAL-DRWEP4:
+-Cloak of Arachnida
+-Ioun Stone of Mastery
+-Knaves Eyepatch
+
+DDAL-DRW4:
+-Dragontooth Dagger
+-Shield of the Uven Rune
+
+DDAL-DRW6:
+-Ioun Stone of Vitality
+-Necklace of Prayer Beads
+
+DDAL-DRW7:
+-Dancing Longsword
+-Stonespeaker Crystal
+
+DDAL-DRW11
+-Amulet of the Devout +2
+
+DDAL-DRW-INT-2 Watchers of the Trollclaws
+-Sentinel Shield
+
+DDAL-DRW-INT-3 A Red Day for Elventree
+-Boots of Elvenkind
+
+DDEP06-2
+-Ioun Stone of Fortitude
+-Ioun Stone of Protection
+-Cube of Force
+
+DDEX1-9 Outlaws of the Iron Route
+-Longbow +1
+
+DDEX2-10 Cloaks and Shadows
+-Winged boots
+
+PO-BK-1-02 Trust No One
+-Heward's Handy Spice Pouch
+
+PO-BK-1-03 Red Masks
+-Barrier Tattoo
+
+PO-BK-1-04 The City in the Mist
+-Silver Dragon Scale Armor
+-Tentacle Rod
+
+PO-BK-1-05 Far in the Forest
+-+2 Studded Leather
+-Cape of the Mountebank
+
+PO-BK-1-07 Beyond this Portal
+-Rod of Absorption
+
+PO-BK-1-08 Dark Side of the Rune
+-Greater Silver Sword
+
+SJ-DC-HBI-1 The Stowaway
+-Clockwork Amulet
+-Bracers of Archery
+
+SJ-DC-HBI-2 The Hitchhiker
+-Chest of Preserving
+-Alchemy Jug
+
+SJ-DC-HBI-3 The Reckoning
+-Wand of Conducting
+-Gray Bag of Tricks
+
+WBW-DC-AMQ-5 Dungeon of Smelly Doom
+-Pole of Collapsing
+
+WBW-DC-CBB-1 A Fey King's Ransom
+-Pipe of Smoke Monsters
+-Pearl of Power
+
+WBW-DC-CBB-2 Escolars Grotto
+-Veteran's Cane
+-Feywild Shard
+
+WBW-DC-CBB-3 The Dragon's Hoard of Murkmire Isle
+-Nature's Mantle
+-Masquerade Tattoo
+
+WBW-DC-CBB-4 Naufrage Atoll
+-Hat of Vermin
+-Bracers of Archery
+
+WBW-DC-CBB-8 Paradise in the Tidalbore Isles
+-Silver Horn of Valhalla
+
+WBW-DC-CONMAR-2 Karl Rising
+-Masquerade Tattoo
+
+WBW-DC-CONMAR-12 Dreams of the Wet Wizard
+-Pole of Collapsing
+
+WBW-DC-CONMAR-13 Losing Con-Troll
+-Gem of Brightness
+
+WBW-DC-EBAL-MEF0 Misty Edge Heist
+-Slippers of Spider Climbing
+
+WBW-DC-EBAL-MEF1 Misty Edge Falls
+-Cloak of Protection
+-Masquerade Tattoo
+
+WBW-DC-EBAL-MEF2 Misty Edge Incursion
+-Robe of Stars
+-Mantle of Spell Resistance
+-Cloak of Many Fashions
+
+WBW-DC-FEN-1 Tiddy Mun and the Stranger Stone
+-Gem of Brightness
+
+WBW-DC-FEN-3 Tiddy Mun and the Legends of Fennebog
+-Nature's Mantle
+
+WBW-DC-KCB-5 Fishing in the Dark
+-Slippers of Spider Climbing
+
+WBW-DC-KW-2
+-Dark Shard Amulet
+-Wind Fan
+
+WBW-DC-LAB-1 Kobold King's Labyrinth
+-Cloak of Many Fashions
+-Doss Lute
+
+WBW-DC-MEZZ
+-Gem of Brightness
+
+WBW-DC-MOR-1 A Blight in Mordynia
+-Doss Lute
+-Wand of Pyrotechnics
+
+WBW-DC-MOR-2 Dark Miasma of the Mausoleum
+-Pole of Collapsing
+-Cloak of Protection
+
+WBW-DC-Rook-1-1 Care and Maintenance of the Rookery
+-Silver Raven Figurine
+
+WBW-DC-Rook-3-1- The High Kaldir
+-Ivory Goats
+
+WBW-DC-Rook-3-2 The Rookery: Frogs of War
+-Pole of Collapsing
+
+WBW-DC-Rook-3-3 The Rookery: The Crook in the Rook
+-Wand of Pyrotechnics
+
+WBW-DC-ROG-1 Imagination Lost
+-Boots of Speed
+-Pole of Collapsing
+
+WBW-DC-ROG-2 A Giant Dilemma
+-Ring of Free Action
+-Veteran's Cane
+
+WBW-DC-ROG-3 Hope in a Medusa's Eye
+-Cloak of Billowing
+-Silver Horn of Valhalla
+
+WBW-DC-WRT-0 Writer's Block
+-Ruby of the War Mage
