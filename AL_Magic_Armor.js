@@ -922,9 +922,10 @@ MagicItemsList["al armor (other)"] = {
 		type : "armor (chain shirt)",
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "The surface of this icy armor is cold to the touch, with tendrils of frost decorating the metal. While wearing it, you have a keener understanding of duty and responsibility. Despite the material, the temperature around you always remains comfortable, even in the hottest or coldest environments. The elven chain gives you +1 AC & you're proficient even if you lack proficiency with medium armor.",
-		descriptionFull : "The surface of this icy armor is cold to the touch, with tendrils of frost decorating the metal. While wearing this, you have a keener understanding of duty and responsibility. Despite the material it is made of, the temperature around you always remains comfortable, even in the hottest or coldest environments.\n   You gain a +1 bonus to AC while you wear this armor. You are considered proficient with this armor even if you lack proficiency with medium armor.",
+		description : "The surface of this icy elvan chain is cold to the touch, with tendrils of frost decorating the metal. While wearing it, you have a keener understanding of duty & responsibility. Despite the material, the temperature around you always remains comfortable & you suffer no harm in temps from -20 to 120 ̊ F. The armor also gives you +1 AC & you're proficient even if you lack proficiency with medium armor.",
+		descriptionFull : "The surface of this icy armor is cold to the touch, with tendrils of frost decorating the metal. While wearing this, you have a keener understanding of duty and responsibility. Despite the material it is made of, the temperature around you always remains comfortable, even in the hottest or coldest environments.\n   " + toUni("Temperate") + ". The bearer suffers no harm in temperatures as cold as –20 degrees Fahrenheit or as warm as 120 degrees Fahrenheit.\n   You gain a +1 bonus to AC while you wear this armor. You are considered proficient with this armor even if you lack proficiency with medium armor.",
 		weight : 20,
+		savetxt : { immune : ["temps btwn -20 ̊ & 120 ̊ F"] },
 		armorAdd : "Elven Chain (First Frost)",
 		armorOptions : [{
 			regExpSearch : /^(?=.*elven)(?=.*chain).*$/i,
