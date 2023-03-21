@@ -222,7 +222,7 @@ MagicItemsList["al staffs"] = {
 		name : "AL Staffs",
 		allowDuplicates : true,
 		type : "staff",
-		choices : ["Staff of the Adder (CCC-SRCC1-3)","Staff of Adornment (CCC-3MAGS-ONE)","Staff of Adornment (WBW-DC-NJ-COU-2)","Staff of Birdcalls (WBW-DC-BIRE-1)","Staff of Birdcalls (WBW-DC-CONMAR-3)","Staff of Birdcalls (WBW-DC-Death-1)","Staff of Birdcalls (WBW-DC-FDC-3)","Staff of Birdcalls (WBW-DC-HBK-1)","Staff of Birdcalls: Dark Crystal (WBW-DC-ZODIAC-10)","Staff of Charming (DDEX2-2)","Staff of Flowers (CCC-KUMORI-3-1)","Staff of Frost (DDAL0-11E)","Staff of Frost (DDAL-DRW5)","Staff of Frost (WBW-DC-AEG-2)","Staff of Healing: Driftwood Staff (CCC-DES-1-2)","Staff of Healing (CCC-GHC-BK2-8)","Staff of Healing (CCC-QCC2019-3)","Staff of Healing (CCC-WYC-2-1)","Staff of Healing (DDEP4)","Staff of the Magi (DDAL7-17)","Staff of Power (DDAL5-19)","Staff of Power (DDEP4)","Staff of Power: Tongkat Nenek Kebayan (WBW-DC-DMMC-1)","Staff of Power: Oblivia (WBW-DC-PHP-ORNG-2)","Staff of the Python (CCC-BMG-MOON7-1)","Staff of the Python: Earth Tender's Branch (CCC-BMG-MOON8-2)","Staff of the Python: Bulkawa's Benevolence (CCC-GSP2-2)","Staff of Striking (CCC-TRI-14 YUL1-3)","Staff of Striking (DDAL7-12)","Staff of Striking (DDAL10-10)","Staff of Swarming Insects (DDEX3-3)","Staff of Swarming Insects: Mildy's (WBW-DC-DES-1-7)","Staff of Swarming Insects: Scorpion Staff (WBW-DC-DGE-2)","Staff of Swarming Insects: Drone Control Rod (WBW-DC-LEGIT-SV-6)","Staff of Swarming Insects: Mariposa (WBW-DC-PHP-ORNG-2)","Staff of Swarming Insects: Ygorl's Crook (WBW-DC-Rook-3-3)","Staff of Thunder and Lightning (DDAL5-8)","Staff of Thunder and Lightning (DDEP5-2)","Staff of Withering (DDEX2-13)","Staff of Withering (DDAL8-13)","Staff of the Woodlands (CCC-BMG-MOON12-1)","Staff of the Woodlands (CCC-GARY-9)","Staff of the Woodlands (DDAL7-8/DDEP7-1)","Staff of the Woodlands: Liwanag (WBW-DC-ANDL-3)","Staff of the Woodlands: Temperate (WBW-DC-CONMAR-6)","Staff of the Woodlands (WBW-DC-HAVN-1)","Staff of the Woodlands: Guardian (WBW-DC-HH-2)","Staff of the Woodlands (WBW-DC-IDL1)","Staff of the Woodlands (WBW-DC-PHP-LCL-1)","Staff of the Woodlands: Hope's Emissary (WBW-DC-Rook-3-2)","Staff of the Woodlands: Sunlit (WBW-DC-Sunlit-6)","Staff of the Woodlands: Delver's (WBW-DC-ZEP-T2S2)","Staff of the Woodlands: Dragon's Seed (WBW-DC-ZODIAC-5)"],
+		choices : ["Staff of the Adder (CCC-SRCC1-3)","Staff of Adornment (CCC-3MAGS-ONE)","Staff of Adornment (WBW-DC-NJ-COU-2)","Staff of Birdcalls (WBW-DC-BIRE-1)","Staff of Birdcalls (WBW-DC-CONMAR-3)","Staff of Birdcalls (WBW-DC-Death-1)","Staff of Birdcalls (WBW-DC-FDC-3)","Staff of Birdcalls (WBW-DC-HBK-1)","Staff of Birdcalls (WBW-DC-ROBIN-1-2)","Staff of Birdcalls: Dark Crystal (WBW-DC-ZODIAC-10)","Staff of Charming (DDEX2-2)","Staff of Flowers (CCC-KUMORI-3-1)","Staff of Frost (DDAL0-11E)","Staff of Frost (DDAL-DRW5)","Staff of Frost (WBW-DC-AEG-2)","Staff of Healing: Driftwood Staff (CCC-DES-1-2)","Staff of Healing (CCC-GHC-BK2-8)","Staff of Healing (CCC-QCC2019-3)","Staff of Healing (CCC-WYC-2-1)","Staff of Healing (DDEP4)","Staff of the Magi (DDAL7-17)","Staff of Power (DDAL5-19)","Staff of Power (DDEP4)","Staff of Power: Tongkat Nenek Kebayan (WBW-DC-DMMC-1)","Staff of Power: Oblivia (WBW-DC-PHP-ORNG-2)","Staff of the Python (CCC-BMG-MOON7-1)","Staff of the Python: Earth Tender's Branch (CCC-BMG-MOON8-2)","Staff of the Python: Bulkawa's Benevolence (CCC-GSP2-2)","Staff of Striking (CCC-TRI-14 YUL1-3)","Staff of Striking (DDAL7-12)","Staff of Striking (DDAL10-10)","Staff of Swarming Insects (DDEX3-3)","Staff of Swarming Insects: Mildy's (WBW-DC-DES-1-7)","Staff of Swarming Insects: Scorpion Staff (WBW-DC-DGE-2)","Staff of Swarming Insects: Drone Control Rod (WBW-DC-LEGIT-SV-6)","Staff of Swarming Insects: Mariposa (WBW-DC-PHP-ORNG-2)","Staff of Swarming Insects: Ygorl's Crook (WBW-DC-Rook-3-3)","Staff of Thunder and Lightning (DDAL5-8)","Staff of Thunder and Lightning (DDEP5-2)","Staff of Withering (DDEX2-13)","Staff of Withering (DDAL8-13)","Staff of the Woodlands (CCC-BMG-MOON12-1)","Staff of the Woodlands (CCC-GARY-9)","Staff of the Woodlands (DDAL7-8/DDEP7-1)","Staff of the Woodlands: Liwanag (WBW-DC-ANDL-3)","Staff of the Woodlands: Temperate (WBW-DC-CONMAR-6)","Staff of the Woodlands (WBW-DC-HAVN-1)","Staff of the Woodlands: Guardian (WBW-DC-HH-2)","Staff of the Woodlands (WBW-DC-IDL1)","Staff of the Woodlands (WBW-DC-PHP-LCL-1)","Staff of the Woodlands: Hope's Emissary (WBW-DC-Rook-3-2)","Staff of the Woodlands: Sunlit (WBW-DC-Sunlit-6)","Staff of the Woodlands: Delver's (WBW-DC-ZEP-T2S2)","Staff of the Woodlands: Dragon's Seed (WBW-DC-ZODIAC-5)"],
 	"staff of the adder (ccc-srcc1-3)" : {
 		name : "Staff of the Adder (CCC-SRCC1-3)",
 		source : [["AL","CCC"]],
@@ -331,13 +331,28 @@ MagicItemsList["al staffs"] = {
 		rarity : "common",
 		magicItemTable : "?",
 		description : "This staff is decorated with bird carvings & whenever it's struck or strikes a foe, you hear a few beats of a taiko drum. The staff has 10 charges, regaining 1d6+4 at dawn, 5% chance it's destroyed when last charge used. As an action, you can use 1 charge to create a sound out to a range of 60 ft: a finch's chirp, raven's caw, duck's quack, chicken's cluck, goose's honk, loon's call, turkey's gobble, seagull's cry, owl's hoot, or eagle's shriek.",
-		descriptionFull : "This wooden staff is decorated with bird carvings. It has 10 charges. While holding it, you can use an action to expend 1 charge from the staff and cause it to create one of the following sounds out to a range of 60 feet: a finch's chirp, a raven's caw, a duck's quack, a chicken's cluck, a goose's honk, a loon's call, a turkey's gobble, a seagull's cry, an owl's hoot, or an eagle's shriek.\n   The staff regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff explodes in a harmless cloud of bird feathers and is lost forever.\n   " + toUni(" Song Craft") + ". Whenever this item is struck or is used to strike a foe, its bearer hears a fragment of an ancient song: a few beats of a taiko drum.",
+		descriptionFull : "This wooden staff is decorated with bird carvings. It has 10 charges. While holding it, you can use an action to expend 1 charge from the staff and cause it to create one of the following sounds out to a range of 60 feet: a finch's chirp, a raven's caw, a duck's quack, a chicken's cluck, a goose's honk, a loon's call, a turkey's gobble, a seagull's cry, an owl's hoot, or an eagle's shriek.\n   The staff regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff explodes in a harmless cloud of bird feathers and is lost forever.\n   " + toUni("Song Craft") + ". Whenever this item is struck or is used to strike a foe, its bearer hears a fragment of an ancient song: a few beats of a taiko drum.",
 		weight : 4,
 		limfeaname : "Staff of Birdcalls",
 		usages : 10,
 		recovery : "dawn",
 		additional : "regains 1d6+4",
 		action : [["action", ""]]
+	},
+	"staff of birdcalls (wbw-dc-robin-1-2)" : {
+		name : "Staff of Birdcalls (WBW-DC-ROBIN-1-2)",
+		source : [["AL","WBW-DC"]],
+		rarity : "common",
+		magicItemTable : "?",
+		description : "This staff is decorated with bird carvings. While on your person, you hear robins when in danger, giving +2 initiative when not incapacitated. The staff has 10 charges, regaining 1d6+4 at dawn, 5% chance it's destroyed when last charge used. As an action, you can use 1 charge to create a sound out to a range of 60 ft: a finch's chirp, raven's caw, duck's quack, chicken's cluck, goose's honk, loon's call, turkey's gobble, seagull's cry, owl's hoot, or eagle's shriek.",
+		descriptionFull : "This wooden staff is decorated with bird carvings. It has 10 charges. While holding it, you can use an action to expend 1 charge from the staff and cause it to create one of the following sounds out to a range of 60 feet: a finch's chirp, a raven's caw, a duck's quack, a chicken's cluck, a goose's honk, a loon's call, a turkey's gobble, a seagull's cry, an owl's hoot, or an eagle's shriek.\n   The staff regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff explodes in a harmless cloud of bird feathers and is lost forever.\n   " + toUni("Guardian") + ". While this staff is on your person, you can hear robins when danger is near. You gain a +2 bonus to initiative when you are not incapacitated.",
+		weight : 4,
+		limfeaname : "Staff of Birdcalls",
+		usages : 10,
+		recovery : "dawn",
+		additional : "regains 1d6+4",
+		action : [["action", ""]],
+		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
 	},
 	"staff of birdcalls: dark crystal (wbw-dc-zodiac-10)" : {
 		name : "Dark Crystal Staff of Birdcalls (WBW-DC-ZODIAC-10)",
@@ -2548,7 +2563,7 @@ MagicItemsList["al swords"] = {
 		name : "AL Swords",
 		type : "weapon (any sword)",
 		allowDuplicates : true,
-	choices : ["Dancing Longsword: Antgaladion (WBW-DC-AA-ASHALON-1)","Dancing Rapier: Angel's Sting (CCC-GHC-BK1-10)","Dancing Rapier: Raptor (CCC-LINKS-2)","Defender Greatsword: Deathshield (DDAL9-20)","Dragon Slayer: Wyrmripper (DDEP5-1)","Flame Tongue Longsword: Velahr’kerym (DDAL0-2D)","Flame Tongue Longsword (DDAL-DRW13)","Flame Tongue Shortsword: Flare (CCC-WYC-1-2)","Flame Tongue Sword (CCC-YLRA-2)","Frost Brand Rapier: Bitter Wrath (DDAL7-9)","Frost Brand Scimitar (DDEP5-2)","Giant Slayer Greatsword (DDEP5-2)","Greatsword of Sharpness: Desolation (DDAL8-14)","Greatsword of Warning: Ever Vigilant (CCC-BMG-MOON3-3)","Greatsword of Wounding (DDEX2-15)","Longsword of Vengeance (CCC-BMG-MOON15-2)","Longsword of Vengeance (CCC-GARY-8)","Longsword of Vengeance (CCC-HATMS1-2)","Longsword of Vengeance (CCC-MACE1-3)","Moon-Touched Greatsword (DDAL-DRW17)","Moon-Touched Longsword (CCC-GHC-BK1-1)","Moon-Touched Longsword (CCC-TAROT2-6)","Moon-Touched Longsword (DDAL0-11D)","Moon-Touched Rapier (CCC-GAD2-1)","Moon-Touched Rapier (CCC-SAC-4)","Moon-Touched Rapier (CCC-UNITE-5)","Moon-Touched Shortsword (DC-POA-CONMAR-9)","Moon-Touched Shortsword (DC-POA-DES-5B)","Moon-Touched Shortsword (DC-POA-GSP2-3H)","Moon-Touched Shortsword: Fang (DC-POA-GSP3-2)","Moon-Touched Shortsword (DC-POA-JCDC-1)","Moon-Touched Shortsword (DC-POA-MCWWS-2)","Moon-Touched Shortsword: Tsukuyomi (DC-POA-TDG1-3)","Moon-Touched Shortsword: Blade of the Black Tortoise (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: Green Dragon Gladius (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: Red Phoenix Falchion (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: White Tiger Tulwar (DC-POA-VAN-MT-1)","Moon-Touched Sword (CCC-BMG-MOON6-2)","Moon-Touched Sword (CCC-BMG-MOON10-2)","Nine Lives Stealer Longsword: Love's Bite (DDAL7-11)","Nine Lives Stealer Scimitar (CCC-QCC2018-1)","Rapier of Life Stealing (CCC-PDXAGE-2-1)","Scimitar of Life Stealing: Night Cutter (CCC-RCC-1-4)","Scimitar of Speed: Manthor “Vow of the Forest” (WBW-DC-ANDL-3)","Scimitar of Warning: Miir (CCC-BWM-4-1)","Sun Blade: The Seventh Sword (CCC-6SWORDS-1)","Sun Blade: Dawnfire (CCC-STORM-1)","Sun Blade (CCC-WYC-2-2)","Sun Blade: Starshard (RMH-12)","Sun Blade: Scintilmorn (WDotMM)","Sword of Vengeance (CCC-SAF2-2)","Sword of Wounding (DDAL-CGB)","Vicious Longsword (CCC-HATMS2-1)","Vicious Rapier: Hag's Clawblade (ALSRs11-A)","Vorpal Scimitar (DDAL7-16)","Vorpal Scimitar: Abi Teos's Machete (RMH-9/RMH-10)"],
+	choices : ["Dancing Longsword: Antgaladion (WBW-DC-AA-ASHALON-1)","Dancing Rapier: Angel's Sting (CCC-GHC-BK1-10)","Dancing Rapier: Raptor (CCC-LINKS-2)","Defender Greatsword: Deathshield (DDAL9-20)","Dragon Slayer: Wyrmripper (DDEP5-1)","Flame Tongue Longsword: Velahr’kerym (DDAL0-2D)","Flame Tongue Longsword (DDAL-DRW13)","Flame Tongue Shortsword: Flare (CCC-WYC-1-2)","Flame Tongue Sword (CCC-YLRA-2)","Frost Brand Rapier: Bitter Wrath (DDAL7-9)","Frost Brand Scimitar (DDEP5-2)","Giant Slayer Greatsword (DDEP5-2)","Greatsword of Sharpness: Desolation (DDAL8-14)","Greatsword of Warning: Ever Vigilant (CCC-BMG-MOON3-3)","Greatsword of Wounding (DDEX2-15)","Longsword of Vengeance (CCC-BMG-MOON15-2)","Longsword of Vengeance (CCC-GARY-8)","Longsword of Vengeance (CCC-HATMS1-2)","Longsword of Vengeance (CCC-MACE1-3)","Moon-Touched Greatsword (DDAL-DRW17)","Moon-Touched Longsword (CCC-GHC-BK1-1)","Moon-Touched Longsword (CCC-TAROT2-6)","Moon-Touched Longsword (DDAL0-11D)","Moon-Touched Rapier (CCC-GAD2-1)","Moon-Touched Rapier (CCC-SAC-4)","Moon-Touched Rapier (CCC-UNITE-5)","Moon-Touched Shortsword (DC-POA-CONMAR-9)","Moon-Touched Shortsword (DC-POA-DES-5B)","Moon-Touched Shortsword (DC-POA-GSP2-3H)","Moon-Touched Shortsword: Fang (DC-POA-GSP3-2)","Moon-Touched Shortsword (DC-POA-JCDC-1)","Moon-Touched Shortsword (DC-POA-MCWWS-2)","Moon-Touched Shortsword: Tsukuyomi (DC-POA-TDG1-3)","Moon-Touched Shortsword: Blade of the Black Tortoise (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: Green Dragon Gladius (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: Red Phoenix Falchion (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: White Tiger Tulwar (DC-POA-VAN-MT-1)","Moon-Touched Sword (CCC-BMG-MOON6-2)","Moon-Touched Sword (CCC-BMG-MOON10-2)","Nine Lives Stealer Longsword: Love's Bite (DDAL7-11)","Nine Lives Stealer Scimitar (CCC-QCC2018-1)","Rapier of Life Stealing (CCC-PDXAGE-2-1)","Scimitar of Life Stealing: Night Cutter (CCC-RCC-1-4)","Scimitar of Speed: Beam (SJ-DC-VMT-1)","Scimitar of Speed: Manthor “Vow of the Forest” (WBW-DC-ANDL-3)","Scimitar of Speed: Bregrist (WBW-DC-TREY-1)","Scimitar of Warning: Miir (CCC-BWM-4-1)","Sun Blade: The Seventh Sword (CCC-6SWORDS-1)","Sun Blade: Dawnfire (CCC-STORM-1)","Sun Blade (CCC-WYC-2-2)","Sun Blade: Starshard (RMH-12)","Sun Blade: Scintilmorn (WDotMM)","Sword of Vengeance (CCC-SAF2-2)","Sword of Wounding (DDAL-CGB)","Vicious Longsword (CCC-HATMS2-1)","Vicious Rapier: Hag's Clawblade (ALSRs11-A)","Vorpal Scimitar (DDAL7-16)","Vorpal Scimitar: Abi Teos's Machete (RMH-9/RMH-10)"],
 	"dancing longsword: antgaladion (wbw-dc-aa-ashalon-1)" : {
 		name : "Antgaladion, Dancing Longsword (WBW-DC-AA-ASHALON-1)",
 		source : [["AL","WBW-DC"]],
@@ -3501,13 +3516,35 @@ MagicItemsList["al swords"] = {
 			description : "Light; finesse; On 20 to hit: +10 Necrotic dmg, 10 temp HP (unless against construct/undead)",
 			},
 	},
+	"scimitar of speed: beam (sj-dc-vmt-1)" : {
+		name : "Beam Scimitar of Speed (SJ-DC-VMT-1)",
+		source : [["AL","SJ-DC"]],
+		type : "weapon (scimitar)",
+		rarity : "very rare",
+		magicItemTable : "H",
+		description : "The blade of this +2 scimitar is made of an eerie black light & forms automatically when removed from its sheath. The scimitar was attached to the Honorable Knight statue after its theft by the evil wizard Manshoon. It was later shrunken down by the Blackstaff & awarded to the heroes who rescued the statue. You can attack with the scimitar once as a bonus action on each of your turns.",
+		descriptionLong : "This scimitar’s blade is made entirely of an eerie black light. The blade automatically forms when the sword is removed from its sheath. It was once attached to the Honorable Knight statue after its theft by the evil wizard Manshoon. The scimitar was later removed and shrunken down by the Blackstaff and awarded to the heroes who rescued the statue. You gain a +2 bonus to attack and damage rolls made with this magic weapon and can make one attack with it as a bonus action on each of your turns.",
+		descriptionFull : "You gain a +2 bonus to attack and damage rolls made with this magic weapon. In addition, you can make one attack with it as a bonus action on each of your turns.\n   " + toUni("Strange Material") + ". This scimitar’s blade is made entirely of an eerie black light although it still does slashing damage. Its blade automatically forms when the sword is removed from its sheath.\n   The sword was once attached to the Honorable Knight statue after the statue’s theft by the evil wizard Manshoon. It was later removed and shrunken down by the Blackstaff and awarded to the heroes who rescued the statue.",
+		attunement : true,
+		weight : 3,
+		action : [["bonus action", "Scimitar of Speed"]],
+		weaponsAdd : ["Beam Scimitar of Speed"],
+		weaponOptions : {
+			baseWeapon : "scimitar",
+			regExpSearch : /^(?=.*beam)(?=.*scimitar)(?=.*speed).*$/i,
+			name : "Beam Scimitar of Speed",
+			source : [["AL","SJ-DC"]],
+			description : "Finesse, light; Extra attack as bonus action",
+			modifiers : [2, 2]
+		},
+	},
 	"scimitar of speed: manthor “vow of the forest” (wbw-dc-andl-3)" : {
 		name : "Manthor, Vow of the Forest (Scimitar of Speed)",
 		source : [["AL","WBW-DC"]],
 		type : "weapon (scimitar)",
 		rarity : "very rare",
 		magicItemTable : "H",
-		description : "You have sworn your fealty to Alindaya and were knighted as a protector of the Feywild, promising to protect nature and aid them in times of need. This +2 magical scimitar manifested from the power of your binding pact. The star metal blade is incredibly light & embossed with leaves. Feywild magic lets you use it with superior speed; you can attack with it once as a bonus action on each of your turns. The hilt bears Sylvan words in Espruar script: “Only those who vow to defend nature with swift & decisive actions may wield me”. The sword also whispers warnings, granting +2 to initiative if you aren't incapacitated.",
+		description : "You swore your fealty to Alindaya and were knighted as a protector of the Feywild, promising to protect nature and aid them in times of need. This +2 scimitar manifested from the power of your pact. The star metal blade is incredibly light and embossed with leaves. Feywild magic lets you use it with superior speed; you can attack with it once as a bonus action on each of your turns. The hilt bears Sylvan words in Espruar script: “Only those who vow to defend nature with swift and decisive actions may wield me”. The sword also whispers warnings, giving +2 initiative if not incapacitated.",
 		descriptionLong : "You have sworn your everlasting fealty to Alindaya, promising to forever protect nature and come to their aid in times of need. In exchange, they knighted you as a protector of the Feywild. This sword manifested itself from the power of your binding pact, that you may carry out your promises. The star metal blade is incredibly light and embossed with imprints of leaves. It's enchanted with magic from the Feywild that allows you to use it with superior speed. You gain a +2 bonus to attack and damage rolls made with this magic weapon and can make one attack with it as a bonus action on each of your turns. The hilt bears Sylvan words written in the Espruar script: “Only those who vow to defend nature with swift and decisive actions may wield me”. The sword also whispers warnings, granting a +2 bonus to initiative if you aren't incapacitated.",
 		descriptionFull : "You gain a +2 bonus to attack and damage rolls made with this magic weapon. In addition, you can make one attack with it as a bonus action on each of your turns.\n   You have promised to forever protect nature, come to Alindaya's aid in their time of need, and sworn your everlasting fealty to Alindaya. In exchange, they knighted you as a protector of the Feywild. This sword manifested itself from the power of your binding pact, that you may carry out your promises. It is yours to keep.\n   This star metal blade is incredibly light and embossed with imprints of leaves. It is enchanted with magic from the Feywild that allows the wielder to use it with superior speed. The hilt bears following words written in Sylvan using the Espruar script: “Only those who vow to defend nature with swift and decisive actions may wield me”.\n   In addition, this weapon has the Guardian minor property. The item whispers warnings to its bearer, granting a +2 bonus to initiative if the bearer isn’t incapacitated.",
 		attunement : true,
@@ -3523,6 +3560,28 @@ MagicItemsList["al swords"] = {
 			modifiers : [2, 2]
 		},
 		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
+	},
+	"scimitar of speed: bregrist (wbw-dc-trey-1)" : {
+		name : "Bregrist, Scimitar of Speed (WBW-DC-TREY-1)",
+		source : [["AL","WBW-DC"]],
+		type : "weapon (scimitar)",
+		rarity : "very rare",
+		magicItemTable : "H",
+		description : "The famed scimitar ‘Bregrist’, also known as ‘Slicer’, translates to “quick cut” in Common. This finely honed blade is edged in silver and was superbly crafted by a skilled elven smith. It's inlaid with stylized silver vines that run the length of the blade and spell its name in Elvish. You gain a +2 bonus to atk and dmg rolls made with this magic weapon and can atk with it once as a bonus action on each of your turns.",
+		descriptionLong : "This is the famed scimitar ‘Bregrist’, also known as ‘Slicer’. The Elvish name translates to “quick cut” in Common. The finely honed blade is edged in silver and was superbly crafted by an extremely skilled elven smith. It's also inlaid with stylized silver vines running the length of the blade and spelling its name in Elvish. You gain a +2 bonus to attack and damage rolls made with this magic weapon and can make one attack with it as a bonus action on each of your turns.",
+		descriptionFull : "You gain a +2 bonus to attack and damage rolls made with this magic weapon. In addition, you can make one attack with it as a bonus action on each of your turns.\n   This is the famed scimitar ‘Bregrist’ (also known as ‘Slicer’). Those who speak Elvish will know that Bregrist translates to “quick cut” in Common. Bregrist is a Scimitar of Speed. It is superbly crafted, and clearly made by an extremely skilled elven maker. The blade is finely honed and edged in silver. It is also inlaid with silver stylized vines running the length of the blade, spelling out the name in Elvish.",
+		attunement : true,
+		weight : 3,
+		action : [["bonus action", "Scimitar of Speed"]],
+		weaponsAdd : ["Bregrist, Scimitar of Speed"],
+		weaponOptions : {
+			baseWeapon : "scimitar",
+			regExpSearch : /^(?=.*bregrist).*$/i,
+			name : "Bregrist, Scimitar of Speed",
+			source : [["AL","WBW-DC"]],
+			description : "Finesse, light; Extra attack as bonus action",
+			modifiers : [2, 2]
+		},
 	},
 	"scimitar of warning: miir (ccc-bwm-4-1)" : {
 			name : "Miir, Scimitar of Warning (CCC-BWM-4-1)",
@@ -3890,7 +3949,7 @@ MagicItemsList["al weapons +1, +2, or +3"] = {
 		descriptionFull : "You have a bonus to attack and damage rolls made with this magic weapon. The bonus is determined by the weapon's rarity: uncommon (+1), rare (+2), or very rare (+3).",
 		allowDuplicates : true,
 		choicesNotInMenu : true,
-		choices : ["+1 Battleaxe: Rebel's Yell (CCC-RPR-1)","+1 Battleaxe (DDEX2-11)","+1 Dagger: The Wolves' Claw (CCC-BMG-MOON2-1)","+1 Dagger: Arthyn Dagger (CCC-GHC-BK3-1)","+1 Dagger: Ornate (CCC-SCAR1-1)","+1 Glaive: Bone-Pommeled (CCC-BMG-33 PHLAN3-3)","+1 Glaive (CCC-TRI-17 ALLY1-2)","+1 Greatsword: Arrk's Sword (CCC-GLIP-1-1)","+1 Halberd (DDEP5-2)","+1 Hand Crossbow: Widowmaker (CCC-BMG-29 HILL2-2)","+1 Lance: Duergar Drill Bit (CCC-APL1-1)","+1 Longbow (CCC-BMG-MOON2-2)","+1 Longbow: Gwa'thern Faln (DDHC-MORD-1)","+1 Longsword (DDEP1)","+1 Mace: Mace of the Tranquil Oasis (CCC-SALT1-2)","+1 Maul: The Smasher (PotA)","+1 Quarterstaff (CCC-TRI-11 OLMA1-1)","+1 Quarterstaff (DDAL7-3)","+1 Quarterstaff (DDEX3-16)", "+1 Rapier (DDEX3-2)","+1 Scimitar: Ripper's Claw (CCC-ODFC2-1)","+1 Scimitar (CCC-PRIORY-2)","+1 Shortbow (CCC-ANIME1-1)","+1 Shortbow: Moon Strike (CCC-TAROT1-6)","+1 Shortbow (DDEX3-16)","+1 Shortsword (CCC-CIC-6)","+1 Shortsword: Icicle (CCC-GHC-5)","+1 Shortsword: Foxblade (CCC-SRCC1-2)","+1 Shortsword (DDEP7-1)","+1 Trident (DDEP7-1)","+1 War Pick (CCC-TRI-9 BHC1-0)","+1 Warhammer: Torag's Hammer (CCC-TAROT1-4)","+1 Weapon (DDHC-TOA-8)","+2 Bow (DDEX3-7)","+2 Dagger (CCC-GHC-6)","+2 Greataxe: Whisper (DDHC-TOA-8)","+2 Greatsword: Tyr's Justice (CCC-GHC-8)","+2 Greatsword: Githyanki Greater Silver Sword (CCC-TRI-27 ROSE1-2)","+2 Greatsword: Agony (SJ-DC-ANGKA-1)","+2 Longbow: Deep's Reach (CCC-BMG-MOON12-2)","+2 Longbow: Giant's Bane (CCC-GHC-9)","+2 Longbow (DDEP5-2)","+2 Longsword: Elven Blade of the Third Age (CCC-BWM-2)","+2 Longsword: Stout (CCC-GHC-BK1-5)","+2 Rapier: The Sixth Sword (CCC-HAL-3)","+2 Shortsword: Smoke (CCC-SFBAY1-1)","+2 Shortsword (DDAL0-13)","+2 Trident (CCC-CIC-12)","+2 War Pick (CCC-MYR1-1)","+2 Weapon (PotA)","+3 Battleaxe: Skeggöx (DDAL5-9)","+3 Dagger (CCC-TRI-29 TIDE1-1)","+3 Glaive: Empyrean’s Unbreaking Glaive (WBW-DC-Sunlit-6)","+3 Greatsword (WBW-DC-PLS-1)","+3 Hand Crossbow: Belmore (WBW-DC-PHP-LCL-2)","+3 Lance: Dream Whirl (CCC-BMG-39 HULB3-3)","+3 Piercing Weapon: Midnight Phaeton's Horn (CCC-ODFC2-3)","+3 Pike: Krahharuan Fork (DDAL7-10)","+3 Scimitar (DDEP6-2)","+3 Shortsword: Harengon's Freedom (ALSRs11-A)","+3 Spear: Blood-Drinker's Backbone (RMH-5/RMH-6)"],
+		choices : ["+1 Battleaxe: Rebel's Yell (CCC-RPR-1)","+1 Battleaxe (DDEX2-11)","+1 Dagger: The Wolves' Claw (CCC-BMG-MOON2-1)","+1 Dagger: Arthyn Dagger (CCC-GHC-BK3-1)","+1 Dagger: Ornate (CCC-SCAR1-1)","+1 Glaive: Bone-Pommeled (CCC-BMG-33 PHLAN3-3)","+1 Glaive (CCC-TRI-17 ALLY1-2)","+1 Greatsword: Arrk's Sword (CCC-GLIP-1-1)","+1 Halberd (DDEP5-2)","+1 Hand Crossbow: Widowmaker (CCC-BMG-29 HILL2-2)","+1 Lance: Duergar Drill Bit (CCC-APL1-1)","+1 Longbow (CCC-BMG-MOON2-2)","+1 Longbow: Gwa'thern Faln (DDHC-MORD-1)","+1 Longsword (DDEP1)","+1 Mace: Mace of the Tranquil Oasis (CCC-SALT1-2)","+1 Maul: The Smasher (PotA)","+1 Quarterstaff (CCC-TRI-11 OLMA1-1)","+1 Quarterstaff (DDAL7-3)","+1 Quarterstaff (DDEX3-16)", "+1 Rapier (DDEX3-2)","+1 Scimitar: Ripper's Claw (CCC-ODFC2-1)","+1 Scimitar (CCC-PRIORY-2)","+1 Shortbow (CCC-ANIME1-1)","+1 Shortbow: Moon Strike (CCC-TAROT1-6)","+1 Shortbow (DDEX3-16)","+1 Shortsword (CCC-CIC-6)","+1 Shortsword: Icicle (CCC-GHC-5)","+1 Shortsword: Foxblade (CCC-SRCC1-2)","+1 Shortsword (DDEP7-1)","+1 Trident (DDEP7-1)","+1 War Pick (CCC-TRI-9 BHC1-0)","+1 Warhammer: Torag's Hammer (CCC-TAROT1-4)","+1 Weapon (DDHC-TOA-8)","+2 Bow (DDEX3-7)","+2 Dagger (CCC-GHC-6)","+2 Dagger (Trading Post)","+2 Greataxe: Whisper (DDHC-TOA-8)","+2 Greatsword: Tyr's Justice (CCC-GHC-8)","+2 Greatsword: Githyanki Greater Silver Sword (CCC-TRI-27 ROSE1-2)","+2 Greatsword: Agony (SJ-DC-ANGKA-1)","+2 Longbow: Deep's Reach (CCC-BMG-MOON12-2)","+2 Longbow: Giant's Bane (CCC-GHC-9)","+2 Longbow (DDEP5-2)","+2 Longsword: Elven Blade of the Third Age (CCC-BWM-2)","+2 Longsword: Stout (CCC-GHC-BK1-5)","+2 Rapier: The Sixth Sword (CCC-HAL-3)","+2 Scimitar (SJ-DC-DRA-1)","+2 Shortsword: Smoke (CCC-SFBAY1-1)","+2 Shortsword (DDAL0-13)","+2 Trident (CCC-CIC-12)","+2 War Pick (CCC-MYR1-1)","+2 Weapon (PotA)","+3 Battleaxe: Skeggöx (DDAL5-9)","+3 Dagger (CCC-TRI-29 TIDE1-1)","+3 Glaive: Empyrean’s Unbreaking Glaive (WBW-DC-Sunlit-6)","+3 Greatsword (WBW-DC-PLS-1)","+3 Hand Crossbow: Belmore (WBW-DC-PHP-LCL-2)","+3 Lance: Dream Whirl (CCC-BMG-39 HULB3-3)","+3 Piercing Weapon: Midnight Phaeton's Horn (CCC-ODFC2-3)","+3 Pike: Krahharuan Fork (DDAL7-10)","+3 Scimitar (DDEP6-2)","+3 Shortsword: Harengon's Freedom (ALSRs11-A)","+3 Spear: Blood-Drinker's Backbone (RMH-5/RMH-6)"],
 		"+1 battleaxe: rebel's yell (ccc-rpr-1)" : {
 			name : "Rebel's Yell, +1 Battleaxe (CCC-RPR-1)",
 			source : [["AL","CCC"]],
@@ -4420,6 +4479,21 @@ MagicItemsList["al weapons +1, +2, or +3"] = {
 			name : "Dagger +2",
 				}
 			},
+		"+2 dagger (trading post)" : {
+			name : "+2 Dagger (Trading Post)",
+			source : [["AL","CCC"]],
+			rarity : "rare",
+			magicItemTable : "G",
+			allowDuplicates : true,
+			description : "This dagger's blade is coated in a thin layer of unknown chemical that can never be washed away. The chemical was thought to be completely destroyed by the Forgotten Realms environmental protection agency centuries ago, due to the extreme* (normal) damage it does when in contact with plants. Druids are sure to try to confiscate this fell blade should they see it. You have a +2 bonus to atk and dmg rolls made with this magic weapon.",
+			descriptionFull : "The blade of this dagger is coated in a thin layer of unknown chemical that can never be washed away. This chemical was thought to be completely destroyed by the Forgotten Realms environmental protection agency centuries ago, due to the extreme* (normal) damage it does when in contact with plants. Druids are sure to try to confiscate this fell blade should they see it (Custom flavor from the DWB Trading Post).\n   You have a +2 bonus to attack and damage rolls made with this magic weapon.",
+			weaponsAdd : ["Dagger +2"],
+			weaponOptions : {
+			baseWeapon : "dagger",
+			regExpSearch : /^(?=.*dagger).*$/i,
+			name : "Dagger +2",
+				}
+			},
 		"+2 greataxe: whisper (ddhc-toa-8)" : {
 		name : "Whisper, +2 Greataxe (DDHC-TOA-8)",
 			source : [["AL","S7"]],
@@ -4577,6 +4651,22 @@ MagicItemsList["al weapons +1, +2, or +3"] = {
 				source : [["AL","CCC"]],
 				regExpSearch : /^(?=.*sixth)(?=.*sword).*$/i,
 			name : "The Sixth Sword, Rapier +2",
+				}
+			},
+		"+2 scimitar (sj-dc-dra-1)" : {
+		name : "+2 Scimitar (SJ-DC-DRA-1)",
+			source : [["AL","SJ-DC"]],
+			rarity : "rare",
+			magicItemTable : "G",
+			allowDuplicates : true,
+			description : "This scimiar whispers warnings, granting you a +2 bonus to initiative if you're not incapacitated. You also have a +2 bonus to atk and damage rolls made with this magic weapon.",
+			descriptionFull : "You have a +2 bonus to attack and damage rolls made with this magic weapon.\n   " + toUni("Guardian") + ". The item whispers warnings to its bearer, granting a +2 bonus to initiative if the bearer isn’t incapacitated.",
+			addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
+			weaponsAdd : ["Scimitar +2"],
+			weaponOptions : {
+				baseWeapon : "scimitar",
+				regExpSearch : /^(?=.*scimitar).*$/i,
+				name : "Scimitar +2",
 				}
 			},
 		"+2 shortsword: smoke (ccc-sfbay1-1)" : {
@@ -4835,7 +4925,7 @@ MagicItemsList["al weapons +1, +2, or +3"] = {
 MagicItemsList["al weapons (other)"] = {
 		name : "AL Weapons (Other)",
 		allowDuplicates : true,
-	choices : ["Berserker Flail (CCC-UCON-1)","Dagger of Blindsight: Panther's Claw (RMH-9)","Dagger of Venom: Fang of Sibyl (CCC-GARY-1)","Dagger of Venom (DDAL4-11)", "Dagger of Venom (DDAL5-17)","Drow-made Dagger (WDotMM)","Dwarven Thrower: Skyfist (DDEP4)","Dwarven Thrower: Foehammer (WBW-DC-MOM-2)","Glaive of Warning: The Harbinger (CCC-EPI1-2)","Glaive of Warning: Losspatan's War-scythe (CCC-GGC-2-1)","Greatclub of Warning: Clobber (WBW-DC-MIKE-1)","Javelin of Lightning (CCC-BFG1-3)","Javelin of Lightning (CCC-BMG-MOON6-3)","Javelin of Lightning (CCC-BMG-MOON16-1)","Javelin of Lightning (CCC-GAD2-2)","Javelin of Lightning (CCC-SAC-4)","Javelin of Lightning (CCC-SFBAY-4-1)","Javelin of Lightning (DDAL8-5)","Javelin of Lightning: Rrakkma's Smite (SJ-DC-FLUMPH-1)","Javelin of Warning: Jeny's Hairpin (CCC-VOTE-1-1)","Moon Sickle +1 (DDAL-DRW10)","Moon Sickle +2: Selune's Guidance (WBW-DC-NJ-COU-2)","Moon Sickle +2: Tsukikama (WBW-DC-PHP-1)","Net of Warning (CCC-ELF-3-1)","Oathbow: Syranna's Folly (CCC-OCC-1)","Oathbow (DDAL-DRW8)","Oathbow: Shadowsong (DDEX3-7)","Oathbow: Selestria (WBW-DC-TMP-3)","Trident of Fish Command (CCC-BMG-MOON14-1)","Trident of Fish Command (CCC-TAROT2-8)","Trident of Fish Command (CCC-WWC-2)","Trident of Warning (DDEX2-3)","Vicious Glaive: Ptahrek’s Glaive (CCC-SVH1-2)","Vicious Spear (DDAL0-13)","Trident of Warning (CCC-TRI-34)","Weapon of Warning (DDAL0-7)","Whip of Warning (CCC-GHC-BK2-10)","Whip of Warning (DDAL4-2)"],
+	choices : ["Berserker Flail (CCC-UCON-1)","Dagger of Blindsight: Panther's Claw (RMH-9)","Dagger of Venom: Fang of Sibyl (CCC-GARY-1)","Dagger of Venom (DDAL4-11)", "Dagger of Venom (DDAL5-17)","Drow-made Dagger (WDotMM)","Dwarven Thrower: Skyfist (DDEP4)","Dwarven Thrower: Foehammer (WBW-DC-MOM-2)","Glaive of Warning: The Harbinger (CCC-EPI1-2)","Glaive of Warning: Losspatan's War-scythe (CCC-GGC-2-1)","Greatclub of Warning: U'u War Club (WBW-DC-DEN-H2)","Greatclub of Warning: Clobber (WBW-DC-MIKE-1)","Javelin of Lightning (CCC-BFG1-3)","Javelin of Lightning (CCC-BMG-MOON6-3)","Javelin of Lightning (CCC-BMG-MOON16-1)","Javelin of Lightning (CCC-GAD2-2)","Javelin of Lightning (CCC-SAC-4)","Javelin of Lightning (CCC-SFBAY-4-1)","Javelin of Lightning (DDAL8-5)","Javelin of Lightning: Stormstrike (SJ-DC-DD-4)","Javelin of Lightning: Rrakkma's Smite (SJ-DC-FLUMPH-1)","Javelin of Lightning: Jensen's Lure (SJ-DC-ISL-1)","Javelin of Lightning (SJ-DC-TTUC-1)","Javelin of Warning: Jeny's Hairpin (CCC-VOTE-1-1)","Moon Sickle +1 (DDAL-DRW10)","Moon Sickle +2: Selune's Guidance (WBW-DC-NJ-COU-2)","Moon Sickle +2: Tsukikama (WBW-DC-PHP-1)","Net of Warning (CCC-ELF-3-1)","Oathbow: Syranna's Folly (CCC-OCC-1)","Oathbow (DDAL-DRW8)","Oathbow: Shadowsong (DDEX3-7)","Oathbow: Selestria (WBW-DC-TMP-3)","Trident of Fish Command (CCC-BMG-MOON14-1)","Trident of Fish Command (CCC-TAROT2-8)","Trident of Fish Command (CCC-WWC-2)","Trident of Warning (DDEX2-3)","Vicious Glaive: Ptahrek’s Glaive (CCC-SVH1-2)","Vicious Spear (DDAL0-13)","Trident of Warning (CCC-TRI-34)","Weapon of Warning (DDAL0-7)","Whip of Warning (CCC-GHC-BK2-10)","Whip of Warning (DDAL4-2)"],
 	"berserker flail (ccc-ucon-1)" : {
 		name : "Berserker Flail (CCC-UCON-1)",
 		source : [["AL","CCC"]],
@@ -5013,7 +5103,7 @@ MagicItemsList["al weapons (other)"] = {
 			attunement : true,
 			advantages : [["Initiative", true]],
 			savetxt : { immune : ["surprised"] },
-			description : "This massive scythe, the Harbinger, was forged from the darkest shadows of the plane of Gehenna, home of the orcish god Shaargas. The weapon's material is light & doesn't cast a shadow, though shadows warn its wielder of impending danger. While it's on your person, you have adv. on initiative. Also, you & your allies w/i 30 ft can't be surprised & the weapon magically awakens all of you when combat starts, unless incapacitated by something other than nonmagical sleep.",
+			description : "This massive scythe, the Harbinger, was forged from the darkest shadows of the plane of Gehenna, home of the orcish god Shaargas. The weapon's material is light & doesn't cast a shadow, though shadows warn its wielder of impending danger. While it's on your person, you have adv. on initiative. Also, you & your allies within 30 ft can't be surprised & the weapon magically awakens all of you when combat starts, unless incapacitated by more than nonmagical sleep.",
 			descriptionFull : "The Harbinger is a massive scythe was forged from the darkest shadows from the plane of Gehenna, home of the orcish god Shaargas. The material is light, and does not cast its own shadow. However, the item gives its user an uncanny ability for shadows to warn the user of impending danger.\n   While the weapon is on your person, you have advantage on initiative rolls. In addition, you and any of your companions within 30 feet of you can't be surprised, except when incapacitated by something other than nonmagical sleep. The weapon magically awakens you and your companions within range if any of you are sleeping naturally when combat begins.",
 			weaponsAdd : ["Harbinger, Glaive of Warning"],
 			weaponOptions : {
@@ -5031,13 +5121,31 @@ MagicItemsList["al weapons (other)"] = {
 			attunement : true,
 			advantages : [["Initiative", true]],
 			savetxt : { immune : ["surprised"] },
-			description : "This war-scythe consists of a reddish 10-ft wooden pole with a curved scythe-like blade at the top that's etched with infernal runes. Along the base of the pole is the preserved tail of a fiendish creature, which emanates a foul odor of rot. When trouble is nearby, the tail whips & thrashes to warn of impending danger. While it's on your person, you have adv. on initiative. Also, you & your allies w/i 30 ft can't be surprised & the weapon magically awakens all of you when combat starts, unless incapacitated by something other than nonmagical sleep.",
+			description : "This war-scythe consists of a reddish 10-ft wooden pole with a curved scythe-like blade at the top that's etched with infernal runes. Along the base of the pole is the preserved tail of a fiendish creature, which emanates a foul odor of rot. When trouble is nearby, the tail whips & thrashes to warn of impending danger. While it's on your person, you have adv. on initiative. Also, you & your allies within 30 ft can't be surprised & the weapon magically awakens all of you when combat starts, unless incapacitated by more than nonmagical sleep.",
 			descriptionFull : "This war-scythe consists of a long reddish wooden pole about 10 feet in length with an attached curved scythe-like blade on the top end. The blade is etched with infernal runes. Along the base of the pole is the preserved tail of some fiendish creature. When trouble is nearby the tail whips and thrashes about warnings of the impending situation. Although preserved, the tail emanates a foul odor of rot.\n   This magic weapon warns you of danger. While the weapon is on your person, you have advantage on initiative rolls. In addition, you and any of your companions within 30 feet of you can't be surprised, except when incapacitated by something other than nonmagical sleep. The weapon magically awakens you and your companions within range if any of you are sleeping naturally when combat begins.",
 			weaponsAdd : ["Losspatan’s War-scythe, Glaive of Warning"],
 			weaponOptions : {
 				baseWeapon : "glaive",
 				regExpSearch : /^(?=.*glaive)(?=.*warning)(?=.*losspatan|losspatan's)(?=.*war-scythe).*$/i,
 				name : "Losspatan’s War-scythe, Glaive of Warning",
+				}
+			},
+	"greatclub of warning: u'u war club (wbw-dc-den-h2)" : {
+			name : "U'u War Club (Greatclub of Warning)",
+			source : [["AL","WBW-DC"]],
+			type : "weapon (greatclub)",
+			rarity : "uncommon",
+			magicItemTable : "F",
+			attunement : true,
+			advantages : [["Initiative", true]],
+			savetxt : { immune : ["surprised"] },
+			description : "From a distant prime material land called the Marquesas Islands, the U’u War Club is carved from ironwood, sennit & human hair. A Marquesan warrior or chief carried this club as a sign of status. The carvings of faces & eyes keep watch in all directions & symbolize a warrior’s ancestors, endowing them with spiritual power & protection. While on your person, you have adv. on initiative. You & your allies within 30 ft can't be surprised & the weapon magically awakens all of you when combat starts, unless incapacitated by more than nonmagical sleep.",
+			descriptionFull : "From a distant prime material land known as the Marquesas Islands, the U’u War Club is carved from ironwood, sennit, and human hair. A Marquesan warrior or chief carried this club as a sign of status. The carvings of multiple faces and eyes keep watch in all directions and are symbolic representations of warrior’s ancestors – endowing the wielder with spiritual power and protection.\n   This magic weapon warns you of danger. While the weapon is on your person, you have advantage on initiative rolls. In addition, you and any of your companions within 30 feet of you can't be surprised, except when incapacitated by something other than nonmagical sleep. The weapon magically awakens you and your companions within range if any of you are sleeping naturally when combat begins.",
+			weaponsAdd : ["U'u War Club, Greatclub of Warning"],
+			weaponOptions : {
+				baseWeapon : "greatclub",
+				regExpSearch : /^(?=.*greatclub)(?=.*warning)(?=.*u'u).*$/i,
+				name : "U'u War Club, Greatclub of Warning",
 				}
 			},
 	"greatclub of warning: clobber (wbw-dc-mike-1)" : {
@@ -5049,7 +5157,7 @@ MagicItemsList["al weapons (other)"] = {
 			attunement : true,
 			advantages : [["Initiative", true]],
 			savetxt : { immune : ["surprised"] },
-			description : "To ensure that his ogre bodyguard, Clobber, couldn’t be caught unawares, Scrimshaw enchanted his greatclub with magical wards. Elaborate carved curlicues wend their way around its gnarled oaken shaft & glow a dull crimson when danger is near. While on your person, you have adv. on initiative. You & your allies w/i 30 ft can't be surprised & the weapon magically awakens all of you when combat starts, unless incapacitated by something other than nonmagical sleep.",
+			description : "To ensure that his ogre bodyguard, Clobber, couldn’t be caught unawares, Scrimshaw enchanted his greatclub with magical wards. Elaborate carved curlicues wend their way around its gnarled oaken shaft & glow a dull crimson when danger is near. While on your person, you have adv. on initiative. You & your allies within 30 ft can't be surprised & the weapon magically awakens all of you when combat starts, unless incapacitated by more than nonmagical sleep.",
 			descriptionFull : "To ensure that the dim-witted ogre couldn’t be caught unawares, Scrimshaw enchanted the weapon of his bodyguard, Clobber with magical wards. The elaborate curlicues carved into this greatclub twist and wend their way around its gnarled oaken shaft. They emit a dull crimson glow when danger is near.\n   This magic weapon warns you of danger. While the weapon is on your person, you have advantage on initiative rolls. In addition, you and any of your companions within 30 feet of you can't be surprised, except when incapacitated by something other than nonmagical sleep. The weapon magically awakens you and your companions within range if any of you are sleeping naturally when combat begins.",
 			weaponsAdd : ["Clobber, Greatclub of Warning"],
 			weaponOptions : {
@@ -5205,13 +5313,34 @@ MagicItemsList["al weapons (other)"] = {
 			description : "Thrown; Once per dawn special attack, see item description"
 		}
 	},
+	"javelin of lightning: stormstrike (sj-dc-dd-4)" : { // contains contributions by Larry Hoy
+		name : "Stormstrike (Javelin of Lightning)",
+		source : [["AL","SJ-DC"]],
+		type : "weapon (javelin)",
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "This short-hafted bident is made of the same smooth black metal as the Monad & glows when undead are in 120 ft. “5702M5721KE” is engraved on the haft & when you press a button, lightning crackles along the tines. Once per dawn, speak this javelin's command word & make a ranged weapon attack with it on a target within 120 ft. Anyone between you & the target in a 5-ft wide line takes 4d6 lightning dmg, DC 13 Dex save halves. If the javelin hits the target, it takes 1d6 piercing & 4d6 lightning dmg.",
+		descriptionFull : "This short-hafted bident is a relic of an earlier age. It is made of the same smooth black metal as the Monad, and the numbers and letters “5702M5721KE” are engraved on the haft. Lightning crackles along the tines when a button on the haft is pressed. Gauthak (from SJ-DC-DD-03) has pointed out that while the engraving hardly makes sense, it looks suspiciously like the word “Stormstrike”, and has taken to calling the bident as such.\n   " + toUni("Sentinel") + ". This item glows faintly when undead are within 120 feet of it.\n   When you hurl it and speak its command word, it transforms into a bolt of lightning, forming a line 5 feet wide that extends out from you to a target within 120 feet. Each creature in the line excluding you and the target must make a DC 13 Dexterity saving throw, taking 4d6 lightning damage on a failed save, and half as much damage on a successful one. The lightning bolt turns back into a javelin when it reaches the target. Make a ranged weapon attack against the target. On a hit, the target takes damage from the javelin plus 4d6 lightning damage.\n   The javelin's property can't be used again until the next dawn. In the meantime, the javelin can still be used as a magic weapon.",
+		weight : 2,
+		limfeaname : "Javelin of Lightning",
+		usages : 1,
+		recovery : "dawn",
+		weaponsAdd : ["Javelin of Lightning"],
+		weaponOptions : {
+			baseWeapon : "javelin",
+			regExpSearch : /^(?=.*javelin)(?=.*lightning).*$/i,
+			name : "Javelin of Lightning",
+			source : [["AL","SJ-DC"]],
+			description : "Thrown; Once per dawn special attack, see item description"
+		}
+	},
 	"javelin of lightning: rrakkma's smite (sj-dc-flumph-1)" : { // contains contributions by Larry Hoy
 		name : "Rrakkma's Smite (Javelin of Lightning)",
 		source : [["AL","SJ-DC"]],
 		type : "weapon (javelin)",
 		rarity : "uncommon",
 		magicItemTable : "F",
-		description : "This obsidian & silver-blue javelin radiates sparks of electricity when it makes contact with metal or flesh & the phrase ‘Rrakkma’ is etched into the metal in Gith. It crackles & shocks warnings, giving +2 initiative when you're not incapacitated. Once per dawn you can speak this javelin's command word and make a ranged weapon attack with it on a target within 120 ft. Anyone between you and the target in a 5-ft wide line takes 4d6 lightning damage, DC 13 Dex save halves. If the javelin hits the target, it takes 1d6 piercing and 4d6 lightning damage.",
+		description : "This obsidian & silver-blue javelin radiates sparks of electricity when it makes contact with metal or flesh & the phrase ‘Rrakkma’ is etched into the metal in Gith. It crackles & shocks warnings, giving +2 initiative if you're not incapacitated. Once per dawn, speak this javelin's command word & make a ranged weapon attack with it on a target within 120 ft. Anyone between you & the target in a 5-ft wide line takes 4d6 lightning dmg, DC 13 Dex save halves. If the javelin hits the target, it takes 1d6 piercing & 4d6 lightning dmg.",
 		descriptionFull : "This obsidian and silver-blue javelin radiates sparks of electricity when it makes contact with metal or flesh, the phrase ‘Rrakkma’ is etched into the metal in Gith.’\n   " + toUni("Guardian") + ". The item crackles and electrically shocks a warning to its bearer, granting a +2 bonus to initiative if the bearer isn’t incapacitated.\n   When you hurl it and speak its command word, it transforms into a bolt of lightning, forming a line 5 feet wide that extends out from you to a target within 120 feet. Each creature in the line excluding you and the target must make a DC 13 Dexterity saving throw, taking 4d6 lightning damage on a failed save, and half as much damage on a successful one. The lightning bolt turns back into a javelin when it reaches the target. Make a ranged weapon attack against the target. On a hit, the target takes damage from the javelin plus 4d6 lightning damage.\n   The javelin's property can't be used again until the next dawn. In the meantime, the javelin can still be used as a magic weapon.",
 		weight : 2,
 		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
@@ -5223,7 +5352,51 @@ MagicItemsList["al weapons (other)"] = {
 			baseWeapon : "javelin",
 			regExpSearch : /^(?=.*javelin)(?=.*lightning).*$/i,
 			name : "Javelin of Lightning",
-			source : [["AL","S8"]],
+			source : [["AL","SJ-DC"]],
+			description : "Thrown; Once per dawn special attack, see item description"
+		}
+	},
+	"javelin of lightning: jensen's lure (sj-dc-isl-1)" : { // contains contributions by Larry Hoy
+		name : "Jensen's Lure (Javelin of Lightning)",
+		source : [["AL","SJ-DC"]],
+		type : "weapon (javelin)",
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "This javelin's well-worn wood is dyed in stripes of magenta & green by years of exposure to Isl's algae. As a bonus action, you can reactivate or turn off the algae's bioluminescence with the javelin's lightning energy, creating a 10-ft radius of bright light & 10-ft dim. Once per dawn, speak the command word & make a ranged weapon attack with the javelin on a target in 120 ft. Anyone between you & the target in a 5-ft wide line takes 4d6 lightning dmg, DC 13 Dex save halves. If the javelin hits the target, it takes 1d6 piercing & 4d6 lightning dmg.",
+		descriptionFull : "The well-worn wood of Jensen’s Lure is dyed in stripes of magenta and green by years of exposure to Isl's algae. The bioluminescent property of these algae can be reactivated using the javelin’s latent lightning energy, producing the beacon effect.\n   " + toUni("Beacon") + ". The bearer can use a bonus action to cause the item to shed bright light in a 10-foot radius and dim light for an additional 10 feet, or to extinguish the light.\n   When you hurl it and speak its command word, it transforms into a bolt of lightning, forming a line 5 feet wide that extends out from you to a target within 120 feet. Each creature in the line excluding you and the target must make a DC 13 Dexterity saving throw, taking 4d6 lightning damage on a failed save, and half as much damage on a successful one. The lightning bolt turns back into a javelin when it reaches the target. Make a ranged weapon attack against the target. On a hit, the target takes damage from the javelin plus 4d6 lightning damage.\n   The javelin's property can't be used again until the next dawn. In the meantime, the javelin can still be used as a magic weapon.",
+		weight : 2,
+		limfeaname : "Javelin of Lightning",
+		usages : 1,
+		recovery : "dawn",
+		action : [["bonus action", " (light/dim)"]],
+		weaponsAdd : ["Javelin of Lightning"],
+		weaponOptions : {
+			baseWeapon : "javelin",
+			regExpSearch : /^(?=.*javelin)(?=.*lightning).*$/i,
+			name : "Javelin of Lightning",
+			source : [["AL","SJ-DC"]],
+			description : "Thrown; Once per dawn special attack, see item description"
+		}
+	},
+	"javelin of lightning (sj-dc-ttuc-1)" : { // contains contributions by Larry Hoy
+		name : "Javelin of Lightning (SJ-DC-TTUC-1)",
+		source : [["AL","SJ-DC"]],
+		type : "weapon (javelin)",
+		rarity : "uncommon",
+		magicItemTable : "F",
+		description : "This javelin was created by a gnomish tinkerer & you can speak gnomish while it's on your person. Once per dawn, speak the command word (Godspeed in Gnomish) & make a ranged weapon attack with the javelin on a target in 120 ft. Anyone between you & the target in a 5-ft wide line takes 4d6 lightning dmg, DC 13 Dex save halves. If the javelin hits the target, it takes 1d6 piercing & 4d6 lightning dmg.",
+		descriptionFull : "The gnome tinkerer created this javelin made sure those who uses the Javelin know its command word “godspeed” in Gnomish which crafted on the javelin.\n   " + toUni("Language") + ". This Javelin of Lightning has minor property Language (Gnome). The bearer can speak and understand Gnomish while the item is on the bearer’s person. \n   When you hurl it and speak its command word, it transforms into a bolt of lightning, forming a line 5 feet wide that extends out from you to a target within 120 feet. Each creature in the line excluding you and the target must make a DC 13 Dexterity saving throw, taking 4d6 lightning damage on a failed save, and half as much damage on a successful one. The lightning bolt turns back into a javelin when it reaches the target. Make a ranged weapon attack against the target. On a hit, the target takes damage from the javelin plus 4d6 lightning damage.\n   The javelin's property can't be used again until the next dawn. In the meantime, the javelin can still be used as a magic weapon.",
+		weight : 2,
+		limfeaname : "Javelin of Lightning",
+		usages : 1,
+		recovery : "dawn",
+		languageProfs : ["Gnomish"],
+		weaponsAdd : ["Javelin of Lightning"],
+		weaponOptions : {
+			baseWeapon : "javelin",
+			regExpSearch : /^(?=.*javelin)(?=.*lightning).*$/i,
+			name : "Javelin of Lightning",
+			source : [["AL","SJ-DC"]],
 			description : "Thrown; Once per dawn special attack, see item description"
 		}
 	},

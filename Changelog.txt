@@ -1,3 +1,15 @@
+Changelog (After 12/22/22)
+-Added new WBW and SJ Dungeoncraft items
+-Added items from unpublished SJ-DC-SINGULARITY
+-Minor corrections for spacing and clarity
+-Fixed a code error in the Eldritch Claw Tattoo for ZODIAC-11 that stopped it from appearing as an option.
+-Corrected Bracers of Defense in DRWEP3 to Bracers of Archery
+-Removed trinkets from WBW-DC-LEGIT City of Starlight because most parties will turn them in for gold. 
+-Split Holiday Events Source into Liar's Night and Feast of the Moon to be more accurate
+-Added missing Pole of Angling from DDEP10-1
+-Added flavored items from Journies Through the Radiant Citadel
+
+
 Changelog (After 10/11/22)
 -Subdivided the Equipment and Outerwear section into Equipment, Equipment (Common), Cloaks, Cloaks (Common), and Clothing due to hitting the choice cap
 -Combined the two different versions of Feywild Shards into a single item to reduce the number of choices (if a wild mage, you'll just need to delete the limited feature)

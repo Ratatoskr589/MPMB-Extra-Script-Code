@@ -38,6 +38,13 @@ SourceList["AL:LN"] = {  //Liar's Night and Wandering Monsters
     date : "Various"
 };
 
+SourceList["AL:FM"] = {  //Feast of the Moon events
+    name : "AL Holiday Events - Feast of the Moon",
+    abbreviation : "AL:FM",
+    group : "Adventurers League",
+    date : "Various"
+};
+
 SourceList["AL:FC"] = {   //Fai Chen 
     name : "Fai Chen Certs",
     abbreviation : "AL:FC",
@@ -45,7 +52,7 @@ SourceList["AL:FC"] = {   //Fai Chen
     date : "Various"
 };
 
-SourceList["AL:EL"] = {   //AL specific Extra Life certs
+SourceList["AL:EL"] = {   //AL specific Extra Life or other charity event certs
     name : "AL Extra Life Certs",
     abbreviation : "AL:EL",
     group : "Extra Life",
@@ -391,7 +398,18 @@ MagicItemsList["al event award items"] = {
 		rarity : "unique",
 		type : "wondrous item",
 		allowDuplicates : false,
-	choices : ["Buckler of Folding","Bunny Slipper Snowshoes","Calliope Wine Cask","Campfire Ice Sculpture","Cuddly Spider","Fiery Snow Sled (TAL)","Flask of Glowworms","Harengon Spirit Club (LN-1)","Inspired Cocoa Mug","Jar of Everflowing Honey","Magical Slushy Grinder","Moonlight Candle","Netherese Ghost Stories","Very Important Crown","Viridian Monocle","Wand of Verdant Vitality"],
+	choices : ["Animated Balloon Beast","Buckler of Folding","Bunny Slipper Snowshoes","Calliope Wine Cask","Campfire Ice Sculpture","Cuddly Spider","Fiery Snow Sled (TAL)","Flask of Glowworms","Harengon Spirit Club (LN-1)","Inspired Cocoa Mug","Jar of Everflowing Honey","Magical Slushy Grinder","Moonlight Candle","Netherese Ghost Stories","Very Important Crown","Viridian Monocle","Wand of Verdant Vitality"],
+	"animated balloon beast" : {
+		name : "Animated Balloon Beast",
+		source : ["AL:EL",2022],
+		type : "shield",
+		description : "This carnival favorite is enchanted to be unbreakable and float within 5 ft of you unless forcibly removed. While holding its string, you can change its shape to any creature, but its size remains Tiny. Once per dawn as an action, you can magically levitate 20 ft in the air until the end of your next turn, floating gently to the ground when the duration ends.",
+		descriptionFull : "This carnival favorite bears enchantments that make it unbreakable and keeps it floating within 5 feet of you unless forcibly removed. While holding its string, its shape can change to any creature you desire with a size no larger than Tiny. As an action, you may also magically levitate in the air 20 feet until the end of your next turn, floating gently to the ground when the duration ends if you are still suspended. The balloon can't be used to levitate again until the next dawn.",
+		action : [["action", "Balloon Beast (Levitate)"]],
+		limfeaname : "Balloon Beast (Levitate)",
+		usages : 1,
+		recovery : "dawn",
+		},
 	"buckler of folding" : {
 		name : "Buckler of Folding",
 		source : ["DDCE",2021],
@@ -489,7 +507,7 @@ MagicItemsList["al event award items"] = {
 		},
 	"jar of everflowing honey" : {
 		name : "Jar of Everflowing Honey",
-		source : ["AL:LN", 2021],
+		source : ["AL:FM", 2021],
 		type : "trinket",
 		description : "This ceramic jar weighs 5 pounds & feels full. Its lid can't be removed unless you're using it. As an action, you may remove the lid & a fountain of honey pours out, generating 5 gallons of honey. The honey stops pouring out at the start of your next turn.",
 		descriptionFull : "This ceramic jar weighs five pounds and feels full of honey. Its lid cannot be removed unless you're using it. As an action, you may remove the lid and a fountain of honey pours out, generating five gallons of honey. The honey stops pouring out at the start of your next turn.",
@@ -586,7 +604,7 @@ MagicItemsList["al new items"] = {
 		},
 	"cariboots" : {
 		name : "Cariboots",
-		source : ["AL:LN", 2020],
+		source : ["AL:FM", 2020],
 		rarity : "common",
 		magicItemTable : "?",
 		description : "These boots fit any humanoid, and are finely crafted from caribou pelts and lined with the softest fur. While wearing these boots, you can choose to have them leave tracks like those of a caribou."
@@ -662,7 +680,7 @@ MagicItemsList["al new items"] = {
 	},
 	"fey hound collar" : {
 		name : "Fey Hound Collar",
-		source : ["AL:LN", 2020],
+		source : ["AL:FM", 2020],
 		rarity : "unique",
 		description : "As an action, while wearing this (very) punk rock collar, you create a 15-ft-diameter sphere of green mist, centered on you & moving with you. The sphere spreads around corners & its area is heavily obscured. It lasts for 10 minutes or until a wind of moderate or greater speed (at least 10 miles per hour) disperses it. The collar can't be used this way again until the next dawn.",
 		descriptionFull : "As an action, while wearing this (very punk rock) collar, you create a 15-foot-diameter sphere of green mist, centered on you, moving with you. The sphere spreads around corners, and its area is heavily obscured. It lasts for 10 minutes or until a wind of moderate or greater speed (at least 10 miles per hour) disperses it. The collar can't be used this way again until the next dawn.",
@@ -698,7 +716,7 @@ MagicItemsList["al new items"] = {
 		source : ["AL:LN", 2019],
 		rarity : "common",
 		magicItemTable : "?",
-		description : "This black cone-shaped hat has a wide-brim. It's adorned with a tarnished brass buckle & a spindly-legged spider who lives there. The hat acts as a focus for your class spells. Once/long rest, you can try to cast an unknown cantrip from your class' list with a DC 10 INT (Arcana) check, wasting the attempt & action if failed. If 3 allies are wearing & attuned to hats of witchery w/i 30 ft, the check is made with adv. Their skin also turns green & their voices become raspy & aged.",
+		description : "This black, cone-shaped hat has a wide-brim and is adorned with a tarnished brass buckle and a spindly-legged spider who made the hat its home. It can act as spellcasting focus for your class' spells. Once per long rest, you can try to cast a cantrip you don't know from your class' list by making a DC 10 INT (Arcana) check, wasting the attempt & the action if failed. If 3 allies are wearing and attuned to hats of witchery w/i 30 ft of each other, the check above is made with adv. The characters’ skin turns green & their voices become raspy and aged.",
 		descriptionFull : "This black, cone-shaped hat has a wide-brim and is adorned with a tarnished brass buckle and a spindly-legged spider who has made the hat its home. While you are wearing it, you gain the following benefits:\n \u2022 You can use the hat as a spellcasting focus for your class' spells.\n \u2022 You can try to cast a cantrip that you don't know. The cantrip must be on your class' spell list, and you must make a DC 10 Intelligence (Arcana) check. If the check succeeds, you cast the spell. If the check fails, so does the spell, and the action used to cast the spell is wasted. In either case, you can't use this property again until you finish a long rest.\n \u2022 If three allies are all wearing and attuned to hats of witchery and are within 30 feet of each other, the check above is made with advantage. The characters’ skin turns green, and their voices become raspy and aged.",
 		attunement : true,
 		usages : 1,
@@ -917,7 +935,7 @@ changeeval : function () {
 		},
 	"pipes of remembrance" : {
 		name : "Pipes of Remembrance",
-		source : ["AL:LN", 2020],
+		source : ["AL:FM", 2020],
 		rarity : "common",
 		magicItemTable : "?",
 		description : "This delicate wooden pipe features a bowl made from smooth river stone. When the pipe is lit, exhaled smoke doesn't dissipate, instead lingering around the bearer. After 10 minutes, the smoke forms moving shapes that re-enact a scene of the bearer’s choosing from the stories they've been told. When this performance is complete, the smoke dissipates. A new story/likeness may be added to the pipe’s repertoire if the bearer smokes the pipe while relaying a tale or describing a companion. The pipe can be used this way once per dawn.",
@@ -943,7 +961,7 @@ changeeval : function () {
 		},
 	"selûne's owl-eye glasses" : {
 		name : "Selûne's Owl-Eye Glasses",
-		source : ["AL:LN", 2020],
+		source : ["AL:FM", 2020],
 		rarity : "unique",
 		attunement : true,
 		description : "While wearing these glasses, as an action once per dawn, you can instantaneously resummon a deceased, certed or Holiday Event vanity pet or mount (only ones that can be returned to life by the find familiar or find steed spells.) If you are not attuned to your glasses, that does not kill your pet.",
@@ -954,7 +972,7 @@ changeeval : function () {
 		},
 	"shar's veil" : {
 		name : "Shar's Veil",
-		source : ["AL:LN", 2020],
+		source : ["AL:FM", 2020],
 		rarity : "unique",
 		description : "Once per long rest, while wearing this purple and black shadowy veil, it gives you the illusion of death and decay for 1 hr. Lying motionless, you appear to be dead. In motion, you appear to be undead, but your creature type isn't changed. To tell that you're disguised, a creature can use its action to inspect your appearance and must succeed on a DC 13 Intelligence (Investigation) check.",
 		descriptionFull : "Once per long rest, while you wear this purple and black, shadowy veil, it gives the illusion of death and decay for 1 hour. Lying motionless, your body appears to be dead. In motion, you appear to be an undead creature, but your creature type is not changed to undead. To discern that you are disguised, a creature can use its action to inspect your appearance and must succeed on a DC 13 Intelligence (Investigation) check.",
@@ -1043,13 +1061,7 @@ MagicItemsList["al trinkets"] = {
 		rarity : "unique",
 		allowDuplicates : true,
 		defaultExcluded : true,
-		choices : ["Apple Tea (WBW-DC-LEGIT-SV-4)","Arcane Curio: Belt (DDEX2-10)","Arcane Curio: Brush (DDEX2-10)","Arcane Curio: Cloak (DDEX2-10)","Arcane Curio: Inkpot (DDEX2-10)","Arcane Curio: Pipe (DDEX2-10)","Arcane Curio: Quill (DDEX2-10)","Arcane Curio: Wand (DDEX2-10)","Artor's Blood Mead: Six-pack (DC-POA-SNIPE-1)","Bag of Chardalyn Shards (WBW-DC-LEGIT-SV-4)","Bundle of Glo-Sticks (WBW-DC-LEGIT-SV-4)","Cauldron of Stars (WBW-DC-LEGIT-SV-4)","Customized Crystal Memento (WBW-DC-LEGIT-SV-4)","Dinosaur Eggshell (WBW-DC-CONMAR-6)","Efreeti Crown of Wishes (CCC-ODFC2-2)","Faded Darkling Tassel (WBW-DC-LEGIT-SV-4)","Fairy Bread (WBW-DC-LEGIT-SV-4)","Flamesoul Stone (CCC-YLRA1-3)","Gem Biscuits (WBW-DC-LEGIT-SV-4)","Glitched Astral Diamond (WBW-DC-LEGIT-SV-4)","Handheld Tele-Kaleidoscope (WBW-DC-LEGIT-SV-4)","Ice Cream Sandwich (WBW-DC-LEGIT-SV-4)","Infernal Iron Ingot (WBW-DC-LEGIT-SV-4)","Inky Darkling Extreme [Diet] (WBW-DC-LEGIT-SV-4)","Leaf With Amber Veins (WBW-DC-CONMAR-6)","Lohringan Pink Opal (WBW-DC-CONMAR-6)","Magic Mirror (WBW-DC-VMT-1)","Million Sun Salute (WBW-DC-LEGIT-SV-4)","Nirmala's Special Spraypaint (WBW-DC-LEGIT-SV-4)","Pandemonium Sunset Pigment (WBW-DC-LEGIT-SV-4)","Paradise Snowglobe (WBW-DC-LEGIT-SV-4)","Piece of the Infernal Machine of Lum the Mad (IMR)","Preserved Fashion Sense (WBW-DC-LEGIT-SV-4)","Reflection Chai Latte (WBW-DC-LEGIT-SV-4)","Shadestone Relic (WBW-DC-LEGIT-SV-4)","Snipe Feather Pillow (DC-POA-SNIPE-1)","Souvenir Mini-Lith (WBW-DC-LEGIT-SV-4)","Sprite (WBW-DC-LEGIT-SV-4)","Starmetal Ingot (WBW-DC-LEGIT-SV-4)","Striking at the Bare Neck (DC-POA-SNIPE-1)","Tressym-Eye Marbles (WBW-DC-LEGIT-SV-4)","Vial of Liquid Starlight (WBW-DC-LEGIT-SV-4)","Vial of Slumber Sand (WBW-DC-LEGIT-SV-4)","Vibrant Darkling Mask (WBW-DC-LEGIT-SV-4)","Vibrant Eldritch Pigment (WBW-DC-LEGIT-SV-4)","Violent Hibiscus Pigment (WBW-DC-LEGIT-SV-4)","Waxworks Postcard (WBW-DC-LEGIT-SV-4)"],
-	"apple tea (wbw-dc-legit-sv-4)" : {
-		name: "Apple Tea (WBW-DC-LEGIT-SV-4)",
-		source : ["AL", "WBW-DC"],
-		description: "Impossible, they stopped making this 100 years ago! Its sweet and tart taste brings back memories.",
-		descriptionFull: "Impossible, they stopped making this a hundred years ago! Its sweet and tart taste brings back memories.",
-	},
+		choices : ["Arcane Curio: Belt (DDEX2-10)","Arcane Curio: Brush (DDEX2-10)","Arcane Curio: Cloak (DDEX2-10)","Arcane Curio: Inkpot (DDEX2-10)","Arcane Curio: Pipe (DDEX2-10)","Arcane Curio: Quill (DDEX2-10)","Arcane Curio: Wand (DDEX2-10)","Artor's Blood Mead: Six-pack (DC-POA-SNIPE-1)","Dinosaur Eggshell (WBW-DC-CONMAR-6)","Efreeti Crown of Wishes (CCC-ODFC2-2)","Flamesoul Stone (CCC-YLRA1-3)","Leaf With Amber Veins (WBW-DC-CONMAR-6)","Lohringan Pink Opal (WBW-DC-CONMAR-6)","Magic Mirror (WBW-DC-VMT-1)","Piece of the Infernal Machine of Lum the Mad (IMR)","Snipe Feather Pillow (DC-POA-SNIPE-1)","Striking at the Bare Neck (DC-POA-SNIPE-1)"],
 	"arcane curio: belt (ddex2-10)" : {
 		name: "Arcane Curio: Belt (DDEX2-10)",
 		nameAlt: "Arcane Curio: Belt",
@@ -1116,30 +1128,6 @@ MagicItemsList["al trinkets"] = {
 		descriptionFull: "A small wooden crate containing six ceramic bottles containing dark red mead especially commissioned for Artor Morlin, with the frowning face of Artor stenciled on the bottles. When you drink it, it has an unsettling metallic taste.",
 		weight: 1,
 	},
-	"bag of chardalyn shards (wbw-dc-legit-sv-4)" : {
-		name: "Bag of Chardalyn Shards (WBW-DC-LEGIT-SV-4)",
-		source : ["AL", "WBW-DC"],
-		description: "100% non-possessed shards of purple magic-conducting crystal.",
-		descriptionFull: "100% non-possessed shards of purple magic-conducting crystal.",
-	},
-	"bundle of glo-sticks (wbw-dc-legit-sv-4)" : {
-		name: "Bundle of Glo-Sticks (WBW-DC-LEGIT-SV-4)",
-		source : ["AL", "WBW-DC"],
-		description: "Tubes filled with a Starlight-infused liquid. Great for partying endlessly.",
-		descriptionFull: "Tubes filled with a Starlight-infused liquid. Great for partying endlessly.",
-	},
-	"cauldron of stars (wbw-dc-legit-sv-4)" : {
-		name: "Cauldron of Stars (WBW-DC-LEGIT-SV-4)",
-		source : ["AL", "WBW-DC"],
-		description: "Aged 200 days in the light of our beautiful sky. Peppery and sweet with a hint of alacrity.",
-		descriptionFull: "Aged 200 days in the light of our beautiful sky. Peppery and sweet with a hint of alacrity.",
-	},
-	"customized crystal memento (wbw-dc-legit-sv-4)" : {
-		name: "Customized Crystal Memento (WBW-DC-LEGIT-SV-4)",
-		source : ["AL", "WBW-DC"],
-		description: "A glass sphere encasing a place meaningful to the person it was created for.",
-		descriptionFull: "A glass sphere encasing a place meaningful to the person it was created for.",
-	},
 	"dinosaur eggshell (wbw-dc-conmar-6)" : {
 		name: "Dinosaur Eggshell (WBW-DC-CONMAR-6)",
 		source : ["AL", "WBW-DC"],
@@ -1152,59 +1140,11 @@ MagicItemsList["al trinkets"] = {
 		description : "This beautiful golden crown is covered with diamonds that gleam with their own light & resizes to fit your head. Despite its name, the crown doesn't actually grant wishes. Instead, when you feel strong emotions of any kind, the crown sprouts harmless, colorful flames from its pinnacle. The color of the flames is based on your mood: red for anger, blue for sorrow, green for amusement, etc.",
 		descriptionFull : "This beautiful golden crown is covered with diamonds each of which gleams with its own light. The crown resizes to fit the head of any wearer. Contrary to its name, the crown does not actually grant any wishes. Instead, when the person wearing it feels strong emotion of any kind, the crown sprouts harmless, colorful flames from its pinnacle, with the color of the flames based on the wearer’s mood: red for anger, blue for sorrow, green for amusement, and so on. This crown can be sold for 1,500 gp. It does not count as a magic item and cannot be traded. (To be kept as a trinket, this crown may not be sold)."
 	},
-	"faded darkling tassel (wbw-dc-legit-sv-4)" : {
-		name: "Faded Darkling Tassel (WBW-DC-LEGIT-SV-4)",
-		source : ["AL", "WBW-DC"],
-		description: "Awarded to the first Darkling Procession for their heroism during the dark days.",
-		descriptionFull: "Awarded to the first Darkling Procession for their heroism during the dark days.",
-	},
-	"fairy bread (wbw-dc-legit-sv-4)" : {
-		name: "Fairy Bread (WBW-DC-LEGIT-SV-4)",
-		source : ["AL", "WBW-DC"],
-		description: "Made in Starlight Style: Only orange hundreds and thousands (sprinkles).",
-		descriptionFull: "Made in Starlight Style: Only orange hundreds and thousands (sprinkles).",
-	},
 	"flamesoul stone (ccc-ylra1-3)" : {
 		name : "Flamesoul Stone (CCC-YLRA1-3)",
 		source : [["AL","CCC"]],
 		description : "This fist-sized crystal produces a flickering coppery-orange glow from within. The light is magical, but isn’t bright enough to significantly illuminate an area. Casting detect magic on the Flamesoul Stone shows a hint of necrotic magic emanating from it. The light from the stone is the same color as the comet that was recently seen over Ylraphon.",
 		descriptionFull : "A fist-sized crystal that produces a flickering coppery-orange glow from within. The light is magical, but isn’t bright enough to significantly illuminate any area. Casting detect magic on the Flamesoul Stone shows a slight hint of necrotic magic emanating from within. The light from the stone is the same color as the comet that has recently been seen over Ylraphon."
-	},
-	"gem biscuits (wbw-dc-legit-sv-4)" : {
-		name: "Gem Biscuits (WBW-DC-LEGIT-SV-4)",
-		source : ["AL", "WBW-DC"],
-		description: "Cream biscuits topped with a sweet icing star. Consume the stars.",
-		descriptionFull: "Cream biscuits topped with a sweet icing star. Consume the stars.",
-	},
-	"glitched astral diamond (wbw-dc-legit-sv-4)" : {
-		name: "Glitched Astral Diamond (WBW-DC-LEGIT-SV-4)",
-		source : ["AL", "WBW-DC"],
-		description: "Looks like someone failed to duplicate an astral diamond. Worthless as currency, but pretty.",
-		descriptionFull: "Looks like someone failed to duplicate an astral diamond. Worthless as currency, but pretty.",
-	},
-	"handheld tele-kaleidoscope (wbw-dc-legit-sv-4)" : {
-		name: "Handheld Tele-Kaleidoscope (WBW-DC-LEGIT-SV-4)",
-		source : ["AL", "WBW-DC"],
-		description: "An array of lenses and mirrors allows you to look at kaleidoscopic patterns from further away.",
-		descriptionFull: "An array of lenses and mirrors allows you to look at kaleidoscopic patterns from further away.",
-	},
-	"ice cream sandwich (wbw-dc-legit-sv-4)" : {
-		name: "Ice Cream Sandwich (WBW-DC-LEGIT-SV-4)",
-		source : ["AL", "WBW-DC"],
-		description: "A block of rainbow ice cream sandwiched between rainbow bread. An old school delight.",
-		descriptionFull: "A block of rainbow ice cream sandwiched between rainbow bread. An old school delight.",
-	},
-	"infernal iron ingot (wbw-dc-legit-sv-4)" : {
-		name: "Infernal Iron Ingot (WBW-DC-LEGIT-SV-4)",
-		source : ["AL", "WBW-DC"],
-		description: "From a palace most Dis-tant.",
-		descriptionFull: "From a palace most Dis-tant.",
-	},
-	"inky darkling extreme [diet] (wbw-dc-legit-sv-4)" : {
-		name: "Inky Darkling Extreme [Diet] (WBW-DC-LEGIT-SV-4)",
-		source : ["AL", "WBW-DC"],
-		description: "A spicy-cool cola guaranteed to EXTINGUISH YOUR THIRST.",
-		descriptionFull: "A spicy-cool cola guaranteed to EXTINGUISH YOUR THIRST.",
 	},
 	"leaf with amber veins (wbw-dc-conmar-6)" : {
 		name: "Leaf With Amber Veins (WBW-DC-CONMAR-6)",
@@ -1224,53 +1164,11 @@ MagicItemsList["al trinkets"] = {
 		description: "This silver hand mirror shows the viewer’s heart’s desire. The image reflected in the mirror’s polished surface comes purely from their memories or imagination, and can't be seen by anyone else.",
 		descriptionFull: "This silver hand mirror shows the viewer’s heart’s desire. The image reflected in the mirror’s polished surface comes purely from the viewer’s memories or imagination, and cannot be seen by anyone else.",
 	},
-	"million sun salute (wbw-dc-legit-sv-4)" : {
-		name: "Million Sun Salute (WBW-DC-LEGIT-SV-4)",
-		source : ["AL", "WBW-DC"],
-		description: "A drink with the fire of a million suns. It gives your skin a radiant glow. Named after you-know-who.",
-		descriptionFull: "A drink with the fire of a million suns. It gives your skin a radiant glow. Named after you-know-who.",
-	},
-	"nirmala's special spraypaint (wbw-dc-legit-sv-4)" : {
-		name: "Nirmala's Special Spraypaint (WBW-DC-LEGIT-SV-4)",
-		source : ["AL", "WBW-DC"],
-		description: "A special concoction from an anomalous artist.",
-		descriptionFull: "A special concoction from an anomalous artist.",
-	},
-	"pandemonium sunset pigment (wbw-dc-legit-sv-4)" : {
-		name: "Pandemonium Sunset Pigment (WBW-DC-LEGIT-SV-4)",
-		source : ["AL", "WBW-DC"],
-		description: "A color to tempt mortals with.",
-		descriptionFull: "A color to tempt mortals with.",
-	},
-	"paradise snowglobe (wbw-dc-legit-sv-4)" : {
-		name: "Paradise Snowglobe (WBW-DC-LEGIT-SV-4)",
-		source : ["AL", "WBW-DC"],
-		description: "An island paradise preserved for eternity in glass.",
-		descriptionFull: "An island paradise preserved for eternity in glass.",
-	},
 	"piece of the infernal machine of lum the mad (imr)" : {
 		name: "Piece of the Machine of Lum the Mad (IMR)",
 		source : ["AL:EL", 2019],
 		description: "Once operated via its vast array of buttons, dials & levers, the Infernal Machine of Lum the Mad was dismantled & lies scattered through the world. Who knows what function this piece controlled? It appears as a jeweled button marked with a mysterious glyph, hung from a delicate chain.",
 		descriptionFull: "Once operated via its vast array of buttons, dials, and levers, the Infernal Machine of Lum the Mad has been dismantled and lies scattered throughout the world.\n   Who knows what function of it this piece controlled? This appears as a jeweled button marked with a mysterious glyph, hung from a delicate chain.",
-	},
-	"preserved fashion sense (wbw-dc-legit-sv-4)" : {
-		name: "Preserved Fashion Sense (WBW-DC-LEGIT-SV-4)",
-		source : ["AL", "WBW-DC"],
-		description: "“Don’t worry, it's not mine.” - Dr. Steelhaver",
-		descriptionFull: "“Don’t worry, it's not mine.” - Dr. Steelhaver",
-	},
-	"reflection chai latte (wbw-dc-legit-sv-4)" : {
-		name: "Reflection Chai Latte (WBW-DC-LEGIT-SV-4)",
-		source : ["AL", "WBW-DC"],
-		description: "Spiced tea to contemplate the cosmos with.",
-		descriptionFull: "Spiced tea to contemplate the cosmos with.",
-	},
-	"shadestone relic (wbw-dc-legit-sv-4)" : {
-		name: "Shadestone Relic (WBW-DC-LEGIT-SV-4)",
-		source : ["AL", "WBW-DC"],
-		description: "A piece of edifice from the old city. Infused with the darkness, the stonework retains its old-world charm.",
-		descriptionFull: "A piece of edifice from the old city. Infused with the darkness, the stonework retains its old-world charm.",
 	},
 	"snipe feather pillow (dc-poa-snipe-1)" : {
 		name : "Snipe Feather Pillow (DC-POA-SNIPE-1)",
@@ -1278,71 +1176,11 @@ MagicItemsList["al trinkets"] = {
 		description : "This feather pillow is made of snipe feathers and salvaged Ice Spider silk. It allows restful sleep without nightmares. When using this pillow during a long rest, you may roll 1d6. On a 1, you dream about a snipe mother and her baby chicks happily treading through clean snow.",
 		descriptionFull : "This feather pillow is made of snipe feathers and salvaged Ice Spider silk. It allows restful sleep without nightmares [treat like trinket #65 on the PHB trinkets table]. A PC using this pillow during a long rest may roll 1d6. On a one, their dreams are all filled with a snipe mother and her baby chicks happily treading through clean snow.",
 		},
-	"souvenir mini-lith (wbw-dc-legit-sv-4)" : {
-		name : "Souvenir Mini-Lith (WBW-DC-LEGIT-SV-4)",
-		source : ["AL", "WBW-DC"],
-		description : "A miniature glass version of Starlight's biggest monolith, complete with teal glow.",
-		descriptionFull : "A miniature glass version of Starlight's biggest monolith, complete with teal glow.",
-		},
-	"sprite (wbw-dc-legit-sv-4)" : {
-		name : "Sprite (WBW-DC-LEGIT-SV-4)",
-		source : ["AL", "WBW-DC"],
-		description : "Often mistaken for lemonade, this sweet lemon beverage is ironically hated by sprites.",
-		descriptionFull : "Often mistaken for lemonade, this sweet lemon beverage is ironically hated by sprites.",
-		},
-	"starmetal ingot (wbw-dc-legit-sv-4)" : {
-		name : "Starmetal Ingot (WBW-DC-LEGIT-SV-4)",
-		source : ["AL", "WBW-DC"],
-		description : "Not obtainable from Starlight's stars, this space-age material creates alloys of legends.",
-		descriptionFull : "Not obtainable from Starlight's stars, this space-age material creates alloys of legends.",
-		},
 	"striking at the bare neck (dc-poa-snipe-1)" : {
 		name : "Striking at the Bare Neck (DC-POA-SNIPE-1)",
 		source : ["AL", "DC-POA"],
 		description : "This red-leather book is a disturbing collection of military and political strategy framed as poetry. While the insights are profound and the poetry skilled artistry, the underlying theme of mortals as prey makes reading more than a few poems in a sitting deeply unsettling to most humanoids.",
 		descriptionFull : "This red-leather book is a disturbing collection of military and political strategy framed as poetry. While the insights are profound and the poetry skilled, musical, and high artistry, the underlying theme of mortals as prey makes reading more than a few poems in a sitting deeply unsettling to most humanoids.",
-		},
-	"tressym-eye marbles (wbw-dc-legit-sv-4)" : {
-		name : "Tressym-Eye Marbles (WBW-DC-LEGIT-SV-4)",
-		source : ["AL", "WBW-DC"],
-		description : "Contains holographic glass to see the inscrutable with.",
-		descriptionFull : "Contains canes of holographic glass to see the inscrutable with.",
-		},
-	"vial of liquid starlight (wbw-dc-legit-sv-4)" : {
-		name : "Vial of Liquid Starlight (WBW-DC-LEGIT-SV-4)",
-		source : ["AL", "WBW-DC"],
-		description : "Magically-charged Luciferin that is collected from the stars of Starlight. Can be used to create luminescent things.",
-		descriptionFull : "Magically-charged Luciferin that is collected from the stars of Starlight. Can be used to create luminescent things.",
-		},
-	"vial of slumber sand (wbw-dc-legit-sv-4)" : {
-		name : "Vial of Slumber Sand (WBW-DC-LEGIT-SV-4)",
-		source : ["AL", "WBW-DC"],
-		description : "Specially sourced from the Interminable Wastes.",
-		descriptionFull : "Specially sourced from the Interminable Wastes.",
-		},
-	"vibrant darkling mask (wbw-dc-legit-sv-4)" : {
-		name : "Vibrant Darkling Mask (WBW-DC-LEGIT-SV-4)",
-		source : ["AL", "WBW-DC"],
-		description : "A mask worn by the Darkling Procession, inlaid with violet gold. Earned by besting them in ceremonial combat.",
-		descriptionFull : "A mask worn by the Darkling Procession, inlaid with violet gold. Earned by besting them in ceremonial combat.",
-		},
-	"vibrant eldritch pigment (wbw-dc-legit-sv-4)" : {
-		name : "Vibrant Eldritch Pigment (WBW-DC-LEGIT-SV-4)",
-		source : ["AL", "WBW-DC"],
-		description : "A color to slay gods with.",
-		descriptionFull : "A color to slay gods with.",
-		},
-	"violent hibiscus pigment (wbw-dc-legit-sv-4)" : {
-		name : "Violent Hibiscus Pigment (WBW-DC-LEGIT-SV-4)",
-		source : ["AL", "WBW-DC"],
-		description : "A color to end a dynasty with.",
-		descriptionFull : "A color to end a dynasty with.",
-		},
-	"waxworks postcard (wbw-dc-legit-sv-4)" : {
-		name : "Waxworks Postcard (WBW-DC-LEGIT-SV-4)",
-		source : ["AL", "WBW-DC"],
-		description : "From before the fall. It's preserved between glass.",
-		descriptionFull : "From before the fall. It's preserved between glass.",
 		},
 }
 })

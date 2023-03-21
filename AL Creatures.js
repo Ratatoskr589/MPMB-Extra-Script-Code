@@ -77,6 +77,13 @@ SourceList["AL:LN"] = {  //Liar's Night and Wandering Monsters
 	defaultExcluded : true
 };
 
+SourceList["AL:FM"] = {  //Feast of the Moon events
+    name : "AL Holiday Events - Feast of the Moon",
+    abbreviation : "AL:FM",
+    group : "Adventurers League",
+    date : "Various"
+};
+
 SourceList["ALDMs9"] = {  //Season 9 DM Rewards (Several of these are from BG:DiA, but cannot normally be used by players)
     name : "AL Season 9 DM Rewards",
     abbreviation : "ALDMs9",
@@ -1070,7 +1077,7 @@ CreatureList["candy corn calico cat"] = {
 	
 CreatureList["foxwere"] = {
 		name : "Foxwere",
-		source : [["AL:LN",2020]],
+		source : [["AL:FM",2020]],
 		size : 3, //Medium
 		type : "Beast",
 		companion : "familiar",
@@ -1448,9 +1455,4 @@ CreatureList["dragonnel"] = {
 	}]
 }
 
-
-/*	"the runt (ccc-tarot2-9)" : {
-		name : "The Runt (CCC-TAROT2-9)",
-		source : [["AL","CCC"]],
-		description : "You’ve befriended the runt of the litter, Ember. This cat has jet black fur with streaks of campfire orange and is warm to the touch, a nod to its elemental origins. Ember loves to pounce at Dancing Lights, and will chase ranged spells. Ember has the statistics of a cat.",
-	},CCC-SQC-3-1 through 3-3, and 2-1 all have squirrel pets, CCC-ELF-04, TRI-13, 5-01, MAGS1-1*/  
+ 

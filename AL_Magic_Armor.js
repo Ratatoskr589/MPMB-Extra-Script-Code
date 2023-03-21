@@ -298,7 +298,7 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		"\n  I\t  +3\tSpiked Armor, Splint, Studded Leather",
 		allowDuplicates : true,
 		choicesNotInMenu : true,
-		choices : ["+1 Leather (DDEP7-1)","+1 Studded Leather (CCC-BMG-21 HULB2-3)","+1 Scale Mail: Shroud of the Mourning Warrior (DDAL5-13)","+1 Breastplate: Glass (DDEP0-1)","+1 Breastplate: Bulletproof Vest (SJ-DC-LEGIT-SB-2)","+1 Half Plate: Bone (CCC-TRI-6 NIGHT1-2)", "+1 Half Plate (DDEP4)","+1 Splint (DDEX1-12)","+1 Splint (DDAL5-4)","+1 Splint: Remorhaz (DDEP10-2)","+2 Studded Leather (CCC-TRI-23 STORM1-2)","+2 Studded Leather (PO-BK-1-5)","+2 Half Plate: Stone (DDEP7-2)","+2 Half Plate: Glass (WBW-DC-PHP-PHAN-2)","+2 Splint: Remorhaz (DDEP10-2)","+2 Plate: Stone (CCC-JGD-1)","+3 Hide: Daphnaie Armor (ALSRs11-A)"],
+		choices : ["+1 Leather (DDEP7-1)","+1 Studded Leather (CCC-BMG-21 HULB2-3)","+1 Scale Mail: Shroud of the Mourning Warrior (DDAL5-13)","+1 Breastplate: Glass (DDEP0-1)","+1 Breastplate (SJ-DC-DRA-4)","+1 Breastplate: Bulletproof Vest (SJ-DC-LEGIT-SB-2)","+1 Half Plate: Bone (CCC-TRI-6 NIGHT1-2)", "+1 Half Plate (DDEP4)","+1 Splint (DDEX1-12)","+1 Splint (DDAL5-4)","+1 Splint: Remorhaz (DDEP10-2)","+2 Studded Leather (CCC-TRI-23 STORM1-2)","+2 Studded Leather (PO-BK-1-5)","+2 Half Plate: Stone (DDEP7-2)","+2 Half Plate: Glass (WBW-DC-PHP-PHAN-2)","+2 Splint: Remorhaz (DDEP10-2)","+2 Plate: Stone (CCC-JGD-1)","+3 Hide: Daphnaie Armor (ALSRs11-A)"],
 		"+1 leather (ddep7-1)" : {
 			name : "+1 Leather (DDEP7-1)",
 			source : [["AL","S7"]],
@@ -355,6 +355,21 @@ MagicItemsList["al armor +1, +2, +3"] = {
 				type : "medium",
 				ac : 14,
 				weight : 10
+				}]
+		},
+		"+1 breastplate (sj-dc-dra-4)" : {
+			name : "+1 Breastplate (SJ-DC-DRA-4)",
+			source : [["AL","SJ-DC"]],
+			rarity : "rare",
+			magicItemTable : "H",
+			allowDuplicates : true,
+			description : "This breastplate grants a +1 bonus to AC while worn. You can also speak dwarvish when its on your person.",
+			descriptionFull : "This armor grants a +1 bonus to AC while worn.\n   " + toUni("Language") + ". The bearer can speak and understand dwarven while the item is on the bearer’s person.",
+			languageProfs : ["Dwarvish"],
+			armorAdd : "+1 Breastplate",
+			armorOptions : [{
+				name : "+1 Breastplate",
+				source : [["AL","SJ-DC"]],
 				}]
 		},
 		"+1 breastplate: bulletproof vest (sj-dc-legit-sb-2)" : {
@@ -642,7 +657,7 @@ MagicItemsList["al armor (common)"] = {
 			descriptionFull : "The face on the shield is that of Sune, which is also that goddess’ holy symbol. The wielder of the shield can use an action to cause the shield to repeat their words until the end of their next turn. When repeated in this way, their words are audible out to 300 feet, and sound more confident and attractive than they are.\n   The front of this shield is shaped in the likeness of a face. While bearing the shield, you can use a bonus action to alter the faces expression.",
 			weight : 6,
 			shieldAdd : "Shield of Expression",
-			action : [["bonus action", "Shield of Expression"], ["action", "Shield of Expression (300ft Repeat)"]],
+			action : [["bonus action", "Shield of Expression"], ["action", "Shield of Expression (300ft Voice)"]],
 	},
 	"smoldering armor: flurried furs (ddal0-4)" : {
 		name : "Flurried Furs, Smoldering",
@@ -804,7 +819,7 @@ MagicItemsList["al armor (common)"] = {
 MagicItemsList["al armor (other)"] = {
 		name : "AL Armor (Other)",
 		allowDuplicates : true,
-	choices : ["Breastplate of Necrotic Resistance: Chardalyn (DDAL10-5)","Demon Armor (DDEX3-16)","Efreeti Chain (DDAL7-15)","Elven Chain (CCC-BMG-36 ELMW2-3)","Elven Chain (CCC-SQC-2-2)","Elven Chain: Armor of the First Frost (WBW-DC-AA-ASHALON-1)","Elven Chain (WBW-DC-AMQ-5)","Elven Chain: Astral (WBW-DC-CONMAR-12)","Elven Chain: Guardian (WBW-DC-GGS-1)","Elven Chain: Loud (WBW-DC-GGS-1)","Elven Chain (WBW-DC-PHP-SPAMMY-1)","Elven Chain (WBW-DC-Rook-2-1)","Elven Chain (WBW-DC-TEN-3)","Elven Chain: Tehettan's Protection (WBW-DC-TMP-2)","Elven Chain (WBW-DC-ZEP-T2S5)","Elven Chain: Sky's Armor (WBW-DC-ZODIAC-12)","Glamoured Studded Leather (DDAL4-9)","Glamoured Studded Leather (DDAL8-11)","Glamoured Studded Leather (DDAL9-6)","Glamoured Studded Leather: Cinderella's Wedding Corset (WBW-DC-CONMAR-15)","Half Plate of Poison Resistance: Mushroom (DDEX3-11)","Mariner's Studded Leather (DDAL-DRW9)","Mariner's Breastplate (CCC-AETHER-1-2)","Mariner's Breastplate (CCC-MMT1-2)","Mariner's Scale Mail (ALSRs11-A)","Plate Armor of Etherealness (DDAL8-16)","Red Dragon Scale Mail (DDEP5-1)","Red Dragon Scale Mail (DDAL9-15)","Scale Mail of Psychic Resistance: Resin (CCC-TRI-21 YUL1-6)","Studded Leather of Fire Resistance (DDAL0-11C)"],
+	choices : ["Breastplate of Necrotic Resistance: Chardalyn (DDAL10-5)","Demon Armor (DDEX3-16)","Efreeti Chain (DDAL7-15)","Elven Chain (CCC-BMG-36 ELMW2-3)","Elven Chain (CCC-SQC-2-2)","Elven Chain: Armor of the First Frost (WBW-DC-AA-ASHALON-1)","Elven Chain (WBW-DC-AMQ-5)","Elven Chain: Astral (WBW-DC-CONMAR-12)","Elven Chain: Guardian (WBW-DC-GGS-1)","Elven Chain: Loud (WBW-DC-GGS-1)","Elven Chain (WBW-DC-PHP-SPAMMY-1)","Elven Chain (WBW-DC-Rook-2-1)","Elven Chain (WBW-DC-TAZ-1)","Elven Chain (WBW-DC-TEN-3)","Elven Chain: Tehettan's Protection (WBW-DC-TMP-2)","Elven Chain (WBW-DC-ZEP-T2S5)","Elven Chain: Sky's Armor (WBW-DC-ZODIAC-12)","Glamoured Studded Leather (DDAL4-9)","Glamoured Studded Leather (DDAL8-11)","Glamoured Studded Leather (DDAL9-6)","Glamoured Studded Leather: Cinderella's Wedding Corset (WBW-DC-CONMAR-15)","Half Plate of Poison Resistance: Mushroom (DDEX3-11)","Mariner's Studded Leather (DDAL-DRW9)","Mariner's Breastplate (CCC-AETHER-1-2)","Mariner's Breastplate (CCC-MMT1-2)","Mariner's Scale Mail (ALSRs11-A)","Plate Armor of Etherealness (DDAL8-16)","Red Dragon Scale Mail (DDEP5-1)","Red Dragon Scale Mail (DDAL9-15)","Scale Mail of Psychic Resistance: Resin (CCC-TRI-21 YUL1-6)","Studded Leather of Fire Resistance (DDAL0-11C)"],
 	"breastplate of necrotic resistance: chardalyn (ddal10-5)" : {
 			name : "Chardalyn Breastplate of Necrotic Resist. (DDAL10-5)",
 			source : [["AL","S10"]],
@@ -1045,6 +1060,25 @@ MagicItemsList["al armor (other)"] = {
 		armorOptions : [{
 			regExpSearch : /^(?=.*elven)(?=.*chain).*$/i,
 			name : "Elven Chain (Amorywood)",
+			source : [["AL","WBW-DC"]],
+			type : "medium",
+			ac : 14,
+			weight : 20
+		}]
+	},
+	"elven chain (wbw-dc-taz-1)" : {
+		name : "Elven Chain (WBW-DC-TAZ-1)",
+		source : [["AL","WBW-DC"]],
+		type : "armor (chain shirt)",
+		rarity : "rare",
+		magicItemTable : "G",
+		description : "Threads of yarn spun from the golden fleece are entwined with the links of this chain shirt, giving it a look of lustrous gold. While wearing this armor, you gain +1 AC & are proficient even if you lack proficiency with medium armor.",
+		descriptionFull : "This chain shirt has had threads of golden yarn spun from the golden fleece entwined with the links of chain giving it the look of a lustrous gold version of such a piece of armor, yet the armor itself is still metal.\n   You gain a +1 bonus to AC while you wear this armor. You are considered proficient with this armor even if you lack proficiency with medium armor.",
+		weight : 20,
+		armorAdd : "Elven Chain",
+		armorOptions : [{
+			regExpSearch : /^(?=.*elven)(?=.*chain).*$/i,
+			name : "Elven Chain",
 			source : [["AL","WBW-DC"]],
 			type : "medium",
 			ac : 14,
@@ -1472,7 +1506,7 @@ MagicItemsList["al shields, +1, +2, or +3"] = {
 			rarity : "very rare",
 			source : [["AL","CCC"]],
 			magicItemTable : "H",
-			description : "This shield is decorated w/ symbols of service & fealty. The shield empathically encourages service to others & whenever you consider performing a selfish act, the shield enhances pangs of conscience. While holding this shield, you gain a +3 bonus to AC in addition to the shield's normal AC bonus.",
+			description : "This shield is decorated with symbols of service and fealty. The shield empathetically encourages service to others & whenever the bearer considers performing a selfish act, the shield enhances pangs of conscience. While holding this shield, you gain a +3 bonus to AC in addition to the shield's normal AC bonus.",
 			descriptionFull : "This shield is decorated with symbols of service and fealty. The shield empathically encourages service to others and whenever the bearer considers performing a selfish act, the shield enhances pangs of conscience. While holding this shield, you gain a +3 bonus to AC. This bonus is in addition to the shield's normal bonus to AC.",
 			allowDuplicates : true,
 			shieldAdd : "+3 Shield (Miltiades)"
