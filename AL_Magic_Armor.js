@@ -819,7 +819,7 @@ MagicItemsList["al armor (common)"] = {
 MagicItemsList["al armor (other)"] = {
 		name : "AL Armor (Other)",
 		allowDuplicates : true,
-	choices : ["Breastplate of Necrotic Resistance: Chardalyn (DDAL10-5)","Demon Armor (DDEX3-16)","Efreeti Chain (DDAL7-15)","Elven Chain (CCC-BMG-36 ELMW2-3)","Elven Chain (CCC-SQC-2-2)","Elven Chain: Armor of the First Frost (WBW-DC-AA-ASHALON-1)","Elven Chain (WBW-DC-AMQ-5)","Elven Chain: Astral (WBW-DC-CONMAR-12)","Elven Chain: Guardian (WBW-DC-GGS-1)","Elven Chain: Loud (WBW-DC-GGS-1)","Elven Chain (WBW-DC-PHP-SPAMMY-1)","Elven Chain (WBW-DC-Rook-2-1)","Elven Chain (WBW-DC-TAZ-1)","Elven Chain (WBW-DC-TEN-3)","Elven Chain: Tehettan's Protection (WBW-DC-TMP-2)","Elven Chain (WBW-DC-ZEP-T2S5)","Elven Chain: Sky's Armor (WBW-DC-ZODIAC-12)","Glamoured Studded Leather (DDAL4-9)","Glamoured Studded Leather (DDAL8-11)","Glamoured Studded Leather (DDAL9-6)","Glamoured Studded Leather: Cinderella's Wedding Corset (WBW-DC-CONMAR-15)","Half Plate of Poison Resistance: Mushroom (DDEX3-11)","Mariner's Studded Leather (DDAL-DRW9)","Mariner's Breastplate (CCC-AETHER-1-2)","Mariner's Breastplate (CCC-MMT1-2)","Mariner's Scale Mail (ALSRs11-A)","Plate Armor of Etherealness (DDAL8-16)","Red Dragon Scale Mail (DDEP5-1)","Red Dragon Scale Mail (DDAL9-15)","Scale Mail of Psychic Resistance: Resin (CCC-TRI-21 YUL1-6)","Studded Leather of Fire Resistance (DDAL0-11C)"],
+	choices : ["Breastplate of Necrotic Resistance: Chardalyn (DDAL10-5)","Demon Armor (DDEX3-16)","Efreeti Chain (DDAL7-15)","Elven Chain (CCC-BMG-36 ELMW2-3)","Elven Chain (CCC-SQC-2-2)","Elven Chain: Armor of the First Frost (WBW-DC-AA-ASHALON-1)","Elven Chain (WBW-DC-AMQ-5)","Elven Chain: Astral (WBW-DC-CONMAR-12)","Elven Chain: Guardian (WBW-DC-GGS-1)","Elven Chain: Loud (WBW-DC-GGS-1)","Elven Chain (WBW-DC-PHP-SPAMMY-1)","Elven Chain (WBW-DC-Rook-2-1)","Elven Chain (WBW-DC-TAZ-1)","Elven Chain (WBW-DC-TEN-3)","Elven Chain: Tehettan's Protection (WBW-DC-TMP-2)","Elven Chain (WBW-DC-ZEP-T2S5)","Elven Chain: Sky's Armor (WBW-DC-ZODIAC-12)","Glamoured Studded Leather (DDAL4-9)","Glamoured Studded Leather (DDAL8-11)","Glamoured Studded Leather (DDAL9-6)","Glamoured Studded Leather: Cinderella's Wedding Corset (WBW-DC-CONMAR-15)","Half Plate of Poison Resistance: Mushroom (DDEX3-11)","Mariner's Studded Leather (DDAL-DRW9)","Mariner's Breastplate (CCC-AETHER-1-2)","Mariner's Breastplate (CCC-MMT1-2)","Mariner's Scale Mail (ALSRs11-A)","Plate Armor of Etherealness (DDAL8-16)","Red Dragon Scale Mail (DDEP5-1)","Red Dragon Scale Mail (DDAL9-15)","Scale Mail of Psychic Resistance: Resin (CCC-TRI-21 YUL1-6)","Spiked Armor of Necrotic Resistance (WBW-DC-DEN-H1)","Studded Leather of Fire Resistance (DDAL0-11C)"],
 	"breastplate of necrotic resistance: chardalyn (ddal10-5)" : {
 			name : "Chardalyn Breastplate of Necrotic Resist. (DDAL10-5)",
 			source : [["AL","S10"]],
@@ -1428,6 +1428,27 @@ MagicItemsList["al armor (other)"] = {
 		armorOptions : [{
 				name : "Resin Scale Mail of Psychic Resistance",
 				source : [["AL", "CCC"]],
+				}]
+		},
+	"spiked armor of necrotic resistance (wbw-dc-den-h1)" : {
+			name : "Spiked Armor of Necrotic Resist. (WBW-DC-DEN-H1)",
+			source : [["AL","WBW-DC"]],
+			type : "armor (spiked)",
+			rarity : "rare",
+			magicItemTable : "H",
+			attunement : true,
+			description : "This spiked armor was crafted by Barsol and Nomi Hammergut to be worn by Barsol when fighting his uncle, the Herzog of the Mountains. The leather coat and leggings are cured ox hide, and the spikes are the thorns of a hawthorn treant named Crataegus. You have resistance to necrotic dmg while attuned to and wearing the armor.",
+			descriptionFull : "Crafted by Barsol and Nomi Hammergut to be worn by Barsol during their fight against Barsol’s uncle the Herzog of the Mountains. The leather coat and leggings are made from the cured ox hide, and the spikes are the thorns of a treant of the hawthorn variety named Crataegus.\n   You have resistance to necrotic damage while attuned to and wearing the armor.\n   Spiked armor is a rare type of medium armor made by dwarves. It consists of a leather coat and leggings covered with spikes that are usually made of metal.",
+			dmgres : ["Necrotic"],
+		armorAdd : "Necro Spiked Armor",
+		armorOptions : [{
+				name : "Spiked Armor of Necro Resist",
+				source : [["AL", "CCC"]],
+				regExpSearch : /^(?=.*spiked)(?=.*armor)(?=.*necrotic)(?=.*resistance).*$/i,
+				type : "medium",
+				ac : 14,
+				stealthdis : true,
+				weight : 45
 				}]
 		},
 	"studded leather of fire resistance (ddal0-11c)" : {

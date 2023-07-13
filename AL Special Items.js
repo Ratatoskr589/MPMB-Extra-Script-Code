@@ -68,6 +68,15 @@ SourceList["AL:RMH"] = {  //Mist Hunters Alternate Campaign
 	defaultExcluded : true
 };
 
+SourceList["AL:GA"] = {  //DDHC-TOA-8 Return of the Lizard King (S7 Guild Adept)
+	name : "Guild Adept",
+	abbreviation : "AL:GA",
+	group : "Adventurers League",
+	url : "https://www.dmsguild.com/product/220608/Return-of-the-Lizard-King",
+	date : "Various",
+	defaultExcluded : true
+};
+
 RunFunctionAtEnd(function () {
 //AL Special Rewards & Story Awards (ones with major mechanical effects)
 MagicItemsList["al story awards"] = {
@@ -398,17 +407,24 @@ MagicItemsList["al event award items"] = {
 		rarity : "unique",
 		type : "wondrous item",
 		allowDuplicates : false,
-	choices : ["Animated Balloon Beast","Buckler of Folding","Bunny Slipper Snowshoes","Calliope Wine Cask","Campfire Ice Sculpture","Cuddly Spider","Fiery Snow Sled (TAL)","Flask of Glowworms","Harengon Spirit Club (LN-1)","Inspired Cocoa Mug","Jar of Everflowing Honey","Magical Slushy Grinder","Moonlight Candle","Netherese Ghost Stories","Very Important Crown","Viridian Monocle","Wand of Verdant Vitality"],
+	choices : ["Animated Balloon Beast","Astral Fishing Lure (TAL)","Buckler of Folding","Bunny Slipper Snowshoes","Calliope Wine Cask","Campfire Ice Sculpture","Cuddly Spider","Fiery Snow Sled (TAL)","Flask of Glowworms","Harengon Spirit Club (LN-1)","Inspired Cocoa Mug","Jar of Everflowing Honey","Magical Slushy Grinder","Moonlight Candle","Netherese Ghost Stories","Very Important Crown","Viridian Monocle","Wand of Verdant Vitality"],
 	"animated balloon beast" : {
 		name : "Animated Balloon Beast",
 		source : ["AL:EL",2022],
-		type : "shield",
+		type : "trinket",
 		description : "This carnival favorite is enchanted to be unbreakable and float within 5 ft of you unless forcibly removed. While holding its string, you can change its shape to any creature, but its size remains Tiny. Once per dawn as an action, you can magically levitate 20 ft in the air until the end of your next turn, floating gently to the ground when the duration ends.",
 		descriptionFull : "This carnival favorite bears enchantments that make it unbreakable and keeps it floating within 5 feet of you unless forcibly removed. While holding its string, its shape can change to any creature you desire with a size no larger than Tiny. As an action, you may also magically levitate in the air 20 feet until the end of your next turn, floating gently to the ground when the duration ends if you are still suspended. The balloon can't be used to levitate again until the next dawn.",
 		action : [["action", "Balloon Beast (Levitate)"]],
 		limfeaname : "Balloon Beast (Levitate)",
 		usages : 1,
 		recovery : "dawn",
+		},
+	"astral fishing lure (tal)" : {
+		name : "Astral Fishing Lure (TAL)",
+		source : ["AL:EL",2023],
+		type : "wondrous item",
+		description : "This instrument of death resembles a smiling space guppy that glows faintly, shedding bright light in a 5-ft radius and dim light for an additional 5 ft, blinking irregularly. The lure provides one fisher with advantage on their Wisdom (Survival) check to catch 'something' in Wild Space.",
+		descriptionFull : "This instrument of death resembles a smiling space guppy that glows with faint luminescence, shedding bright light in a 5-foot radius and dim light for an additional 5 feet, blinking on and off at irregular intervals. The lure provides one fisher with advantage on their Wisdom (Survival) check to catch 'something' in Wild Space.",
 		},
 	"buckler of folding" : {
 		name : "Buckler of Folding",
@@ -448,6 +464,7 @@ MagicItemsList["al event award items"] = {
 	"fiery snow sled (tal)" : {
 		name : "Fiery Snow Sled (TAL)",
 		source : ["AL:EL",2020],
+		type : "vehicle",
 		usages : 1,
 		recovery : "LR",
 		description : "You can use a bonus action to compel this sled and the animals pulling it to double their speed for 3 rounds. Once used, the magic ceases to function until you and the animals finish a long rest.",
@@ -494,6 +511,7 @@ MagicItemsList["al event award items"] = {
 	"moonlight candle" : {
 		name : "Moonlight Candle",
 		source : ["AL:EL", "2021-2022"],
+		type : "wondrous item",
 		description : "When lit, this hauntingly pale candle provides illumination that's treated as moonlight, shedding bright light in a 20-ft radius and dim light for another 20 ft. It gives off no heat and never burns out.",
 		descriptionFull : "When lit, this hauntingly pale candle provides illumination that is treated as moonlight, shedding bright light in a 20-foot radius and dim light for an additional 20 feet. It gives off no heat and never burns out.",
 		},
@@ -629,10 +647,9 @@ MagicItemsList["al new items"] = {
 	},
 	"darkling necklace (ddhc-toa-8)" : {
 		name : "Darkling Necklace (DDHC-TOA-8)",
-		source : ["AL", "S7"],
+		source : [["AL:GA","RLK"]],
 		rarity : "rare",
 		attunement : true,
-		defaultExcluded : true,
 		magicItemTable : "?",
 		description : "This necklace includes a black pearl that contains part of a darkling’s soul & gives advantage on Stealth checks made in dim light or darkness. As an action once per day, you can cast Darkness. You must then pass a DC 10 Int save or be blinded as long as the spell lasts. Once donned, the necklace can only be removed with a remove curse spell.",
 		descriptionFull : "This necklace includes a black pearl that contains a part of a darkling’s soul. Once attuned, the wearer gains advantage on Stealth checks made in dim light or total darkness. Also, once per day as an action the wearer can cast darkness as per the 2nd-level evocation spell. However, the user must succeed on a DC 10 Intelligence saving throw or be blinded for as long as the spell lasts. Once it is donned, it can only be removed with a remove curse spell.",
@@ -1065,6 +1082,7 @@ MagicItemsList["al trinkets"] = {
 	"arcane curio: belt (ddex2-10)" : {
 		name: "Arcane Curio: Belt (DDEX2-10)",
 		nameAlt: "Arcane Curio: Belt",
+		defaultExcluded : true,
 		source : ["AL", "S2"],
 		description: "A belt with a self-adjusting buckle.",
 		descriptionFull: "A belt with a self-adjusting buckle.",
@@ -1073,6 +1091,7 @@ MagicItemsList["al trinkets"] = {
 	"arcane curio: brush (ddex2-10)" : {
 		name: "Arcane Curio: Brush (DDEX2-10)",
 		nameAlt: "Arcane Curio: Brush",
+		defaultExcluded : true,
 		source : ["AL", "S2"],
 		description: "A makeup brush that never requires makeup.",
 		descriptionFull: "A makeup brush that never requires makeup.",
@@ -1081,6 +1100,7 @@ MagicItemsList["al trinkets"] = {
 	"arcane curio: cloak (ddex2-10)" : {
 		name: "Arcane Curio: Cloak (DDEX2-10)",
 		nameAlt: "Arcane Curio: Cloak",
+		defaultExcluded : true,
 		source : ["AL", "S2"],
 		description: "A cloak that never gets wet in the rain.",
 		descriptionFull: "A cloak that never gets wet in the rain.",
@@ -1089,6 +1109,7 @@ MagicItemsList["al trinkets"] = {
 	"arcane curio: inkpot (ddex2-10)" : {
 		name: "Arcane Curio: Inkpot (DDEX2-10)",
 		nameAlt: "Arcane Curio: Inkpot",
+		defaultExcluded : true,
 		source : ["AL", "S2"],
 		description: "An inkpot that never dries out.",
 		descriptionFull: "An inkpot that never dries out.",
@@ -1097,6 +1118,7 @@ MagicItemsList["al trinkets"] = {
 	"arcane curio: pipe (ddex2-10)" : {
 		name: "Arcane Curio: Pipe (DDEX2-10)",
 		nameAlt: "Arcane Curio: Pipe",
+		defaultExcluded : true,
 		source : ["AL", "S2"],
 		description: "A pipe that fills with tobacco each morning.",
 		descriptionFull: "A pipe that fills with tobacco each morning.",
@@ -1105,6 +1127,7 @@ MagicItemsList["al trinkets"] = {
 	"arcane curio: quill (ddex2-10)" : {
 		name: "Arcane Curio: Quill (DDEX2-10)",
 		nameAlt: "Arcane Curio: Quill",
+		defaultExcluded : true,	
 		source : ["AL", "S2"],
 		description: "A quill that never blunts.",
 		descriptionFull: "A quill that never blunts.",
@@ -1113,6 +1136,7 @@ MagicItemsList["al trinkets"] = {
 	"arcane curio: wand (ddex2-10)" : {
 		name: "Arcane Curio: Wand (DDEX2-10)",
 		nameAlt: "Arcane Curio: Wand",
+		defaultExcluded : true,
 		source : ["AL", "S2"],
 		description: "A wand that summons a mundane toad once per day.",
 		descriptionFull: "A wand that summons a mundane toad once per day.",
@@ -1124,6 +1148,7 @@ MagicItemsList["al trinkets"] = {
 	"artor's blood mead: six-pack (dc-poa-snipe-1)" : {
 		name: "Six-pack of Artor's Blood Mead (DC-POA-SNIPE-1)",
 		source : ["AL", "DC-POA"],
+		defaultExcluded : true,
 		description: "This small wooden crate has 6 ceramic bottles containing dark red mead specially commissioned for Artor Morlin. His frowning face is stenciled on the bottles. When drunk, the mead has an unsettling metallic taste.",
 		descriptionFull: "A small wooden crate containing six ceramic bottles containing dark red mead especially commissioned for Artor Morlin, with the frowning face of Artor stenciled on the bottles. When you drink it, it has an unsettling metallic taste.",
 		weight: 1,
@@ -1131,54 +1156,63 @@ MagicItemsList["al trinkets"] = {
 	"dinosaur eggshell (wbw-dc-conmar-6)" : {
 		name: "Dinosaur Eggshell (WBW-DC-CONMAR-6)",
 		source : ["AL", "WBW-DC"],
+		defaultExcluded : true,
 		description: "This leathery, scale-like fragment of eggshell has an earthy smell and is the color of dirt.",
 		descriptionFull: "This leathery, scale-like fragment of eggshell has an earthy smell to it and is the color of dirt.",
 	},
 	"efreeti crown of wishes (ccc-odfc2-2)" : {
 		name : "Efreeti Crown of Wishes (CCC-ODFC2-2)",
 		source : [["AL","CCC"]],
+		defaultExcluded : true,
 		description : "This beautiful golden crown is covered with diamonds that gleam with their own light & resizes to fit your head. Despite its name, the crown doesn't actually grant wishes. Instead, when you feel strong emotions of any kind, the crown sprouts harmless, colorful flames from its pinnacle. The color of the flames is based on your mood: red for anger, blue for sorrow, green for amusement, etc.",
 		descriptionFull : "This beautiful golden crown is covered with diamonds each of which gleams with its own light. The crown resizes to fit the head of any wearer. Contrary to its name, the crown does not actually grant any wishes. Instead, when the person wearing it feels strong emotion of any kind, the crown sprouts harmless, colorful flames from its pinnacle, with the color of the flames based on the wearer’s mood: red for anger, blue for sorrow, green for amusement, and so on. This crown can be sold for 1,500 gp. It does not count as a magic item and cannot be traded. (To be kept as a trinket, this crown may not be sold)."
 	},
 	"flamesoul stone (ccc-ylra1-3)" : {
 		name : "Flamesoul Stone (CCC-YLRA1-3)",
 		source : [["AL","CCC"]],
+		defaultExcluded : true,
 		description : "This fist-sized crystal produces a flickering coppery-orange glow from within. The light is magical, but isn’t bright enough to significantly illuminate an area. Casting detect magic on the Flamesoul Stone shows a hint of necrotic magic emanating from it. The light from the stone is the same color as the comet that was recently seen over Ylraphon.",
 		descriptionFull : "A fist-sized crystal that produces a flickering coppery-orange glow from within. The light is magical, but isn’t bright enough to significantly illuminate any area. Casting detect magic on the Flamesoul Stone shows a slight hint of necrotic magic emanating from within. The light from the stone is the same color as the comet that has recently been seen over Ylraphon."
 	},
 	"leaf with amber veins (wbw-dc-conmar-6)" : {
 		name: "Leaf With Amber Veins (WBW-DC-CONMAR-6)",
 		source : ["AL", "WBW-DC"],
+		defaultExcluded : true,
 		description: "This small dark leaf feels smooth to the touch and slightly waxy. Amber veins crisscross its surface. Though somewhat delicate, the leaf is resistant to crumpling and crushing. This is a token of Turanok’s trust in you. You are a friend of Lohringar and are always welcome there. This leaf is also a conduit into Lohringar and all you need to get there is the ritual components.",
 		descriptionFull: "This is a small, dark leaf that feels smooth to the touch and slightly waxy. Amber veins crisscross its surface. Though somewhat delicate, the leaf is resistant to crumpling and crushing. This is a token of Turanok’s trust in you. You are a friend of Lohringar and you are always welcome there. This leaf is itself a conduit into Lohringar and all you need to get there is just the ritual components.",
 	},
 	"lohringan pink opal (wbw-dc-conmar-6)" : {
 		name: "Lohringan Pink Opal (WBW-DC-CONMAR-6)",
 		source : ["AL", "WBW-DC"],
+		defaultExcluded : true,
 		description: "This small pink opal no larger than a child’s fingernail is a symbol of love, gentleness, and healing. It glows faintly in the moonlight.",
 		descriptionFull: "This is a small, pink opal no larger than a child’s fingernail and a symbol of love, gentleness, and healing. It glows faintly in the moonlight.",
 	},
 	"magic mirror (wbw-dc-vmt-1)" : {
 		name: "Magic Mirror (WBW-DC-VMT-1)",
 		source : ["AL", "WBW-DC"],
+		defaultExcluded : true,
 		description: "This silver hand mirror shows the viewer’s heart’s desire. The image reflected in the mirror’s polished surface comes purely from their memories or imagination, and can't be seen by anyone else.",
 		descriptionFull: "This silver hand mirror shows the viewer’s heart’s desire. The image reflected in the mirror’s polished surface comes purely from the viewer’s memories or imagination, and cannot be seen by anyone else.",
 	},
 	"piece of the infernal machine of lum the mad (imr)" : {
 		name: "Piece of the Machine of Lum the Mad (IMR)",
 		source : ["AL:EL", 2019],
+		defaultExcluded : true,
 		description: "Once operated via its vast array of buttons, dials & levers, the Infernal Machine of Lum the Mad was dismantled & lies scattered through the world. Who knows what function this piece controlled? It appears as a jeweled button marked with a mysterious glyph, hung from a delicate chain.",
 		descriptionFull: "Once operated via its vast array of buttons, dials, and levers, the Infernal Machine of Lum the Mad has been dismantled and lies scattered throughout the world.\n   Who knows what function of it this piece controlled? This appears as a jeweled button marked with a mysterious glyph, hung from a delicate chain.",
 	},
 	"snipe feather pillow (dc-poa-snipe-1)" : {
 		name : "Snipe Feather Pillow (DC-POA-SNIPE-1)",
 		source : ["AL", "DC-POA"],
+		defaultExcluded : true,
 		description : "This feather pillow is made of snipe feathers and salvaged Ice Spider silk. It allows restful sleep without nightmares. When using this pillow during a long rest, you may roll 1d6. On a 1, you dream about a snipe mother and her baby chicks happily treading through clean snow.",
 		descriptionFull : "This feather pillow is made of snipe feathers and salvaged Ice Spider silk. It allows restful sleep without nightmares [treat like trinket #65 on the PHB trinkets table]. A PC using this pillow during a long rest may roll 1d6. On a one, their dreams are all filled with a snipe mother and her baby chicks happily treading through clean snow.",
 		},
 	"striking at the bare neck (dc-poa-snipe-1)" : {
 		name : "Striking at the Bare Neck (DC-POA-SNIPE-1)",
 		source : ["AL", "DC-POA"],
+		defaultExcluded : true,
 		description : "This red-leather book is a disturbing collection of military and political strategy framed as poetry. While the insights are profound and the poetry skilled artistry, the underlying theme of mortals as prey makes reading more than a few poems in a sitting deeply unsettling to most humanoids.",
 		descriptionFull : "This red-leather book is a disturbing collection of military and political strategy framed as poetry. While the insights are profound and the poetry skilled, musical, and high artistry, the underlying theme of mortals as prey makes reading more than a few poems in a sitting deeply unsettling to most humanoids.",
 		},
@@ -1188,11 +1222,10 @@ MagicItemsList["al trinkets"] = {
 //Tree Spirit Item from DDHC-TOA-8. In the past, only allowed with special campaign documentation. The PHB doesn't actually specify which weapons are made of wood, so the restrictions I've entered are largely just what seems right to me.
 MagicItemsList["tree spirit weapon"] = {
 		name : "Tree Spirit Weapon",
-		source : [["AL","S7"]],
+		source : [["AL:GA","RLK"]],
 		type : "weapon (wooden bludgeoning or piercing)",
 		rarity : "rare",
 		attunement : true,
-		defaultExcluded : true,
 		description : "A tree spirit weapon is crafted from the wood of a sentient tree. The spirit of the tree remains in the wood so the weapon contains a sentience. The bonuses provided by a tree spirit weapon depend on the level of the attuned wielder. It gets more powerful — and more dangerous to wield — as you become more powerful as well.",
 		descriptionLong : "A tree spirit weapon is one crafted from the wood of a sentient tree. The spirit of the tree remains in the wood, and therefore the weapon contains a sentience. The bonuses provided by a tree spirit weapon are dependent on the level of the person to whom it is attuned. In this way, the tree spirit weapon is progressive: it gets more powerful — and more dangerous to wield — as the attuned wielder becomes more powerful as well.",
 		descriptionFull : "A tree spirit weapon is one crafted from the wood of a sentient tree. It must be made of wood and deal bludgeoning or piercing damage. The spirit of the tree remains in the wood, and therefore the weapon contains a sentience. The bonuses provided by a tree spirit weapon are dependent on the level of the person to whom it is attuned. In this way, the tree spirit weapon is progressive: it gets more powerful — and more dangerous to wield — as the attuned wielder becomes more powerful as well."+
@@ -1205,7 +1238,6 @@ MagicItemsList["tree spirit weapon"] = {
 		name : "T1 Tree Spirit",
 		description : "A tree spirit weapon is crafted from the wood of a sentient tree. The weapon contains that sentience and you feel the desires of the tree spirit. You also gain a +1 bonus to attack and damage rolls made with this magic weapon.",
 		descriptionLong : "A tree spirit weapon is one crafted from the wood of a sentient tree. The spirit of the tree remains in the wood, and therefore the weapon contains a sentience. You feel the desires of the tree spirit. You also gain a +1 bonus to attack and damage rolls made with this magic weapon.",
-		defaultExcluded : true,
 		chooseGear : {
 			type : "weapon",
 			prefixOrSuffix : "suffix",
@@ -1221,7 +1253,6 @@ MagicItemsList["tree spirit weapon"] = {
 		name : "T2 Tree Spirit",
 		description : "A tree spirit weapon is crafted from the wood of a sentient tree. You feel the desires of the tree spirit & gain the flaw “constantly hears the voice of the tree spirit”. You also gain a +2 bonus to attack and damage rolls made with this magic weapon.",
 		descriptionLong : "A tree spirit weapon is one crafted from the wood of a sentient tree. The spirit of the tree remains in the wood, and therefore the weapon contains a sentience. You feel the desires of the tree spirit and gain the flaw “constantly hears the voice of the tree spirit”. You also gain a +2 bonus to attack and damage rolls made with this magic weapon.",
-		defaultExcluded : true,
 		chooseGear : {
 			type : "weapon",
 			prefixOrSuffix : "suffix",
@@ -1239,7 +1270,6 @@ MagicItemsList["tree spirit weapon"] = {
 		descriptionLong : "A tree spirit weapon is one crafted from the wood of a sentient tree. The spirit of the tree remains in the wood, and therefore the weapon contains a sentience. You feel the desires of the tree spirit and gain the flaw “constantly hears the voice of the tree spirit”. You also have advantage on Constitution saving throws and your movement is reduced by 10 feet. You gain a +3 bonus to attack & damage rolls made with this magic weapon",
 		savetxt : { text : ["Adv on Con saves"] },
 		speed : { allModes : "-10" },
-		defaultExcluded : true,
 		chooseGear : {
 			type : "weapon",
 			prefixOrSuffix : "suffix",
@@ -1255,7 +1285,6 @@ MagicItemsList["tree spirit weapon"] = {
 		name : "T4 Tree Spirit",
 		description : "A tree spirit weapon is crafted from the wood of a sentient tree. You feel the desires of the tree spirit & gain the flaw “constantly hears the voice of the tree spirit”. You also have advantage on CON saves & resistance to bludgeoning dmg, but your speed is reduced by 10 ft & you have vulnerability to fire dmg. You gain a +4 bonus to atk & dmg rolls made with this magic weapon.",
 		descriptionLong : "A tree spirit weapon is one crafted from the wood of a sentient tree. The spirit of the tree remains in the wood, and therefore the weapon contains a sentience. You feel the desires of the tree spirit and gain the flaw “constantly hears the voice of the tree spirit”. You also have advantage on Constitution saving throws and resistance to bludgeoning damage, but your movement is reduced by 10 feet and you have vulnerability to fire damage that can't be removed. You also gain a +4 bonus to attack and damage rolls made with this magic weapon.",
-		defaultExcluded : true,
 		dmgres : ["Bludgeoning"],
 		speed : { allModes : "-10" },
 		savetxt : { text : ["Adv on Con saves; Vulnerable to fire damage"] },

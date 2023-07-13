@@ -1,3 +1,12 @@
+Changelog (After 3/20/23)
+-Added missing magic axe from KOSC
+-Corrected various typos and errors
+-Added more items from DC modules
+-Added item from PO-BK-2-10
+-Gave the Tree Spirit Weapons & Darkling Necklace a unique source so they're easier to exclude/include en masse (this is partially a workaround due to the fact that the AL Magic Items file is now so large that it breaks the individual item exclusion button)
+-Made it so that no items are excluded by default in the AL Items file, since there's currently no way to include them individually
+
+
 Changelog (After 12/22/22)
 -Added new WBW and SJ Dungeoncraft items
 -Added items from unpublished SJ-DC-SINGULARITY
