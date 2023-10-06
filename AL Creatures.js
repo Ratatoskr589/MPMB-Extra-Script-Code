@@ -36,11 +36,11 @@ SourceList["AL:EL"] = {   //AL specific Extra Life certs
 	defaultExcluded : true
 };
 
-SourceList["AL:RMH"] = {  //Mist Hunters Alternate Campaign
-	name : "Mist Hunters",
-	abbreviation : "AL:RMH",
+SourceList["AL:R"] = {  //Ravenloft Alternate Campaign
+	name : "AL Ravenloft Campaign",
+	abbreviation : "AL:R",
 	group : "Adventurers League",
-	url : "https://www.dmsguild.com/browse.php?filters=45470_0_0_0_0_0_0_0&src=fid45470",
+	url : "https://www.dmsguild.com/browse.php?filters=1000044_0_0_0_0_0_0_0&src=fid1000044",
 	date : "Various",
 	defaultExcluded : true
 };
@@ -66,7 +66,6 @@ SourceList["AL"] = {
 	group : "Adventurers League",
 	url : "https://www.dmsguild.com/browse.php?filters=45470_0_0_0_0_0_0_0&src=fid45470",
 	date : "Various",
-	defaultExcluded : true
 };
 
 SourceList["AL:LN"] = {  //Liar's Night and Wandering Monsters
@@ -98,7 +97,6 @@ SourceList["RotF"] = {
 	group : "Adventure Books",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/icewind-dale-rime-frostmaiden",
 	date : "2020/09/15",
-	defaultExcluded : true
 };
 
 SourceList.FToD = {
@@ -597,11 +595,13 @@ CreatureList["mini displacer beast"] = {
 
 
 //Special Creatures from AL modules
-//Can only be used with approval from DM or the season 5 AL Story Award
+
+//Quasit can only be used with approval from DM (homebrew) or the season 5 AL Story Award
 CreatureList["quasit (familiar variant)"] = {
 		name : "Quasit (Familiar Variant)",
 		source : [["AL","S5"]],
-		size : 5, //Tiny
+		defaultExcluded : true,
+		size : 5, //Tiny,
 		type : "Fiend",
 		subtype : "demon",
 		companion : "pact_of_the_chain",
@@ -656,11 +656,71 @@ CreatureList["quasit (familiar variant)"] = {
 			description : "As an action, the quasit magically turns invisible until it attacks, or until its concentration ends (as if concentrating on a spell). Any equipment the quasit wears or carries is invisible with it."
 		}],
 }
+
+//Earned from playing DDIA05
+CreatureList["rillix, tressym familiar"] = {
+		name : "Rillix, Tressym familiar",
+		nameAlt : ["Tressym"],
+		defaultExcluded : true,
+		source : [["AL","S5"]],
+eval : function(prefix) {
+  Value(prefix + "Comp.Desc.Name", "Rillix");
+},
+removeeval : function(prefix) {
+  Value(prefix + "Comp.Desc.Name", "");
+},
+		source : [["AL","S5"]],
+		size : 5, //Tiny
+		type : "Monstrosity",
+		companion : "familiar",
+		header : "Familiar",
+		alignment : "Any",
+		ac : 12,
+		hp : 5,
+		hd : [2, 4],
+		speed : "40 ft, climb 30 ft, fly 40 ft",
+		scores : [3, 15, 10, 11, 12, 12],
+		skills : {
+			"perception" : 5,
+			"stealth" : 4
+		},
+		damage_immunities : "poison",
+		condition_immunities : "poisoned",
+		senses : "Darkvision 60 ft",
+		passivePerception : 15,
+		languages : "Understands Common but can't speak",
+		challengeRating : "0",
+		proficiencyBonus : 2,
+		attacksAction : 1,
+		attacks : [{
+			name : "Claws",
+			ability : 2,
+			damage : [1, "", "slashing"],
+			range : "Melee (5 ft)",
+			description : "",
+			modifiers : ["Str", "", false]
+			}],
+		traits : [{
+			name : "Detect Invisibility",
+			description : "Within 60 feet of the tressym, magical invisibility fails to conceal anything from the tressym's sight."
+		}, {
+			name : "Poison Sense",
+			description : "A tressym can detect whether a substance is poisonous by taste, touch, or smell."
+		}, {		
+			name : "Background",
+			description : "Found amidst the wreckage of the Xelbrin farm in Nightstone, this winged cat has taken a shine to you. Rillix displays a keen intelligence and possesses a long memory, and although she cannot speak, she understands Common. This certificate is not tradeable, but allows you to select this Tressym from the Storm King's Thunder adventure when you choose a familiar.)"
+		}],
+		features : [{
+			name : "Keen Smell",
+			description : "The tressym has advantage on Wisdom (Perception) checks that rely on smell."
+		}],
+}
 	
 //Only usable with the Gift of Golden Wings Story Award. Singing or reciting the lyrics to Golden Wings takes one minute. If a good-aligned character casts find familiar after making a successful DC 15 Charisma (Performance) check, they may summon a celestial gold pseudodragon to serve as their familiar. This creature is lawful good and abandons the character if they ever willingly harm a celestial.
 CreatureList["celestial gold pseudodragon"] = {
 		name : "Celestial Gold Pseudodragon",
 		source : [["AL","S0"]],
+		defaultExcluded : true,
 		size : 5, //Tiny
 		type : "Celestial",
 		companion : "familiar",
@@ -714,6 +774,7 @@ CreatureList["celestial gold pseudodragon"] = {
 CreatureList["the crazy squirrel"] = {
 		name : "The Crazy Squirrel",
 		source : [["AL","CCC"]],
+		defaultExcluded : true,
 		size : 5, //Tiny
 		type : "Beast",
 		subtype : "",
@@ -758,7 +819,7 @@ CreatureList["the crazy squirrel"] = {
 CreatureList["gremishka (adjusted)"] = {
 		name : "Penumbra the Gremishka",
 		nameAlt : ["Gremishka (Adjusted)", "Gremishka (AL)", "AL Gremishka"],
-		source : [["AL:RMH","HoL"]],
+		source : [["AL:R","HoL"]],
 		size : 5, //Tiny
 		type : "Monstrosity",
 		defaultExcluded : true,
@@ -1286,6 +1347,7 @@ CreatureList["glitter elemental"] = {
 CreatureList["griffon (baby)"] = {
 		name : "Griffon (Baby)",
 		source : [["RotF", 318]],
+		defaultExcluded : true,
 		size : 5, //Tiny
 		type : "Monstrosity",
 		alignment : "Unaligned",
@@ -1332,6 +1394,7 @@ CreatureList["griffon (baby)"] = {
 CreatureList["griffon (1 year)"] = {
 		name : "Griffon (1 Year)",
 		source : [["RotF", 318]],
+		defaultExcluded : true,
 		size : 4, //Small
 		type : "Monstrosity",
 		alignment : "Unaligned",
@@ -1376,6 +1439,7 @@ CreatureList["griffon (1 year)"] = {
 CreatureList["griffon (2 years)"] = {
 		name : "Griffon (2 Years)",
 		source : [["RotF", 318]],
+		defaultExcluded : true,
 		size : 3, //Medium
 		type : "Monstrosity",
 		alignment : "Unaligned",

@@ -11,8 +11,8 @@ Additionally, due to the length of some descriptions, I recommend auto-sizing fo
 	
 	This is not a complete list since I do not have every published adventure, but it's a start. If you do not see an item listed from a season marked complete, it should be because there was no flavor.*/
 	
-	//Complete: S0-S10, Guild Adept, DC-POA,
-	//In progress: CCCs DRW, WBW-DCs
+	//Complete: S0-S10, Guild Adept, DC-POA, CCCs, DRW, RMH, WBW-DC
+	//In progress: SJ-DCs, POs, Ravenloft, 
 	
 var iFileName = "AL Flavored Armor.js";
 RequiredSheetVersion(13);
@@ -33,11 +33,11 @@ SourceList["ALSRs11"] = {  //Season 11 Service Rewards
     date : "2021/11/02"
 };
 
-SourceList["AL:RMH"] = {  //Mist Hunters Alternate Campaign
-	name : "Mist Hunters",
-	abbreviation : "AL:RMH",
+SourceList["AL:R"] = {  //Ravenloft Alternate Campaign
+	name : "AL Ravenloft Campaign",
+	abbreviation : "AL:R",
 	group : "Adventurers League",
-	url : "https://www.dmsguild.com/browse.php?filters=45470_0_0_0_0_0_0_0&src=fid45470",
+	url : "https://www.dmsguild.com/browse.php?filters=1000044_0_0_0_0_0_0_0&src=fid1000044",
 	date : "Various",
 	defaultExcluded : true
 };
@@ -222,9 +222,9 @@ MagicItemsList["al adamantine/mithral armor"] = {
 			name: "Mithral Chain Mail (CCC-SAF2-1)",
 			source : [["AL","CCC"]],
 			magicItemTable : "F",
-			description : "Mithral is a light, flexible metal, and this chain mail doesn't impose disadvantage on Dex (Stealth) checks. While wearing it, you also suffer no harm in temps from -20 ̊ F to 120 ̊ F.",
+			description : "Mithral is a light, flexible metal, and this chain mail doesn't impose disadvantage on Dex (Stealth) checks. While wearing it, you also suffer no harm in temps from -20\u00B0F to 120\u00B0F.",
 			descriptionFull : "The armor has the Temperate minor property. The bearer suffers no harm in temperatures as cold as −20 degrees Fahrenheit or as warm as 120 degrees Fahrenheit. Mithral is a light, flexible metal. A mithral chain shirt or breastplate can be worn under normal clothes. If the armor normally imposes disadvantage on Dexterity (Stealth) checks or has a Strength requirement, the mithral version of the armor doesn't.",
-			savetxt : { immune : ["temps btwn -20 ̊ & 120 ̊ F"] },
+			savetxt : { immune : ["temps btwn -20/120\u00B0F"] },
 			armorAdd : "Mithral Chain Mail",
 			armorOptions : [{
 				name : "Mithral Chain Mail",
@@ -298,19 +298,34 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		"\n  I\t  +3\tSpiked Armor, Splint, Studded Leather",
 		allowDuplicates : true,
 		choicesNotInMenu : true,
-		choices : ["+1 Leather (DDEP7-1)","+1 Studded Leather (CCC-BMG-21 HULB2-3)","+1 Scale Mail: Shroud of the Mourning Warrior (DDAL5-13)","+1 Breastplate: Glass (DDEP0-1)","+1 Breastplate (SJ-DC-DRA-4)","+1 Breastplate: Bulletproof Vest (SJ-DC-LEGIT-SB-2)","+1 Half Plate: Bone (CCC-TRI-6 NIGHT1-2)", "+1 Half Plate (DDEP4)","+1 Splint (DDEX1-12)","+1 Splint (DDAL5-4)","+1 Splint: Remorhaz (DDEP10-2)","+2 Studded Leather (CCC-TRI-23 STORM1-2)","+2 Studded Leather (PO-BK-1-5)","+2 Half Plate: Stone (DDEP7-2)","+2 Half Plate: Glass (WBW-DC-PHP-PHAN-2)","+2 Splint: Remorhaz (DDEP10-2)","+2 Plate: Stone (CCC-JGD-1)","+3 Hide: Daphnaie Armor (ALSRs11-A)"],
+		choices : ["+1 Leather (DDEP7-1)","+1 Leather: Mummy Wraps (RV-DC-GC15-4)","+1 Studded Leather (CCC-BMG-21 HULB2-3)","+1 Scale Mail: Shroud of the Mourning Warrior (DDAL5-13)","+1 Breastplate: Glass (DDEP0-1)","+1 Breastplate (SJ-DC-DRA-4)","+1 Breastplate: Bulletproof Vest (SJ-DC-LEGIT-SB-2)","+1 Half Plate: Bone (CCC-TRI-6 NIGHT1-2)", "+1 Half Plate (DDEP4)","+1 Half Plate: Warforged Chest Piece (RV-DC-PHP-1313-1)","+1 Splint (DDEX1-12)","+1 Splint (DDAL5-4)","+1 Splint: Remorhaz (DDEP10-2)","+2 Studded Leather (CCC-TRI-23 STORM1-2)","+2 Studded Leather (PO-BK-1-5)","+2 Half Plate: Stone (DDEP7-2)","+2 Half Plate: Glass (WBW-DC-PHP-PHAN-2)","+2 Splint: Remorhaz (DDEP10-2)","+2 Plate: Stone (CCC-JGD-1)","+3 Hide: Daphnaie Armor (ALSRs11-A)"],
 		"+1 leather (ddep7-1)" : {
 			name : "+1 Leather (DDEP7-1)",
 			source : [["AL","S7"]],
 			rarity : "rare",
 			magicItemTable : "G",
 			allowDuplicates : true,
-			description : "This sealskin suit is embroidered with octopuses that squirm magically when exposed to the air. If worn underwater, the wearer gains advantage on checks made to escape grappling. This armor grants a +1 bonus to AC while worn.",
+			description : "This sealskin suit is embroidered with octopi that squirm magically when exposed to the air. If worn underwater, you gain advantage on checks made to escape grapples. The suit also grants a +1 bonus to AC while worn.",
+			descriptionFull : "This sealskin suit is embroidered with octopuses that squirm magically when exposed to the air. If worn underwater, the wearer gains advantage on checks made to escape grappling. This armor grants a +1 bonus to AC while worn.",
 			savetxt : { text : ["Adv on checks to escape grapples (Underwater only)"] },
-			armorAdd : "+1 Leather",
+			armorAdd : "+1 Leather (Seal)",
 			armorOptions : [{
-				name : "+1 Leather",
+				name : "+1 Leather (Seal)",
 				source : [["AL", "S7"]],
+				}]
+		},
+		"+1 leather: mummy wraps (rv-dc-gc15-4)" : {
+			name : "Mummy Wraps, +1 Leather (RV-DC-GC15-4)",
+			source : [["AL:R","DC"]],
+			rarity : "rare",
+			magicItemTable : "G",
+			allowDuplicates : true,
+			description : "This roll of thick black-and-gold mummy wraps was kept in the Temple of Ousa to repair pharaoh’s wraps. When unrolled and worn, you gain a +1 bonus to AC.",
+			descriptionFull : "The roll of thick black-and-gold mummy wraps were kept in the Temple of Ousa to occasionally repair pharaoh’s wraps. When unrolled and applied upon the wearer, it confers the armor’s benefit. This armor grants a +1 bonus to AC while worn.",
+			armorAdd : "+1 Leather (Mummy)",
+			armorOptions : [{
+				name : "+1 Leather (Mummy)",
+				source : [["AL:R", "DC"]],
 				}]
 		},
 		"+1 studded leather (ccc-bmg-21 hulb2-3)" : {
@@ -392,7 +407,8 @@ MagicItemsList["al armor +1, +2, +3"] = {
 			rarity : "rare",
 			magicItemTable : "I",
 			allowDuplicates : true,
-			description : "Made from the frozen bones of Auntie Olma’s old coven, this suit of half plate looks to be made from sheets of iron until examined closely. While wearing this armor, it lowers your body temperature to just above freezing with no ill effects, and the voices of the dead hags fill your mind with taunts and harassment. This armor grants a +1 bonus to AC while worn.",
+			description : "Made from the frozen bones of Auntie Olma’s old coven, this suit of half plate looks like sheets of iron until examined closely. While wearing this armor, it lowers your body temperature to just above freezing with no ill effects, and the voices of the dead hags fill your mind with taunts and harassment. The armor grants a +1 bonus to AC while worn.",
+			descriptionFull : "Made from the frozen bones of Auntie Olma’s old coven, this suit of half plate looks to be made from sheets of iron until examined closely. While wearing this armor, it lowers your body temperature to just above freezing with no ill effects, and the voices of the dead hags fill your mind with taunts and harassment. This armor grants a +1 bonus to AC while worn.",
 			armorAdd : "+1 Bone Half Plate",
 			armorOptions : [{
 				name : "+1 Bone Half Plate",
@@ -410,6 +426,21 @@ MagicItemsList["al armor +1, +2, +3"] = {
 			armorOptions : [{
 				name : "+1 Half Plate",
 				source : [["AL", "S4"]],
+				}]
+		},
+		"+1 half plate: warforged chest piece (rv-dc-php-1313-1)" : {
+			name : "Warforged Chest Piece, +1 Half Plate",
+			source : [["AL:R","DC"]],
+			rarity : "rare",
+			magicItemTable : "I",
+			allowDuplicates : true,
+			description : "This half plate fell off one of the warforged peace corps protecting Metrol city. The upper left bears the symbol of an iron bull with cogs and gears that glows near danger. While worn, it grants a +1 bonus to AC and +2 bonus to initiative as long as you're not incapacitated.",
+			descriptionFull : "This half plate fell off from one of the warforged peace corps protecting Metrol city. It bears the symbol of an iron bull with cogs and gears located at the upper left of the armor. This armor grants a +1 bonus to AC while worn.\n   " + toUni("Guardian") + ". The symbols etched on the armor glows, granting a +2 bonus to initiative if the bearer isn’t incapacitated.",
+			addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
+			armorAdd : "+1 Warforged Half Plate",
+			armorOptions : [{
+				name : "+1 Warforged Half Plate",
+				source : [["AL:R", "DC"]],
 				}]
 		},
 		"+1 splint (ddex1-12)" : {
@@ -476,7 +507,7 @@ MagicItemsList["al armor +1, +2, +3"] = {
 			armorAdd : "+2 Studded Leather",
 			armorOptions : [{
 				name : "+2 Studded Leather",
-				source : [["AL", "PO"]],
+				source : [["AL","PO"]],
 				}]
 		},
 		"+2 half plate: stone (ddep7-2)" : {
@@ -937,10 +968,10 @@ MagicItemsList["al armor (other)"] = {
 		type : "armor (chain shirt)",
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "The surface of this icy elvan chain is cold to the touch, with tendrils of frost decorating the metal. While wearing it, you have a keener understanding of duty & responsibility. Despite the material, the temperature around you always remains comfortable & you suffer no harm in temps from -20 to 120 ̊ F. The armor also gives you +1 AC & you're proficient even if you lack proficiency with medium armor.",
+		description : "The surface of this icy elvan chain is cold to the touch, with tendrils of frost decorating the metal. While wearing it, you have a keener understanding of duty & responsibility. Despite the material, the temperature around you always remains comfortable & you suffer no harm in temps from -20\u00B0F to 120\u00B0F. The armor also gives you +1 AC & you're proficient even if you lack proficiency with medium armor.",
 		descriptionFull : "The surface of this icy armor is cold to the touch, with tendrils of frost decorating the metal. While wearing this, you have a keener understanding of duty and responsibility. Despite the material it is made of, the temperature around you always remains comfortable, even in the hottest or coldest environments.\n   " + toUni("Temperate") + ". The bearer suffers no harm in temperatures as cold as –20 degrees Fahrenheit or as warm as 120 degrees Fahrenheit.\n   You gain a +1 bonus to AC while you wear this armor. You are considered proficient with this armor even if you lack proficiency with medium armor.",
 		weight : 20,
-		savetxt : { immune : ["temps btwn -20 ̊ & 120 ̊ F"] },
+		savetxt : { immune : ["temps btwn -20/120\u00B0F"] },
 		armorAdd : "Elven Chain (First Frost)",
 		armorOptions : [{
 			regExpSearch : /^(?=.*elven)(?=.*chain).*$/i,
@@ -1091,10 +1122,10 @@ MagicItemsList["al armor (other)"] = {
 		type : "armor (chain shirt)",
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "While wearing this chain shirt, you gain +1 AC & are proficient even if you lack proficiency with medium armor. You also suffer no harm in temperatures from -20 to 120 ̊ F.",
+		description : "While wearing this chain shirt, you gain +1 AC & are proficient even if you lack proficiency with medium armor. You also suffer no harm in temperatures from -20\u00B0F to 120\u00B0F.",
 		descriptionFull : "You gain a +1 bonus to AC while you wear this armor. You are considered proficient with this armor even if you lack proficiency with medium armor.\n   " + toUni("Temperate") + ". The bearer suffers no harm in temperatures as cold as −20 degrees Fahrenheit or as warm as 120 degrees Fahrenheit.",
 		weight : 20,
-		savetxt : { immune : ["temps btwn -20 ̊ & 120 ̊ F"] },
+		savetxt : { immune : ["temps btwn -20/120\u00B0F"] },
 		armorAdd : "Elven Chain",
 		armorOptions : [{
 			regExpSearch : /^(?=.*elven)(?=.*chain).*$/i,
@@ -1679,7 +1710,7 @@ MagicItemsList["al shields (other)"] = {
 		},
 	"shield of missile attraction: ward of chimali (rmh-10)" : {
 		name : "Ward of Chimali (Shield of Missile Attraction)",
-		source : [["AL:RMH",10]],
+		source : [["AL:R",10]],
 		rarity : "rare",
 		magicItemTable : "G",
 		description : "This shield is fashioned from a sheet of magically hardened gold set with unpolished chunks of amber & a fist-sized ruby. While holding it, you have resistance to dmg from ranged weapon atks. Once attuned, you're cursed & whenever a ranged weapon atk is made against a target within 10 ft of you, it targets you instead.",

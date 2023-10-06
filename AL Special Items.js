@@ -8,8 +8,8 @@ It is recommended to enter the code in a fresh sheet before adding any other inf
 /*  Subject: New AL Items
     Effect:	This script adds the new items, armor, and weapons found in AL modules and Guild Adept adventures to the MPMB sheet. It also includes some Story Awards that grant blessings, boons, or other mechanical effects. This is not a complete list, but it's a start.*/
 	
-	//Complete: S0-S10, DDCE, Holiday Events, Guild Adept, DC-POA, 
-	//In progress: CCCs, DRW, WBW-DCs
+	//Complete: S0-S10, DDCE, Holiday Events, Guild Adept, DC-POA, CCCs, DRW, WBW-DCs
+	//In progress: SJ-DCs, POs, Ravenloft, 
 	
 var iFileName = "AL Special Items.js";
 RequiredSheetVersion(13);
@@ -59,11 +59,11 @@ SourceList["AL:EL"] = {   //AL specific Extra Life or other charity event certs
     date : "Various"
 };
 
-SourceList["AL:RMH"] = {  //Mist Hunters Alternate Campaign
-	name : "Mist Hunters",
-	abbreviation : "AL:RMH",
+SourceList["AL:R"] = {  //Ravenloft Alternate Campaign
+	name : "AL Ravenloft Campaign",
+	abbreviation : "AL:R",
 	group : "Adventurers League",
-	url : "https://www.dmsguild.com/browse.php?filters=45470_0_0_0_0_0_0_0&src=fid45470",
+	url : "https://www.dmsguild.com/browse.php?filters=1000044_0_0_0_0_0_0_0&src=fid1000044",
 	date : "Various",
 	defaultExcluded : true
 };
@@ -570,7 +570,7 @@ MagicItemsList["al new items"] = {
 		name : "AL New Items",
 		type : "wondrous item",
 		allowDuplicates : true,
-		choices : ["Achis Atracta (CCC-BMG-30 HILL2-3)","Bag of Tricks or Treats","Bone Compass (RMH-12)","Bookmark of Memory (WBW-PR)","Bookmark of Memory: Limited Edition (WBW-DC-JSH-LIB-04PT)","Cariboots","Dagger of the Hidden Lord (DDHC-DIA-2)","Darkling Necklace (DDHC-TOA-8)","Discord (DDAL-DRW15)","Eye of Xxiphu (DDAL5-19)","Fey Hound Collar","Fold-Up Friend (WBW-PR)","Giant's Gloves (WBW-PR)","Ghost Sheet","Hat of Witchery","Hellrider's Badge (DDEP9-2)","Ioun Stone - Celebration (DDAL-DRW5)","Lemure Onesie","Mind-Poison Dagger (DDHC-MORD-05)","Mist Hunters Magnificent Cap (RMH Safety Tools)","Nettle (DDEP4)","Oathbinder (DDHC-TOA-15)","Order of the Guardians Ring (RMH Safety Tools)","Owlbear Snowshoes","Pearl of Elocution (WBW-PR)","Pipes of Remembrance","Pocket Watch (WBW-PR)","Pumpkin Ring","Selûne's Owl-Eye Glasses","Shar's Veil","Spare (DDHC-TOA-13)","Tarot Card Set","Wand of Whimsy (WBW-PR)","Woe (DDAL-DRW16)","Wooden Gecko Earrings (DDHC-TOA-8)"],
+		choices : ["Achis Atracta (CCC-BMG-30 HILL2-3)","Bag of Tricks or Treats","Bone Compass (RMH-12)","Bookmark of Memory (WBW-PR)","Bookmark of Memory: Limited Edition (WBW-DC-JSH-LIB-04PT)","Cariboots","Dagger of the Hidden Lord (DDHC-DIA-2)","Darkling Necklace (DDHC-TOA-8)","Discord (DDAL-DRW15)","Eye of Xxiphu (DDAL5-19)","Fey Hound Collar","Fold-Up Friend (WBW-PR)","Giant's Gloves (WBW-PR)","Ghost Sheet","Hat of Witchery","Hellrider's Badge (DDEP9-2)","Ioun Stone - Celebration (DDAL-DRW5)","Lemure Onesie","Mind-Poison Dagger (DDHC-MORD-05)","Mist Hunters Magnificent Cap (RMH Safety Tools)","Nettle (DDEP4)","Oathbinder (DDHC-TOA-15)","Order of the Guardians Ring (RMH Safety Tools)","Owlbear Snowshoes","Pearl of Elocution (WBW-PR)","Pipes of Remembrance","Pocket Watch (WBW-PR)","Pumpkin Ring","Selûne's Owl-Eye Glasses","Shar's Veil","Spare (DDHC-TOA-13)","Tarot Card Set","Wand of Whimsy (WBW-PR)","Woe (DDAL-DRW16)","Wooden Gecko Earrings (DDHC-TOA-8)","Zephyros' Notebook (DDIA05)"],
 	"achis atracta (ccc-bmg-30 hill2-3)" : { // contributed by AelarTheElfRogue
 		name : "Achis Atracta (CCC-BMG-30 HILL2-3)",
 		source : [["AL","CCC"]],
@@ -596,7 +596,7 @@ MagicItemsList["al new items"] = {
 	},
 	"bone compass (rmh-12)" : {
 			name : "Bone Compass (RMH-12)",
-			source : [["AL:RMH",12]],
+			source : [["AL:R",12]],
 			rarity : "rare",
 			attunement : true,
 			dmgres : ["Necrotic"],
@@ -668,7 +668,7 @@ MagicItemsList["al new items"] = {
 		name : "Discord (DDAL-DRW15)",
 		source : [["AL","DRW"]],
 		rarity : "unique",
-		description : "This magical armor is made of sharp interlocking spikes of green crystal & extinguishes all nonmagical flames in 30 ft. You hear insidious whispers from just beyond your peripheral vision. Unless deafened, you have disadvantage on saving throws caused by, & Wisdom checks related to, Father Llymic & its allies. As a reaction once per dawn, you can see normally in magical & nonmagical darkness for 120 ft until your next turn starts. If also wielding Woe, you're unharmed by temps as low as −60 \u00B0F",
+		description : "This magical armor is made of sharp interlocking spikes of green crystal & extinguishes all nonmagical flames in 30 ft. You hear insidious whispers from just beyond your peripheral vision. Unless deafened, you have disadvantage on saving throws caused by, & Wisdom checks related to, Father Llymic & its allies. As a reaction once per dawn, you can see normally in magical & nonmagical darkness for 120 ft until your next turn starts. If also wielding Woe, you're unharmed by temps as low as −60\u00B0F",
 		descriptionFull : "Discord is comprised of sharp, interlocking spikes of green crystal and extinguishes all nonmagical flames within 30 feet of it. A creature wearing Discord hears insidious whispers originating from a point just beyond their peripheral vision. Unless deafened, the creature has disadvantage on saving throws caused by, and on Wisdom checks related to, Father Llymic and its allies.\n   While wearing this armor, you gain a +2 bonus to AC. In addition, you can use your reaction to see normally in darkness, both magical and nonmagical, out to a distance of 120 feet until the start of your next turn. Discord can’t be used this way again until the next dawn.\n   If a character wields Woe (a longsword) while wearing Discord, they are unharmed by temperatures as low as −60 degrees Fahrenheit.",
 		action : [["reaction", "Discord (120 ft Devil Sight)"]],
 		limfeaname : "Discord (120 ft Devil Sight)",
@@ -857,7 +857,7 @@ changeeval : function () {
 	},
 	"mist hunters magnificent cap (rmh safety tools)" : {
 		name : "Mist Hunters Magnificent Cap (RMH Safety Tools)",
-		source : [["AL:RMH","ST"]],
+		source : [["AL:R","ST"]],
 		rarity : "common",
 		magicItemTable : "?",
 		description : "This deerstalker, ear-flapped traveling cap, is worn by notable investigators. When worn, it functions as any other hat. At the investigator's whim, it transforms into a working magnifying glass or back into a cap as needed.",
@@ -914,7 +914,7 @@ changeeval : function () {
 	},
 	"order of the guardians ring (rmh safety tools)" : {
 		name : "Order of the Guardians Ring (RMH Safety Tools)",
-		source : [["AL:RMH","ST"]],
+		source : [["AL:R","ST"]],
 		type : "ring",
 		rarity : "unique",
 		magicItemTable : "?",
@@ -930,7 +930,7 @@ changeeval : function () {
 			regExpSearch : /^(?=.*order)(?=.*guardian|guardians)(?=.*ring).*$/i,
 			name : "Order of the Guardians Ring",
 			baseWeapon : "unarmed strike",
-			source : [["AL:RMH","ST"]],
+			source : [["AL:R","ST"]],
 			abilitytodamage : false,
 			damage : [0, 0, ""],
 			description : "If attack hits, potion or poison in ring delivered to target.",
@@ -1069,16 +1069,24 @@ changeeval : function () {
 		description : "After wearing these wooden gecko earrings for at least 1 day, you become proficient in Strength (Athletics) checks to climb, as long as your hands and feet are bare and touching the surface. However, you have an insatiable urge to eat insects.",
 		descriptionFull : "After being worn for at least 1 day, the wearer of these wooden gecko earrings becomes proficient in Strength (Athletics) checks to climb, as long as their hands and feet are bare and touching the surface. The earrings can be sold for 400 gp. The wearer, however, has an insatiable urge to eat insects."
 	},
+	"zephyros' notebook (ddia05)" : {
+		name : "Zephyros' Notebook (DDIA05)",
+		source : [["AL","S5"]],
+		rarity : "common",
+		magicItemTable : "?",
+		description : "Zephyros, the perpetually-preoccupied cloud giant, gave you a selection of his notes. The scribed words, rough sketches, and strange maps don't make much sense at first glance, but if you spend one minute studying the pages, you gain advantage on your next INT (History) or (Arcana) check. If you don't rest before using the notes again, there's a 50% chance that you fall askeep for 1 minute instead.",
+		descriptionFull : "Zephyros, the perpetually-preoccupied cloud giant, has granted you a selection of his notes. The scribed words, rough sketches, and strange maps don't seem to make much sense at first glance, but if you spend one minute studying the pages, you gain advantage on your next Intelligence (History) or (Arcana) check. If you do not rest before using the notes again there is a 50% chance that you fall askeep for 1 minute instead."
+	},
 }
 
-//Neat custom trinkets from AL modules. These have no real mechanical effect, but are cool enough that people might want the full description anyway.
+//Neat custom trinkets from AL modules. Most have no real mechanical effect, but are cool enough that people might want the full description anyway.
 MagicItemsList["al trinkets"] = {
 		name : "AL Trinkets",
 		type : "Trinket",
 		rarity : "unique",
 		allowDuplicates : true,
 		defaultExcluded : true,
-		choices : ["Arcane Curio: Belt (DDEX2-10)","Arcane Curio: Brush (DDEX2-10)","Arcane Curio: Cloak (DDEX2-10)","Arcane Curio: Inkpot (DDEX2-10)","Arcane Curio: Pipe (DDEX2-10)","Arcane Curio: Quill (DDEX2-10)","Arcane Curio: Wand (DDEX2-10)","Artor's Blood Mead: Six-pack (DC-POA-SNIPE-1)","Dinosaur Eggshell (WBW-DC-CONMAR-6)","Efreeti Crown of Wishes (CCC-ODFC2-2)","Flamesoul Stone (CCC-YLRA1-3)","Leaf With Amber Veins (WBW-DC-CONMAR-6)","Lohringan Pink Opal (WBW-DC-CONMAR-6)","Magic Mirror (WBW-DC-VMT-1)","Piece of the Infernal Machine of Lum the Mad (IMR)","Snipe Feather Pillow (DC-POA-SNIPE-1)","Striking at the Bare Neck (DC-POA-SNIPE-1)"],
+		choices : ["Arcane Curio: Belt (DDEX2-10)","Arcane Curio: Brush (DDEX2-10)","Arcane Curio: Cloak (DDEX2-10)","Arcane Curio: Inkpot (DDEX2-10)","Arcane Curio: Pipe (DDEX2-10)","Arcane Curio: Quill (DDEX2-10)","Arcane Curio: Wand (DDEX2-10)","Artor's Blood Mead: Six-pack (DC-POA-SNIPE-1)","Dinosaur Eggshell (WBW-DC-CONMAR-6)","Efreeti Crown of Wishes (CCC-ODFC2-2)","Feast Invite (WBW-DC-TMP-2)","Flamesoul Stone (CCC-YLRA1-3)","Leaf With Amber Veins (WBW-DC-CONMAR-6)","Lohringan Pink Opal (WBW-DC-CONMAR-6)","Magic Mirror (WBW-DC-VMT-1)","Piece of the Infernal Machine of Lum the Mad (IMR)","Sign of the Snail (DDIA05)","Snipe Feather Pillow (DC-POA-SNIPE-1)","Striking at the Bare Neck (DC-POA-SNIPE-1)"],
 	"arcane curio: belt (ddex2-10)" : {
 		name: "Arcane Curio: Belt (DDEX2-10)",
 		nameAlt: "Arcane Curio: Belt",
@@ -1167,6 +1175,13 @@ MagicItemsList["al trinkets"] = {
 		description : "This beautiful golden crown is covered with diamonds that gleam with their own light & resizes to fit your head. Despite its name, the crown doesn't actually grant wishes. Instead, when you feel strong emotions of any kind, the crown sprouts harmless, colorful flames from its pinnacle. The color of the flames is based on your mood: red for anger, blue for sorrow, green for amusement, etc.",
 		descriptionFull : "This beautiful golden crown is covered with diamonds each of which gleams with its own light. The crown resizes to fit the head of any wearer. Contrary to its name, the crown does not actually grant any wishes. Instead, when the person wearing it feels strong emotion of any kind, the crown sprouts harmless, colorful flames from its pinnacle, with the color of the flames based on the wearer’s mood: red for anger, blue for sorrow, green for amusement, and so on. This crown can be sold for 1,500 gp. It does not count as a magic item and cannot be traded. (To be kept as a trinket, this crown may not be sold)."
 	},
+	"feast invite (wbw-dc-tmp-2)" : {
+		name : "Feast Invite (WBW-DC-TMP-2)",
+		source : [["AL","WBW-DC"]],
+		defaultExcluded : true,
+		description : "An old invitation to a banquet in the Summer Court, written in ink on vellum in Sylvan. This is Dyul’s invitation to the feast that led to the Shadowfell hunt and the problems in his domain. Theun Win’Nin found it in a wine bottle.",
+		descriptionFull : "An old invitation to the banquet in the Summer Court, written in ink on vellum in Sylvan. This is Dyul’s invitation to the feast that led to the Shadowfell hunt and the problems in his domain. Theun Win’Nin found it in a wine bottle earlier."
+	},
 	"flamesoul stone (ccc-ylra1-3)" : {
 		name : "Flamesoul Stone (CCC-YLRA1-3)",
 		source : [["AL","CCC"]],
@@ -1201,6 +1216,13 @@ MagicItemsList["al trinkets"] = {
 		defaultExcluded : true,
 		description: "Once operated via its vast array of buttons, dials & levers, the Infernal Machine of Lum the Mad was dismantled & lies scattered through the world. Who knows what function this piece controlled? It appears as a jeweled button marked with a mysterious glyph, hung from a delicate chain.",
 		descriptionFull: "Once operated via its vast array of buttons, dials, and levers, the Infernal Machine of Lum the Mad has been dismantled and lies scattered throughout the world.\n   Who knows what function of it this piece controlled? This appears as a jeweled button marked with a mysterious glyph, hung from a delicate chain.",
+	},
+	"sign of the snail (ddia05)" : {
+		name: "Sign of the Snail (DDIA05)",
+		source : ["AL", "S5"],
+		defaultExcluded : true,
+		description: "This heavy silver amulet shows the sigil of the Zhentarim on the front and an ornate snail on the back. Kella and Xolbrin didn't hide the fact that they work for the “the Snail”, but didn't speak of them further. Wearing this amulet grants you advantage on Charisma checks with other Zhentarim, but may impose penalties when dealing with other factions and characters.",
+		descriptionFull: "This heavy silver amulet proudly shows the sigil of the Zhentarim on the front and has an ornate snail on the back. Kella and Xolbrin made no secret of the fact that they work for the “the Snail”, but did not speak of him/her further. Wearing this amulet grants you advantage on Charisma checks with other Zhentarim, but may impose penalties when dealing with other factions and characters.",
 	},
 	"snipe feather pillow (dc-poa-snipe-1)" : {
 		name : "Snipe Feather Pillow (DC-POA-SNIPE-1)",

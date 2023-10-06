@@ -98,14 +98,6 @@ MagicItemsList["serpent scale armor"] = {
 	attunement : false,
 	description : "This suit of magic armor is made from shimmering scales. While wearing it, you can apply your full Dexterity modifier when determining your AC. In addition, this armor does not impose disadvantage on your Dexterity (Stealth) checks.",
 	descriptionFull : "This suit of magic armor is made from shimmering scales. While wearing it, you can apply your full Dexterity modifier (instead of a maximum of +2) when determining your Armor Class. In addition, this armor does not impose disadvantage on your Dexterity (Stealth) checks.",
-	/*eval : function () {
-		Value('Medium Armor Max Mod', 6);
-		ApplyArmor(What("AC Armor Description"));
-	},
-	removeeval : function () {
-		tDoc.resetForm(['Medium Armor Max Mod']);
-		ApplyArmor(What("AC Armor Description"));
-	},*/
 	armorAdd : "Serpent Scale Armor",
 	armorOptions : [{
 		regExpSearch : /^(?=.*serpent)(?=.*scale).*$/i,
@@ -135,7 +127,7 @@ MagicItemsList["serpent's fang"] = {
 		regExpSearch : /^(?=.*serpent|s)(?=.*fang).*$/i,
 		name : "Serpent's Fang",
 		source : [["CM-Alt", 98]],
-		description : "Versatile (d10), +1d10 poison dmg per hit",
+		description : "Versatile (d10), +1d10 poison dmg",
 	}
 }
 

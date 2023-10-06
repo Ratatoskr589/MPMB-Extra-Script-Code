@@ -18,6 +18,18 @@ CCC-BMG-MOON17-2
 CCC-UCON-3
 -Decanter of Endless Water
 
+DC-POA-AOT1-1 Counteroffer
+-Circlet of Blasting
+-Candle of the Deep
+
+DC-POA-AOT1-2 Northern Diplomacy
+-Alchemy Jug
+-Cloak of Many Fashions
+
+DC-POA-AOT1-3
+-Silver Raven Figurine
+-Moon Touched Shortsword
+
 DC-POA-DOBU-1-1 Beneath a Stony Stump
 -Masquerade Tattoo
 -Grey Bag of Tricks
@@ -134,6 +146,10 @@ PO-BK-2-8 Straight Through the Heart
 PO-BK-2-9 Star Crash Release
 -Amethyst Lode Stone
 
+RV-DC-OH1 In the Mist of Keening
+-Horn of Silent Alarm
+-+2 Dagger
+
 SJ-DC-AUG-06 The Rock Tales of the Beholder Corps
 -Guardian Emblem
 
@@ -146,6 +162,9 @@ SJ-DC-AUG-08 I Xamott
 SJ-DC-BEB-01 The Hunger
 -Astromancy Archive
 -Horn of Silent Alarm
+
+SJ-DC-CGG-1
+-Elemental Essence Shard Air
 
 SJ-DC-DRA-2
 -Masquerade Tattoo
@@ -179,11 +198,18 @@ SJ-DC-HBI-3 The Reckoning
 SJ-DC-INAS-3 Swamp Strike
 -Pole of Collapsing
 
+SJ-DC-KEEP
+-Hat of Wizardry
+
 SJ-DC-LP-1 Litter Patrol
 -Astromancy Archive
 -Rope of Mending
 -Smokepowder
 -K's Ointment
+
+SJ-DC-MOR-1 The Ill King
+-Goggles of Night
+-Horn of Silent Alarm
 
 WBW-DC-AH-1 Afraid of the Dark
 -Elven Chain

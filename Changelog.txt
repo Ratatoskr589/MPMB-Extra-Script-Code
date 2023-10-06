@@ -1,9 +1,22 @@
+Changelog (After 7/13/23)
+-Adjusted minor propery for SJ-DC-ETA item as per module update
+-Adjusted source info for Mist Hunters to AL Ravenloft Campaign since there are also DC adventures now
+-Added items & familiar from DDIA05 premiere
+-Added items from Ravenloft, WBW, and SJ DCs
+-Added items from BMG PO
+-Adjusted the text for all Temperate items so the degrees should automatically adjust to Celsius if the sheet is set to metric
+-Managed to fix the Magic Item Source selection issue with help from MBMB
+-Added back some of the default item exclusions, though the ones that now have a separate source I left as is.
+-Added flavor from some unpublished BMG-DRW modules (may change when published)
+
+
+
 Changelog (After 3/20/23)
 -Added missing magic axe from KOSC
 -Corrected various typos and errors
 -Added more items from DC modules
 -Added item from PO-BK-2-10
--Gave the Tree Spirit Weapons & Darkling Necklace a unique source so they're easier to exclude/include en masse (this is partially a workaround due to the fact that the AL Magic Items file is now so large that it breaks the individual item exclusion button)
+-Gave the Tree Spirit Weapons & Darkling Necklace a unique source so they're easier to exclude/include en masse (this is partially a workaround due to the fact that the AL Magic Items file breaks the individual item exclusion button)
 -Made it so that no items are excluded by default in the AL Items file, since there's currently no way to include them individually
 
 
@@ -30,7 +43,7 @@ Changelog (After 10/11/22)
 -Added fancy Hat of Witchery code so it reads spellcasting classes better. With thanks to Poet of God & MPMB
 -Added a missing space in the Guardian property for a number of items
 -Fixed a couple errors in item sources
--Updated code in Arcan Grimoire to new format
+-Updated code in Arcane Grimoire to new format
 -Added flavored items from DRW-INT adventures
 -Added in the flavor for the Mask of the Beast from ToA
 
