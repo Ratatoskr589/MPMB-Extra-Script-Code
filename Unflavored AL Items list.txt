@@ -1,13 +1,13 @@
 Unflavored items in AL modules (incomplete list):
 
+CCC-AWE-1-2 The Chi Directive
+-Lantern of Revealing
+
 CCC-BMG-37 HULB3-1 Weakness of Rock
 -Dex Book
 
 CCC-BMG-38 HULB3-2 Dead Canaries
 -Int Book
-
-CCC-TRI-11 Contact
--Dwarven Plate
 
 CCC-BMG-MOON17-1
 -Mariner's Scale Mail
@@ -15,8 +15,20 @@ CCC-BMG-MOON17-1
 CCC-BMG-MOON17-2
 -Immovable Rod
 
+CCC-DES-1-3 A Question Never Asked
+-Wand of Magic Missiles
+
+CCC-PIPYAPS Glasyas Little Helpers
+-Ylkwa of Warning
+
+CCC-TRI-11 Contact
+-Dwarven Plate
+
 CCC-UCON-3
 -Decanter of Endless Water
+
+DC-HERO Endless Songs
+-Hat of Wizardry
 
 DC-POA-AOT1-1 Counteroffer
 -Circlet of Blasting
@@ -98,6 +110,24 @@ DDEX1-9 Outlaws of the Iron Route
 DDEX2-10 Cloaks and Shadows
 -Winged boots
 
+FR-DC-AEG-1 The Ambush
+-Horn of Silent Alarm
+
+FR-DC-AEG-2 The Rescue
+-Dread Helm
+
+FR-DC-AEG-3 The Escape
+-Rope of Mending
+
+FR-DC-AEG-5 The Hunting
+-Hat of Wizardry
+
+FR-DC-AEG-7 The Missing Adventurers
+-Candle of the Deep
+
+FR-DC-GHG-1 Griffons of Longsaddle
+-Staff of Birdcalls
+
 PO-BK-1-02 Trust No One
 -Heward's Handy Spice Pouch
 
@@ -148,7 +178,13 @@ PO-BK-2-9 Star Crash Release
 
 RV-DC-OH1 In the Mist of Keening
 -Horn of Silent Alarm
--+2 Dagger
+-Dagger +2
+
+SJ-DC-ANGKA-7 Sleep Now in the Fire
+-Pipe of Remembrance
+
+Sj-DC-ASI-1 Secrets of Old
+-Talking Doll (Plush Dragon)
 
 SJ-DC-AUG-06 The Rock Tales of the Beholder Corps
 -Guardian Emblem
@@ -161,6 +197,13 @@ SJ-DC-AUG-08 I Xamott
 
 SJ-DC-BEB-01 The Hunger
 -Astromancy Archive
+-Horn of Silent Alarm
+
+SJ-DC-CBB-1 Last Stand of the Void Lich
+-Eldritch Claw Tattoo
+
+SJ-DC-CBB-2 In Cyzor's Grasp
+-Guardian Emblem
 -Horn of Silent Alarm
 
 SJ-DC-CGG-1
@@ -183,6 +226,10 @@ SJ-DC-DRA-5
 SJ-DC-ECHO-2 Bug Hunt
 -Masquerade Tattoo
 
+SJ-DC-FAT-1 Flight of the Chungus
+-Elemental Essence Shard - Air
+-Horn of Silent Alarm
+
 SJ-DC-HBI-1 The Stowaway
 -Clockwork Amulet
 -Bracers of Archery
@@ -195,11 +242,17 @@ SJ-DC-HBI-3 The Reckoning
 -Wand of Conducting
 -Gray Bag of Tricks
 
+SJ-DC-HYS-2 Darkside of Selune
+-Pole of Collapsing
+
 SJ-DC-INAS-3 Swamp Strike
 -Pole of Collapsing
 
 SJ-DC-KEEP
 -Hat of Wizardry
+
+SJ-DC-KGV-1 Moonlight Mysteries
+-Pipe of Remembrance
 
 SJ-DC-LP-1 Litter Patrol
 -Astromancy Archive
@@ -207,9 +260,40 @@ SJ-DC-LP-1 Litter Patrol
 -Smokepowder
 -K's Ointment
 
+SJ-DC-MAD-2 Mad Effect Retribution
+-Horn of Silent Alarm
+
 SJ-DC-MOR-1 The Ill King
 -Goggles of Night
 -Horn of Silent Alarm
+
+SJ-DC-NOS-3 Sol Crash
+-Absorbing Tattoo (choice)
+
+SJ-DC-PHP-2 Securing Passage
+-Wand of Conducting
+
+SJ-DC-ROCK-1 Turmoil in Bral
+-Cloak of Many Fashions
+
+SJ-DC-ROCK-2 Bral Under Siege
+-Horn of Silent Alarm
+
+SJ-DC-TBS-4 Brightshill
+-Tankard of Sobriety
+-Keoghtam's Ointment
+
+SJ-DC-TRIDEN-MYKE-2
+-Rope of Mending
+
+SJ-DC-TST-1 Bulan
+-Instrument of Scribing
+
+SJ-DC-TST-2 Datu
+-Ring of Regeneration
+
+SJ-DC-VMT-3 Green Hills of the Affricate
+-Heward's Handy Spice Pouch
 
 WBW-DC-AH-1 Afraid of the Dark
 -Elven Chain
@@ -259,6 +343,9 @@ WBW-DC-CONMAR-12 Dreams of the Wet Wizard
 
 WBW-DC-CONMAR-13 Losing Con-Troll
 -Gem of Brightness
+
+WBW-DC-DREA-1 The Nightmare of Dreams
+-Belt of Fire Giant Strength (GFP)
 
 WBW-DC-EBAL-MEF0 Misty Edge Heist
 -Slippers of Spider Climbing

@@ -1,3 +1,18 @@
+Changelog (After 10/06/23)
+-Had to split the Accessories, Containers, Equipment (Common), and Minerals categories due to hitting the quantity limits of 100 choices. I also consolidated the Shields categories and Maces/Other Weapons to reduce the number of different magic items overall.
+-Add more items from SJ-DC, FR-DC, and PS-DCs
+-Updated Eldritch Claw Tattoos to correctly stack with Insignia of Claws
+-Corrected typo in Horns of Silent Alarm
+-Fixed some flavor typos in the Staff of Adornment
+-Corrected typo in Waterborne save text
+-Added more custom flavor items from the AL Trading Post
+-Other minor adjustments per changes in modules (such as ROTU-3)
+-Various corrections of typos and item properties
+-Corrected CCC-DES-4 to CCC-DES-1-4
+-Fixed missing Usages and edited description for Wand of Paralysis
+-Various adjustments to spacing in item names and descriptions (As a reminder, this script does not function properly without resizing text. The text will get cut off.)
+
+
 Changelog (After 7/13/23)
 -Adjusted minor propery for SJ-DC-ETA item as per module update
 -Adjusted source info for Mist Hunters to AL Ravenloft Campaign since there are also DC adventures now

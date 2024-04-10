@@ -401,7 +401,7 @@ MagicItemsList["al story awards"] = {
 	},
 }
 
-//New Event Awards from Al events such as the D&D Celebration and the newers Liar's Night events. Only one may be on a character at a time.
+//New Event Awards from Al events such as the D&D Celebration, Extra Life and the newer Liar's Night events. Only one may be on a character at a time.
 MagicItemsList["al event award items"] = {
 		name : "AL Event Award Items",
 		rarity : "unique",
@@ -595,12 +595,12 @@ MagicItemsList["al new items"] = {
 		recovery : "dawn",
 	},
 	"bone compass (rmh-12)" : {
-			name : "Bone Compass (RMH-12)",
+			name : "Bone Compass",
 			source : [["AL:R",12]],
 			rarity : "rare",
 			attunement : true,
 			dmgres : ["Necrotic"],
-			description : "This bone-wrought compass mask melds into your flesh to become a macabre bracelet. While attuned, you resist necrotic dmg & Undead have disadv. to atk you. As an action, command the compass to swing toward any Undead within 120 ft. The needle points to each Undead & changes color based on its relative strength. Green denotes an easy or medium encounter, red signals hard or deadly. Spells & abilities that affect or target Undead also affect & target you. While attuned to the compass, you don’t regain hp when you long rest or when you spend Hit Dice during a short rest.",
+			description : "This bone-wrought compass mask melds into your flesh to become a macabre bracelet. You resist necrotic dmg & Undead have disadv. to atk you. As an action, command the compass to swing toward any Undead within 120 ft. The needle points to each Undead & changes color based on its relative strength. Green denotes an easy or medium encounter, red signals hard or deadly. Spells & abilities that affect or target Undead also affect & target you. You also don’t regain hp when you long rest or when you spend Hit Dice during a short rest.",
 			descriptionFull : "This bone-wrought compass mask melds into your flesh to become a macabre mounted bracelet. While attuned to the compass, you have resistance to necrotic damage and Undead have disadvantage on attack rolls that target you. As an action, you can command the compass to point toward an Undead or group of Undead within 120 feet. The needle swings around, pointing to each Undead and changing color based on its strength relative to you. Green denotes an easy or medium encounter, red signals hard or deadly.\n   " + toUni("Curse") + ". Spells and abilities that affect or target Undead also affect and can target you. While attuned to the compass, you don’t regain hit points when you complete a long rest or when you spend Hit Dice at the end of a short rest.",
 			action : [["action", "Bone Compass"]],
 		},
@@ -631,9 +631,10 @@ MagicItemsList["al new items"] = {
 		name : "Dagger of the Hidden Lord (DDHC-DIA-2)",
 		source : [["AL","BG:DiA"]],
 		type : "weapon (dagger)",
-		rarity : "rare",
+		rarity : "unique",
+		attunement : true,
 		magicItemTable : "?",
-		description : "This +1 cursed dagger is made entirely of gold, the handle engraved in the shape of a coiling serpent. You're unwilling to give it up & while attuned, you're compelled to kill a humanoid with it every tenday, proclaiming “To the Hidden Lord!” when you do so. Every day you resist, you must pass a DC 10 Constitution save or take a level of fatigue. This fatigue disappears when you kill a humanoid with the dagger.",
+		description : "This +1 cursed dagger is made entirely of gold, the handle engraved in the shape of a coiling serpent. You're unwilling to give it up & you're compelled to kill a humanoid with it every tenday, proclaiming “To the Hidden Lord!” when you do so. Every day you resist, you must pass a DC 10 Constitution save or take a level of exhaustion. This fatigue disappears when you kill a humanoid with the dagger.",
 		descriptionFull : "This weapon is made entirely of gold, with the handle engraved in the shape of a coiling serpent. You gain a +1 bonus to attack rolls and damage rolls that you make with this weapon.\n   " + toUni("Curse") + ". This dagger is cursed and becoming attuned to it extends the curse to you. While you remain cursed, you are unwilling to part with the dagger, keeping it on your person always. While attuned to this weapon, you feel compelled to kill a humanoid creature with it every tenday, proclaiming “To the Hidden Lord!” when you do so.\n   Every day that you resist this compulsion, you must make a successful DC 10 Constitution saving throw or take a level of fatigue. This magically induced fatigue disappears when you kill a humanoid with the dagger.",
 		weight : 1,
 		weaponsAdd : ["Dagger of the Hidden Lord"],
@@ -692,7 +693,7 @@ MagicItemsList["al new items"] = {
 		rarity : "legendary",
 		magicItemTable : "?",
 		attunement : true,
-		description : "The Eye of Xxiphu bestows insight into the true nature of aboleths. The attuned possessor of the Eye gains telepathy out to 120 ft, & may cover themselves in coat of mucous that lets them breathe underwater as well as on land. The petrified orb is large & heavy, but doesn't need to be held to use its powers. Aboleths have disadv. when attacking owner, & owner has adv. on knowledge-based ability checks about aboleths & the Far Realms when not in combat.",
+		description : "The Eye of Xxiphu bestows insight into the true nature of aboleths. While attuned, you gain telepathy out to 120 ft, & may cover yourself in a coat of mucous that lets you breathe underwater and on land. The petrified orb is large & heavy, but doesn't need to be held to use its powers. Aboleths have disadv. when attacking you, & you have adv. on knowledge-based ability checks about aboleths & the Far Realms when not in combat.",
 		descriptionFull : "While not a truly intelligent item, the Eye of Xxiphu bestows terrifying insight into the true nature of the nightmarish aboleths. The attuned possessor of the Eye gains telepathy out to a range of 120 feet, and may cover themselves in coat of mucous that allows them to breathe underwater as well as on land. The petrified orb is large and heavy, but does not need to be held in order to use its powers. Additionally, aboleths have disadvantage when attacking the owner of the Eye, and the owner has advantage on knowledge-based ability checks about aboleths and the Far Realm when they are not in combat."
 	},
 	"fey hound collar" : {
@@ -733,7 +734,7 @@ MagicItemsList["al new items"] = {
 		source : ["AL:LN", 2019],
 		rarity : "common",
 		magicItemTable : "?",
-		description : "This black, cone-shaped hat has a wide-brim and is adorned with a tarnished brass buckle and a spindly-legged spider who made the hat its home. It can act as spellcasting focus for your class' spells. Once per long rest, you can try to cast a cantrip you don't know from your class' list by making a DC 10 INT (Arcana) check, wasting the attempt & the action if failed. If 3 allies are wearing and attuned to hats of witchery w/i 30 ft of each other, the check above is made with adv. The characters’ skin turns green & their voices become raspy and aged.",
+		description : "This black, cone-shaped hat has a wide-brim and is adorned with a tarnished brass buckle and a spindly-legged spider who made the hat its home. It can act as spellcasting focus for your class' spells. Once per long rest, you can try to cast a cantrip you don't know from your class' list by making a DC 10 INT (Arcana) check, wasting the action if failed. If 3 allies are wearing and attuned to hats of witchery in 30 ft of each other, the check above is made with adv. Their skin also turns green & their voices become raspy and aged.",
 		descriptionFull : "This black, cone-shaped hat has a wide-brim and is adorned with a tarnished brass buckle and a spindly-legged spider who has made the hat its home. While you are wearing it, you gain the following benefits:\n \u2022 You can use the hat as a spellcasting focus for your class' spells.\n \u2022 You can try to cast a cantrip that you don't know. The cantrip must be on your class' spell list, and you must make a DC 10 Intelligence (Arcana) check. If the check succeeds, you cast the spell. If the check fails, so does the spell, and the action used to cast the spell is wasted. In either case, you can't use this property again until you finish a long rest.\n \u2022 If three allies are all wearing and attuned to hats of witchery and are within 30 feet of each other, the check above is made with advantage. The characters’ skin turns green, and their voices become raspy and aged.",
 		attunement : true,
 		usages : 1,
@@ -981,7 +982,7 @@ changeeval : function () {
 		source : ["AL:FM", 2020],
 		rarity : "unique",
 		attunement : true,
-		description : "While wearing these glasses, as an action once per dawn, you can instantaneously resummon a deceased, certed or Holiday Event vanity pet or mount (only ones that can be returned to life by the find familiar or find steed spells.) If you are not attuned to your glasses, that does not kill your pet.",
+		description : "While wearing these glasses, as an action once per dawn, you can instantaneously resummon a deceased, certed or Holiday Event vanity pet or mount (only ones that can be returned to life by the find familiar or find steed spells.) If you unattune, that doesn't kill your pet.",
 		descriptionFull : "While wearing these glasses, as an action, you can instantaneously resummon a deceased, certed or Holiday Event vanity pet or mount that can be returned to life by the find familiar or find steed spells. Once returned to life, they have no new additions to the roles and abilities they had before death (for example, these glasses do not transform them into a familiar or steed). If you are not attuned to your glasses, that does not kill your pet. The glasses can’t be used this way again until the next dawn.",
 		limfeaname : "Selûne's Glasses",
 		usages : 1,
