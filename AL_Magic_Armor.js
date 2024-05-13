@@ -298,7 +298,7 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		"\n  I\t  +3\tSpiked Armor, Splint, Studded Leather",
 		allowDuplicates : true,
 		choicesNotInMenu : true,
-		choices : ["+1 Leather (DDEP7-1)","+1 Leather: Mummy Wraps (RV-DC-GC15-4)","+1 Studded Leather (CCC-BMG-21 HULB2-3)","+1 Studded Leather (FR-DC-AEG-7)","+1 Studded Leather: Star Lancer Corps Armor (SJ-DC-BAD-3)","+1 Scale Mail: Shroud of the Mourning Warrior (DDAL5-13)","+1 Breastplate: Glass (DDEP0-1)","+1 Breastplate (SJ-DC-DRA-4)","+1 Breastplate: Bulletproof Vest (SJ-DC-LEGIT-SB-2)","+1 Breastplate: Chameleon (SJ-DC-TKM-3)","+1 Half Plate: Bone (CCC-TRI-6 NIGHT1-2)", "+1 Half Plate (DDEP4)","+1 Half Plate: Warforged Chest Piece (RV-DC-PHP-1313-1)","+1 Half Plate: Qumado's Gift (SJ-DC-DEN-H6)","+1 Half Plate: Legion's Peregrine Cuirass (SJ-DC-ROCK-2)","+1 Half Plate: Mazatil's Remorse (SJ-DC-STRATCON-1)","+1 Splint (DDEX1-12)","+1 Splint (DDAL5-4)","+1 Splint: Remorhaz (DDEP10-2)","+2 Studded Leather (CCC-TRI-23 STORM1-2)","+2 Studded Leather (PO-BK-1-5)","+2 Half Plate: Stone (DDEP7-2)","+2 Half Plate: Mythos (WBW-DC-PHP-PHAN-2)","+2 Splint: Remorhaz (DDEP10-2)","+2 Plate: Stone (CCC-JGD-1)","+3 Hide: Daphnaie Armor (ALSRs11-A)","+3 Plate (PS-DC-AUG-1)"],
+		choices : ["+1 Leather (DDEP7-1)","+1 Leather: Mummy Wraps (RV-DC-GC15-4)","+1 Studded Leather (CCC-BMG-21 HULB2-3)","+1 Studded Leather (FR-DC-AEG-7)","+1 Studded Leather: Star Lancer Corps Armor (SJ-DC-BAD-3)","+1 Scale Mail: Shroud of the Mourning Warrior (DDAL5-13)","+1 Breastplate: Glass (DDEP0-1)","+1 Breastplate (SJ-DC-ASI-3)","+1 Breastplate (SJ-DC-DRA-4)","+1 Breastplate: Bulletproof Vest (SJ-DC-LEGIT-SB-2)","+1 Breastplate: Chameleon (SJ-DC-TKM-3)","+1 Half Plate: Bone (CCC-TRI-6 NIGHT1-2)", "+1 Half Plate (DDEP4)","+1 Half Plate: Asano's Do-Maru (FR-DC-ONI-2)","+1 Half Plate: Warforged Chest Piece (RV-DC-PHP-1313-1)","+1 Half Plate: Qumado's Gift (SJ-DC-DEN-H6)","+1 Half Plate: Legion's Peregrine Cuirass (SJ-DC-ROCK-2)","+1 Half Plate: Mazatil's Remorse (SJ-DC-STRATCON-1)","+1 Splint (DDEX1-12)","+1 Splint (DDAL5-4)","+1 Splint: Remorhaz (DDEP10-2)","+2 Studded Leather (CCC-TRI-23 STORM1-2)","+2 Studded Leather (PO-BK-1-5)","+2 Half Plate: Stone (DDEP7-2)","+2 Half Plate: Mythos (WBW-DC-PHP-PHAN-2)","+2 Splint: Remorhaz (DDEP10-2)","+2 Plate: Stone (CCC-JGD-1)","+3 Hide: Daphnaie Armor (ALSRs11-A)","+3 Plate (PS-DC-AUG-1)"],
 		"+1 leather (ddep7-1)" : {
 			name : "+1 Leather (DDEP7-1)",
 			source : [["AL","S7"]],
@@ -404,6 +404,21 @@ MagicItemsList["al armor +1, +2, +3"] = {
 				weight : 10
 				}]
 		},
+		"+1 breastplate (sj-dc-asi-3)" : {
+			name : "+1 Breastplate (SJ-DC-ASI-3)",
+			source : [["AL","SJ-DC"]],
+			rarity : "rare",
+			magicItemTable : "H",
+			allowDuplicates : true,
+			description : "This armor was recovered from the fallen githyanki Vaa’len. The intricately forged dark metal accentuates your musculature and bands of inlayed silver highlight the magical patterns. This breastplate grants a +1 bonus to AC while worn and whispers warnings, giving +2 initiative if you're not incapacitated.",
+			descriptionFull : "This armor was recovered from the fallen Githyanki Vaa’len. The intricately forged dark metal accentuates the musculature of the wearer. Bands of inlayed silver highlight the magical patterns.\n   You have a +1 bonus to AC while wearing this armor.\n   " + toUni("Guardian") + ". The item whispers warnings to its bearer, granting a +2 bonus to initiative if the bearer isn’t incapacitated.",
+			addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
+			armorAdd : "+1 Breastplate",
+			armorOptions : [{
+				name : "+1 Breastplate",
+				source : [["AL","SJ-DC"]],
+				}]
+		},
 		"+1 breastplate (sj-dc-dra-4)" : {
 			name : "+1 Breastplate (SJ-DC-DRA-4)",
 			source : [["AL","SJ-DC"]],
@@ -472,6 +487,20 @@ MagicItemsList["al armor +1, +2, +3"] = {
 			armorOptions : [{
 				name : "+1 Half Plate",
 				source : [["AL", "S4"]],
+				}]
+		},
+		"+1 half plate: asano's do-maru (fr-dc-oni-2)" : {
+			name : "Asano's Do-Maru, +1 Half Plate (FR-DC-ONI-2)",
+			source : [["AL","FR-DC"]],
+			rarity : "rare",
+			magicItemTable : "I",
+			allowDuplicates : true,
+			description : "Commander Asano used this lamellar-style half plate for the entirety of his military career. Originally a gift from his daimyo for distinguished service, the armor is crafted from hundreds of bone plates and laquered leather “scales” secured with cord, making it light and easy to maneuver in. The kabuto is adorned with a large crescent moon crest and has a mask designed to look like a ferocious snarling demon. While worn, it grants a +1 bonus to AC.",
+			descriptionFull : "Commander Asano used this armor for the entirety of his military career. Originally a gift from his daimyo for distinguished service, the armor was crafted from hundreds of bone and leather “scales,” making it light and easy to maneuver in while wearing. The kabuto is adorned with a large rescent moon crest and comes with a mask designed to look like a ferocious demon snarling.\n   " + toUni("Strange Material") + ". Asano’s do-maru is a lamellar-style half plate made of lacquered leather and bone plates secured with cord. This armor contains no metal.\n   You have a +1 bonus to AC while wearing this armor.",
+			armorAdd : "+1 Bone Half Plate",
+			armorOptions : [{
+				name : "+1 Bone Half Plate",
+				source : [["AL", "FR-DC"]],
 				}]
 		},
 		"+1 half plate: warforged chest piece (rv-dc-php-1313-1)" : {
@@ -953,20 +982,38 @@ MagicItemsList["al armor (common)"] = {
 MagicItemsList["al armor (other)"] = {
 		name : "AL Armor (Other)",
 		allowDuplicates : true,
-	choices : ["Breastplate of Fungal Spores (FR-DC-GHG-2)","Breastplate of Necrotic Resistance: Chardalyn (DDAL10-5)","Demon Armor (DDEX3-16)","Efreeti Chain (DDAL7-15)","Elven Chain (CCC-BMG-36 ELMW2-3)","Elven Chain (CCC-SQC-2-2)","Elven Chain: Armor of the First Frost (WBW-DC-AA-ASHALON-1)","Elven Chain (WBW-DC-AMQ-5)","Elven Chain: Astral (WBW-DC-CONMAR-12)","Elven Chain: Guardian (WBW-DC-GGS-1)","Elven Chain: Loud (WBW-DC-GGS-1)","Elven Chain (WBW-DC-PHP-SPAMMY-1)","Elven Chain (WBW-DC-Rook-2-1)","Elven Chain (WBW-DC-TAZ-1)","Elven Chain (WBW-DC-TEN-3)","Elven Chain: Tehettan's Protection (WBW-DC-TMP-2)","Elven Chain (WBW-DC-ZEP-T2S5)","Elven Chain: Sky's Armor (WBW-DC-ZODIAC-12)","Glamoured Studded Leather (DDAL4-9)","Glamoured Studded Leather (DDAL8-11)","Glamoured Studded Leather (DDAL9-6)","Glamoured Studded Leather: Cinderella's Wedding Corset (WBW-DC-CONMAR-15)","Half Plate of Poison Resistance: Mushroom (DDEX3-11)","Mariner's Studded Leather (DDAL-DRW9)","Mariner's Breastplate (CCC-AETHER-1-2)","Mariner's Breastplate (CCC-MMT1-2)","Mariner's Scale Mail (ALSRs11-A)","Plate Armor of Etherealness (DDAL8-16)","Red Dragon Scale Mail (DDEP5-1)","Red Dragon Scale Mail (DDAL9-15)","Scale Mail of Psychic Resistance: Resin (CCC-TRI-21 YUL1-6)","Spiked Armor of Necrotic Resistance (WBW-DC-DEN-H1)","Studded Leather of Fire Resistance (DDAL0-11C)"],
+	choices : ["Breastplate of Fungal Spores (FR-DC-GHG-2)","Breastplate of Fungal Spores: Cheese Plate (FR-DC-WATERDEEP-CHZ)","Breastplate of Necrotic Resistance: Chardalyn (DDAL10-5)","Demon Armor (DDEX3-16)","Efreeti Chain (DDAL7-15)","Elven Chain (CCC-BMG-36 ELMW2-3)","Elven Chain (CCC-SQC-2-2)","Elven Chain: Armor of the First Frost (WBW-DC-AA-ASHALON-1)","Elven Chain (WBW-DC-AMQ-5)","Elven Chain: Astral (WBW-DC-CONMAR-12)","Elven Chain: Guardian (WBW-DC-GGS-1)","Elven Chain: Loud (WBW-DC-GGS-1)","Elven Chain (WBW-DC-PHP-SPAMMY-1)","Elven Chain (WBW-DC-Rook-2-1)","Elven Chain (WBW-DC-TAZ-1)","Elven Chain (WBW-DC-TEN-3)","Elven Chain: Tehettan's Protection (WBW-DC-TMP-2)","Elven Chain (WBW-DC-ZEP-T2S5)","Elven Chain: Sky's Armor (WBW-DC-ZODIAC-12)","Glamoured Studded Leather (DDAL4-9)","Glamoured Studded Leather (DDAL8-11)","Glamoured Studded Leather (DDAL9-6)","Glamoured Studded Leather: Cinderella's Wedding Corset (WBW-DC-CONMAR-15)","Half Plate of Poison Resistance: Mushroom (DDEX3-11)","Mariner's Studded Leather (DDAL-DRW9)","Mariner's Breastplate (CCC-AETHER-1-2)","Mariner's Breastplate (CCC-MMT1-2)","Mariner's Scale Mail (ALSRs11-A)","Plate Armor of Etherealness (DDAL8-16)","Red Dragon Scale Mail (DDEP5-1)","Red Dragon Scale Mail (DDAL9-15)","Scale Mail of Psychic Resistance: Resin (CCC-TRI-21 YUL1-6)","Spiked Armor of Necrotic Resistance (WBW-DC-DEN-H1)","Studded Leather of Fire Resistance (DDAL0-11C)"],
 	"breastplate of fungal spores (fr-dc-ghg-2)" : {
 		name : "Breastplate of Fungal Spores (FR-DC-GHG-2)",
 		source : [["AL","FR-DC"]],
 		type : "armor (breastplate)",
 		magicItemTable : "?",
 		rarity : "uncommon",
-		description : "This breastplate is fashioned from a large mushroom-infested turtle or tortle shell. While worn, as a bonus action once per dawn, it emits poisonous spores in a 10-ft radius sphere centered on you. Each creature in that area must pass a DC 15 CON save or be poisoned until your next turn ends.",
+		description : "This breastplate is fashioned from a large mushroom-infested turtle or tortle shell. As a bonus action once per dawn, it emits poisonous spores in a 10-ft radius sphere around you. Each creature in that area must pass a DC 15 CON save or be poisoned until your next turn ends.",
 		descriptionFull : "While wearing this armor, you can take a bonus action to make the armor emit poisonous spores, which fill a 10-foot-radius sphere centered on yourself. Each creature in that area must succeed on a DC 15 Constitution saving throw or have the poisoned condition until the end of your next turn. Once this property is used, it can't be used again until the next dawn.\n   " + toUni("Strange Material") + ". This breast plate is fashioned from a mushroom-infestested shell from a very large turtle or perhaps a tortle.",
 		action : [["bonus action", ""]],
 		limfeaname : "Armor of Fungal Spores",
 		usages : 1,
 		recovery : "dawn",
 		armorAdd : "Shell Breastplate of Fungal Spores",
+		armorOptions : [{
+				name : "Breastplate of Fungal Spores",
+				source : [["AL", "FR-DC"]],
+				}]
+		},
+	"breastplate of fungal spores: cheese plate (fr-dc-waterdeep-chz)" : {
+		name : "Cheese Plate (Breastplate of Fungal Spores)",
+		source : [["AL","FR-DC"]],
+		type : "armor (breastplate)",
+		magicItemTable : "?",
+		rarity : "uncommon",
+		description : "The dried remains of a sentient cheese formed into a tough shell that can be worn as a breastplate. As a bonus action once per dawn, it acts as a cheese shaker and emits pungent cheese flakes in a 10-ft radius sphere centered on you. Each creature in that area must pass a DC 15 CON save or be poisoned until your next turn ends.",
+		descriptionFull : "While wearing this armor, you can take a bonus action to make the armor emit poisonous spores, which fill a 10-foot-radius sphere centered on yourself. Each creature in that area must succeed on a DC 15 Constitution saving throw or have the poisoned condition until the end of your next turn. Once this property is used, it can't be used again until the next dawn.\n   " + toUni("Strange Material") + ". The dried remains of a sentient cheese formed into a tough shell. When activated, the armor acts as a cheese shaker and sheds pungent cheese flakes in a 10-foot-radius.",
+		action : [["bonus action", ""]],
+		limfeaname : "Armor of Fungal Spores",
+		usages : 1,
+		recovery : "dawn",
+		armorAdd : "Cheese Breastplate of Fungal Spores",
 		armorOptions : [{
 				name : "Breastplate of Fungal Spores",
 				source : [["AL", "FR-DC"]],
@@ -1017,7 +1064,7 @@ MagicItemsList["al armor (other)"] = {
 			baseWeapon : "unarmed strike",
 			regExpSearch : /^(?=.*demon)(?=.*armor)(?=.*claws).*$/i,
 			name : "Demon Armor Claws",
-			source: [["SRD", 218], ["D", 165] ["AL","S3"]],
+			source: [["AL","S3"]],
 			damage : [1, 8, "slashing"],
 			modifiers : [1, 1]
 		}]
@@ -1038,7 +1085,7 @@ MagicItemsList["al armor (other)"] = {
 		armorOptions : [{
 			regExpSearch : /^(?=.*efreeti)(?=.*chain).*$/i,
 			name : "Efreeti Chain",
-			source: [["D", 167], ["AL","S7"]],
+			source: [["AL","S7"]],
 			type : "heavy",
 			ac : 19,
 			stealthdis : true,
@@ -1076,7 +1123,7 @@ MagicItemsList["al armor (other)"] = {
 		weight : 20,
 		armorAdd : "Elven Chain (Sandalwood)",
 		armorOptions : [{
-			regExpSearch : /^(?=.*elven)(?=.*chain).*$/i,
+			regExpSearch : /^(?=.*elven)(?=.*chain)(?=.*sandalwood).*$/i,
 			name : "Elven Chain (Sandalwood)",
 			source : [["AL","CCC"]],
 			type : "medium",
@@ -1096,8 +1143,8 @@ MagicItemsList["al armor (other)"] = {
 		savetxt : { immune : ["temps btwn -20/120\u00B0F"] },
 		armorAdd : "Elven Chain (First Frost)",
 		armorOptions : [{
-			regExpSearch : /^(?=.*elven)(?=.*chain).*$/i,
-			name : "Elven Chain",
+			regExpSearch : /^(?=.*elven)(?=.*chain)(?=.*first)(?=.*frost).*$/i,
+			name : "Elven Chain (First Frost)",
 			source : [["AL","WBW-DC"]],
 			type : "medium",
 			ac : 14,
@@ -1211,7 +1258,7 @@ MagicItemsList["al armor (other)"] = {
 		weight : 20,
 		armorAdd : "Elven Chain (Amorywood)",
 		armorOptions : [{
-			regExpSearch : /^(?=.*elven)(?=.*chain).*$/i,
+			regExpSearch : /^(?=.*elven)(?=.*chain)(?=.*amorywood).*$/i,
 			name : "Elven Chain (Amorywood)",
 			source : [["AL","WBW-DC"]],
 			type : "medium",
