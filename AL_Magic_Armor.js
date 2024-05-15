@@ -600,6 +600,7 @@ MagicItemsList["al armor +1, +2, +3"] = {
 	},
 }
 
+RunFunctionAtEnd(function () {   //this code makes it so the AL variations of common items don't appear as an option for artificers to create
 MagicItemsList["al armor (common)"] = {
 	name : "AL Armor (Common)",
 	allowDuplicates : true,
@@ -685,7 +686,6 @@ MagicItemsList["al armor (common)"] = {
 		name : "Shield of Expression (WBW-DC-DCS-1)",
 		source : [["AL", "WBW-DC"]],
 		type : "shield",
-		rarity : "common",
 		description : "The face on this shield is Sune, which is also the goddess' holy symbol. As an action while wielding it, you can cause the shield to repeat your words until your next turn ends. When repeated, your words are audible to 300 ft, sounding more confident & attractive than they are. As a bonus action, you can alter the expression of Sune's face.",
 		descriptionFull : "The face on the shield is that of Sune, which is also that goddess' holy symbol. The wielder of the shield can use an action to cause the shield to repeat their words until the end of their next turn. When repeated in this way, their words are audible out to 300 feet, and sound more confident and attractive than they are.\n   The front of this shield is shaped in the likeness of a face. While bearing the shield, you can use a bonus action to alter the faces expression.",
 		weight : 6,
@@ -801,7 +801,6 @@ MagicItemsList["al armor (common)"] = {
 		name : "Axehead's Coat of Beaks (Spiked Armor of Gleaming)",
 		source : [["AL", "CCC"]],
 		type : "armor (medium)",
-		rarity : "common",
 		description : "Once belonging to the battlerager Axehead Moontunnel, this strangely designed armor is crafted from Underdark creatures. The softer parts are made of boiled roper skin & the spikes are the beaks from various Underdark horrors. The mask features the heads of two small axes strapped together to form a visor. Though made of unpleasant materials, the armor never gets dirty – blood runs right off it! While wearing it, you feel like you can take on any opponent.",
 		descriptionFull : "Once belonging to the battlerager Axehead Moontunnel, this armor is of his own strange design and crafted from parts of Underdark creatures. The softer parts are made of boiled roper skin and the spikes are beaks taken from various Underdark horrors. The mask features heads of two small axes strapped together to form a sort of visor. Though made of unpleasant materials, the armor never seems to get any dirtier than it already is – blood runs right off it! The wearer of this armor feels as though they can take on any opponent.",
 		allowDuplicates : true,
@@ -817,6 +816,7 @@ MagicItemsList["al armor (common)"] = {
 		}]
 	},
 }
+})
 
 MagicItemsList["al armor (other)"] = {
 	name : "AL Armor (Other)",
