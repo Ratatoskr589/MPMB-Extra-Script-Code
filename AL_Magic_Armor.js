@@ -614,7 +614,6 @@ MagicItemsList["al armor (common)"] = {
 		type : "armor (medium)",
 		description : "This breastplate is dark blue with the symbol of Auril the Frostmaiden (white snow crystals) engraved into the metal. You can doff it as an action.",
 		descriptionFull : "This breastplate is dark blue with the symbol of Auril the Frostmaiden, white snow crystals, engraved into the metal. It consists of a fitted metal chest piece worn with supple leather. Although it leaves the legs and arms relatively unprotected, this armor provides good protection for the wearer's vital organs while leaving the wearer relatively unencumbered. You can doff it as an action.",
-		attunement : true,
 		armorAdd : "Cast-Off Breastplate",
 		armorOptions : createArmorOptionsDud("Cast-Off Breastplate", "DC-POA"),
 		action : [["action", "Cast-Off Breastplate"]]
@@ -625,7 +624,6 @@ MagicItemsList["al armor (common)"] = {
 		type : "armor (medium)",
 		description : "This armor is a semi-sentient translucent ooze. Attracted to your body heat, it'll act as armor for you as long as you're alive. The ooze may be doffed in 1 action by drawing it to a stronger source of heat. It may be donned in 5 minutes by waiting patiently nearby or attracting it closer with small heat sources such as matches. Although there's no mechanical benefit, the ooze appreciates being fed small objects, which it dissolves or spits out depending on its tastes.",
 		descriptionFull : "This armor is formed from a semi-sentient translucent ooze. Attracted to the wearer's body heat, this ooze will act as a breastplate for the wearer so long as they are alive. The armor may be doffed in 1 action by attracting the ooze to a stronger source of heat than the wearer's body temperature. The armor may be donned in 5 minutes by waiting patiently near the ooze or attracting it closer with small matches or other temporary sources of heat. Though it does not confer any additional mechanical benefit, the ooze appreciates being fed small objects, which it may dissolve or spit out depending on its specific tastes. It consists of a fitted metal chest piece worn with supple leather. Although it leaves the legs and arms relatively unprotected, this armor provides good protection for the wearer's vital organs while leaving the wearer relatively unencumbered. You can doff it as an action.",
-		attunement : true,
 		armorAdd : "Cast-Off Ooze Breastplate",
 		armorOptions : createArmorOptionsDud("Cast-Off Ooze Breastplate", "DC-POA"),
 		action : [["action", "Cast-Off Breastplate"]]
@@ -636,7 +634,6 @@ MagicItemsList["al armor (common)"] = {
 		type : "armor (medium)",
 		description : "This breastplate looks like it has been well used. You can doff it as an action.",
 		descriptionFull : "This armor looks like it has been well used and consists of a fitted metal chest piece worn with supple leather. Although it leaves the legs and arms relatively unprotected, the armor provides good protection for the wearer's vital organs while leaving the wearer relatively unencumbered. You can doff it as an action.",
-		attunement : true,
 		armorAdd : "Cast-Off Breastplate",
 		armorOptions : createArmorOptionsDud("Cast-Off Breastplate", "DC-POA"),
 		action : [["action", "Cast-Off Breastplate"]]
@@ -647,7 +644,6 @@ MagicItemsList["al armor (common)"] = {
 		type : "armor (heavy)",
 		description : "This cleverly crafted cowl and coat combination is made of worn leather covered in dangling chains and hooks, and gives you the appearance of a chain devil (kyton) when you wear it. You can doff it as an action.",
 		descriptionFull : "This cleverly crafted cowl and coat combination is made of worn leather, covered in dangling chains and hooks, and gives the appearance of a chain devil (kyton) to any that wear it. Made of interlocking metal rings, chain mail includes a layer of quilted fabric worn underneath the mail to prevent chafing and to cushion the impact of blows. The suit includes gauntlets. You can doff it as an action.",
-		attunement : true,
 		armorAdd : "Cast-Off Chain Mail",
 		armorOptions : createArmorOptionsDud("Cast-Off Chain Mail", "CCC"),
 		action : [["action", "Cast-Off Chain Mail"]]
