@@ -1,4 +1,5 @@
-Unflavored items in AL modules (incomplete list):
+Unflavored items in AL modules:
+(This list is incomplete as I only started noting items down about halfway through this project and not consistently)
 
 CCC-AWE-1-2 The Chi Directive
 -Lantern of Revealing
@@ -8,6 +9,10 @@ CCC-BMG-37 HULB3-1 Weakness of Rock
 
 CCC-BMG-38 HULB3-2 Dead Canaries
 -Int Book
+
+CCC-BMG-MOON16-3 The Sacrificial Dance
+-Quaal Feather Token: Swan Boat
+-Wand of Scowls
 
 CCC-BMG-MOON17-1
 -Mariner's Scale Mail
@@ -125,8 +130,24 @@ FR-DC-AEG-5 The Hunting
 FR-DC-AEG-7 The Missing Adventurers
 -Candle of the Deep
 
+FR-DC-BG The Flying Flame
+-Blessing of Magic Resistance (Bahamut's)
+
 FR-DC-GHG-1 Griffons of Longsaddle
 -Staff of Birdcalls
+
+FR-DC-ONI-1 Oni of the Thousand Gates
+-Orb of Direction
+
+FR-DC-PANDORA-JWEI-10 Ares
+-Charm of the Fate
+
+FR-DC-QLA-1 Mel's Pit
+-Flying Carpet, 4x6 (Draconic Soul Wing)
+-Chest of Preserving
+
+FR-DC-QLA-2 The Ceremony
+-Rope of Mending
 
 PO-BK-1-02 Trust No One
 -Heward's Handy Spice Pouch
@@ -134,34 +155,34 @@ PO-BK-1-02 Trust No One
 PO-BK-1-03 Red Masks
 -Barrier Tattoo
 
-PO-BK-1-04 The City in the Mist
+PO-BK1-04 The City in the Mist
 -Silver Dragon Scale Armor
 -Tentacle Rod
 
-PO-BK-1-05 Far in the Forest
+PO-BK1-05 Far in the Forest
 -+2 Studded Leather
 -Cape of the Mountebank
 
-PO-BK-1-07 Beyond this Portal
+PO-BK1-07 Beyond this Portal
 -Rod of Absorption
 
-PO-BK-1-08 Dark Side of the Rune
+PO-BK1-08 Dark Side of the Rune
 -Greater Silver Sword
 
-PO-BK-2-1 The Thayan Connection
+PO-BK2-1 The Thayan Connection
 -Crystal Blade (Scimitar)
 -Lock of Trickery
 -Mystery Key
 
-PO-BK-2-2 Some Assembly Required
+PO-BK2-2 Some Assembly Required
 -Atlas of Endless Horizons
 -Talking Doll
 -Moon Touched Sword
 
-PO-BK-2-4 Out of the Shaar
+PO-BK2-4 Out of the Shaar
 -Golden Lions Figurine of Wondrous Power
 
-PO-BK-2-5 Weird Tales
+PO-BK2-5 Weird Tales
 -Staff of Swarming Insects
 
 PO-BK-2-6 First Contact
@@ -180,11 +201,23 @@ RV-DC-OH1 In the Mist of Keening
 -Horn of Silent Alarm
 -Dagger +2
 
+PS-DC-NOS-1 Githzerai Glitch
+-Boon of Luck
+
+PS-DC-NOS-2 Broken Yet Unbowed
+-Boon of Irresistible Offense
+
+PS-DC-SS Soul and Shadow
+-Boon of Truesight
+
 SJ-DC-ANGKA-7 Sleep Now in the Fire
 -Pipe of Remembrance
 
-Sj-DC-ASI-1 Secrets of Old
+SJ-DC-ASI-1 Secrets of Old
 -Talking Doll (Plush Dragon)
+
+SJ-DC-ASI-3 Secrets of Old
+-Horn of Silent Alarm
 
 SJ-DC-AUG-06 The Rock Tales of the Beholder Corps
 -Guardian Emblem
@@ -194,6 +227,29 @@ SJ-DC-AUG-07 Blast Them
 
 SJ-DC-AUG-08 I Xamott
 -Carpet of Flying
+
+SJ-DC-AUG-09 Tyrants and Dragons
+-Keoghtom's Ointment
+
+SJ-DC-BBB-1 The Ballad of Blunderbuss Bill
+-Bag of Beans
+
+SJ-DC-BBB-2 The Blunderbuss of Blunderbuss Bill
+-Boots of Levitation
+
+SJ-DC-BBB-3 The Battle of Blunderbuss Bill
+-Battleaxe +2
+
+SJ-DC-CBB-04 Horizon of Oblivion
+-Hand Crossbow +2
+
+SJ-DC-CBB-05 The Draconic Core
+-Talking Doll
+-Ioun Stone of Insight
+
+SJ-DC-CBB-06 Horror from the Planet's Core
+-Cloak of Many Fashions
+-Staff of Striking
 
 SJ-DC-BEB-01 The Hunger
 -Astromancy Archive
@@ -208,6 +264,23 @@ SJ-DC-CBB-2 In Cyzor's Grasp
 
 SJ-DC-CGG-1
 -Elemental Essence Shard Air
+
+SJ-DC-COD The Cod Must be Crazy
+-Blessing of Protection
+
+SJ-DC-CONMAR-4 Finally Saving Marcus
+-Hewards Handy Spice Pouch
+-Perfume of Bewitching
+-Dust of Disappearance
+
+SJ-DC-DAP Goldfish island
+-Ring of Feather Falling (Not actually a legal reward for that tier, but eh)
+
+SJ-DC-DES05-03 Galactic Gigglefit
+-Stone of Good Luck (also not actually a legal reward for SJ)
+
+SJ-DC-DD-12
+-Blessing of Magic Resistance
 
 SJ-DC-DRA-2
 -Masquerade Tattoo
@@ -225,6 +298,9 @@ SJ-DC-DRA-5
 
 SJ-DC-ECHO-2 Bug Hunt
 -Masquerade Tattoo
+
+SJ-DC-ENIGMA Bloom and Doom
+-Heward's Handy Spice Pouch
 
 SJ-DC-FAT-1 Flight of the Chungus
 -Elemental Essence Shard - Air
@@ -254,6 +330,25 @@ SJ-DC-KEEP
 SJ-DC-KGV-1 Moonlight Mysteries
 -Pipe of Remembrance
 
+SJ-DC-KIS Kobolds in Space (Per author change)
+-Horn of Silent Alarm
+-Rod of the Pact Keeper +1
+
+SJ-DC-LIGA2 The Risen Catacombs
+-Periapt of Health
+-Instrument of Scribing
+
+SJ-DC-LIGA3 The Dark Hunger
+-Goggles of Night
+-Talking Doll
+
+SJ-DC-LIGA4 Deep Expedition
+-Astromancy Archive
+-Staff of Adornment
+
+SJ-DC-LIGA6 A Strike to Hadars Tentacles
+-Charm of Undead Slayer
+
 SJ-DC-LP-1 Litter Patrol
 -Astromancy Archive
 -Rope of Mending
@@ -270,14 +365,25 @@ SJ-DC-MOR-1 The Ill King
 SJ-DC-NOS-3 Sol Crash
 -Absorbing Tattoo (choice)
 
+SJ-DC-PAT-1 Lunar Freeze
+-Rope of Mending
+-Keoghtom's Ointment
+
 SJ-DC-PHP-2 Securing Passage
 -Wand of Conducting
+
+SJ-DC-PHP-ORNG Thousand Tiny Ducks
+-Blessing of Magic Resistance
 
 SJ-DC-ROCK-1 Turmoil in Bral
 -Cloak of Many Fashions
 
 SJ-DC-ROCK-2 Bral Under Siege
 -Horn of Silent Alarm
+
+SJ-DC-ROG-1 Rescue of Glyth
+-Anstruth Harp
+-Hat of Wizardry
 
 SJ-DC-TBS-4 Brightshill
 -Tankard of Sobriety
@@ -291,6 +397,10 @@ SJ-DC-TST-1 Bulan
 
 SJ-DC-TST-2 Datu
 -Ring of Regeneration
+
+SJ-DC-VEN-3 Daylight Saving Time
+-Absorbing Tattoo (Gold)
+-Blessing?
 
 SJ-DC-VMT-3 Green Hills of the Affricate
 -Heward's Handy Spice Pouch

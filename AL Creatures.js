@@ -160,7 +160,7 @@ CreatureList["sea lion"] = {
 CreatureList["berserker"] = {
 	name : "Berserker",
 	header : "Summon",
-	source : [["SRD",""],["AL","Item"]],
+	source : [["SRD",392], ["M", 344], ["AL","Item"]],
 	size : 3, //medium
 	type : "Humanoid",
 	subtype : "",
@@ -186,10 +186,11 @@ CreatureList["berserker"] = {
 	traits : [{
 		name : "Reckless",
 		description : "At the start of its turn, the berserker can gain advantage on all melee weapon attack rolls during that turn, but attack rolls against it have advantage until the start of its next turn."
-	}, {
-		name : "Summoned Spirit",
-		description : "This warrior spirit was summoned from Ysgard by a Horn of Valhalla."
-	}]
+			}],
+	features : [{
+		name : "Summoned Spirits",
+		description : "These warrior spirits were summoned from Ysgard. They are friendly to you and your companions and follow your commands. They return to Ysgard after 1 hour or when they drop to 0 hit points."
+		}],
 }
 
 //D&D Celebration Familiars

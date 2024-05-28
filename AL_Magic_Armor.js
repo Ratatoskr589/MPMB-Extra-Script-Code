@@ -206,7 +206,7 @@ MagicItemsList["al adamantine/mithral armor"] = {
 		magicItemTable : "F",
 		description : "Mithral is a light, flexible metal, and this chain mail doesn't impose disadvantage on Dex (Stealth) checks. While wearing it, you also suffer no harm in temps from -20\u00B0F to 120\u00B0F.",
 		descriptionFull : "The armor has the Temperate minor property. The bearer suffers no harm in temperatures as cold as −20 degrees Fahrenheit or as warm as 120 degrees Fahrenheit. Mithral is a light, flexible metal. A mithral chain shirt or breastplate can be worn under normal clothes. If the armor normally imposes disadvantage on Dexterity (Stealth) checks or has a Strength requirement, the mithral version of the armor doesn't.",
-		savetxt : { immune : ["temps btwn -20/120\u00B0F"] },
+		savetxt : { immune : ["temps btwn -20\u00B0F/120\u00B0F"] },
 		armorAdd : "Mithral Chain Mail",
 		armorOptions : createArmorOptionsDud("Mithral Chain Mail", "CCC")
 	},
@@ -265,7 +265,7 @@ MagicItemsList["al armor +1, +2, +3"] = {
 	"\n  I\t  +3\tSpiked Armor, Splint, Studded Leather",
 	allowDuplicates : true,
 	choicesNotInMenu : true,
-	choices : ["+1 Leather (DDEP7-1)","+1 Leather: Mummy Wraps (RV-DC-GC15-4)","+1 Studded Leather (CCC-BMG-21 HULB2-3)","+1 Studded Leather (FR-DC-AEG-7)","+1 Studded Leather: Star Lancer Corps Armor (SJ-DC-BAD-3)","+1 Scale Mail: Shroud of the Mourning Warrior (DDAL5-13)","+1 Breastplate: Glass (DDEP0-1)","+1 Breastplate (SJ-DC-ASI-3)","+1 Breastplate (SJ-DC-DRA-4)","+1 Breastplate: Bulletproof Vest (SJ-DC-LEGIT-SB-2)","+1 Breastplate: Chameleon (SJ-DC-TKM-3)","+1 Half Plate: Bone (CCC-TRI-6 NIGHT1-2)", "+1 Half Plate (DDEP4)","+1 Half Plate: Asano's Do-Maru (FR-DC-ONI-2)","+1 Half Plate: Warforged Chest Piece (RV-DC-PHP-1313-1)","+1 Half Plate: Qumado's Gift (SJ-DC-DEN-H6)","+1 Half Plate: Legion's Peregrine Cuirass (SJ-DC-ROCK-2)","+1 Half Plate: Mazatil's Remorse (SJ-DC-STRATCON-1)","+1 Splint (DDEX1-12)","+1 Splint (DDAL5-4)","+1 Splint: Remorhaz (DDEP10-2)","+2 Studded Leather (CCC-TRI-23 STORM1-2)","+2 Studded Leather (PO-BK-1-5)","+2 Half Plate: Stone (DDEP7-2)","+2 Half Plate: Mythos (WBW-DC-PHP-PHAN-2)","+2 Splint: Remorhaz (DDEP10-2)","+2 Plate: Stone (CCC-JGD-1)","+3 Hide: Daphnaie Armor (ALSRs11-A)","+3 Plate (PS-DC-AUG-1)"],
+	choices : ["+1 Leather (DDEP7-1)","+1 Leather: Mummy Wraps (RV-DC-GC15-4)","+1 Studded Leather (CCC-BMG-21 HULB2-3)","+1 Studded Leather (FR-DC-AEG-7)","+1 Studded Leather: Star Lancer Corps Armor (SJ-DC-BAD-3)","+1 Scale Mail: Shroud of the Mourning Warrior (DDAL5-13)","+1 Breastplate: Glass (DDEP0-1)","+1 Breastplate (SJ-DC-ASI-3)","+1 Breastplate (SJ-DC-DRA-4)","+1 Breastplate: Bulletproof Vest (SJ-DC-LEGIT-SB-2)","+1 Breastplate: Sha'sal Khou (SJ-DC-RFJK-2-1)","+1 Breastplate: Chameleon (SJ-DC-TKM-3)","+1 Half Plate: Bone (CCC-TRI-6 NIGHT1-2)", "+1 Half Plate (DDEP4)","+1 Half Plate: Asano's Do-Maru (FR-DC-ONI-2)","+1 Half Plate: Warforged Chest Piece (RV-DC-PHP-1313-1)","+1 Half Plate: Qumado's Gift (SJ-DC-DEN-H6)","+1 Half Plate: Legion's Peregrine Cuirass (SJ-DC-ROCK-2)","+1 Half Plate: Mazatil's Remorse (SJ-DC-STRATCON-1)","+1 Splint (DDEX1-12)","+1 Splint (DDAL5-4)","+1 Splint: Remorhaz (DDEP10-2)","+2 Studded Leather (CCC-TRI-23 STORM1-2)","+2 Studded Leather (PO-BK-1-5)","+2 Half Plate: Stone (DDEP7-2)","+2 Half Plate: Mythos (WBW-DC-PHP-PHAN-2)","+2 Splint: Remorhaz (DDEP10-2)","+2 Plate: Stone (CCC-JGD-1)","+3 Studded Leather (PS-DC-SS)","+3 Hide: Daphnaie Armor (ALSRs11-A)","+3 Half Plate (PS-DC-NOS-2)","+3 Plate (PS-DC-AUG-1)"],
 	"+1 leather (ddep7-1)" : {
 		name : "+1 Leather (DDEP7-1)",
 		source : [["AL", "S7"]],
@@ -387,6 +387,18 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		descriptionFull : "A black tactical vest meant to block ballistic fire. A removable patch on the back reads 'SUNCORP SECURITY'. You have a +1 bonus to AC while wearing this armor.\n   " + toUni("Minor Property: Strange Material") + ". This armour is composed of ceramic plates and a weave of synthetic aramid fibers, rather than leather and metal.",
 		armorAdd : "+1 Breastplate (Vest)",
 		armorOptions : createArmorOptionsDud("+1 Breastplate (Vest)", "SJ-DC")
+	},
+	"+1 breastplate: sha'sal khou (sj-dc-rfjk-2-1)" : {
+		name : "Sha'sal Khou Breastplate +1 (SJ-DC-RFJK-2-1)",
+		source : [["AL", "SJ-DC"]],
+		rarity : "rare",
+		magicItemTable : "H",
+		allowDuplicates : true,
+		description : "This breastplate is simply but strongly made and is engraved with a crest upon the left breast, identifying you as an ally of the Sha’sal Khou. While worn, the armor grants a +1 bonus to AC and lets you speak Gith.",
+		descriptionFull : "This armor is simply but strongly made and is engraved with a crest upon the left breast, identifying you as an ally of the Sha’sal Khou. You have a +1 bonus to AC while wearing this armor.\n   " + toUni("Language") + ". The bearer can speak and understand a language of the DM’s choice (Gith) while the item is on the bearer’s person.",
+		armorAdd : "+1 Breastplate",
+		armorOptions : createArmorOptionsDud("+1 Breastplate", "SJ-DC"),
+		languageProfs : ["Gith"],
 	},
 	"+1 breastplate: chameleon (sj-dc-tkm-3)" : {
 		name : "Chameleon Breastplate +1 (SJ-DC-TKM-3)",
@@ -576,6 +588,18 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		armorAdd : "+2 Stone Plate",
 		armorOptions : createArmorOptionsDud("+2 Stone Plate", "CCC")
 	},
+	"+3 studded leather (ps-dc-ss)" : {
+		name : "+3 Studded Leather (PS-DC-SS)",
+		source : [["AL", "PS-DC"]],
+		rarity : "legendary",
+		magicItemTable : "I",
+		allowDuplicates : true,
+		description : "This black studded leather armor is made from the hide of a Far Realm monstrosity and grants a +3 bonus to AC while worn. The hide’s exposure to the Far Realm protects you from harm in temperatures from -20\u00B0F to 120\u00B0F. If the armor is flipped inside out, a game of tic-tac-toe using the letters “M” and “E” is visible. ",
+		descriptionFull : "This black studded leather armor is made from the hide of a Far Realm monstrosity. This hide’s exposure to the Far Realm protects its bearer from extreme temperatures. If the armor is flipped inside out, a game of tic-tac-toe using the letters “M” and “E” is visible.\n   The armor grants a +3 bonus to AC while worn.\n   " + toUni("Temperate") + ". The bearer suffers no harm in temperatures as cold as –20 degrees Fahrenheit or as warm as 120 degrees Fahrenheit.",
+		armorAdd : "+3 Studded Leather",
+		armorOptions : createArmorOptionsDud("+3 Studded Leather", "PS-DC"),
+		savetxt : { immune : ["temps btwn -20\u00B0F/120\u00B0F"] },
+	},
 	"+3 hide: daphnaie armor (alsrs11-a)" : {
 		name : "Daphnaie Armor (+3 Hide, ALSRs11-A)",
 		rarity : "legendary",
@@ -585,6 +609,17 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		allowDuplicates : true,
 		armorAdd : "+3 Hide (Daphnaie)",
 		armorOptions : createArmorOptionsDud("+3 Hide (Daphnaie)", "A", "ALSRs11")
+	},
+	"+3 half plate (ps-dc-nos-2)" : {
+		name : "+3 Half Plate (PS-DC-NOS-2)",
+		source : [["AL", "PS-DC"]],
+		rarity : "legendary",
+		magicItemTable : "I",
+		allowDuplicates : true,
+		description : "This half plate is made from the scales of the dead Leviathan of the Broken God. It appears black indoors or in dim light, but is actually a very deep amethyst and sparkles in direct sunlight. The half plate gives a +3 bonus to AC when worn.",
+		descriptionFull : "You have a +3 bonus to AC while wearing this armor.\n   " + toUni("Strange Material - Dragon Scale") + ". This armor is made from the scales of the dead Leviathan of the Broken God. While the armor appears black indoors or in dim light, it is actually a very deep amethyst color and sparkles in direct sunlight.",
+		armorAdd : "+3 Scale Half Plate",
+		armorOptions : createArmorOptionsDud("+3 Scale Half Plate", "PS-DC")
 	},
 	"+3 plate (ps-dc-aug-1)" : {
 		name : "+3 Plate Armor (PS-DC-AUG-1)",
@@ -817,7 +852,7 @@ MagicItemsList["al armor (common)"] = {
 MagicItemsList["al armor (other)"] = {
 	name : "AL Armor (Other)",
 	allowDuplicates : true,
-	choices : ["Breastplate of Fungal Spores (FR-DC-GHG-2)","Breastplate of Fungal Spores: Cheese Plate (FR-DC-WATERDEEP-CHZ)","Breastplate of Necrotic Resistance: Chardalyn (DDAL10-5)","Demon Armor (DDEX3-16)","Efreeti Chain (DDAL7-15)","Elven Chain (CCC-BMG-36 ELMW2-3)","Elven Chain (CCC-SQC-2-2)","Elven Chain: Armor of the First Frost (WBW-DC-AA-ASHALON-1)","Elven Chain (WBW-DC-AMQ-5)","Elven Chain: Astral (WBW-DC-CONMAR-12)","Elven Chain: Guardian (WBW-DC-GGS-1)","Elven Chain: Loud (WBW-DC-GGS-1)","Elven Chain (WBW-DC-PHP-SPAMMY-1)","Elven Chain (WBW-DC-Rook-2-1)","Elven Chain (WBW-DC-TAZ-1)","Elven Chain (WBW-DC-TEN-3)","Elven Chain: Tehettan's Protection (WBW-DC-TMP-2)","Elven Chain (WBW-DC-ZEP-T2S5)","Elven Chain: Sky's Armor (WBW-DC-ZODIAC-12)","Glamoured Studded Leather (DDAL4-9)","Glamoured Studded Leather (DDAL8-11)","Glamoured Studded Leather (DDAL9-6)","Glamoured Studded Leather: Cinderella's Wedding Corset (WBW-DC-CONMAR-15)","Half Plate of Poison Resistance: Mushroom (DDEX3-11)","Mariner's Studded Leather (DDAL-DRW9)","Mariner's Breastplate (CCC-AETHER-1-2)","Mariner's Breastplate (CCC-MMT1-2)","Mariner's Scale Mail (ALSRs11-A)","Plate Armor of Etherealness (DDAL8-16)","Red Dragon Scale Mail (DDEP5-1)","Red Dragon Scale Mail (DDAL9-15)","Scale Mail of Psychic Resistance: Resin (CCC-TRI-21 YUL1-6)","Spiked Armor of Necrotic Resistance (WBW-DC-DEN-H1)","Studded Leather of Fire Resistance (DDAL0-11C)"],
+	choices : ["Breastplate of Fungal Spores (FR-DC-GHG-2)","Breastplate of Fungal Spores: Cheese Plate (FR-DC-WATERDEEP-CHZ)","Breastplate of Necrotic Resistance: Chardalyn (DDAL10-5)","Demon Armor (DDEX3-16)","Efreeti Chain (DDAL7-15)","Elven Chain (CCC-BMG-36 ELMW2-3)","Elven Chain (CCC-SQC-2-2)","Elven Chain: Armor of the First Frost (WBW-DC-AA-ASHALON-1)","Elven Chain (WBW-DC-AMQ-5)","Elven Chain: Astral (WBW-DC-CONMAR-12)","Elven Chain: Guardian (WBW-DC-GGS-1)","Elven Chain: Loud (WBW-DC-GGS-1)","Elven Chain (WBW-DC-PHP-SPAMMY-1)","Elven Chain (WBW-DC-Rook-2-1)","Elven Chain (WBW-DC-TAZ-1)","Elven Chain (WBW-DC-TEN-3)","Elven Chain: Tehettan's Protection (WBW-DC-TMP-2)","Elven Chain (WBW-DC-ZEP-T2S5)","Elven Chain: Sky's Armor (WBW-DC-ZODIAC-12)","Glamoured Studded Leather (DDAL4-9)","Glamoured Studded Leather (DDAL8-11)","Glamoured Studded Leather (DDAL9-6)","Glamoured Studded Leather: Cinderella's Wedding Corset (WBW-DC-CONMAR-15)","Half Plate of Poison Resistance: Mushroom (DDEX3-11)","Hide Armor of Fungal Spores (PO-BMG-INT-2)","Mariner's Studded Leather (DDAL-DRW9)","Mariner's Breastplate (CCC-AETHER-1-2)","Mariner's Breastplate (CCC-MMT1-2)","Mariner's Scale Mail (ALSRs11-A)","Plate Armor of Etherealness (DDAL8-16)","Red Dragon Scale Mail (DDEP5-1)","Red Dragon Scale Mail (DDAL9-15)","Scale Mail of Psychic Resistance: Resin (CCC-TRI-21 YUL1-6)","Spiked Armor of Necrotic Resistance (WBW-DC-DEN-H1)","Studded Leather of Fire Resistance (DDAL0-11C)"],
 	"breastplate of fungal spores (fr-dc-ghg-2)" : {
 		name : "Breastplate of Fungal Spores (FR-DC-GHG-2)",
 		source : [["AL", "FR-DC"]],
@@ -966,7 +1001,7 @@ MagicItemsList["al armor (other)"] = {
 		description : "The surface of this icy elvan chain is cold to the touch, with tendrils of frost decorating the metal. While wearing it, you have a keener understanding of duty & responsibility. Despite the material, the temperature around you always remains comfortable & you suffer no harm in temps from -20\u00B0F to 120\u00B0F. The armor also gives you +1 AC & you're proficient even if you lack proficiency with medium armor.",
 		descriptionFull : "The surface of this icy armor is cold to the touch, with tendrils of frost decorating the metal. While wearing this, you have a keener understanding of duty and responsibility. Despite the material it is made of, the temperature around you always remains comfortable, even in the hottest or coldest environments.\n   " + toUni("Temperate") + ". The bearer suffers no harm in temperatures as cold as –20 degrees Fahrenheit or as warm as 120 degrees Fahrenheit.\n   You gain a +1 bonus to AC while you wear this armor. You are considered proficient with this armor even if you lack proficiency with medium armor.",
 		weight : 20,
-		savetxt : { immune : ["temps btwn -20/120\u00B0F"] },
+		savetxt : { immune : ["temps btwn -20\u00B0F/120\u00B0F"] },
 		armorAdd : "Elven Chain (First Frost)",
 		armorOptions : [{
 			regExpSearch : /^(?=.*elven)(?=.*chain)(?=.*first)(?=.*frost).*$/i,
@@ -1120,7 +1155,7 @@ MagicItemsList["al armor (other)"] = {
 		description : "While wearing this chain shirt, you gain +1 AC & are proficient even if you lack proficiency with medium armor. You also suffer no harm in temperatures from -20\u00B0F to 120\u00B0F.",
 		descriptionFull : "You gain a +1 bonus to AC while you wear this armor. You are considered proficient with this armor even if you lack proficiency with medium armor.\n   " + toUni("Temperate") + ". The bearer suffers no harm in temperatures as cold as −20 degrees Fahrenheit or as warm as 120 degrees Fahrenheit.",
 		weight : 20,
-		savetxt : { immune : ["temps btwn -20/120\u00B0F"] },
+		savetxt : { immune : ["temps btwn -20\u00B0F/120\u00B0F"] },
 		armorAdd : "Elven Chain",
 		armorOptions : [{
 			regExpSearch : /^(?=.*elven)(?=.*chain).*$/i,
@@ -1278,6 +1313,21 @@ MagicItemsList["al armor (other)"] = {
 		dmgres : ["Poison"],
 		armorAdd : "Mushroom Half Plate",
 		armorOptions : createArmorOptionsDud("Mushroom Half Plate of Poison Resistance", "S3")
+	},
+	"hide armor of fungal spores (po-bmg-int-2)" : {
+		name : "Hide Armor of Fungal Spores (PO-BMG-INT-2)",
+		source : [["AL", "PO"]],
+		type : "armor (breastplate)",
+		magicItemTable : "?",
+		rarity : "uncommon",
+		description : "This boar hide armor has been soaked in an herbal solution so spores from local Gentlebreeze mushrooms grow across its surface. Some of the spores are orange-red and have potent properties. As a bonus action once per dawn, the armor emits poisonous spores in a 10-ft radius sphere around you. Each creature in that area must pass a DC 15 CON save or be poisoned until your next turn ends.",
+		descriptionFull : "While wearing this armor, you can take a bonus action to make the armor emit poisonous spores, which fill a 10-foot-radius sphere centered on yourself. Each creature in that area must succeed on a DC 15 Constitution saving throw or have the poisoned condition until the end of your next turn. Once this property is used, it can't be used again until the next dawn.\n   This armor of boar hide has been soaked in an herbal solution that enables spores from mushrooms local to Gentlebreeze to grow across its surface. Some of the spores seem to be orange-red in color and may have more potent properties than were originally known to the armor’s creators.",
+		action : [["bonus action", ""]],
+		limfeaname : "Armor of Fungal Spores",
+		usages : 1,
+		recovery : "dawn",
+		armorAdd : "Hide Armor of Fungal Spores",
+		armorOptions : createArmorOptionsDud("Hide Armor of Fungal Spores", "PO")
 	},
 	"mariner's studded leather (ddal-drw9)" : {
 		name : "Mariner's Studded Leather (DDAL-DRW9)",
@@ -1480,7 +1530,8 @@ MagicItemsList["al shields"] = {
 	allowDuplicates : true,
 	type : "shield",
 	weight : 6,
-	choices : ["+1 Shield (DDEX3-5)","+1 Shield of the Moon (CCC-TAROT1-2)","+1 Shield of the Salty Griffon (CCC-TRI-19 DEAD1-1)","+2 Shield: Wall of Teeth (DDEX2-14)","+2 Shield: Yata Mirror (CCC-ANIME1-2)","+3 Shield: Miltiades's Shield (CCC-BMG-13 PHLAN1-1)","+3 Shield: Aegis of the Raven Queen (CCC-BWM-3)","Animated Shield (DDEP5-2)","Animated Shield (DDEP8-3)","Arrow-Catching Shield (CCC-BMG-MOON13-3)","Arrow-Catching Shield (CCC-GLIP-2-1)","Arrow-Catching Shield (DDAL9-8)","Arrow-Catching Shield (DDAL-DRWEP3)","Sapphire Buckler (DDAL-DRW19)","Sapphire Buckler: Soulflare (SJ-DC-DFA-6)","Sentinel Shield (CCC-BMG-MOON11-1)","Sentinel Shield (CCC-WWC-7)","Sentinel Shield (DDAL-CGB)","Sentinel Shield (DDEX2-12)","Shield of Missile Attraction: Ward of Chimali (RMH-10)","Spellguard Shield: Warden (CCC-ODFC1-3)","Spellguard Shield (CCC-ROZK1-3)","Spellguard Shield (DDEP7-2)","Spellguard Shield (DDAL-DRWEP2)"],
+	choices : ["+1 Shield (DDEX3-5)","+1 Shield of the Moon (CCC-TAROT1-2)","+1 Shield of the Salty Griffon (CCC-TRI-19 DEAD1-1)","+2 Shield: Wall of Teeth (DDEX2-14)","+2 Shield: Yata Mirror (CCC-ANIME1-2)","+3 Shield: Miltiades's Shield (CCC-BMG-13 PHLAN1-1)","+3 Shield: Aegis of the Raven Queen (CCC-BWM-3)","Animated Shield (DDEP5-2)","Animated Shield (DDEP8-3)","Arrow-Catching Shield (CCC-BMG-MOON13-3)","Arrow-Catching Shield (CCC-GLIP-2-1)","Arrow-Catching Shield (DDAL9-8)","Arrow-Catching Shield (DDAL-DRWEP3)",
+	"Battering Shield (BMG-DRW-OD-2)","Sapphire Buckler (DDAL-DRW19)","Sapphire Buckler (SJ-DC-COD)","Sapphire Buckler: Soulflare (SJ-DC-DFA-6)","Sentinel Shield (CCC-BMG-MOON11-1)","Sentinel Shield (CCC-WWC-7)","Sentinel Shield (DDAL-CGB)","Sentinel Shield (DDEX2-12)","Shield of Missile Attraction: Ward of Chimali (RMH-10)","Spellguard Shield: Warden (CCC-ODFC1-3)","Spellguard Shield (CCC-ROZK1-3)","Spellguard Shield (DDEP7-2)","Spellguard Shield (DDAL-DRWEP2)"],
 	"+1 shield (ddex3-5)" : {
 		name : "Shield +1 (DDEX3-5)",
 		source : [["AL", "S3"]],
@@ -1622,6 +1673,20 @@ MagicItemsList["al shields"] = {
 		action : [["reaction", "Arrow-Catching Shield"]],
 		shieldAdd : "Arrow-Catching Shield (+\u200A2 vs. ranged)"
 	},
+	"battering shield (bmg-drw-od-2)" : {
+		name : "Battering Shield (BMG-DRW-OD-2)",
+		source : [["AL", "DRW"]],
+		rarity : "uncommon",
+		attunement : true,
+		description : "The convex surface of this shield is a smooth and shiny ebon black with fine flecks of white that sparkle when exposed to moonlight. The shield gives an extra +1 bonus to AC and has 3 charges, regaining 1d3 charges at dawn. When you're holding the shield and push a creature 5 ft away, you can spend 1 charge to push that creature an additional 10 ft, knock it prone, or both.",
+		descriptionFull : "The convex surface of this shield is a smooth and shiny ebon black. Though plain, it has fine flecks of white that sparkle when exposed to moonlight.\n   While holding this iron tower shield, you gain a +1 bonus to AC. This bonus is in addition to the shield's normal bonus to AC.\n   Additionally, the shield has 3 charges, and it regains 1d3 expended charges daily at dawn. If you are holding the shield and push a creature within your reach at least 5 feet away, you can expend 1 charge to push that creature an additional 10 feet, knock it prone, or both.",
+		limfeaname : "Battering Shield",
+		usages : 3,
+		recovery : "dawn",
+		additional : "regains 1d3",
+		shieldAdd : ["Battering Shield", 3],
+		weight : 6
+	},	
 	"sapphire buckler (ddal-drw19)" : {
 		name : "Sapphire Buckler (DDAL-DRW19)",
 		source : [["AL", "DRW"]],
@@ -1634,6 +1699,20 @@ MagicItemsList["al shields"] = {
 		shieldAdd : "Sapphire Buckler",
 		dmgres : ["Psychic", "Thunder"],
 		action : [["reaction", " (damaged in 5ft)"], ["action", " (locate aberrations"]]
+	},
+	"sapphire buckler (sj-dc-cod)" : {
+		name : "Sapphire Buckler (SJ-DC-COD)",
+		source : [["AL", "SJ-DC"]],
+		rarity : "very rare",
+		attunement : true,
+		description : "This shield was made from the scale of a sapphire dragon. While wielded, you have resistance to psychic and thunder dmg. When you take dmg from a creature in 5 ft, you can deal 2d6 thunder dmg as a reaction. Once per dawn as an action, you know the direction of all aberrations within 1 mile until your next turn ends. As a bonus action, it sheds bright light in a 10-ft radius & 10-ft more dim, or stops.",
+		descriptionFull : "This crystalline blue shield is fashioned from a sapphire dragon's scale and is created to aid in rooting out the influence of Aberrations. While wielding the shield, you have resistance to psychic and thunder damage. Also, when you take damage from a creature that is within 5 feet of you, you can use your reaction to deal 2d6 thunder damage to that creature."+
+		"\n   As an action, you can use the shield to help you locate Aberrations until the end of your next turn. If any Aberrations are within 1 mile of you, the shield emits a low humming tone for a moment, and you know the direction of all Aberrations within that range. Once this property is used, it can't be used again until the next dawn."+
+		"\n   " + toUni("Beacon") + ". The bearer can use a bonus action to cause the item to shed bright light in a 10-foot radius and dim light for an additional 10 feet, or to extinguish the light.",
+		weight : 6,
+		shieldAdd : "Sapphire Buckler",
+		dmgres : ["Psychic", "Thunder"],
+		action : [["reaction", " (damaged in 5ft)"], ["action", " (locate aberrations"], ["bonus action", " (light/dim)"]]
 	},
 	"sapphire buckler: soulflare (sj-dc-dfa-6)" : {
 		name : "Soulflare, Sapphire Buckler (SJ-DC-DFA-6)",

@@ -1,6 +1,22 @@
+Changelog (After 4/9/24)
+-Added more items from SJ-DC, FR-DC, PS-DC, WBW-DC, and several POs
+-Corrected a few minor typos in item sources and descriptions
+-Added some flavored blessings/boons/charms to the AL Special Items file
+-Fixed the weaponsAdd and weaponOptions sections for several magic items
+-Split out Horns from AL Instruments due to hitting the choice limit
+-Added missing guardian property to Quintessence's Edge
+-Fixed an issue with some flavored hardcover items overriding the default version.
+-Updated my Necklace of Prayer Beads codes to customize the 1st column to my preferences (this code doesn't work if the standard version has aleady been selected as a magic item.)
+-Made some minor tweaks to my Creatures file
+
+AL Armor fixes (posted 5/15/24):
+-Fixed Cast-off armor requiring attunement when it doesn't
+-Got a fix from MPMB to fill out armor options properly. This didn't fix any specific errors but should help on the back end.
+
+
 Changelog (After 10/06/23)
 -Had to split the Accessories, Containers, Equipment (Common), and Minerals categories due to hitting the quantity limits of 100 choices. I also consolidated the Shields categories and Maces/Other Weapons to reduce the number of different magic items overall.
--Add more items from SJ-DC, FR-DC, and PS-DCs
+-Added more items from SJ-DC, FR-DC, and PS-DCs
 -Updated Eldritch Claw Tattoos to correctly stack with Insignia of Claws
 -Corrected typo in Horns of Silent Alarm
 -Fixed some flavor typos in the Staff of Adornment
