@@ -136,6 +136,13 @@ FR-DC-BG The Flying Flame
 FR-DC-GHG-1 Griffons of Longsaddle
 -Staff of Birdcalls
 
+FR-DC-LIGA-1 Wyrmwell Flame
+-Blessing of Protection
+
+FR-DC-LIGA-2 House of Shadow
+-Deck of Illusions
+-Dread Helm
+
 FR-DC-ONI-1 Oni of the Thousand Gates
 -Orb of Direction
 
@@ -197,6 +204,30 @@ PO-BK-2-8 Straight Through the Heart
 PO-BK-2-9 Star Crash Release
 -Amethyst Lode Stone
 
+PO-BK-3-2 Shoreline Spelunking
+-Immovable Rod
+
+PO-BK-3-4 Dead in the Water
+-Rope of Climbing
+-Moon-Touched Scimitar
+
+PO-BK-3-5 Into the Shining Sea
+-Bracer of Flying Daggers
+
+PO-BK-3-6 Trouble Brewing in Port Nyanzaru
+-Saddle of the Cavalier
+-Charlatan's Die
+
+PO-BK-3-8 Weeding Out Trouble
+-Cape of the Mountebank
+
+PO-BK-3-9 The Isle of Death
+-Amethyst Dragon Wing Longbow
+
+PO-BMG-DRW-KS-1 The Thief of Thay
+-Dust of Disappearance
+-Sekholah Worshipping Statue
+
 RV-DC-OH1 In the Mist of Keening
 -Horn of Silent Alarm
 -Dagger +2
@@ -218,6 +249,9 @@ SJ-DC-ASI-1 Secrets of Old
 
 SJ-DC-ASI-3 Secrets of Old
 -Horn of Silent Alarm
+
+SJ-DC-ASLM-3 Missing Heir
+-Sapphire Buckler
 
 SJ-DC-AUG-06 The Rock Tales of the Beholder Corps
 -Guardian Emblem
@@ -324,6 +358,10 @@ SJ-DC-HYS-2 Darkside of Selune
 SJ-DC-INAS-3 Swamp Strike
 -Pole of Collapsing
 
+SJ-DC-INAS-4 An Ancient Enemy Returns
+-Fish Suit
+-Horn of Silent Alarm
+
 SJ-DC-KEEP
 -Hat of Wizardry
 
@@ -365,6 +403,9 @@ SJ-DC-MOR-1 The Ill King
 SJ-DC-NOS-3 Sol Crash
 -Absorbing Tattoo (choice)
 
+SJ-DC-NOS-4 Caverns and Cultists
+-Instrument of Scribing
+
 SJ-DC-PAT-1 Lunar Freeze
 -Rope of Mending
 -Keoghtom's Ointment
@@ -398,12 +439,19 @@ SJ-DC-TST-1 Bulan
 SJ-DC-TST-2 Datu
 -Ring of Regeneration
 
+SJ-DC-UNITE-2 Stranded
+-Brooch of Shielding
+-Horn of Silent Alarm
+
 SJ-DC-VEN-3 Daylight Saving Time
 -Absorbing Tattoo (Gold)
--Blessing?
+-Blessing of Magic Resistance
 
 SJ-DC-VMT-3 Green Hills of the Affricate
 -Heward's Handy Spice Pouch
+
+SJ-DC-ZODIAC-14-3 Herald of War
+-Blessing of Wound Closure
 
 WBW-DC-AH-1 Afraid of the Dark
 -Elven Chain

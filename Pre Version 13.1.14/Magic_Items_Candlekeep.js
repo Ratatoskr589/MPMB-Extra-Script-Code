@@ -10,7 +10,7 @@ It is recommended to enter the code in a fresh sheet before adding any other inf
 
 
 var iFileName = "Magic_Items_Candlekeep.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion(13);
 
 // Define the source
 SourceList["CM-Alt"] = {
@@ -30,12 +30,14 @@ MagicItemsList["book flail"] = {
 	attunement : false,
 	description : "A remnant from Fistania's animated library, this book is connected to a length of chain and is entitled Martial Attack Techniques. It may be used as a magical flail that grants a +1 bonus to attack and damage rolls.",
 	weight : 2,
+	weaponsAdd : ["Book Flail"],
 	weaponOptions : {
 		baseWeapon : "flail",
 		regExpSearch : /^(?=.*book)(?=.*flail).*$/i,
 		name : "Book Flail",
-		modifiers : [1,1],
-		selectNow : true,
+		source : ["CM-Alt"],
+		range : "Melee",
+		modifiers : [1,1]
 	}
 }
 
@@ -96,6 +98,7 @@ MagicItemsList["serpent scale armor"] = {
 	attunement : false,
 	description : "This suit of magic armor is made from shimmering scales. While wearing it, you can apply your full Dexterity modifier when determining your AC. In addition, this armor does not impose disadvantage on your Dexterity (Stealth) checks.",
 	descriptionFull : "This suit of magic armor is made from shimmering scales. While wearing it, you can apply your full Dexterity modifier (instead of a maximum of +2) when determining your Armor Class. In addition, this armor does not impose disadvantage on your Dexterity (Stealth) checks.",
+	armorAdd : "Serpent Scale Armor",
 	armorOptions : [{
 		regExpSearch : /^(?=.*serpent)(?=.*scale).*$/i,
 		name : "Serpent Scale Armor",
@@ -104,8 +107,7 @@ MagicItemsList["serpent scale armor"] = {
 		ac : 14,
 		stealthdis : false,
 		weight : 45,
-		dex : 100,
-		selectNow : true,
+		dex : 100
 		}]
 }
 
@@ -119,12 +121,13 @@ MagicItemsList["serpent's fang"] = {
 	description : "This single-edged magic sword is made from the scrimshawed fang of a giant serpent. The weapon deals an extra 1d10 poison damage to any target it hits.",
 	descriptionFull : "This single-edged magic sword is made from the scrimshawed fang of a giant serpent. Its hilt changes shape to adjust to the grasp of any creature that picks it up. The weapon deals an extra 1d10 poison damage to any target it hits.",
 	weight : 2,
+	weaponsAdd : ["Serpent's Fang"],
 	weaponOptions : {
 		baseWeapon : "longsword",
 		regExpSearch : /^(?=.*serpent|s)(?=.*fang).*$/i,
 		name : "Serpent's Fang",
+		source : [["CM-Alt", 98]],
 		description : "Versatile (d10), +1d10 poison dmg",
-		selectNow : true,
 	}
 }
 
@@ -139,12 +142,13 @@ MagicItemsList["gloves of soul catching"] = {
 	description : "Your Constitution score is 20 while you wear these gloves. This property has no effect on you if your Constitution is already 20 or more. After hitting w/ an unarmed strike while wearing these gloves, you can deal an extra 2d10 force dmg to target. You also regain a number of hp equal to the force dmg dealt or you can gain advantage on one atk roll, ability check, or saving throw you make before the end of your next turn.",
 	descriptionFull : "Your Constitution score is 20 while you wear these gloves. This property of the gloves has no effect on you if your Constitution is already 20 or higher" + "\n   " + "After making a successful unarmed strike while wearing these gloves, you can use the gloves to deal an extra 2d10 force damage to the target, and you regain a number of hit points equal to the force damage dealt. Alternatively, instead of regaining hit points in this way, you can choose to gain advantage on one attack roll, ability check, or saving throw you make before the end of your next turn.",
 	weight : 2,
+	weaponsAdd : ["Gloves of Soul Catching"],
 	weaponOptions : {
 		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*gloves)(?=.*soul)(?=.*catching).*$/i,
 		name : "Gloves of Soul Catching",
+		source : [["CM-Alt", 169]],
 		description : "+2d10 force dmg. Regain hp equal to force dmg OR adv. on 1 atk/ability chk/saving throw before end of next turn",
-		selectNow : true,
 	}
 }
 
@@ -192,12 +196,13 @@ MagicItemsList["staff of fate"] = {
 	recovery : "Special",
 	limfeaname : "Staff of Fate (Alter Outcome)",
 	action : ["bonus action", ""],
+	weaponsAdd : ["Staff of Fate"],
 	weaponOptions : {
 		baseWeapon : "quarterstaff",
 		regExpSearch : /^(?=.*staff)(?=.*fate).*$/i,
 		name : "Staff of Fate",
+		source : [["CM-Alt", 183]],
 		modifiers : [3,3],
-		selectNow : true,
 	}
 }
 

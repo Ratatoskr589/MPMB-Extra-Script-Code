@@ -14,8 +14,8 @@ This is not a complete list since I do not have every published adventure, but i
 //Complete: S0-S10, Guild Adept, DC-POA, CCCs, DRW, RMH, WBW-DC
 //In progress: SJ-DCs, POs, Ravenloft, FR-DC, PS-DC
 
-var iFileName = "AL Flavored Magic Armor.js";
-RequiredSheetVersion("13.1.14");
+var iFileName = "AL Flavored Armor.js";
+RequiredSheetVersion(13);
 
 // Define the source
 SourceList["AL"] = {
@@ -42,6 +42,15 @@ SourceList["AL:R"] = {  //Ravenloft Alternate Campaign
 	defaultExcluded : true
 };
 
+// Function to create armorOptions entries for items that will already calculate correctly based on their name, but we want to have a listing in the drop-down box anyway
+var createArmorOptionsDud = function (sName, sourcePage, altSource) {
+	return [{
+		name : sName,
+		source : [[altSource ? altSource : "AL", sourcePage]],
+		regExpSearch : /justToAddToDropDown/,
+		ac : 10
+	}];
+}
 
 //AL Flavored Armor
 MagicItemsList["al adamantine/mithral armor"] = {
@@ -88,7 +97,8 @@ MagicItemsList["al adamantine/mithral armor"] = {
 		magicItemTable : "F",
 		description : "This armor shows no signs of age. It gleams brightly, showing off the fine runework that contains Bronwyn Rookoath's personal emblem. It's reinforced with adamantine and when worn, any critical hit against you becomes a normal hit.",
 		descriptionFull : "This chain shirt shows no signs of its age, but gleams brightly, showing off the fine runework that contains Bronwyn Rookoath's personal emblem.\n   This suit of armor is reinforced with adamantine, one of the hardest substances in existence. While you're wearing it, any critical hit against you becomes a normal hit.",
-		armorAdd : { select : "Adamantine Chain Shirt", options : ["Adamantine Chain Shirt"] },
+		armorAdd : "Adamantine Chain Shirt",
+		armorOptions : createArmorOptionsDud("Adamantine Chain Shirt", "CCC")
 	},
 	"adamantine chain shirt (ccc-pdxage-1-1)" : {
 		name: "Adamantine Chain Shirt (CCC-PDXAGE-1-1)",
@@ -96,7 +106,8 @@ MagicItemsList["al adamantine/mithral armor"] = {
 		magicItemTable : "F",
 		description : "This magical armor is crafted from adamantine, and is made with superb dwarf craftsmanship. While worn, any critical hit against you becomes a normal hit.",
 		descriptionFull : "This magical chain shirt is crafted from adamantine, and is made with superb dwarf craftsmanship. This suit of armor is reinforced with adamantine, one of the hardest substances in existence. While you're wearing it, any critical hit against you becomes a normal hit.",
-		armorAdd : { select : "Adamantine Chain Shirt", options : ["Adamantine Chain Shirt"] },
+		armorAdd : "Adamantine Chain Shirt",
+		armorOptions : createArmorOptionsDud("Adamantine Chain Shirt", "CCC")
 	},
 	"adamantine chain shirt (ddep5-2)" : {
 		name: "Adamantine Chain Shirt (DDEP5-2)",
@@ -104,7 +115,8 @@ MagicItemsList["al adamantine/mithral armor"] = {
 		magicItemTable : "F",
 		description : "This glittering chain shirt is composed of interlocking adamantine rings. When the wearer moves, the shirt emits the faint sound of waves lapping at the shore. While you're wearing it, any critical hit against you becomes a normal hit.",
 		descriptionFull : "This glittering chain shirt is composed of interlocking adamantine rings. When the wearer moves, the shirt emits the faint sound of waves lapping at the shore. This suit of armor is reinforced with adamantine, one of the hardest substances in existence. While you're wearing it, any critical hit against you becomes a normal hit.",
-		armorAdd : { select : "Adamantine Chain Shirt", options : ["Adamantine Chain Shirt"] },
+		armorAdd : "Adamantine Chain Shirt",
+		armorOptions : createArmorOptionsDud("Adamantine Chain Shirt", "S5")
 	},
 	"adamantine chain mail (ccc-bmg-moon5-1)" : {
 		name: "Adamantine Chain Mail (CCC-BMG-MOON5-1)",
@@ -112,7 +124,8 @@ MagicItemsList["al adamantine/mithral armor"] = {
 		magicItemTable : "F",
 		description : "Made by fomorians for a demonic subordinate, this armor crackles with hellish energy & is marked with Yeenoghu's symbol. The symbol can be removed by hand, but the faint smell of blood never comes out. While you're wearing it, any critical hit against you becomes a normal hit.",
 		descriptionFull : "Made by fomorians for a demonic subordinate, this chain mail crackles with hellish energy and is marked with Yeenoghu's symbol. The symbol can be removed by hand, but the faint smell of blood can never be removed. This suit of armor is reinforced with adamantine, one of the hardest substances in existence. While you're wearing it, any critical hit against you becomes a normal hit.",
-		armorAdd : { select : "Adamantine Chain Mail", options : ["Adamantine Chain Mail"] },
+		armorAdd : "Adamantine Chain Mail",
+		armorOptions : createArmorOptionsDud("Adamantine Chain Mail", "CCC")
 	},
 	"adamantine plate: durgeddin's unbreakable auspice (ddep6-1)" : {
 		name: "Durgeddin's Unbreakable Auspice, Adamantine Plate (DDEP6-1)",
@@ -120,7 +133,8 @@ MagicItemsList["al adamantine/mithral armor"] = {
 		magicItemTable : "H",
 		description : "A masterwork of dwarven craftsmanship forged of pure adamantine and lovingly adorned with all the holy symbols of the Dwarven Pantheon etched in platinum about the breastplate. The wearer of this armor has advantage on all social interactions with dwarves. While you're wearing this plate armor, any critical hit against you becomes a normal hit.",
 		descriptionFull : "A masterwork of dwarven craftsmanship forged of pure adamantine and lovingly adorned with all the holy symbols of the Dwarven Pantheon etched in platinum about the breastplate. The wearer of this armor has advantage on all social interactions with dwarves. While you're wearing this plate armor, any critical hit against you becomes a normal hit.",
-		armorAdd : { select : "Durgeddin's Adamantine Plate", options : ["Durgeddin's Adamantine Plate"] },
+		armorAdd : "Durgeddin's Adamantine Plate",
+		armorOptions : createArmorOptionsDud("Adamantine Plate", "S6")
 	},
 	"mithral scale barding (dc-poa-conmar-18)" : {
 		name : "Mithral Scale Barding (DC-POA-CONMAR-18)",
@@ -156,7 +170,8 @@ MagicItemsList["al adamantine/mithral armor"] = {
 		magicItemTable : "B",
 		description : "This scale mail is made from small, 1-inch mithral spikes that are carved with abyssal runes for carousing, celebration & drink. It includes a neck piece resembling a spiked dog collar. You develop a desire to party all night & sleep all day. Mithral is a light, flexible metal & this scale mail doesn't impose disadv. on stealth checks.",
 		descriptionFull : "Each scale of this armor is made with small, 1-inch mithral spikes, and it includes a neck piece resembling a spiked dog collar. Each spike is carved with abyssal runes for carousing, celebration, and drink. The wearer develops a desire to party all night and sleep all day.\n   Mithral is a light, flexible metal. A mithral chain shirt or breastplate can be worn under normal clothes. If the armor normally imposes disadvantage on Dexterity (Stealth) checks or has a Strength requirement, the mithral version of the armor doesn't.",
-		armorAdd : { select : "Mithral Scale Mail", options : ["Mithral Scale Mail"] },
+		armorAdd : "Mithral Scale Mail",
+		armorOptions : createArmorOptionsDud("Mithral Scale Mail", "CCC")
 	},
 	"mithral scale mail: hulk-buster armor (dc-poa-tdg1-7)" : {
 		name : "Hulk-Buster Armor, Mithral Scale Mail (DC-POA-TDG1-7)",
@@ -164,7 +179,8 @@ MagicItemsList["al adamantine/mithral armor"] = {
 		magicItemTable : "B",
 		description : "This dwarven armor was created from an infusion of chardalyn & mithral, inspired by the fearsome bodies of the Star Spawn Hulks. Mithral is a light, flexible metal & this scale mail doesn't impose disadv. on stealth checks.",
 		descriptionFull : "Dwarven armour created from the infusion chardalyn and mithral, inspired by the fearsome bodies of the Star Spawn Hulks.\n   Mithral is a light, flexible metal. A mithral chain shirt or breastplate can be worn under normal clothes. If the armor normally imposes disadvantage on Dexterity (Stealth) checks or has a Strength requirement, the mithral version of the armor doesn't.",
-		armorAdd : { select : "Hulk-Buster Mithral Scale Mail", options : ["Hulk-Buster Mithral Scale Mail"] },
+		armorAdd : "Hulk-Buster Mithral Scale Mail",
+		armorOptions : createArmorOptionsDud("Hulk-Buster Mithral Scale Mail", "DC-POA")
 	},
 	"mithral breastplate (ccc-bmg-moon16-2)" : {
 		name : "Mithral Breastplate (CCC-BMG-MOON16-2)",
@@ -172,7 +188,8 @@ MagicItemsList["al adamantine/mithral armor"] = {
 		magicItemTable : "B",
 		description : "The metal of this mithral breastplate is engraved to look like feathers. The front of the armor is adorned with the raised image of a raging swan with its head back and beak open, ready to strike. Mithral is a light, flexible metal and this breastplate can be worn under normal clothes.",
 		descriptionFull : "The metal of this mithral breastplate is engraved to look like feathers. The front of the armor is adorned with the raised image of a raging swan with its head back and beak open, ready to strike. Mithral is a light, flexible metal. A mithral chain shirt or breastplate can be worn under normal clothes. If the armor normally imposes disadvantage on Dexterity (Stealth) checks or has a Strength requirement, the mithral version of the armor doesn't.",
-		armorAdd : { select : "Mithral Breastplate", options : ["Mithral Breastplate"] },
+		armorAdd : "Mithral Breastplate",
+		armorOptions : createArmorOptionsDud("Mithral Breastplate", "CCC")
 	},
 	"mithral half plate (ccc-glip-1-3)" : {
 		name : "Mithral Half Plate (CCC-GLIP-1-3)",
@@ -180,7 +197,8 @@ MagicItemsList["al adamantine/mithral armor"] = {
 		magicItemTable : "B",
 		description : "This armor is obviously Githyanki in design. It is ornamented with tassels, ribbons, and bone fragments. Mithral is a light, flexible metal, and this half plate doesn't impose disadv. on Dex (Stealth) checks.",
 		descriptionFull : "This armor is obviously Githyanki in design. It is ornamented with tassels, ribbons, and bone fragments. Mithral is a light, flexible metal. A mithral chain shirt or breastplate can be worn under normal clothes. If the armor normally imposes disadvantage on Dexterity (Stealth) checks or has a Strength requirement, the mithral version of the armor doesn't.",
-		armorAdd : { select : "Mithral Half Plate", options : ["Mithral Half Plate"] },
+		armorAdd : "Mithral Half Plate",
+		armorOptions : createArmorOptionsDud("Mithral Half Plate", "CCC")
 	},
 	"mithral chain mail (ccc-saf2-1)" : {
 		name: "Mithral Chain Mail (CCC-SAF2-1)",
@@ -189,7 +207,8 @@ MagicItemsList["al adamantine/mithral armor"] = {
 		description : "Mithral is a light, flexible metal, and this chain mail doesn't impose disadvantage on Dex (Stealth) checks. While wearing it, you also suffer no harm in temps from -20\u00B0F to 120\u00B0F.",
 		descriptionFull : "The armor has the Temperate minor property. The bearer suffers no harm in temperatures as cold as −20 degrees Fahrenheit or as warm as 120 degrees Fahrenheit. Mithral is a light, flexible metal. A mithral chain shirt or breastplate can be worn under normal clothes. If the armor normally imposes disadvantage on Dexterity (Stealth) checks or has a Strength requirement, the mithral version of the armor doesn't.",
 		savetxt : { immune : ["temps btwn -20\u00B0F/120\u00B0F"] },
-		armorAdd : { select : "Mithral Chain Mail", options : ["Mithral Chain Mail"] },
+		armorAdd : "Mithral Chain Mail",
+		armorOptions : createArmorOptionsDud("Mithral Chain Mail", "CCC")
 	},
 	"mithral splint (ccc-des-2-2)" : {
 		name : "Mithral Splint (CCC-DES-2-2)",
@@ -197,7 +216,8 @@ MagicItemsList["al adamantine/mithral armor"] = {
 		magicItemTable : "B",
 		description : "Stylized into the plates & embossed on the gauntlets of this armor is the symbol of Torin Nomerthal, the former First Lord of Hillsfar. This tyrannical leader reinstated the “Great Law of Humanity” that barred nonhumans from entering the city. While wearing this armor, you suffer disadvantage on Charisma checks against creatures who opposed the law. Mithral is a light, flexible metal, & this splint doesn't impose disadv. on Dex (Stealth) checks or require 15 Str.",
 		descriptionFull : "Stylized into the plates and embossed on the gauntlets is the symbol of the former First Lord of Hillsfar, Torin Nomerthal. This tyrannical leader reinstated the “Great Law of Humanity” which barred nonhumans from entering the city. Any character wearing this set of armor suffers disadvantage on Charisma checks against creatures who were against the “Great Law of Humanity”.\n   Mithral is a light, flexible metal. A mithral chain shirt or breastplate can be worn under normal clothes. If the armor normally imposes disadvantage on Dexterity (Stealth) checks or has a Strength requirement, the mithral version of the armor doesn't.",
-		armorAdd : { select : "Mithral Splint", options : ["Mithral Splint"] },
+		armorAdd : "Mithral Splint",
+		armorOptions : createArmorOptionsDud("Mithral Splint", "CCC")
 	},
 	"mithral splint: armor of insults (ccc-gsp-ooze1-1)" : {
 		name : "Armor of Insults (Mithral Splint, CCC-GSP-OOZE1-1)",
@@ -205,7 +225,8 @@ MagicItemsList["al adamantine/mithral armor"] = {
 		magicItemTable : "B",
 		description : "This splint armor was crafted with the finest materials by dwarves for elves. Despite the near-flawless craftsmanship, the smiths purposely added one design flaw as a prank: when the armor is struck, the voices of the dwarves who forged it berate the wearer. Mithral is a light, flexible metal, and this splint doesn't impose disadv. on Dex (Stealth) checks or require 15 Str.",
 		descriptionFull : "This set of splint armor was crafted with only the finest materials by dwarves for elves. However, despite the craftsmanship being near-flawless, the dwarves who forged the armor purposely made one design flaw as a prank: When struck, the armor emits the voice of the dwarves who forged the armor, berating its wearer. Mithral is a light, flexible metal. A mithral chain shirt or breastplate can be worn under normal clothes. If the armor normally imposes disadvantage on Dexterity (Stealth) checks or has a Strength requirement, the mithral version of the armor doesn't.",
-		armorAdd : { select : "Armor of Insults, Mithral Splint", options : ["Armor of Insults, Mithral Splint"] },
+		armorAdd : "Mithral Splint",
+		armorOptions : createArmorOptionsDud("Mithral Splint", "CCC")
 	},
 	"mithral splint (ddal5-4)" : {
 		name : "Mithral Splint (DDAL5-4)",
@@ -213,7 +234,8 @@ MagicItemsList["al adamantine/mithral armor"] = {
 		magicItemTable : "B",
 		description : "A beautifully crafted suit of splint wrought in classical Adbarran design. The armor is evocative of dwarven sensibilities, being simple & angular. The helm is crafted with curling ram's horns and dwarven runes on the vambraces pronounce the wearer a friend and defender of Citadel Adbar. Mithral is a light, flexible metal, and this splint doesn't impose disadv. on Dex (Stealth) checks or require 15 Str.",
 		descriptionFull : "A beautifully crafted suit of splint mail wrought in classical Adbarran design. The armor is evocative of dwarven sensibilities, being simple if a bit angular. The helm is crafted with curling ram's horns and dwarven runes on the vambraces pronouncing the wearer a friend and defender of Citadel Adbar. Mithral is a light, flexible metal. A mithral chain shirt or breastplate can be worn under normal clothes. If the armor normally imposes disadvantage on Dexterity (Stealth) checks or has a Strength requirement, the mithral version of the armor doesn't.",
-		armorAdd : { select : "Mithral Splint", options : ["Mithral Splint"] },
+		armorAdd : "Mithral Splint",
+		armorOptions : createArmorOptionsDud("Mithral Splint", "S5")
 	},
 	"mithral plate (ddhc-mord-1)" : {
 		name : "Mithral Plate (DDHC-MORD-1)",
@@ -221,7 +243,8 @@ MagicItemsList["al adamantine/mithral armor"] = {
 		magicItemTable : "B",
 		description : "This suit of armor is emblazoned with an unblinking, lidless eye in the center of the breastplate. Mithral is a light, flexible metal, and this plate mail doesn't impose disadv. on Dex (Stealth) checks or require 15 Str.",
 		descriptionFull : "This suit of armor is emblazoned with an unblinking, lidless eye in the center of the breastplate. Mithral is a light, flexible metal. A mithral chain shirt or breastplate can be worn under normal clothes. If the armor normally imposes disadvantage on Dexterity (Stealth) checks or has a Strength requirement, the mithral version of the armor doesn't.",
-		armorAdd : { select : "Mithral Plate", options : ["Mithral Plate"] },
+		armorAdd : "Mithral Plate",
+		armorOptions : createArmorOptionsDud("Mithral Plate", "MtoF")
 	},
 }
 
@@ -252,7 +275,8 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		description : "This sealskin suit is embroidered with octopi that squirm magically when exposed to the air. If worn underwater, you gain advantage on checks made to escape grapples. The suit also grants a +1 bonus to AC while worn.",
 		descriptionFull : "This sealskin suit is embroidered with octopuses that squirm magically when exposed to the air. If worn underwater, the wearer gains advantage on checks made to escape grappling. You have a +1 bonus to AC while wearing this armor.",
 		savetxt : { text : ["Adv on checks to escape grapples (Underwater only)"] },
-		armorAdd : { select : "+1 Leather (Seal)", options : ["+1 Leather (Seal)"] },
+		armorAdd : "+1 Leather (Seal)",
+		armorOptions : createArmorOptionsDud("+1 Leather (Seal)", "S7")
 	},
 	"+1 leather: mummy wraps (rv-dc-gc15-4)" : {
 		name : "Mummy Wraps, +1 Leather (RV-DC-GC15-4)",
@@ -262,7 +286,8 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		allowDuplicates : true,
 		description : "This roll of thick black-and-gold mummy wraps was kept in the Temple of Ousa to repair pharaoh's wraps. When unrolled and worn, you gain a +1 bonus to AC.",
 		descriptionFull : "The roll of thick black-and-gold mummy wraps were kept in the Temple of Ousa to occasionally repair pharaoh's wraps. When unrolled and applied upon the wearer, it confers the armor's benefit. You have a +1 bonus to AC while wearing this armor.",
-		armorAdd : { select : "+1 Leather (Mummy)", options : ["+1 Leather (Mummy)"]  },
+		armorAdd : "+1 Leather (Mummy)",
+		armorOptions : createArmorOptionsDud("+1 Leather (Mummy)", "DC", "AL:R")
 	},
 	"+1 studded leather (ccc-bmg-21 hulb2-3)" : {
 		name : "+1 Studded Leather (CCC-BMG-21 HULB2-3)",
@@ -272,7 +297,8 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		allowDuplicates : true,
 		description : "This armor is superbly padded & reinforced for cold environments; it counts as cold-weather gear and is uncomfortable in hot climates. The armor grants a +1 bonus to AC while worn.",
 		descriptionFull : "This armor is superbly padded and reinforced for cold environments; as such, it counts as cold-weather gear and is more than a little uncomfortable in hot climates. You have a +1 bonus to AC while wearing this armor.",
-		armorAdd : { select : "+1 Studded Leather", options : ["+1 Studded Leather"]  },
+		armorAdd : "+1 Studded Leather",
+		armorOptions : createArmorOptionsDud("+1 Studded Leather", "CCC")
 	},
 	"+1 studded leather (fr-dc-aeg-7)" : {
 		name : "+1 Studded Leather (FR-DC-AEG-7)",
@@ -283,7 +309,8 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		description : "This armor grants a +1 bonus to AC while worn. It also whispers warning, giving +2 initiative if you're not incapacitated.",
 		descriptionFull : "You have a +1 bonus to AC while wearing this armor.\n   The armor has the guardian minor property.\n   " + toUni("Guardian") + ". The item whispers warnings to its bearer, granting a +2 bonus to initiative if the bearer isn't incapacitated.",
 		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
-		armorAdd : { select : "+1 Studded Leather", options : ["+1 Studded Leather"]  },
+		armorAdd : "+1 Studded Leather",
+		armorOptions : createArmorOptionsDud("+1 Studded Leather", "FR-DC")
 	},
 	"+1 studded leather: star lancer corps armor (sj-dc-bad-3)" : {
 		name : "Star Lancer Corps Armor, +1 Studded Leather (SJ-DC-BAD-3)",
@@ -294,7 +321,8 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		description : "The Star Lancer Corps armor is made of scavver leather with meteorite shard studs that hum when danger is near, giving +2 to initiative when you're not incapacitated. The armor also grants a +1 bonus to AC while worn.",
 		descriptionFull : "The Star Lancer Corps armor is made of scavver leather with meteorite shard studs that hum when danger is near, providing the guardian property.\n   " + toUni("Guardian") + ". The item whispers warnings to its bearer, granting a +2 bonus to initiative if the bearer isn't incapacitated.\n   You have a +1 bonus to AC while wearing this armor.",
 		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
-		armorAdd : { select : "+1 Studded Leather (Star)", options : ["+1 Studded Leather (Star)"]  },
+		armorAdd : "+1 Studded Leather (Star)",
+		armorOptions : createArmorOptionsDud("+1 Studded Leather (Star)", "SJ-DC")
 	},
 	"+1 scale mail: shroud of the mourning warrior (ddal5-13)" : {
 		name : "Shroud of the Mourning Warrior, +1 Scale Mail (DDAL5-13)",
@@ -304,7 +332,8 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		allowDuplicates : true,
 		description : "This suit of armor is fashioned out of slivers of wood, each engraved with Giant runes of death and lament, and sewn onto a backing of black leather. It grants a +1 bonus to AC while worn.",
 		description : "This suit of armor is fashioned out of slivers of wood, each engraved with Giant runes of death and lament, and sewn onto a backing of black leather. The armor resizes to fit its wearer.\n   You have a +1 bonus to AC while wearing this armor.",
-		armorAdd : { select : "+1 Wooden Scale Mail", options : ["+1 Wooden Scale Mail"]  },
+		armorAdd : "+1 Wooden Scale Mail",
+		armorOptions : createArmorOptionsDud("+1 Wooden Scale Mail", "S5")
 	},
 	"+1 breastplate: glass (ddep0-1)" : {
 		name : "+1 Glass Breastplate (DDEP0-1)",
@@ -314,13 +343,14 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		allowDuplicates : true,
 		description : "This surprisingly light breastplate is made of smoky red glass as strong as steel. Barely translucent, when light strikes it the smoky inclusions in the glass seems to shift and flow. The breastplate weighs 10 lbs and grants a +1 bonus to AC while worn.",
 		descriptionFull : "This surprisingly light breastplate is made of smoky red glass as strong as steel. Barely translucent, when light strikes it the smoky inclusions in the glass seems to shift and flow. The breastplate weighs 10 lbs.\n   You have a +1 bonus to AC while wearing this armor.",
+		armorAdd : "+1 Glass Breastplate",
 		armorOptions : [{
 			name : "+1 Glass Breastplate",
+			source : [["AL", "S0"]],
 			regExpSearch : /^(?=.*glass).*$/i,
 			type : "medium",
 			ac : 14,
-			weight : 10,
-			selectNow : true,
+			weight : 10
 		}]
 	},
 	"+1 breastplate (sj-dc-asi-3)" : {
@@ -332,7 +362,8 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		description : "This armor was recovered from the fallen githyanki Vaa'len. The intricately forged dark metal accentuates your musculature and bands of inlayed silver highlight the magical patterns. This breastplate grants a +1 bonus to AC while worn and whispers warnings, giving +2 initiative if you're not incapacitated.",
 		descriptionFull : "This armor was recovered from the fallen Githyanki Vaa'len. The intricately forged dark metal accentuates the musculature of the wearer. Bands of inlayed silver highlight the magical patterns.\n   You have a +1 bonus to AC while wearing this armor.\n   " + toUni("Guardian") + ". The item whispers warnings to its bearer, granting a +2 bonus to initiative if the bearer isn't incapacitated.",
 		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
-		armorAdd : { select : "+1 Breastplate", options : ["+1 Breastplate"]  },
+		armorAdd : "+1 Breastplate",
+		armorOptions : createArmorOptionsDud("+1 Breastplate", "SJ-DC")
 	},
 	"+1 breastplate (sj-dc-dra-4)" : {
 		name : "+1 Breastplate (SJ-DC-DRA-4)",
@@ -343,7 +374,8 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		description : "This breastplate grants a +1 bonus to AC while worn. You can also speak dwarvish when its on your person.",
 		descriptionFull : "You have a +1 bonus to AC while wearing this armor.\n   " + toUni("Language") + ". The bearer can speak and understand dwarven while the item is on the bearer's person.",
 		languageProfs : ["Dwarvish"],
-		armorAdd : { select : "+1 Breastplate", options : ["+1 Breastplate"]  },
+		armorAdd : "+1 Breastplate",
+		armorOptions : createArmorOptionsDud("+1 Breastplate", "SJ-DC")
 	},
 	"+1 breastplate: bulletproof vest (sj-dc-legit-sb-2)" : {
 		name : "Bulletproof Vest, +1 Breastplate (SJ-DC-LEGIT-SB-2)",
@@ -353,7 +385,8 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		allowDuplicates : true,
 		description : "A black tactical vest meant to block ballistic fire. A removable patch on the back reads 'SUNCORP SECURITY'. The vest is made of ceramic plates and a weave of synthetic aramid fibers, rather than leather and metal. It grants a +1 bonus to AC while worn.",
 		descriptionFull : "A black tactical vest meant to block ballistic fire. A removable patch on the back reads 'SUNCORP SECURITY'. You have a +1 bonus to AC while wearing this armor.\n   " + toUni("Minor Property: Strange Material") + ". This armour is composed of ceramic plates and a weave of synthetic aramid fibers, rather than leather and metal.",
-		armorAdd : { select : "+1 Breastplate (Vest)", options : ["+1 Breastplate (Vest)"]  },
+		armorAdd : "+1 Breastplate (Vest)",
+		armorOptions : createArmorOptionsDud("+1 Breastplate (Vest)", "SJ-DC")
 	},
 	"+1 breastplate: sha'sal khou (sj-dc-rfjk-2-1)" : {
 		name : "Sha'sal Khou Breastplate +1 (SJ-DC-RFJK-2-1)",
@@ -363,7 +396,8 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		allowDuplicates : true,
 		description : "This breastplate is simply but strongly made and is engraved with a crest upon the left breast, identifying you as an ally of the Sha’sal Khou. While worn, the armor grants a +1 bonus to AC and lets you speak Gith.",
 		descriptionFull : "This armor is simply but strongly made and is engraved with a crest upon the left breast, identifying you as an ally of the Sha’sal Khou. You have a +1 bonus to AC while wearing this armor.\n   " + toUni("Language") + ". The bearer can speak and understand a language of the DM’s choice (Gith) while the item is on the bearer’s person.",
-		armorAdd : { select : "+1 Breastplate", options : ["+1 Breastplate"] },
+		armorAdd : "+1 Breastplate",
+		armorOptions : createArmorOptionsDud("+1 Breastplate", "SJ-DC"),
 		languageProfs : ["Gith"],
 	},
 	"+1 breastplate: chameleon (sj-dc-tkm-3)" : {
@@ -374,7 +408,8 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		allowDuplicates : true,
 		description : "This magic breastplate was handcrafted in the swamps of Lepo Gors. It was made from tree bark, moss and leaves reinforced with leather straps. The armor grants a +1 bonus to AC while worn.",
 		descriptionFull : "You have a +1 bonus to AC while wearing this armor.\n   " + toUni("Strange Material") + ". The item was created from a material that is bizarre given its purpose. Its durability is unaffected. This breastplate was handcrafted in the swamps of Lepo Gors. It was made from tree bark, moss and leaves reinforced with leather straps.",
-		armorAdd : { select : "+1 Breastplate (Plant)", options : ["+1 Breastplate (Plant)"] },
+		armorAdd : "+1 Breastplate (Plant)",
+		armorOptions : createArmorOptionsDud("+1 Breastplate (Plant)", "SJ-DC")
 	},
 	"+1 half plate: bone (ccc-tri-6 night1-2)" : {
 		name : "+1 Bone Half Plate (CCC-TRI-6 NIGHT1-2)",
@@ -384,7 +419,8 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		allowDuplicates : true,
 		description : "Made from the frozen bones of Auntie Olma's old coven, this suit of half plate looks like sheets of iron until examined closely. While wearing this armor, it lowers your body temperature to just above freezing with no ill effects, and the voices of the dead hags fill your mind with taunts and harassment. The armor grants a +1 bonus to AC while worn.",
 		descriptionFull : "Made from the frozen bones of Auntie Olma's old coven, this suit of half plate looks to be made from sheets of iron until examined closely. While wearing this armor, it lowers your body temperature to just above freezing with no ill effects, and the voices of the dead hags fill your mind with taunts and harassment. You have a +1 bonus to AC while wearing this armor.",
-		armorAdd : { select : "+1 Bone Half Plate", options : ["+1 Bone Half Plate"] },
+		armorAdd : "+1 Bone Half Plate",
+		armorOptions : createArmorOptionsDud("+1 Bone Half Plate", "CCC")
 	},
 	"+1 half plate (ddep4)" : {
 		name : "+1 Half Plate (DDEP4)",
@@ -393,7 +429,8 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		magicItemTable : "I",
 		allowDuplicates : true,
 		description : "This black enameled armor has a splash of green paint across the chest. No amount of cleaning will remove it; even magical attempts prove useless. Any creature familiar with the Tears of Virulence will likely treat the wearer with suspicion. You have a +1 bonus to AC while wearing this armor.",
-		armorAdd : { select : "+1 Half Plate", options : ["+1 Half Plate"] },
+		armorAdd : "+1 Half Plate",
+		armorOptions : createArmorOptionsDud("+1 Half Plate", "S4")
 	},
 	"+1 half plate: asano's do-maru (fr-dc-oni-2)" : {
 		name : "Asano's Do-Maru, +1 Half Plate (FR-DC-ONI-2)",
@@ -403,7 +440,8 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		allowDuplicates : true,
 		description : "Commander Asano used this lamellar-style half plate for the entirety of his military career. Originally a gift from his daimyo for distinguished service, the armor is crafted from hundreds of bone plates and laquered leather “scales” secured with cord, making it light and easy to maneuver in. The kabuto is adorned with a large crescent moon crest and has a mask designed to look like a ferocious snarling demon. While worn, it grants a +1 bonus to AC.",
 		descriptionFull : "Commander Asano used this armor for the entirety of his military career. Originally a gift from his daimyo for distinguished service, the armor was crafted from hundreds of bone and leather “scales,” making it light and easy to maneuver in while wearing. The kabuto is adorned with a large rescent moon crest and comes with a mask designed to look like a ferocious demon snarling.\n   " + toUni("Strange Material") + ". Asano's do-maru is a lamellar-style half plate made of lacquered leather and bone plates secured with cord. This armor contains no metal.\n   You have a +1 bonus to AC while wearing this armor.",
-		armorAdd : { select : "+1 Bone Half Plate", options : ["+1 Bone Half Plate"] },
+		armorAdd : "+1 Bone Half Plate",
+		armorOptions : createArmorOptionsDud("+1 Bone Half Plate", "FR-DC")
 	},
 	"+1 half plate: warforged chest piece (rv-dc-php-1313-1)" : {
 		name : "Warforged Chest Piece, +1 Half Plate (RV-DC-PHP-1313-1)",
@@ -414,7 +452,8 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		description : "This half plate fell off one of the warforged peace corps protecting Metrol city. The upper left bears the symbol of an iron bull with cogs and gears that glows near danger. While worn, it grants a +1 bonus to AC and +2 bonus to initiative as long as you're not incapacitated.",
 		descriptionFull : "This half plate fell off from one of the warforged peace corps protecting Metrol city. It bears the symbol of an iron bull with cogs and gears located at the upper left of the armor. You have a +1 bonus to AC while wearing this armor.\n   " + toUni("Guardian") + ". The symbols etched on the armor glows, granting a +2 bonus to initiative if the bearer isn't incapacitated.",
 		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
-		armorAdd : { select : "+1 Warforged Half Plate", options : ["+1 Warforged Half Plate"] },
+		armorAdd : "+1 Warforged Half Plate",
+		armorOptions : createArmorOptionsDud("+1 Warforged Half Plate", "DC", "AL:R")
 	},
 	"+1 half plate: qumado's gift (sj-dc-den-h6)" : {
 		name : "Qumado's Gift, +1 Half Plate (SJ-DC-DEN-H6)",
@@ -424,7 +463,8 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		allowDuplicates : true,
 		description : "This half plate is carved from a destroyed Kindori Skeleton spelljammer. The only recognizable bone is the scapula used to carve the breastplate. Qumado Oth, a hero of Saltmarsh, carved this armor as a gift for saving his soul from the sahuagin in the Reef of Living Memory. It bears the draconic word for “friend” across the chest. While worn, it grants a +1 bonus to AC.",
 		descriptionFull : "This suit of half plate is carved from bones and cartilage from a destroyed Kindori Skeleton spelljamming ship. The only easily recognizable bone is the scapula used to carve the breastplate. Qumado Oth a hero of Saltmarsh carved this armor as a gift for saving his soul from the sahuagin in the Reef of Living Memory. It bears the draconic word for “friend” across the chest.\n   " + toUni("Strange Material") + ". The item was created from a material that is bizarre given its purpose. Its durability is unaffected. This half plate is made from the bones and cartilage of a kindori that had been turned into a kindori skeleton spelljamming ship.\n   You have a +1 bonus to AC while wearing this armor.",
-		armorAdd : { select : "+1 Bone Half Plate", options : ["+1 Bone Half Plate"] },
+		armorAdd : "+1 Bone Half Plate",
+		armorOptions : createArmorOptionsDud("+1 Bone Half Plate", "SJ-DC")
 	},
 	"+1 half plate: legion's peregrine cuirass (sj-dc-rock-2)" : {
 		name : "Legion's Peregrine Cuirass, +1 Half Plate (SJ-DC-ROCK-2)",
@@ -435,7 +475,8 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		description : "The peregrine falcon sculpted on this cuirass represents the Valkan's Legion's unmatched swiftness and precision. The falcon pierces delicate lines with arcane runes that bestow magical alertness. Whoever dons it carries the weight of the Legion's reputation. While worn, it gives +1 AC and +2 initiative if not incapacitated.",
 		descriptionFull : "The peregrine falcon sculpted on this cuirass represents Valkan's Legion's unmatched swiftness and precision. The falcon pierces delicate windy lines with arcane runes that bestow magical alertness. Whoever dons it, however, carries the weight of the Legion's reputation.\n   " + toUni("Guardian") + ". The item whispers warnings to its bearer, granting a +2 bonus to initiative if the bearer isn't incapacitated.\n   You have a +1 bonus to AC while wearing this armor.",
 		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
-		armorAdd : { select : "+1 Half Plate", options : ["+1 Half Plate"] },
+		armorAdd : "+1 Half Plate",
+		armorOptions : createArmorOptionsDud("+1 Half Plate", "SJ-DC")
 	},
 	"+1 half plate: mazatil's remorse (sj-dc-stratcon-1)" : {
 		name : "Mazatil's Remorse, +1 Half Plate (SJ-DC-STRATCON-1)",
@@ -445,7 +486,8 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		allowDuplicates : true,
 		description : "This half plate is made from topaz dragon scales, though few metallic or gem dragons would look down on you for wearing it. As a side effect of the armor's magic, it shines a beam of harmless purple light whenever deflecting an attack. While worn, it grants a +1 bonus to AC.",
 		descriptionFull : "This armor is made entirely from a topaz dragon's scales, with no metal parts. As a side effect of the magic used to create the item, it shines a beam of harmless purple light whenever the armor deflects an attack. Few metallic or gem dragons would look down on someone for wearing this armor, as they don't hold the constantly complaining dragons who specialize in intimidation in particularly high regard. You have a +1 bonus to AC while wearing this armor.",
-		armorAdd : { select : "+1 Topaz Half Plate", options : ["+1 Topaz Half Plate"] },
+		armorAdd : "+1 Topaz Half Plate",
+		armorOptions : createArmorOptionsDud("+1 Topaz Half Plate", "SJ-DC")
 	},
 	"+1 splint (ddex1-12)" : {
 		name : "+1 Splint (DDEX1-12)",
@@ -455,7 +497,8 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		allowDuplicates : true,
 		description : "This fine suit of splint armor is etched with dwarven runes that describe the glories of great battles in the North against orcs. It glows faintly within 100 ft of orcs and grants a +1 bonus to AC while worn.",
 		descriptionFull : "This fine suit of armor has dwarven runes etched upon it. The runes describe the glories of great battles in the North against orcs. The armor glows faintly when within 100 feet of orcs.\n   You have a +1 bonus to AC while wearing this armor.",
-		armorAdd : { select : "+1 Splint", options : ["+1 Splint"] },
+		armorAdd : "+1 Splint",
+		armorOptions : createArmorOptionsDud("+1 Splint", "S1")
 	},
 	"+1 splint (ddal5-4)" : {
 		name : "+1 Splint (DDAL5-4)",
@@ -465,7 +508,8 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		allowDuplicates : true,
 		description : "A beautifully crafted suit of splint wrought in classical Adbarran design. It's evocative of dwarven sensibilities, being simple and angular. The helm is crafted with curling ram's horns and dwarven runes on the vambraces pronounce you a friend and defender of Citadel Adbar. This armor grants a +1 bonus to AC while worn.",
 		descriptionFull : "A beautifully crafted suit of splint wrought in classical Adbarran design. The armor is evocative of dwarven sensibilities, being simple and angular. The helm is crafted with curling ram's horns and dwarven runes on the vambraces pronounce the wearer a friend and defender of Citadel Adbar. You have a +1 bonus to AC while wearing this armor.",
-		armorAdd : { select : "+1 Splint", options : ["+1 Splint"] },
+		armorAdd : "+1 Splint",
+		armorOptions : createArmorOptionsDud("+1 Splint", "S5")
 	},
 	"+1 splint: remorhaz (ddep10-2)" : {
 		name : "+1 Remorhaz Splint (DDEP10-2)",
@@ -475,7 +519,8 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		allowDuplicates : true,
 		description : "This armor is magically treated remorhaz hide that's trimmed with black fur and decorated with feathers and beads. It grants a +1 bonus to AC while worn.",
 		descriptionFull : "This armor is made of magically treated remorhaz hide and is trimmed with black fur and decorated with feathers and beads. You have a +1 bonus to AC while wearing this armor.",
-		armorAdd : { select : "+1 Remorhaz Splint", options : ["+1 Remorhaz Splint"] },
+		armorAdd : "+1 Remorhaz Splint",
+		armorOptions : createArmorOptionsDud("+1 Remorhaz Splint", "S10")
 	},
 	"+2 studded leather (ccc-tri-23 storm1-2)" : {
 		name : "+2 Studded Leather (CCC-TRI-23 STORM1-2)",
@@ -484,7 +529,8 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		magicItemTable : "I",
 		allowDuplicates : true,
 		description : "This set of magical sky blue armor once belonged to a cloud giant resident of Skyelinjeheim. It resizes to fit its wearer, and images of translucent white clouds drift slowly across its surface. This armor grants a +2 bonus to AC while worn.",
-		armorAdd : { select : "+2 Studded Leather", options : ["+2 Studded Leather"] },
+		armorAdd : "+2 Studded Leather",
+		armorOptions : createArmorOptionsDud("+2 Studded Leather", "CCC")
 	},
 	"+2 studded leather (po-bk-1-5)" : {
 		name : "+2 Studded Leather (PO-BK-1-5)",
@@ -494,7 +540,8 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		allowDuplicates : true,
 		description : "This set of studded leather armor is fashioned to look like the Shield Guardian Akar in his newest form and grants a +2 bonus to AC while worn.",
 		descriptionFull : "This set of studded leather is fashioned to look like the Shield Guardian Akar in his newest form (as described by the players at the beginning of PO-BK-1-5). The armor grants a +2 bonus to AC while worn.",
-		armorAdd : { select : "+2 Studded Leather", options : ["+2 Studded Leather"] },
+		armorAdd : "+2 Studded Leather",
+		armorOptions : createArmorOptionsDud("+2 Studded Leather", "PO")
 	},
 	"+2 half plate: stone (ddep7-2)" : {
 		name : "+2 Stone Half Plate (DDEP7-2)",
@@ -504,7 +551,8 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		allowDuplicates : true,
 		description : "This armor is made of thin plates of rune-engraved stone. While worn, the wearer becomes proficient in the Dwarven language. This armor grants a +2 bonus to AC while worn.",
 		languageProfs : ["Dwarvish"],
-		armorAdd : { select : "+2 Stone Half Plate", options : ["+2 Stone Half Plate"] },
+		armorAdd : "+2 Stone Half Plate",
+		armorOptions : createArmorOptionsDud("+2 Stone Half Plate", "S7")
 	},
 	"+2 half plate: mythos (wbw-dc-php-phan-2)" : {
 		name : "Mythos, +2 Half Plate (WBW-DC-PHP-PHAN-2)",
@@ -514,7 +562,8 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		allowDuplicates : true,
 		description : "This armor is made of strong yet ethereal glass and grants a +2 bonus to AC when worn. It's detailed with golden flowers and a child's doodle.",
 		descriptionFull : "You have a +2 bonus to AC while wearing this armor. The armor is detailed with golden flowers and a small child's doodle. Additionally, the armor has the Strange Material property and appears to be made of strong yet ethereal glass, similar to the shoes Ella gave you in WBW-DC-PHP-PHAN-1.",
-		armorAdd : { select : "+2 Glass Half Plate", options : ["+2 Glass Half Plate"] },
+		armorAdd : "+2 Glass Half Plate",
+		armorOptions : createArmorOptionsDud("+2 Glass Half Plate", "WBW-DC")
 	},
 	"+2 splint: remorhaz (ddep10-2)" : {
 		name : "+2 Remorhaz Splint (DDEP10-2)",
@@ -524,7 +573,8 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		allowDuplicates : true,
 		description : "This armor is magically treated remorhaz hide that's trimmed with black fur and decorated with feathers and beads. It grants a +2 bonus to AC while worn.",
 		descriptionFull : "This armor is magically treated remorhaz hide and is trimmed with black fur and decorated with feathers and beads. It resizes to fit its wearer and grants a +2 bonus to AC while worn.",
-		armorAdd : { select : "+2 Remorhaz Splint", options : ["+2 Remorhaz Splint"] },
+		armorAdd : "+2 Remorhaz Splint",
+		armorOptions : createArmorOptionsDud("+2 Remorhaz Splint", "S10")
 	},
 	"+2 plate: stone (ccc-jgd-1)" : {
 		name : "+2 Stone Plate (CCC-JGD-1)",
@@ -534,7 +584,8 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		allowDuplicates : true,
 		description : "This suit of plate armor was created by Cultists of the Black Earth and is fashioned from slabs of stone. The armor grants a +2 bonus to AC while worn.",
 		descriptionFull : "This suit of plate armor was created by Cultists of the Black Earth and is fashioned from slabs of stone (instead of metal). The armor resizes to fit its wearer. This armor grants a +2 bonus to AC while worn.",
-		armorAdd : { select : "+2 Stone Plate", options : ["+2 Stone Plate"] },
+		armorAdd : "+2 Stone Plate",
+		armorOptions : createArmorOptionsDud("+2 Stone Plate", "CCC")
 	},
 	"+2 plate (trading post)" : {
 		name : "+2 Plate (Helm)",
@@ -543,8 +594,9 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		magicItemTable : "I",
 		allowDuplicates : true,
 		description : "Every inch of this plate mail is covered with holy symbols and prayers to Helm, including the leather straps and inner pieces of metal not visible to the eye. It grants a +2 bonus to AC while worn.",
-		descriptionFull : "Every inch of this plate armor is covered with holy symbols and prayers to Helm, including the leather straps and inner pieces of metal not visible to the eye. The armor grants a +2 bonus to AC while worn (Custom flavor from the June 2024 VDDW Trading Post).",
-		armorAdd : { select : "+2 Plate", options : ["+2 Plate"] },
+		descriptionFull : "Every inch of this plate armor is covered with holy symbols and prayers to Helm, including the leather straps and inner pieces of metal not visible to the eye. The armor grants a +2 bonus to AC while worn (Custom flavor from the 2024 VDDW Trading Post).",
+		armorAdd : "+2 Plate",
+		armorOptions : createArmorOptionsDud("+2 Plate", "VW")
 	},
 	"+3 studded leather (ps-dc-ss)" : {
 		name : "+3 Studded Leather (PS-DC-SS)",
@@ -554,17 +606,19 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		allowDuplicates : true,
 		description : "This black studded leather armor is made from the hide of a Far Realm monstrosity and grants a +3 bonus to AC while worn. The hide’s exposure to the Far Realm protects you from harm in temperatures from -20\u00B0F to 120\u00B0F. If the armor is flipped inside out, a game of tic-tac-toe using the letters “M” and “E” is visible. ",
 		descriptionFull : "This black studded leather armor is made from the hide of a Far Realm monstrosity. This hide’s exposure to the Far Realm protects its bearer from extreme temperatures. If the armor is flipped inside out, a game of tic-tac-toe using the letters “M” and “E” is visible.\n   The armor grants a +3 bonus to AC while worn.\n   " + toUni("Temperate") + ". The bearer suffers no harm in temperatures as cold as –20 degrees Fahrenheit or as warm as 120 degrees Fahrenheit.",
-		armorAdd : { select : "+3 Studded Leather", options : ["+3 Studded Leather"] },
+		armorAdd : "+3 Studded Leather",
+		armorOptions : createArmorOptionsDud("+3 Studded Leather", "PS-DC"),
 		savetxt : { immune : ["temps btwn -20\u00B0F/120\u00B0F"] },
 	},
 	"+3 hide: daphnaie armor (alsrs11-a)" : {
 		name : "Daphnaie Armor (+3 Hide, ALSRs11-A)",
 		rarity : "legendary",
 		source : [["ALSRs11","A"]],
-		description : "This armor is made of pliant material from laurel tree bark with stylized carvings of dancing dryads burnt into it. Small bits of green moss accentuate the wood, giving you advantage on Dexterity (Stealth) checks when in a forest. The armor grants a +3 bonus to AC while worn.",
+		description : "This armor is made of pliant material from laurel tree bark with stylized carvings of dancing dryads burnt into it. Small bits of green moss accentuate the wood, giving the wearer advantage on Dexterity (Stealth) checks when in a forest. The armor grants a +3 bonus to AC while worn.",
 		descriptionFull : "This armor is made of pliant material from worn, laurel tree bark with stylized carvings of dancing dryads burnt into it. Small bits of green moss accentuate the wood, allowing the wearer to gain advantage on Dexterity (Stealth) checks when in a forest. The armor resizes to fit its wearer. This armor grants a +3 bonus to AC while worn.",
 		allowDuplicates : true,
-		armorAdd : { select : "+3 Hide (Daphnaie)", options : ["+3 Hide (Daphnaie)"] },
+		armorAdd : "+3 Hide (Daphnaie)",
+		armorOptions : createArmorOptionsDud("+3 Hide (Daphnaie)", "A", "ALSRs11")
 	},
 	"+3 half plate (ps-dc-nos-2)" : {
 		name : "+3 Half Plate (PS-DC-NOS-2)",
@@ -574,7 +628,8 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		allowDuplicates : true,
 		description : "This half plate is made from the scales of the dead Leviathan of the Broken God. It appears black indoors or in dim light, but is actually a very deep amethyst and sparkles in direct sunlight. The half plate gives a +3 bonus to AC when worn.",
 		descriptionFull : "You have a +3 bonus to AC while wearing this armor.\n   " + toUni("Strange Material - Dragon Scale") + ". This armor is made from the scales of the dead Leviathan of the Broken God. While the armor appears black indoors or in dim light, it is actually a very deep amethyst color and sparkles in direct sunlight.",
-		armorAdd : { select : "+3 Scale Half Plate", options : ["+3 Scale Half Plate"] },
+		armorAdd : "+3 Scale Half Plate",
+		armorOptions : createArmorOptionsDud("+3 Scale Half Plate", "PS-DC")
 	},
 	"+3 plate (ps-dc-aug-1)" : {
 		name : "+3 Plate Armor (PS-DC-AUG-1)",
@@ -585,7 +640,8 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		description : "This plate armor was recovered from the ursine archons that guard the gate to Mount Celestia and still smells of bear. It grants a +3 bonus to AC while worn and whispers warnings, giving +2 initiative when you're not incapacitated.",
 		descriptionFull : "This plate armor was recovered from the ursine archons that guard the gate to Mount Celestia. It still smells of bear.\n   " + toUni("Guardian") + ". The item whispers warnings to its bearer, granting a +2 bonus to initiative if the bearer isn't incapacitated. The armor resizes to fit its wearer. This armor grants a +3 bonus to AC while worn.",
 		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
-		armorAdd : { select : "+3 Plate", options : ["+3 Plate"] },
+		armorAdd : "+3 Plate",
+		armorOptions : createArmorOptionsDud("+3 Plate", "PS-DC")
 	},
 }
 
@@ -596,14 +652,15 @@ MagicItemsList["al armor (common)"] = {
 	choicesNotInMenu : true,
 	rarity : "common",
 	magicItemTable : "?",
-	choices : ["Cast-Off Breastplate (DC-POA-CONMAR-6)","Cast-Off Breastplate: Ooze (DC-POA-GaryXIII-4)","Cast-Off Breastplate (DC-POA-HAG-SF4)","Cast-Off Chain Mail: Scavenger's Shroud (CCC-DES-4-1)","Cast-Off Plate (BMG-DRW-OD-5)","Shield of Expression (DC-POA-CONMAR-15)","Shield of Expression (DC-POA-SNIPE-1)","Shield of Expression (WBW-DC-CONMAR-10)","Shield of Expression (WBW-DC-DCS-1)","Smoldering Armor: Flurried Furs (DDAL0-4)","Smoldering Studded Leather (DC-POA-CODEX-2)","Smoldering Studded Leather (DC-POA-CONMAR-8)","Smoldering Studded Leather (DC-POA-GSP2-2H)","Smoldering Studded Leather: Smokin' Hot Leather (DC-POA-LEGIT-SV-02)","Smoldering Studded Leather (DC-POA-OGG-1)","Smoldering Studded Leather: Armor of the Dark Knight (DC-POA-TDG1-4)","Smoldering Studded Leather (DDAL10-0)","Smoldering Scale Mail: Stygian Armor (CCC-GSP2-2)","Smoldering Breastplate: Jökulsbrynja (DC-POA-CONMAR-3)","Smoldering Breastplate: Wintergreen Guard (DC-POA-LEGIT-SV-01)","Spiked Armor of Gleaming: Axehead's Coat of Beaks (CCC-MTL-3)"],
+	choices : ["Cast-Off Breastplate (DC-POA-CONMAR-6)","Cast-Off Breastplate: Ooze (DC-POA-GaryXIII-4)","Cast-Off Breastplate (DC-POA-HAG-SF4)","Cast-Off Chain Mail: Scavenger's Shroud (CCC-DES-4-1)","Shield of Expression (DC-POA-CONMAR-15)","Shield of Expression (DC-POA-SNIPE-1)","Shield of Expression (WBW-DC-CONMAR-10)","Shield of Expression (WBW-DC-DCS-1)","Smoldering Armor: Flurried Furs (DDAL0-4)","Smoldering Studded Leather (DC-POA-CODEX-2)","Smoldering Studded Leather (DC-POA-CONMAR-8)","Smoldering Studded Leather (DC-POA-GSP2-2H)","Smoldering Studded Leather: Smokin' Hot Leather (DC-POA-LEGIT-SV-02)","Smoldering Studded Leather (DC-POA-OGG-1)","Smoldering Studded Leather: Armor of the Dark Knight (DC-POA-TDG1-4)","Smoldering Studded Leather (DDAL10-0)","Smoldering Scale Mail: Stygian Armor (CCC-GSP2-2)","Smoldering Breastplate: Jökulsbrynja (DC-POA-CONMAR-3)","Smoldering Breastplate: Wintergreen Guard (DC-POA-LEGIT-SV-01)","Spiked Armor of Gleaming: Axehead's Coat of Beaks (CCC-MTL-3)"],
 	"cast-off breastplate (dc-poa-conmar-6)" : {
 		name : "Cast-Off Breastplate (DC-POA-CONMAR-6)",
 		source : [["AL", "DC-POA"]],
 		type : "armor (medium)",
 		description : "This breastplate is dark blue with the symbol of Auril the Frostmaiden (white snow crystals) engraved into the metal. You can doff it as an action.",
 		descriptionFull : "This breastplate is dark blue with the symbol of Auril the Frostmaiden, white snow crystals, engraved into the metal. It consists of a fitted metal chest piece worn with supple leather. Although it leaves the legs and arms relatively unprotected, this armor provides good protection for the wearer's vital organs while leaving the wearer relatively unencumbered. You can doff it as an action.",
-		armorAdd : { select : "Cast-Off Breastplate", options : ["Cast-Off Breastplate"] },
+		armorAdd : "Cast-Off Breastplate",
+		armorOptions : createArmorOptionsDud("Cast-Off Breastplate", "DC-POA"),
 		action : [["action", "Cast-Off Breastplate"]]
 	},
 	"cast-off breastplate: ooze (dc-poa-garyxiii-4)" : {
@@ -612,7 +669,8 @@ MagicItemsList["al armor (common)"] = {
 		type : "armor (medium)",
 		description : "This armor is a semi-sentient translucent ooze. Attracted to your body heat, it'll act as armor for you as long as you're alive. The ooze may be doffed in 1 action by drawing it to a stronger source of heat. It may be donned in 5 minutes by waiting patiently nearby or attracting it closer with small heat sources such as matches. Although there's no mechanical benefit, the ooze appreciates being fed small objects, which it dissolves or spits out depending on its tastes.",
 		descriptionFull : "This armor is formed from a semi-sentient translucent ooze. Attracted to the wearer's body heat, this ooze will act as a breastplate for the wearer so long as they are alive. The armor may be doffed in 1 action by attracting the ooze to a stronger source of heat than the wearer's body temperature. The armor may be donned in 5 minutes by waiting patiently near the ooze or attracting it closer with small matches or other temporary sources of heat. Though it does not confer any additional mechanical benefit, the ooze appreciates being fed small objects, which it may dissolve or spit out depending on its specific tastes. It consists of a fitted metal chest piece worn with supple leather. Although it leaves the legs and arms relatively unprotected, this armor provides good protection for the wearer's vital organs while leaving the wearer relatively unencumbered. You can doff it as an action.",
-		armorAdd : { select : "Cast-Off Ooze Breastplate", options : ["Cast-Off Ooze Breastplate"] },
+		armorAdd : "Cast-Off Ooze Breastplate",
+		armorOptions : createArmorOptionsDud("Cast-Off Ooze Breastplate", "DC-POA"),
 		action : [["action", "Cast-Off Breastplate"]]
 	},
 	"cast-off breastplate (dc-poa-hag-sf4)" : {
@@ -621,7 +679,8 @@ MagicItemsList["al armor (common)"] = {
 		type : "armor (medium)",
 		description : "This breastplate looks like it has been well used. You can doff it as an action.",
 		descriptionFull : "This armor looks like it has been well used and consists of a fitted metal chest piece worn with supple leather. Although it leaves the legs and arms relatively unprotected, the armor provides good protection for the wearer's vital organs while leaving the wearer relatively unencumbered. You can doff it as an action.",
-		armorAdd : { select : "Cast-Off Breastplate", options : ["Cast-Off Breastplate"] },
+		armorAdd : "Cast-Off Breastplate",
+		armorOptions : createArmorOptionsDud("Cast-Off Breastplate", "DC-POA"),
 		action : [["action", "Cast-Off Breastplate"]]
 	},
 	"cast-off chain mail: scavenger's shroud (ccc-des-4-1)" : {
@@ -630,17 +689,9 @@ MagicItemsList["al armor (common)"] = {
 		type : "armor (heavy)",
 		description : "This cleverly crafted cowl and coat combination is made of worn leather covered in dangling chains and hooks, and gives you the appearance of a chain devil (kyton) when you wear it. You can doff it as an action.",
 		descriptionFull : "This cleverly crafted cowl and coat combination is made of worn leather, covered in dangling chains and hooks, and gives the appearance of a chain devil (kyton) to any that wear it. Made of interlocking metal rings, chain mail includes a layer of quilted fabric worn underneath the mail to prevent chafing and to cushion the impact of blows. The suit includes gauntlets. You can doff it as an action.",
-		armorAdd : { select : "Cast-Off Chain Mail", options : ["Cast-Off Chain Mail"] },
+		armorAdd : "Cast-Off Chain Mail",
+		armorOptions : createArmorOptionsDud("Cast-Off Chain Mail", "CCC"),
 		action : [["action", "Cast-Off Chain Mail"]]
-	},
-	"cast-off plate (bmg-drw-od-5)" : {
-		name : "Cast-Off Plate (BMG-DRW-OD-5)",
-		source : [["AL", "DRW"]],
-		type : "armor (heavy)",
-		description : "This rusty set of plate armor has a Thayan rune with dried blood in the grooves etched into the inside back of the breastplate. You can doff it as an action.",
-		descriptionFull : "This rusty set of plate armor has a Thayan rune with dried blood in the grooves etched into the inside back of the breastplate. You can doff it as an action.",
-		armorAdd : { select : "Cast-Off Plate", options : ["Cast-Off Plate"] },
-		action : [["action", "Cast-Off Plate"]]
 	},
 	"shield of expression (dc-poa-conmar-15)" : {
 		name : "Shield of Expression (DC-POA-CONMAR-15)",
@@ -703,7 +754,8 @@ MagicItemsList["al armor (common)"] = {
 		type : "armor (light)",
 		description : "This reinforced studded leather jerkin is edged in red thread & embroidered with Husk's personal mark on the back. It has a turned-down collar lined with fox fur & a detachable hood fastened in place by lodestone studs. Wisps of harmless, odorless smoke rise from it when it's worn.",
 		descriptionFull : "This reinforced leather jerkin is edged in red thread and embroidered with Husk's personal mark on the back. It has a turned-down collar lined with fox fur, and a detachable hood fastened in place by lodestone studs. Wisps of harmless, odorless smoke rise from the studded leather armor while it is worn.",
-		armorAdd : { select : "Smoldering Studded Leather", options : ["Smoldering Studded Leather"] },
+		armorAdd : "Smoldering Studded Leather",
+		armorOptions : createArmorOptionsDud("Smoldering Studded Leather", "DC-POA")
 	},
 	"smoldering studded leather (dc-poa-conmar-8)" : {
 		name : "Smoldering Studded Leather (DC-POA-CONMAR-8)",
@@ -711,7 +763,8 @@ MagicItemsList["al armor (common)"] = {
 		type : "armor (light)",
 		description : "Wisps of harmless, odorless smoke rise from this armor while it's worn. The smoke is thick, black, & threatens to choke you. Any time that you act selfishly, a faint deep chuckle can be heard in the distance.",
 		descriptionFull : "Wisps of harmless, odorless smoke rise from this studded leather armor while it is worn. The smoke is thick, black, and almost threatens to choke you. Any time that you act selfishly a faint, deep chuckle can be heard in the distance.",
-		armorAdd : { select : "Smoldering Studded Leather", options : ["Smoldering Studded Leather"] },
+		armorAdd : "Smoldering Studded Leather",
+		armorOptions : createArmorOptionsDud("Smoldering Studded Leather", "DC-POA")
 	},
 	"smoldering studded leather (dc-poa-gsp2-2h)" : {
 		name : "Smoldering Studded Leather (DC-POA-GSP2-2H)",
@@ -719,7 +772,8 @@ MagicItemsList["al armor (common)"] = {
 		type : "armor (light)",
 		description : "Wisps of harmless, odorless ice vapors rise from this armor when it's worn, forming a shape similar to the wings of an angel. A glistening emblem of the Order of the Gauntlet is pinned to the top right of the armor.",
 		descriptionFull : "Wisps of harmless, odorless smoke rise from this studded leather armor while it is worn. The ice vapors that rise from this armor form a shape similar to the wings of an angel. At the top right of the armor piece, a glistening emblem of the Order of the Gauntlet is pinned on it.",
-		armorAdd : { select : "Smoldering Studded Leather", options : ["Smoldering Studded Leather"] },
+		armorAdd : "Smoldering Studded Leather",
+		armorOptions : createArmorOptionsDud("Smoldering Studded Leather", "DC-POA")
 	},
 	"smoldering studded leather: smokin' hot leather (dc-poa-legit-sv-02)" : {
 		name : "Smokin' Hot Armor (Smoldering Studded Leather)",
@@ -727,7 +781,8 @@ MagicItemsList["al armor (common)"] = {
 		type : "armor (light)",
 		description : "This offensively pink suit of studded leather has been enchanted to emit pink-tinted rose-scented smoke. Pink spikes have been placed wherever it was possible, and several places where it wasn't. Violently pink fur lines its insides; just how many pink bears had to die for this abomination?",
 		descriptionFull : "This offensively pink suit of armor has been enchanted to emit pink-tinted rose-scented smoke. Pink spikes have been placed wherever possible and in several places where it wasn't. Violently pink fur lines the inside; just how many pink bears had to die for this abomination?",
-		armorAdd : { select : "Smokin' Studded Leather", options : ["Smokin' Studded Leather"] },
+		armorAdd : "Smokin' Studded Leather",
+		armorOptions : createArmorOptionsDud("Smokin' Studded Leather", "DC-POA")
 	},
 	"smoldering studded leather (dc-poa-ogg-1)" : {
 		name : "Smoldering Studded Leather (DC-POA-OGG-1)",
@@ -735,7 +790,8 @@ MagicItemsList["al armor (common)"] = {
 		type : "armor (light)",
 		description : "This studded leather survived the intense heat of an illithid's furnace & still bears splotchy red stains & blackened buckles from the flames. Wisps of harmless, odorless smoke rise from the armor when it's worn. ",
 		descriptionFull : "This studded leather armor survived the intense heat of the illithid's furnace, but still bears splotchy red stains and blackened buckles from the flames. Wisps of harmless, odorless smoke rise from the armor while it is worn.",
-		armorAdd : { select : "Smoldering Studded Leather", options : ["Smoldering Studded Leather"] },
+		armorAdd : "Smoldering Studded Leather",
+		armorOptions : createArmorOptionsDud("Smoldering Studded Leather", "DC-POA")
 	},
 	"smoldering studded leather: armor of the dark knight (dc-poa-tdg1-4)" : {
 		name : "Armor of the Dark Knight (Smoldering Studded Leather)",
@@ -743,7 +799,8 @@ MagicItemsList["al armor (common)"] = {
 		type : "armor (light)",
 		description : "A survival suit for advanced infantry. Kevlar bi-weave, reinforced joints; this sucker will stop a knife & most projectiles. Wisps of harmless, odorless smoke rise from this armor when it's worn.",
 		descriptionFull : "Survival suit for advanced infantry. Kevlar bi-weave, reinforced joints; this sucker will stop a knife and most projectiles. Wisps of harmless, odorless smoke rise from this armor when it's worn. Made from tough but flexible leather, studded leather is reinforced with close-set rivets or spikes.",
-		armorAdd : { select : "Smoldering Studded Leather", options : ["Smoldering Studded Leather"] },
+		armorAdd : "Smoldering Studded Leather",
+		armorOptions : createArmorOptionsDud("Smoldering Studded Leather", "DC-POA")
 	},
 	"smoldering studded leather (ddal10-0)" : {
 		name : "Smoldering Studded Leather (DDAL10-0)",
@@ -751,7 +808,8 @@ MagicItemsList["al armor (common)"] = {
 		type : "armor (light)",
 		description : "This armor smells of blood and gnoll sweat, and the stench can't be removed. Wisps of harmless, odorless smoke rise from this armor while it is worn.",
 		descriptionFull : "This armor smells of blood and gnoll sweat, and the stench can't be removed. Wisps of harmless, odorless smoke rise from this armor while it's worn. Made from tough but flexible leather, studded leather is reinforced with close-set rivets or spikes.",
-		armorAdd : { select : "Smoldering Studded Leather", options : ["Smoldering Studded Leather"] },
+		armorAdd : "Smoldering Studded Leather",
+		armorOptions : createArmorOptionsDud("Smoldering Studded Leather", "S10")
 	},
 	"smoldering scale mail: stygian armor (ccc-gsp2-2)" : {
 		name : "Stygian Scale Mail (Smoldering Armor)",
@@ -759,7 +817,8 @@ MagicItemsList["al armor (common)"] = {
 		type : "armor (medium)",
 		description : "This light blue, ice-like armor with a closed helm is light but durable. When exposed to air, the humidity around the armor condenses into tiny droplets, becoming visible wisps of mist-like vapor. A copy of the Nightsong Clan's infernal contract is engraved all over the armor, reminding you to search for the soul of Rem Nightsong & bring it to the Nine Hells.",
 		descriptionFull : "This light blue, ice-like armor with a closed helm is light but durable. When exposed to air, the humidity around the armor condenses into tiny droplets, becoming visible wisps of mist-like vapor. A copy of the Nightsong Clan's infernal contract is engraved all over the armor, reminding its wearer to search for the soul of Rem Nightsong and bring it to the Nine Hells.\n   Wisps of harmless, odorless smoke rise from this armor while it is worn.",
-		armorAdd : { select : "Stygian Scale Mail", options : ["Stygian Scale Mail"] },
+		armorAdd : "Stygian Scale Mail",
+		armorOptions : createArmorOptionsDud("Stygian Scale Mail", "DC-POA")
 	},
 	"smoldering breastplate: jökulsbrynja (dc-poa-conmar-3)" : {
 		name : "Jökulsbrynja (Smoldering Breastplate)",
@@ -767,7 +826,8 @@ MagicItemsList["al armor (common)"] = {
 		type : "armor (medium)",
 		description : "This metal armor is adorned with snowflake symbols & feels cool to the touch. Although metal, its sheen & color make it look like it's made from opaque ice & it emits wisps of harmless odorless frost vapor while worn.",
 		descriptionFull : "This metal breastplate is adorned with snowflake symbols and feels cool to the touch. While metal, its sheen and color make it look almost like it is made from opaque ice, and it constantly emits wisps of harmless, odorless frost smoke while it is worn.\n  This armor consists of a fitted metal chest piece worn with supple leather. Although it leaves the legs and arms relatively unprotected, this armor provides good protection for the wearer's vital organs while leaving the wearer relatively unencumbered.",
-		armorAdd : { select : "Smoldering Breastplate", options : ["Smoldering Breastplate"] },
+		armorAdd : "Smoldering Breastplate",
+		armorOptions : createArmorOptionsDud("Smoldering Breastplate", "DC-POA")
 	},
 	"smoldering breastplate: wintergreen guard (dc-poa-legit-sv-01)" : {
 		name : "Wintergreen Guard, Smoldering Breastplate",
@@ -775,7 +835,8 @@ MagicItemsList["al armor (common)"] = {
 		type : "armor (medium)",
 		description : "When you are struck by bludgeoning damage, this armor emits oils that cause a cool numbing sensation. While not particularly effective at its intended purpose, the volatile oils produce a visible and pleasant smelling vapor that wafts from the armor.",
 		descriptionFull : "When you are struck by bludgeoning damage, the armor emits oils which create a cool numbing sensation. While not particularly effective at its intended purpose, the volatile oils produce a visible and pleasant smelling vapor which wafts from under the armor.",
-		armorAdd : { select : "Smoldering Breastplate", options : ["Smoldering Breastplate"] },
+		armorAdd : "Smoldering Breastplate",
+		armorOptions : createArmorOptionsDud("Smoldering Breastplate", "DC-POA")
 	},
 	"spiked armor of gleaming: axehead's coat of beaks (ccc-mtl-3)" : {
 		name : "Axehead's Coat of Beaks (Spiked Armor of Gleaming)",
@@ -784,14 +845,15 @@ MagicItemsList["al armor (common)"] = {
 		description : "Once belonging to the battlerager Axehead Moontunnel, this strangely designed armor is crafted from Underdark creatures. The softer parts are made of boiled roper skin & the spikes are the beaks from various Underdark horrors. The mask features the heads of two small axes strapped together to form a visor. Though made of unpleasant materials, the armor never gets dirty – blood runs right off it! While wearing it, you feel like you can take on any opponent.",
 		descriptionFull : "Once belonging to the battlerager Axehead Moontunnel, this armor is of his own strange design and crafted from parts of Underdark creatures. The softer parts are made of boiled roper skin and the spikes are beaks taken from various Underdark horrors. The mask features heads of two small axes strapped together to form a sort of visor. Though made of unpleasant materials, the armor never seems to get any dirtier than it already is – blood runs right off it! The wearer of this armor feels as though they can take on any opponent.",
 		allowDuplicates : true,
+		armorAdd : "Axehead's Coat of Beaks",
 		armorOptions : [{
-			name : "Coat of Beaks (Spiked Armor)",
+			name : "Axehead's Coat of Beaks",
+			source : [["AL", "CCC"]],
 			regExpSearch : /^(?=.*coat)(?=.*axehead|s)(?=.*beaks).*$/i,
 			type : "medium",
 			ac : 14,
 			stealthdis : true,
-			weight : 45,
-			selectNow : true,
+			weight : 45
 		}]
 	},
 }
@@ -813,7 +875,8 @@ MagicItemsList["al armor (other)"] = {
 		limfeaname : "Armor of Fungal Spores",
 		usages : 1,
 		recovery : "dawn",
-		armorAdd : { select : "Shell Breastplate of Fungal Spores", options : ["Shell Breastplate of Fungal Spores"] },
+		armorAdd : "Shell Breastplate of Fungal Spores",
+		armorOptions : createArmorOptionsDud("Breastplate of Fungal Spores", "FR-DC")
 	},
 	"breastplate of fungal spores: cheese plate (fr-dc-waterdeep-chz)" : {
 		name : "Cheese Plate (Breastplate of Fungal Spores)",
@@ -827,7 +890,8 @@ MagicItemsList["al armor (other)"] = {
 		limfeaname : "Armor of Fungal Spores",
 		usages : 1,
 		recovery : "dawn",
-		armorAdd : { select : "Cheese Breastplate of Fungal Spores", options : ["Cheese Breastplate of Fungal Spores"] },
+		armorAdd : "Cheese Breastplate of Fungal Spores",
+		armorOptions : createArmorOptionsDud("Breastplate of Fungal Spores", "FR-DC")
 	},
 	"breastplate of necrotic resistance: chardalyn (ddal10-5)" : {
 		name : "Chardalyn Breastplate of Necrotic Resist. (DDAL10-5)",
@@ -839,7 +903,8 @@ MagicItemsList["al armor (other)"] = {
 		description : "This breastplate is made of chardalyn reinforced with hardened wood and boiled leather. While wearing it, you always feel bitterly cold and when also attuned, you have resistance to necrotic damage.",
 		descriptionFull : "This breastplate is made of chardalyn reinforced with hardened wood and boiled leather. While wearing it, you always feel bitterly cold. You have resistance to necrotic damage while attuned to and wearing the armor.",
 		dmgres : ["Necrotic"],
-		armorAdd : { select : "Chardalyn Breastplate", options : ["Chardalyn Breastplate"] },
+		armorAdd : "Chardalyn Breastplate",
+		armorOptions : createArmorOptionsDud("Chardalyn Breastplate of Necrotic Resistance", "S10")
 	},
 	"demon armor (ddex3-16)" : {
 		name : "Demon Armor (DDEX3-16)",
@@ -854,23 +919,25 @@ MagicItemsList["al armor (other)"] = {
 		cursed : true,
 		languageProfs : ["Abyssal"],
 		savetxt : { text : ["Disadv. on saves vs. demons"] },
+		armorAdd : "Demon Armor",
 		armorOptions : [{
 			regExpSearch : /^(?=.*demon)(?=.*armor).*$/i,
 			name : "Demon Armor",
+			source : [["AL", "S3"]],
 			type : "heavy",
 			ac : 19,
 			stealthdis : true,
 			weight : 65,
-			strReq : 15,
-			selectNow : true,
+			strReq : 15
 		}],
+		weaponsAdd: ["Demon Armor Claws"],
 		weaponOptions: [{
 			baseWeapon : "unarmed strike",
 			regExpSearch : /^(?=.*demon)(?=.*armor)(?=.*claws).*$/i,
 			name : "Demon Armor Claws",
+			source : [["AL", "S3"]],
 			damage : [1, 8, "slashing"],
-			modifiers : [1, 1],
-			selectNow : true,
+			modifiers : [1, 1]
 		}]
 	},
 	"efreeti chain (ddal7-15)" : {
@@ -885,15 +952,16 @@ MagicItemsList["al armor (other)"] = {
 		weight : 55,
 		languageProfs : ["Primordial"],
 		savetxt : { immune : ["fire"] },
+		armorAdd : "Efreeti Chain",
 		armorOptions : [{
 			regExpSearch : /^(?=.*efreeti)(?=.*chain).*$/i,
 			name : "Efreeti Chain",
+			source : [["AL", "S7"]],
 			type : "heavy",
 			ac : 19,
 			stealthdis : true,
 			weight : 55,
-			strReq : 13,
-			selectNow : true,
+			strReq : 13
 		}]
 	},
 	"elven chain (ccc-bmg-36 elmw2-3)" : {
@@ -905,13 +973,14 @@ MagicItemsList["al armor (other)"] = {
 		description : "This weird silvery-purple chain shirt is as thin & light as linen. It has a muted wave symbol of Istishia, the neutral god known as the Water Lord, patterned into the links & must have once belonged to a sea elf. You gain a +1 bonus to AC while you wear the chain shirt & are considered proficient even if you lack proficiency with medium armor.",
 		descriptionFull : "This weird silvery-purple chain shirt is as thin and light as a linen shirt. It has a muted wave symbol of Istishia, the neutral god known as the Water Lord, patterned into the links. This chain must have once belonged to a sea elf. You gain a +1 bonus to AC while you wear this armor. You are considered proficient with this armor even if you lack proficiency with medium armor.",
 		weight : 20,
+		armorAdd : "Elven Chain",
 		armorOptions : [{
 			regExpSearch : /^(?=.*elven)(?=.*chain).*$/i,
 			name : "Elven Chain",
+			source : [["AL", "CCC"]],
 			type : "medium",
 			ac : 14,
-			weight : 20,
-			selectNow : true,
+			weight : 20
 		}]
 	},
 	"elven chain (ccc-sqc-2-2)" : {
@@ -923,13 +992,14 @@ MagicItemsList["al armor (other)"] = {
 		description : "This chain shirt is made of magically hardened sandalwood that smells like incense at all times. You gain a +1 bonus to AC while you wear it & are considered proficient even if you lack proficiency with medium armor.",
 		descriptionFull : "This shirt is made of magically hardened sandalwood that smells like incense at all times. You gain a +1 bonus to AC while you wear this armor. You are considered proficient with this armor even if you lack proficiency with medium armor.",
 		weight : 20,
+		armorAdd : "Elven Chain (Sandalwood)",
 		armorOptions : [{
 			regExpSearch : /^(?=.*elven)(?=.*chain)(?=.*sandalwood).*$/i,
 			name : "Elven Chain (Sandalwood)",
+			source : [["AL", "CCC"]],
 			type : "medium",
 			ac : 14,
-			weight : 20,
-			selectNow : true,
+			weight : 20
 		}]
 	},
 	"elven chain: armor of the first frost (wbw-dc-aa-ashalon-1)" : {
@@ -942,13 +1012,14 @@ MagicItemsList["al armor (other)"] = {
 		descriptionFull : "The surface of this icy armor is cold to the touch, with tendrils of frost decorating the metal. While wearing this, you have a keener understanding of duty and responsibility. Despite the material it is made of, the temperature around you always remains comfortable, even in the hottest or coldest environments.\n   " + toUni("Temperate") + ". The bearer suffers no harm in temperatures as cold as –20 degrees Fahrenheit or as warm as 120 degrees Fahrenheit.\n   You gain a +1 bonus to AC while you wear this armor. You are considered proficient with this armor even if you lack proficiency with medium armor.",
 		weight : 20,
 		savetxt : { immune : ["temps btwn -20\u00B0F/120\u00B0F"] },
+		armorAdd : "Elven Chain (First Frost)",
 		armorOptions : [{
 			regExpSearch : /^(?=.*elven)(?=.*chain)(?=.*first)(?=.*frost).*$/i,
 			name : "Elven Chain (First Frost)",
+			source : [["AL", "WBW-DC"]],
 			type : "medium",
 			ac : 14,
-			weight : 20,
-			selectNow : true,
+			weight : 20
 		}]
 	},
 	"elven chain (wbw-dc-amq-5)" : {
@@ -960,13 +1031,14 @@ MagicItemsList["al armor (other)"] = {
 		description : "This elven chain shirt is made of interlocking black & silver metal rings. On the back, the rings form an intricate pattern of a portcullis with the letters “TM” on top. It may be the manager's uniform for the “Dungeon of the Smelly Doom”. While wearing this chain, you gain +1 AC & are proficient even if you lack proficiency with medium armor.",
 		descriptionFull : "This elven chain was built with interlocked black and silvery metal rings. The rings form an intricate pattern at the back of the chain mail shirt. It resembles a portcullis with the “TM” letters at its top. Would this be the manager's uniform for the staff working at the “Dungeon of the Smelly Doom”?\n   You gain a +1 bonus to AC while you wear this armor. You are considered proficient with this armor even if you lack proficiency with medium armor.",
 		weight : 20,
+		armorAdd : "Elven Chain",
 		armorOptions : [{
 			regExpSearch : /^(?=.*elven)(?=.*chain).*$/i,
 			name : "Elven Chain",
+			source : [["AL", "WBW-DC"]],
 			type : "medium",
 			ac : 14,
-			weight : 20,
-			selectNow : true,
+			weight : 20
 		}]
 	},
 	"elven chain: astral (wbw-dc-conmar-12)" : {
@@ -978,13 +1050,14 @@ MagicItemsList["al armor (other)"] = {
 		description : "This elven chain has a rare design & will make heads turn. The chain weaving is exquisite, delicate and must have been created by some machine-powered process. The trim is adorned with unidentifiable runic letters. While wearing this chain, you gain +1 AC & are proficient even if you lack proficiency with medium armor.",
 		descriptionFull : "This elven chain is made from a design rarely encountered. The weaving of the chain is quite exquisite and delicate and must have been created by some machine-powered process. The trim is adorned with unidentifiable runic letters. Wearing this elven chain will make heads turn.\n   You gain a +1 bonus to AC while you wear this armor. You are considered proficient with this armor even if you lack proficiency with medium armor.",
 		weight : 20,
+		armorAdd : "Elven Chain",
 		armorOptions : [{
 			regExpSearch : /^(?=.*elven)(?=.*chain).*$/i,
 			name : "Elven Chain",
+			source : [["AL", "WBW-DC"]],
 			type : "medium",
 			ac : 14,
-			weight : 20,
-			selectNow : true,
+			weight : 20
 		}]
 	},
 	"elven chain: guardian (wbw-dc-ggs-1)" : {
@@ -997,13 +1070,14 @@ MagicItemsList["al armor (other)"] = {
 		descriptionFull : "The interlocking rings of this chain shirt are formed in a delicate black and white spider web pattern. Fine Elvish script is stenciled around the neck border that repeats the phrase “Granny has little patience for rudeness,” in Elvish.\n   When danger is imminent, this armor whispers to the wearer “mind your manners and be polite” and it feels like dozens of tiny spiders are crawling through the spider web pattern across the wearer's body. This warning grants a +2 to initiative rolls as long as the wearer is not incapacitated.\n   You gain a +1 bonus to AC while you wear this armor. You are considered proficient with this armor even if you lack proficiency with medium armor.",
 		weight : 20,
 		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
+		armorAdd : "Elven Chain",
 		armorOptions : [{
 			regExpSearch : /^(?=.*elven)(?=.*chain).*$/i,
 			name : "Elven Chain",
+			source : [["AL", "WBW-DC"]],
 			type : "medium",
 			ac : 14,
-			weight : 20,
-			selectNow : true,
+			weight : 20
 		}]
 	},
 	"elven chain: loud (wbw-dc-ggs-1)" : {
@@ -1015,13 +1089,14 @@ MagicItemsList["al armor (other)"] = {
 		description : "The interlocking rings of this chain shirt form a delicate black & white spider web. Fine script stenciled around the neck repeats the phrase “Granny has little patience for rudeness” in Elvish. When you're hit by an atk, you feel like dozens of tiny spiders are crawling across your body from the spider web. There's also a discordant violin sound & Granny Greataxe's voice saying “How rude!” at a normal speaking volume. While wearing this chain, you gain +1 AC & are proficient even if you lack proficiency with medium armor.",
 		descriptionFull : "The interlocking rings of this chain shirt are formed in a delicate black and white spider web pattern. Fine Elvish script is stenciled around the neck border that repeats the phrase “Granny has little patience for rudeness,” in Elvish.\n   Whenever the character wearing this armor is hit by a melee or ranged attack, the armor feels like dozens of tiny spiders are crawling in and out of the spider web pattern and across the wearer's body. The feeling is accompanied by an audible discordant violin sound, and Granny Greataxe's voice echoes “How rude!” at a normal speaking volume.\n   You gain a +1 bonus to AC while you wear this armor. You are considered proficient with this armor even if you lack proficiency with medium armor.",
 		weight : 20,
+		armorAdd : "Elven Chain",
 		armorOptions : [{
 			regExpSearch : /^(?=.*elven)(?=.*chain).*$/i,
 			name : "Elven Chain",
+			source : [["AL", "WBW-DC"]],
 			type : "medium",
 			ac : 14,
-			weight : 20,
-			selectNow : true,
+			weight : 20
 		}]
 	},
 	"elven chain (wbw-dc-php-spammy-1)" : {
@@ -1033,13 +1108,14 @@ MagicItemsList["al armor (other)"] = {
 		description : "This chain shirt was crafted inside a fey domain. It reacts to your emotions and personality, changing colors based on your mood and style. If the armor gets hit, it plays a musical chime on impact. While wearing this chain, you gain +1 AC & are proficient even if you lack proficiency with medium armor.",
 		descriptionFull : "This armor has been crafted inside the domain itself. It reacts to the user's emotions and personality, changing colors based on their mood and style. If the armor gets hit, it will also play a musical chime on its impact.\n   You gain a +1 bonus to AC while you wear this armor. You are considered proficient with this armor even if you lack proficiency with medium armor.",
 		weight : 20,
+		armorAdd : "Elven Chain",
 		armorOptions : [{
 			regExpSearch : /^(?=.*elven)(?=.*chain).*$/i,
 			name : "Elven Chain",
+			source : [["AL", "WBW-DC"]],
 			type : "medium",
 			ac : 14,
-			weight : 20,
-			selectNow : true,
+			weight : 20
 		}]
 	},
 	"elven chain (wbw-dc-rook-2-1)" : {
@@ -1051,14 +1127,14 @@ MagicItemsList["al armor (other)"] = {
 		description : "Made of interlocking amorywood rings as strong as mithral, this chain shirt is of obvious elven design & glows faintly when goblinoids are within 120 ft. While wearing this chain, you gain +1 AC & are proficient even if you lack proficiency with medium armor.",
 		descriptionFull : "Made of interlocking amorywood rings, this armor is of obvious elven design. These rings are as strong as mithral.\n   " + toUni("Sentinel") + ". This item glows faintly when goblinoids are within 120 feet of it.\n   You gain a +1 bonus to AC while you wear this armor. You are considered proficient with this armor even if you lack proficiency with medium armor.",
 		weight : 20,
+		armorAdd : "Elven Chain (Amorywood)",
 		armorOptions : [{
 			regExpSearch : /^(?=.*elven)(?=.*chain)(?=.*amorywood).*$/i,
 			name : "Elven Chain (Amorywood)",
 			source : [["AL", "WBW-DC"]],
 			type : "medium",
 			ac : 14,
-			weight : 20,
-			selectNow : true,
+			weight : 20
 		}]
 	},
 	"elven chain (wbw-dc-taz-1)" : {
@@ -1070,13 +1146,14 @@ MagicItemsList["al armor (other)"] = {
 		description : "Threads of yarn spun from the golden fleece are entwined with the links of this chain shirt, giving it a look of lustrous gold. While wearing this armor, you gain +1 AC & are proficient even if you lack proficiency with medium armor.",
 		descriptionFull : "This chain shirt has had threads of golden yarn spun from the golden fleece entwined with the links of chain giving it the look of a lustrous gold version of such a piece of armor, yet the armor itself is still metal.\n   You gain a +1 bonus to AC while you wear this armor. You are considered proficient with this armor even if you lack proficiency with medium armor.",
 		weight : 20,
+		armorAdd : "Elven Chain",
 		armorOptions : [{
 			regExpSearch : /^(?=.*elven)(?=.*chain).*$/i,
 			name : "Elven Chain",
+			source : [["AL", "WBW-DC"]],
 			type : "medium",
 			ac : 14,
-			weight : 20,
-			selectNow : true,
+			weight : 20
 		}]
 	},
 	"elven chain (wbw-dc-ten-3)" : {
@@ -1089,13 +1166,14 @@ MagicItemsList["al armor (other)"] = {
 		descriptionFull : "You gain a +1 bonus to AC while you wear this armor. You are considered proficient with this armor even if you lack proficiency with medium armor.\n   " + toUni("Temperate") + ". The bearer suffers no harm in temperatures as cold as −20 degrees Fahrenheit or as warm as 120 degrees Fahrenheit.",
 		weight : 20,
 		savetxt : { immune : ["temps btwn -20\u00B0F/120\u00B0F"] },
+		armorAdd : "Elven Chain",
 		armorOptions : [{
 			regExpSearch : /^(?=.*elven)(?=.*chain).*$/i,
 			name : "Elven Chain",
+			source : [["AL", "WBW-DC"]],
 			type : "medium",
 			ac : 14,
-			weight : 20,
-			selectNow : true,
+			weight : 20
 		}]
 	},
 	"elven chain: tehettan's protection (wbw-dc-tmp-2)" : {
@@ -1107,13 +1185,14 @@ MagicItemsList["al armor (other)"] = {
 		description : "The interlocking rings of Tehettan's Protection are tightly woven vines that were magically grown together. Once in a while a leaf sprouts from the chain. While wearing it, you gain +1 AC and are proficient even if you lack proficiency with medium armor.",
 		descriptionFull : "You gain a +1 bonus to AC while you wear this armor. You are considered proficient with this armor even if you lack proficiency with medium armor.\n   " + toUni("Strange Material") + ". Rather than metal, the rings of Tehettan's Protection are tightly woven vines that were magically grown together. Every once in a while a leaf sprouts from the armor.",
 		weight : 20,
+		armorAdd : "Elven Chain (Vines)",
 		armorOptions : [{
 			regExpSearch : /^(?=.*elven)(?=.*chain).*$/i,
 			name : "Elven Chain (Vines)",
+			source : [["AL", "WBW-DC"]],
 			type : "medium",
 			ac : 14,
-			weight : 20,
-			selectNow : true,
+			weight : 20
 		}]
 	},
 	"elven chain (wbw-dc-zep-t2s5)" : {
@@ -1125,13 +1204,14 @@ MagicItemsList["al armor (other)"] = {
 		description : "Instead of silver metal, this armor appears to be an orange cloth vest embroidered with “Zep Chimelong Kingdom” that floats on water and other liquids. The inside tag reads, “Compliments of Princess Petunia”. While wearing this chain, you gain +1 AC & are proficient even if you lack proficiency with medium armor.",
 		descriptionFull : "This item floats on water and other liquids. Instead of silver metal, this armor appears to be an orange cloth vest embroidered with the words Zep Chimelong Kingdom. The inside tag reads, “Compliments of Princess Petunia”.\n   You gain a +1 bonus to AC while you wear this armor. You are considered proficient with this armor even if you lack proficiency with medium armor.",
 		weight : 20,
+		armorAdd : "Elven Chain (Cloth)",
 		armorOptions : [{
 			regExpSearch : /^(?=.*elven)(?=.*chain).*$/i,
 			name : "Elven Chain (Cloth)",
+			source : [["AL", "WBW-DC"]],
 			type : "medium",
 			ac : 14,
-			weight : 20,
-			selectNow : true,
+			weight : 20
 		}]
 	},
 	"elven chain: sky's armor (wbw-dc-zodiac-12)" : {
@@ -1144,13 +1224,14 @@ MagicItemsList["al armor (other)"] = {
 		descriptionFull : "Crafted by a master of the Summer Court, this metal armor glimmers in golden yellow and sky blue. Etched into the armor in elvish and orcish: “It's a victory when the weapons fall silent and people speak up.”\n   " + toUni("Guardian") + ". The item squeals a warning to its bearer, granting a +2 bonus to initiative if the bearer isn't incapacitated.\n   You gain a +1 bonus to AC while you wear this armor. You are considered proficient with this armor even if you lack proficiency with medium armor.",
 		weight : 20,
 		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
+		armorAdd : "Elven Chain",
 		armorOptions : [{
 			regExpSearch : /^(?=.*elven)(?=.*chain).*$/i,
 			name : "Elven Chain",
+			source : [["AL", "WBW-DC"]],
 			type : "medium",
 			ac : 14,
-			weight : 20,
-			selectNow : true,
+			weight : 20
 		}]
 	},
 	"glamoured studded leather (ddal4-9)" : {
@@ -1162,13 +1243,14 @@ MagicItemsList["al armor (other)"] = {
 		description : "This studded lthr armor is tight & immodestly cut. While wearing it, you gain a +1 bonus to AC. As a bonus action, speak command word & cause the armor to look like normal clothing or another armor type. You decide appearance, but the armor retains normal bulk. Any illusion created by this item appears to be of the finest quality. No matter what form it takes, your appearance draws the eye. The illusion lasts until you use this property again or remove the armor.",
 		descriptionLong : "This studded leather armor is tight and immodestly cut. While wearing it, you gain a +1 bonus to AC. As a bonus action, speak the command word and cause the armor to look like normal clothing or another armor type. You decide its appearance, but the armor retains normal bulk. Any illusion created by this item appears to be of the finest quality. No matter what form it takes, your appearance draws the eye. The illusion lasts until you use this property again or remove the armor.",
 		descriptionFull : "In its natural state, this armor is tight and immodestly cut. While wearing this armor, you gain a +1 bonus to AC. You can also use a bonus action to speak the armor's command word and cause the armor to assume the appearance of a normal set of clothing or some other kind of armor. You decide what it looks like, including color, style, and accessories, but the armor retains its normal bulk and weight. Any illusion of normal clothing and other types of armor created by this item can appear only to be of the finest quality. No matter what form it takes, when you wear this item, your appearance draws the eye of those around you. The illusory appearance last until you use this property again or remove the armor.",
+		armorAdd : "Glamoured Studded Leather",
 		armorOptions : [{
 			regExpSearch : /^(?=.*glamou?r)(?=.*(studded|studs))(?=.*leather).*$/i,
 			name : "Glamoured Studded Leather",
+			source : [["AL", "S4"]],
 			type : "light",
 			ac : 13,
-			weight : 13,
-			selectNow : true,
+			weight : 13
 		}],
 		action : [["bonus action", "Glamoured Studded Lthr (change)"]]
 	},
@@ -1180,13 +1262,14 @@ MagicItemsList["al armor (other)"] = {
 		magicItemTable : "G",
 		description : "This studded armor is made of salmon leather that has been dyed midnight black. While wearing it, you cannot become wet unless fully immersed in a liquid & you gain a +1 bonus to AC. As a bonus action, you can speak the command word & cause the armor to look like normal clothing or another armor type. You decide appearance, but the armor retains normal bulk. The illusion lasts until you use this property again or remove the armor.",
 		descriptionFull : "This armor is made of salmon leather that has been dyed midnight black. While wearing this studded leather, you cannot become wet unless fully immersed in a liquid & you gain a +1 bonus to AC. You can also use a bonus action to speak the armor's command word and cause the armor to assume the appearance of a normal set of clothing or some other kind of armor. You decide what it looks like, including color, style, and accessories, but the armor retains its normal bulk and weight. The illusory appearance last until you use this property again or remove the armor.",
+		armorAdd : "Glamoured Studded Leather",
 		armorOptions : [{
 			regExpSearch : /^(?=.*glamou?r)(?=.*(studded|studs))(?=.*leather).*$/i,
 			name : "Glamoured Studded Leather",
+			source : [["AL", "S8"]],
 			type : "light",
 			ac : 13,
-			weight : 13,
-			selectNow : true,
+			weight : 13
 		}],
 		action : [["bonus action", "Glamoured Studded Lthr (change)"]]
 	},
@@ -1198,13 +1281,14 @@ MagicItemsList["al armor (other)"] = {
 		magicItemTable : "G",
 		description : "Made from tough yet flexible giant abyssal crocodile hide leather & studded with what look to be teeth, this armor grants a +1 bonus to AC. As a bonus action, you can speak the command word & cause the armor to look like normal clothing or another armor type. You decide appearance, but the armor retains normal bulk. The illusion lasts until you use this property again or remove the armor.",
 		descriptionFull : "Made from tough yet flexible giant abyssal crocodile hide leather and studded with what look to be teeth, this armor grants a +1 bonus to AC. You can also use a bonus action to speak the armor's command word and cause the armor to assume the appearance of a normal set of clothing or some other kind of armor. You decide what it looks like, including color, style, and accessories, but the armor retains its normal bulk and weight. The illusory appearance last until you use this property again or remove the armor.",
+		armorAdd : "Glamoured Studded Leather",
 		armorOptions : [{
 			regExpSearch : /^(?=.*glamou?r)(?=.*(studded|studs))(?=.*leather).*$/i,
 			name : "Glamoured Studded Leather",
+			source : [["AL", "S9"]],
 			type : "light",
 			ac : 13,
-			weight : 13,
-			selectNow : true,
+			weight : 13
 		}],
 		action : [["bonus action", "Glamoured Studded Lthr (change)"]]
 	},
@@ -1216,13 +1300,14 @@ MagicItemsList["al armor (other)"] = {
 		magicItemTable : "G",
 		description : "This magical armor grants +1 to AC. It's natural state is a white corset decorated with lace & rhinestones. Speak the command word as a bonus action to make it look like normal clothing or another armor type. You decide the appearance, but the armor retains its normal bulk. The illusion lasts until you use this property again or remove the armor.",
 		descriptionFull : "This armor's natural state is a white corset decorated with lace and rhinestones. It grants a +1 bonus to AC and you can use a bonus action to speak the armor's command word and cause the armor to assume the appearance of a normal set of clothing or some other kind of armor. You decide what it looks like, including color, style, and accessories, but the armor retains its normal bulk and weight. The illusory appearance last until you use this property again or remove the armor.",
+		armorAdd : "Glamoured Studded Leather",
 		armorOptions : [{
 			regExpSearch : /^(?=.*glamou?r)(?=.*(studded|studs))(?=.*leather).*$/i,
 			name : "Glamoured Studded Leather",
+			source : [["AL", "S9"]],
 			type : "light",
 			ac : 13,
-			weight : 13,
-			selectNow : true,
+			weight : 13
 		}],
 		action : [["bonus action", "Glamoured Studded Lthr (change)"]]
 	},
@@ -1236,7 +1321,8 @@ MagicItemsList["al armor (other)"] = {
 		description : "This non-metal half plate armor is constructed of petrified giant mushrooms. While worn, you feel fortunate and optimistic about what the future holds. When also attuned, you have resistance to poison damage.",
 		descriptionFull : "This non-metal half plate armor is constructed of petrified giant mushrooms. The wearer feels fortunate and optimistic about what the future holds. While wearing this armor and attuned to it, you have resistance to poison damage.",
 		dmgres : ["Poison"],
-		armorAdd : { select : "Mushroom Half Plate", options : ["Mushroom Half Plate"] },
+		armorAdd : "Mushroom Half Plate",
+		armorOptions : createArmorOptionsDud("Mushroom Half Plate of Poison Resistance", "S3")
 	},
 	"hide armor of fungal spores (po-bmg-int-2)" : {
 		name : "Hide Armor of Fungal Spores (PO-BMG-INT-2)",
@@ -1250,7 +1336,8 @@ MagicItemsList["al armor (other)"] = {
 		limfeaname : "Armor of Fungal Spores",
 		usages : 1,
 		recovery : "dawn",
-		armorAdd : { select : "Hide Armor of Fungal Spores", options : ["Hide Armor of Fungal Spores"] },
+		armorAdd : "Hide Armor of Fungal Spores",
+		armorOptions : createArmorOptionsDud("Hide Armor of Fungal Spores", "PO")
 	},
 	"mariner's studded leather (ddal-drw9)" : {
 		name : "Mariner's Studded Leather (DDAL-DRW9)",
@@ -1261,7 +1348,8 @@ MagicItemsList["al armor (other)"] = {
 		description : "Made from tough, flexible shark leather, this armor is reinforced with close-set coral spikes. While wearing it, you have a swimming speed equal to your walking speed. In addition, whenever you start your turn underwater with 0 hp, you rise 60 ft toward the surface. The armor is decorated with fish & shell motifs.",
 		descriptionFull : "Made from tough, flexible shark leather, this armor is reinforced with close-set coral spikes. While wearing this armor, you have a swimming speed equal to your walking speed. In addition, whenever you start your turn underwater with 0 hit points, the armor causes you to rise 60 feet toward the surface. The armor is decorated with fish and shell motifs.",
 		allowDuplicates : true,
-		armorAdd : { select : "Mariner's Studded Leather", options : ["Mariner's Studded Leather"] },
+		armorAdd : "Mariner's Studded Leather",
+		armorOptions : createArmorOptionsDud("Mariner's Studded Leather", "DRW"),
 		speed : { swim : { spd : "walk", enc : "walk" } }
 	},
 	"mariner's breastplate (ccc-aether-1-2)" : {
@@ -1273,7 +1361,8 @@ MagicItemsList["al armor (other)"] = {
 		description : "The number “12101993” is etched into the inside of this green metallic breastplate along with a single word in Abyssal: “Doomed”. While wearing this armor, you have a swimming speed equal to your walking speed. In addition, whenever you start your turn underwater with 0 hp, you rise 60 ft toward the surface. The armor is decorated with fish & shell motifs.",
 		descriptionFull : "The number “12101993” is etched into the inside of this green metallic breastplate along with a single word in Abyssal: “Doomed”. While wearing this armor, you have a swimming speed equal to your walking speed. In addition, whenever you start your turn underwater with 0 hit points, the armor causes you to rise 60 feet toward the surface. The armor is decorated with fish and shell motifs.",
 		allowDuplicates : true,
-		armorAdd : { select : "Mariner's Breastplate", options : ["Mariner's Breastplate"] },
+		armorAdd : "Mariner's Breastplate",
+		armorOptions : createArmorOptionsDud("Mariner's Breastplate", "CCC"),
 		speed : { swim : { spd : "walk", enc : "walk" } }
 	},
 	"mariner's breastplate (ccc-mmt1-2)" : {
@@ -1285,7 +1374,8 @@ MagicItemsList["al armor (other)"] = {
 		description : "While wearing this breastplate, you have a swimming speed equal to your walking speed. In addition, whenever you start your turn underwater with 0 hp, you rise 60 ft toward the surface. The armor is decorated with fish & shell motifs as well as the holy symbol of Umberlee.",
 		descriptionFull : "While wearing this breastplate, you have a swimming speed equal to your walking speed. In addition, whenever you start your turn underwater with 0 hit points, the armor causes you to rise 60 feet toward the surface. The armor is decorated with fish and shell motifs as well as the holy symbol of Umberlee.",
 		allowDuplicates : true,
-		armorAdd : { select : "Mariner's Breastplate", options : ["Mariner's Breastplate"] },
+		armorAdd : "Mariner's Breastplate",
+		armorOptions : createArmorOptionsDud("Mariner's Breastplate", "CCC"),
 		speed : { swim : { spd : "walk", enc : "walk" } }
 	},
 	"mariner's scale mail (alsrs11-a)" : {
@@ -1297,7 +1387,8 @@ MagicItemsList["al armor (other)"] = {
 		description : "Constructed of overlapping flat smooth river stones, this set of scale mail is surprisingly light & mobile. While wearing it, you need half the water normally required to stave off exhaustion & have a swimming speed equal to your walking speed. In addition, whenever you start your turn underwater with 0 hp, you rise 60 ft toward the surface. The armor is decorated with fish & shell motifs.",
 		descriptionFull : "Constructed of flat, smooth, and overlapping river stones, this set of scale mail is surprisingly light and mobile. While wearing the armor, you need half the water normally required to stave off exhaustion and you have a swimming speed equal to your walking speed. In addition, whenever you start your turn underwater with 0 hit points, the armor causes you to rise 60 feet toward the surface. The armor is decorated with fish and shell motifs.",
 		allowDuplicates : true,
-		armorAdd : { select : "Mariner's Scale Mail", options : ["Mariner's Scale Mail"] },
+		armorAdd : "Mariner's Scale Mail",
+		armorOptions : createArmorOptionsDud("Mariner's Scale Mail", "CCC"),
 		speed : { swim : { spd : "walk", enc : "walk" } }
 	},
 	"plate armor of etherealness (ddal8-16)" : {
@@ -1315,15 +1406,16 @@ MagicItemsList["al armor (other)"] = {
 		recovery : "dawn",
 		action : [["action", " (start/stop)"]],
 		languageProfs : ["Qualith (no chks/saves)"],
+		armorAdd : "Plate Armor of Etherealness",
 		armorOptions : [{
 			regExpSearch : /^(?=.*plate)(?=.*etherealness).*$/i,
 			name : "Plate Armor of Etherealness",
+			source : [["AL", "S8"]],
 			type : "heavy",
 			ac : 18,
 			stealthdis : true,
 			weight : 65,
-			strReq : 15,
-			selectNow : true,
+			strReq : 15
 		}],
 		spellcastingBonus : {
 			name : "once per dawn",
@@ -1357,14 +1449,14 @@ MagicItemsList["al armor (other)"] = {
 		},
 		description : "This beautiful suit of scale mail is made from red dragon hide. Gold decorates the pauldrons & greaves, & the helm is crafted in the shape of a snarling dragon complete with horns. This armor gives +1 to AC, adv. on saves against dragons' frightful presence & breath weapons, & resistance to fire dmg. As an action once/dawn, you can discern the distance & direction to closest red dragon w/i 30 miles.",
 		descriptionFull : "Dragon scale mail is made of the scales of one kind of dragon. Sometimes dragons collect their cast-off scales and gift them to humanoids. Other times, hunters carefully skin and preserve the hide of a dead dragon. In either case, dragon scale mail is highly valued. This beautiful suit of scale mail is made from red dragon hide. Exquisite gold embossing covers the pauldrons & greaves, while the helm is crafted in the likeness of a snarling dragon complete with horns.\n   While wearing this armor, you gain a +1 bonus to AC, you have advantage on saving throws against the Frightful Presence and breath weapons of dragons, and you have resistance to one damage type that is determined by the kind of dragon that provided the scales (see the table).\n   Additionally, you can focus your senses as an action to magically discern the distance and direction to the closest dragon within 30 miles of you that is of the same type as the armor. This special action can't be used again until the next dawn.\n\n" + toUni("Dragon\tResistance\tDragon\tResistance") + "\nBlack\tAcid\t\tGold\tFire\nBlue\tLightning  \tGreen\tPoison\nBrass\tFire\t\tRed\tFire\nBronze\tLightning  \tSilver\tCold\nCopper\tAcid\t\tWhite\tCold",
+		armorAdd : "Red Dragon Scale Mail",
 		armorOptions : [{
 			regExpSearch : /^(?=.*dragon)(?=.*scale)(?=.*mail).*$/i,
 			name : "Red Dragon Scale Mail",
 			type : "medium",
 			ac : 15,
 			stealthdis : true,
-			weight : 45,
-			selectNow : true,
+			weight : 45
 		}]
 	},
 	"red dragon scale mail (ddal9-15)" : {
@@ -1384,14 +1476,14 @@ MagicItemsList["al armor (other)"] = {
 		},
 		description : "This was once the armor of Carmine, an orcish paladin of the Bloody Hooves. She didn't survive into the final caverns to have her soul entombed to wait for Zariel's return. This red dragon scale mail gives +1 to AC, adv. on saves against dragons' frightful presence & breath weapons, & resistance to fire dmg. As an action once per dawn, you can discern the distance & direction to closest red dragon w/i 30 miles.",
 		descriptionFull : "Dragon scale mail is made of the scales of one kind of dragon. Sometimes dragons collect their cast-off scales and gift them to humanoids. Other times, hunters carefully skin and preserve the hide of a dead dragon. In either case, dragon scale mail is highly valued. This red dragon scale was once the armor of Carmine, an orc paladin of the Bloody Hooves. She didn't survive into the final set of caverns to have her soul entombed to wait for Zariel's return.\n   While wearing this armor, you gain a +1 bonus to AC, you have advantage on saving throws against the Frightful Presence and breath weapons of dragons, and you have resistance to one damage type that is determined by the kind of dragon that provided the scales (see the table).\n   Additionally, you can focus your senses as an action to magically discern the distance and direction to the closest dragon within 30 miles of you that is of the same type as the armor. This special action can't be used again until the next dawn.\n\n" + toUni("Dragon\tResistance\tDragon\tResistance") + "\nBlack\tAcid\t\tGold\tFire\nBlue\tLightning  \tGreen\tPoison\nBrass\tFire\t\tRed\tFire\nBronze\tLightning  \tSilver\tCold\nCopper\tAcid\t\tWhite\tCold",
+		armorAdd : "Red Dragon Scale Mail",
 		armorOptions : [{
 			regExpSearch : /^(?=.*dragon)(?=.*scale)(?=.*mail).*$/i,
 			name : "Red Dragon Scale Mail",
 			type : "medium",
 			ac : 15,
 			stealthdis : true,
-			weight : 45,
-			selectNow : true,
+			weight : 45
 		}]
 	},
 	"scale mail of psychic resistance: resin (ccc-tri-21 yul1-6)" : {
@@ -1404,7 +1496,8 @@ MagicItemsList["al armor (other)"] = {
 		description : "This armor is made from a hardened resin similar to amber. While worn, you have resistance to psychic damage. After its psychic resistance is used, you're wracked with terrible nightmares of unfathomable creatures that evening.",
 		descriptionFull : "This armor is made out of an organic hardened resin similar to amber. When this armor's psychic resistance is used, you are wracked with terrible nightmares of unfathomable creatures that evening. You have resistance to one type of damage while you wear this armor and are attuned to it. This damage type is psychic.",
 		dmgres : ["Psychic"],
-		armorAdd : { select : "Resin Scale Mail", options : ["Resin Scale Mail"] },
+		armorAdd : "Resin Scale Mail",
+		armorOptions : createArmorOptionsDud("Resin Scale Mail of Psychic Resistance", "CCC")
 	},
 	"spiked armor of necrotic resistance (wbw-dc-den-h1)" : {
 		name : "Spiked Armor of Necrotic Resist. (WBW-DC-DEN-H1)",
@@ -1416,14 +1509,15 @@ MagicItemsList["al armor (other)"] = {
 		description : "This spiked armor was crafted by Barsol and Nomi Hammergut to be worn by Barsol when fighting his uncle, the Herzog of the Mountains. The leather coat and leggings are cured ox hide, and the spikes are the thorns of a hawthorn treant named Crataegus. You have resistance to necrotic dmg while worn.",
 		descriptionFull : "Crafted by Barsol and Nomi Hammergut to be worn by Barsol during their fight against Barsol's uncle the Herzog of the Mountains. The leather coat and leggings are made from the cured ox hide, and the spikes are the thorns of a treant of the hawthorn variety named Crataegus.\n   You have resistance to necrotic damage while attuned to and wearing the armor.\n   Spiked armor is a rare type of medium armor made by dwarves. It consists of a leather coat and leggings covered with spikes that are usually made of metal.",
 		dmgres : ["Necrotic"],
+		armorAdd : "Necro Spiked Armor",
 		armorOptions : [{
 			name : "Spiked Armor of Necro Resist",
+			source : [["AL", "CCC"]],
 			regExpSearch : /^(?=.*spiked)(?=.*armor)(?=.*necrotic)(?=.*resistance).*$/i,
 			type : "medium",
 			ac : 14,
 			stealthdis : true,
-			weight : 45,
-			selectNow : true,
+			weight : 45
 		}]
 	},
 	"studded leather of fire resistance (ddal0-11c)" : {
@@ -1436,7 +1530,8 @@ MagicItemsList["al armor (other)"] = {
 		description : "This studded leather armor is reinforced with rivets made of unmeltable ice, and steams faintly when you're hit with fire attacks. While worn, you have resistance to fire damage.",
 		descriptionFull : "This studded leather armor is reinforced with rivets made of unmeltable ice, and steams faintly when the wearer is hit with fire attacks. While attuned and wearing this armor, you have resistance to fire damage.",
 		dmgres : ["Fire"],
-		armorAdd : { select : "Studded Leather (Fire Resist)", options : ["Studded Leather (Fire Resist)"] },
+		armorAdd : "Studded Leather (Fire Resist)",
+		armorOptions : createArmorOptionsDud("Studded Leather of Fire Resistance", "S0")
 	},
 }
 

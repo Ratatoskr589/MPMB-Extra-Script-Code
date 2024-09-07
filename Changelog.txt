@@ -1,3 +1,20 @@
+After 7/6/24
+-Updated files to use the new Weapon & ArmorAdd format (old versions are saved in a separate folder)
+-Switched Black Pudding Cup to a creature instead of an item.
+-Added more flavored Trading Post items
+-Added more items from new modules
+-Changed the AL Story Awards section from Magic Items to Feats to better match NodHero's coding for blessings & boons (the BMG blessings that require attunement were moved to AL New Items due to their coding)
+-Added more unflavored items from new modules
+
+
+After 5/30/24
+-Minor tweaks and corrections
+-Added Trading Post items (new and flavored)
+-Removed incorrect language property from JGC-1 armor
+-Confirmed with author that no Zodiac items should be restricted to the domain.
+-Corrected weapon names on Staffs of Defense
+
+
 Changelog (After 4/9/24)
 -Added more items from SJ-DC, FR-DC, PS-DC, WBW-DC, and several POs
 -Corrected a few minor typos in item sources and descriptions

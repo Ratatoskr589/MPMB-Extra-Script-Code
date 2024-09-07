@@ -12,7 +12,7 @@ It is recommended to enter the code in a fresh sheet before adding any other inf
 	//In progress: SJ-DCs, POs, Ravenloft, 
 	
 var iFileName = "AL Special Items.js";
-RequiredSheetVersion("13.1.14");
+RequiredSheetVersion(13);
 
 // Define the source
 
@@ -77,20 +77,24 @@ SourceList["AL:GA"] = {  //DDHC-TOA-8 Return of the Lizard King (S7 Guild Adept)
 	defaultExcluded : true
 };
 
-
+RunFunctionAtEnd(function () {
 //AL Special Rewards & Story Awards (with major mechanical effects)
-FeatsList["al story awards"] = {
+MagicItemsList["al story awards"] = {
 		name : "AL Story Awards",
 		description : "Special AL rewards available from conventions, epics and adventure modules. This only includes a small slice of the total awards available, primarily flavored boons and blessings, and story awards with major mechanical effects. This selection also assumes that you have spent any Downtime or other cost required to receive the reward.",
+		type : "story award",
+		rarity : "unique",
 		allowDuplicates : true,
-	choices : ["Angry Alley Cat (FC)","Blessing of Protection (AL WPM)","Blessing of Protection (DDEP6-3)","Blessing of Protection: Selune's (FR-DC-PANDORA-JWEI-6)","Blessing of Magic Resistance: Aether's Blessing (FR-DC-MONSTER-4)","Blessing of Valhalla: The Friends You Made Along the Way (SJ-DC-DD-11)","Boon of the Unfettered (PS-DC-POP-1)","Chardalyn Poisoning (DDAL10-9)","Charm of the Comet: Enchanted Amulet (FR-DC-PANDORA-JWEI-7)","Dreamwalker (DDAL5-11)","Favor of Candlekeep - Language (DDAL0-3)","Flying Snake (DDEP7-1)","Gratitude of Brightstar Moonsilver (CCC-BMG-37 HULB3-1)","Gratitude of Hartkiller (DDAL5-17)","Hall of Honor (DDAL6-3)","Hall of Mirth (DDAL6-3)","Hall of Omens (DDAL6-3)(Diviner)","Hall of Omens (DDAL6-3)(Non-Diviner)","Lich Slayer (DDEP7-2)","Lord of the Gorge (DDAL0-11F)","Luna Lightbearers (WBW-DC-ZODIAC-0)","Nature of the Weave (CCC-ROZK-1-2) (Arcana Prof)","Nature of the Weave (CCC-ROZK-1-2) (Arcana Expert)","Plague Buster (DDEP7-2)","The Qualith Experience (DDIA-VOLO)","Quasit's Essence (DDAL5-8)","Student of Stone (DDAL5-11)","Szass Tam's Arcane Essence (DDEP0-1)","Szass Tam's Planar Essence (DDEP0-1)","Thanks of Ilmater - Immortality","Thanks of Ilmater - Planar Travel","Uku the Spider Boy (DDEP7-1)"],
+	choices : ["Angry Alley Cat (FC)","Blessing of Protection (AL WPM)","Blessing of Protection (DDEP6-3)","Blessing of Protection: Selune's (FR-DC-PANDORA-JWEI-6)","Blessing of Valhalla: The Friends You Made Along the Way (SJ-DC-DD-11)","Boon of the Unfettered (PS-DC-POP-1)","Chardalyn Poisoning (DDAL10-9)","Charm of the Comet: Enchanted Amulet (FR-DC-PANDORA-JWEI-7)","Dreamwalker (DDAL5-11)","Favor of Candlekeep - Language (DDAL0-3)","Flying Snake (DDEP7-1)","Gratitude of Brightstar Moonsilver (CCC-BMG-37 HULB3-1)","Gratitude of Hartkiller (DDAL5-17)","Hall of Honor (DDAL6-3)","Hall of Mirth (DDAL6-3)","Hall of Omens (DDAL6-3)(Diviner)","Hall of Omens (DDAL6-3)(Non-Diviner)","Lich Slayer (DDEP7-2)","Lord of the Gorge (DDAL0-11F)","Luna Lightbearers (WBW-DC-ZODIAC-0)","Nature of the Weave (CCC-ROZK-1-2) (Arcana Prof)","Nature of the Weave (CCC-ROZK-1-2) (Arcana Expert)","Plague Buster (DDEP7-2)","The Qualith Experience (DDIA-VOLO)","Quasit's Essence (DDAL5-8)","Student of Stone (DDAL5-11)","Szass Tam's Arcane Essence (DDEP0-1)","Szass Tam's Planar Essence (DDEP0-1)","Thanks of Ilmater - Immortality","Thanks of Ilmater - Planar Travel","Tyr's Blessing of Command (CCC-BMG-23 PHLAN2-2)","Tyr's Blessing of Luck (CCC-BMG-24 PHLAN2-3)","Tyr's Blessing of the Mind (CCC-BMG-22 PHLAN2-1)","Uku the Spider Boy (DDEP7-1)"],
 	"angry alley cat (fc)" : {
 		name : "Angry Alley Cat (FC)",
+		attunement : false,
 		source : [["AL:FC","2018"]],
 		description : "A battle scarred, one-eared angry tomcat that reeks of city has taken a liking to you. 'Like' is a generous term as it spends its free time soiling your footwear and caterwauling. Once per adventure, if you would be arrested by the city watch, the angry cat descends like an avenging angel, distracting the watch enough for you to escape.",
 	},
 	"blessing of protection (al wpm)" : {
 		name : "Blessing of Protection (AL WPM)",
+		attunement : false,
 		source : [["AL","TYP"]],
 		description : "Your reward for returning the three legendary weapons of White Plume Mountain to their rightful owners, this blessing grants a +1 bonus to AC and saving throws.",
 		extraAC : [{name : "Blessing of Protection", mod : 1, magic : true, text : "I gain a +1 bonus to AC."}],
@@ -99,6 +103,7 @@ FeatsList["al story awards"] = {
 	"blessing of protection (ddep6-3)" : {	
 		name : "Blessing of Protection (DDEP6-3)",
 		source : [["AL","S6"]],
+		attunement : false,
 		description : "Your reward from SEER for defeating the drow priestess Kiaransalee and her undead forces, this blessing grants a +1 bonus to AC and saving throws. While under its effect, your eyes have developed small flecks of brilliant gold, and your senses seem just a little bit sharper.",
 		extraAC : [{name : "Blessing of Protection", mod : 1, magic : true, text : "I gain a +1 bonus to AC."}],
 		addMod : [{ type : "save", field : "all", mod : 1, text : "I gain a +1 bonus to all my saving throws." }]
@@ -106,19 +111,11 @@ FeatsList["al story awards"] = {
 	"blessing of protection: selune's (fr-dc-pandora-jwei-6)" : {	
 		name : "Selune's Blessing of Protection (FR-DC-PANDORA-JWEI-6)",
 		source : [["AL","FR-DC"]],
+		attunement : false,
 		description : "Selune grants you her blessing for as long as you hold sympathy and kindness in your heart towards the good-aligned, and give your all to protect Pandora. You gain a +1 bonus to AC and saving throws.",
 		descriptionFull : "Selune grants her blessing upon you for as long as you hold sympathy and kindness in your heart towards the good aligned and for as long as you give it your all to protect Pandora.\n   You gain a +1 bonus to AC and saving throws.",
 		extraAC : [{name : "Blessing of Protection", mod : 1, magic : true, text : "I gain a +1 bonus to AC."}],
 		addMod : [{ type : "save", field : "all", mod : 1, text : "I gain a +1 bonus to all my saving throws." }]
-	},
-	"blessing of magic resistance: aether's blessing (fr-dc-monster-4)" : {
-		name : "Aether's Blessing of Magic Resistance (FR-DC-MONSTER-4)",
-		source : [["AL","FR-DC"]],
-		description : "You have advantage on saving throws against spells and other magical effects. Every time this blessing activates, your eyes glow as you tap into the four elements and energies of Aether.",
-		descriptionFull : "“Everytime the blessing activates, your eyes glow as you tap into the four elements and energies of Aether.” You have advantage on saving throws against spells and other magical effects.",
-        savetxt : {
-            adv_vs : ["magic"]
-        },
 	},
 	"blessing of valhalla: the friends you made along the way (sj-dc-dd-11)" : {
 		name : "The Friends You Made Along the Way (Blessing of Valhalla, SJ-DC-DD-11)",
@@ -360,14 +357,11 @@ FeatsList["al story awards"] = {
 	},
     "szass tam's arcane essence (ddep0-1)": {
 		name : "Szass Tam's Arcane Essence (DDEP0-1)",
-		source : [["AL","S0"]],
         description: "You have wrested away part of Szass Tam's essence. Specifically, this spark of energy was originally wrested from the vile lich himself, and grants one additional 9th level spell slot, provided that you already have one.",
-        descriptionFull: "You have wrested away part of Szass Tam's essence. Specifically, this spark of energy was originally wrested from the vile lich himself, and grants one additional 9th level spell slot, provided that you already have one. (This feat must be selected after you have a 9th level spell slot on your character sheet. Otherwise it won't function properly.)",
         addMod : { type : "", field : "P6.SSfront.SpellSlots.CheckboxesSet.lvl9", mod : 1, text: "I gain 1 additional 9th level spell slot" },
     },
     "szass tam's planar essence (ddep0-1)": {
 		name : "Szass Tam's Planar Essence (DDEP0-1)",
-		source : [["AL","S0"]],
         description: "You have wrested away part of Szass Tam's essence. Specifically, this spark of energy allowed the lich's simulacrum to navigate the planes – and while you aren't as proficient with this skill, you can retain a small bit of its power. Once per short rest, you can cast the plane shift spell (no spell slot or components required) as an action. You can target only yourself, and travel to or from one of the Outer Planes listed in Appendix C of the PHB. This choice is permanent.",
         limfeaname : "Plane Shift",
         usages : 1,
@@ -388,18 +382,14 @@ FeatsList["al story awards"] = {
     },
     "thanks of ilmater - immortality": {
 		name : "Thanks of Ilmater - Immortality (DDAL9-20)",
-		source : [["AL","S9"]],
-        description: "You have worked the will of the gods of light to maintain the balance of the Blood War. Now that you are 20th lvl, you may select this boon. You stop aging. You are immune to any effect that would age you, and you can't die from old age.",
-        descriptionFull: "You have worked the will of the gods of light to maintain the balance of the Blood War. Now that you are 20th lvl, or when you reach 20th lvl, you may select this boon. You stop aging. You are immune to any effect that would age you, and you can't die from old age.",
+        description: "You have worked the will of the gods of light to maintain the balance of the Blood War. Now that you are 20th lvl, or when you reach 20th lvl, you may select this boon. You stop aging. You are immune to any effect that would age you, and you can't die from old age.",
         savetxt : {
             immune : ["magical aging effects"],
         },
     },
     "thanks of ilmater - planar travel": {
 		name : "Thanks of Ilmater - Planar Travel (DDAL9-20)",
-		source : [["AL","S9"]],
-        description: "You have worked the will of the gods of light to maintain the balance of the Blood War. Now that you are 20th lvl, you may select this boon. Once per short rest, you can cast the plane shift spell (no spell slot or components required) as an action. You can target only yourself, and travel to or from Brightwater: the realm of Ilmater and Sune in the Seven Heavens of Celestia.",
-        descriptionFull: "You have worked the will of the gods of light to maintain the balance of the Blood War. Now that you are 20th lvl, or when you reach 20th lvl, you may select this boon. Once per short rest, you can cast the plane shift spell (no spell slot or components required) as an action. You can target only yourself, and travel to or from Brightwater: the realm of Ilmater and Sune in the Seven Heavens of Celestia.",
+        description: "You have worked the will of the gods of light to maintain the balance of the Blood War. Now that you are 20th lvl, or when you reach 20th lvl, you may select this boon. Once per short rest, you can cast the plane shift spell (no spell slot or components required) as an action. You can target only yourself, and travel to or from Brightwater: the realm of Ilmater and Sune in the Seven Heavens of Celestia.",
         limfeaname : "Plane Shift",
         usages : 1,
         recovery : "short rest",
@@ -417,6 +407,31 @@ FeatsList["al story awards"] = {
             }
         }
     },
+	"tyr's blessing of command (ccc-bmg-23 phlan2-2)" : {	
+		name : "Tyr's Blessing of Command (CCC-BMG-23 PHLAN2-2)",
+		source : [["AL","CCC"]],
+		attunement : true,
+		description : "This blessing has been bestowed upon you by Tyr in recognition of your service to the city and citizens of Phlan in the face of great peril to your own wellbeing. Your Charisma score increases by 2, up to a maximum of 20. This blessing may be refused. If accepted, it requires an attunement slot.",
+		scores : [0, 0, 0, 0, 0, 2],
+	},
+	"tyr's blessing of luck (ccc-bmg-24 phlan2-3)" : {	
+		name : "Tyr's Blessing of Luck (CCC-BMG-24 PHLAN2-3)",
+		source : [["AL","CCC"]],
+		attunement : true,
+		description : "This blessing has been bestowed upon you by Tyr in recognition of your service to the city and citizens of Phlan in the face of great peril to your own wellbeing. You gain a +1 bonus to ability checks and saving throws. This blessing may be refused. If accepted, it requires an attunement slot. This blessing is not tradeable, and if refused or unattuned, it cannot be regained.",
+		addMod : [
+			{ type : "save", field : "all", mod : 1, text : "I gain a +1 bonus on all my saving throws." },
+			{ type : "skill", field : "all", mod : 1, text : "I gain a +1 bonus on all my ability checks." },
+			{ type : "skill", field : "Init", mod : 1, text : "I gain a +1 bonus on all my ability checks." }
+		]
+	},
+	"tyr's blessing of the mind (ccc-bmg-22 phlan2-1)" : {	
+		name : "Tyr's Blessing of the Mind (CCC-BMG-22 PHLAN2-1)",
+		source : [["AL","CCC"]],
+		attunement : true,
+		description : "This blessing has been bestowed upon you by Tyr in recognition of your service to the city and citizens of Phlan in the face of great peril to your own wellbeing. Your Intelligence score increases by 2, up to a maximum of 20. This blessing may be refused. If accepted, it requires an attunement slot. This blessing is not tradeable, and if refused or unattuned, it cannot be regained.",
+		scores : [0, 0, 0, 2, 0, 0],
+	},
 	"uku the spider boy (ddep7-1)" : {
 		name : "Uku the Spider Boy (DDEP7-1)",
 		source : [["AL","S7"]],
@@ -425,8 +440,6 @@ FeatsList["al story awards"] = {
 	},
 }
 
-
-RunFunctionAtEnd(function () {
 //New Event Awards from Al events such as the D&D Celebration, Extra Life and the newer Liar's Night events. Only one may be on a character at a time.
 MagicItemsList["al event award items"] = {
 		name : "AL Event Award Items",
@@ -515,11 +528,12 @@ MagicItemsList["al event award items"] = {
 		usages : 1,
 		recovery : "dawn",
 		vision : [["Adv. on Perception checks involving hearing", 0]],
+		weaponsAdd : ["Harengon Spirit Club"],
 		weaponOptions : {
 			baseWeapon : "club",
 			regExpSearch : /^(?=.*harengon)(?=.*spirit)(?=.*club).*$/i,
 			name : "Harengon Spirit Club",
-			selectNow : true,
+			source : [["AL:LN", 2021]],
 		},
 		spellcastingBonus : [{
 			name : "Once per dawn",
@@ -595,7 +609,7 @@ MagicItemsList["al new items"] = {
 		name : "AL New Items",
 		type : "wondrous item",
 		allowDuplicates : true,
-		choices : ["Achis Atracta (CCC-BMG-30 HILL2-3)","Bag of Tricks or Treats","Bone Compass (RMH-12)","Bookmark of Memory (WBW-PR)","Bookmark of Memory: Limited Edition (WBW-DC-JSH-LIB-04PT)","Cariboots","Dagger of the Hidden Lord (DDHC-DIA-2)","Darkling Necklace (DDHC-TOA-8)","Discord (DDAL-DRW15)","Eye of Xxiphu (DDAL5-19)","Fey Hound Collar","Fold-Up Friend (WBW-PR)","Giant's Gloves (WBW-PR)","Ghost Sheet","Green Wizard's Hat","Green Wizard's Hat (Trading Post)","Hat of Witchery","Hellrider's Badge (DDEP9-2)","Ioun Stone - Celebration (DDAL-DRW5)","Lemure Onesie","Mind-Poison Dagger (DDHC-MORD-05)","Mist Hunters Magnificent Cap (RMH Safety Tools)","Nettle (DDEP4)","Oathbinder (DDHC-TOA-15)","Order of the Guardians Ring (RMH Safety Tools)","Owlbear Snowshoes","Pearl of Elocution (WBW-PR)","Pipes of Remembrance","Pocket Watch (WBW-PR)","Pumpkin Ring","Selûne's Owl-Eye Glasses","Shar's Veil","Spare (DDHC-TOA-13)","Tarot Card Set","Tyr's Blessing of Command (CCC-BMG-23 PHLAN2-2)","Tyr's Blessing of Luck (CCC-BMG-24 PHLAN2-3)","Tyr's Blessing of the Mind (CCC-BMG-22 PHLAN2-1)","Wand of Whimsy (WBW-PR)","Woe (DDAL-DRW16)","Wooden Gecko Earrings (DDHC-TOA-8)","Zephyros' Notebook (DDIA05)"],
+		choices : ["Achis Atracta (CCC-BMG-30 HILL2-3)","Bag of Tricks or Treats","Black Pudding Cup (Trading Post 2024)","Bone Compass (RMH-12)","Bookmark of Memory (WBW-PR)","Bookmark of Memory: Limited Edition (WBW-DC-JSH-LIB-04PT)","Cariboots","Dagger of the Hidden Lord (DDHC-DIA-2)","Darkling Necklace (DDHC-TOA-8)","Discord (DDAL-DRW15)","Eye of Xxiphu (DDAL5-19)","Fey Hound Collar","Fold-Up Friend (WBW-PR)","Giant's Gloves (WBW-PR)","Ghost Sheet","Green Wizard's Hat (Trading Post 2024)","Hat of Witchery","Hellrider's Badge (DDEP9-2)","Ioun Stone - Celebration (DDAL-DRW5)","Lemure Onesie","Mind-Poison Dagger (DDHC-MORD-05)","Mist Hunters Magnificent Cap (RMH Safety Tools)","Nettle (DDEP4)","Oathbinder (DDHC-TOA-15)","Order of the Guardians Ring (RMH Safety Tools)","Owlbear Snowshoes","Pearl of Elocution (WBW-PR)","Pipes of Remembrance","Pocket Watch (WBW-PR)","Pumpkin Ring","Selûne's Owl-Eye Glasses","Shar's Veil","Spare (DDHC-TOA-13)","Tarot Card Set","Wand of Whimsy (WBW-PR)","Woe (DDAL-DRW16)","Wooden Gecko Earrings (DDHC-TOA-8)","Zephyros' Notebook (DDIA05)"],
 	"achis atracta (ccc-bmg-30 hill2-3)" : { // contributed by AelarTheElfRogue
 		name : "Achis Atracta (CCC-BMG-30 HILL2-3)",
 		source : [["AL","CCC"]],
@@ -645,6 +659,59 @@ MagicItemsList["al new items"] = {
 		description : "When you open a book bearing this bookmark, you immediately recall every word you've read from it with perfect clarity.",
 		descriptionFull : "When you open a book bearing this bookmark, you immediately recall every word you've previously read from it, with perfect clarity."
 		},
+	"black pudding cup (trading post 2024)" : {
+		name : "Black Pudding Cup",
+		source : ["AL:FC", 2024],
+		rarity : "Unique",
+		magicItemTable : "?",
+		description : "This sturdy ceramic cup holds a tiny black jelly-like substance. The creature is an adjusted black pudding and can be returned via Find familiar if killed. If its cup was also destroyed, a new cup needs to be purchased (1gp).",
+		descriptionFull : "A sturdy ceramic cup holds a tiny black jelly-like substance. The creature inside uses the black pudding statblock with some changes. The creature can be returned via Find familiar if killed, but if its cup was also destroyed, a new cup needs to be purchased (1gp).",
+		creaturesAdd : [["Cup Black Pudding"]],
+		creatureOptions : [{
+			name : "Cup Black Pudding",
+			source : ["AL:FC", 2024],
+			size : 5, //Tiny
+			type : "Ooze",
+			alignment : "Unaligned",
+			ac : 7,
+			hp : 4,
+			hd : [1, 4],
+			speed : "10 ft, climb 10 ft",
+			scores : [10, 5, 14, 1, 6, 1],
+			damage_immunities : "acid, cold, lightning, slashing",
+			condition_immunities : "blinded, charmed, deafened, exhaustion, frightened, prone",
+			senses : "blindsight 60 ft. (blind beyond this radius)",
+			passivePerception : 8,
+			languages : "",
+			challengeRating : "0",
+			proficiencyBonus : 2,
+			attacksAction : 1,
+		attacks : [{
+			name : "Pseudopod",
+			ability : 1,
+			damage : [1, 4, "acid"],
+			range : "Melee (2 ft)",
+			description : ""
+		}],
+		traits : [{
+			name : "Amorphous",
+			description : "The pudding can move through a space as narrow as 1 inch wide without squeezing."
+			}, {
+			name : "Spider Climb",
+			description : "The pudding can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check."
+			}, {
+			name : "Corrosive Form",
+			description : "The pudding can eat through ½ inch of wood in 1 round. A creature that touches the pudding cup or hits it with a melee attack while in 5 ft takes 1 (1d4-1) acid damage. Any nonmagical metal or wooden weapon that hits the pudding corrodes. After dealing damage, it takes a permanent and cumulative −1 penalty to damage rolls. If the penalty drops to −5, the weapon is destroyed. Nonmagical ammunition made of metal or wood that hits the pudding is destroyed after dealing damage."
+			}],
+		features : [{
+			name : "Cup",
+			description : "AC 9 while in the cup.",
+			}, {
+			name : "Resummon",
+			description : "The creature can be returned via Find Familiar if killed. If its cup was also destroyed, a new cup needs to be purchased (1gp).",
+			}],
+		}],
+		},
 	"cariboots" : {
 		name : "Cariboots",
 		source : ["AL:FM", 2020],
@@ -662,12 +729,13 @@ MagicItemsList["al new items"] = {
 		description : "This +1 cursed dagger is made entirely of gold, the handle engraved in the shape of a coiling serpent. You're unwilling to give it up & you're compelled to kill a humanoid with it every tenday, proclaiming “To the Hidden Lord!” when you do so. Every day you resist, you must pass a DC 10 Constitution save or take a level of exhaustion. This fatigue disappears when you kill a humanoid with the dagger.",
 		descriptionFull : "This weapon is made entirely of gold, with the handle engraved in the shape of a coiling serpent. You gain a +1 bonus to attack rolls and damage rolls that you make with this weapon.\n   " + toUni("Curse") + ". This dagger is cursed and becoming attuned to it extends the curse to you. While you remain cursed, you are unwilling to part with the dagger, keeping it on your person always. While attuned to this weapon, you feel compelled to kill a humanoid creature with it every tenday, proclaiming “To the Hidden Lord!” when you do so.\n   Every day that you resist this compulsion, you must make a successful DC 10 Constitution saving throw or take a level of fatigue. This magically induced fatigue disappears when you kill a humanoid with the dagger.",
 		weight : 1,
+		weaponsAdd : ["Dagger of the Hidden Lord"],
 		weaponOptions : {
 			baseWeapon : "dagger",
 			regExpSearch : /^(?=.*dagger)(?=.*hidden)(?=.*lord).*$/i,
 			name : "Dagger of the Hidden Lord",
+			source : [["AL","BG:DiA"]],
 			modifiers : [1, 1],
-			selectNow : true,
 		}
 	},
 	"darkling necklace (ddhc-toa-8)" : {
@@ -699,15 +767,16 @@ MagicItemsList["al new items"] = {
 		limfeaname : "Discord (120 ft Devil Sight)",
 		usages : 1,
 		recovery : "dawn",
+		armorAdd : "Discord",
 		armorOptions : [{
 			regExpSearch : /^(?=.*discord).*$/i,
 			name : "Discord",
+			source : [["AL","DRW"]],
 			type : "heavy",
 			ac : 20,
 			stealthdis : true,
 			weight : 65,
-			strReq : 15,
-			selectNow : true
+			strReq : 15
 			}]
 	},
 	"eye of xxiphu (ddal5-19)" : {
@@ -752,24 +821,13 @@ MagicItemsList["al new items"] = {
 		magicItemTable : "?",
 		description : "This sheet appears to be plain white cotton cloth with two eyeholes cut into it. When you wear the sheet over your head, you appear to be incorporeal. Physical interaction reveals this to be an illusion."
 		},
-	"green wizard's hat" : {
+	"green wizard's hat (trading post 2024)" : {
 		name : "Green Wizard's Hat",
 		source : ["AL:FC", 2024],
 		rarity : "common",
 		magicItemTable : "?",
-		description : "This floppy green conical wizard’s hat magically contains 6 items. Once a day, you can pull a random item out of the hat that lasts for 1 hr. Roll 1d6 - 1: a bouquet that smells like anxiety, 2: cotton candy that envelops and obscures the closest tiny object until eaten away, 3: a single mosquito that prefers to feed on oozes, 4: a watering can filled with sand, 5: a glowing severed head identical to that of the closest living creature, 6: a 20 ft x 5 ft rainbow beam of light that can be dismissed.",
-		description : "This green, floppy, conical wizard’s hat magically contains six different items. Once a day a character can pull an item out of the hat. Which of the items that appears is determined randomly using a d6 and the list below. The item lasts for 1 hour." + toUni("d6\tItem") + "\n1\ta bouquet that smells like anxiety,\n2\tcotton candy that envelops and obscures the closest tiny object until the candy is eaten away (no nutritional value),\n3\ta single mosquito that prefers to feed on oozes,\n4\ta watering can filled with sand,\n5\ta glowing severed head identical to the head of a living creature closest to the hat’s holder,\n6\ta 20 ft long-5 ft wide rainbow beam of light that lasts one hour or until dismissed. [Trading Post v13.1 2024]",
-		usages : 1,
-		recovery : "dawn"
-		},
-	"green wizard's hat (trading post)" : {
-		name : "Green Wizard's Hat (Water)",
-		source : ["AL:FC", 2024],
-		rarity : "common",
-		magicItemTable : "?",
-		description : "The naiad seamstress of this beautifully crafted hat finds physical materials far too restricting. She enchanted turquoise blue water to hold the form of a pointed hat, though water frequently drips on you. Once a day, you can pull a random item out of the hat that lasts for 1 hr. Roll 1d6 - 1: a bouquet that smells like anxiety, 2: cotton candy that envelops and obscures the closest tiny object until eaten away, 3: a single mosquito that prefers to feed on oozes, 4: a watering can filled with sand, 5: a glowing severed head identical to that of the closest living creature, 6: a 20 ft x 5 ft rainbow beam of light that can be dismissed.",
-		description : "The seamstress of this beautifully crafted hat was a naiad from the elemental plane of water who finds using physical materials in clothing far too restricting. This hat is made of turquoise blue water enchanted to hold the form of a pointed hat, though water from it frequently drips onto its wearer.\n   This green, floppy, conical wizard’s hat magically contains six different items. Once a day a character can pull an item out of the hat. Which of the items that appears is determined randomly using a d6 and the list below. The item lasts for 1 hour." + toUni("d6\tItem") + "\n1\ta bouquet that smells like anxiety,\n2\tcotton candy that envelops and obscures the closest tiny object until the candy is eaten away (no nutritional value),\n3\ta single mosquito that prefers to feed on oozes,\n4\ta watering can filled with sand,\n5\ta glowing severed head identical to the head of a living creature closest to the hat’s holder,\n6\ta 20 ft long-5 ft wide rainbow beam of light that lasts one hour or until dismissed. [Trading Post v13.1 July 2024]",
-		limfeaname : "Green Wizard's Hat",
+		description : "This floppy green conical wizard’s hat magically contains 6 items. Once a day, you can pull a random item out of the hat (roll 1d6). It lasts for 1 hr. (1: a bouquet that smells like anxiety, 2: cotton candy that envelops and obscures the closest tiny object until eaten away, 3: a single mosquito that prefers to feed on oozes, 4: a watering can filled with sand, 5: a glowing severed head identical to that of the closest living creature, 6: a 20 ft x 5 ft rainbow beam of light that can be dismissed.)",
+		description : "This green, floppy, conical wizard’s hat magically contains six different items. Once a day a character can pull an item out of the hat. Which of the items that appears is determined randomly using a d6 and the list below. The item lasts for 1 hour." + toUni("d6\tItem") + "\n1\ta bouquet that smells like anxiety,\n2\tcotton candy that envelops and obscures the closest tiny object until the candy is eaten away (no nutritional value),\n3\ta single mosquito that prefers to feed on oozes,\n4\ta watering can filled with sand,\n5\ta glowing severed head identical to the head of a living creature closest to the hat’s holder,\n6\ta 20 ft long-5 ft wide rainbow beam of light that lasts one hour or until dismissed.",
 		usages : 1,
 		recovery : "dawn"
 		},
@@ -891,12 +949,13 @@ changeeval : function () {
 		usages : 1,
 		recovery : "dawn",
 		action : [["action", " (Nimbus)"]],
+		weaponsAdd : ["Mind-Poison Dagger"],
 		weaponOptions : {
 			baseWeapon : "dagger",
 			regExpSearch : /^(?=.*dagger)(?=.*mind)(?=.*poison).*$/i,
 			name : "Mind-Poison Dagger",
+			source : [["AL","MtoF"]],
 			description : "Finesse, light, thrown; If coated, DC 15 Wis save or +2d10 psychic dmg \u0026 1 min poisoned",
-			selectNow : true
 		}
 	},
 	"mist hunters magnificent cap (rmh safety tools)" : {
@@ -919,7 +978,12 @@ changeeval : function () {
 		description : "This sentient +2 hand crossbow has seen better times. The wood is cracked & splintered & the string is heavily-frayed. A large, blue feather hangs from the handgrip alongside a couple green glass baubles. The crossbow whispers warnings, granting a +2 bonus to initiative if you aren't incapacitated. Sentience: Chaotic Neutral. Hearing & Darkvision to 120 ft. Speaks Common & Halfling. Personality: Greedy, impetuous, demands to be polished or shouts insults & denies bonuses.",
 		descriptionFull : "This hand crossbow looks to have seen better times. The wood is cracked and splintered and the string is heavily-frayed. A large, blue feather hangs from the handgrip alongside a couple green, glass baubles. The crossbow whispers warnings to its bearer, granting a +2 bonus to initiative if the bearer isn't incapacitated.\n   " + toUni("Sentience") + ": Nettle is a sentient chaotic neutral weapon with an Intelligence of 15, a Wisdom of 10 and a Charisma of 14. It has has hearing and darkvision out to a range of 120 feet. Nettle speaks Common and Halfling.\n   " + toUni("Personality") + ": Nettle is greedy and impetuous, and prefers that its wielder share these ideals. It demands to be better taken care of than its previous owners did. If its bearer is lawfully-aligned, or if its bearer does not spend at least an hour each day tending to it (polishing, applying resin to the string, etc.), Nettle denies its bonuses to attack and damage rolls and initiative checks. It also shouts out insults to those nearby, imposing disadvantage on any Charisma (Deception or Persuasion) checks or Dexterity (Stealth) check that its wielder makes to move silently.",
 		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
-		weaponsAdd : { select : ["Nettle, Hand Crossbow +2"], options : ["Nettle, Hand Crossbow +2"] },
+	weaponsAdd : ["Nettle, Hand Crossbow +2"],
+		weaponOptions : {
+		baseWeapon : "hand crossbow",
+		regExpSearch : /^(?=.*hand)(?=.*crossbow)(?=.*nettle).*$/i,
+		name : "Nettle, Hand Crossbow +2",
+				},
 	},
 	"oathbinder (ddhc-toa-15)" : {
 		name : "Oathbinder (DDHC-TOA-15)",
@@ -937,18 +1001,18 @@ changeeval : function () {
 		usages : 1,
 		recovery : "dawn",
 		action : [["action", ""]],
-		spellcastingBonus : [{
+	spellcastingBonus : [{
 			name : "Once per dawn",
 			spells : ["beacon of hope"],
 			selection : ["beacon of hope"],
 			firstCol : "oncelr"}],
+	weaponsAdd : ["Oathbinder"],
 		weaponOptions : {
-			baseWeapon : "warhammer",
-			regExpSearch : /^(?=.*oathbinder).*$/i,
-			name : "Oathbinder",
-			description : "Versatile (d10); Fiend/undead +2d6 radiant dmg; if hp<26, DC 15 Wis save or die. If pass, frightened until my next turn ends",
-			modifiers : [2, 2],
-			selectNow : true
+		baseWeapon : "warhammer",
+		regExpSearch : /^(?=.*oathbinder).*$/i,
+		name : "Oathbinder",
+		description : "Versatile (d10); Fiend/undead +2d6 radiant dmg; if hp<26, DC 15 Wis save or die. If pass, frightened until my next turn ends",
+		modifiers : [2, 2]
 				},
 	},
 	"order of the guardians ring (rmh safety tools)" : {
@@ -964,14 +1028,15 @@ changeeval : function () {
 		recovery : "Special",
 		additional : "from Order",
 		action : [["action", "Order of the Guardians Ring (use on target)"], ["reaction", "Order of the Guardians Ring (use on self)"]],
+		weaponsAdd : ["Order of the Guardians Ring"],
 		weaponOptions : {
 			regExpSearch : /^(?=.*order)(?=.*guardian|guardians)(?=.*ring).*$/i,
 			name : "Order of the Guardians Ring",
 			baseWeapon : "unarmed strike",
+			source : [["AL:R","ST"]],
 			abilitytodamage : false,
 			damage : [0, 0, ""],
 			description : "If attack hits, potion or poison in ring delivered to target.",
-			selectNow : true
 		}
 	},
 	"owlbear snowshoes" : {
@@ -1056,13 +1121,13 @@ changeeval : function () {
 			spells : ["vicious mockery"],
 			selection : ["vicious mockery"],
 			firstCol : "oncelr"}],
-	weaponOptions : {
+	weaponsAdd : ["Spare"],
+		weaponOptions : {
 		baseWeapon : "longsword",
 		regExpSearch : /^(?=.*spare).*$/i,
 		name : "Spare",
 		description : "Versatile (d10); While active, +2d6 fire damage.",
-		modifiers : [2, 2],
-		selectNow : true
+		modifiers : [2, 2]
 				},
 	},
 	"tarot card set" : {
@@ -1074,34 +1139,6 @@ changeeval : function () {
 		usages : 1,
 		recovery : "dawn"
 		},
-	"tyr's blessing of command (ccc-bmg-23 phlan2-2)" : {	
-		name : "Tyr's Blessing of Command (CCC-BMG-23 PHLAN2-2)",
-		source : [["AL","CCC"]],
-		rarity : "unique",
-		attunement : true,
-		description : "This blessing has been bestowed upon you by Tyr in recognition of your service to the city and citizens of Phlan in the face of great peril to your own wellbeing. Your Charisma score increases by 2, up to a maximum of 20. This blessing may be refused. If accepted, it requires an attunement slot.",
-		scores : [0, 0, 0, 0, 0, 2],
-	},
-	"tyr's blessing of luck (ccc-bmg-24 phlan2-3)" : {	
-		name : "Tyr's Blessing of Luck (CCC-BMG-24 PHLAN2-3)",
-		source : [["AL","CCC"]],
-		rarity : "unique",
-		attunement : true,
-		description : "This blessing has been bestowed upon you by Tyr in recognition of your service to the city and citizens of Phlan in the face of great peril to your own wellbeing. You gain a +1 bonus to ability checks and saving throws. This blessing may be refused. If accepted, it requires an attunement slot. This blessing is not tradeable, and if refused or unattuned, it cannot be regained.",
-		addMod : [
-			{ type : "save", field : "all", mod : 1, text : "I gain a +1 bonus on all my saving throws." },
-			{ type : "skill", field : "all", mod : 1, text : "I gain a +1 bonus on all my ability checks." },
-			{ type : "skill", field : "Init", mod : 1, text : "I gain a +1 bonus on all my ability checks." }
-		]
-	},
-	"tyr's blessing of the mind (ccc-bmg-22 phlan2-1)" : {	
-		name : "Tyr's Blessing of the Mind (CCC-BMG-22 PHLAN2-1)",
-		source : [["AL","CCC"]],
-		rarity : "unique",
-		attunement : true,
-		description : "This blessing has been bestowed upon you by Tyr in recognition of your service to the city and citizens of Phlan in the face of great peril to your own wellbeing. Your Intelligence score increases by 2, up to a maximum of 20. This blessing may be refused. If accepted, it requires an attunement slot. This blessing is not tradeable, and if refused or unattuned, it cannot be regained.",
-		scores : [0, 0, 0, 2, 0, 0],
-	},
 	"wand of whimsy (wbw-pr)" : {
 		name : "Wand of Whimsy (WBW-PR)",
 		source : ["AL", "WBW"],
@@ -1119,12 +1156,12 @@ changeeval : function () {
 		description : "This blade, formed from Father Llymic's urge to destroy, is made from a bizarre icy crystal that appears to bend & twist when viewed peripherally. You have a +3 bonus to atk & dmg rolls made with this magic longsword & when presented with the chance to act violently, Woe heightens your urge to do so. If you wield Woe while wearing Discord, you're unharmed by temperatures as low as −60 degrees Fahrenheit. Until you remove Discord, you gain the flaw “Bright light enrages me.”",
 		descriptionLong : "This blade, formed from Father Llymic's urge to destroy, is made from a bizarre, icy crystal that appears to bend and twist when viewed peripherally. When Woe's bearer is presented with an opportunity to act violently, Woe heightens its urge to do so. You have a +3 bonus to attack and damage rolls made with this magic weapon. If you wield Woe while wearing Discord, you're unharmed by temperatures as low as −60 degrees Fahrenheit. Additionally, until you remove Discord, you gain the flaw “Bright light enrages me.”",
 		descriptionFull : "This blade, formed from Father Llymic's urge to destroy, is made from a bizarre, icy crystal that appears to bend and twist when viewed peripherally. When Woe's bearer is presented with an opportunity to act violently, Woe heightens its urge to do so.\n   You have a +3 bonus to attack and damage rolls made with this magic weapon.\n   If a character wields Woe while wearing Discord (plate armor from DDAL-DRW-15 Frozen Whispers), they are unharmed by temperatures as low as −60 degrees Fahrenheit. Additionally, until the character removes Discord, they gain the flaw “Bright light enrages me.”",
-	weaponOptions : {
+	weaponsAdd : ["Woe"],
+		weaponOptions : {
 		baseWeapon : "longsword",
 		regExpSearch : /^(?=.*woe).*$/i,
 		name : "Woe",
-		modifiers : [3, 3],
-		selectNow : true
+		modifiers : [3, 3]
 				},
 	},
 	"wooden gecko earrings (ddhc-toa-8)" : {
@@ -1144,7 +1181,6 @@ changeeval : function () {
 		descriptionFull : "Zephyros, the perpetually-preoccupied cloud giant, has granted you a selection of his notes. The scribed words, rough sketches, and strange maps don't seem to make much sense at first glance, but if you spend one minute studying the pages, you gain advantage on your next Intelligence (History) or (Arcana) check. If you do not rest before using the notes again there is a 50% chance that you fall askeep for 1 minute instead."
 	},
 }
-})
 
 //Neat custom trinkets from AL modules. Most have no real mechanical effect, but are cool enough that people might want the full description anyway.
 MagicItemsList["al trinkets"] = {
@@ -1281,7 +1317,7 @@ MagicItemsList["al trinkets"] = {
 		name: "Piece of the Machine of Lum the Mad (IMR)",
 		source : ["AL:EL", 2019],
 		defaultExcluded : true,
-		description: "Once operated via its vast array of buttons, dials, and levers, the Infernal Machine of Lum the Mad was dismantled and lies scattered through the world. Who knows what function this piece controlled? It appears as a jeweled button marked with a mysterious glyph, hung from a delicate chain.",
+		description: "Once operated via its vast array of buttons, dials & levers, the Infernal Machine of Lum the Mad was dismantled & lies scattered through the world. Who knows what function this piece controlled? It appears as a jeweled button marked with a mysterious glyph, hung from a delicate chain.",
 		descriptionFull: "Once operated via its vast array of buttons, dials, and levers, the Infernal Machine of Lum the Mad has been dismantled and lies scattered throughout the world.\n   Who knows what function of it this piece controlled? This appears as a jeweled button marked with a mysterious glyph, hung from a delicate chain.",
 	},
 	"sign of the snail (ddia05)" : {
@@ -1306,6 +1342,7 @@ MagicItemsList["al trinkets"] = {
 		descriptionFull : "This red-leather book is a disturbing collection of military and political strategy framed as poetry. While the insights are profound and the poetry skilled, musical, and high artistry, the underlying theme of mortals as prey makes reading more than a few poems in a sitting deeply unsettling to most humanoids.",
 		},
 }
+})
 
 //Tree Spirit Item from DDHC-TOA-8. In the past, only allowed with special campaign documentation. The PHB doesn't actually specify which weapons are made of wood, so the restrictions I've entered are largely just what seems right to me.
 MagicItemsList["tree spirit weapon"] = {

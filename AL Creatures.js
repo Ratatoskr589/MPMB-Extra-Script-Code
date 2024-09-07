@@ -593,6 +593,52 @@ CreatureList["mini displacer beast"] = {
 		}]
 	},
 
+CreatureList["black pudding cup"] = {
+			name : "Black Pudding Cup",
+			nameAlt : ["Cup Black Pudding"],
+			source : ["AL:FC", 2024],
+			size : 5, //Tiny
+			type : "Ooze",
+			alignment : "Unaligned",
+			companion : "familiar",
+			ac : 7,
+			hp : 4,
+			hd : [1, 4],
+			speed : "10 ft, climb 10 ft",
+			scores : [10, 5, 14, 1, 6, 1],
+			damage_immunities : "acid, cold, lightning, slashing",
+			condition_immunities : "blinded, charmed, deafened, exhaustion, frightened, prone",
+			senses : "Blindsight 60 ft. (blind beyond this radius)",
+			passivePerception : 8,
+			languages : "",
+			challengeRating : "0",
+			proficiencyBonus : 3,
+			attacksAction : 1,
+		attacks : [{
+			name : "Pseudopod",
+			ability : 1,
+			damage : [1, 4, "acid"],
+			range : "Melee (2 ft)",
+			description : ""
+		}],
+		traits : [{
+			name : "Amorphous",
+			description : "The pudding can move through a space as narrow as 1 inch wide without squeezing."
+			}, {
+			name : "Spider Climb",
+			description : "The pudding can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check."
+			}, {
+			name : "Corrosive Form",
+			description : "The pudding can eat through ½ inch of wood in 1 round. A creature that touches the pudding cup or hits it with a melee attack while in 5 ft takes 1 (1d4-1) acid damage."
+			}],
+		features : [{
+			name : "Description",
+			description : "This sturdy ceramic cup holds a tiny black jelly-like substance. While in the cup, it has AC 9. [Trading Post v13.1 2024]",
+			}, {
+			name : "Resummon",
+			description : "The creature can be returned via Find Familiar if killed. If its cup was also destroyed, a new cup needs to be purchased (1gp).",
+			}],
+	},
 
 
 //Special Creatures from AL modules
