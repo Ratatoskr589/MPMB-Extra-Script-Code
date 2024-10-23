@@ -133,6 +133,10 @@ FR-DC-AEG-7 The Missing Adventurers
 FR-DC-BG The Flying Flame
 -Blessing of Magic Resistance (Bahamut's)
 
+FR-DC-FALL-1 Cathedral of Ice
+-Mystery Key
+-Blessing of Wound Closure
+
 FR-DC-GHG-1 Griffons of Longsaddle
 -Staff of Birdcalls
 
@@ -143,6 +147,9 @@ FR-DC-LIGA-2 House of Shadow
 -Deck of Illusions
 -Dread Helm
 
+FR-DC-MELB-1-4 Monsters
+-Wand of Binding
+
 FR-DC-ONI-1 Oni of the Thousand Gates
 -Orb of Direction
 
@@ -150,11 +157,23 @@ FR-DC-PANDORA-JWEI-10 Ares
 -Charm of the Fate
 
 FR-DC-QLA-1 Mel's Pit
--Flying Carpet, 4x6 (Draconic Soul Wing)
 -Chest of Preserving
 
 FR-DC-QLA-2 The Ceremony
 -Rope of Mending
+
+FR-DC-TGT-2 Those Who Plant
+-Gem of Brightness
+
+FR-DC-TRIDEN-MYKE-5 Shadow on the Sands
+-Orb of Direction
+-Dried Leech
+
+FR-DC-VECNA-1 Three Body Problem
+-Deck of Miscellany (“A dark purple deck with embossed golden borders.” - too annoying to code unless needed)
+
+FR-DC-WATERDEEP-GSZ Sweet Dreams... Geese
+-Deck of Miscellany
 
 PO-BK-1-02 Trust No One
 -Heward's Handy Spice Pouch
@@ -224,6 +243,16 @@ PO-BK-3-8 Weeding Out Trouble
 PO-BK-3-9 The Isle of Death
 -Amethyst Dragon Wing Longbow
 
+PO-BK-4-1 (Premier)
+-Glowrune Pigment (rare)
+
+PO-BK-4-2 Shadow Kingdom (Premier)
+-Devotee's Censer
+-Quaal's Feather Token (Whip)
+
+PO-BK-4-3 One Bard's Trash (Premier)
+-Clockwork Amulet
+
 PO-BMG-DRW-KS-1 The Thief of Thay
 -Dust of Disappearance
 -Sekholah Worshipping Statue
@@ -231,6 +260,12 @@ PO-BMG-DRW-KS-1 The Thief of Thay
 RV-DC-OH1 In the Mist of Keening
 -Horn of Silent Alarm
 -Dagger +2
+
+PS-DC-CEG-2 Snakes on a Planescape
+-Ruby of the War Mage
+
+PS-DC-HNL-1 Nowhere Fast
+-Ring of the Orator
 
 PS-DC-NOS-1 Githzerai Glitch
 -Boon of Luck
@@ -249,6 +284,9 @@ SJ-DC-ASI-1 Secrets of Old
 
 SJ-DC-ASI-3 Secrets of Old
 -Horn of Silent Alarm
+
+SJ-DC-ASLM-2 Heart of Glass
+-Cloak of Many Fashions
 
 SJ-DC-ASLM-3 Missing Heir
 -Sapphire Buckler
@@ -311,7 +349,7 @@ SJ-DC-DAP Goldfish island
 -Ring of Feather Falling (Not actually a legal reward for that tier, but eh)
 
 SJ-DC-DES05-03 Galactic Gigglefit
--Stone of Good Luck (also not actually a legal reward for SJ)
+-Stone of Good Luck (also not actually a legal reward for SJ; has fancy name but no flavor)
 
 SJ-DC-DD-12
 -Blessing of Magic Resistance
@@ -393,6 +431,9 @@ SJ-DC-LP-1 Litter Patrol
 -Smokepowder
 -K's Ointment
 
+SJ-DC-MIST-2 Radiant Descent
+-Blessing of Magic Resistance
+
 SJ-DC-MAD-2 Mad Effect Retribution
 -Horn of Silent Alarm
 
@@ -430,8 +471,16 @@ SJ-DC-TBS-4 Brightshill
 -Tankard of Sobriety
 -Keoghtam's Ointment
 
+SJ-DC-TRIDEN-BZ Sweet Dreams are Made of Bees
+-Blessing of Magic Resistance
+
 SJ-DC-TRIDEN-MYKE-2
 -Rope of Mending
+
+SJ-DC-TRIDEN-MYKE-3 Every Bond You Break
+-Blessing of Magic Resistance
+-Heward's Handy Spice Pouch
+-Winged Arrow
 
 SJ-DC-TST-1 Bulan
 -Instrument of Scribing
@@ -439,9 +488,19 @@ SJ-DC-TST-1 Bulan
 SJ-DC-TST-2 Datu
 -Ring of Regeneration
 
+SJ-DC-TST-3 Bakunawa
+-Horn of Silent Alarm
+
+SJ-DC-UNITE-1 Asteroid Escape
+-Bag of Holding 
+
 SJ-DC-UNITE-2 Stranded
 -Brooch of Shielding
 -Horn of Silent Alarm
+
+SJ-DC-VEN-2
+-Staff of Adornment
+-K's Ointment
 
 SJ-DC-VEN-3 Daylight Saving Time
 -Absorbing Tattoo (Gold)
@@ -577,6 +636,10 @@ WBW-DC-MOR-1 A Blight in Mordynia
 WBW-DC-MOR-2 Dark Miasma of the Mausoleum
 -Pole of Collapsing
 -Cloak of Protection
+
+WBW-DC-PHP-2 A Compendium of Curiosities
+-Scale Armor of Gleaming
+-Crossbow Bolts+2
 
 WBW-DC-Rook-1-1 Care and Maintenance of the Rookery
 -Silver Raven Figurine

@@ -1,3 +1,14 @@
+After 9/7/24
+-Changed magic item descriptions from 2nd person to 1st person for consistency with standard versions and to save space.
+-Added more items from DCs and other modules
+-Fixed Viridian Monocle description
+-Corrected Angel's Sting description
+-Corrected K-9's Veil description
+-Corrected descriptions for DC-POA-TDG1-2 items. Somehow all of them were wrong.
+-Corrected description for WBW-DC-ZODIAC-1 (apparently I messed up a bunch of these awhile back)
+-Shortened descriptions on a number of items so the text isn't quite as small.
+-Moved the few flavored items I was using my Candlekeep file for into my main AL flavor files. That way I can use the default Candlekeep code without missing out on them. I'll leave my Candlekeep file here, but don't plan to update it any further.
+
 After 7/6/24
 -Updated files to use the new Weapon & ArmorAdd format (old versions are saved in a separate folder)
 -Switched Black Pudding Cup to a creature instead of an item.
