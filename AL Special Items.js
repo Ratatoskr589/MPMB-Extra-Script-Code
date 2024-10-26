@@ -669,7 +669,7 @@ MagicItemsList["al event award items"] = {
 		name : "Wand of Verdant Vitality",
 		source : ["DDCE", 2021],
 		type : "wand",
-		description : "This wand has 3 charges. As an action while holding it, expend 1 charge to target a plant within 30 ft. The plant becomes lush w/ blooms for 24 hrs. The wand regains all charges at dawn. If I use the last charge, roll a d20. On a 1, the wand turns into a swarm of stick bugs & is destroyed.",
+		description : "This wand has 3 charges. As an action while holding it, I can expend 1 charge to target a plant within 30 ft. The plant becomes lush with blooms for 24 hrs. The wand regains all charges at dawn. If I use the last charge, roll a d20. On a 1, the wand turns into a swarm of stick bugs and is destroyed.",
 		descriptionFull : "This wand has 3 charges. While holding it, you can use an action to expend 1 of its charges to target one plant within 30 feet. The target becomes lush as in full bloom for 24 hours.\n   The wand regains all expended charges at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand transforms into a swarm of stick bugs and is destroyed.",
 		usages : 3,
 		recovery : "dawn",
@@ -847,7 +847,7 @@ MagicItemsList["al new items"] = {
 		rarity : "common",
 		magicItemTable : "?",
 		description : "This floppy green conical wizard’s hat magically contains 6 items. Once a day, I can pull a random item out of the hat that lasts for 1 hr. Roll 1d6 - 1: a bouquet that smells like anxiety, 2: cotton candy that envelops and obscures the closest tiny object until eaten away, 3: a single mosquito that prefers to feed on oozes, 4: a watering can filled with sand, 5: a glowing severed head identical to that of the closest living creature, 6: a 20 ft x 5 ft rainbow beam of light that can be dismissed.",
-		description : "This green, floppy, conical wizard’s hat magically contains six different items. Once a day a character can pull an item out of the hat. Which of the items that appears is determined randomly using a d6 and the list below. The item lasts for 1 hour." + toUni("d6\tItem") + "\n1\ta bouquet that smells like anxiety,\n2\tcotton candy that envelops and obscures the closest tiny object until the candy is eaten away (no nutritional value),\n3\ta single mosquito that prefers to feed on oozes,\n4\ta watering can filled with sand,\n5\ta glowing severed head identical to the head of a living creature closest to the hat’s holder,\n6\ta 20 ft long-5 ft wide rainbow beam of light that lasts one hour or until dismissed. [Trading Post v13.1 2024]",
+		descriptionFull : "This green, floppy, conical wizard’s hat magically contains six different items. Once a day a character can pull an item out of the hat. Which of the items that appears is determined randomly using a d6 and the list below. The item lasts for 1 hour." + toUni("d6\tItem") + "\n1\ta bouquet that smells like anxiety,\n2\tcotton candy that envelops and obscures the closest tiny object until the candy is eaten away (no nutritional value),\n3\ta single mosquito that prefers to feed on oozes,\n4\ta watering can filled with sand,\n5\ta glowing severed head identical to the head of a living creature closest to the hat’s holder,\n6\ta 20 ft long-5 ft wide rainbow beam of light that lasts one hour or until dismissed. [Trading Post v13.1 2024]",
 		usages : 1,
 		recovery : "dawn"
 		},
@@ -857,7 +857,7 @@ MagicItemsList["al new items"] = {
 		rarity : "common",
 		magicItemTable : "?",
 		description : "The naiad seamstress of this beautifully crafted hat finds physical materials far too restricting. She enchanted turquoise blue water to hold the form of a pointed hat, though water frequently drips on me. Once a day, I can pull a random item out of the hat that lasts for 1 hr. Roll 1d6 - 1: a bouquet that smells like anxiety, 2: cotton candy that envelops and obscures the closest tiny object until eaten away, 3: a single mosquito that prefers to feed on oozes, 4: a watering can filled with sand, 5: a glowing severed head identical to that of the closest living creature, 6: a 20 ft x 5 ft rainbow beam of light that can be dismissed.",
-		description : "The seamstress of this beautifully crafted hat was a naiad from the elemental plane of water who finds using physical materials in clothing far too restricting. This hat is made of turquoise blue water enchanted to hold the form of a pointed hat, though water from it frequently drips onto its wearer.\n   This green, floppy, conical wizard’s hat magically contains six different items. Once a day a character can pull an item out of the hat. Which of the items that appears is determined randomly using a d6 and the list below. The item lasts for 1 hour." + toUni("d6\tItem") + "\n1\ta bouquet that smells like anxiety,\n2\tcotton candy that envelops and obscures the closest tiny object until the candy is eaten away (no nutritional value),\n3\ta single mosquito that prefers to feed on oozes,\n4\ta watering can filled with sand,\n5\ta glowing severed head identical to the head of a living creature closest to the hat’s holder,\n6\ta 20 ft long-5 ft wide rainbow beam of light that lasts one hour or until dismissed. [Trading Post v13.1 July 2024]",
+		descriptionFull : "The seamstress of this beautifully crafted hat was a naiad from the elemental plane of water who finds using physical materials in clothing far too restricting. This hat is made of turquoise blue water enchanted to hold the form of a pointed hat, though water from it frequently drips onto its wearer.\n   This green, floppy, conical wizard’s hat magically contains six different items. Once a day a character can pull an item out of the hat. Which of the items that appears is determined randomly using a d6 and the list below. The item lasts for 1 hour." + toUni("d6\tItem") + "\n1\ta bouquet that smells like anxiety,\n2\tcotton candy that envelops and obscures the closest tiny object until the candy is eaten away (no nutritional value),\n3\ta single mosquito that prefers to feed on oozes,\n4\ta watering can filled with sand,\n5\ta glowing severed head identical to the head of a living creature closest to the hat’s holder,\n6\ta 20 ft long-5 ft wide rainbow beam of light that lasts one hour or until dismissed. [Trading Post v13.1 July 2024]",
 		limfeaname : "Green Wizard's Hat",
 		usages : 1,
 		recovery : "dawn"
@@ -969,7 +969,7 @@ changeeval : function () {
 		},
 	"mind-poison dagger (ddhc-mord-05)" : {
 		name : "Mind-Poison Dagger (DDHC-MORD-05)",
-		source : [["AL","MtoF"]],
+		source : [["AL","MToF"]],
 		type : "weapon (dagger)",
 		rarity : "rare",
 		magicItemTable : "?",

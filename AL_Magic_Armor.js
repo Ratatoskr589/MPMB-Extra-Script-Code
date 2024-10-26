@@ -144,7 +144,7 @@ MagicItemsList["al adamantine/mithral armor"] = {
 		descriptionFull : "This brown colored scale armor has protruding metal antlers like that of an actual moose at the armor's helm.\n   Mithral is a light, flexible metal. A mithral chain shirt or breastplate can be worn under normal clothes. If the armor normally imposes disadvantage on Dexterity (Stealth) checks or has a Strength requirement, the mithral version of the armor doesn't. Barding is armor designed to protect an animal's head, neck, chest, and body.",
 	},
 	"mithral scale barding: g.o.a.t. barding (dc-poa-tdg1-8)" : {
-		name : "G.O.A.T. Mithral Scale Barding (DC-POA-TDG1-8)",
+		name : "G.O.A.T. Mithral Scale Barding (TDG1-8)",
 		source : [["AL", "DC-POA"]],
 		magicItemTable : "B",
 		description : "This barding has an intricate design with a motif of winter flora & fauna. Mithral is a light, flexible metal & this scale mail barding doesn't impose disadv. on stealth checks. Barding is armor designed to protect an animal's head, neck, chest, & body.",
@@ -159,7 +159,7 @@ MagicItemsList["al adamantine/mithral armor"] = {
 		armorAdd : { select : "Mithral Scale Mail", options : ["Mithral Scale Mail"] },
 	},
 	"mithral scale mail: hulk-buster armor (dc-poa-tdg1-7)" : {
-		name : "Hulk-Buster Armor, Mithral Scale Mail (DC-POA-TDG1-7)",
+		name : "Hulk-Buster Armor, Mithral Scale Mail (TDG1-7)",
 		source : [["AL", "DC-POA"]],
 		magicItemTable : "B",
 		description : "This dwarven armor was created from an infusion of chardalyn & mithral, inspired by the fearsome bodies of the Star Spawn Hulks. Mithral is a light, flexible metal & this scale mail doesn't impose disadv. on stealth checks.",
@@ -200,7 +200,7 @@ MagicItemsList["al adamantine/mithral armor"] = {
 		armorAdd : { select : "Mithral Splint", options : ["Mithral Splint"] },
 	},
 	"mithral splint: armor of insults (ccc-gsp-ooze1-1)" : {
-		name : "Armor of Insults (Mithral Splint, CCC-GSP-OOZE1-1)",
+		name : "Armor of Insults (Mithral Splint, GSP-OOZE1-1)",
 		source : [["AL", "CCC"]],
 		magicItemTable : "B",
 		description : "This splint armor was crafted with the finest materials by dwarves for elves. Despite the near-flawless craftsmanship, the smiths purposely added one design flaw as a prank: when the armor is struck, the voices of the dwarves who forged it berate the wearer. Mithral is a light, flexible metal, and this splint doesn't impose disadv. on Dex (Stealth) checks or require 15 Str.",
@@ -217,7 +217,7 @@ MagicItemsList["al adamantine/mithral armor"] = {
 	},
 	"mithral plate (ddhc-mord-1)" : {
 		name : "Mithral Plate (DDHC-MORD-1)",
-		source : [["AL", "MtoF"]],
+		source : [["AL", "MToF"]],
 		magicItemTable : "B",
 		description : "This suit of armor is emblazoned with an unblinking, lidless eye in the center of the breastplate. Mithral is a light, flexible metal, and this plate mail doesn't impose disadv. on Dex (Stealth) checks or require 15 Str.",
 		descriptionFull : "This suit of armor is emblazoned with an unblinking, lidless eye in the center of the breastplate. Mithral is a light, flexible metal. A mithral chain shirt or breastplate can be worn under normal clothes. If the armor normally imposes disadvantage on Dexterity (Stealth) checks or has a Strength requirement, the mithral version of the armor doesn't.",
@@ -286,7 +286,7 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		armorAdd : { select : "+1 Studded Leather", options : ["+1 Studded Leather"]  },
 	},
 	"+1 studded leather: star lancer corps armor (sj-dc-bad-3)" : {
-		name : "Star Lancer Corps Armor, +1 Studded Leather (SJ-DC-BAD-3)",
+		name : "Star Lancer Corps Armor, +1 Studded Leather (BAD-3)",
 		source : [["AL", "SJ-DC"]],
 		rarity : "rare",
 		magicItemTable : "H",
@@ -303,7 +303,7 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		magicItemTable : "G",
 		allowDuplicates : true,
 		description : "This suit of armor is fashioned out of slivers of wood, each engraved with Giant runes of death and lament, and sewn onto a backing of black leather. It grants a +1 bonus to AC while worn.",
-		description : "This suit of armor is fashioned out of slivers of wood, each engraved with Giant runes of death and lament, and sewn onto a backing of black leather. The armor resizes to fit its wearer.\n   You have a +1 bonus to AC while wearing this armor.",
+		descriptionFull : "This suit of armor is fashioned out of slivers of wood, each engraved with Giant runes of death and lament, and sewn onto a backing of black leather. The armor resizes to fit its wearer.\n   You have a +1 bonus to AC while wearing this armor.",
 		armorAdd : { select : "+1 Wooden Scale Mail", options : ["+1 Wooden Scale Mail"]  },
 	},
 	"+1 breastplate: glass (ddep0-1)" : {
@@ -346,7 +346,7 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		armorAdd : { select : "+1 Breastplate", options : ["+1 Breastplate"]  },
 	},
 	"+1 breastplate: bulletproof vest (sj-dc-legit-sb-2)" : {
-		name : "Bulletproof Vest, +1 Breastplate (SJ-DC-LEGIT-SB-2)",
+		name : "Bulletproof Vest, +1 Breastplate (LEGIT-SB-2)",
 		source : [["AL", "SJ-DC"]],
 		rarity : "rare",
 		magicItemTable : "H",
@@ -377,7 +377,7 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		armorAdd : { select : "+1 Breastplate (Plant)", options : ["+1 Breastplate (Plant)"] },
 	},
 	"+1 half plate: bone (ccc-tri-6 night1-2)" : {
-		name : "+1 Bone Half Plate (CCC-TRI-6 NIGHT1-2)",
+		name : "+1 Bone Half Plate (TRI-6 NIGHT1-2)",
 		source : [["AL", "CCC"]],
 		rarity : "rare",
 		magicItemTable : "I",
@@ -396,7 +396,7 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		armorAdd : { select : "+1 Half Plate", options : ["+1 Half Plate"] },
 	},
 	"+1 half plate: asano's do-maru (fr-dc-oni-2)" : {
-		name : "Asano's Do-Maru, +1 Half Plate (FR-DC-ONI-2)",
+		name : "Asano's Do-Maru, +1 Half Plate (ONI-2)",
 		source : [["AL", "FR-DC"]],
 		rarity : "rare",
 		magicItemTable : "I",
@@ -406,7 +406,7 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		armorAdd : { select : "+1 Bone Half Plate", options : ["+1 Bone Half Plate"] },
 	},
 	"+1 half plate: warforged chest piece (rv-dc-php-1313-1)" : {
-		name : "Warforged Chest Piece, +1 Half Plate (RV-DC-PHP-1313-1)",
+		name : "Warforged Chest Piece, +1 Half Plate (PHP-1313-1)",
 		source : [["AL:R","DC"]],
 		rarity : "rare",
 		magicItemTable : "I",
@@ -427,18 +427,18 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		armorAdd : { select : "+1 Bone Half Plate", options : ["+1 Bone Half Plate"] },
 	},
 	"+1 half plate: legion's peregrine cuirass (sj-dc-rock-2)" : {
-		name : "Legion's Peregrine Cuirass, +1 Half Plate (SJ-DC-ROCK-2)",
+		name : "Legion's Peregrine Cuirass, +1 Half Plate (ROCK-2)",
 		source : [["AL", "SJ-DC"]],
 		rarity : "rare",
 		magicItemTable : "I",
 		allowDuplicates : true,
-		description : "The peregrine falcon sculpted on this cuirass represents the Valkan's Legion's unmatched swiftness and precision. The falcon pierces delicate lines with arcane runes that bestow magical alertness. Whoever dons it carries the weight of the Legion's reputation. While worn, it gives +1 AC and +2 initiative unless incapacitated.",
+		description : "The peregrine falcon sculpted on this cuirass represents the Valkan's Legion's unmatched swiftness and precision. The falcon pierces delicate lines with arcane runes that bestow magical alertness. Whoever dons it carries the weight of the Legion's reputation. While worn, I have +1 AC and +2 initiative unless incapacitated.",
 		descriptionFull : "The peregrine falcon sculpted on this cuirass represents Valkan's Legion's unmatched swiftness and precision. The falcon pierces delicate windy lines with arcane runes that bestow magical alertness. Whoever dons it, however, carries the weight of the Legion's reputation.\n   " + toUni("Guardian") + ". The item whispers warnings to its bearer, granting a +2 bonus to initiative if the bearer isn't incapacitated.\n   You have a +1 bonus to AC while wearing this armor.",
 		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
 		armorAdd : { select : "+1 Half Plate", options : ["+1 Half Plate"] },
 	},
 	"+1 half plate: mazatil's remorse (sj-dc-stratcon-1)" : {
-		name : "Mazatil's Remorse, +1 Half Plate (SJ-DC-STRATCON-1)",
+		name : "Mazatil's Remorse, +1 Half Plate (STRATCON-1)",
 		source : [["AL", "SJ-DC"]],
 		rarity : "rare",
 		magicItemTable : "I",
@@ -507,7 +507,7 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		armorAdd : { select : "+2 Stone Half Plate", options : ["+2 Stone Half Plate"] },
 	},
 	"+2 half plate: mythos (wbw-dc-php-phan-2)" : {
-		name : "Mythos, +2 Half Plate (WBW-DC-PHP-PHAN-2)",
+		name : "Mythos, +2 Half Plate (PHP-PHAN-2)",
 		source : [["AL", "WBW-DC"]],
 		rarity : "very rare",
 		magicItemTable : "I",
@@ -588,7 +588,7 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		armorAdd : { select : "+3 Plate", options : ["+3 Plate"] },
 	},
 	"+3 plate (ps-dc-element-death-1)" : {
-		name : "+3 Plate Armor (PS-DC-ELEMENT-DEATH-1)",
+		name : "+3 Plate Armor (ELEMENT-DEATH-1)",
 		source : [["AL", "PS-DC"]],
 		rarity : "legendary",
 		magicItemTable : "I",
@@ -617,7 +617,7 @@ MagicItemsList["al armor (common)"] = {
 		action : [["action", "Cast-Off Breastplate"]]
 	},
 	"cast-off breastplate: ooze (dc-poa-garyxiii-4)" : {
-		name : "Cast-Off Ooze Breastplate (DC-POA-GaryXIII-4)",
+		name : "Cast-Off Ooze Breastplate (GaryXIII-4)",
 		source : [["AL", "DC-POA"]],
 		type : "armor (medium)",
 		description : "This armor is a semi-sentient translucent ooze. Attracted to my body heat, it'll act as armor for me as long as I'm alive. The ooze may be doffed in 1 action by drawing it to a stronger source of heat. It may be donned in 5 minutes by waiting patiently nearby or attracting it closer with small heat sources such as matches. Although there's no mechanical benefit, the ooze appreciates being fed small objects, which it dissolves or spits out depending on its tastes.",
@@ -772,7 +772,7 @@ MagicItemsList["al armor (common)"] = {
 		armorAdd : { select : "Stygian Scale Mail", options : ["Stygian Scale Mail"] },
 	},
 	"smoldering breastplate: jökulsbrynja (dc-poa-conmar-3)" : {
-		name : "Jökulsbrynja (Smoldering Breastplate)",
+		name : "Jökulsbrynja (Smoldering Breastplate, CONMAR-3)",
 		source : [["AL", "DC-POA"]],
 		type : "armor (medium)",
 		description : "This metal armor is adorned with snowflake symbols & feels cool to the touch. Although metal, its sheen & color make it look like it's made from opaque ice & it emits wisps of harmless odorless frost vapor while worn.",
@@ -1153,7 +1153,7 @@ MagicItemsList["al armor (other)"] = {
 		}]
 	},
 	"elven chain: sky's armor (wbw-dc-zodiac-12)" : {
-		name : "Sky's Armor (Elven Chain)",
+		name : "Sky's Armor (Elven Chain, ZODIAC-12)",
 		source : [["AL", "WBW-DC"]],
 		type : "armor (chain shirt)",
 		rarity : "rare",
@@ -1308,7 +1308,7 @@ MagicItemsList["al armor (other)"] = {
 	},
 	"mariner's scale mail (alsrs11-a)" : {
 		name : "Mariner's Scale Mail (ALSRs11-A)",
-		source : [["AL", "CCC"]],
+		source : [["ALSRs11","A"]],
 		type : "armor (scale mail)",
 		rarity : "uncommon",
 		magicItemTable : "B",
@@ -1413,7 +1413,7 @@ MagicItemsList["al armor (other)"] = {
 		}]
 	},
 	"scale mail of psychic resistance: resin (ccc-tri-21 yul1-6)" : {
-		name : "Resin Scale Mail of Psychic Resist. (CCC-TRI-21 YUL1-6)",
+		name : "Resin Scale Mail of Psychic Resist. (TRI-21 YUL1-6)",
 		source : [["AL", "CCC"]],
 		type : "armor (scale mail)",
 		rarity : "rare",
@@ -1425,7 +1425,7 @@ MagicItemsList["al armor (other)"] = {
 		armorAdd : { select : "Resin Scale Mail", options : ["Resin Scale Mail"] },
 	},
 	"spiked armor of necrotic resistance (wbw-dc-den-h1)" : {
-		name : "Spiked Armor of Necrotic Resist. (WBW-DC-DEN-H1)",
+		name : "Spiked Armor of Necrotic Resist. (DEN-H1)",
 		source : [["AL", "WBW-DC"]],
 		type : "armor (spiked)",
 		rarity : "rare",
@@ -1486,7 +1486,7 @@ MagicItemsList["al shields"] = {
 		shieldAdd : "+1 Shield (Moon)"
 	},
 	"+1 shield of the salty griffon (ccc-tri-19 dead1-1)" : {
-		name : "Shield of the Salty Griffon +1 (CCC-TRI-19 DEAD1-1)",
+		name : "Shield of the Salty Griffon +1 (TRI-19 DEAD1-1)",
 		source : [["AL", "CCC"]],
 		rarity : "uncommon",
 		magicItemTable : "F",
@@ -1516,7 +1516,7 @@ MagicItemsList["al shields"] = {
 		shieldAdd : "+2 Shield (Yata Mirror)"
 	},
 	"+3 shield: miltiades' shield (ccc-bmg-13 phlan1-1)" : {
-		name : "Miltiades' Shield +3 (CCC-BMG-13 PHLAN1-1)",
+		name : "Miltiades' Shield +3 (BMG-13 PHLAN1-1)",
 		rarity : "very rare",
 		source : [["AL", "CCC"]],
 		magicItemTable : "H",
@@ -1526,7 +1526,7 @@ MagicItemsList["al shields"] = {
 		shieldAdd : "+3 Shield (Miltiades)"
 	},
 	"+3 shield: aegis of the raven queen (ccc-bwm-3)" : {
-		name : "Aegis of the Raven Queen, Shield +3 (CCC-BWM-3)",
+		name : "Aegis of the Raven Queen, Shield +3 (BWM-3)",
 		rarity : "very rare",
 		source : [["AL", "CCC"]],
 		magicItemTable : "H",
@@ -1637,7 +1637,7 @@ MagicItemsList["al shields"] = {
 		source : [["AL", "SJ-DC"]],
 		rarity : "very rare",
 		attunement : true,
-		description : "This shield was made from the scale of a sapphire dragon. While wielded, I have resistance to psychic and thunder dmg. When I take dmg from a creature in 5 ft, I can deal 2d6 thunder dmg as a reaction. Once per dawn as an action, I know the direction of all aberrations within 1 mile until my next turn ends. As a bonus action, it sheds bright light in a 10-ft radius & 10-ft more dim, or stops.",
+		description : "This shield was made from the scale of a sapphire dragon. While wielded, I have resistance to psychic and thunder dmg. When I take dmg from a creature in 5 ft, I can deal 2d6 thunder dmg as a reaction. Once per dawn as an action, I know the direction of all aberrations within 1 mile until my next turn ends. As a bonus action, it sheds 10-ft bright light & 10-ft more dim, or stops.",
 		descriptionFull : "This crystalline blue shield is fashioned from a sapphire dragon's scale and is created to aid in rooting out the influence of Aberrations. While wielding the shield, you have resistance to psychic and thunder damage. Also, when you take damage from a creature that is within 5 feet of you, you can use your reaction to deal 2d6 thunder damage to that creature."+
 		"\n   As an action, you can use the shield to help you locate Aberrations until the end of your next turn. If any Aberrations are within 1 mile of you, the shield emits a low humming tone for a moment, and you know the direction of all Aberrations within that range. Once this property is used, it can't be used again until the next dawn."+
 		"\n   " + toUni("Beacon") + ". The bearer can use a bonus action to cause the item to shed bright light in a 10-foot radius and dim light for an additional 10 feet, or to extinguish the light.",
@@ -1647,7 +1647,7 @@ MagicItemsList["al shields"] = {
 		action : [["reaction", " (damaged in 5ft)"], ["action", " (locate aberrations"], ["bonus action", " (light/dim)"]]
 	},
 	"sapphire buckler: soulflare (sj-dc-dfa-6)" : {
-		name : "Soulflare, Sapphire Buckler (SJ-DC-DFA-6)",
+		name : "Soulflare, Sapphire Buckler (DFA-6)",
 		source : [["AL", "SJ-DC"]],
 		rarity : "very rare",
 		attunement : true,
@@ -1689,7 +1689,7 @@ MagicItemsList["al shields"] = {
 		action : [["reaction", " (damaged in 5ft)"], ["action", " (locate aberrations"]]
 	},
 	"sapphire buckler: bee's knees (sj-dc-triden-bz)" : {
-		name : "Bee's Knees, Sapphire Buckler (SJ-DC-TRIDEN-BZ)",
+		name : "Bee's Knees, Sapphire Buckler (TRIDEN-BZ)",
 		source : [["AL", "SJ-DC"]],
 		rarity : "very rare",
 		attunement : true,

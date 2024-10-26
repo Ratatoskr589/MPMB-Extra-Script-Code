@@ -1,3 +1,12 @@
+After 10/23/14
+-Fixed description on Ryboslav's Pole of Collapsing
+-Added items from STRAT-DRAGON modules on request
+-Shortened more descriptions
+-Removed [Action] for Ioun stone orbiting because it seemed unnecessary.
+-Added missing Source info for Wraps of Unarmed Prowess
+-For longer item names, shortened module codes where possible by removing duplicate source code  (ie switching SJ-DC-WINE-1 to just WINE-1 because SJ-DC is in the source.)
+-Moved Astral  Shards to the Minerals section
+
 After 9/7/24
 -Changed magic item descriptions from 2nd person to 1st person for consistency with standard versions and to save space.
 -Added more items from DCs and other modules
