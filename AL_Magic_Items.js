@@ -1258,8 +1258,8 @@ MagicItemsList["al accessories"] = {
 	},
 };
 
-MagicItemsList["al jewelry"] = {
-		name : "AL Jewelry",
+MagicItemsList["al amulets"] = {
+		name : "AL Amulets",
 		type : "wondrous item",
 		allowDuplicates : true,
 	choices : ["Amulet of the Devout +3 (BMG-DRW-OD-6)","Amulet of Health (CCC-GSP-NTHR1-1)","Amulet of Health (CCC-SFBAY-2-2)","Amulet of Health (DDAL8-10)","Amulet of Health (DDAL-DRW9)","Amulet of Health (DDEP0-1)","Amulet of Health (DDEP1)","Amulet of Health (RotF)","Amulet of Health: Sharael's (WBW-DC-PHP-2)","Amulet of Health: Emotional Well-Being (WBW-DC-Sunlit-4)","Amulet of the Planes: Naerth's Planar Compass (ALSRs11-A)","Amulet of the Planes (DDEP6-3)","Amulet of Proof Against Detection and Location (CCC-MMT2-1)","Amulet of Proof Against Detection and Location (CCC-TAROT2-6)","Amulet of Proof Against Detection and Location (CCC-TRI-32 DAGGR1-1)","Clockwork Amulet (BMG-DRW-OD-3)","Clockwork Amulet (BMG-MOON-MD-1)","Clockwork Amulet (CCC-CENTRIC1-3)","Clockwork Amulet: Chronostat of Precision (CCC-GAD1-3)","Clockwork Amulet: Modron Communication Device (CCC-MAYDAYS2-1)","Clockwork Amulet: Homing Impact Talisman - H.I.T. (CCC-TAROT2-10)","Clockwork Amulet: Yul's Holy Symbol of Gond (CCC-UCON-3)","Clockwork Amulet (DDAL10-8)","Clockwork Amulet (DDAL10-10)","Clockwork Amulet (PS-DC-DDD)","Clockwork Amulet (PS-DC-HYS-3)","Clockwork Amulet (PS-DC-NOS-1)","Clockwork Amulet: Commemorative (PS-DC-PHP-CKA2)","Clockwork Amulet: Skyblue Charge (PS-DC-RAVENGARD)","Clockwork Amulet (PS-DC-SS)","Clockwork Amulet: Blood Lock Amulet (SJ-DC-DEN-H7)","Clockwork Amulet (SJ-DC-PND-1)","Dark Shard Amulet (CCC-DES-1-6)","Dark Shard Amulet (CCC-GEL-1)","Dark Shard Amulet: Booyahg Necklace (CCC-MAYDAYS2-1)","Dark Shard Amulet: Amarantha's Heart (CCC-TAROT1-7)","Dark Shard Amulet (DDAL10-7)","Dark Shard Amulet (PO-BMG-DRW-KS-2)","Dark Shard Amulet: Ka Sliver (RV-DC-GC15-4)","Sanctum Amulet: Scarf (Trading Post)","Sanctum Amulet: Savras (Trading Post B)"],
