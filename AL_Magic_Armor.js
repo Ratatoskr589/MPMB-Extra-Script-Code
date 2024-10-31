@@ -26,11 +26,11 @@ SourceList["AL"] = {
 	date : "Various"
 };
 
-SourceList["ALSRs11"] = {  //Season 11 Service Rewards
-	name : "AL Season 11 Service Rewards",
-	abbreviation : "ALSRs11",
-	group : "Adventurers League",
-	date : "2021/11/02"
+SourceList["AL:SA"] = {  //AL Service Awards. Started in 2021 but have multiple sets each year.
+    name : "AL Service Awards",
+    abbreviation : "AL:SA",
+    group : "Adventurers League",
+    date : "2021/11/02"
 };
 
 SourceList["AL:R"] = {  //Ravenloft Alternate Campaign
@@ -242,7 +242,7 @@ MagicItemsList["al armor +1, +2, +3"] = {
 	"\n  I\t  +3\tSpiked Armor, Splint, Studded Leather",
 	allowDuplicates : true,
 	choicesNotInMenu : true,
-	choices : ["+1 Leather (DDEP7-1)","+1 Leather: Mummy Wraps (RV-DC-GC15-4)","+1 Studded Leather (CCC-BMG-21 HULB2-3)","+1 Studded Leather (FR-DC-AEG-7)","+1 Studded Leather: Star Lancer Corps Armor (SJ-DC-BAD-3)","+1 Scale Mail: Shroud of the Mourning Warrior (DDAL5-13)","+1 Breastplate: Glass (DDEP0-1)","+1 Breastplate (SJ-DC-ASI-3)","+1 Breastplate (SJ-DC-DRA-4)","+1 Breastplate: Bulletproof Vest (SJ-DC-LEGIT-SB-2)","+1 Breastplate: Sha'sal Khou (SJ-DC-RFJK-2-1)","+1 Breastplate: Chameleon (SJ-DC-TKM-3)","+1 Half Plate: Bone (CCC-TRI-6 NIGHT1-2)", "+1 Half Plate (DDEP4)","+1 Half Plate: Asano's Do-Maru (FR-DC-ONI-2)","+1 Half Plate: Warforged Chest Piece (RV-DC-PHP-1313-1)","+1 Half Plate: Qumado's Gift (SJ-DC-DEN-H6)","+1 Half Plate: Legion's Peregrine Cuirass (SJ-DC-ROCK-2)","+1 Half Plate: Mazatil's Remorse (SJ-DC-STRATCON-1)","+1 Splint (DDEX1-12)","+1 Splint (DDAL5-4)","+1 Splint: Remorhaz (DDEP10-2)","+2 Studded Leather (CCC-TRI-23 STORM1-2)","+2 Studded Leather (PO-BK-1-5)","+2 Half Plate: Stone (DDEP7-2)","+2 Half Plate: Mythos (WBW-DC-PHP-PHAN-2)","+2 Splint: Remorhaz (DDEP10-2)","+2 Plate: Stone (CCC-JGD-1)","+2 Plate (Trading Post)","+3 Studded Leather (PS-DC-SS)","+3 Hide: Daphnaie Armor (ALSRs11-A)","+3 Half Plate (PS-DC-NOS-2)","+3 Plate (PS-DC-AUG-1)","+3 Plate (PS-DC-ELEMENT-DEATH-1)"],
+	choices : ["+1 Leather (DDEP7-1)","+1 Leather: Mummy Wraps (RV-DC-GC15-4)","+1 Studded Leather (CCC-BMG-21 HULB2-3)","+1 Studded Leather (FR-DC-AEG-7)","+1 Studded Leather: Star Lancer Corps Armor (SJ-DC-BAD-3)","+1 Scale Mail: Shroud of the Mourning Warrior (DDAL5-13)","+1 Breastplate: Glass (DDEP0-1)","+1 Breastplate (SJ-DC-ASI-3)","+1 Breastplate (SJ-DC-DRA-4)","+1 Breastplate: Bulletproof Vest (SJ-DC-LEGIT-SB-2)","+1 Breastplate: Sha'sal Khou (SJ-DC-RFJK-2-1)","+1 Breastplate: Chameleon (SJ-DC-TKM-3)","+1 Half Plate: Bone (CCC-TRI-6 NIGHT1-2)", "+1 Half Plate (DDEP4)","+1 Half Plate: Asano's Do-Maru (FR-DC-ONI-2)","+1 Half Plate: Warforged Chest Piece (RV-DC-PHP-1313-1)","+1 Half Plate: Qumado's Gift (SJ-DC-DEN-H6)","+1 Half Plate: Legion's Peregrine Cuirass (SJ-DC-ROCK-2)","+1 Half Plate: Mazatil's Remorse (SJ-DC-STRATCON-1)","+1 Splint (DDEX1-12)","+1 Splint (DDAL5-4)","+1 Splint: Remorhaz (DDEP10-2)","+2 Studded Leather (CCC-TRI-23 STORM1-2)","+2 Studded Leather (PO-BK-1-5)","+2 Half Plate: Stone (DDEP7-2)","+2 Half Plate: Mythos (WBW-DC-PHP-PHAN-2)","+2 Splint: Remorhaz (DDEP10-2)","+2 Plate: Stone (CCC-JGD-1)","+2 Plate (Trading Post)","+3 Studded Leather (PS-DC-SS)","+3 Hide: Daphnaie Armor (AL:SA-11A)","+3 Half Plate (PS-DC-NOS-2)","+3 Plate (PS-DC-AUG-1)","+3 Plate (PS-DC-ELEMENT-DEATH-1)"],
 	"+1 leather (ddep7-1)" : {
 		name : "+1 Leather (DDEP7-1)",
 		source : [["AL", "S7"]],
@@ -340,7 +340,7 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		rarity : "rare",
 		magicItemTable : "H",
 		allowDuplicates : true,
-		description : "This breastplate grants a +1 bonus to AC while worn. I can also speak dwarvish when its on my person.",
+		description : "This breastplate grants a +1 bonus to AC while worn. I can also speak Dwarvish when its on my person.",
 		descriptionFull : "You have a +1 bonus to AC while wearing this armor.\n   " + toUni("Language") + ". The bearer can speak and understand dwarven while the item is on the bearer's person.",
 		languageProfs : ["Dwarvish"],
 		armorAdd : { select : "+1 Breastplate", options : ["+1 Breastplate"]  },
@@ -502,7 +502,8 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		rarity : "very rare",
 		magicItemTable : "I",
 		allowDuplicates : true,
-		description : "This armor is made of thin plates of rune-engraved stone. While worn, the wearer becomes proficient in the Dwarven language. This armor grants a +2 bonus to AC while worn.",
+		description : "This armor is made of thin plates of rune-engraved stone. While worn, I become proficient in Dwarvish and the armor grants a +2 bonus to AC.",
+		descriptionFull : "This armor is made of thin plates of rune-engraved stone. While worn, the wearer becomes proficient in the Dwarven language. This armor grants a +2 bonus to AC while worn.",
 		languageProfs : ["Dwarvish"],
 		armorAdd : { select : "+2 Stone Half Plate", options : ["+2 Stone Half Plate"] },
 	},
@@ -557,10 +558,10 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		armorAdd : { select : "+3 Studded Leather", options : ["+3 Studded Leather"] },
 		savetxt : { immune : ["temps btwn -20\u00B0F/120\u00B0F"] },
 	},
-	"+3 hide: daphnaie armor (alsrs11-a)" : {
-		name : "Daphnaie Armor (+3 Hide, ALSRs11-A)",
+	"+3 hide: daphnaie armor (al:sa-11a)" : {
+		name : "Daphnaie Armor (+3 Hide, AL:SA-11A)",
 		rarity : "legendary",
-		source : [["ALSRs11","A"]],
+		source : [["AL:SA","11A"]],
 		description : "This armor is made of pliant material from laurel tree bark with stylized carvings of dancing dryads burnt into it. Small bits of green moss accentuate the wood, giving me advantage on Dexterity (Stealth) checks when in a forest. The armor grants a +3 bonus to AC while worn.",
 		descriptionFull : "This armor is made of pliant material from worn, laurel tree bark with stylized carvings of dancing dryads burnt into it. Small bits of green moss accentuate the wood, allowing the wearer to gain advantage on Dexterity (Stealth) checks when in a forest. The armor resizes to fit its wearer. This armor grants a +3 bonus to AC while worn.",
 		allowDuplicates : true,
@@ -818,7 +819,7 @@ MagicItemsList["al armor (common)"] = {
 MagicItemsList["al armor (other)"] = {
 	name : "AL Armor (Other)",
 	allowDuplicates : true,
-	choices : ["Breastplate of Fungal Spores (FR-DC-GHG-2)","Breastplate of Fungal Spores: Cheese Plate (FR-DC-WATERDEEP-CHZ)","Breastplate of Necrotic Resistance: Chardalyn (DDAL10-5)","Demon Armor (DDEX3-16)","Efreeti Chain (DDAL7-15)","Elven Chain (CCC-BMG-36 ELMW2-3)","Elven Chain (CCC-SQC-2-2)","Elven Chain: Armor of the First Frost (WBW-DC-AA-ASHALON-1)","Elven Chain (WBW-DC-AMQ-5)","Elven Chain: Astral (WBW-DC-CONMAR-12)","Elven Chain: Guardian (WBW-DC-GGS-1)","Elven Chain: Loud (WBW-DC-GGS-1)","Elven Chain (WBW-DC-PHP-SPAMMY-1)","Elven Chain (WBW-DC-Rook-2-1)","Elven Chain (WBW-DC-TAZ-1)","Elven Chain (WBW-DC-TEN-3)","Elven Chain: Tehettan's Protection (WBW-DC-TMP-2)","Elven Chain (WBW-DC-ZEP-T2S5)","Elven Chain: Sky's Armor (WBW-DC-ZODIAC-12)","Glamoured Studded Leather (DDAL4-9)","Glamoured Studded Leather (DDAL8-11)","Glamoured Studded Leather (DDAL9-6)","Glamoured Studded Leather: Cinderella's Wedding Corset (WBW-DC-CONMAR-15)","Half Plate of Poison Resistance: Mushroom (DDEX3-11)","Hide Armor of Fungal Spores (PO-BMG-INT-2)","Mariner's Studded Leather (DDAL-DRW9)","Mariner's Breastplate (CCC-AETHER-1-2)","Mariner's Breastplate (CCC-MMT1-2)","Mariner's Scale Mail (ALSRs11-A)","Plate Armor of Etherealness (DDAL8-16)","Red Dragon Scale Mail (DDEP5-1)","Red Dragon Scale Mail (DDAL9-15)","Scale Mail of Psychic Resistance: Resin (CCC-TRI-21 YUL1-6)","Spiked Armor of Necrotic Resistance (WBW-DC-DEN-H1)","Studded Leather of Fire Resistance (DDAL0-11C)"],
+	choices : ["Breastplate of Fungal Spores (FR-DC-GHG-2)","Breastplate of Fungal Spores: Cheese Plate (FR-DC-WATERDEEP-CHZ)","Breastplate of Necrotic Resistance: Chardalyn (DDAL10-5)","Demon Armor (DDEX3-16)","Efreeti Chain (DDAL7-15)","Elven Chain (CCC-BMG-36 ELMW2-3)","Elven Chain (CCC-SQC-2-2)","Elven Chain: Armor of the First Frost (WBW-DC-AA-ASHALON-1)","Elven Chain (WBW-DC-AMQ-5)","Elven Chain: Astral (WBW-DC-CONMAR-12)","Elven Chain: Guardian (WBW-DC-GGS-1)","Elven Chain: Loud (WBW-DC-GGS-1)","Elven Chain (WBW-DC-PHP-SPAMMY-1)","Elven Chain (WBW-DC-Rook-2-1)","Elven Chain (WBW-DC-TAZ-1)","Elven Chain (WBW-DC-TEN-3)","Elven Chain: Tehettan's Protection (WBW-DC-TMP-2)","Elven Chain (WBW-DC-ZEP-T2S5)","Elven Chain: Sky's Armor (WBW-DC-ZODIAC-12)","Glamoured Studded Leather (DDAL4-9)","Glamoured Studded Leather (DDAL8-11)","Glamoured Studded Leather (DDAL9-6)","Glamoured Studded Leather: Cinderella's Wedding Corset (WBW-DC-CONMAR-15)","Half Plate of Poison Resistance: Mushroom (DDEX3-11)","Hide Armor of Fungal Spores (PO-BMG-INT-2)","Mariner's Studded Leather (DDAL-DRW9)","Mariner's Breastplate (CCC-AETHER-1-2)","Mariner's Breastplate (CCC-MMT1-2)","Mariner's Scale Mail (AL:SA-11A)","Plate Armor of Etherealness (DDAL8-16)","Red Dragon Scale Mail (DDEP5-1)","Red Dragon Scale Mail (DDAL9-15)","Scale Mail of Psychic Resistance: Resin (CCC-TRI-21 YUL1-6)","Spiked Armor of Necrotic Resistance (WBW-DC-DEN-H1)","Studded Leather of Fire Resistance (DDAL0-11C)"],
 	"breastplate of fungal spores (fr-dc-ghg-2)" : {
 		name : "Breastplate of Fungal Spores (FR-DC-GHG-2)",
 		source : [["AL", "FR-DC"]],
@@ -1306,9 +1307,9 @@ MagicItemsList["al armor (other)"] = {
 		armorAdd : { select : "Mariner's Breastplate", options : ["Mariner's Breastplate"] },
 		speed : { swim : { spd : "walk", enc : "walk" } }
 	},
-	"mariner's scale mail (alsrs11-a)" : {
-		name : "Mariner's Scale Mail (ALSRs11-A)",
-		source : [["ALSRs11","A"]],
+	"mariner's scale mail (al:sa-11a)" : {
+		name : "Mariner's Scale Mail (AL:SA-11A)",
+		source : [["AL:SA","11A"]],
 		type : "armor (scale mail)",
 		rarity : "uncommon",
 		magicItemTable : "B",

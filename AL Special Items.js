@@ -81,6 +81,22 @@ SourceList["AL:GA"] = {  //DDHC-TOA-8 Return of the Lizard King (S7 Guild Adept)
 	defaultExcluded : true
 };
 
+SourceList["AL:SA"] = {  //AL Service Awards. Started in 2021 but have multiple sets each year.
+    name : "AL Service Awards",
+    abbreviation : "AL:SA",
+    group : "Adventurers League",
+    date : "2021/11/02"
+};
+
+SourceList["QftIS"] = {   //This script adds the new items from the Infinite Staircase preview adventure on DDB to the script, since it's AL legal
+	name : "Quests from the Infinite Staircase",
+	abbreviation : "QftIS",
+	group : "Adventure Books",
+	url :"https://dndstore.wizards.com/us/en/product/928653/quests-from-the-infinite-staircase-digital-plus-physical-bundle",
+	date : "2024/07/16"
+};  
+/*Preview URL is: https://www.dndbeyond.com/sources/dnd/dilct/descent-into-the-lost-caverns-of-tsojcanth#AppendixAMagicItems*/
+
 
 //AL Special Rewards & Story Awards (with major mechanical effects)(Adjusted to feats to better match Nod Hero's code)
 FeatsList["al story awards"] = {
@@ -682,7 +698,7 @@ MagicItemsList["al new items"] = {
 		name : "AL New Items",
 		type : "wondrous item",
 		allowDuplicates : true,
-		choices : ["Achis Atracta (CCC-BMG-30 HILL2-3)","Bag of Tricks or Treats","Bone Compass (RMH-12)","Bookmark of Memory: Limited Edition (WBW-DC-JSH-LIB-04PT)","Bookmark of Memory (WBW-PR)","Cariboots","Dagger of the Hidden Lord (DDHC-DIA-2)","Darkling Necklace (DDHC-TOA-8)","Discord (DDAL-DRW15)","Eye of Xxiphu (DDAL5-19)","Fey Hound Collar","Fold-Up Friend (WBW-PR)","Giant's Gloves (WBW-PR)","Ghost Sheet","Green Wizard's Hat","Green Wizard's Hat (Trading Post)","Hat of Witchery","Hellrider's Badge (DDEP9-2)","Ioun Stone - Celebration (DDAL-DRW5)","Lemure Onesie","Mind-Poison Dagger (DDHC-MORD-05)","Mist Hunters Magnificent Cap (RMH Safety Tools)","Nettle (DDEP4)","Oathbinder (DDHC-TOA-15)","Order of the Guardians Ring (RMH Safety Tools)","Owlbear Snowshoes","Pearl of Elocution (WBW-PR)","Pocket Watch (WBW-PR)","Pumpkin Ring","Selûne's Owl-Eye Glasses","Shar's Veil","Spare (DDHC-TOA-13)","Tarot Card Set","Tyr's Blessing of Command (CCC-BMG-23 PHLAN2-2)","Tyr's Blessing of Luck (CCC-BMG-24 PHLAN2-3)","Tyr's Blessing of the Mind (CCC-BMG-22 PHLAN2-1)","Wand of Whimsy (WBW-PR)","Woe (DDAL-DRW16)","Wooden Gecko Earrings (DDHC-TOA-8)","Zephyros' Notebook (DDIA05)"],
+		choices : ["Achis Atracta (CCC-BMG-30 HILL2-3)","Bag of Tricks or Treats","Bone Compass (RMH-12)","Bookmark of Memory: Limited Edition (WBW-DC-JSH-LIB-04PT)","Bookmark of Memory (WBW-PR)","Cariboots","Dagger of the Hidden Lord (DDHC-DIA-2)","Darkling Necklace (DDHC-TOA-8)","Demon Skin (DitLCoT)","Discord (DDAL-DRW15)","Eye of Xxiphu (DDAL5-19)","Fey Hound Collar","Fold-Up Friend (WBW-PR)","Giant's Gloves (WBW-PR)","Ghost Sheet","Green Wizard's Hat","Green Wizard's Hat (Trading Post)","Hat of Witchery","Hellrider's Badge (DDEP9-2)","Iggwilv's Horn (DitLCoT)","Ioun Stone - Celebration (DDAL-DRW5)","Lemure Onesie","Mind-Poison Dagger (DDHC-MORD-05)","Mist Hunters Magnificent Cap (RMH Safety Tools)","Nettle (DDEP4)","Oathbinder (DDHC-TOA-15)","Order of the Guardians Ring (RMH Safety Tools)","Owlbear Snowshoes","Pearl of Elocution (WBW-PR)","Pocket Watch (WBW-PR)","Potion of Polychromy (DitLCoT)","Pumpkin Ring","Red Wizard Blade (AL:SA-12B)","Selûne's Owl-Eye Glasses","Shar's Veil","Spare (DDHC-TOA-13)","Tablet of Reawakening (AL:SA-12B)","Tarot Card Set","Tasha's Creeping Keelboat (DitLCoT)","Tyr's Blessing of Command (CCC-BMG-23 PHLAN2-2)","Tyr's Blessing of Luck (CCC-BMG-24 PHLAN2-3)","Tyr's Blessing of the Mind (CCC-BMG-22 PHLAN2-1)","Wand of Whimsy (WBW-PR)","Woe (DDAL-DRW16)","Wooden Gecko Earrings (DDHC-TOA-8)","Zephyros' Notebook (DDIA05)"],
 	"achis atracta (ccc-bmg-30 hill2-3)" : { // contributed by AelarTheElfRogue
 		name : "Achis Atracta (CCC-BMG-30 HILL2-3)",
 		source : [["AL","CCC"]],
@@ -777,11 +793,30 @@ MagicItemsList["al new items"] = {
 			firstCol : "oncelr"
 			}
 		},
+	"demon skin (ditlcot)" : {
+		name : "Demon Skin",
+		source : [["QftIS", 0]],
+		rarity : "rare",
+		attunement : true,
+		description : "If I attune to this pot of bubbling black ichor, it contours to my skin, and the pot disappears. Demon Skin armor can be worn under normal clothes, and doesn’t impede bodily functions or Dex (Stealth) chks. I also have resistance to poison damage. Once attuned, it can only be removed if I do so or I die. The pot then reappears and the ichor returns to it. ",
+		descriptionFull : "This magic armor appears as a pot of bubbling black ichor. When you attune to it, the ichor adheres to and contours to your skin, and the pot disappears. The armor can be worn under normal clothes, and it doesn’t impede bodily functions. Once you put it on, it can’t be removed unless you choose to do so or you die, at which point the pot reappears and the ichor flows back into it.\n   While wearing the armor, you have resistance to poison damage. The armor also doesn’t impose disadvantage on Dexterity (Stealth) checks.\n   This item is from the Quests from the Infinite Staircase preview adventure: Descent into the Lost Caverns of Tsojcanth. (Stealth feature isn't currently possible to code. Adjust it manually.)",
+		dmgres : ["Poison"],
+		stealthdis : false,
+	chooseGear : {
+		type : "armor",
+		prefixOrSuffix : "brackets",
+		descriptionChange : ["replace", "armor"],
+		itemName1stPage : ["suffix", "Demon Skin"],
+		excludeCheck : function (inObjKey, inObj) {
+			return !(/heavy/i).test(inObj.type);
+			}
+		}
+	},
 	"discord (ddal-drw15)" : {
 		name : "Discord (DDAL-DRW15)",
 		source : [["AL","DRW"]],
 		rarity : "unique",
-		description : "This magical armor is made of sharp interlocking spikes of green crystal & extinguishes all nonmagical flames in 30 ft. I hear insidious whispers from just beyond my peripheral vision. Unless deafened, I have disadvantage on saving throws caused by, & Wisdom checks related to, Father Llymic & its allies. As a reaction once per dawn, I can see normally in magical & nonmagical darkness for 120 ft until my next turn starts. If also wielding Woe, I'm unharmed by temps as low as −60\u00B0F",
+		description : "This magical armor is made of sharp interlocking spikes of green crystal & extinguishes all nonmagical flames in 30 ft. I hear insidious whispers from just beyond my peripheral vision. Unless deafened, I have disadvantage on saving throws caused by, & Wisdom checks related to, Father Llymic & its allies. As a reaction once per dawn, I can see normally in magical & nonmagical darkness for 120 ft until my next turn starts. If also wielding Woe, I'm unharmed by temps as low as −60\u00B0F.",
 		descriptionFull : "Discord is comprised of sharp, interlocking spikes of green crystal and extinguishes all nonmagical flames within 30 feet of it. A creature wearing Discord hears insidious whispers originating from a point just beyond their peripheral vision. Unless deafened, the creature has disadvantage on saving throws caused by, and on Wisdom checks related to, Father Llymic and its allies.\n   While wearing this armor, you gain a +2 bonus to AC. In addition, you can use your reaction to see normally in darkness, both magical and nonmagical, out to a distance of 120 feet until the start of your next turn. Discord can't be used this way again until the next dawn.\n   If a character wields Woe (a longsword) while wearing Discord, they are unharmed by temperatures as low as −60 degrees Fahrenheit.",
 		action : [["reaction", "Discord (120 ft Devil Sight)"]],
 		limfeaname : "Discord (120 ft Devil Sight)",
@@ -948,6 +983,23 @@ changeeval : function () {
 		descriptionFull : "A Hellrider's Badge is only usable by a member of the Hellriders, and thanks to your efforts during Klysandral's funeral and the subsequent escape from Avernus, you have been awarded honorary membership by Duke Ulder Ravengard himself. This badge marks you as a lieutenant in the Hellriders.\n   While wearing the badge, you gain a +2 bonus to AC if you aren't using a shield. If the badge is more than 5 feet away from you for more than one minute, it vanishes and harmlessly reappears on a surface within 5 feet of Duke Ravengard. While holding the badge, the Duke knows your location, provided the two of you are on the same plane of existence and your attunement to the badge hasn't ended.\n   As an action, the Duke can touch the badge and end your attunement to it, as he has been granted this power by Elturel despite not being a Hellrider himself.\n   " + toUni("Special") + ". If you wish to take the Hellriders or Flaming Fist as your faction, you may do so. Additionally, this badge is made from the bones of Klysandral himself, counts as a holy reliquary, and may be used as a holy symbol of Torm if needed.\n   Despite its rarity, the Hellrider's Badge can be equipped by anyone that has earned it via playing DDEP09-02 Hellfire Requiem.",
 		extraAC : [{name : "Hellrider's Badge", mod : 2, magic : true, text : "I gain a +2 bonus to AC when not using a shield."}],
 	},
+	"iggwilv's horn (ditlcot)" : {
+		name : "Iggwilv's Horn",
+		source : [["QftIS", 0]],
+		rarity : "rare",
+		attunement : true,
+		description : "As an action, I can blow this horn to cast 1 of the following spells: Arms of Hadar, Fog Cloud, Gust of Wind, or Web (spell save DC 13). Each spell can be cast from it once per dawn.",
+		descriptionFull : "You can use an action to blow this horn to cast one of the following spells from it: Arms of Hadar, Fog Cloud, Gust of Wind, or Web. If the spell requires a saving throw, the spell save DC is 13.\n   Once the horn has been used to cast a spell, it can’t be used to cast that spell again until the next dawn.",
+		spellcastingBonus : {
+			name : "Iggwilv's Horn",
+			spells : ["arms of hadar", "fog cloud", "gust of wind", "web"],
+			selection : ["arms of hadar", "fog cloud", "gust of wind", "web"],
+			times : 4,
+			firstCol : "oncelr",
+		},
+		fixedDC : 13,
+		spellFirstColTitle : "Us"
+	},
 	"ioun stone - celebration (ddal-drw5)" : {
 		name: "Ioun Stone - Celebration (DDAL-DRW5)",
 		source : [["AL","DRW"]],
@@ -984,7 +1036,7 @@ changeeval : function () {
 			baseWeapon : "dagger",
 			regExpSearch : /^(?=.*dagger)(?=.*mind)(?=.*poison).*$/i,
 			name : "Mind-Poison Dagger",
-			description : "Finesse, light, thrown; If coated, DC 15 Wis save or +2d10 psychic dmg \u0026 1 min poisoned",
+			description : "Finesse, light, thrown; if coated, DC 15 Wis save or +2d10 psychic dmg \u0026 1 min poisoned",
 			selectNow : true
 		}
 	},
@@ -1085,6 +1137,14 @@ changeeval : function () {
 		description : "This lidded brass container holds a tiny sand timer suspended behind glass. No matter how the container is orientated, the sand always falls from one side of the timer to the other, taking exactly 24 hrs to deplete. Once depleted, the timer spins around to reset itself.",
 		descriptionFull : "This lidded brass container holds a tiny sand timer suspended behind glass. No matter how the container is orientated, the sand always falls from one side of the timer to the other, taking exactly 24 hours to deplete. Once depleted, the sand timer spins around to reset itself."
 		},
+	"potion of polychromy (ditlcot)" : {
+		name : "Potion of Polychromy",
+		source : [["QftIS", 0]],
+		rarity : "uncommon",
+		magicItemTable : "?",
+		description : "The potion has 7 brightly colored bands and a syrupy taste. When drunk, I become rainbow-hued for 1 hour (along with worn/carried items). For the duration, I can turn any combination of colors as a bonus action. If I mimic my surroundings, my hues constantly shift to match, and I have advantage on Dex (Stealth) checks until I change colors again or the potion wears off.",
+		descriptionFull : "When you drink this potion, you and everything you are wearing or carrying take on a rainbow-hued appearance for 1 hour. During that time, you can use a bonus action to turn any color or combination of colors you choose. If you mimic the colors of your surroundings, your hues continually shift to match your surroundings, and you have advantage on Dexterity (Stealth) checks until you change your colors again or the potion wears off.\n   The potion is separated into seven brightly colored bands of immiscible liquids and has a syrupy taste.\n   This item is from the Quests from the Infinite Staircase preview adventure: Descent into the Lost Caverns of Tsojcanth."
+		},
 	"pumpkin ring" : {
 		name : "Pumpkin Ring",
 		source : ["AL:LN", 2020],
@@ -1093,6 +1153,23 @@ changeeval : function () {
 		description : "This ring is made of polished silver, in the shape of my carved pumpkin. While wearing this ring, the glowing image of my carved pumpkin appears in front of my own face, like a mask.",
 		descriptionFull : "This ring is made of polished silver, in the shape of your carved pumpkin. While wearing this ring, the glowing image of your carved pumpkin appears in front of your own face, like a mask (the image is whatever you carved during the Liar's Night pumpkin carving contest)."
 		},
+	"red wizard blade (al:sa-12b)" : {
+		name : "Red Wizard Blade",
+		source : [["AL:SA","12B"]],
+		type : "weapon (dagger)",
+		rarity : "legendary",
+		magicItemTable : "?",
+		description : "Forged by Red Wizards using a secret process, this grim steel dagger draws power from the Negative Plane. When it hits a creature with a melee atk, they take +3d12 necrotic damage. If the dagger reduces a creature to 0 HP, they die and can only be raised by a deity or a tablet of reawakening.",
+		descriptionFull : "Forged by Red Wizards using a secret process known only to them, this grim steel dagger draws its power from the Negative Plane. When you hit a creature with a melee attack using this magic dagger, the target takes an extra 3d12 necrotic damage.\n   A creature reduced to 0 hit points by this weapon dies and can’t be raised from the dead except by a deity or by a creature using a tablet of reawakening to cast the true resurrection spell. (This item was from the Honor Among Thieves movie, with the statblock taken from D&D Beyond promotional material)",
+		weight : 1,
+		weaponOptions : {
+			baseWeapon : "dagger",
+			regExpSearch : /^(?=.*red)(?=.*wizard)(?=.*blade).*$/i,
+			name : "Red Wizard Blade",
+			description : "Finesse, light, thrown; +3d12 necrotic damage (melee only)",
+			selectNow : true
+		}
+	},
 	"selûne's owl-eye glasses" : {
 		name : "Selûne's Owl-Eye Glasses",
 		source : ["AL:FM", 2020],
@@ -1144,6 +1221,13 @@ changeeval : function () {
 		selectNow : true
 				},
 	},
+	"tablet of reawakening (al:sa-12b)" : {
+		name : "Tablet of Reawakening",
+		source : ["AL:SA","12B"],
+		rarity : "legendary",
+		description : "Witches of Rashemen created this tiny stone tablet to counter the necromancy of the Red Wizards. As an action, you can cast True Resurrection from the tablet. Once used, the tablet turns to dust.",
+		descriptionFull : "Witches of Rashemen created this Tiny stone tablet to counter the necromancy of the Red Wizards. As an action, you can cast true resurrection from the tablet. Once used in this way, the tablet turns to dust and is destroyed. (This item was from the Honor Among Thieves movie, with the statblock taken from D&D Beyond promotional material)",
+		},
 	"tarot card set" : {
 		name : "Tarot Card Set",
 		source : ["AL:LN", 2020],
@@ -1152,6 +1236,15 @@ changeeval : function () {
 		descriptionFull : "Once per day, roll 1d4 to find out what your tarot fortune produces. At dawn this product (not the card) vanishes but the character may roll again to reveal their next fortune.\n   " + toUni("DC 1: The Flower") + " - touching this card to a patch of earth or soil, within 5 feet of you, causes one flower of your choice to sprout there. The flower is nonmagical and harmless, and it grows or withers as a normal flower would.\n   " + toUni("DC 2: The Yummy Meal") + " - this card produces your favorite meal, the equivalent of 1 ration.\n   " + toUni("DC 3: The Tea Pot") + " - this card produces a tiny pot of piping tea, the equivalent of one potion of healing.\n   " + toUni("DC 4: The Witch") + " - this card produces a stone and twisted wire pendant. As an action, it gives you advantage on Charisma checks when communicating with humanoids (CR 1 or less), for 1 hour.",
 		usages : 1,
 		recovery : "dawn"
+		},
+	"tasha's creeping keelboat (ditlcot)" : {
+		name : "Tasha's Creeping Keelboat",
+		source : [["QftIS", 0]],
+		rarity : "very rare",
+		attunement : true,
+		magicItemTable : "?",
+		description : "This magic boat is 10 ft wide and 30 ft long. It has 4 legs with a walking and swimming speed of 20 ft, but can’t travel underwater. The boat can transport 1,000 pounds without hindrance, or up to twice that weight at half speed. It moves according to my spoken directions while I'm aboard, and creatures I choose gain +1 bonus to their AC while on the boat.",
+		descriptionFull : "This magic vehicle is a boat 10 feet wide and 30 feet long. It has four legs that propel it across land and water. It has a walking and swimming speed of 20 feet, but it can’t travel underwater. The boat moves according to your spoken directions while you are riding it, and creatures of your choice gain a +1 bonus to their Armor Class while on the boat.\n   The boat can transport up to 1,000 pounds without hindrance. It can carry up to twice this weight, but it moves at half speed if it carries more than its normal capacity.\n   This item is from the Quests from the Infinite Staircase preview adventure: Descent into the Lost Caverns of Tsojcanth."
 		},
 	"tyr's blessing of command (ccc-bmg-23 phlan2-2)" : {	
 		name : "Tyr's Blessing of Command (CCC-BMG-23 PHLAN2-2)",

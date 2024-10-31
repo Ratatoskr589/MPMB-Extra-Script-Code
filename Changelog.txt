@@ -1,4 +1,12 @@
-After 10/23/14
+After 10/26/24  (With some updates for 2024 rules)
+-Added a few more items from the unpublished DDAL00-15 Well Between Worlds epic.
+-Corrected some extra language properties on items that needed to be removed
+-Conversely, also added the code for some languages where it had been missed
+-Reorganized Quaal Feather Tokens to be correctly split between Transport and Equipment categories
+-Added new AL legal items from service awards (D&D:HAT) and the QIS preview (Descent into the Lost Caverns of Tsojcant)
+-Also reworked the service awards source to account for different award documents
+
+After 10/23/24
 -Fixed description on Ryboslav's Pole of Collapsing
 -Added items from STRAT-DRAGON modules on request
 -Shortened more descriptions
@@ -6,6 +14,7 @@ After 10/23/14
 -Added missing Source info for Wraps of Unarmed Prowess
 -For longer item names, shortened module codes where possible by removing duplicate source code  (ie switching SJ-DC-WINE-1 to just WINE-1 because SJ-DC is in the source.)
 -Moved Astral  Shards to the Minerals section
+-Split amulets out of AL Jewelry due to hitting the choices cap
 
 After 9/7/24
 -Changed magic item descriptions from 2nd person to 1st person for consistency with standard versions and to save space.

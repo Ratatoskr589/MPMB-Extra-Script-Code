@@ -23,6 +23,10 @@ CCC-BMG-MOON17-2
 CCC-DES-1-3 A Question Never Asked
 -Wand of Magic Missiles
 
+CCC-HERO-BK3-2 The Fire Rekindled
+-Longbow of Warning
+-Enduring Spellbook
+
 CCC-PIPYAPS Glasyas Little Helpers
 -Ylkwa of Warning
 
