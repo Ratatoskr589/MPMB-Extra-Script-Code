@@ -1,0 +1,708 @@
+Unflavored items in AL modules:
+(This list is incomplete as I only started noting items down about halfway through this project and not consistently)
+
+CCC-AWE-1-2 The Chi Directive
+-Lantern of Revealing
+
+CCC-BMG-37 HULB3-1 Weakness of Rock
+-Dex Book
+
+CCC-BMG-38 HULB3-2 Dead Canaries
+-Int Book
+
+CCC-BMG-MOON16-3 The Sacrificial Dance
+-Quaal Feather Token: Swan Boat
+-Wand of Scowls
+
+CCC-BMG-MOON17-1
+-Mariner's Scale Mail
+
+CCC-BMG-MOON17-2
+-Immovable Rod
+
+CCC-DES-1-3 A Question Never Asked
+-Wand of Magic Missiles
+
+CCC-HERO-BK3-2 The Fire Rekindled
+-Longbow of Warning
+-Enduring Spellbook
+
+CCC-PIPYAPS Glasyas Little Helpers
+-Ylkwa of Warning
+
+CCC-TRI-11 Contact
+-Dwarven Plate
+
+CCC-UCON-3
+-Decanter of Endless Water
+
+DC-HERO Endless Songs
+-Hat of Wizardry
+
+DC-POA-AOT1-1 Counteroffer
+-Circlet of Blasting
+-Candle of the Deep
+
+DC-POA-AOT1-2 Northern Diplomacy
+-Alchemy Jug
+-Cloak of Many Fashions
+
+DC-POA-AOT1-3
+-Silver Raven Figurine
+-Moon Touched Shortsword
+
+DC-POA-DOBU-1-1 Beneath a Stony Stump
+-Masquerade Tattoo
+-Grey Bag of Tricks
+
+DC-POA-Sunlit-3 A Solstice Tradition
+-Shield of Expression
+-Ring of Truth Telling
+
+DC-WBW-GaryXIV-01 The First Forest
+-Feywild Shard
+
+DC-WBW-GaryXIV-03 Of Pumpkins and Promises
+-Wand of Pyrotechnics
+-Gem of Brightness
+
+DDAL09-16 Honors Unforeseen
+-Fochlucan Bandore
+-Ioun Stone of Leadership
+
+DDAL09-17 In the Hand
+-Bag of Holding
+-Wand of the War Mage +3
+
+DDAL09-18 Consequences of Choice
+-Oathbow
+-Ring of Warmth
+
+DDAL09-19 Fang and Claw
+-Scarab of Protection
+-Shield +2
+
+DDAL-DRWEP4:
+-Cloak of Arachnida
+-Ioun Stone of Mastery
+-Knaves Eyepatch
+
+DDAL-DRW4:
+-Dragontooth Dagger
+-Shield of the Uven Rune
+
+DDAL-DRW6:
+-Ioun Stone of Vitality
+-Necklace of Prayer Beads
+
+DDAL-DRW7:
+-Dancing Longsword
+-Stonespeaker Crystal
+
+DDAL-DRW11
+-Amulet of the Devout +2
+
+DDAL-DRW-INT-2 Watchers of the Trollclaws
+-Sentinel Shield
+
+DDAL-DRW-INT-3 A Red Day for Elventree
+-Boots of Elvenkind
+
+DDEP06-2
+-Ioun Stone of Fortitude
+-Ioun Stone of Protection
+-Cube of Force
+
+DDEX1-9 Outlaws of the Iron Route
+-Longbow +1
+
+DDEX2-10 Cloaks and Shadows
+-Winged boots
+
+FR-DC-AEG-1 The Ambush
+-Horn of Silent Alarm
+
+FR-DC-AEG-2 The Rescue
+-Dread Helm
+
+FR-DC-AEG-3 The Escape
+-Rope of Mending
+
+FR-DC-AEG-5 The Hunting
+-Hat of Wizardry
+
+FR-DC-AEG-7 The Missing Adventurers
+-Candle of the Deep
+
+FR-DC-BG The Flying Flame
+-Blessing of Magic Resistance (Bahamut's)
+
+FR-DC-FALL-1 Cathedral of Ice
+-Mystery Key
+-Blessing of Wound Closure
+
+FR-DC-GHG-1 Griffons of Longsaddle
+-Staff of Birdcalls
+
+FR-DC-LIGA-1 Wyrmwell Flame
+-Blessing of Protection
+
+FR-DC-LIGA-2 House of Shadow
+-Deck of Illusions
+-Dread Helm
+
+FR-DC-MELB-1-4 Monsters
+-Wand of Binding
+
+FR-DC-ONI-1 Oni of the Thousand Gates
+-Orb of Direction
+
+FR-DC-PANDORA-JWEI-10 Ares
+-Charm of the Fate
+
+FR-DC-QLA-1 Mel's Pit
+-Chest of Preserving
+
+FR-DC-QLA-2 The Ceremony
+-Rope of Mending
+
+FR-DC-TGT-2 Those Who Plant
+-Gem of Brightness
+
+FR-DC-TRIDEN-MYKE-5 Shadow on the Sands
+-Orb of Direction
+-Dried Leech
+
+FR-DC-VECNA-1 Three Body Problem
+-Deck of Miscellany (“A dark purple deck with embossed golden borders.” - too annoying to code unless needed)
+
+FR-DC-WATERDEEP-GSZ Sweet Dreams... Geese
+-Deck of Miscellany
+
+PO-BK-1-02 Trust No One
+-Heward's Handy Spice Pouch
+
+PO-BK-1-03 Red Masks
+-Barrier Tattoo
+
+PO-BK1-04 The City in the Mist
+-Silver Dragon Scale Armor
+-Tentacle Rod
+
+PO-BK1-05 Far in the Forest
+-+2 Studded Leather
+-Cape of the Mountebank
+
+PO-BK1-07 Beyond this Portal
+-Rod of Absorption
+
+PO-BK1-08 Dark Side of the Rune
+-Greater Silver Sword
+
+PO-BK2-1 The Thayan Connection
+-Crystal Blade (Scimitar)
+-Lock of Trickery
+-Mystery Key
+
+PO-BK2-2 Some Assembly Required
+-Atlas of Endless Horizons
+-Talking Doll
+-Moon Touched Sword
+
+PO-BK2-4 Out of the Shaar
+-Golden Lions Figurine of Wondrous Power
+
+PO-BK2-5 Weird Tales
+-Staff of Swarming Insects
+
+PO-BK-2-6 First Contact
+-Ring of X-Ray Vision (Strange Material, but not specified)
+
+PO-BK-2-7 At Swords Point
+-Blast Scepter
+
+PO-BK-2-8 Straight Through the Heart
+-Robe of Stars
+
+PO-BK-2-9 Star Crash Release
+-Amethyst Lode Stone
+
+PO-BK-3-2 Shoreline Spelunking
+-Immovable Rod
+
+PO-BK-3-4 Dead in the Water
+-Rope of Climbing
+-Moon-Touched Scimitar
+
+PO-BK-3-5 Into the Shining Sea
+-Bracer of Flying Daggers
+
+PO-BK-3-6 Trouble Brewing in Port Nyanzaru
+-Saddle of the Cavalier
+-Charlatan's Die
+
+PO-BK-3-8 Weeding Out Trouble
+-Cape of the Mountebank
+
+PO-BK-3-9 The Isle of Death
+-Amethyst Dragon Wing Longbow
+
+PO-BK-4-1 (Premier)
+-Glowrune Pigment (rare)
+
+PO-BK-4-2 Shadow Kingdom (Premier)
+-Devotee's Censer
+-Quaal's Feather Token (Whip)
+
+PO-BK-4-3 One Bard's Trash (Premier)
+-Clockwork Amulet
+
+PO-BMG-DRW-KS-1 The Thief of Thay
+-Dust of Disappearance
+-Sekholah Worshipping Statue
+
+RV-DC-OH1 In the Mist of Keening
+-Horn of Silent Alarm
+-Dagger +2
+
+PS-DC-CEG-2 Snakes on a Planescape
+-Ruby of the War Mage
+
+PS-DC-HNL-1 Nowhere Fast
+-Ring of the Orator
+
+PS-DC-NOS-1 Githzerai Glitch
+-Boon of Luck
+
+PS-DC-NOS-2 Broken Yet Unbowed
+-Boon of Irresistible Offense
+
+PS-DC-SS Soul and Shadow
+-Boon of Truesight
+
+SJ-DC-ANGKA-7 Sleep Now in the Fire
+-Pipe of Remembrance
+
+SJ-DC-ASI-1 Secrets of Old
+-Talking Doll (Plush Dragon)
+
+SJ-DC-ASI-3 Secrets of Old
+-Horn of Silent Alarm
+
+SJ-DC-ASLM-2 Heart of Glass
+-Cloak of Many Fashions
+
+SJ-DC-ASLM-3 Missing Heir
+-Sapphire Buckler
+
+SJ-DC-AUG-06 The Rock Tales of the Beholder Corps
+-Guardian Emblem
+
+SJ-DC-AUG-07 Blast Them
+-Elemental Essence Shard - Earth
+
+SJ-DC-AUG-08 I Xamott
+-Carpet of Flying
+
+SJ-DC-AUG-09 Tyrants and Dragons
+-Keoghtom's Ointment
+
+SJ-DC-BBB-1 The Ballad of Blunderbuss Bill
+-Bag of Beans
+
+SJ-DC-BBB-2 The Blunderbuss of Blunderbuss Bill
+-Boots of Levitation
+
+SJ-DC-BBB-3 The Battle of Blunderbuss Bill
+-Battleaxe +2
+
+SJ-DC-CBB-04 Horizon of Oblivion
+-Hand Crossbow +2
+
+SJ-DC-CBB-05 The Draconic Core
+-Talking Doll
+-Ioun Stone of Insight
+
+SJ-DC-CBB-06 Horror from the Planet's Core
+-Cloak of Many Fashions
+-Staff of Striking
+
+SJ-DC-BEB-01 The Hunger
+-Astromancy Archive
+-Horn of Silent Alarm
+
+SJ-DC-CBB-1 Last Stand of the Void Lich
+-Eldritch Claw Tattoo
+
+SJ-DC-CBB-2 In Cyzor's Grasp
+-Guardian Emblem
+-Horn of Silent Alarm
+
+SJ-DC-CGG-1
+-Elemental Essence Shard Air
+
+SJ-DC-COD The Cod Must be Crazy
+-Blessing of Protection
+
+SJ-DC-CONMAR-4 Finally Saving Marcus
+-Hewards Handy Spice Pouch
+-Perfume of Bewitching
+-Dust of Disappearance
+
+SJ-DC-DAP Goldfish island
+-Ring of Feather Falling (Not actually a legal reward for that tier, but eh)
+
+SJ-DC-DES05-03 Galactic Gigglefit
+-Stone of Good Luck (also not actually a legal reward for SJ; has fancy name but no flavor)
+
+SJ-DC-DD-12
+-Blessing of Magic Resistance
+
+SJ-DC-DRA-2
+-Masquerade Tattoo
+
+SJ-DC-DRA-3
+-Boots of Leviation (to be updated)
+-Hat of Wizardry
+
+SJ-DC-DRA-4
+-Tankard of Sobriety
+
+SJ-DC-DRA-5
+-Figurine of Wondrous Power (Ebony Fly)
+-Pole of Collapsing
+
+SJ-DC-ECHO-2 Bug Hunt
+-Masquerade Tattoo
+
+SJ-DC-ENIGMA Bloom and Doom
+-Heward's Handy Spice Pouch
+
+SJ-DC-FAT-1 Flight of the Chungus
+-Elemental Essence Shard - Air
+-Horn of Silent Alarm
+
+SJ-DC-HBI-1 The Stowaway
+-Clockwork Amulet
+-Bracers of Archery
+
+SJ-DC-HBI-2 The Hitchhiker
+-Chest of Preserving
+-Alchemy Jug
+
+SJ-DC-HBI-3 The Reckoning
+-Wand of Conducting
+-Gray Bag of Tricks
+
+SJ-DC-HYS-2 Darkside of Selune
+-Pole of Collapsing
+
+SJ-DC-INAS-3 Swamp Strike
+-Pole of Collapsing
+
+SJ-DC-INAS-4 An Ancient Enemy Returns
+-Fish Suit
+-Horn of Silent Alarm
+
+SJ-DC-KEEP
+-Hat of Wizardry
+
+SJ-DC-KGV-1 Moonlight Mysteries
+-Pipe of Remembrance
+
+SJ-DC-KIS Kobolds in Space (Per author change)
+-Horn of Silent Alarm
+-Rod of the Pact Keeper +1
+
+SJ-DC-LIGA2 The Risen Catacombs
+-Periapt of Health
+-Instrument of Scribing
+
+SJ-DC-LIGA3 The Dark Hunger
+-Goggles of Night
+-Talking Doll
+
+SJ-DC-LIGA4 Deep Expedition
+-Astromancy Archive
+-Staff of Adornment
+
+SJ-DC-LIGA6 A Strike to Hadars Tentacles
+-Charm of Undead Slayer
+
+SJ-DC-LP-1 Litter Patrol
+-Astromancy Archive
+-Rope of Mending
+-Smokepowder
+-K's Ointment
+
+SJ-DC-MIST-2 Radiant Descent
+-Blessing of Magic Resistance
+
+SJ-DC-MAD-2 Mad Effect Retribution
+-Horn of Silent Alarm
+
+SJ-DC-MOR-1 The Ill King
+-Goggles of Night
+-Horn of Silent Alarm
+
+SJ-DC-NOS-3 Sol Crash
+-Absorbing Tattoo (choice)
+
+SJ-DC-NOS-4 Caverns and Cultists
+-Instrument of Scribing
+
+SJ-DC-PAT-1 Lunar Freeze
+-Rope of Mending
+-Keoghtom's Ointment
+
+SJ-DC-PHP-2 Securing Passage
+-Wand of Conducting
+
+SJ-DC-PHP-ORNG Thousand Tiny Ducks
+-Blessing of Magic Resistance
+
+SJ-DC-ROCK-1 Turmoil in Bral
+-Cloak of Many Fashions
+
+SJ-DC-ROCK-2 Bral Under Siege
+-Horn of Silent Alarm
+
+SJ-DC-ROG-1 Rescue of Glyth
+-Anstruth Harp
+-Hat of Wizardry
+
+SJ-DC-TBS-4 Brightshill
+-Tankard of Sobriety
+-Keoghtam's Ointment
+
+SJ-DC-TRIDEN-BZ Sweet Dreams are Made of Bees
+-Blessing of Magic Resistance
+
+SJ-DC-TRIDEN-MYKE-2
+-Rope of Mending
+
+SJ-DC-TRIDEN-MYKE-3 Every Bond You Break
+-Blessing of Magic Resistance
+-Heward's Handy Spice Pouch
+-Winged Arrow
+
+SJ-DC-TST-1 Bulan
+-Instrument of Scribing
+
+SJ-DC-TST-2 Datu
+-Ring of Regeneration
+
+SJ-DC-TST-3 Bakunawa
+-Horn of Silent Alarm
+
+SJ-DC-UNITE-1 Asteroid Escape
+-Bag of Holding 
+
+SJ-DC-UNITE-2 Stranded
+-Brooch of Shielding
+-Horn of Silent Alarm
+
+SJ-DC-VEN-2
+-Staff of Adornment
+-K's Ointment
+
+SJ-DC-VEN-3 Daylight Saving Time
+-Absorbing Tattoo (Gold)
+-Blessing of Magic Resistance
+
+SJ-DC-VMT-3 Green Hills of the Affricate
+-Heward's Handy Spice Pouch
+
+SJ-DC-ZODIAC-14-3 Herald of War
+-Blessing of Wound Closure
+
+WBW-DC-AH-1 Afraid of the Dark
+-Elven Chain
+
+WBW-DC-AMQ-5 Dungeon of Smelly Doom
+-Pole of Collapsing
+
+WBW-DC-BEL-1
+-Cloak of Many Fashions
+
+WBW-DC-CBB-1 A Fey King's Ransom
+-Pipe of Smoke Monsters
+-Pearl of Power
+
+WBW-DC-CBB-2 Escolars Grotto
+-Veteran's Cane
+-Feywild Shard
+
+WBW-DC-CBB-3 The Dragon's Hoard of Murkmire Isle
+-Nature's Mantle
+-Masquerade Tattoo
+
+WBW-DC-CBB-4 Naufrage Atoll
+-Hat of Vermin
+-Bracers of Archery
+
+WBW-DC-CBB-5 A Rainbow for the Storm
+-Staff of the Woodlands
+-Pole of Collapsing
+
+WBW-DC-CBB-6 The Korred Corsair
+-Boots of Speed
+-Wand of Smiles
+
+WBW-DC-CBB-7 Showdown Above Terror Pin Reef
+-Mantle of Spell Resistance
+-Talking Doll
+
+WBW-DC-CBB-8 Paradise in the Tidalbore Isles
+-Silver Horn of Valhalla
+
+WBW-DC-CONMAR-2 Karl Rising
+-Masquerade Tattoo
+
+WBW-DC-CONMAR-12 Dreams of the Wet Wizard
+-Pole of Collapsing
+
+WBW-DC-CONMAR-13 Losing Con-Troll
+-Gem of Brightness
+
+WBW-DC-DREA-1 The Nightmare of Dreams
+-Belt of Fire Giant Strength (GFP)
+
+WBW-DC-EBAL-MEF0 Misty Edge Heist
+-Slippers of Spider Climbing
+
+WBW-DC-EBAL-MEF1 Misty Edge Falls
+-Cloak of Protection
+-Masquerade Tattoo
+
+WBW-DC-EBAL-MEF2 Misty Edge Incursion
+-Robe of Stars
+-Mantle of Spell Resistance
+-Cloak of Many Fashions
+
+WBW-DC-FAB-2
+-Wind Fan
+-Feather Token (Feather Fall)
+
+WBW-DC-FEN-1 Tiddy Mun and the Stranger Stone
+-Gem of Brightness
+
+WBW-DC-FEN-3 Tiddy Mun and the Legends of Fennebog
+-Nature's Mantle
+
+WBW-DC-KCB-5 Fishing in the Dark
+-Slippers of Spider Climbing
+
+WBW-DC-KW-1 PINEPETAL’S PETTY PILFERING
+-Dark Shard Amulet
+-Wind Fan
+
+WBW-DC-KW-2 Fair Felonius Faces
+-Scale Armor of Gleaming
+-Amulet of Health
+-Crossbow Bolts +2 
+
+WBW-DC-KW-3  Drucilla's Dangerous Day
+-Staff of Adornment
+-Moon Sickle +2
+
+WBW-DC-KW-4 Morena's Mysterious Mark
+-Pole of Collapsing
+-Elven Chain
+
+WBW-DC-KW-5 Heavenly Hare Hunt
+-Dread Helm
+-Arrows +2 
+-Bracers of Defense
+
+WBW-DC-LAB-1 Kobold King's Labyrinth
+-Cloak of Many Fashions
+-Doss Lute
+
+WBW-DC-LIGA1 Breath on the Run
+-Nature's Mantle
+-Pipe of Smoke Monsters
+
+WBW-DC-LIGA3 Clash of Reality
+-Wand of Smiles
+-Feywild Shard
+
+WBW-DC-LUN-1
+-Wand of Pyrotechnics
+
+WBW-DC-MEZZ
+-Gem of Brightness
+
+WBW-DC-MOR-1 A Blight in Mordynia
+-Doss Lute
+-Wand of Pyrotechnics
+
+WBW-DC-MOR-2 Dark Miasma of the Mausoleum
+-Pole of Collapsing
+-Cloak of Protection
+
+WBW-DC-PHP-2 A Compendium of Curiosities
+-Scale Armor of Gleaming
+-Crossbow Bolts+2
+
+WBW-DC-Rook-1-1 Care and Maintenance of the Rookery
+-Silver Raven Figurine
+
+WBW-DC-Rook-3-1- The High Kaldir
+-Ivory Goats
+
+WBW-DC-Rook-3-2 The Rookery: Frogs of War
+-Pole of Collapsing
+
+WBW-DC-Rook-3-3 The Rookery: The Crook in the Rook
+-Wand of Pyrotechnics
+
+WBW-DC-ROG-1 Imagination Lost
+-Boots of Speed
+-Pole of Collapsing
+
+WBW-DC-ROG-2 A Giant Dilemma
+-Ring of Free Action
+-Veteran's Cane
+
+WBW-DC-ROG-3 Hope in a Medusa's Eye
+-Cloak of Billowing
+-Silver Horn of Valhalla
+
+WBW-DC-SSM-1
+-Ioun Stone of Protection
+-Masquerade Tattoo
+
+WBW-DC-TAZ-1 
+-Pole of Collapsing
+
+WBW-DC-TCW-AVG-1 Missing Yeux
+-Staff of the Woodlands
+-Cloak of Billowing
+
+WBW-DC-TCW-AVG-2 Unbreak the H'earth
+-Mantle of Spell Resistance
+-Talking Doll
+
+WBW-DC-TEN-1 Two to Tengu
+-Pole of Collapsing
+-Silver Raven Figurine
+
+WBW-DC-TEN-2 Festival of Fyre
+-Cloak of Many Fashions
+-Silver Horn of Valhalla
+
+WBW-DC-WRT-0 Writer's Block
+-Ruby of the War Mage
+
+WBW-DC-ZEP-T1S2 Court of Zep
+-Feywild Shard
+
+WBW-DC-ZEP-T1S3 Zep Sightseeing
+-Nature's Mantle
+
+WBW-DC-ZEP-T1S4 Mall of Zep
+-Bag of Holding
+
+WBW-DC-ZODIAC-06 Nightmare of the Naga
+-Deck of Illusions

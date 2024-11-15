@@ -1,0 +1,248 @@
+After 10/30/24
+-Added SCAG backgrounds to Guild Adept file so the ones coded as PHB variants can still be selected properly.
+-Uploaded my file that makes old content still legal for AL (invocations, OCF, 1 feat) function with Poke's 2024 script
+-Put all the old content in its own folder to be kept for posterity/folks who aren't updating (2014 Content Only, Sheet 13.2)
+-Added new Liar's Night and Moonfest items from AL documents
+-Added new Moonfest Peppermint Pangolin creature as well
+-Added more custom Trading Post items
+
+
+After 10/26/24  (With some updates for 2024 rules)
+-Added a few more items from the unpublished DDAL00-15 Well Between Worlds epic.
+-Corrected some extra language properties on items that needed to be removed
+-Conversely, also added the code for some languages where it had been missed
+-Reorganized Quaal Feather Tokens to be correctly split between Transport and Equipment categories
+-Added new AL legal items from service awards (D&D:HAT) and the QIS preview (Descent into the Lost Caverns of Tsojcant)
+-Also reworked the service awards source to account for different award documents
+
+After 10/23/24
+-Fixed description on Ryboslav's Pole of Collapsing
+-Added items from STRAT-DRAGON modules on request
+-Shortened more descriptions
+-Removed [Action] for Ioun stone orbiting because it seemed unnecessary.
+-Added missing Source info for Wraps of Unarmed Prowess
+-For longer item names, shortened module codes where possible by removing duplicate source code  (ie switching SJ-DC-WINE-1 to just WINE-1 because SJ-DC is in the source.)
+-Moved Astral  Shards to the Minerals section
+-Split amulets out of AL Jewelry due to hitting the choices cap
+
+After 9/7/24
+-Changed magic item descriptions from 2nd person to 1st person for consistency with standard versions and to save space.
+-Added more items from DCs and other modules
+-Fixed Viridian Monocle description
+-Corrected Angel's Sting description
+-Corrected K-9's Veil description
+-Corrected descriptions for DC-POA-TDG1-2 items. Somehow all of them were wrong.
+-Corrected description for WBW-DC-ZODIAC-1 (apparently I messed up a bunch of these awhile back)
+-Shortened descriptions on a number of items so the text isn't quite as small.
+-Moved the few flavored items I was using my Candlekeep file for into my main AL flavor files. That way I can use the default Candlekeep code without missing out on them. I'll leave my Candlekeep file here, but don't plan to update it any further.
+
+After 7/6/24
+-Updated files to use the new Weapon & ArmorAdd format (old versions are saved in a separate folder)
+-Switched Black Pudding Cup to a creature instead of an item.
+-Added more flavored Trading Post items
+-Added more items from new modules
+-Changed the AL Story Awards section from Magic Items to Feats to better match NodHero's coding for blessings & boons (the BMG blessings that require attunement were moved to AL New Items due to their coding)
+-Added more unflavored items from new modules
+
+
+After 5/30/24
+-Minor tweaks and corrections
+-Added Trading Post items (new and flavored)
+-Removed incorrect language property from JGC-1 armor
+-Confirmed with author that no Zodiac items should be restricted to the domain.
+-Corrected weapon names on Staffs of Defense
+
+
+Changelog (After 4/9/24)
+-Added more items from SJ-DC, FR-DC, PS-DC, WBW-DC, and several POs
+-Corrected a few minor typos in item sources and descriptions
+-Added some flavored blessings/boons/charms to the AL Special Items file
+-Fixed the weaponsAdd and weaponOptions sections for several magic items
+-Split out Horns from AL Instruments due to hitting the choice limit
+-Added missing guardian property to Quintessence's Edge
+-Fixed an issue with some flavored hardcover items overriding the default version.
+-Updated my Necklace of Prayer Beads codes to customize the 1st column to my preferences (this code doesn't work if the standard version has aleady been selected as a magic item.)
+-Made some minor tweaks to my Creatures file
+
+AL Armor fixes (posted 5/15/24):
+-Fixed Cast-off armor requiring attunement when it doesn't
+-Got a fix from MPMB to fill out armor options properly. This didn't fix any specific errors but should help on the back end.
+
+
+Changelog (After 10/06/23)
+-Had to split the Accessories, Containers, Equipment (Common), and Minerals categories due to hitting the quantity limits of 100 choices. I also consolidated the Shields categories and Maces/Other Weapons to reduce the number of different magic items overall.
+-Added more items from SJ-DC, FR-DC, and PS-DCs
+-Updated Eldritch Claw Tattoos to correctly stack with Insignia of Claws
+-Corrected typo in Horns of Silent Alarm
+-Fixed some flavor typos in the Staff of Adornment
+-Corrected typo in Waterborne save text
+-Added more custom flavor items from the AL Trading Post
+-Other minor adjustments per changes in modules (such as ROTU-3)
+-Various corrections of typos and item properties
+-Corrected CCC-DES-4 to CCC-DES-1-4
+-Fixed missing Usages and edited description for Wand of Paralysis
+-Various adjustments to spacing in item names and descriptions (As a reminder, this script does not function properly without resizing text. The text will get cut off.)
+
+
+Changelog (After 7/13/23)
+-Adjusted minor propery for SJ-DC-ETA item as per module update
+-Adjusted source info for Mist Hunters to AL Ravenloft Campaign since there are also DC adventures now
+-Added items & familiar from DDIA05 premiere
+-Added items from Ravenloft, WBW, and SJ DCs
+-Added items from BMG PO
+-Adjusted the text for all Temperate items so the degrees should automatically adjust to Celsius if the sheet is set to metric
+-Managed to fix the Magic Item Source selection issue with help from MBMB
+-Added back some of the default item exclusions, though the ones that now have a separate source I left as is.
+-Added flavor from some unpublished BMG-DRW modules (may change when published)
+
+
+
+Changelog (After 3/20/23)
+-Added missing magic axe from KOSC
+-Corrected various typos and errors
+-Added more items from DC modules
+-Added item from PO-BK-2-10
+-Gave the Tree Spirit Weapons & Darkling Necklace a unique source so they're easier to exclude/include en masse (this is partially a workaround due to the fact that the AL Magic Items file breaks the individual item exclusion button)
+-Made it so that no items are excluded by default in the AL Items file, since there's currently no way to include them individually
+
+
+Changelog (After 12/22/22)
+-Added new WBW and SJ Dungeoncraft items
+-Added items from unpublished SJ-DC-SINGULARITY
+-Minor corrections for spacing and clarity
+-Fixed a code error in the Eldritch Claw Tattoo for ZODIAC-11 that stopped it from appearing as an option.
+-Corrected Bracers of Defense in DRWEP3 to Bracers of Archery
+-Removed trinkets from WBW-DC-LEGIT City of Starlight because most parties will turn them in for gold. 
+-Split Holiday Events Source into Liar's Night and Feast of the Moon to be more accurate
+-Added missing Pole of Angling from DDEP10-1
+-Added flavored items from Journies Through the Radiant Citadel
+
+
+Changelog (After 10/11/22)
+-Subdivided the Equipment and Outerwear section into Equipment, Equipment (Common), Cloaks, Cloaks (Common), and Clothing due to hitting the choice cap
+-Combined the two different versions of Feywild Shards into a single item to reduce the number of choices (if a wild mage, you'll just need to delete the limited feature)
+-Changed the Fey Pact Item for WBW-DC-DMMC-1 from a Staff of Healing to a Staff of Power per module change
+-Added missing Giant's Bane flavor from the item Cert
+-Minor editing and adjustments
+-Added more items from WBW-DC modules
+-Added items from SJ-DC modules
+-Added fancy Hat of Witchery code so it reads spellcasting classes better. With thanks to Poet of God & MPMB
+-Added a missing space in the Guardian property for a number of items
+-Fixed a couple errors in item sources
+-Updated code in Arcane Grimoire to new format
+-Added flavored items from DRW-INT adventures
+-Added in the flavor for the Mask of the Beast from ToA
+
+
+Changelog (After 8/10/22):
+-Added additional items from WBW-DC items
+-Fixed an incorrect language add-on from DDEP1
+-Added additional items from unpublished WBW-DC and Infernal Machine Rebuild cert
+-Changed item in WBW-DC-MOM-2 from Stormbreaker to Faithbringer per module edits
+-Added missing attunement requirement to several giant belts
+-Added Dragonnel in Creatures as Find Greater Steed option
+-Adding missing language proficiency for the Baby Hydra Plushie
+-Fixed an issue with the Hag's Clawblade not registering as finesse
+-Corrected minor properties on several Staffs of the Woodlands. Hopefully, they're all right now.
+-Added a missing minor property to the LSN Eyes of Minute Seeing
+-Corrected a flavor error in an Eversmoking Bottle
+-Corrected a typo in the Staff of Birdcalls
+-Corrected some missing info/incorrect flavor in Ioun Stones
+
+
+Changelog (After 7/15/22):
+-Added additional items from WBW-DC items
+-Adjusted some descriptions to make them more concise
+-Adjusted some errors in listed sources
+-Fixed some errors in the Special and Magic Items files so they'd actually install.
+
+
+Changelog: (After 5/29/22)
+-Added another custom item from an unpublished WBW
+-Fixed typo in Thanks of Ilmater story award
+-Fixed typo in Efreeti Chain main
+-Fixed a typo in Radiance in the Candlekeep document
+-Fixed error in ZODIAC-1 Doss Lute
+-Fixed error in Mace of Disruption description
+-Added missing items from DRW5
+-Added code to make all RMH content excluded by default, since it's specific to the alternate campaign.
+-Made most creature sources excluded by default as well, since those creatures are specific to certs/other special situations.
+-Fixed a few minor typos in descriptions and sources
+-Added additional items from new WBW, DRW and MOON adventures
+-Attempted to move the AL Trinkets in the Special items file to excluded by default as I imagine most people won't be using those.
+-Added some extra formatting for poems/songs in descriptions
+
+
+Changelog (After 3/26/22):
+-Removed Keoghtom's Ointment for JOQ-3 because it was removed from the adventure.
+-Added PO-BK adventures
+-Added more WBW-DC items
+-Corrected description of Hat of Vermin (TAROT)
+-Added usage information for the Ring of the Ram
+-Changed item in TAROT-1-1 to better match the actual module text.
+-Added Shadowsong Oathbow as alternate for DDEX3-7
+-Adjusted some descriptions for spacing
+-Added 2 new special items from DDHC-TOA-8
+-Fixed a capitalization error in the Weapons file that was breaking the Magic Items exclusion button
+
+
+Changelog (After 3/11/22):
+-Add additional WBW-DC items
+-Added RMH option to AL Magic Armor document.
+-Added DDAL-DRW17 and WBW-DC-RKS-01
+-Added items from new RMH documents
+-Corrected module on Glass Breastplate
+-Added Heresy types to the Heretic background
+-Added items from MOON15
+
+
+Changelog (After 2/4/22):
+
+AL Magic Items:
+-Removed the item from WBW-DC-Sunlit-4 since it was removed from the module
+-Added full descriptions to Wands of the War Mage
+-Added additional items from modules
+
+AL Weapons:
+-Added additional RMH items
+-Added additional items from modules
+
+AL Armor:
+-Added additional items from modules
+
+AL Special Items:
+-Added additional items from modules
+
+
+Changelog (After 1/14/22):
+
+Guild Adept Backgrounds:
+-Added missing gold to Yallaschan background
+
+AL Creatures:
+-Added code so the names for special named companions will fill in automatically
+-Added the younger griffon options from Rime of the Frostmaiden
+
+AL Special Items:
+-Corrected issue with legendary actions not being removed for Brightstar Moonsilver.
+-Separated non-mechanical AL trinkets from the AL New Items section to make them easier to ignore if you don't care. The AL New Items section still includes silly pointless items that are at least Common.
+-Added several new trinkets from WBW-DC modules. Also added all of the magical trinket items from DDEX2-10.
+-Added code so common items aren't infusion options for artificer (This code won't work if you don't install the artificer script first)
+-Added the Dagger of the Hidden Lord
+
+AL Magic Items:
+-Added additional flavored items for Rime of the Frostmaiden (Ogolai's Cloak, Helm of Telepathy, Eyes of Minute Seeing)
+-Various minor changes to item descriptions 
+-Added additional items, mostly from WBW-DC modules
+-Added Long descriptions to bardic instruments
+-Added code so common items aren't infusion options for artificer
+
+AL Magic Weapons:
+-Corrected typo in AL Staffs name
+-Added a long description to the Staff of the Woodlands
+-Added additional items from WBW-DC modules
+-Added code so common items aren't infusion options for artificer
+-Various minor description changes
+
+AL Magic Armor:
+-Added code so common items aren't infusion options for artificer
