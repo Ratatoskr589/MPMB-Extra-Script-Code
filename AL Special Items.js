@@ -103,7 +103,7 @@ FeatsList["al story awards"] = {
 		name : "AL Story Awards",
 		description : "Special AL rewards available from conventions, epics and adventure modules. This only includes a small slice of the total awards available, primarily flavored boons and blessings, and story awards with major mechanical effects. This selection also assumes that you have spent any Downtime or other cost required to receive the reward.",
 		allowDuplicates : true,
-	choices : ["Annabelle's Gratitude (CCC-PRIORY-3)","Angry Alley Cat (FC)","Blessing of Magic Resistance: Aether's Blessing (FR-DC-MONSTER-4)","Blessing of Magic Resistance: Favor of Primus (PS-DC-PHP-CKA2)","Blessing of Protection (AL WPM)","Blessing of Protection (DDEP6-3)","Blessing of Protection: Selune's (FR-DC-PANDORA-JWEI-6)","Blessing of Valhalla: Illithids (FR-DC-DEATH)","Blessing of Valhalla: The Friends You Made Along the Way (SJ-DC-DD-11)","Blessing of Wound Closure (SJ-DC-MIST-1)","Boon of Quick Casting (PS-DC-CEG-2)","Boon of Skill Proficiency: Star Power (PS-DC-RAVENGARD)","Boon of the Unfettered (PS-DC-POP-1)","Chardalyn Poisoning (DDAL10-9)","Charm of the Comet: Enchanted Amulet (FR-DC-PANDORA-JWEI-7)","Charm of the Sage: High Heralds (FR-DC-Saerloon-0)","Dreamwalker (DDAL5-11)","Favor of Candlekeep - Language (DDAL0-3)","Flying Snake (DDEP7-1)","Gratitude of Brightstar Moonsilver (CCC-BMG-37 HULB3-1)","Gratitude of Hartkiller (DDAL5-17)","Hall of Honor (DDAL6-3)","Hall of Mirth (DDAL6-3)","Hall of Omens (DDAL6-3)(Diviner)","Hall of Omens (DDAL6-3)(Non-Diviner)","Lich Slayer (DDEP7-2)","Lord of the Gorge (DDAL0-11F)","Luna Lightbearers (WBW-DC-ZODIAC-0)","Nature of the Weave (CCC-ROZK-1-2) (Arcana Prof)","Nature of the Weave (CCC-ROZK-1-2) (Arcana Expert)","Plague Buster (DDEP7-2)","The Qualith Experience (DDIA-VOLO)","Quasit's Essence (DDAL5-8)","Student of Stone (DDAL5-11)","Szass Tam's Arcane Essence (DDEP0-1)","Szass Tam's Planar Essence (DDEP0-1)","Thanks of Ilmater - Immortality","Thanks of Ilmater - Planar Travel","Uku the Spider Boy (DDEP7-1)"],
+	choices : ["Annabelle's Gratitude (CCC-PRIORY-3)","Angry Alley Cat (FC)","Black Pudding Cup: Cuddly (Trading Post)","Blessing of Magic Resistance: Aether's Blessing (FR-DC-MONSTER-4)","Blessing of Magic Resistance: Favor of Primus (PS-DC-PHP-CKA2)","Blessing of Protection (AL WPM)","Blessing of Protection (DDEP6-3)","Blessing of Protection: Selune's (FR-DC-PANDORA-JWEI-6)","Blessing of Valhalla: Illithids (FR-DC-DEATH)","Blessing of Valhalla: The Friends You Made Along the Way (SJ-DC-DD-11)","Blessing of Wound Closure (SJ-DC-MIST-1)","Boon of Quick Casting (PS-DC-CEG-2)","Boon of Skill Proficiency: Star Power (PS-DC-RAVENGARD)","Boon of the Unfettered (PS-DC-POP-1)","Chardalyn Poisoning (DDAL10-9)","Charm of the Comet: Enchanted Amulet (FR-DC-PANDORA-JWEI-7)","Charm of the Sage: High Heralds (FR-DC-Saerloon-0)","Dreamwalker (DDAL5-11)","Favor of Candlekeep - Language (DDAL0-3)","Flying Snake (DDEP7-1)","Gratitude of Brightstar Moonsilver (CCC-BMG-37 HULB3-1)","Gratitude of Hartkiller (DDAL5-17)","Hall of Honor (DDAL6-3)","Hall of Mirth (DDAL6-3)","Hall of Omens (DDAL6-3)(Diviner)","Hall of Omens (DDAL6-3)(Non-Diviner)","Lich Slayer (DDEP7-2)","Lord of the Gorge (DDAL0-11F)","Luna Lightbearers (WBW-DC-ZODIAC-0)","Nature of the Weave (CCC-ROZK-1-2) (Arcana Prof)","Nature of the Weave (CCC-ROZK-1-2) (Arcana Expert)","Plague Buster (DDEP7-2)","The Qualith Experience (DDIA-VOLO)","Quasit's Essence (DDAL5-8)","Student of Stone (DDAL5-11)","Szass Tam's Arcane Essence (DDEP0-1)","Szass Tam's Planar Essence (DDEP0-1)","Thanks of Ilmater - Immortality","Thanks of Ilmater - Planar Travel","Uku the Spider Boy (DDEP7-1)"],
 	"annabelle's gratitude (ccc-priory-3)" : {
 		name : "Annabelle's Gratitude (CCC-PRIORY-3)",
 		source : [["AL","2018"]],
@@ -117,6 +117,15 @@ FeatsList["al story awards"] = {
 		description : "A battle scarred, one-eared angry tomcat that reeks of city has taken a liking to me. 'Like' is a generous term as it spends its free time soiling my footwear and caterwauling. Once per adventure, if I would be arrested by the city watch, the angry cat descends like an avenging angel, distracting the watch enough for me to escape.",
 		descriptionFull : "A battle scarred, one-eared angry tomcat that reeks of city has taken a liking to you. 'Like' is a generous term as it spends its free time soiling your footwear and caterwauling. Once per adventure, if you would be arrested by the city watch, the angry cat descends like an avenging angel, distracting the watch enough for you to escape.",
 	},
+	"black pudding cup: cuddly (trading post)" : {
+			name : "Black Pudding Cup (Cuddly)",
+			source : [["AL:EL","VW"]],
+			rarity : "rare",
+			attunement : true,
+			description : "This special ooze has undergone magical experimentation, which resulted in its body being the perfect huggable consistency. When hugged, the pudding whispers words of self affirmation like \"You are enough.\" and \"All you need is within you right now.\" It can be returned via Find Familiar if killed. If its cup was also destroyed, a new cup needs to be purchased (1gp).",
+			descriptionFull : "This special ooze has undergone magical experimentation, which resulted in its body being the perfect, huggable consistency. When hugged, the creature whispers words of self affirmation like \"You are enough.\" and \"All you need is within you right now.\" The creature can be returned via Find Familiar if killed. If its cup was also destroyed, a new cup needs to be purchased (1gp). [Custom flavor from the November 2024 VDDW Trading Post v13.1]",
+			creaturesAdd : [["Black Pudding Cup"]],
+		},
 	"blessing of magic resistance: aether's blessing (fr-dc-monster-4)" : {
 		name : "Aether's Blessing of Magic Resistance (FR-DC-MONSTER-4)",
 		source : [["AL","FR-DC"]],
@@ -531,14 +540,61 @@ RunFunctionAtEnd(function () {
 //New Event Awards from Al events such as the D&D Celebration, Extra Life and the newer Liar's Night events. Only one may be on a character at a time.
 MagicItemsList["al event award items"] = {
 		name : "AL Event Award Items",
-		rarity : "unique",
+		rarity : "unique (common)",
 		type : "wondrous item",
+		magicItemTable : "?",
 		allowDuplicates : false,
-	choices : ["Animated Balloon Beast","Astral Fishing Lure (TAL)","Buckler of Folding","Bunny Slipper Snowshoes","Calliope Wine Cask","Campfire Ice Sculpture","Cuddly Spider","Fiery Snow Sled (TAL)","Flask of Glowworms","Harengon Spirit Club (LN-1)","Inspired Cocoa Mug","Jar of Everflowing Honey","Magical Slushy Grinder","Moonlight Candle","Netherese Ghost Stories","Very Important Crown","Viridian Monocle","Wand of Verdant Vitality"],
-	"animated balloon beast" : {
+	choices : ["Ammunition of Sprouting (FM)","Ancestor's Mirror (FM)","Animated Balloon Beast (EL)","Armor of Last Defense (FM)","Astral Fishing Lure (TAL)","Buckler of Folding (DDCE)","Bunny Slipper Snowshoes (DDCE)","Calliope Wine Cask (DDCE)","Campfire Ice Sculpture (DDCE)","Cuddly Spider (DDCE)","Fiery Snow Sled (TAL)","Flask of Glowworms (DDCE)","Harengon Spirit Club (LN-1)","Inspired Cocoa Mug (DDCE)","Jar of Everflowing Honey (FM)","Magical Slushy Grinder (DDCE)","Moonlight Candle (EL)","Netherese Ghost Stories (DDCE)","Toy Mind Flayer","Toy Red Dragon","Tricksters' Pumpkin Seed (LN)","Very Important Crown (DDCE)","Viridian Monocle (DDCE)","Wand of Verdant Vitality (DDCE)"],
+	"ammunition of sprouting (fm)" : { //per AL admins on Discord, the 2024 LN and FM items are treated as Event Awards
+		name : "Ammunition of Sprouting)",
+		source : [["AL:FM",2024]],
+		type : "weapon (ammunition)",
+		rarity: "unique",
+		description : "If this ammunition hits a creature, it takes +1 damage and must pass a DC 15 Strength save or be Restrained by a grasping plant. Once it hits a target, the ammunition is no longer magical.",
+		descriptionFull : "This is a unique item. This magical ammunition is found in a quantity of 20.\n   If the ammunition hits a creature, the creature takes +1 additional damage and must succeed on a DC 15 Strength saving throw or also have the restrained condition, caused by a grasping plant from the ammunition. Once the ammunition hits a target, the ammunition is no longer magical.",
+		allowDuplicates : true,
+		chooseGear : {
+			type : "ammo",
+			prefixOrSuffix : "brackets",
+			descriptionChange : ["replace", "ammunition"]
+		},
+		ammoAdd : [["Ammunition of Sprouting", 20]],
+		},
+	"ancestor's mirror (fm)" : {
+		name: "Ancestor's Mirror",
+		source : ["AL:FM", 2024],
+		rarity: "unique",
+		attunement : true,
+		description: "This ordinary bag, made from orange and black striped cloth, appears empty. Reaching inside the bag, however, reveals the presence of crinkly wrapped candies. As an action, 3 times/dawn, I can pull an object from this bag and throw it 20 ft. It transforms into a random creature when it lands (d8): 1-weasel, 2-giant rat, 3-badger, 4-boar, 5-dretch, 6-quasit, 7-imp, 8-hell hound. 1-4 follow my commands, 5-8 are hostile. All act on my turn and vanish at dawn/if reduced to 0 HP.",
+		descriptionFull: "This is a unique item. This decorative hand mirror is infused with the pride your ancestor's have for you. While you carry the mirror, you have advantage on Charisma saving throws.\n   The mirror has 6 charges, which you can use for the following properties while you hold the mirror. The mirror regains 1d6 expended charges daily at dawn.\n   " + toUni("Ancestors' Glowing Pride") + ". As a bonus action, you can expend 1 charge to have advantage on one Charisma skill check.\n   " + toUni("Ancestral Assistance") + ". As a bonus action, you can expend 2 charges to call for your ancestor's assistance for 1 hour as an Unseen Service except your ancestor willingly performs only one task, if respectfully requested.\n   " + toUni("Ancestral Protection") + ". As a bonus action, you can expend 4 charges to call for your ancestors' protection. They surround you in a Shield of Faith.",
+		savetxt : { adv_vs : ["Cha saves"] },
+		usages : 6,
+		additional : "1d6 Recharge",
+		recovery : "dawn",
+		action : [["bonus action", " (Adv Cha Chk)"]],
+		spellFirstColTitle : "Ch",
+			spellcastingBonus : [{
+				name : "2 charges",
+				spells : ["unseen servant"],
+				selection : ["unseen servant"],
+				firstCol : 2,
+			}, {
+				name : "4 charges",
+				spells : ["shield of faith"],
+				selection : ["shield of faith"],
+				firstCol : 4,
+			}],
+		spellChanges : {
+			"unseen servant": {
+				description : "Ancestor appears as Invisible Med. servant; AC 10, 1 HP; does 1 task if asked respectifully",
+				time : "1 bns",
+				changes : "My ancestor willingly performs only 1 task, if requested respectfully."
+			}
+		}
+	},
+	"animated balloon beast (el)" : {
 		name : "Animated Balloon Beast",
 		source : ["AL:EL",2022],
-		type : "trinket",
 		description : "This carnival favorite is enchanted to be unbreakable and float within 5 ft of me unless forcibly removed. While holding its string, I can change its shape to any creature, but its size remains Tiny. Once per dawn as an action, I can magically levitate 20 ft in the air until the end of my next turn, floating gently to the ground when the duration ends.",
 		descriptionFull : "This carnival favorite bears enchantments that make it unbreakable and keeps it floating within 5 feet of you unless forcibly removed. While holding its string, its shape can change to any creature you desire with a size no larger than Tiny. As an action, you may also magically levitate in the air 20 feet until the end of your next turn, floating gently to the ground when the duration ends if you are still suspended. The balloon can't be used to levitate again until the next dawn.",
 		action : [["action", "Balloon Beast (Levitate)"]],
@@ -546,14 +602,44 @@ MagicItemsList["al event award items"] = {
 		usages : 1,
 		recovery : "dawn",
 		},
+	"armor of last defense (fm)" : {
+		name : "Armor of Last Defense",
+		source : [["AL:FM", 2024]],
+		type : "armor (light or medium)",
+		rarity: "unique",
+		attunement : true,
+		description : "While wearing this armor and Bloodied, my AC has a +2 bonus, and I can cast Aura of Vitality once per dawn.",
+		descriptionFull : "This is a unique item. While you have half your hit points or fewer, your Armor Class has a +2 bonus, and you can cast Aura of Vitality. You can only cast the spell in this way once until the next dawn.",
+		extraAC : [{name : "Armor of Last Defense", mod : 2, magic : true, text : "I gain a +2 AC bonus while Bloodied."}],
+		chooseGear : {
+			type : "armor",
+			prefixOrSuffix : "suffix",
+			descriptionChange : ["replace", "armor"],
+			itemName1stPage : ["prefix", "of Last Defense"],
+			excludeCheck : function (inObjKey, inObj) {
+				return !(/medium|light/i).test(inObj.type);
+			},
+		},
+		spellcastingBonus : [{
+			name : "Aura of Vitality",
+			spells : ["aura of vitality"],
+			selection : ["aura of vitality"],
+			firstCol : 'oncelr'
+		}],
+		spellChanges : {
+			"aura of vitality" : {
+				description : "On cast & at the start of each of my turns, heal 2d6 HP to 1 crea; I can only cast this while Bloodied",
+				changes : "I can cast Aura of Vitality once per dawn while Bloodied."
+			}
+		},
+	},
 	"astral fishing lure (tal)" : {
 		name : "Astral Fishing Lure (TAL)",
 		source : ["AL:EL",2023],
-		type : "wondrous item",
 		description : "This instrument of death resembles a smiling space guppy that glows faintly, shedding bright light in a 5-ft radius and dim light for an additional 5 ft, blinking irregularly. The lure provides one fisher with advantage on their Wisdom (Survival) check to catch 'something' in Wild Space.",
 		descriptionFull : "This instrument of death resembles a smiling space guppy that glows with faint luminescence, shedding bright light in a 5-foot radius and dim light for an additional 5 feet, blinking on and off at irregular intervals. The lure provides one fisher with advantage on their Wisdom (Survival) check to catch 'something' in Wild Space.",
 		},
-	"buckler of folding" : {
+	"buckler of folding (ddce)" : {
 		name : "Buckler of Folding",
 		source : ["DDCE",2021],
 		type : "shield",
@@ -562,26 +648,26 @@ MagicItemsList["al event award items"] = {
 		action : [["bonus action", "Buckler of Folding"]],
 		shieldAdd : "Buckler of Folding"
 		},
-	"bunny slipper snowshoes" : {
+	"bunny slipper snowshoes (ddce)" : {
 		name : "Bunny Slipper Snowshoes",
 		source : ["DDCE",2020],
 		type : "trinket",
 		description : "Certain to keep my feet warm while traversing the arctic, these fashionable snowshoes expand and contract to fit any Small or Medium humanoid creature.",
 		descriptionFull : "Certain to keep your feet warm while traversing the arctic, these fashionable snowshoes expand and contract to fit any Small or Medium humanoid creature."
 		},
-	"calliope wine cask" : {
+	"calliope wine cask (ddce)" : {
 		name : "Calliope Wine Cask",
 		source : ["DDCE",2021],
 		type : "trinket",
 		description : "When uncorked, this small cask of wine plays calliope music and can fill up to two waterskins. It magically refills at dusk."
 		},
-	"campfire ice sculpture" : {
+	"campfire ice sculpture (ddce)" : {
 		name : "Campfire Ice Sculpture",
 		source : ["DDCE",2020],
 		type : "trinket",
 		description : "When placed on the ground in a cold climate, this tiny sculpture glows orange-red and emits heat enough for up to four Medium creatures within five feet to become comfortably warm."
 		},
-	"cuddly spider" : {
+	"cuddly spider (ddce)" : {
 		name : "Cuddly Spider",
 		source : ["DDCE",2021],
 		type : "trinket",
@@ -599,7 +685,7 @@ MagicItemsList["al event award items"] = {
 		descriptionFull : "You can use a bonus action to compel this sled and the animals pulling it to double their speed for 3 rounds. Once used, the magic ceases to function until you and the animals finish a long rest.",
 		action : [["bonus action", " (Double speed)"]]
 		},
-	"flask of glowworms" : {
+	"flask of glowworms (ddce)" : {
 		name : "Flask of Glowworms",
 		source : ["DDCE", 2021],
 		type : "trinket",
@@ -629,20 +715,21 @@ MagicItemsList["al event award items"] = {
 			selection : ["jump"],
 			firstCol : "oncelr"}],
 		},
-	"inspired cocoa mug" : {
+	"inspired cocoa mug (ddce)" : {
 		name : "Inspired Cocoa Mug",
 		source : ["DDCE",2020],
 		type : "trinket",
 		description : "This mug can magically fill with delicious hot cocoa during a short rest. Drinking the cocoa allows one creature to regain an extra 1d6 hit points if they spend Hit Dice to regain hit points."
 		},
-	"moonlight candle" : {
-		name : "Moonlight Candle",
-		source : ["AL:EL", "2021-2022"],
-		type : "wondrous item",
-		description : "When lit, this hauntingly pale candle provides illumination that's treated as moonlight, shedding bright light in a 20-ft radius and dim light for another 20 ft. It gives off no heat and never burns out.",
-		descriptionFull : "When lit, this hauntingly pale candle provides illumination that is treated as moonlight, shedding bright light in a 20-foot radius and dim light for an additional 20 feet. It gives off no heat and never burns out.",
+	"jar of everflowing honey" : {
+		name : "Jar of Everflowing Honey",
+		source : ["AL:FM", "2021/2024"],
+		type : "trinket",
+		description : "This ceramic jar weighs 5 pounds & feels full. Its lid can't be removed unless I'm using it. As an action, I may remove the lid & a fountain of honey pours out, generating 5 gallons of honey. The honey stops pouring out at the start of my next turn.",
+		descriptionFull : "This ceramic jar weighs five pounds and feels full of honey. Its lid cannot be removed unless you're using it. As an action, you may remove the lid and a fountain of honey pours out, generating five gallons of honey. The honey stops pouring out at the start of your next turn.",
+		action : [["action", " (Pour)"]]
 		},
-	"magical slushy grinder" : {
+	"magical slushy grinder (ddce)" : {
 		name : "Magical Slushy Grinder",
 		source : ["DDCE",2020],
 		type : "trinket",
@@ -650,22 +737,45 @@ MagicItemsList["al event award items"] = {
 		usages : 1,
 		recovery : "dawn"
 		},
-	"jar of everflowing honey" : {
-		name : "Jar of Everflowing Honey",
-		source : ["AL:FM", 2021],
-		type : "trinket",
-		description : "This ceramic jar weighs 5 pounds & feels full. Its lid can't be removed unless I'm using it. As an action, I may remove the lid & a fountain of honey pours out, generating 5 gallons of honey. The honey stops pouring out at the start of my next turn.",
-		descriptionFull : "This ceramic jar weighs five pounds and feels full of honey. Its lid cannot be removed unless you're using it. As an action, you may remove the lid and a fountain of honey pours out, generating five gallons of honey. The honey stops pouring out at the start of your next turn.",
-		action : [["action", " (Pour)"]]
+	"moonlight candle (el)" : {
+		name : "Moonlight Candle",
+		source : ["AL:EL", "2021/2022"],
+		description : "When lit, this hauntingly pale candle provides illumination that's treated as moonlight, shedding bright light in a 20-ft radius and dim light for another 20 ft. It gives off no heat and never burns out.",
+		descriptionFull : "When lit, this hauntingly pale candle provides illumination that is treated as moonlight, shedding bright light in a 20-foot radius and dim light for an additional 20 feet. It gives off no heat and never burns out.",
 		},
-	"netherese ghost stories" : {
+	"netherese ghost stories (ddce)" : {
 		name : "Netherese Ghost Stories",
 		source : ["DDCE",2020],
 		type : "trinket",
 		description : "Reading from this Netherese book of horrifying ghost stories for 10 minutes grants advantage on a single related History check and gives the reader nightmares. Afterwards I must succeed on a DC 13 Wisdom saving throw to successfully complete my next long rest.",
 		descriptionFull : "Reading from this Netherese book of horrifying ghost stories for 10 minutes grants advantage on a single related History check and gives the reader nightmares. You must succeed on a DC 13 Wisdom saving throw to successfully complete your next long rest."
 		},
-	"very important crown" : {
+	"toy mind flayer" : {
+		name : "Toy Mind Flayer",
+		source : ["AL:EL", 2024],
+		description : "Once a day. I can squeeze and wave this stuffed toy at a visible creature in 60ft. They must make a DC 13 Wisdom or be affected by the Dissonant Whispers spell.",
+		descriptionFull : "Once a day when you squeeze and wave this stuff toy at a creature that you can see that is within 60' of you they must make a DC13 Wisdom save or be affected by a dissonant whispers spell as described in the PH (Received mine at GHC)",
+		usages : 1,
+		recovery : "dawn",
+		action : [["action", ""]]
+		},
+	"toy red dragon" : {
+		name : "Toy Red Dragon",
+		source : ["AL:EL", 2024],
+		description : "Once per day, I can squeeze this stuffed toy to create a 30ft cone of flame. All creatures in its path take 2d6 Fire damage; DC 13 Dexterity save for half.",
+		descriptionFull : "Once per day when this stuffed toy is squeezed a 30' cone of flame shoots out from the area of its mouth and creatures in its path must make a DC 13 Dexterity save or take 2d6 fire damage. On a save they take half damage. (Received mine from TAL)",
+		usages : 1,
+		recovery : "dawn",
+		action : [["action", ""]]
+		},
+	"tricksters' pumpkin seed (ln)" : {
+		name : "Tricksters' Pumpkin Seed",
+		source : [["AL:LN", 2024]],
+		rarity : "unique",
+		description : "As an action, I can throw this seed at a \u2264Large creature. If it fails a DC 15 Dex save, the seed becomes a Large pumpkin that traps the target for 1 hr. The pumpkin has an AC 11 & 50 HP (dmg threshold 4 per tier) and breathable air. Other creatures in the pumpkin's area are pushed away 5 ft. I can use an action to rot the shell, freeing the creature & making the area difficult terrain for 1 min.",
+		descriptionFull : "This is a unique consumable. You can use an action to throw the seed at one Large or smaller creature. The creature must make a DC 15 Dexterity saving throw or the seed becomes a Large pumpkin that encloses and traps the creature inside for 1 hour. The pumpkin has an AC of 11 and 50 hit points (damage threshold 4 per tier of play). Creatures not hit with the seed but are within the pumpkin's 10-by-10-foot area, are pushed away 5 feet. The inside of the pumpkin holds plenty of breathable air for the trapped creature. You can use an action to rot the shell, freeing the creature and making the area difficult terrain for 1 minute."
+		},
+	"very important crown (ddce)" : {
 		name : "Very Important Crown",
 		source : ["DDCE",2021],
 		type : "trinket",
@@ -673,7 +783,7 @@ MagicItemsList["al event award items"] = {
 		descriptionFull : "This stiff paper crown is bedazzled with costume jewelry. When you wear it, creatures that can see you within sixty feet notice your presence, even if you're in a crowd. While wearing the crown, you have disadvantage on stealth checks.",
 		advantages : [["Stealth", false]]
 		},
-	"viridian monocle" : {
+	"viridian monocle (ddce)" : {
 		name : "Viridian Monocle",
 		source : ["DDCE",2021],
 		type : "trinket",
@@ -681,7 +791,7 @@ MagicItemsList["al event award items"] = {
 		descriptionFull : "When this ornate malachite monocle is worn, you can speak Sylvan.",
 		languageProfs : ["Sylvan"]
 		},
-	"wand of verdant vitality" : {
+	"wand of verdant vitality (ddce)" : {
 		name : "Wand of Verdant Vitality",
 		source : ["DDCE", 2021],
 		type : "wand",
@@ -698,7 +808,8 @@ MagicItemsList["al new items"] = {
 		name : "AL New Items",
 		type : "wondrous item",
 		allowDuplicates : true,
-		choices : ["Achis Atracta (CCC-BMG-30 HILL2-3)","Bag of Tricks or Treats","Bone Compass (RMH-12)","Bookmark of Memory: Limited Edition (WBW-DC-JSH-LIB-04PT)","Bookmark of Memory (WBW-PR)","Cariboots","Dagger of the Hidden Lord (DDHC-DIA-2)","Darkling Necklace (DDHC-TOA-8)","Demon Skin (DitLCoT)","Discord (DDAL-DRW15)","Eye of Xxiphu (DDAL5-19)","Fey Hound Collar","Fold-Up Friend (WBW-PR)","Giant's Gloves (WBW-PR)","Ghost Sheet","Green Wizard's Hat","Green Wizard's Hat (Trading Post)","Hat of Witchery","Hellrider's Badge (DDEP9-2)","Iggwilv's Horn (DitLCoT)","Ioun Stone - Celebration (DDAL-DRW5)","Lemure Onesie","Mind-Poison Dagger (DDHC-MORD-05)","Mist Hunters Magnificent Cap (RMH Safety Tools)","Nettle (DDEP4)","Oathbinder (DDHC-TOA-15)","Order of the Guardians Ring (RMH Safety Tools)","Owlbear Snowshoes","Pearl of Elocution (WBW-PR)","Pocket Watch (WBW-PR)","Potion of Polychromy (DitLCoT)","Pumpkin Ring","Red Wizard Blade (AL:SA-12B)","Selûne's Owl-Eye Glasses","Shar's Veil","Spare (DDHC-TOA-13)","Tablet of Reawakening (AL:SA-12B)","Tarot Card Set","Tasha's Creeping Keelboat (DitLCoT)","Tyr's Blessing of Command (CCC-BMG-23 PHLAN2-2)","Tyr's Blessing of Luck (CCC-BMG-24 PHLAN2-3)","Tyr's Blessing of the Mind (CCC-BMG-22 PHLAN2-1)","Wand of Whimsy (WBW-PR)","Woe (DDAL-DRW16)","Wooden Gecko Earrings (DDHC-TOA-8)","Zephyros' Notebook (DDIA05)"],
+		magicItemTable : "?",
+		choices : ["Achis Atracta (CCC-BMG-30 HILL2-3)","Bag of Tricks or Treats (LN)","Bone Compass (RMH-12)","Bookmark of Memory: Limited Edition (WBW-DC-JSH-LIB-04PT)","Bookmark of Memory (WBW-PR)","Cariboots (FM)","Dagger of the Hidden Lord (DDHC-DIA-2)","Darkling Necklace (DDHC-TOA-8)","Demon Skin (DitLCoT)","Discord (DDAL-DRW15)","Eye of Xxiphu (DDAL5-19)","Fey Hound Collar (FM)","Fold-Up Friend (WBW-PR)","Giant's Gloves (WBW-PR)","Ghost Sheet (LN)","Green Wizard's Hat (FC)","Green Wizard's Hat: Romantic (Trading Post)","Green Wizard's Hat: Water (Trading Post)","Hat of Witchery (LN)","Hellrider's Badge (DDEP9-2)","Iggwilv's Horn (DitLCoT)","Ioun Stone - Celebration (DDAL-DRW5)","Lemure Onesie (LN)","Mind-Poison Dagger (DDHC-MORD-05)","Mist Hunters Magnificent Cap (RMH Safety Tools)","Nettle (DDEP4)","Oathbinder (DDHC-TOA-15)","Order of the Guardians Ring (RMH Safety Tools)","Owlbear Snowshoes (fc)","Pearl of Elocution (WBW-PR)","Pocket Watch (WBW-PR)","Potion of Polychromy (DitLCoT)","Pumpkin Ring (LN)","Red Wizard Blade (AL:SA-12B)","Selûne's Owl-Eye Glasses (FM)","Shar's Veil (FM)","Spare (DDHC-TOA-13)","Tablet of Reawakening (AL:SA-12B)","Tarot Card Set (LN)","Tasha's Creeping Keelboat (DitLCoT)","Tyr's Blessing of Command (CCC-BMG-23 PHLAN2-2)","Tyr's Blessing of Luck (CCC-BMG-24 PHLAN2-3)","Tyr's Blessing of the Mind (CCC-BMG-22 PHLAN2-1)","Wand of Whimsy (WBW-PR)","Woe (DDAL-DRW16)","Wooden Gecko Earrings (DDHC-TOA-8)","Zephyros' Notebook (DDIA05)"],
 	"achis atracta (ccc-bmg-30 hill2-3)" : { // contributed by AelarTheElfRogue
 		name : "Achis Atracta (CCC-BMG-30 HILL2-3)",
 		source : [["AL","CCC"]],
@@ -709,11 +820,10 @@ MagicItemsList["al new items"] = {
 		weight : 1,
 		savetxt : { immune : ["poison"] }
 	},
-	"bag of tricks or treats" : {
+	"bag of tricks or treats (ln)" : {
 		name: "Bag of Tricks or Treats",
 		source : ["AL:LN", 2018],
 		rarity: "uncommon",
-		magicItemTable : "?",
 		description: "This ordinary bag, made from orange and black striped cloth, appears empty. Reaching inside the bag, however, reveals the presence of crinkly wrapped candies. As an action, 3 times/dawn, I can pull an object from this bag and throw it 20 ft. It transforms into a random creature when it lands (d8): 1-weasel, 2-giant rat, 3-badger, 4-boar, 5-dretch, 6-quasit, 7-imp, 8-hell hound. 1-4 follow my commands, 5-8 are hostile. All act on my turn and vanish at dawn/if reduced to 0 HP.",
 		descriptionFull: "This ordinary bag, made from orange and black striped cloth, appears empty. Reaching inside the bag, however, reveals the presence of crinkly wrapped candies. The bag weighs \u00BD pound.\n   You can use an action to pull the candy from the bag and throw it up to 20 feet.  When the object lands, it transforms into a creature you determine by rolling a d8 and consulting the table. The creature vanishes at the next dawn or when it is reduced to 0 hit points.\n   The creature is friendly to you and your companions (if 1-4) or hostile (5-8), and it acts on your turn. You can use a bonus action to command how the creature moves and what action it takes on its next turn, or to give it general orders, such as to attack your enemies. In the absence of such orders, the creature acts in a fashion appropriate to its nature.\n   Once three fuzzy objects have been pulled from the bag, the bag can't be used again until the next dawn.\n\n" + toUni("d8\tCreature") + "\n 1\tWeasel\n 2\tGiant Rat\n 3\tBadger\n 4\tBoar\n 5\tDretch\n 6\tQuasit\n 7\tImp\n 8\tHell Hound",
 		weight: 0.5,
@@ -736,7 +846,6 @@ MagicItemsList["al new items"] = {
 		name : "Limited Edition Bookmark #4 (Bookmark of Memory)",
 		source : ["AL", "WBW-DC"],
 		rarity : "common",
-		magicItemTable : "?",
 		description : "This bookmark was letterpress printed with gold ink on midnight blue stock and shows a small cat proudly perched on a tall stack of books. Letters on each book form the word “INSPIRATION.” While on my person, I feel optimistic about the future and butterflies frolic around me. When I open a book bearing this bookmark, I perfectly recall every word I've read from it.",
 		descriptionFull : "This bookmark has been letterpress printed with gold ink on midnight blue stock. It bears the image of a small cat proudly perched on a tall stack of books. The call number stickers on the books each bear a small letter, which when read from top to bottom form the word “INSPIRATION.” (This item is a Pact Reward for a Lesser Fey Pact, for having completed the Librarian's request that you explore the stacks and the Library's books.)\n   " + toUni("Blissful") + ". While in possession of the item, the bearer feels fortunate and optimistic about what the future holds. Butterflies and other harmless creatures might frolic in the item's presence.\n   When you open a book bearing this bookmark, you immediately recall every word you've previously read from it, with perfect clarity."
 		},
@@ -744,15 +853,13 @@ MagicItemsList["al new items"] = {
 		name : "Bookmark of Memory (WBW-PR)",
 		source : ["AL", "WBW"],
 		rarity : "common",
-		magicItemTable : "?",
 		description : "When I open a book bearing this bookmark, I immediately recall every word I've read from it with perfect clarity.",
 		descriptionFull : "When you open a book bearing this bookmark, you immediately recall every word you've previously read from it, with perfect clarity."
 		},
-	"cariboots" : {
+	"cariboots (fm)" : {
 		name : "Cariboots",
 		source : ["AL:FM", 2020],
 		rarity : "common",
-		magicItemTable : "?",
 		description : "These boots fit any humanoid, and are finely crafted from caribou pelts and lined with the softest fur. While wearing these boots, I can choose to have them leave tracks like those of a caribou.",
 		descriptionFull : "These boots fit any humanoid, and are finely crafted from caribou pelts and lined with the softest fur. While wearing these boots, you can choose to have them leave tracks like those of a caribou."
 		},
@@ -762,7 +869,6 @@ MagicItemsList["al new items"] = {
 		type : "weapon (dagger)",
 		rarity : "unique",
 		attunement : true,
-		magicItemTable : "?",
 		description : "This +1 cursed dagger is made entirely of gold, the handle engraved in the shape of a coiling serpent. I'm unwilling to give it up & I'm compelled to kill a humanoid with it every tenday, proclaiming “To the Hidden Lord!” when I do so. Every day I resist, I must pass a DC 10 Constitution save or take a level of exhaustion. This fatigue disappears when I kill a humanoid with the dagger.",
 		descriptionFull : "This weapon is made entirely of gold, with the handle engraved in the shape of a coiling serpent. You gain a +1 bonus to attack rolls and damage rolls that you make with this weapon.\n   " + toUni("Curse") + ". This dagger is cursed and becoming attuned to it extends the curse to you. While you remain cursed, you are unwilling to part with the dagger, keeping it on your person always. While attuned to this weapon, you feel compelled to kill a humanoid creature with it every tenday, proclaiming “To the Hidden Lord!” when you do so.\n   Every day that you resist this compulsion, you must make a successful DC 10 Constitution saving throw or take a level of fatigue. This magically induced fatigue disappears when you kill a humanoid with the dagger.",
 		weight : 1,
@@ -779,7 +885,6 @@ MagicItemsList["al new items"] = {
 		source : [["AL:GA","RLK"]],
 		rarity : "rare",
 		attunement : true,
-		magicItemTable : "?",
 		description : "This necklace includes a black pearl that contains part of a darkling's soul & gives advantage on Stealth checks made in dim light or darkness. As an action once per day, I can cast Darkness. I must then pass a DC 10 Int save or be blinded as long as the spell lasts. Once donned, the necklace can only be removed with a remove curse spell.",
 		descriptionFull : "This necklace includes a black pearl that contains a part of a darkling's soul. Once attuned, the wearer gains advantage on Stealth checks made in dim light or total darkness. Also, once per day as an action the wearer can cast darkness as per the 2nd-level evocation spell. However, the user must succeed on a DC 10 Intelligence saving throw or be blinded for as long as the spell lasts. Once it is donned, it can only be removed with a remove curse spell.",
 		limfeaname : "Darkling Necklace",
@@ -837,12 +942,11 @@ MagicItemsList["al new items"] = {
 		name : "Eye of Xxiphu (DDAL5-19)",
 		source : [["AL","S5"]],
 		rarity : "legendary",
-		magicItemTable : "?",
 		attunement : true,
 		description : "The Eye of Xxiphu bestows insight into the true nature of aboleths. While attuned, I gain telepathy out to 120 ft, & may cover myself in a coat of mucous that lets me breathe underwater and on land. The petrified orb is large & heavy, but doesn't need to be held to use its powers. Aboleths have disadv. when attacking me, & I have adv. on knowledge-based ability checks about aboleths & the Far Realms when not in combat.",
 		descriptionFull : "While not a truly intelligent item, the Eye of Xxiphu bestows terrifying insight into the true nature of the nightmarish aboleths. The attuned possessor of the Eye gains telepathy out to a range of 120 feet, and may cover themselves in coat of mucous that allows them to breathe underwater as well as on land. The petrified orb is large and heavy, but does not need to be held in order to use its powers. Additionally, aboleths have disadvantage when attacking the owner of the Eye, and the owner has advantage on knowledge-based ability checks about aboleths and the Far Realm when they are not in combat."
 	},
-	"fey hound collar" : {
+	"fey hound collar (fm)" : {
 		name : "Fey Hound Collar",
 		source : ["AL:FM", 2020],
 		rarity : "unique",
@@ -856,7 +960,6 @@ MagicItemsList["al new items"] = {
 		name : "Fold-Up Friend (WBW-PR)",
 		source : ["AL", "WBW"],
 		rarity : "common",
-		magicItemTable : "?",
 		description : "While this cut-out parchment character is within 5 ft of me, I can command it to walk, play, dance or follow me. The fold-up friend can't take actions or manipulate objects. It has AC 12 and 1 hit point.",
 		descriptionFull : "While this cut-out parchment character is within 5 feet of you, you can command it to walk, play, dance, or follow you. The fold-up friend cannot take actions and cannot manipulate objects. It has AC 12 and 1 hit point."
 		},
@@ -864,44 +967,49 @@ MagicItemsList["al new items"] = {
 		name : "Giant's Gloves (WBW-PR)",
 		source : ["AL", "WBW"],
 		rarity : "common",
-		magicItemTable : "?",
 		description : "While wearing these oversized gloves, my hands magically expand to fill their volume. This has no benefit.",
 		descriptionFull : "While wearing these oversized gloves, your hands magically expand to fill their volume. You gain no benefit from this."
 		},
-	"ghost sheet" : {
+	"ghost sheet (ln)" : {
 		name : "Ghost Sheet",
 		source : ["AL:LN", 2018],
 		rarity : "uncommon",
-		magicItemTable : "?",
 		description : "This sheet appears to be plain white cotton cloth with two eyeholes cut into it. When I wear the sheet over my head, I appear to be incorporeal. Physical interaction reveals this to be an illusion.",
 		descriptionFull : "This sheet appears to be plain white cotton cloth with two eyeholes cut into it. When you wear the sheet over your head, you appear to be incorporeal. Physical interaction reveals this to be an illusion."
 		},
-	"green wizard's hat" : {
+	"green wizard's hat (fc)" : {
 		name : "Green Wizard's Hat",
 		source : ["AL:FC", 2024],
 		rarity : "common",
-		magicItemTable : "?",
-		description : "This floppy green conical wizard’s hat magically contains 6 items. Once a day, I can pull a random item out of the hat that lasts for 1 hr. Roll 1d6 - 1: a bouquet that smells like anxiety, 2: cotton candy that envelops and obscures the closest tiny object until eaten away, 3: a single mosquito that prefers to feed on oozes, 4: a watering can filled with sand, 5: a glowing severed head identical to that of the closest living creature, 6: a 20 ft x 5 ft rainbow beam of light that can be dismissed.",
+		description : "This floppy green conical wizard’s hat magically contains 6 items. Once a day, I can pull out a random item that lasts 1 hr. 1d6 - 1: a bouquet that smells like anxiety/2: cotton candy that envelops & obscures the closest tiny object until eaten/3: a single mosquito that prefers to feed on oozes/4: a watering can filled with sand/5: a glowing severed head identical to the closest living creature/6: a 20ft x 5ft rainbow beam of light that can be dismissed.",
 		descriptionFull : "This green, floppy, conical wizard’s hat magically contains six different items. Once a day a character can pull an item out of the hat. Which of the items that appears is determined randomly using a d6 and the list below. The item lasts for 1 hour." + toUni("d6\tItem") + "\n1\ta bouquet that smells like anxiety,\n2\tcotton candy that envelops and obscures the closest tiny object until the candy is eaten away (no nutritional value),\n3\ta single mosquito that prefers to feed on oozes,\n4\ta watering can filled with sand,\n5\ta glowing severed head identical to the head of a living creature closest to the hat’s holder,\n6\ta 20 ft long-5 ft wide rainbow beam of light that lasts one hour or until dismissed. [Trading Post v13.1 2024]",
 		usages : 1,
 		recovery : "dawn"
 		},
-	"green wizard's hat (trading post)" : {
-		name : "Green Wizard's Hat (Water)",
-		source : ["AL:FC", 2024],
+	"green wizard's hat: romantic (trading post)" : {
+		name : "Green Wizard's Hat (Romantic)",
+		source : ["AL:FC", "TAL"],
 		rarity : "common",
-		magicItemTable : "?",
-		description : "The naiad seamstress of this beautifully crafted hat finds physical materials far too restricting. She enchanted turquoise blue water to hold the form of a pointed hat, though water frequently drips on me. Once a day, I can pull a random item out of the hat that lasts for 1 hr. Roll 1d6 - 1: a bouquet that smells like anxiety, 2: cotton candy that envelops and obscures the closest tiny object until eaten away, 3: a single mosquito that prefers to feed on oozes, 4: a watering can filled with sand, 5: a glowing severed head identical to that of the closest living creature, 6: a 20 ft x 5 ft rainbow beam of light that can be dismissed.",
-		descriptionFull : "The seamstress of this beautifully crafted hat was a naiad from the elemental plane of water who finds using physical materials in clothing far too restricting. This hat is made of turquoise blue water enchanted to hold the form of a pointed hat, though water from it frequently drips onto its wearer.\n   This green, floppy, conical wizard’s hat magically contains six different items. Once a day a character can pull an item out of the hat. Which of the items that appears is determined randomly using a d6 and the list below. The item lasts for 1 hour." + toUni("d6\tItem") + "\n1\ta bouquet that smells like anxiety,\n2\tcotton candy that envelops and obscures the closest tiny object until the candy is eaten away (no nutritional value),\n3\ta single mosquito that prefers to feed on oozes,\n4\ta watering can filled with sand,\n5\ta glowing severed head identical to the head of a living creature closest to the hat’s holder,\n6\ta 20 ft long-5 ft wide rainbow beam of light that lasts one hour or until dismissed. [Trading Post v13.1 July 2024]",
+		description : "This floppy green wizard’s hat is embroidered with skeleton cats. Hidden on the inside band is the message: \"I will love you for the rest of my life and the rest of my unlife too. Forever and ever yours, Victor.\" Once a day, I can pull out a random item for 1 hr. 1d6 - 1: bouquet smelling like anxiety/2: cotton candy that envelops & obscures the closest tiny object until eaten/3: a mosquito that prefers oozes/4: a watering can full of sand/5: a glowing severed head identical to the closest living creature/6: a 20ft x 5ft rainbow beam of light that I can dismiss.",
+		descriptionFull : "This hat is embroidered with skeleton cats. Embroidered secretly upon the band inside the hat is a loving message reading: I will love you for the rest of my life, and the rest of my unlife, too. Forever and ever yours, Victor.\n   This green, floppy, conical wizard’s hat magically contains six different items. Once a day a character can pull an item out of the hat. Which of the items that appears is determined randomly using a d6 and the list below. The item lasts for 1 hour." + toUni("d6\tItem") + "\n1\ta bouquet that smells like anxiety,\n2\tcotton candy that envelops and obscures the closest tiny object until the candy is eaten away (no nutritional value),\n3\ta single mosquito that prefers to feed on oozes,\n4\ta watering can filled with sand,\n5\ta glowing severed head identical to the head of a living creature closest to the hat’s holder,\n6\ta 20 ft long-5 ft wide rainbow beam of light that lasts one hour or until dismissed. [Trading Post v13.1 TAL November 2024]",
 		limfeaname : "Green Wizard's Hat",
 		usages : 1,
 		recovery : "dawn"
 		},
-	"hat of witchery" : {
+	"green wizard's hat: water (trading post)" : {
+		name : "Green Wizard's Hat (Water)",
+		source : ["AL:FC", "VW"],
+		rarity : "common",
+		description : "The naiad seamstress of this beautifully crafted hat finds physical materials too restricting. She enchanted turquoise water into a pointed hat that frequently drips on me. Once a day, I can pull out a random item that lasts 1 hr. 1d6 - 1: a bouquet that smells like anxiety/2: cotton candy that envelops & obscures the closest tiny object until eaten/3: a single mosquito that prefers to feed on oozes/4: a watering can filled with sand/5: a glowing severed head identical to the closest living creature/6: a 20ft x 5ft rainbow beam of light that can be dismissed.",
+		descriptionFull : "The seamstress of this beautifully crafted hat was a naiad from the elemental plane of water who finds using physical materials in clothing far too restricting. This hat is made of turquoise blue water enchanted to hold the form of a pointed hat, though water from it frequently drips onto its wearer.\n   This green, floppy, conical wizard’s hat magically contains six different items. Once a day a character can pull an item out of the hat. Which of the items that appears is determined randomly using a d6 and the list below. The item lasts for 1 hour." + toUni("d6\tItem") + "\n1\ta bouquet that smells like anxiety,\n2\tcotton candy that envelops and obscures the closest tiny object until the candy is eaten away (no nutritional value),\n3\ta single mosquito that prefers to feed on oozes,\n4\ta watering can filled with sand,\n5\ta glowing severed head identical to the head of a living creature closest to the hat’s holder,\n6\ta 20 ft long-5 ft wide rainbow beam of light that lasts one hour or until dismissed. [Trading Post v13.1 VDDW July 2024]",
+		limfeaname : "Green Wizard's Hat",
+		usages : 1,
+		recovery : "dawn"
+		},
+	"hat of witchery (ln)" : {
 		name : "Hat of Witchery",
 		source : ["AL:LN", 2019],
 		rarity : "common",
-		magicItemTable : "?",
 		description : "This black, cone-shaped hat has a wide-brim and is adorned with a tarnished brass buckle and a spindly-legged spider who made the hat its home. It can act as spellcasting focus for my class' spells. Once per long rest, I can try to cast a cantrip I don't know from my class' list by making a DC 10 INT (Arcana) check, wasting the action if failed. If 3 allies are wearing and attuned to hats of witchery in 30 ft of each other, the check above is made with adv. Their skin also turns green & their voices become raspy and aged.",
 		descriptionFull : "This black, cone-shaped hat has a wide-brim and is adorned with a tarnished brass buckle and a spindly-legged spider who has made the hat its home. While you are wearing it, you gain the following benefits:\n \u2022 You can use the hat as a spellcasting focus for your class' spells.\n \u2022 You can try to cast a cantrip that you don't know. The cantrip must be on your class' spell list, and you must make a DC 10 Intelligence (Arcana) check. If the check succeeds, you cast the spell. If the check fails, so does the spell, and the action used to cast the spell is wasted. In either case, you can't use this property again until you finish a long rest.\n \u2022 If three allies are all wearing and attuned to hats of witchery and are within 30 feet of each other, the check above is made with advantage. The characters' skin turns green, and their voices become raspy and aged.",
 		attunement : true,
@@ -977,7 +1085,6 @@ changeeval : function () {
 		name : "Hellrider's Badge (DDEP9-2)",
 		source : [["AL","S9"]],
 		rarity : "rare",
-		magicItemTable : "?",
 		attunement : true,
 		description : "This badge marks me as a lieutenant in the Hellriders. While wearing it, I gain a +2 bonus to AC if I'm not using a shield. If the badge is more than 5 feet away from me for more than one minute, it vanishes and harmlessly reappears on a surface within 5 feet of Duke Ravengard.",
 		descriptionFull : "A Hellrider's Badge is only usable by a member of the Hellriders, and thanks to your efforts during Klysandral's funeral and the subsequent escape from Avernus, you have been awarded honorary membership by Duke Ulder Ravengard himself. This badge marks you as a lieutenant in the Hellriders.\n   While wearing the badge, you gain a +2 bonus to AC if you aren't using a shield. If the badge is more than 5 feet away from you for more than one minute, it vanishes and harmlessly reappears on a surface within 5 feet of Duke Ravengard. While holding the badge, the Duke knows your location, provided the two of you are on the same plane of existence and your attunement to the badge hasn't ended.\n   As an action, the Duke can touch the badge and end your attunement to it, as he has been granted this power by Elturel despite not being a Hellrider himself.\n   " + toUni("Special") + ". If you wish to take the Hellriders or Flaming Fist as your faction, you may do so. Additionally, this badge is made from the bones of Klysandral himself, counts as a holy reliquary, and may be used as a holy symbol of Torm if needed.\n   Despite its rarity, the Hellrider's Badge can be equipped by anyone that has earned it via playing DDEP09-02 Hellfire Requiem.",
@@ -1004,17 +1111,15 @@ changeeval : function () {
 		name: "Ioun Stone - Celebration (DDAL-DRW5)",
 		source : [["AL","DRW"]],
 		rarity : "common",
-		magicItemTable : "?",
 		attunement : true,
 		description : "Attuning to this pale red stone takes 1 min. Action to make orbit at 1d3ft or stow. Action to catch w/ atk or Acrobatics chk (AC/DC 24). 10 HP & resistance to dmg. While in orbit, a bonus action makes the stone: 1) pulse with colored light for 1 min, creating 10 ft dim light; 2) emit harmless effect like sparks, musical notes, smell for 1 min; 3) pause in direction of most powerful caster/magical effect in 30ft. If none, aims toward Szass Tam's palace. The stone only works in Thay.",
 		descriptionFull : "An Ioun stone is named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of Ioun stone exist, each type a distinct combination of shape and color.\n   When you use an action to toss one of these stones into the air, the stone orbits your head at a distance of 1d3 feet and confers a benefit to you. Thereafter, another creature must use an action to grasp or net the stone to separate it from you, either by making a successful attack roll against AC 24 or a successful DC 24 Dexterity (Acrobatics) check. You can use an action to seize and stow the stone, ending its effect.\n   A stone has AC 24, 10 hit points, and resistance to all damage. It is considered to be an object that is being worn while it orbits your head.\n   An ioun stone of celebration has the harmonious minor property, so that attuning to it requires only 1 minute. The item must be attuned to function, and stops working outside the borders of Thay. While this pale red sphere orbits your head, you can use a bonus action to cause it to it display one of the following effects:\n \u2022 The ioun stone pulses with green, violet, or amber light for 1 minute, filling the area around you with dim light to a distance of 10 feet.\n \u2022 The ioun stone emits harmless sensory effects such as a shower of sparks, a puff of wind, faint musical notes, or an odd odor for 1 minute.\n \u2022 The stone pauses in its orbit in the direction of the most powerful spellcaster or magical effect within 30 feet of you. If there are no spellcasters or magical effects in range, it pauses in the direction of Szass Tam's palace.",
 		action : [["bonus action", "Ioun Stone - Celebration"]]
 		},
-	"lemure onesie" : {
+	"lemure onesie (ln)" : {
 		name : "Lemure Onesie",
 		source : ["AL:LN", 2019],
 		rarity : "uncommon",
-		magicItemTable : "?",
 		description : "This comfortable, fleece onesie is complete w/ cozy, if amorphous, footies. When wearing this it, I make myself — including belongings on my person — appear as a lemure. The appearance doesn't hold up to physical inspection. To discern I am disguised, a creature must use its action to inspect me & succeed on an INT (Investigation) check (DC 13). The onesie fabric is inexpensive & quite flammable; while wearing it, I'm vulnerable to fire dmg.",
 		descriptionFull : "This comfortable, fleece onesie is complete with cozy, if amorphous, footies. When wearing this onesie, you make yourself—including belongings on your person—appear as a lemure. The appearance fails to hold up to physical inspection. To discern you are disguised, a creature can use its action to inspect your appearance and must succeed on an Intelligence (Investigation) check (DC 13). The fabric is inexpensive and quite flammable; while wearing this onesie, you have vulnerability to fire damage.",
 		savetxt : { text : ["Vulnerable to fire damage"] }
@@ -1024,7 +1129,6 @@ changeeval : function () {
 		source : [["AL","MToF"]],
 		type : "weapon (dagger)",
 		rarity : "rare",
-		magicItemTable : "?",
 		description : "The metal of this dagger has a wavy pattern of blue, white, & black. As an action once per dawn, I can cause the blade to exude a nimbus of pale light. This nimbus remains for 1 min or until this weapon hits a creature. The target must succeed on a DC 15 Wis save or take 2d10 psychic dmg & be poisoned for one min as feelings of extreme pain & misery race through its mind. This is a fear & charm effect.",
 		descriptionFull : "The metal of this dagger possesses a wavy pattern of blue, white, and black. You can use your action to cause the blade to exude a pale nimbus of light. This nimbus remains for 1 minute or until an attack using this weapon hits a creature. That creature must succeed on a DC 15 Wisdom saving throw or else take 2d10 psychic damage and be poisoned for one minute as feelings of extreme pain and misery race through the creature's mind. This is a fear and charm effect. The dagger can't be used this way again until the next dawn.",
 		weight : 1,
@@ -1044,7 +1148,6 @@ changeeval : function () {
 		name : "Mist Hunters Magnificent Cap (RMH Safety Tools)",
 		source : [["AL:R","ST"]],
 		rarity : "common",
-		magicItemTable : "?",
 		description : "This deerstalker, ear-flapped traveling cap, is worn by notable investigators. When worn, it functions as any other hat. At my whim, it transforms into a working magnifying glass or back into a cap as needed.",
 		descriptionFull : "This deerstalker, ear-flapped traveling cap, is worn by notable investigators. When worn, it functions as any other hat. At the investigator's whim, it transforms into a working magnifying glass and back into a cap, as needed. This common magic item cannot be sold.",
 	},
@@ -1053,7 +1156,6 @@ changeeval : function () {
 		source : [["AL","S4"]],
 		type : "weapon (crossbow)",
 		rarity : "rare",
-		magicItemTable : "?",
 		attunement : true,
 		prerequisite : "Requires attunement by a creature of non-lawful alignment",
 		prereqeval : function(v) { return !(/lawful/i).test(What("Alignment")); },
@@ -1067,7 +1169,6 @@ changeeval : function () {
 		source : [["AL","S7"]],
 		type : "weapon (warhammer)",
 		rarity : "legendary",
-		magicItemTable : "?",
 		attunement : true,
 		prerequisite : "Requires attunement by a creature of non-evil alignment",
 		prereqeval : function(v) { return !(/evil/i).test(What("Alignment")); },
@@ -1097,7 +1198,6 @@ changeeval : function () {
 		source : [["AL:R","ST"]],
 		type : "ring",
 		rarity : "unique",
-		magicItemTable : "?",
 		description : "This ring can deliver a dose of potion or poison under a creature's skin. If targeting a creature, use an action to make a melee attack. On a hit, the liquid is delivered. If targeting myself, use a reaction to deliver it into my system. If loaded with anti-charm tonic, the reaction gives me adv. on a save against charm or possession. The ring can only be reloaded by the Order.",
 		descriptionFull : "This ring can deliver a dose of potion or poison under a creature's skin. If targeting a creature, use an action to make a melee attack. On a hit, the liquid is delivered. If targeting yourself, use a reaction to deliver it into your system. This equipment cannot be sold, and the ring cannot be reloaded except by the Order.\n   Currently, the Order of the Guardian ring is loaded with an anti-charm tonic. When an attempt is made to charm or possess you, you may use your reaction to deliver the tonic into your system and gain advantage to your saving throw. This potion has one use, and the top-secret recipe is not known to you. This potion cannot be extracted from the ring until used.",
 		limfeaname : "Anti-charm tonic",
@@ -1115,17 +1215,17 @@ changeeval : function () {
 			selectNow : true
 		}
 	},
-	"owlbear snowshoes" : {
+	"owlbear snowshoes (fc)" : {
 		name : "Owlbear Snowshoes",
 		source : ["AL:FC",2020],
-		type : "trinket",
-		description : "These warmly appointed snowshoes leave the tracks of an owlbear in snow, mud, or other soft surfaces. They also have an unfortunate tendency to attract other owlbears."
+		type : "common",
+		description : "These warmly appointed snowshoes leave the tracks of an owlbear in snow, mud, or other soft surfaces. They also have an unfortunate tendency to attract other owlbears.",
+		descriptionFull : "These warmly appointed snowshoes leave the tracks of an owlbear in snow, mud, or other soft surfaces. They also have an unfortunate tendency to attract other owlbears."
 		},
 	"pearl of elocution (wbw-pr)" : {
 		name : "Pearl of Elocution (WBW-PR)",
 		source : ["AL", "WBW"],
 		rarity : "common",
-		magicItemTable : "?",
 		description : "When I place this pearl underneath my tongue, I perfectly pronounce the words of any language I can speak.",
 		descriptionFull : "When you place this pearl underneath your tongue, you perfectly pronounce the words of any language that you can speak."
 		},
@@ -1133,7 +1233,6 @@ changeeval : function () {
 		name : "Pocket Watch (WBW-PR)",
 		source : ["AL", "WBW"],
 		rarity : "common",
-		magicItemTable : "?",
 		description : "This lidded brass container holds a tiny sand timer suspended behind glass. No matter how the container is orientated, the sand always falls from one side of the timer to the other, taking exactly 24 hrs to deplete. Once depleted, the timer spins around to reset itself.",
 		descriptionFull : "This lidded brass container holds a tiny sand timer suspended behind glass. No matter how the container is orientated, the sand always falls from one side of the timer to the other, taking exactly 24 hours to deplete. Once depleted, the sand timer spins around to reset itself."
 		},
@@ -1141,15 +1240,13 @@ changeeval : function () {
 		name : "Potion of Polychromy",
 		source : [["QftIS", 0]],
 		rarity : "uncommon",
-		magicItemTable : "?",
 		description : "The potion has 7 brightly colored bands and a syrupy taste. When drunk, I become rainbow-hued for 1 hour (along with worn/carried items). For the duration, I can turn any combination of colors as a bonus action. If I mimic my surroundings, my hues constantly shift to match, and I have advantage on Dex (Stealth) checks until I change colors again or the potion wears off.",
 		descriptionFull : "When you drink this potion, you and everything you are wearing or carrying take on a rainbow-hued appearance for 1 hour. During that time, you can use a bonus action to turn any color or combination of colors you choose. If you mimic the colors of your surroundings, your hues continually shift to match your surroundings, and you have advantage on Dexterity (Stealth) checks until you change your colors again or the potion wears off.\n   The potion is separated into seven brightly colored bands of immiscible liquids and has a syrupy taste.\n   This item is from the Quests from the Infinite Staircase preview adventure: Descent into the Lost Caverns of Tsojcanth."
 		},
-	"pumpkin ring" : {
+	"pumpkin ring (ln)" : {
 		name : "Pumpkin Ring",
 		source : ["AL:LN", 2020],
 		rarity : "common",
-		magicItemTable : "?",
 		description : "This ring is made of polished silver, in the shape of my carved pumpkin. While wearing this ring, the glowing image of my carved pumpkin appears in front of my own face, like a mask.",
 		descriptionFull : "This ring is made of polished silver, in the shape of your carved pumpkin. While wearing this ring, the glowing image of your carved pumpkin appears in front of your own face, like a mask (the image is whatever you carved during the Liar's Night pumpkin carving contest)."
 		},
@@ -1158,7 +1255,6 @@ changeeval : function () {
 		source : [["AL:SA","12B"]],
 		type : "weapon (dagger)",
 		rarity : "legendary",
-		magicItemTable : "?",
 		description : "Forged by Red Wizards using a secret process, this grim steel dagger draws power from the Negative Plane. When it hits a creature with a melee atk, they take +3d12 necrotic damage. If the dagger reduces a creature to 0 HP, they die and can only be raised by a deity or a tablet of reawakening.",
 		descriptionFull : "Forged by Red Wizards using a secret process known only to them, this grim steel dagger draws its power from the Negative Plane. When you hit a creature with a melee attack using this magic dagger, the target takes an extra 3d12 necrotic damage.\n   A creature reduced to 0 hit points by this weapon dies and can’t be raised from the dead except by a deity or by a creature using a tablet of reawakening to cast the true resurrection spell. (This item was from the Honor Among Thieves movie, with the statblock taken from D&D Beyond promotional material)",
 		weight : 1,
@@ -1170,7 +1266,7 @@ changeeval : function () {
 			selectNow : true
 		}
 	},
-	"selûne's owl-eye glasses" : {
+	"selûne's owl-eye glasses (fm)" : {
 		name : "Selûne's Owl-Eye Glasses",
 		source : ["AL:FM", 2020],
 		rarity : "unique",
@@ -1181,7 +1277,7 @@ changeeval : function () {
 		usages : 1,
 		recovery : "dawn"
 		},
-	"shar's veil" : {
+	"shar's veil (fm)" : {
 		name : "Shar's Veil",
 		source : ["AL:FM", 2020],
 		rarity : "unique",
@@ -1195,7 +1291,6 @@ changeeval : function () {
 		source : [["AL","S7"]],
 		type : "weapon (longsword)",
 		rarity : "legendary",
-		magicItemTable : "?",
 		attunement : true,
 		prerequisite : "Requires attunement by a creature of non-evil alignment",
 		prereqeval : function(v) { return !(/evil/i).test(What("Alignment")); },
@@ -1228,7 +1323,7 @@ changeeval : function () {
 		description : "Witches of Rashemen created this tiny stone tablet to counter the necromancy of the Red Wizards. As an action, you can cast True Resurrection from the tablet. Once used, the tablet turns to dust.",
 		descriptionFull : "Witches of Rashemen created this Tiny stone tablet to counter the necromancy of the Red Wizards. As an action, you can cast true resurrection from the tablet. Once used in this way, the tablet turns to dust and is destroyed. (This item was from the Honor Among Thieves movie, with the statblock taken from D&D Beyond promotional material)",
 		},
-	"tarot card set" : {
+	"tarot card set (ln)" : {
 		name : "Tarot Card Set",
 		source : ["AL:LN", 2020],
 		rarity : "unique",
@@ -1242,7 +1337,6 @@ changeeval : function () {
 		source : [["QftIS", 0]],
 		rarity : "very rare",
 		attunement : true,
-		magicItemTable : "?",
 		description : "This magic boat is 10 ft wide and 30 ft long. It has 4 legs with a walking and swimming speed of 20 ft, but can’t travel underwater. The boat can transport 1,000 pounds without hindrance, or up to twice that weight at half speed. It moves according to my spoken directions while I'm aboard, and creatures I choose gain +1 bonus to their AC while on the boat.",
 		descriptionFull : "This magic vehicle is a boat 10 feet wide and 30 feet long. It has four legs that propel it across land and water. It has a walking and swimming speed of 20 feet, but it can’t travel underwater. The boat moves according to your spoken directions while you are riding it, and creatures of your choice gain a +1 bonus to their Armor Class while on the boat.\n   The boat can transport up to 1,000 pounds without hindrance. It can carry up to twice this weight, but it moves at half speed if it carries more than its normal capacity.\n   This item is from the Quests from the Infinite Staircase preview adventure: Descent into the Lost Caverns of Tsojcanth."
 		},
@@ -1278,7 +1372,6 @@ changeeval : function () {
 		name : "Wand of Whimsy (WBW-PR)",
 		source : ["AL", "WBW"],
 		rarity : "common",
-		magicItemTable : "?",
 		description : "This wand has 8 charges. While holding it, I can expend 1 charge as an action to create one of these effects: Change the hair color or hair style of a visible creature within 50 ft; cause a small cloud of butterflies to flutter from the tip of the wand; conjure a brief tinkling melody from the wand. The wand regains 1d6 + 1 charges at dawn. If I use the last charge, roll a d20. On a 1, the wand transforms into a cloud of butterflies that flutter away.",
 		descriptionFull : "This wand has 8 charges. While holding it, you can use an action to expend 1 of its charges and create one of the following effects:\n \u2022 Change the hair color or hair style of a creature you can see within 50 feet.\n \u2022 Cause a small cloud of butterflies to flutter from the tip of the wand.\n \u2022 Conjure a brief, tinkling melody from the wand.\n   The wand regains 1d6 + 1 expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand transforms into a cloud of butterflies, which flutter away."
 		},
@@ -1311,7 +1404,6 @@ changeeval : function () {
 		name : "Zephyros' Notebook (DDIA05)",
 		source : [["AL","S5"]],
 		rarity : "common",
-		magicItemTable : "?",
 		description : "Zephyros, the perpetually-preoccupied cloud giant, gave me a selection of his notes. The scribed words, rough sketches, and strange maps don't make much sense at first glance, but if I spend one minute studying the pages, I gain advantage on my next INT (History) or (Arcana) check. If I don't rest before using the notes again, there's a 50% chance that I fall asleep for 1 minute instead.",
 		descriptionFull : "Zephyros, the perpetually-preoccupied cloud giant, has granted you a selection of his notes. The scribed words, rough sketches, and strange maps don't seem to make much sense at first glance, but if you spend one minute studying the pages, you gain advantage on your next Intelligence (History) or (Arcana) check. If you do not rest before using the notes again there is a 50% chance that you fall askeep for 1 minute instead."
 	},
@@ -1323,13 +1415,13 @@ MagicItemsList["al trinkets"] = {
 		name : "AL Trinkets",
 		type : "Trinket",
 		rarity : "unique",
+		magicItemTable : "?",
 		allowDuplicates : true,
 		defaultExcluded : true,
-		choices : ["Arcane Curio: Belt (DDEX2-10)","Arcane Curio: Brush (DDEX2-10)","Arcane Curio: Cloak (DDEX2-10)","Arcane Curio: Inkpot (DDEX2-10)","Arcane Curio: Pipe (DDEX2-10)","Arcane Curio: Quill (DDEX2-10)","Arcane Curio: Wand (DDEX2-10)","Artor's Blood Mead: Six-pack (DC-POA-SNIPE-1)","Dinosaur Eggshell (WBW-DC-CONMAR-6)","Efreeti Crown of Wishes (CCC-ODFC2-2)","Feast Invite (WBW-DC-TMP-2)","Flamesoul Stone (CCC-YLRA1-3)","Leaf With Amber Veins (WBW-DC-CONMAR-6)","Lohringan Pink Opal (WBW-DC-CONMAR-6)","Magic Mirror (WBW-DC-VMT-1)","Piece of the Infernal Machine of Lum the Mad (IMR)","Sign of the Snail (DDIA05)","Snipe Feather Pillow (DC-POA-SNIPE-1)","Striking at the Bare Neck (DC-POA-SNIPE-1)"],
+		choices : ["Arcane Curio: Belt (DDEX2-10)","Arcane Curio: Brush (DDEX2-10)","Arcane Curio: Cloak (DDEX2-10)","Arcane Curio: Inkpot (DDEX2-10)","Arcane Curio: Pipe (DDEX2-10)","Arcane Curio: Quill (DDEX2-10)","Arcane Curio: Wand (DDEX2-10)","Artor's Blood Mead: Six-pack (DC-POA-SNIPE-1)","Dinosaur Eggshell (WBW-DC-CONMAR-6)","Efreeti Crown of Wishes (CCC-ODFC2-2)","Feast Invite (WBW-DC-TMP-2)","Flamesoul Stone (CCC-YLRA1-3)","Heirloom Necklace (FM)","Leaf With Amber Veins (WBW-DC-CONMAR-6)","Lohringan Pink Opal (WBW-DC-CONMAR-6)","Magic Mirror (WBW-DC-VMT-1)","Piece of the Infernal Machine of Lum the Mad (IMR)","Sign of the Snail (DDIA05)","Snipe Feather Pillow (DC-POA-SNIPE-1)","Striking at the Bare Neck (DC-POA-SNIPE-1)"],
 	"arcane curio: belt (ddex2-10)" : {
 		name: "Arcane Curio: Belt (DDEX2-10)",
 		nameAlt: "Arcane Curio: Belt",
-		defaultExcluded : true,
 		source : ["AL", "S2"],
 		description: "A belt with a self-adjusting buckle.",
 		descriptionFull: "A belt with a self-adjusting buckle.",
@@ -1338,7 +1430,6 @@ MagicItemsList["al trinkets"] = {
 	"arcane curio: brush (ddex2-10)" : {
 		name: "Arcane Curio: Brush (DDEX2-10)",
 		nameAlt: "Arcane Curio: Brush",
-		defaultExcluded : true,
 		source : ["AL", "S2"],
 		description: "A makeup brush that never requires makeup.",
 		descriptionFull: "A makeup brush that never requires makeup.",
@@ -1347,7 +1438,6 @@ MagicItemsList["al trinkets"] = {
 	"arcane curio: cloak (ddex2-10)" : {
 		name: "Arcane Curio: Cloak (DDEX2-10)",
 		nameAlt: "Arcane Curio: Cloak",
-		defaultExcluded : true,
 		source : ["AL", "S2"],
 		description: "A cloak that never gets wet in the rain.",
 		descriptionFull: "A cloak that never gets wet in the rain.",
@@ -1356,7 +1446,6 @@ MagicItemsList["al trinkets"] = {
 	"arcane curio: inkpot (ddex2-10)" : {
 		name: "Arcane Curio: Inkpot (DDEX2-10)",
 		nameAlt: "Arcane Curio: Inkpot",
-		defaultExcluded : true,
 		source : ["AL", "S2"],
 		description: "An inkpot that never dries out.",
 		descriptionFull: "An inkpot that never dries out.",
@@ -1365,7 +1454,6 @@ MagicItemsList["al trinkets"] = {
 	"arcane curio: pipe (ddex2-10)" : {
 		name: "Arcane Curio: Pipe (DDEX2-10)",
 		nameAlt: "Arcane Curio: Pipe",
-		defaultExcluded : true,
 		source : ["AL", "S2"],
 		description: "A pipe that fills with tobacco each morning.",
 		descriptionFull: "A pipe that fills with tobacco each morning.",
@@ -1374,7 +1462,6 @@ MagicItemsList["al trinkets"] = {
 	"arcane curio: quill (ddex2-10)" : {
 		name: "Arcane Curio: Quill (DDEX2-10)",
 		nameAlt: "Arcane Curio: Quill",
-		defaultExcluded : true,	
 		source : ["AL", "S2"],
 		description: "A quill that never blunts.",
 		descriptionFull: "A quill that never blunts.",
@@ -1383,7 +1470,6 @@ MagicItemsList["al trinkets"] = {
 	"arcane curio: wand (ddex2-10)" : {
 		name: "Arcane Curio: Wand (DDEX2-10)",
 		nameAlt: "Arcane Curio: Wand",
-		defaultExcluded : true,
 		source : ["AL", "S2"],
 		description: "A wand that summons a mundane toad once per day.",
 		descriptionFull: "A wand that summons a mundane toad once per day.",
@@ -1395,7 +1481,6 @@ MagicItemsList["al trinkets"] = {
 	"artor's blood mead: six-pack (dc-poa-snipe-1)" : {
 		name: "Six-pack of Artor's Blood Mead (DC-POA-SNIPE-1)",
 		source : ["AL", "DC-POA"],
-		defaultExcluded : true,
 		description: "This small wooden crate has 6 ceramic bottles containing dark red mead specially commissioned for Artor Morlin. His frowning face is stenciled on the bottles. When drunk, the mead has an unsettling metallic taste.",
 		descriptionFull: "A small wooden crate containing six ceramic bottles containing dark red mead especially commissioned for Artor Morlin, with the frowning face of Artor stenciled on the bottles. When you drink it, it has an unsettling metallic taste.",
 		weight: 1,
@@ -1403,35 +1488,36 @@ MagicItemsList["al trinkets"] = {
 	"dinosaur eggshell (wbw-dc-conmar-6)" : {
 		name: "Dinosaur Eggshell (WBW-DC-CONMAR-6)",
 		source : ["AL", "WBW-DC"],
-		defaultExcluded : true,
 		description: "This leathery, scale-like fragment of eggshell has an earthy smell and is the color of dirt.",
 		descriptionFull: "This leathery, scale-like fragment of eggshell has an earthy smell to it and is the color of dirt.",
 	},
 	"efreeti crown of wishes (ccc-odfc2-2)" : {
 		name : "Efreeti Crown of Wishes (CCC-ODFC2-2)",
 		source : [["AL","CCC"]],
-		defaultExcluded : true,
 		description : "This beautiful golden crown is covered with diamonds that gleam with their own light & resizes to fit my head. Despite its name, the crown doesn't actually grant wishes. Instead, when you feel strong emotions of any kind, the crown sprouts harmless, colorful flames from its pinnacle. The color of the flames is based on my mood: red for anger, blue for sorrow, green for amusement, etc.",
 		descriptionFull : "This beautiful golden crown is covered with diamonds each of which gleams with its own light. The crown resizes to fit the head of any wearer. Contrary to its name, the crown does not actually grant any wishes. Instead, when the person wearing it feels strong emotion of any kind, the crown sprouts harmless, colorful flames from its pinnacle, with the color of the flames based on the wearer's mood: red for anger, blue for sorrow, green for amusement, and so on. This crown can be sold for 1,500 gp. It does not count as a magic item and cannot be traded. (To be kept as a trinket, this crown may not be sold)."
 	},
 	"feast invite (wbw-dc-tmp-2)" : {
 		name : "Feast Invite (WBW-DC-TMP-2)",
 		source : [["AL","WBW-DC"]],
-		defaultExcluded : true,
 		description : "An old invitation to a banquet in the Summer Court, written in ink on vellum in Sylvan. This is Dyul's invitation to the feast that led to the Shadowfell hunt and the problems in his domain. Theun Win'Nin found it in a wine bottle.",
 		descriptionFull : "An old invitation to the banquet in the Summer Court, written in ink on vellum in Sylvan. This is Dyul's invitation to the feast that led to the Shadowfell hunt and the problems in his domain. Theun Win'Nin found it in a wine bottle earlier."
 	},
 	"flamesoul stone (ccc-ylra1-3)" : {
 		name : "Flamesoul Stone (CCC-YLRA1-3)",
 		source : [["AL","CCC"]],
-		defaultExcluded : true,
 		description : "This fist-sized crystal produces a flickering coppery-orange glow from within. The light is magical, but isn't bright enough to significantly illuminate an area. Casting detect magic on the Flamesoul Stone shows a hint of necrotic magic emanating from it. The light from the stone is the same color as the comet that was recently seen over Ylraphon.",
 		descriptionFull : "A fist-sized crystal that produces a flickering coppery-orange glow from within. The light is magical, but isn't bright enough to significantly illuminate any area. Casting detect magic on the Flamesoul Stone shows a slight hint of necrotic magic emanating from within. The light from the stone is the same color as the comet that has recently been seen over Ylraphon."
+	},
+	"heirloom necklace (fm)" : {
+		name : "Heirloom Necklace",
+		source : [["AL:FM",2024]],
+		description : "From this clay beaded necklace hangs a locket painted with the tiny portrait of 3 of my family members. Inside is a secret compartment, containing 1 pinch of grave soil, mixed with peppermint incense ashes. When I hold the locket close to my chest, I feel the words of those family members.",
+		descriptionFull : "From this clay beaded necklace hangs a locket, painted with the tiny portrait of three of your family members. Inside is a secret compartment, containing one pinch of grave soil, mixed with the ash of peppermint incense. When you hold the locket close to your chest, you feel the words of those family members."
 	},
 	"leaf with amber veins (wbw-dc-conmar-6)" : {
 		name: "Leaf With Amber Veins (WBW-DC-CONMAR-6)",
 		source : ["AL", "WBW-DC"],
-		defaultExcluded : true,
 		description: "This small dark leaf feels smooth to the touch and slightly waxy. Amber veins crisscross its surface. Though somewhat delicate, the leaf is resistant to crumpling and crushing. This is a token of Turanok's trust in you. You are a friend of Lohringar and are always welcome there. This leaf is also a conduit into Lohringar and all you need to get there is the ritual components.",
 		descriptionFull: "This is a small, dark leaf that feels smooth to the touch and slightly waxy. Amber veins crisscross its surface. Though somewhat delicate, the leaf is resistant to crumpling and crushing. This is a token of Turanok's trust in you. You are a friend of Lohringar and you are always welcome there. This leaf is itself a conduit into Lohringar and all you need to get there is just the ritual components.",
 	},
@@ -1453,7 +1539,7 @@ MagicItemsList["al trinkets"] = {
 		name: "Piece of the Machine of Lum the Mad (IMR)",
 		source : ["AL:EL", 2019],
 		defaultExcluded : true,
-		description: "Once operated via its vast array of buttons, dials, and levers, the Infernal Machine of Lum the Mad was dismantled and lies scattered through the world. Who knows what function this piece controlled? It appears as a jeweled button marked with a mysterious glyph, hung from a delicate chain.",
+		description: "Once operated via a vast array of buttons, dials, & levers, the Infernal Machine of Lum the Mad was dismantled & lies scattered through the world. Who knows what function this piece controlled? It's a jeweled button marked with a mysterious glyph & hung from a delicate chain.",
 		descriptionFull: "Once operated via its vast array of buttons, dials, and levers, the Infernal Machine of Lum the Mad has been dismantled and lies scattered throughout the world.\n   Who knows what function of it this piece controlled? This appears as a jeweled button marked with a mysterious glyph, hung from a delicate chain.",
 	},
 	"sign of the snail (ddia05)" : {
@@ -1485,6 +1571,7 @@ MagicItemsList["tree spirit weapon"] = {
 		source : [["AL:GA","RLK"]],
 		type : "weapon (wooden bludgeoning or piercing)",
 		rarity : "rare",
+		magicItemTable : "?",
 		attunement : true,
 		description : "A tree spirit weapon is crafted from the wood of a sentient tree. The spirit of the tree remains in the wood so the weapon contains a sentience. The bonuses provided by a tree spirit weapon depend on the level of the attuned wielder. It gets more powerful — and more dangerous to wield — as you become more powerful as well.",
 		descriptionLong : "A tree spirit weapon is one crafted from the wood of a sentient tree. The spirit of the tree remains in the wood, and therefore the weapon contains a sentience. The bonuses provided by a tree spirit weapon are dependent on the level of the person to whom it is attuned. In this way, the tree spirit weapon is progressive: it gets more powerful — and more dangerous to wield — as the attuned wielder becomes more powerful as well.",

@@ -4148,7 +4148,7 @@ MagicItemsList["al swords"] = {
 		chooseGear : {
 			type : "weapon",
 			prefixOrSuffix : "brackets",
-			itemName1stPage : ["prefix", "of Wounding"],
+			itemName1stPage : ["prefix", "of Vengeance"],
 			descriptionChange : ["replace", "sword"],
 			excludeCheck : function (inObjKey, inObj) {
 				var testRegex = /sword|scimitar|rapier/i;
@@ -4233,7 +4233,7 @@ MagicItemsList["al swords"] = {
 		descriptionFull : "This rapier has a malachite blade and bears jagged, claw-like protrusions along its length. Its hilt changes its appearance each dusk, which has no effect on its other properties. If you roll a 20 on your attack roll with this magic weapon, the target takes an extra 7 damage of the weapon's type.",
 		weaponOptions : {
 			baseWeapon : "rapier",
-			regExpSearch : /^(?=.*rapier)(?=.*vicious)(?=.*clawblade)(?=.*hag|hag's).*$/i,
+			regExpSearch : /^(?=.*clawblade)(?=.*hag|hag's).*$/i,
 			name : "Hag's Clawblade, Vicious Rapier",
 			description : "Finesse; On nat 20 to hit: +7 damage",
 			selectNow : true,
@@ -6689,7 +6689,7 @@ MagicItemsList["al weapons (other)"] = {
 		type : "weapon (spear)",
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "This spear is made from a polished narwhal tusk, and it has been carved with symbols of slaughter and bloodshed. By wielding it publicly, I may get strange looks. It may also mark me as someone involved in the killing of one of the evil Wolf Tribe marauders. When I roll a 20 on my attack roll with this magic weapon, the target takes an extra 7 damage of the weapon's type.",
+		description : "This spear is made from a polished narwhal tusk, and it has been carved with symbols of slaughter and bloodshed. I may get strange looks when wielding it publicly. It also marks me as involved in the killing of an evil Wolf Tribe marauder. When I roll a 20 on my attack roll with this magic weapon, the target takes an extra 7 damage of the weapon's type.",
 		descriptionFull : "This spear is made from a polished narwhal tusk, and it has been carved with symbols of slaughter and bloodshed. By wielding it publicly, you may get strange looks. It may also mark you as someone involved in the killing of one of the evil Wolf Tribe marauders. When you roll a 20 on your attack roll with this magic weapon, the target takes an extra 7 damage of the weapon's type.",
 		weaponOptions : {
 			baseWeapon : "spear",

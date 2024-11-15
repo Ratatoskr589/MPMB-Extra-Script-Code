@@ -697,7 +697,8 @@ MagicItemsList["al armor (common)"] = {
 		name : "Flurried Furs, Smoldering",
 		source : [["AL", "S0"]],
 		type : "armor (light or medium)",
-		description : "As if from frigid clouds overhead, a light dusting of illusory snow perpetually sprinkles down over the wearer of this armor.",
+		description : "As if from frigid clouds, a light dusting of illusory snow perpetually sprinkles down over me while I wear this armor.",
+		descriptionFull : "As if from frigid clouds overhead, a light dusting of illusory snow perpetually sprinkles down over the wearer of this armor.",
 		chooseGear : {
 			type : "armor",
 			prefixOrSuffix : "suffix",
@@ -819,7 +820,43 @@ MagicItemsList["al armor (common)"] = {
 MagicItemsList["al armor (other)"] = {
 	name : "AL Armor (Other)",
 	allowDuplicates : true,
-	choices : ["Breastplate of Fungal Spores (FR-DC-GHG-2)","Breastplate of Fungal Spores: Cheese Plate (FR-DC-WATERDEEP-CHZ)","Breastplate of Necrotic Resistance: Chardalyn (DDAL10-5)","Demon Armor (DDEX3-16)","Efreeti Chain (DDAL7-15)","Elven Chain (CCC-BMG-36 ELMW2-3)","Elven Chain (CCC-SQC-2-2)","Elven Chain: Armor of the First Frost (WBW-DC-AA-ASHALON-1)","Elven Chain (WBW-DC-AMQ-5)","Elven Chain: Astral (WBW-DC-CONMAR-12)","Elven Chain: Guardian (WBW-DC-GGS-1)","Elven Chain: Loud (WBW-DC-GGS-1)","Elven Chain (WBW-DC-PHP-SPAMMY-1)","Elven Chain (WBW-DC-Rook-2-1)","Elven Chain (WBW-DC-TAZ-1)","Elven Chain (WBW-DC-TEN-3)","Elven Chain: Tehettan's Protection (WBW-DC-TMP-2)","Elven Chain (WBW-DC-ZEP-T2S5)","Elven Chain: Sky's Armor (WBW-DC-ZODIAC-12)","Glamoured Studded Leather (DDAL4-9)","Glamoured Studded Leather (DDAL8-11)","Glamoured Studded Leather (DDAL9-6)","Glamoured Studded Leather: Cinderella's Wedding Corset (WBW-DC-CONMAR-15)","Half Plate of Poison Resistance: Mushroom (DDEX3-11)","Hide Armor of Fungal Spores (PO-BMG-INT-2)","Mariner's Studded Leather (DDAL-DRW9)","Mariner's Breastplate (CCC-AETHER-1-2)","Mariner's Breastplate (CCC-MMT1-2)","Mariner's Scale Mail (AL:SA-11A)","Plate Armor of Etherealness (DDAL8-16)","Red Dragon Scale Mail (DDEP5-1)","Red Dragon Scale Mail (DDAL9-15)","Scale Mail of Psychic Resistance: Resin (CCC-TRI-21 YUL1-6)","Spiked Armor of Necrotic Resistance (WBW-DC-DEN-H1)","Studded Leather of Fire Resistance (DDAL0-11C)"],
+	choices : ["Antimagic Breastplate (PO-BMG-DRW-KS-7)","Breastplate of Fungal Spores (FR-DC-GHG-2)","Breastplate of Fungal Spores: Cheese Plate (FR-DC-WATERDEEP-CHZ)","Breastplate of Necrotic Resistance: Chardalyn (DDAL10-5)","Demon Armor (DDEX3-16)","Efreeti Chain (DDAL7-15)","Elven Chain (CCC-BMG-36 ELMW2-3)","Elven Chain (CCC-SQC-2-2)","Elven Chain: Armor of the First Frost (WBW-DC-AA-ASHALON-1)","Elven Chain (WBW-DC-AMQ-5)","Elven Chain: Astral (WBW-DC-CONMAR-12)","Elven Chain: Guardian (WBW-DC-GGS-1)","Elven Chain: Loud (WBW-DC-GGS-1)","Elven Chain (WBW-DC-PHP-SPAMMY-1)","Elven Chain (WBW-DC-Rook-2-1)","Elven Chain (WBW-DC-TAZ-1)","Elven Chain (WBW-DC-TEN-3)","Elven Chain: Tehettan's Protection (WBW-DC-TMP-2)","Elven Chain (WBW-DC-ZEP-T2S5)","Elven Chain: Sky's Armor (WBW-DC-ZODIAC-12)","Glamoured Studded Leather (DDAL4-9)","Glamoured Studded Leather (DDAL8-11)","Glamoured Studded Leather (DDAL9-6)","Glamoured Studded Leather: Cinderella's Wedding Corset (WBW-DC-CONMAR-15)","Half Plate of Poison Resistance: Mushroom (DDEX3-11)","Hide Armor of Fungal Spores (PO-BMG-INT-2)","Mariner's Studded Leather (DDAL-DRW9)","Mariner's Breastplate (CCC-AETHER-1-2)","Mariner's Breastplate (CCC-MMT1-2)","Mariner's Scale Mail (AL:SA-11A)","Plate Armor of Etherealness (DDAL8-16)","Red Dragon Scale Mail (DDEP5-1)","Red Dragon Scale Mail (DDAL9-15)","Scale Mail of Psychic Resistance: Resin (CCC-TRI-21 YUL1-6)","Spiked Armor of Necrotic Resistance (WBW-DC-DEN-H1)","Studded Leather of Fire Resistance (DDAL0-11C)"],
+	"antimagic breastplate (po-bmg-drw-ks-7)" : {
+		name : "Antimagic Breastplate (PO-BMG-DRW-KS-7)",
+		source : [["AL", "PO"]], // Chapter 9: Knight
+		type : "armor (breastplate)",
+		rarity : "very rare",
+		attunement : true,
+		description : "Made by the vremyonni from pink and purple crystal shards that defied the Weave and imprisoned O’zim the Living Artifact, this breastplate sparkles like a diamond. While worn, I can cast Antimagic Field once per dawn, requiring no components. As a reaction once per dawn, I can give myself advantage on a spell saving throw.",
+		descriptionFull : "Made by the vremyonni from the pink and purple crystal shards that once defied the Weave and imprisoned O’zim the Living Artifact, this breastplate sparkles like a diamond. (Premiere Item)"+
+		"\n   While wearing this armor, you can use your reaction to give yourself advantage on a saving throw you make against a spell. Once this property is used, it can't be used again until the next dawn."+
+		"\n   In addition, while you wear this armor, you can use it to cast Antimagic Field, requiring no spell components. Once this property is used, it can't be used again until the next dawn.",
+		armorAdd : { select : "Antimagic Breastplate", options : ["Antimagic Breastplate"] },
+		action : [["reaction", "Adv. save vs. spell (1\xD7 per dawn)"]],
+		limfeaname : "Antimagic Armor",
+		spellcastingBonus : [{
+			name : "Once per dawn",
+			spells : ["antimagic field"],
+			selection : ["antimagic field"],
+			firstCol : "oncelr"
+		}],
+		extraLimitedFeatures : [{
+			name : "Adv. save vs. spell (Antimagic Armor)",
+			usages : 1,
+			recovery : "dawn"
+		}, {
+			name : "Antimagic Field (Antimagic Armor)",
+			usages : 1,
+			recovery : "dawn"
+		}],
+		spellChanges : {
+			"antimagic field" : {
+				components : "",
+				compMaterial : "",
+				changes : "While wearing the armor, it requires no components to cast Antimagic Field."
+			}
+		}
+	},
 	"breastplate of fungal spores (fr-dc-ghg-2)" : {
 		name : "Breastplate of Fungal Spores (FR-DC-GHG-2)",
 		source : [["AL", "FR-DC"]],
@@ -1464,7 +1501,7 @@ MagicItemsList["al shields"] = {
 	allowDuplicates : true,
 	type : "shield",
 	weight : 6,
-	choices : ["+1 Shield (DDEX3-5)","+1 Shield of the Moon (CCC-TAROT1-2)","+1 Shield of the Salty Griffon (CCC-TRI-19 DEAD1-1)","+2 Shield: Wall of Teeth (DDEX2-14)","+2 Shield: Yata Mirror (CCC-ANIME1-2)","+3 Shield: Miltiades' Shield (CCC-BMG-13 PHLAN1-1)","+3 Shield: Aegis of the Raven Queen (CCC-BWM-3)","Animated Shield (DDEP5-2)","Animated Shield (DDEP8-3)","Arrow-Catching Shield (CCC-BMG-MOON13-3)","Arrow-Catching Shield (CCC-GLIP-2-1)","Arrow-Catching Shield (DDAL9-8)","Arrow-Catching Shield (DDAL-DRWEP3)","Battering Shield (BMG-DRW-OD-2)","Sapphire Buckler (DDAL-DRW19)","Sapphire Buckler (SJ-DC-COD)","Sapphire Buckler: Soulflare (SJ-DC-DFA-6)","Sapphire Buckler (SJ-DC-INAS-5)","Sapphire Buckler (SJ-DC-MIST-2)","Sapphire Buckler: Bee's Knees (SJ-DC-TRIDEN-BZ)","Sentinel Shield (CCC-BMG-MOON11-1)","Sentinel Shield (CCC-WWC-7)","Sentinel Shield (DDAL-CGB)","Sentinel Shield (DDEX2-12)","Shield of Missile Attraction: Ward of Chimali (RMH-10)","Spellguard Shield: Warden (CCC-ODFC1-3)","Spellguard Shield (CCC-ROZK1-3)","Spellguard Shield (DDEP7-2)","Spellguard Shield (DDAL-DRWEP2)"],
+	choices : ["+1 Shield (DDEX3-5)","+1 Shield of the Moon (CCC-TAROT1-2)","+1 Shield of the Salty Griffon (CCC-TRI-19 DEAD1-1)","+2 Shield: Wall of Teeth (DDEX2-14)","+2 Shield: Yata Mirror (CCC-ANIME1-2)","+3 Shield: Miltiades' Shield (CCC-BMG-13 PHLAN1-1)","+3 Shield: Aegis of the Raven Queen (CCC-BWM-3)","+3 Shield (BMG-DRW-OD-7)","Animated Shield (DDEP5-2)","Animated Shield (DDEP8-3)","Arrow-Catching Shield (CCC-BMG-MOON13-3)","Arrow-Catching Shield (CCC-GLIP-2-1)","Arrow-Catching Shield (DDAL9-8)","Arrow-Catching Shield (DDAL-DRWEP3)","Battering Shield (BMG-DRW-OD-2)","Sapphire Buckler (DDAL-DRW19)","Sapphire Buckler (SJ-DC-COD)","Sapphire Buckler: Soulflare (SJ-DC-DFA-6)","Sapphire Buckler (SJ-DC-INAS-5)","Sapphire Buckler (SJ-DC-MIST-2)","Sapphire Buckler: Bee's Knees (SJ-DC-TRIDEN-BZ)","Sentinel Shield (CCC-BMG-MOON11-1)","Sentinel Shield (CCC-WWC-7)","Sentinel Shield (DDAL-CGB)","Sentinel Shield (DDEX2-12)","Shield of Missile Attraction: Ward of Chimali (RMH-10)","Spellguard Shield: Warden (CCC-ODFC1-3)","Spellguard Shield (CCC-ROZK1-3)","Spellguard Shield (DDEP7-2)","Spellguard Shield (DDAL-DRWEP2)"],
 	"+1 shield (ddex3-5)" : {
 		name : "Shield +1 (DDEX3-5)",
 		source : [["AL", "S3"]],
@@ -1535,6 +1572,17 @@ MagicItemsList["al shields"] = {
 		descriptionFull : "This shield appears as a shroud of shadow with the symbol of the Raven Queen glowing in dim red light. While holding this shield, nonmagical flames are extinguished within 30 feet of you as the shadow lashes out at the flame. The shield encourages you to hold no pity for those who suffer and die, for death is the natural end of life.\n   While holding this shield, you gain a +3 bonus to AC. This bonus is in addition to the shield's normal bonus to AC.\n   While holding this shield, you have a bonus to AC. This bonus is in addition to the shield's normal bonus to AC. The bonus is determined by the rarity of the shield: uncommon (+1), rare (+2), or very rare (+3).",
 		allowDuplicates : true,
 		shieldAdd : "+3 Shield (Raven Queen)"
+	},
+	"+3 shield (bmg-drw-od-7)" : {
+		name : "Shield +3 (BMG-DRW-OD-7)",
+		rarity : "very rare",
+		source : [["AL", "DRW"]],
+		magicItemTable : "H",
+		description : "This shield is made of Iskirthos darksteel and lets me speak and understand Old Iskirthos. I gain a +3 bonus to AC in addition to the shield's normal AC bonus.",
+		descriptionFull : "This shield is made of Iskirthos darksteel. Its bearer can speak and understand Old Iskirthos.\n   While holding this shield, you gain a +3 bonus to AC. This bonus is in addition to the shield's normal bonus to AC.\n   While holding this shield, you have a bonus to AC. This bonus is in addition to the shield's normal bonus to AC. The bonus is determined by the rarity of the shield: uncommon (+1), rare (+2), or very rare (+3).",
+		allowDuplicates : true,
+		shieldAdd : "+3 Shield",
+		languageProfs : ["Old Iskirthos"],
 	},
 	"animated shield (ddep5-2)" : {  // contains contributions by Larry Hoy
 		name : "Animated Shield (DDEP5-2)",

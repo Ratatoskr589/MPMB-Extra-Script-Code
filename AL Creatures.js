@@ -593,6 +593,7 @@ CreatureList["mini displacer beast"] = {
 		}]
 	},
 
+//Pet/familiar option from [Trading Post v13.1 2024]. Flavored versions are in the AL Special Items file
 CreatureList["black pudding cup"] = {
 			name : "Black Pudding Cup",
 			nameAlt : ["Cup Black Pudding"],
@@ -1332,6 +1333,48 @@ removeeval : function(prefix) {
 			name : "Trampling Charge",
 			description : "If the horse moves at least 20 ft straight toward a creature and then hits it with a hooves attack on the same turn, that target must succeed on a DC 14 Strength saving throw or be knocked prone. If the target is prone, the horse can make another attack with its hooves against it as a bonus action."
 		}]
+	}
+	
+//Event Award creature from the 2024 Moonfest rewards
+CreatureList["peppermint pangolin"] = {
+		name : "Peppermint Pangolin",
+		source : [["AL:FM",2024]],
+		size : 2, //Large
+		type : "Beast",
+		alignment : "Unaligned",
+		ac : 15,
+		hp : 19,
+		hd : [3, 10],
+		speed : "40 ft",
+		scores : [18, 12, 13, 2, 12, 7],
+		passivePerception : 11,
+		challengeRating : "1/2",
+		proficiencyBonus : 2,
+		attacksAction : 1,
+		attacks : [{
+			name : "Claws",
+			ability : 2,
+			damage : [1, 6, "bludgeoning"],
+			range : "Melee (5 ft)",
+		}, {
+			name : "Rolling Bash",
+			ability : 2,
+			damage : [2, 4, "bludgeoning"],
+			range : "Melee (5 ft)",
+			description : "The pangolin must move at least 20 ft straight at the target. If Huge or smaller, target also Prone.",
+			abilitytodamage : false,
+		}],
+		traits : [{
+			name : "Mount",
+			description : "A good mount can help you move more quickly through the wilderness, but its primary purpose is to carry the great that would otherwise slow you down."
+		}, {
+			name : "Quirks",
+			description : "Peppermint pangolins refuse to wear barding."
+		}],
+		features : [{
+			name : "Companion",
+			description : "The peppermint pangolin is a land beast and trained mount that can also be summoned as a bestial spirit, using Summon Beast, an otherworldly steed, using Find Steed, or a weasel, using Find Familar. Otherwise use these stats."
+		}],
 	}
 	
 

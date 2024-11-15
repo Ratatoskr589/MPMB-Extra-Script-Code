@@ -1,3 +1,12 @@
+After 10/30/24
+-Added SCAG backgrounds to Guild Adept file so the ones coded as PHB variants can still be selected properly.
+-Uploaded my file that makes old content still legal for AL (invocations, OCF, 1 feat) function with Poke's 2024 script
+-Put all the old content in its own folder to be kept for posterity/folks who aren't updating (2014 Content Only, Sheet 13.2)
+-Added new Liar's Night and Moonfest items from AL documents
+-Added new Moonfest Peppermint Pangolin creature as well
+-Added more custom Trading Post items
+
+
 After 10/26/24  (With some updates for 2024 rules)
 -Added a few more items from the unpublished DDAL00-15 Well Between Worlds epic.
 -Corrected some extra language properties on items that needed to be removed

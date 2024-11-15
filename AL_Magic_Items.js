@@ -1262,7 +1262,7 @@ MagicItemsList["al amulets"] = {
 		name : "AL Amulets",
 		type : "wondrous item",
 		allowDuplicates : true,
-	choices : ["Amulet of the Devout +3 (BMG-DRW-OD-6)","Amulet of Health (CCC-GSP-NTHR1-1)","Amulet of Health (CCC-SFBAY-2-2)","Amulet of Health (DDAL8-10)","Amulet of Health (DDAL-DRW9)","Amulet of Health (DDEP0-1)","Amulet of Health (DDEP1)","Amulet of Health (RotF)","Amulet of Health: Sharael's (WBW-DC-PHP-2)","Amulet of Health: Emotional Well-Being (WBW-DC-Sunlit-4)","Amulet of the Planes: Naerth's Planar Compass (AL:SA-11A)","Amulet of the Planes (DDEP6-3)","Amulet of Proof Against Detection and Location (CCC-MMT2-1)","Amulet of Proof Against Detection and Location (CCC-TAROT2-6)","Amulet of Proof Against Detection and Location (CCC-TRI-32 DAGGR1-1)","Clockwork Amulet (BMG-DRW-OD-3)","Clockwork Amulet (BMG-MOON-MD-1)","Clockwork Amulet (CCC-CENTRIC1-3)","Clockwork Amulet: Chronostat of Precision (CCC-GAD1-3)","Clockwork Amulet: Modron Communication Device (CCC-MAYDAYS2-1)","Clockwork Amulet: Homing Impact Talisman - H.I.T. (CCC-TAROT2-10)","Clockwork Amulet: Yul's Holy Symbol of Gond (CCC-UCON-3)","Clockwork Amulet (DDAL10-8)","Clockwork Amulet (DDAL10-10)","Clockwork Amulet (PS-DC-DDD)","Clockwork Amulet (PS-DC-HYS-3)","Clockwork Amulet (PS-DC-NOS-1)","Clockwork Amulet: Commemorative (PS-DC-PHP-CKA2)","Clockwork Amulet: Skyblue Charge (PS-DC-RAVENGARD)","Clockwork Amulet (PS-DC-SS)","Clockwork Amulet: Blood Lock Amulet (SJ-DC-DEN-H7)","Clockwork Amulet (SJ-DC-PND-1)","Dark Shard Amulet (CCC-DES-1-6)","Dark Shard Amulet (CCC-GEL-1)","Dark Shard Amulet: Booyahg Necklace (CCC-MAYDAYS2-1)","Dark Shard Amulet: Amarantha's Heart (CCC-TAROT1-7)","Dark Shard Amulet (DDAL10-7)","Dark Shard Amulet (PO-BMG-DRW-KS-2)","Dark Shard Amulet: Ka Sliver (RV-DC-GC15-4)","Sanctum Amulet: Scarf (Trading Post)","Sanctum Amulet: Savras (Trading Post B)"],
+	choices : ["Amulet of the Devout +3 (BMG-DRW-OD-6)","Amulet of Health (CCC-GSP-NTHR1-1)","Amulet of Health (CCC-SFBAY-2-2)","Amulet of Health (DDAL8-10)","Amulet of Health (DDAL-DRW9)","Amulet of Health (DDEP0-1)","Amulet of Health (DDEP1)","Amulet of Health (RotF)","Amulet of Health: Sharael's (WBW-DC-PHP-2)","Amulet of Health: Emotional Well-Being (WBW-DC-Sunlit-4)","Amulet of the Planes: Naerth's Planar Compass (AL:SA-11A)","Amulet of the Planes (DDEP6-3)","Amulet of Proof Against Detection and Location (CCC-MMT2-1)","Amulet of Proof Against Detection and Location (CCC-TAROT2-6)","Amulet of Proof Against Detection and Location (CCC-TRI-32 DAGGR1-1)","Clockwork Amulet (BMG-DRW-OD-3)","Clockwork Amulet (BMG-MOON-MD-1)","Clockwork Amulet (CCC-CENTRIC1-3)","Clockwork Amulet: Chronostat of Precision (CCC-GAD1-3)","Clockwork Amulet: Modron Communication Device (CCC-MAYDAYS2-1)","Clockwork Amulet: Homing Impact Talisman - H.I.T. (CCC-TAROT2-10)","Clockwork Amulet: Yul's Holy Symbol of Gond (CCC-UCON-3)","Clockwork Amulet (DDAL10-8)","Clockwork Amulet (DDAL10-10)","Clockwork Amulet (PS-DC-DDD)","Clockwork Amulet (PS-DC-HYS-3)","Clockwork Amulet (PS-DC-NOS-1)","Clockwork Amulet: Commemorative (PS-DC-PHP-CKA2)","Clockwork Amulet: Skyblue Charge (PS-DC-RAVENGARD)","Clockwork Amulet (PS-DC-SS)","Clockwork Amulet: Blood Lock Amulet (SJ-DC-DEN-H7)","Clockwork Amulet (SJ-DC-PND-1)","Dark Shard Amulet (CCC-DES-1-6)","Dark Shard Amulet (CCC-GEL-1)","Dark Shard Amulet: Booyahg Necklace (CCC-MAYDAYS2-1)","Dark Shard Amulet: Amarantha's Heart (CCC-TAROT1-7)","Dark Shard Amulet (DDAL10-7)","Dark Shard Amulet (PO-BMG-DRW-KS-2)","Dark Shard Amulet: Ka Sliver (RV-DC-GC15-4)","Sanctum Amulet: Goth (Trading Post)","Sanctum Amulet: Savras (Trading Post)","Sanctum Amulet: Scarf (Trading Post)"],
 	"amulet of the devout +3 (bmg-drw-od-6)" : { // contains contributions by lizrdgizrd
 		name : "Amulet of the Devout +3 (BMG-DRW-OD-6)",
 		source : [["AL","DRW"]],
@@ -2108,15 +2108,14 @@ MagicItemsList["al amulets"] = {
 		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
 		}
 	},
-	"sanctum amulet: scarf (trading post)" : {   
-		name : "Sanctum Amulet (Scarf)",
-		source : [["AL:FC","TAL"]],
+	"sanctum amulet: goth (trading post)" : {   
+		name : "Sanctum Amulet (Goth)",
+		source : [["AL:FC","VW"]],
 		rarity : "very rare",
 		attunement : true,
-		description : "This elegant scarf is made from a lightweight ethereal fabric that changes color with the sky. It's adorned with small silver charms that chime gently in the breeze and are engraved with arcane protection runes. Created by Efreeti as a wedding present for a northern clan heir, the scarf is warmer and cozier than it looks. While worn, I have resistance to necrotic dmg and can cast Spare the Dying as an action or bonus action. Once per dawn as a reaction when a visible creature in 60 ft drops to 0 hp by dmg, I can invoke the scarf's runes to drop it to 1 hp instead.",
+		description : "This black lace choker features midnight opal and a large blood-red ruby at its center. Strands of delicate lace drape down in a spiderweb pattern. While worn, I resist Necrotic and can cast Spare the Dying as an action or bonus action. Once per dawn as a reaction when dmg drops a visible creature in 60-ft to 0 hp, I can make it drop to 1 hp instead. When I do, the choker flashes with pale light.",
 		descriptionFull : "A black opal pendant hangs at the base of this pearlescent chain. The sacred rune is inscribed on the back of the pendant."+
-		"\n   This elegant scarf is made from a lightweight ethereal fabric that changes color with the sky. It's adorned with small silver charms that chime gently in the breeze and are engraved with arcane runes for protection against death."+
-		"\n   Created by Efreeti as a wedding present for the heir of a northern clan, the scarf is warmer and cozier than its appearance would suggest (Custom flavor from the 2023 TAL Trading Post)."+
+		"\n   This black lace choker features midnight opal and a large, blood-red ruby at its center, and strands of delicate lace drape down from the choker in a spiderweb pattern. (Custom flavor from the 2024 November VDDW Trading Post)."+
 		"\n   While wearing this item, you have resistance to necrotic damage. Additionally, you can cast the spare the dying cantrip using either an action or a bonus action."+
 		"\n   " + toUni("Invoking the Rune") + ". When a creature you can see within 60 feet of you is reduced to 0 hit points as a result of taking damage, you can use your reaction to invoke the item's rune, causing the pendant to flash with pale light. The creature then instead drops to 1 hit point."+
 		"\n   Once the rune has been invoked, it can't be invoked again until the next dawn.",
@@ -2139,14 +2138,45 @@ MagicItemsList["al amulets"] = {
 		recovery : "dawn",
 		additional : "invoke rune"
 	},
-	"sanctum amulet: savras (trading post b)" : {   
+	"sanctum amulet: savras (trading post)" : {   
 		name : "Sanctum Amulet (Savras)",
 		source : [["AL:FC","VW"]],
 		rarity : "very rare",
 		attunement : true,
-		description : "This polished crystal orb hangs from a silver chain and occasionally offers glimpses to far off lands. Each link of the chain is shaped like an eye and the amulet gives off faint traces of divination magic. While worn, I have resistance to necrotic dmg and can cast Spare the Dying as an action or bonus action. Once per dawn as a reaction when a visible creature in 60 ft drops to 0 hp by dmg, I can invoke the amulet's rune to drop it to 1 hp instead.",
+		description : "This polished crystal orb hangs from a silver chain and occasionally offers glimpses to far off lands. Each link of the chain is shaped like an eye and the amulet gives off faint traces of divination magic. While worn, I resist Necrotic and can cast Spare the Dying as an action or bonus action. Once per dawn as a reaction when dmg drops a visible creature in 60-ft to 0 hp, I can make it drop to 1 hp instead.",
 		descriptionFull : "A black opal pendant hangs at the base of this pearlescent chain. The sacred rune is inscribed on the back of the pendant."+
 		"\n   This polished crystal orb hangs from silver chain and occasionally offers glimpses to far off lands. Each chain of silver is shaped like an eye, and the amulet gives off faint traces of divination magic (Custom flavor from the 2024 VDDW Trading Post)."+
+		"\n   While wearing this item, you have resistance to necrotic damage. Additionally, you can cast the spare the dying cantrip using either an action or a bonus action."+
+		"\n   " + toUni("Invoking the Rune") + ". When a creature you can see within 60 feet of you is reduced to 0 hit points as a result of taking damage, you can use your reaction to invoke the item's rune, causing the pendant to flash with pale light. The creature then instead drops to 1 hit point."+
+		"\n   Once the rune has been invoked, it can't be invoked again until the next dawn.",
+		dmgres : ["Necrotic"],
+		spellcastingBonus : [{
+			name : "Spare the Dying",
+			spells : ["spare the dying"],
+			selection : ["spare the dying"],
+			firstCol : 'atwill'
+		}],
+		spellChanges : {
+			"spare the dying" : {
+				time : "1 a/bns",
+				changes : "I can cast Spare the Dying either as an action or as a bonus action."
+			}
+		},
+		limfeaname : "Sanctum Amulet",
+		action : [["reaction", " (invoke rune)"]],
+		usages : 1,
+		recovery : "dawn",
+		additional : "invoke rune"
+	},
+	"sanctum amulet: scarf (trading post)" : {   
+		name : "Sanctum Amulet (Scarf)",
+		source : [["AL:FC","TAL"]],
+		rarity : "very rare",
+		attunement : true,
+		description : "This elegant scarf is made from a lightweight ethereal fabric that changes color with the sky. It's adorned with small silver charms that chime gently in the breeze and are engraved with arcane protection runes. Created by Efreeti as a wedding present for a northern clan heir, the scarf is warmer and cozier than it looks. While worn, I resist Necrotic and can cast Spare the Dying as an action or bonus action. Once per dawn as a reaction when dmg drops a visible creature in 60-ft to 0 hp, I can make it drop to 1 hp instead.",
+		descriptionFull : "A black opal pendant hangs at the base of this pearlescent chain. The sacred rune is inscribed on the back of the pendant."+
+		"\n   This elegant scarf is made from a lightweight ethereal fabric that changes color with the sky. It's adorned with small silver charms that chime gently in the breeze and are engraved with arcane runes for protection against death."+
+		"\n   Created by Efreeti as a wedding present for the heir of a northern clan, the scarf is warmer and cozier than its appearance would suggest (Custom flavor from the 2023 TAL Trading Post)."+
 		"\n   While wearing this item, you have resistance to necrotic damage. Additionally, you can cast the spare the dying cantrip using either an action or a bonus action."+
 		"\n   " + toUni("Invoking the Rune") + ". When a creature you can see within 60 feet of you is reduced to 0 hit points as a result of taking damage, you can use your reaction to invoke the item's rune, causing the pendant to flash with pale light. The creature then instead drops to 1 hit point."+
 		"\n   Once the rune has been invoked, it can't be invoked again until the next dawn.",
@@ -2278,7 +2308,6 @@ MagicItemsList["al ammunition"] = {
 	"dried leech (sj-dc-triden-bz)" : {
 		name : "Dried Leech (SJ-DC-TRIDEN-BZ)",
 		source : [["AL","SJ-DC"]], // BoMT Chapter 9: Knight
-		rarity : "uncommon",
 		description : "The dried leech was popular as a Honeybell Habitats snack. If I hit a creature with this bolt, the leech animates and attaches to the target, dealing 1d4 piercing damage at the start of each of their turns. The leech detaches if it deals at least 10 damage or the target dies. Anyone can use their action to detach a leech. A detached leech dies and turns nonmagical.",
 		descriptionFull : "This dried leech was evidently popular as a Honeybell Habitats snack.\n   This leech has been dried and imbued with a mote of animating magic. If you hit a creature with a ranged attack roll using this ammunition, the leech springs to life and sinks its teeth into the target, dealing 1d4 piercing damage at the start of each of the target's turns. If the leech deals at least 10 damage or the target dies, the leech falls off. A creature, including the target, can use its action to detach the leech. Once a leech is no longer attached to its target, the leech dies and is no longer magical.",
 		allowDuplicates : true,
@@ -11226,7 +11255,7 @@ MagicItemsList["al headwear"] = {
 		name : "AL Headwear",
 		type : "wondrous item",
 		allowDuplicates : true,
-	choices : ["Circlet (Eye Patch) of Blasting (CCC-CIC-11)","Circlet of Blasting (CCC-GHC-BK1-6)","Circlet of Blasting (CCC-MCX-1)","Circlet of Blasting: Thenturian Circlet (CCC-TAROT1-7)","Circlet of Blasting: Coldfire Circlet (DC-POA-CD1)","Circlet of Blasting: Crown of the Night Sky (DC-POA-DES-5A)","Circlet of Blasting (DC-POA-RH01)","Dread Helm (CCC-AETHER-1-2)","Dread Helm (CCC-GAD1-2)","Dread Helm: Klicklikak Control Helm (CCC-NUKE-1-5)","Dread Helm (CCC-OCC-2)","Dread Helm (Generic DC-POA)","Dread Helm (DC-POA-DUCKS-OS-02)","Dread Helm (DC-POA-HARM-1-1)","Dread Helm (DC-POA-LEGIT-CIPH-1)","Dread Helm: Ko's Visage (DC-POA-TDG1-2)","Dread Helm (FR-DC-LGBTQ-1)","Dread Helm (FR-DC-PHP-CKA1)","Dread Helm: Green (Liar's Night)","Dread Helm: Pumpkin (Liar's Night)","Dread Helm (PO-BK-2-3)","Dread Helm (WBW-DC-DEN-H1)","Hat of Disguise (CCC-AETHER2-1)","Hat of Disguise (CCC-GHC-BK2-7)","Hat of Disguise (CCC-NBDD1-2)","Hat of Disguise: Infiltrator Cowl (CCC-NUKE-1-4)","Hat of Disguise: Wolfskin Cap (DDAL4-3)","Hat of Disguise (DDAL8-3)","Hat of Disguise: Ragon's Liberty Cap (SJ-DC-AMO-KURI-0)","Hat of Disguise (SJ-DC-DEN-H8)","Hat of Disguise: Magician's Top Hat With Cat Ears (SJ-DC-SQD2)","Hat of Disguise (SJ-DC-TTUC-2)","Hat of Disguise: Party (WBW-DC-CONMAR-1)","Hat of Disguise (WBW-DC-UCON-1)","Hat of Vermin: Bulaga Wizard Hat (CCC-GSP2-1)","Hat of Vermin (CCC-TAROT1-5)","Hat of Vermin (WBW-DC-BIRE-2)","Hat of Vermin: Sylvan Sock (WBW-DC-CONMAR-6)","Hat of Vermin (WBW-DC-LSN-1)","Hat of Vermin (WBW-DC-NJ-HOPE-1)","Hat of Vermin: Bella's Tricorn Hat (WBW-DC-Rook-2-1)","Hat of Vermin (WBW-DC-TIC-1)","Hat of Vermin: Talon's Hood (WBW-DC-VMT-2)","Hat of Vermin: Piper's Hat (WBW-DC-ZODIAC-1)","Hat of Wizardry (FR-DC-GHG-3)","Hat of Wizardry (FR-DC-RWIE-1)","Hat of Wizardry (SJ-DC-BST-6)","Hat of Wizardry: Lucent Iris Hairpin (SJ-DC-DD-9)","Hat of Wizardry: Periwinkle's Hat of Piracy (SJ-DC-DWR-3)","Hat of Wizardry: Quor'hin's (SJ-DC-ECHO-1)","Hat of Wizardry: FauxCon Employee Hat (SJ-DC-FAUX-1)","Hat of Wizardry (SJ-DC-MB5-AH123)","Hat of Wizardry (SJ-DC-RFJK-2-2)","Hat of Wizardry: Old Sleeping Cap (SJ-DC-SCR-1)","Hat of Wizardry (SJ-DC-VMT-1)","Headband of Intellect (DDEP0-1)","Headband of Intellect (DDEX1-6)", "Headband of Intellect (DDAL5-16)","Headband of Intellect (DDEP7-2)","Headband of Intellect: Chardalyn Earring (DDEP10-1)","Helm of Brilliance: The Mask of Wompona Yarp (DDAL7-14)","Helm of Brilliance (DDAL-DRW3)","Helm of Brilliance: Marilla's Constellation (WBW-DC-LEGIT-SV-6)","Helm of Comprehending Languages (CCC-AETHER-1-1)","Helm of Comprehending Languages (CCC-ALMOG-40 ESC1)","Helm of Comprehending Languages (CCC-DWB-ESR-1)","Helm of Comprehending Languages (CCC-DWB-TRM-1)","Helm of Comprehending Languages (CCC-FCC-1)","Helm of Comprehending Languages (CCC-HERO-BK3-1)","Helm of Comprehending Languages (CCC-KUMORI-3-3)","Helm of Comprehending Languages (CCC-MMT1-1)","Helm of Comprehending Languages: Superb Beret of the Librarian (CCC-OA-1-1)","Helm of Comprehending Languages (CCC-TCW-WSF-1)","Helm of Comprehending Languages (CCC-UBCON1-1)","Helm of Comprehending Languages: Tricorn Hat (CCC-UCON-2-1)","Helm of Comprehending Languages: Jilly's Fish (FR-DC-WATERDEEP-TZZ)","Helm of Telepathy (CCC-AN-1)","Helm of Telepathy (CCC-GHC-BK1-7)","Helm of Telepathy: Mask of Chakalakhan (CCC-PRETZ-PLA3)","Helm of Telepathy: Auto-communication Linking Instrument (CCC-TAROT2-10)","Helm of Telepathy (DC-POA-CJK)","Helm of Telepathy (DC-POA-CONMAR-16)","Helm of Telepathy: Ryboslav's Helm (DC-POA-TDG1-9)","Helm of Telepathy (DDAL9-15)","Helm of Telepathy (DDEP9-1)","Helm of Telepathy (RotF)","Helm of Teleportation (CCC-BMG-43 PHLAN4-1)","Helm of Teleportation (CCC-BMG-MOON18-3)","Helm of Teleportation: Weave (CCC-PHA-1)","Mask of the Beast (DDAL-DRW-INT-4)","Mask of the Beast (ToA)","Watchful Helm (SJ-DC-ASLM-1)","Watchful Helm (SJ-DC-NOS-5)","Watchful Helm: Kairos Stasi (SJ-DC-PHP-LRD-2)","Watchful Helm: Twilight's Circlet (SJ-DC-PHP-POLAR-1)"],
+	choices : ["Circlet (Eye Patch) of Blasting (CCC-CIC-11)","Circlet of Blasting (CCC-GHC-BK1-6)","Circlet of Blasting (CCC-MCX-1)","Circlet of Blasting: Thenturian Circlet (CCC-TAROT1-7)","Circlet of Blasting: Coldfire Circlet (DC-POA-CD1)","Circlet of Blasting: Crown of the Night Sky (DC-POA-DES-5A)","Circlet of Blasting (DC-POA-RH01)","Dread Helm (CCC-AETHER-1-2)","Dread Helm (CCC-GAD1-2)","Dread Helm: Klicklikak Control Helm (CCC-NUKE-1-5)","Dread Helm (CCC-OCC-2)","Dread Helm (Generic DC-POA)","Dread Helm (DC-POA-DUCKS-OS-02)","Dread Helm (DC-POA-HARM-1-1)","Dread Helm (DC-POA-LEGIT-CIPH-1)","Dread Helm: Ko's Visage (DC-POA-TDG1-2)","Dread Helm (FR-DC-LGBTQ-1)","Dread Helm (FR-DC-PHP-CKA1)","Dread Helm: Green (Liar's Night)","Dread Helm: Pumpkin (Liar's Night)","Dread Helm (PO-BK-2-3)","Dread Helm (WBW-DC-DEN-H1)","Hat of Disguise (CCC-AETHER2-1)","Hat of Disguise (CCC-GHC-BK2-7)","Hat of Disguise (CCC-NBDD1-2)","Hat of Disguise: Infiltrator Cowl (CCC-NUKE-1-4)","Hat of Disguise: Wolfskin Cap (DDAL4-3)","Hat of Disguise (DDAL8-3)","Hat of Disguise: Ragon's Liberty Cap (SJ-DC-AMO-KURI-0)","Hat of Disguise (SJ-DC-DEN-H8)","Hat of Disguise: Magician's Top Hat With Cat Ears (SJ-DC-SQD2)","Hat of Disguise (SJ-DC-TTUC-2)","Hat of Disguise: Party (WBW-DC-CONMAR-1)","Hat of Disguise (WBW-DC-UCON-1)","Hat of Vermin: Bulaga Wizard Hat (CCC-GSP2-1)","Hat of Vermin (CCC-TAROT1-5)","Hat of Vermin (WBW-DC-BIRE-2)","Hat of Vermin: Sylvan Sock (WBW-DC-CONMAR-6)","Hat of Vermin (WBW-DC-LSN-1)","Hat of Vermin (WBW-DC-NJ-HOPE-1)","Hat of Vermin: Bella's Tricorn Hat (WBW-DC-Rook-2-1)","Hat of Vermin (WBW-DC-TIC-1)","Hat of Vermin: Talon's Hood (WBW-DC-VMT-2)","Hat of Vermin: Piper's Hat (WBW-DC-ZODIAC-1)","Hat of Wizardry (FR-DC-GHG-3)","Hat of Wizardry (FR-DC-RWIE-1)","Hat of Wizardry (PO-BMG-DRW-KS-7)","Hat of Wizardry (SJ-DC-BST-6)","Hat of Wizardry: Lucent Iris Hairpin (SJ-DC-DD-9)","Hat of Wizardry: Periwinkle's Hat of Piracy (SJ-DC-DWR-3)","Hat of Wizardry: Quor'hin's (SJ-DC-ECHO-1)","Hat of Wizardry: FauxCon Employee Hat (SJ-DC-FAUX-1)","Hat of Wizardry (SJ-DC-MB5-AH123)","Hat of Wizardry (SJ-DC-RFJK-2-2)","Hat of Wizardry: Old Sleeping Cap (SJ-DC-SCR-1)","Hat of Wizardry (SJ-DC-VMT-1)","Headband of Intellect (DDEP0-1)","Headband of Intellect (DDEX1-6)", "Headband of Intellect (DDAL5-16)","Headband of Intellect (DDEP7-2)","Headband of Intellect: Chardalyn Earring (DDEP10-1)","Helm of Brilliance: The Mask of Wompona Yarp (DDAL7-14)","Helm of Brilliance (DDAL-DRW3)","Helm of Brilliance: Marilla's Constellation (WBW-DC-LEGIT-SV-6)","Helm of Comprehending Languages (CCC-AETHER-1-1)","Helm of Comprehending Languages (CCC-ALMOG-40 ESC1)","Helm of Comprehending Languages (CCC-DWB-ESR-1)","Helm of Comprehending Languages (CCC-DWB-TRM-1)","Helm of Comprehending Languages (CCC-FCC-1)","Helm of Comprehending Languages (CCC-HERO-BK3-1)","Helm of Comprehending Languages (CCC-KUMORI-3-3)","Helm of Comprehending Languages (CCC-MMT1-1)","Helm of Comprehending Languages: Superb Beret of the Librarian (CCC-OA-1-1)","Helm of Comprehending Languages (CCC-TCW-WSF-1)","Helm of Comprehending Languages (CCC-UBCON1-1)","Helm of Comprehending Languages: Tricorn Hat (CCC-UCON-2-1)","Helm of Comprehending Languages: Jilly's Fish (FR-DC-WATERDEEP-TZZ)","Helm of Telepathy (CCC-AN-1)","Helm of Telepathy (CCC-GHC-BK1-7)","Helm of Telepathy: Mask of Chakalakhan (CCC-PRETZ-PLA3)","Helm of Telepathy: Auto-communication Linking Instrument (CCC-TAROT2-10)","Helm of Telepathy (DC-POA-CJK)","Helm of Telepathy (DC-POA-CONMAR-16)","Helm of Telepathy: Ryboslav's Helm (DC-POA-TDG1-9)","Helm of Telepathy (DDAL9-15)","Helm of Telepathy (DDEP9-1)","Helm of Telepathy (RotF)","Helm of Teleportation (CCC-BMG-43 PHLAN4-1)","Helm of Teleportation (CCC-BMG-MOON18-3)","Helm of Teleportation: Weave (CCC-PHA-1)","Mask of the Beast (DDAL-DRW-INT-4)","Mask of the Beast (ToA)","Watchful Helm (SJ-DC-ASLM-1)","Watchful Helm (SJ-DC-NOS-5)","Watchful Helm: Kairos Stasi (SJ-DC-PHP-LRD-2)","Watchful Helm: Twilight's Circlet (SJ-DC-PHP-POLAR-1)"],
 	"circlet (eye patch) of blasting (ccc-cic-11)" : { // contains contributions by Larry Hoy
 		name : "Eye Patch of Blasting (Circlet of Blasting, CIC-11)",
 		source : [["AL","CCC"]],
@@ -11861,6 +11890,72 @@ MagicItemsList["al headwear"] = {
 		limfeaname : "Hat of Wizardry",
 		usages : 1,
 		recovery : "long rest",
+		eval : function () {
+		CurrentSpells['hat of wizardry'] = {
+			name : 'Hat of Wizardry (item)',
+			ability : "wizard",
+			list : { 'class' : 'wizard', level : [0, 0] },
+			known : { cantrips : 0, spells : 'list' },
+			bonus : {
+				bon1 : {
+					name : 'Just select "Full List"',
+					spells : []
+				},
+				bon2 : {
+					name : 'on the bottom left',
+					spells : []
+				}
+			},
+			typeList : 4,
+			refType : "item",
+			allowUpCasting : true,
+			firstCol : ""
+			};
+		SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+		},
+		removeeval : function () {
+			delete CurrentSpells['hat of wizardry'];
+			SetStringifieds('spells'); CurrentUpdates.types.push('spells');
+		},
+		calcChanges : {
+			spellList : [
+				function(spList, spName, spType) {
+					// Remove the already known cantrips, from any source except magic items
+					if (spName === 'hat of wizardry') {
+						var allSpellsKnown = [];
+						for (var sCast in CurrentSpells) {
+							if (sCast.refType === "item") continue;
+							var oCast = CurrentSpells[sCast];
+							if (oCast.selectCa) allSpellsKnown = allSpellsKnown.concat(oCast.selectCa);
+							if (oCast.selectBo) allSpellsKnown = allSpellsKnown.concat(oCast.selectBo);
+						}
+						var knownCantrips = OrderSpells(allSpellsKnown, "single", false, false, 0);
+						if (!spList.notspells) spList.notspells = [];
+						spList.notspells = spList.notspells.concat(knownCantrips);
+					}
+				},
+			],
+			spellAdd : [
+				function (spellKey, spellObj, spName, isDuplicate) {
+					if (spName === 'hat of wizardry') {
+						spellObj.firstCol = "";
+					};
+				}
+			]
+			},
+		},
+	"hat of wizardry (po-bmg-drw-ks-7)" : {
+		name : "Hat of Wizardry (PO-BMG-DRW-KS-7)",
+		source : ["AL", "PO"],
+		rarity : "common",
+		magicItemTable : "?",
+		description : "Yenushya’s old kerchief smells of morning dew and cold running water. While worn, it acts as a focus for my wizard spells and lets me speak Primordial. Once per long rest, I can try to cast an unknown wizard cantrip with a DC 10 INT (Arcana) check, wasting the action if failed.",
+		descriptionFull : "This antiquated, cone—shaped hat is adorned with gold crescent moons and stars. While you are wearing it, you gain the following benefits:\n \u2022 You can use the hat as a spellcasting focus for your wizard spells.\n \u2022 You can try to cast a cantrip that you don't know. The cantrip must be on the wizard spell list, and you must make a DC 10 Intelligence (Arcana) check. If the check succeeds, you cast the spell. If the check fails, so does the spell, and the action used to cast the spell is wasted. In either case, you can't use this property again until you finish a long rest.\n   Yenushya’s old kerchief smells of morning dew and cold running water.\n   " + toUni("Language") + ". Additionally, this item grants the language minor property allowing them to understand and speak primordial.",
+		attunement : true,
+		limfeaname : "Hat of Wizardry",
+		usages : 1,
+		recovery : "long rest",
+		languageProfs : ["Primordial"],
 		eval : function () {
 		CurrentSpells['hat of wizardry'] = {
 			name : 'Hat of Wizardry (item)',
@@ -13453,7 +13548,7 @@ MagicItemsList["al horns"] = {
 		name : "AL Horns",
 		type : "wondrous item",
 		allowDuplicates : true,
-	choices : ["Brass Horn of Valhalla (CCC-GAD2-3)","Brass Horn of Valhalla: Biguris' Fury (CCC-GSP2-3)","Horn of Blasting (DDEX1-11)","Horn of Silent Alarm (CCC-BMG-MOON6-3)","Horn of Silent Alarm (CCC-KUMORI-3-3)","Horn of Silent Alarm (CCC-SQC-3-3)","Horn of Silent Alarm: Bell of Silent Carols (DDAL0-5)","Horn of Silent Alarm (FR-DC-GHG-2)","Horn of Silent Alarm: Ares' Everpromise (FR-DC-PANDORA-JWEI-10)","Horn of Silent Alarm (RV-DC-GC15-2)","Horn of Silent Alarm: Train Conductor's Whistle (RV-DC-PHP-1313-1)","Horn of Silent Alarm: K's Pet Whistle (SJ-DC-AMO-KURI-1)","Horn of Silent Alarm: Angel's Trumpet (SJ-DC-ANGKA-2)","Horn of Silent Alarm (SJ-DC-ASLM-1)","Horn of Silent Alarm: Kamaru's Cavalcade (SJ-DC-AUG-7)","Horn of Silent Alarm: Tavernjammer Horn (SJ-DC-CJK2-2)","Horn of Silent Alarm: Emergency Distress Beacon (SJ-DC-DD-11)","Horn of Silent Alarm: Oceanus' Gift (SJ-DC-DEN-H6)","Horn of Silent Alarm: Dragon Pistol (SJ-DC-DFA-3)","Horn of Silent Alarm: Giantcaller (SJ-DC-DFA-4)","Horn of Silent Alarm: River's Caution (SJ-DC-DUCKS-TTT-1)","Horn of Silent Alarm: Dohaeras (SJ-DC-FAUX-3)","Horn of Silent Alarm (SJ-DC-HYS-1)","Horn of Silent Alarm (SJ-DC-NOS-1)","Horn of Silent Alarm (SJ-DC-NOS-2)","Horn of Silent Alarm (SJ-DC-RFJK-2-1)","Horn of Silent Alarm (SJ-DC-ROTU-1)","Horn of Silent Alarm (SJ-DC-ROTU-3)","Horn of Silent Alarm: Ambusher's Signal (SJ-DC-SCN-1)","Horn of Silent Alarm: Sigma Whistle (SJ-DC-TKM-4)","Horn of Silent Alarm: Trumpet of Stars (SJ-DC-TRIDEN-MW3)","Horn of Silent Alarm (SJ-DC-TTUC-5)","Horn of Silent Alarm (SJ-DC-VEN-3)","Horn of Silent Alarm (SJ-DC-VMT-2)","Horn of Silent Alarm: Herder's (SJ-DC-ZODIAC-14-2)","Horn of Silent Alarm (WBW-DC-ZODIAC-2)","Silver Horn of Valhalla: Luthik's Call (CCC-MAYDAYS2-1)","Silver Horn of Valhalla (CCC-TRI-5 NIGHT1-1)","Silver Horn of Valhalla: Frost Salamander Whistle (WBW-DC-AA-ASHALON-2)","Silver Horn of Valhalla (WBW-DC-BIRE-7)","Silver Horn of Valhalla (WBW-DC-DREA-1)","Silver Horn of Valhalla: Giant Jackdaw Beak (WBW-DC-IDL-3)","Silver Horn of Valhalla: Horn of All-Hello-ing (WBW-DC-JSH-CEL1)","Silver Horn of Valhalla: The Dream Serpent's Horn (WBW-DC-LEGIT-SV-5)","Silver Horn of Valhalla: Pahulaian's Flute of Recollection (WBW-DC-PHP-TYM-2)","Silver Horn of Valhalla: War Leader's (WBW-DC-ZEP-T2S8)","Silver Horn of Valhalla: Maharani's War Horn (WBW-DC-ZODIAC-3)","War Horn of Valor: Songs (Trading Post)","War Horn of Valor: Vlaakith (Trading Post B)","War Horn of Valor: Detective (Trading Post C)"],
+	choices : ["Brass Horn of Valhalla (CCC-GAD2-3)","Brass Horn of Valhalla: Biguris' Fury (CCC-GSP2-3)","Horn of Blasting (DDEX1-11)","Horn of Silent Alarm (CCC-BMG-MOON6-3)","Horn of Silent Alarm (CCC-KUMORI-3-3)","Horn of Silent Alarm (CCC-SQC-3-3)","Horn of Silent Alarm: Bell of Silent Carols (DDAL0-5)","Horn of Silent Alarm (FR-DC-GHG-2)","Horn of Silent Alarm: Ares' Everpromise (FR-DC-PANDORA-JWEI-10)","Horn of Silent Alarm (RV-DC-GC15-2)","Horn of Silent Alarm: Train Conductor's Whistle (RV-DC-PHP-1313-1)","Horn of Silent Alarm: K's Pet Whistle (SJ-DC-AMO-KURI-1)","Horn of Silent Alarm: Angel's Trumpet (SJ-DC-ANGKA-2)","Horn of Silent Alarm (SJ-DC-ASLM-1)","Horn of Silent Alarm: Kamaru's Cavalcade (SJ-DC-AUG-7)","Horn of Silent Alarm: Tavernjammer Horn (SJ-DC-CJK2-2)","Horn of Silent Alarm: Emergency Distress Beacon (SJ-DC-DD-11)","Horn of Silent Alarm: Oceanus' Gift (SJ-DC-DEN-H6)","Horn of Silent Alarm: Dragon Pistol (SJ-DC-DFA-3)","Horn of Silent Alarm: Giantcaller (SJ-DC-DFA-4)","Horn of Silent Alarm: River's Caution (SJ-DC-DUCKS-TTT-1)","Horn of Silent Alarm: Dohaeras (SJ-DC-FAUX-3)","Horn of Silent Alarm (SJ-DC-HYS-1)","Horn of Silent Alarm (SJ-DC-NOS-1)","Horn of Silent Alarm (SJ-DC-NOS-2)","Horn of Silent Alarm (SJ-DC-RFJK-2-1)","Horn of Silent Alarm (SJ-DC-ROTU-1)","Horn of Silent Alarm (SJ-DC-ROTU-3)","Horn of Silent Alarm: Ambusher's Signal (SJ-DC-SCN-1)","Horn of Silent Alarm: Sigma Whistle (SJ-DC-TKM-4)","Horn of Silent Alarm: Trumpet of Stars (SJ-DC-TRIDEN-MW3)","Horn of Silent Alarm (SJ-DC-TTUC-5)","Horn of Silent Alarm (SJ-DC-VEN-3)","Horn of Silent Alarm (SJ-DC-VMT-2)","Horn of Silent Alarm: Herder's (SJ-DC-ZODIAC-14-2)","Horn of Silent Alarm (WBW-DC-ZODIAC-2)","Silver Horn of Valhalla: Luthik's Call (CCC-MAYDAYS2-1)","Silver Horn of Valhalla (CCC-TRI-5 NIGHT1-1)","Silver Horn of Valhalla: Frost Salamander Whistle (WBW-DC-AA-ASHALON-2)","Silver Horn of Valhalla (WBW-DC-BIRE-7)","Silver Horn of Valhalla (WBW-DC-DREA-1)","Silver Horn of Valhalla: Giant Jackdaw Beak (WBW-DC-IDL-3)","Silver Horn of Valhalla: Horn of All-Hello-ing (WBW-DC-JSH-CEL1)","Silver Horn of Valhalla: The Dream Serpent's Horn (WBW-DC-LEGIT-SV-5)","Silver Horn of Valhalla: Pahulaian's Flute of Recollection (WBW-DC-PHP-TYM-2)","Silver Horn of Valhalla: War Leader's (WBW-DC-ZEP-T2S8)","Silver Horn of Valhalla: Maharani's War Horn (WBW-DC-ZODIAC-3)","War Horn of Valor: Detective (Trading Post)","War Horn of Valor: Protective (Trading Post)","War Horn of Valor: Songs (Trading Post)","War Horn of Valor: Vlaakith (Trading Post)"],
 	"brass horn of valhalla (ccc-gad2-3)" : {
 		name : "Brass Horn of Valhalla (CCC-GAD2-3)",
 		source : [["AL","CCC"]],
@@ -14122,6 +14217,39 @@ MagicItemsList["al horns"] = {
 		allowDuplicates : true,
 		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." }
 		},
+	"war horn of valor: detective (trading post)" : {
+		name : "War Horn of Valor (Detective)",
+		source : [["AL:FC","VW"]],
+		rarity : "rare",
+		description : "This detective's magnifying glass is clouded and opaque, making it a poor tool for investigation.. However, villains and n'er-do-wells don't know that and feel a shiver of dread when its magic is invoked. As bonus action, I can activate the glass to stop being frightened & gain adv. on saves against fear until my next turn. To do this, I must proclaim that I've found a clue or furthered my case. Once per day when invoked, I can also give chosen creatures in 30ft +1 AC until my next turn.",
+		descriptionFull : "This brass war horn is engraved with the war rune, which glows purple when the horn is blown."+
+		"\n   This detective's magnifying glass is clouded and opaque, making it a poor tool for any investigative work. However, villains and n'er-do-wells have no way to know this, and they can't help but feel a shiver of dread whenever the magic of the magnifying glass is invoked. To invoke the magic of the glass, the bearer must make a proclamation that they've found a clue or otherwise furthered their case. (Custom flavor from the July 2024 VDDW Trading Post)."+
+		"\n   You can blow the horn as a bonus action. When you do, if you have the frightened condition, you immediately end that condition on yourself. You also have advantage on saving throws against being frightened until the start of your next turn."+
+		"\n   " + toUni("Invoking the Rune") + ". When you blow the horn, you can also invoke the rune, imbuing the horn's deep call with protective magic that affects creatures of your choice within 30 feet of yourself. You and all affected creatures gain a +1 bonus to AC until the start of your next turn."+
+		"\n   Once the rune has been invoked, it can't be invoked again until the next dawn.",
+		limfeaname : "War Horn of Valor",
+		action : [["bonus action", ""]],
+		usages : 1,
+		recovery : "dawn",
+		additional : "invoke rune"
+		},
+	"war horn of valor: protective (trading post)" : {
+		name : "War Horn of Valor (Protective)",
+		source : [["AL:FC","TAL"]],
+		rarity : "rare",
+		description : "This brass horn is carved with superstitious protective symbols and a war rune that glows purple when blown. The strap is wrapped in layers of bandages to be removed as needed. As bonus action, I can blow it to stop being frightened & gain adv. on saves vs fear until my next turn. Once per day when blown, I can also give creatures in 30ft +1 AC until my next turn.",
+		descriptionLong : "This brass war horn is carved with superstitious protective symbols. The strap is wrapped in layers of bandages that can be removed as needed. As a bonus action, I can blow the horn to stop being frightened and gain adv. on saves against frightened until my next turn. When activated, the engraved war rune glows purple. Once per day when blown, I can also imbue chosen creatures in 30 ft with a +1 bonus to AC until my next turn.",
+		descriptionFull : "This brass war horn is engraved with the war rune, which glows purple when the horn is blown."+
+		"\n   Carved with superstitious protective symbols and the strap is wrapped in layers of bandages that can be removed as needed. [Custom flavor from Nov 2024 TAL Trading Post v13.1]."+
+		"\n   You can blow the horn as a bonus action. When you do, if you have the frightened condition, you immediately end that condition on yourself. You also have advantage on saving throws against being frightened until the start of your next turn."+
+		"\n   " + toUni("Invoking the Rune") + ". When you blow the horn, you can also invoke the rune, imbuing the horn's deep call with protective magic that affects creatures of your choice within 30 feet of yourself. You and all affected creatures gain a +1 bonus to AC until the start of your next turn."+
+		"\n   Once the rune has been invoked, it can't be invoked again until the next dawn.",
+		limfeaname : "War Horn of Valor",
+		action : [["bonus action", ""]],
+		usages : 1,
+		recovery : "dawn",
+		additional : "invoke rune"
+		},
 	"war horn of valor: songs (trading post)" : {
 		name : "War Horn of Valor (Zealot)",
 		source : [["AL:FC","TAL"]],
@@ -14139,29 +14267,13 @@ MagicItemsList["al horns"] = {
 		recovery : "dawn",
 		additional : "invoke rune"
 		},
-	"war horn of valor: vlaakith (trading post b)" : {
+	"war horn of valor: vlaakith (trading post)" : {
 		name : "War Horn of Valor (Vlaakith)",
 		source : [["AL:FC","DWB"]],
 		rarity : "rare",
 		description : "This war horn was carved from the bones of traitors to Queen Vlaakith. It's wrapped with the hide of a red dragon who died in her service & the strap was made from the sword of a fallen foe. As a bonus action, I can blow the horn to stop being frightened & gain adv. on saves against fear until my next turn. Once per day when blown, I can also imbue chosen creatures in 30 ft with a +1 bonus to AC until my next turn. When activated, the engraved war rune glows purple.",
 		descriptionFull : "This brass war horn is engraved with the war rune, which glows purple when the horn is blown."+
 		"\n   This war horn was carved from the bones of traitors who fought against the Lich Queen Vlaakith CLVII, the last queen of the githyanki. It's wrapped with the hide of a red dragon who died in her service and the strap was made from the sword of a fallen foe. (Custom flavor from the 2023 DWB Trading Post)."+
-		"\n   You can blow the horn as a bonus action. When you do, if you have the frightened condition, you immediately end that condition on yourself. You also have advantage on saving throws against being frightened until the start of your next turn."+
-		"\n   " + toUni("Invoking the Rune") + ". When you blow the horn, you can also invoke the rune, imbuing the horn's deep call with protective magic that affects creatures of your choice within 30 feet of yourself. You and all affected creatures gain a +1 bonus to AC until the start of your next turn."+
-		"\n   Once the rune has been invoked, it can't be invoked again until the next dawn.",
-		limfeaname : "War Horn of Valor",
-		action : [["bonus action", ""]],
-		usages : 1,
-		recovery : "dawn",
-		additional : "invoke rune"
-		},
-	"war horn of valor: detective (trading post c)" : {
-		name : "War Horn of Valor (Detective)",
-		source : [["AL:FC","VW"]],
-		rarity : "rare",
-		description : "This detective's magnifying glass is clouded and opaque, making it a poor tool for investigation.. However, villains and n'er-do-wells don't know that and feel a shiver of dread when its magic is invoked. As bonus action, I can activate the glass to stop being frightened & gain adv. on saves against fear until my next turn. To do this, I must proclaim that I've found a clue or furthered my case. Once per day when invoked, I can also give chosen creatures in 30ft +1 AC until my next turn.",
-		descriptionFull : "This brass war horn is engraved with the war rune, which glows purple when the horn is blown."+
-		"\n   This detective's magnifying glass is clouded and opaque, making it a poor tool for any investigative work. However, villains and n'er-do-wells have no way to know this, and they can't help but feel a shiver of dread whenever the magic of the magnifying glass is invoked. To invoke the magic of the glass, the bearer must make a proclamation that they've found a clue or otherwise furthered their case. (Custom flavor from the July 2024 VDDW Trading Post)."+
 		"\n   You can blow the horn as a bonus action. When you do, if you have the frightened condition, you immediately end that condition on yourself. You also have advantage on saving throws against being frightened until the start of your next turn."+
 		"\n   " + toUni("Invoking the Rune") + ". When you blow the horn, you can also invoke the rune, imbuing the horn's deep call with protective magic that affects creatures of your choice within 30 feet of yourself. You and all affected creatures gain a +1 bonus to AC until the start of your next turn."+
 		"\n   Once the rune has been invoked, it can't be invoked again until the next dawn.",
@@ -20994,7 +21106,7 @@ MagicItemsList["al sticks"] = {
 		type : "wondrous item",
 		allowDuplicates : true,
 		rarity : "common",
-	choices : ["Pole of Angling (CCC-CNE-1)","Pole of Angling (CCC-MWGF-1)","Pole of Angling (DC-POA-CODEX-1)","Pole of Angling (DC-POA-CONMAR-14)","Pole of Angling (DC-POA-GSP1-1)","Pole of Angling: Boatman's Walking Stick (DC-POA-LEGIT-SV-3)","Pole of Angling (DC-POA-PESCH-1)","Pole of Angling (DC-POA-PND-3)","Pole of Angling (DDEP10-1)","Pole of Collapsing: Ryboslav's (SJ-DC-DD-3)","Pole of Collapsing: Shuffleboard Cue (SJ-DC-DEN-H8)","Pole of Collapsing (SJ-DC-DFA-2)","Pole of Collapsing: Pivot (SJ-DC-FAUX-2)","Pole of Collapsing (SJ-DC-IGC-ECP-1)","Pole of Collapsing: Ironwood Branch (SJ-DC-LP-1)","Pole of Collapsing: Lightning Rod (SJ-DC-MONSTER-4)","Pole of Collapsing: Oversized Metal Straw (SJ-DC-NCH-1)","Pole of Collapsing: Fetch (SJ-DC-PHP-BORK)","Pole of Collapsing: Pillar of the Sky (SJ-DC-PHP-TY-VAL-1)","Pole of Collapsing: Sun's Golden Pin (SJ-DC-SCN-2)","Pole of Collapsing (WBW-DC-BIRE-4)","Pole of Collapsing (WBW-DC-HAVN-1)","Pole of Collapsing: Knick-Knack Stick (WBW-DC-IDL-3)","Pole of Collapsing: Twig (WBW-DC-LEGIT-SV-4)","Pole of Collapsing (WBW-DC-MEM-2)","Pole of Collapsing: Stick of Directions (WBW-DC-PHP-ORNG-2)","Pole of Collapsing (WBW-DC-THAL-2)","Pole of Collapsing: Liriod (WBW-DC-ZION-2)","Pole of Collapsing: Rúyì Jīngū Bàng (WBW-DC-ZODIAC-9)","Veteran's Cane (CCC-DRUIDS-3)","Veteran's Cane (DC-WBW-GaryXIV-1)","Veteran's Cane (WBW-DC-BIRE-3)","Veteran's Cane (WBW-DC-CONMAR-14)","Veteran's Cane (WBW-DC-JOQ-2)","Veteran's Cane (WBW-DC-LSN-2)","Veteran's Cane (WBW-DC-RKS-1)","Veteran's Cane (WBW-DC-Rook-1-1)","Veteran's Cane (WBW-DC-TEN-3)","Veteran's Cane (WBW-DC-THAL-1)","Veteran's Cane (WBW-DC-ZION-3)","Veteran's Cane: Ram's Head (WBW-DC-ZODIAC-8)"],
+	choices : ["Pole of Angling (CCC-CNE-1)","Pole of Angling (CCC-MWGF-1)","Pole of Angling (DC-POA-CODEX-1)","Pole of Angling (DC-POA-CONMAR-14)","Pole of Angling (DC-POA-GSP1-1)","Pole of Angling: Boatman's Walking Stick (DC-POA-LEGIT-SV-3)","Pole of Angling (DC-POA-PESCH-1)","Pole of Angling (DC-POA-PND-3)","Pole of Angling (DDEP10-1)","Pole of Collapsing (BMG-DRW-OD-7)","Pole of Collapsing: Ryboslav's (SJ-DC-DD-3)","Pole of Collapsing: Shuffleboard Cue (SJ-DC-DEN-H8)","Pole of Collapsing (SJ-DC-DFA-2)","Pole of Collapsing: Pivot (SJ-DC-FAUX-2)","Pole of Collapsing (SJ-DC-IGC-ECP-1)","Pole of Collapsing: Ironwood Branch (SJ-DC-LP-1)","Pole of Collapsing: Lightning Rod (SJ-DC-MONSTER-4)","Pole of Collapsing: Oversized Metal Straw (SJ-DC-NCH-1)","Pole of Collapsing: Fetch (SJ-DC-PHP-BORK)","Pole of Collapsing: Pillar of the Sky (SJ-DC-PHP-TY-VAL-1)","Pole of Collapsing: Sun's Golden Pin (SJ-DC-SCN-2)","Pole of Collapsing (WBW-DC-BIRE-4)","Pole of Collapsing (WBW-DC-HAVN-1)","Pole of Collapsing: Knick-Knack Stick (WBW-DC-IDL-3)","Pole of Collapsing: Twig (WBW-DC-LEGIT-SV-4)","Pole of Collapsing (WBW-DC-MEM-2)","Pole of Collapsing: Stick of Directions (WBW-DC-PHP-ORNG-2)","Pole of Collapsing (WBW-DC-THAL-2)","Pole of Collapsing: Liriod (WBW-DC-ZION-2)","Pole of Collapsing: Rúyì Jīngū Bàng (WBW-DC-ZODIAC-9)","Veteran's Cane (CCC-DRUIDS-3)","Veteran's Cane (DC-WBW-GaryXIV-1)","Veteran's Cane (WBW-DC-BIRE-3)","Veteran's Cane (WBW-DC-CONMAR-14)","Veteran's Cane (WBW-DC-JOQ-2)","Veteran's Cane (WBW-DC-LSN-2)","Veteran's Cane (WBW-DC-RKS-1)","Veteran's Cane (WBW-DC-Rook-1-1)","Veteran's Cane (WBW-DC-TEN-3)","Veteran's Cane (WBW-DC-THAL-1)","Veteran's Cane (WBW-DC-ZION-3)","Veteran's Cane: Ram's Head (WBW-DC-ZODIAC-8)"],
 	"pole of angling (ccc-cne-1)" : {
 		name : "Pole of Angling (CCC-CNE-1)",
 		source : [["AL","CCC"]],
@@ -21067,6 +21179,15 @@ MagicItemsList["al sticks"] = {
 		descriptionFull : "While holding this 10-foot pole, you can speak a command word and transform it into a fishing pole with a hook, a line, and a reel. Speaking the command word again changes the fishing pole back into a normal 10-foot pole.\n   This stylish, gold-painted pole has a fabric wrap around the grip for comfort during use. Its wood stays rigid until transformed into a fishing pole, when it gains the suppleness of a masterwork fishing rod. Even while it isn't in fishing pole form, the pole's bearer feels phantom tugs on the end of it.\n   The pole glows faintly when within 120 feet of knucklehead trout—making an observant fisher a somewhat wealthier fisher.",
 		weight : 7
 	},
+	"pole of collapsing (bmg-drw-od-7)" : {
+		name : "Pole of Collapsing (BMG-DRW-OD-7)",
+		source : [["AL","DRW"]],
+		magicItemTable : "?",
+		description : "This 10-ft carved duskwood pole is decorated with descending winged serpents. As an action while held, speak the command word to shrink it to a 1-ft rod. Its weight doesn't change. As another action, a different command word reverts it to a pole, up to 10-ft if space allows.",
+		descriptionFull : "This carved duskwood pole is decorated with descending winged serpents.\n   While holding this 10-foot pole, you can use an action to speak a command word and cause it to collapse into a 1-foot-long rod, for ease of storage. The pole's weight doesn't change. You can use an action to speak a different command word and cause the rod to revert to a pole; however, the rod will elongate only as far as the surrounding space allows.",
+		weight : 7,
+		action : [["action", "Pole of Collapsing"]],
+	},
 	"pole of collapsing: ryboslav's (sj-dc-dd-3)" : {
 		name : "Ryboslav's Pole of Collapsing (DD-3)",
 		source : [["AL","SJ-DC"]],
@@ -21127,7 +21248,7 @@ MagicItemsList["al sticks"] = {
 		name : "Lightning Rod (Pole of Collapsing, MONSTER-4)",
 		source : [["AL","SJ-DC"]],
 		magicItemTable : "?",
-		description : "A lightning scar crackles across this 10-ft pole and sparkles when it collapses or expands. As an action while held, speak a command word to collapse it into a 1-ft rod. Its weight doesn't change. As another action, a different command word reverts it to a pole, up to 10-ft if space allows. I can also use an action to make my voice carry clearly for up to 300 ft until my next turn ends.",
+		description : "A lightning scar crackles across this pole and sparkles when it collapses or expands. As an action while held, speak command word to shrink it to a 1-ft rod. Its weight doesn't change. As another action, a different command word reverts it to a pole, up to 10-ft if space allows. I can also use an action to make my voice carry clearly for up to 300 ft until my next turn ends.",
 		descriptionFull : "While holding this 10-foot pole, you can use an action to speak a command word and cause it to collapse into a 1-foot-long rod, for ease of storage. The pole's weight doesn't change. You can use an action to speak a different command word and cause the rod to revert to a pole; however, the rod will elongate only as far as the surrounding space allows.\n   “A lightning scar crackles across the pole and sparkles when it collapses and retracts.”\n   " + toUni("War Leader") + ". The bearer can use an action to cause his or her voice to carry clearly for up to 300 feet until the end of the bearer's next turn.",
 		weight : 7,
 		action : [["action", "Pole of Collapsing (expand/revert/300ft voice)"]],
