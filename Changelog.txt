@@ -1,3 +1,13 @@
+After 11/16/14
+-Added code to remove all my flavored items from the master choice list just for sanity. Only the master category shold appear now.
+-Updated all of my flavored item files to match new DMG 2024 content. I matched capitalization in the full descriptions, but have chosen not to capitalize some words in the short descriptions. So it's resistance, shield and bonus action but Critical Hit, Dmg types, and Magic/Utilize actions.
+-I will also freely admit I'm not super consistent about this, so things may get tweaked later.
+-I also updated the Minor Properties that have changed, such as Temperate and War Leader.
+-I also corrected a number of description flavor errors and other issues while updating items. Some of these I also corrected in the 2014 file, but I don't plan to update that one regularly anymore.
+-Added the non-reprinted boons and charms to my AL Adjustments file to match the style used in the 2024 code
+
+
+
 After 10/30/24
 -Added SCAG backgrounds to Guild Adept file so the ones coded as PHB variants can still be selected properly.
 -Uploaded my file that makes old content still legal for AL (invocations, OCF, 1 feat) function with Poke's 2024 script

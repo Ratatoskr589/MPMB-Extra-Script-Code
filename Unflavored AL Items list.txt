@@ -5,10 +5,10 @@ CCC-AWE-1-2 The Chi Directive
 -Lantern of Revealing
 
 CCC-BMG-37 HULB3-1 Weakness of Rock
--Dex Book
+-Dex Book (Manual of Quickness of Action)
 
 CCC-BMG-38 HULB3-2 Dead Canaries
--Int Book
+-Int Book (Tome of Clear Thought)
 
 CCC-BMG-MOON16-3 The Sacrificial Dance
 -Quaal Feather Token: Swan Boat
@@ -35,6 +35,10 @@ CCC-TRI-11 Contact
 
 CCC-UCON-3
 -Decanter of Endless Water
+
+CCC-WWC-08 Pool of Annihilation 
+-Gloves of Missile Snaring
+-Mystery Key
 
 DC-HERO Endless Songs
 -Hat of Wizardry
@@ -65,6 +69,9 @@ DC-WBW-GaryXIV-01 The First Forest
 DC-WBW-GaryXIV-03 Of Pumpkins and Promises
 -Wand of Pyrotechnics
 -Gem of Brightness
+
+DDAL00-05 Winters Splendor
+-Boots of the Winterlands
 
 DDAL09-16 Honors Unforeseen
 -Fochlucan Bandore
@@ -119,6 +126,13 @@ DDEX1-9 Outlaws of the Iron Route
 DDEX2-10 Cloaks and Shadows
 -Winged boots
 
+DDHC-MORD-03 To Wake Leviathan
+-Ring of Cold Resistance
+-Elemental Gem (Water)
+-Circlet of Blasting or Sentinel Shield
+-Boots of the Winterlands or Boots of Speed
+-Dragon Scale Mail (Roll for type)
+
 FR-DC-AEG-1 The Ambush
 -Horn of Silent Alarm
 
@@ -133,6 +147,9 @@ FR-DC-AEG-5 The Hunting
 
 FR-DC-AEG-7 The Missing Adventurers
 -Candle of the Deep
+
+FR-DC-ARCON-01 Mines and Monsters
+-Wand of Wonder
 
 FR-DC-BG The Flying Flame
 -Blessing of Magic Resistance (Bahamut's)
@@ -429,7 +446,7 @@ SJ-DC-LIGA4 Deep Expedition
 SJ-DC-LIGA6 A Strike to Hadars Tentacles
 -Charm of Undead Slayer
 
-SJ-DC-LP-1 Litter Patrol
+SJ-DC-LP-01 Litter Patrol
 -Astromancy Archive
 -Rope of Mending
 -Smokepowder

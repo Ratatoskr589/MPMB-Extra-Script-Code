@@ -774,5 +774,737 @@ AddFeatureChoice(ClassList.warlock.features["pact magic"], true, "Eldritch Versa
 }, "Optional 4th-level warlock features");
 
 
+// Adding the extra Blessings from Icewind Dale: Rime of the Frostmaiden to the 2024 DMG Code made by Poke (other code borrowed from Nod_Hero) 
+AddFeatureChoice(FeatsList["blessings"], false, "of the Frostmaiden", {
+	name : "Blessing of the Frostmaiden",
+    source : [["RotF", 213]],
+    description: "My eyes become as cold as ice. I gain immunity to cold damage. In addition, I can cast the cone of cold spell (save DC 15) once. I regain the ability to cast this spell when I finish a long rest.",
+	descriptionFull : "Your eyes become as cold as ice. You gain immunity to cold damage. In addition, you can cast the cone of cold spell (save DC 15) once. You regain the ability to cast this spell when you finish a long rest.",
+	savetxt : { immune : ["cold"] },
+    usages : 1,
+    recovery : "long rest",
+	spellcastingBonus : {
+		name : "Cone of Cold",
+		spells : ["cone of cold"],
+		selection : ["cone of cold"]
+	},
+	fixedDC : 15	
+});
+AddFeatureChoice(FeatsList["blessings"], false, "of the Morninglord", {
+	name : "Blessing of the Morninglord",
+    source : [["RotF", 119]],
+    description: "I gain 10 temporary hit points each day at dawn.",
+	descriptionFull : "You gain 10 temporary hit points each day at dawn.",
+    usages : "each day at",
+    recovery : "dawn",
+	additional : "(10 THP)"
+});
 
-//Could code Fighting Style Initiate Feat, or could just add the chosen fighting style manually. Might be easier.
+// Add Blessings from Phandelver and Below: The Shattered Obelisk to the 2024 DMG Code made by Poke (other code borrowed from Nod_Hero) 
+AddFeatureChoice(FeatsList["blessings"], false, "of Dumathoin", {
+	name : "Blessing of Dumathoin",
+    source : [["PaBTSO", 171]],
+    description: "My eyes become keen enough to pick out hidden secrets. I gain darkvision. If I already had darkvision, I can see in color in the dark. In addition, I can use an action to gain truesight for 1 minute. Once I gain truesight in this way, I can't do so again until I finish a long rest.",
+	descriptionFull : "Your eyes become keen enough to pick out hidden secrets. You gain darkvision. If you already had darkvision, you can see in color in the dark. In addition, you can use an action to gain truesight for 1 minute. Once you gain truesight in this way, you can't do so again until you finish a long rest.",
+    usages : 1,
+    recovery : "long rest",
+	additional : "Truesight",
+	vision : [["Darkvision", "fixed 60"]],
+	action : ["action", ""]
+});
+AddFeatureChoice(FeatsList["blessings"], false, "of the Solipsistic Mind", {
+	name : "Blessing of the Solipsistic Mind",
+    source : [["PaBTSO", 177]],
+    description: "I can take an action to focus my inner mind for 1 hour. While focused, I can't take reactions. When I make an Intelligence or Wisdom ability check or Intelligence or Wisdom save, I can roll a d8 and add the number rolled to the check or save. I regain the ability to focus my inner mind when I finish a long rest.",
+	descriptionFull : "You access esoteric truths from an ancient tome by focusing deeply on your own thoughts. You can take an action to focus your inner mind. This focus lasts for 1 hour. While your inner mind is focused, you can't take reactions. For the duration, when you make an Intelligence check, Wisdom check, Intelligence saving throw, or Wisdom saving throw, you can roll a d8 and add the number rolled to the ability check or saving throw. You regain the ability to focus your inner mind when you finish a long rest.",
+    usages : 1,
+    recovery : "long rest",
+	action : ["action", "Focus Inner Mind"]
+});
+
+
+//Add Charms from Book of Many Things (most of this code is from Nod_hero, I just switched it to a FeatChoice to match Poke's 2024 DMG code)
+FeatsList["charms (book of many things)"] = {
+	name : "Charms (Book of Many Things)",
+	source : [["BoMT", 62]],
+	descriptionFull : "This section presents magical charms inspired by the Deck of Many Things. See the Dungeon Master's Guide for more information on charms.",
+	allowDuplicates : true,
+	choices : ["Balance", "Euryale", "Many Things", "Ruin", "Comet", "Donjon", "Fates", "Flames", "Fool", "Gem", "Jester", "Key", "Knight", "Moon", "Puzzle", "Rogue", "Sage", "Skull", "Star", "Sun", "Talons", "Throne", "Void"],
+	"balance" : {
+		name : "Charm of Balance",
+		description : "When a creature I can see within 60 feet of me damages me, I can use my reaction to deal an amount of force damage to that creature equal to half the damage I took. Charm vanishes once used 3 times.",
+		usages : 3,
+		recovery : "never",
+		action : [["reaction", ""]],
+	},
+	"euryale" : {
+		name : "Charm of Euryale",
+		description : "As an action, I can unleash a magical petrifying 30-ft cone from my eyes. Each creature must make a DC 15 Con save. Failed save, petrified for 1 hour. Successful save, restrained. Restrained creature can repeat the save at end of each of its turns, ending the effect on itself on a success. Charm vanishes once used.",
+		usages : 1,
+		recovery : "never",
+		action : [["action", ""]],
+	},
+	"many things" : {
+		name : "Charm of Many Things",
+		description : "I am infused with a burst of magic from a Deck of Many Things. As an action, I can touch a willing creature other than myself and bestow the effect of a single randomly determined card from the deck upon the target. Charm vanishes once used.",
+		usages : 1,
+		recovery : "never",
+		action : [["action", ""]],
+	},
+	"ruin" : {
+		name : "Charm of Ruin",
+		description : "As an action, I can touch a nonmagical object, or a section of a larger nonmagical object, that fits in a 5-foot cube. The target is reduced to dust. Charm vanishes once used 3 times.",
+		usages : 3,
+		recovery : "never",
+		action : [["action", ""]],
+	},
+	"comet" : {
+		name : "Charm of the Comet",
+		description : "As an action, I can force a creature I can see within 60 feet of me to focus on me. For 1 minute, creatures other than myself and the target are invisible to the target. The effect ends if any creature other than me damages the target or forces the target to make a saving throw. Charm vanishes once used 3 times.",
+		usages : 3,
+		recovery : "never",
+		action : [["action", ""]],
+	},
+	"donjon" : {
+		name : "Charm of The Donjon",
+		description : "I can cast Otiluke's Resilient Sphere, requiring no spell components and using my Intelligence, Wisdom, or Charisma as the spellcasting ability (my choice). Charm vanishes once used 3 times.",
+		usages : 3,
+		recovery : "never",
+		spellFirstColTitle : "Ch",
+		spellcastingAbility : [4, 5, 6],
+		spellcastingBonus : [{
+		name : "1 charge",
+		spells : ["otiluke's resilient sphere"],
+		selection : ["otiluke's resilient sphere"],
+		firstCol : "1",
+		}],
+		spellChanges : {
+		"otiluke's resilient sphere" : {
+			components : "",
+			changes : "My Charm of the Donjon allows me to cast Otiluke's Resilient Sphere three times without requiring components."
+			}
+		},
+	},
+	"fates" : {
+		name : "Charm of the Fates",
+		description : "I can tug on the threads of fate to tweak circumstance in my favor. After I make an ability check, an attack roll, or a saving throw, I can roll a d10 and add it to the total, potentially turning failure into success. Charm vanishes once used 3 times.",
+		usages : 3,
+		recovery : "never",
+	},
+	"flames" : {
+		name : "Charm of the Flames",
+		description : "As an action, I can summon two bearded devils in unoccupied spaces within 60 ft. They obey my commands, take their turns immediately after mine, and can't summon other devils, They remain for 10 min, until it or I die, or until I dismiss one or both as an action. Charm vanishes once used 3 times.",
+		usages : 3,
+		recovery : "never",
+		action : [["action", " (summon/dismiss)"]],
+	},
+	"fool" : {
+		name : "Charm of the Fool",
+		description : "I can cast Major Image, requiring no spell components and using my Intelligence, Wisdom, or Charisma as the spellcasting ability (my choice). When I cast the spell in this way, it lasts its full duration with no concentration required. Charm vanishes once used 3 times.",
+		usages : 3,
+		recovery : "never",
+		spellFirstColTitle : "Ch",
+		spellcastingAbility : [4, 5, 6],
+		spellcastingBonus : [{
+		name : "1 charge",
+		spells : ["major image"],
+		selection : ["major image"],
+		firstCol : "1",
+		}],
+		spellChanges : {
+		"major image" : {
+			components : "",
+			duration : "10 min",
+			changes : "My Charm of the Fool allows me to cast Major Image three times without requiring components and lasts its full duration with no concentration required."
+			}
+		},
+	},
+	"gem" : {
+		name : "Charm of the Gem",
+		description : "As an action, I create a 30-ft cone of 4d10 10 gp value gems originating from me. Each creature in that area must make a DC 15 Dex save. Failed save takes bludgeoning damage equal to the number of gems created. Successful save takes half. The gems remain after the effect ends. Charm vanishes once used 3 times.",
+		usages : 3,
+		recovery : "never",
+		action : [["action", ""]],
+	},
+	"jester" : {
+		name : "Charm of the Jester",
+		description : "I can cast Tasha's Hideous Laughter, requiring no spell components and using my Intelligence, Wisdom, or Charisma as the spellcasting ability (my choice). Charm vanishes once used 3 times.",
+		usages : 3,
+		recovery : "never",
+		spellFirstColTitle : "Ch",
+		spellcastingAbility : [4, 5, 6],
+		spellcastingBonus : [{
+		name : "1 charge",
+		spells : ["tasha's hideous laughter"],
+		selection : ["tasha's hideous laughter"],
+		firstCol : "1",
+		}],
+		spellChanges : {
+		"tasha's hideous laughter" : {
+			components : "",
+			changes : "My Charm of the Donjon allows me to cast Tasha's Hideous Laughter three times without requiring components."
+			}
+		},
+	},
+	"key" : {
+		name : "Charm of the Key",
+		description : "As a bonus action, I can touch a nonmagical melee weapon and imbue it with magic for 1 hour. For the duration, the weapon deals an extra 1d8 force damage on a hit and deals double damage to objects and structures. Charm vanishes once used 3 times.",
+		usages : 3,
+		recovery : "never",
+		action : [["bonus action", ""]],
+	},
+	"knight" : {
+		name : "Charm of the Knight",
+		description : "As an action, I can summon two neutral good Celestial knights in unoccupied spaces within 60 ft. They act as my allies and take their turns immediately after mine. The knights remain for 10 minutes, until they or I die, or until I dismiss one or both of them as an action. Charm vanishes once used 3 times.",
+		usages : 3,
+		recovery : "never",
+		action : [["action", " (summon/dismiss)"]],
+	},
+	"moon" : {
+		name : "Charm of the Moon",
+		description : "As an action, I make a minor wish. When I do, I create the effects of a spell of 5th level or lower. The spell takes effect as part of this action and requires no spell components. Your Intelligence, Wisdom, or Charisma is the spellcasting ability for this spell (your choice). Once you use this charm, it vanishes from you.",
+		usages : 1,
+		recovery : "never",
+		action : [["action", " (up to 5th lvl spell)"]],
+	},
+	"puzzle" : {
+		name : "Charm of the Puzzle",
+		description : "I can cast Hypnotic Pattern, requiring no spell components and using my Intelligence, Wisdom, or Charisma as the spellcasting ability (my choice). Charm vanishes once used 3 times.",
+		usages : 3,
+		recovery : "never",
+		spellFirstColTitle : "Ch",
+		spellcastingAbility : [4, 5, 6],
+		spellcastingBonus : [{
+		name : "1 charge",
+		spells : ["hypnotic pattern"],
+		selection : ["hypnotic pattern"],
+		firstCol : "1",
+		}],
+		spellChanges : {
+		"hypnotic pattern" : {
+			components : "",
+			changes : "My Charm of the Puzzle allows me to cast Hypnotic Pattern three times without requiring components."
+			}
+		},
+	},
+	"rogue" : {
+		name : "Charm of the Rogue",
+		description : "I can cast Mislead, requiring no spell components and using my Intelligence, Wisdom, or Charisma as the spellcasting ability (my choice). When I cast the spell in this way, it lasts its full duration with no concentration required. Charm vanishes once used 3 times.",
+		usages : 3,
+		recovery : "never",
+		spellFirstColTitle : "Ch",
+		spellcastingAbility : [4, 5, 6],
+		spellcastingBonus : [{
+		name : "1 charge",
+		spells : ["mislead"],
+		selection : ["mislead"],
+		firstCol : "1",
+		}],
+		spellChanges : {
+		"mislead" : {
+			components : "",
+			duration : "1 h",
+			changes : "My Charm of the Rogue allows me to cast Mislead three times without requiring components and lasts its full duration with no concentration required."
+			}
+		},
+	},
+	"sage" : {
+		name : "Charm of the Sage",
+		description : "I can cast Divination, requiring no spell components and using my Intelligence, Wisdom, or Charisma as the spellcasting ability (my choice). Charm vanishes once used 3 times.",
+		usages : 3,
+		recovery : "never",
+		spellFirstColTitle : "Ch",
+		spellcastingAbility : [4, 5, 6],
+		spellcastingBonus : [{
+		name : "1 charge",
+		spells : ["divination"],
+		selection : ["divination"],
+		firstCol : "1",
+		}],
+		spellChanges : {
+		"divination" : {
+			components : "",
+			changes : "My Charm of the Sage allows me to cast Divination three times without requiring components."
+			}
+		},
+	},
+	"skull" : {
+		name : "Charm of the Skull",
+		description : "As a bonus action, my equipment vanishes and I am a Wraith (not alignment, personality; Int, Wis, and Cha scores; passive Perception, and languages.) I can't Create Specter. This lasts for 1 minute, until Wraith reduced to 0 hp (extra dmg spills over), or use a bonus action to end it. Charm vanishes once used 3 times.",
+		descriptionFull : "As a bonus action, I can transform into a deathly apparition. My game statistics are replaced by those of a Wraith, except for my alignment and personality; my Intelligence, Wisdom, and Charisma scores; and my passive Wisdom (Perception) score and languages. I don't have the wraith's Create Specter ability. My equipment vanishes when I transform but returns when the transformation ends. The transformation lasts for 1 minute, until my wraith form is reduced to 0 hit points, or until I use a bonus action to end it. If the wraith form is reduced to 0 hit points and there is still damage left over, the remaining damage applies to my normal hit points. Charm vanishes once used 3 times.",
+		usages : 3,
+		recovery : "never",
+		action : [["bonus action", " {transform/end)"]],
+	},
+	"star" : {
+		name : "Charm of the Star",
+		description : "I can cast Enhance Ability, requiring no spell components and using my Intelligence, Wisdom, or Charisma as the spellcasting ability (my choice). When I cast the spell in this way, it lasts its full duration with no concentration required. Charm vanishes once used 3 times.",
+		usages : 3,
+		recovery : "never",
+		spellFirstColTitle : "Ch",
+		spellcastingAbility : [4, 5, 6],
+		spellcastingBonus : [{
+		name : "1 charge",
+		spells : ["enhance ability"],
+		selection : ["enhance ability"],
+		firstCol : "1",
+		}],
+		spellChanges : {
+		"enhance ability" : {
+			components : "",
+			duration : "1 h",
+			changes : "My Charm of the Star allows me to cast Enhance Ability three times without requiring components and lasts its full duration with no concentration required."
+			}
+		},
+	},
+	"sun" : {
+		name : "Charm of the Sun",
+		description : "I learn the Light cantrip if I don't already know it. I can cast Sunburst, requiring no spell components and using my Intelligence, Wisdom, or Charisma as the spellcasting ability (my choice). Once used, the charm vanishes from me, and I unlearn the Light cantrip gained from this charm.",
+		usages : 1,
+		recovery : "never",
+		spellFirstColTitle : "Ch",
+		spellcastingAbility : [4, 5, 6],
+		spellcastingBonus : [{
+		name : "Light",
+		spells : ["light"],
+		selection : ["light"],
+		firstCol : "atwill"
+		}, {
+		name : "1 charge",
+		spells : ["sunburst"],
+		selection : ["sunburst"],
+		firstCol : "1"
+		}],
+		spellChanges : {
+		"sunburst" : {
+			components : "",
+			changes : "My Charm of the Sun allows me to cast Sunburst one time without requiring components."
+			}
+		},
+	},
+	"talons" : {
+		name : "Charm of the Talons",
+		description : "I can cast Dispel Magic, requiring no spell components and using my Intelligence, Wisdom, or Charisma as the spellcasting ability (my choice). If I successfully end any spells with it, I gain 1d6 temporary hit points for each spell level of the highest-level spell ended. Charm vanishes once used 3 times.",
+		usages : 3,
+		recovery : "never",
+		spellFirstColTitle : "Ch",
+		spellcastingAbility : [4, 5, 6],
+		spellcastingBonus : [{
+		name : "1 charge",
+		spells : ["dispel magic"],
+		selection : ["dispel magic"],
+		firstCol : "1",
+		}],
+		spellChanges : {
+		"dispel magic" : {
+			components : "",
+			description : "Dispel spells on crea/object; if > SL, DC 10+SL spellcasting ability check; gain 1d6 thp per highest dispel",
+			changes : "My Charm of the Talons allows me to cast Dispel Magic three times without requiring components and if I successfully end any spells with it, I gain 1d6 temporary hit points for each spell level of the highest-level spell ended."
+			}
+		},
+	},
+	"throne" : {
+		name : "Charm of the Throne",
+		description : "I can cast Mordenkainen's Magnificent Mansion, requiring no spell components and using my Intelligence, Wisdom, or Charisma as the spellcasting ability (my choice). Charm vanishes once used 3 times.",
+		usages : 3,
+		recovery : "never",
+		spellFirstColTitle : "Ch",
+		spellcastingAbility : [4, 5, 6],
+		spellcastingBonus : [{
+		name : "1 charge",
+		spells : ["mordenkainen's magnificent mansion"],
+		selection : ["mordenkainen's magnificent mansion"],
+		firstCol : "1",
+		}],
+		spellChanges : {
+		"mordenkainen's magnificent mansion" : {
+			components : "",
+			changes : "My Charm of the Throne allows me to cast Mordenkainen's Magnificent Mansion three times without requiring components."
+			}
+		},
+	},
+	"void" : {
+		name : "Charm of the Void",
+		description : "I can cast Banishment, requiring no spell components and using my Intelligence, Wisdom, or Charisma as the spellcasting ability (my choice). Charm vanishes once used 3 times.",
+		usages : 3,
+		recovery : "never",
+		spellFirstColTitle : "Ch",
+		spellcastingAbility : [4, 5, 6],
+		spellcastingBonus : [{
+		name : "1 charge",
+		spells : ["Banishment"],
+		selection : ["Banishment"],
+		firstCol : "1",
+		}],
+		spellChanges : {
+		"banishment" : {
+			components : "",
+			changes : "My Charm of the Void allows me to cast Banishment three times without requiring components."
+			}
+		},
+	},
+};
+
+// Add Charm from Heroes’ Feast: Saving the Children’s Menu
+SourceList["HFStCM"] = {
+	name : "Heroes’ Feast: Saving the Children’s Menu",
+	abbreviation : "HFStCM",
+	group : "Adventure Books",
+	campaignSetting : "Forgotten Realms",
+	url : "https://www.dndbeyond.com/marketplace/adventures/heroes-feast-saving-the-childrens-menu",
+	date : "2023/11/22"
+};
+AddFeatureChoice(FeatsList["charms"], false, "the Stumblenoodle", {
+	name : "Charm of the Stumblenoodle",
+    source : [["HFStCM"]],
+    rarity : "rare",
+    description: "When a creature I can see within 30 ft of me moves, I can use my reaction to give the creature the prone condition. Allies of the target within 30 ft of it must succeed on a DC 16 Wis save or be stunned until the end of their next turn as they laugh at their friend's misfortune. The charm vanishes from me after 3 uses.",
+    descriptionLong: "When a creature you can see within 30 feet of you moves, you can use your reaction to give the creature the prone condition. Allies of the target who are within 30 feet of the target must succeed on a DC 16 Wisdom saving throw or have the stunned condition until the end of their next turn as they laugh uncontrollably at their friend's misfortune. Once used three times, the charm vanishes from you.",
+    descriptionFull: "...",
+    usages : 3,
+    recovery : "Never",
+	action : ["reaction", ""],
+});
+
+//Adding the Boons from the 2014 DMG that weren't reprinted as Epic Boon Feats [contributions by AelarTheElfRogue and Nod_Hero]
+FeatsList["epic boon"] = {
+	name: "Epic Boon",
+	source: [["D", 232]],
+	descriptionFull : "",
+    description : "",
+    allowDuplicates : true,
+    choices : ["Boon of High Magic","Boon of Immortality","Boon of Invincibility","Boon of Luck","Boon of Magic Resistance","Boon of Peerless Aim","Boon of Perfect Health","Boon of Planar Travel","Boon of Quick Casting","Boon of Resilience","Boon of Spell Mastery","Boon of the Fire Soul","Boon of the Stormborn","Boon of the Unfettered","Boon of Undetectibility"],
+    "boon of high magic": {
+        description: "I gain one 9th-level spell slot, provided I already have one.",
+        addMod : { type : "", field : "P6.SSfront.SpellSlots.CheckboxesSet.lvl9", mod : 1, text: "I gain 1 additional 9th level spell slot" },
+    },
+    "boon of immortality": {
+        description: "I stop aging. I am immune to any effect that would age me, and I can't die from old age.",
+        savetxt : {
+            immune : ["aging effects"],
+        },
+    },
+    "boon of invincibility": {
+        description: "When I take damage from any source, I can reduce that damage to 0. Once I use this boon, I can't use it again until I finish a short rest.",
+        usages : 1,
+        recovery : "short rest"
+
+    },
+    "boon of luck": {
+        description: "I can add a dlO roll to any ability check, attack roll, or saving throw I make. Once I use this boon, I can't use it again until I finish a short rest.",
+        usages : 1,
+        recovery : "short rest"
+    },
+    "boon of magic resistance": { 
+        description: "I have advantage on saving throws against spells and other magical effects.",
+        savetxt : {
+            adv_vs : ["magic"]
+        },
+    },
+    "boon of peerless aim": {
+        description: "I can give myself a +20 bonus to a ranged attack roll I make. Once I use this boon, I can't use it again until I finish a short rest.",
+        usages : 1,
+        recovery : "short rest"
+    },
+    "boon of perfect health": {
+        description: "I am immune to all diseases and poisons, and I have advantage on Constitution saving throws.",
+        savetxt : { 
+            immune : ["disease","poison"] 
+        },
+        eval : function () {
+            SetProf("advantage", true, ["Constitution", true], "Boon of Perfect Health");
+        },
+        removeeval : function () {
+            SetProf("advantage", false, ["Constitution", true], "Boon of Perfect Health");
+        }
+    },
+    "boon of planar travel": {
+        description: "Once per short rest, as an Action I can cast the Plane Shift spell (no spell slot or components required), targeting myself only, to travel to or from a single plane of existance chosen when I receive this boon.",
+        limfeaname : "Plane Shift",
+        usages : 1,
+        recovery : "short rest",
+        spellcastingBonus : {
+            name : "Boon of Planar Travel",
+            spells : ["plane shift"],
+            selection : ["plane shift"],
+            firstCol : 'oncesr'
+        },
+        spellChanges : {
+            "plane shift" : {
+                components : "",
+                compMaterial : "",
+				range : "Self", 
+		changes : "With the Boon of Planar Travel, I can cast PLane Shift on myself without components."
+            }
+        }
+    },
+    "boon of quick casting": {
+        description: "I choose one of my spells of 1st through 3rd level that has a casting time of 1 action. That spell's casting time is now 1 bonus action for me.",
+    },
+    "boon of resilience": {
+        description: "I have resistance to bludgeoning/piercing/slashing damage from nonmagical weapons",
+        dmgres : [["Bludgeoning", "Bludg. (nonmagical)"], ["Piercing", "Pierc. (nonmagical)"], ["Slashing", "Slash. (nonmagical)"]]
+    },
+    "boon of spell mastery": {
+        description: "I choose one 1st-level sorcerer, warlock, or wizard spell that I can cast. I can now cast that spell at its lowest level without expending a spell slot.",
+    },
+    "boon of the fire soul": {
+        description: "I have immunity to fire damage. I can also cast burning hands (save DC 15) at will, without using a spell slot or any components.",
+        savetxt : {
+            immune : ["fire"],
+        },
+        spellcastingBonus : {
+            name : "Boon of the Fire Soul",
+            spells : ["burning hands"],
+            selection : ["burning hands"],
+            firstCol : 'atwill'
+        },
+        spellChanges : {
+            "burning hands" : {
+                components : "",
+                compMaterial : "",
+                changes : "With the Boon of the Fire Soul, I can cast Burning Hands without components."
+            }
+        }
+    },
+    "boon of the stormborn": {
+        description: "I have immunity to lightning and thunder damage. I can also cast thunderwave (save DC 15) at will, without using a spell slot or any components.",
+        savetxt : {
+            immune : ["thunder","lightning"],
+        },
+        spellcastingBonus : {
+            name : "Boon of the Stormborn",
+            spells : ["thunderwave"],
+            selection : ["thunderwave"],
+            firstCol : 'atwill'
+        },
+        spellChanges : {
+            "thunderwave" : {
+                components : "",
+                compMaterial : "",
+                changes : "With the Boon of the Stormborn, I can cast Thunderwave without components."
+            }
+        }
+    },
+    "boon of the unfettered": {
+        description: "I have advantage on ability checks made to resist being grappled. In addition, I can use an action to automatically escape a grapple or free myself of restraints of any kind.",
+        savetxt : {
+            adv_vs : ["resisting grapple"]
+        },
+        action : [["action"," (escape grapple/restraints)"]]
+    },
+    "boon of undetectibility": {
+        description: "I gain a +10 bonus to Dexterity (Stealth) checks, and I can't be detected or targeted by divination magic, including scrying sensors .",
+        addMod : { type : "skill", field : "Stealth", mod : "10", text : "I gain a +10 bonus to Stealth checks" },
+    },
+};
+
+// Add Chwinga Charms (also switched to feats to match the 2024 DMG Code [contributed by Nod_Hero]
+FeatsList["chwinga charm"] = {
+	name : "Chwinga Charm",
+	source : [["D", 228],["RotF", 283],["CM", 212],["S:AiS", 17]],
+	type : "wondrous item",
+	rarity : "rare",
+	descriptionFull : "Different types of chwinga charms exist, each with a different effect.",
+	allowDuplicates : true,
+	choices : ["Air Bubbles", "Animal Conjuring", "Biting Cold", "Bounty", "Cold Resistance", "Darkvision", "Feather Falling", "Heroism", "Instant Tools", "Restoration", "Snowball Strike", "The Ice Troll", "The Mirage", "The Slayer", "The Snow Walker", "The Traveler's Haven", "The Water Bearer", "Vitality"],
+	"air bubbles" : {
+		name : "Chwinga Charm - Air Bubbles",
+		source : [["S:AiS", 17]],
+		description : "As an action, I can cast the Air Bubble spell. The charm disappears after 3 uses.",
+		usages : 3,
+		recovery : "never",
+		spellFirstColTitle : "Ch",
+		spellcastingBonus : [{
+		name : "1 charge",
+		spells : ["air bubble"],
+		selection : ["air bubble"],
+		firstCol : "1",
+		}],
+		action : [["action", ""]]
+	},
+	"animal conjuring" : {
+		name : "Chwinga Charm - Animal Conjuring",
+		source : [["D", 228]],
+		description : "As an action, I can cast the Conjure Animals spell (3rd-level version). The charm disappears after 3 uses.",
+		usages : 3,
+		recovery : "never",
+		spellFirstColTitle : "Ch",
+		spellcastingBonus : [{
+		name : "1 charge",
+		spells : ["conjure animals"],
+		selection : ["conjure animals"],
+		firstCol : "1",
+		}],
+		action : [["action", ""]]
+	},
+	"biting cold" : {
+		name : "Chwinga Charm - Biting Cold",
+		source : [["RotF", 283]],
+		description : "As a bonus action, I can can expend 1 of the charm's charges to wreathe my weapon attacks with biting cold for 1 minute. Until this effect ends, I deal an extra 1d6 cold damage when I hit with a melee or ranged weapon attack. The charm disappears after 3 uses.",
+		descriptionFull : "As a bonus action, you can can expend 1 of the charm's charges to wreathe your weapon attacks with biting cold for 1 minute. Until this effect ends, you deal an extra 1d6 cold damage when you hit with a melee or ranged weapon attack. The charm disappears after 3 uses.",
+		usages : 3,
+		recovery : "never",
+		action : [["bonus action", ""]]
+	},
+	"bounty" : {
+		name : "Chwinga Charm - Bounty",
+		source : [["RotF", 283]],
+		description : "As an action, I can can expend 1 of the charm's charges to cast the Create Food And Water spell, requiring no components. The charm disappears after 3 uses.",
+		usages : 3,
+		recovery : "never",
+		spellFirstColTitle : "Ch",
+		spellcastingBonus : [{
+		name : "1 charge",
+		spells : ["create food and water"],
+		selection : ["create food and water"],
+		firstCol : "1",
+		}],
+		action : [["action", ""]]
+	},
+	"cold resistance" : {
+		name : "Chwinga Charm - Cold Resistance",
+		source : [["RotF", 283]],
+		description : "As an action, I can can expend the charm to give myself resistance to cold damage for 24 hours.",
+		usages : 1,
+		recovery : "never",
+		action : [["action", ""]]
+	},
+	"darkvision" : {
+		name : "Chwinga Charm - Darkvision",
+		source : [["D", 228]],
+		description : "As an action, I can expend 1 of the charm's charges to cast the Darkvision spell, no components required. The charm disappears after 3 uses.",
+		usages : 3,
+		recovery : "never",
+		spellFirstColTitle : "Ch",
+		spellcastingBonus : [{
+		name : "1 charge",
+		spells : ["darkvision"],
+		selection : ["darkvision"],
+		firstCol : "1",
+		}],
+		action : [["action", ""]],
+	},
+	"feather falling" : {
+		name : "Chwinga Charm - Feather Falling",
+		source : [["D", 228]],
+		description : "This charm grants me the benefits of a Ring of Feather Falling for 10 days, after which the charm vanishes from me. When I fall, I descend 60 feet per round and take no damage from falling.",
+		usages : "",
+		recovery : "never",
+		additional : "10 days",
+	},
+	"heroism" : {
+		name : "Chwinga Charm - Heroism",
+		source : [["D", 228]],
+		description : "As an action, I can can expend the charm to give myself the benefits of a Potion of Heroism. I gain 10 temporary hit points that last for 1 hour and am under the effect of the Bless spell (no concentration required).",
+		usages : 1,
+		recovery : "never",
+		action : [["action", ""]]
+	},
+	"instant tools" : {
+		name : "Chwinga Charm - Instant Tools",
+		source : [["S:AiS", 17]],
+		description : "This charm allows me to magically conjure a set of artisan's tools, navigator's tools, or thieves' tools. The conjured tools appear either in my hand or somewhere else in my space (my choice). Once used, this charm goes away, but the tools remain.",
+		usages : 1,
+		recovery : "never",
+	},
+	"restoration" : {
+		name : "Chwinga Charm - Restoration",
+		source : [["D", 228]],
+		description : "This Charm has 6 charges. I can use an action to expend some of its charges to cast one of the following spells:\n Greater Restoration (4 charges) or Lesser Restoration (2 charges). The Charm vanishes once all its charges have been expended.",
+		usages : 10,
+		recovery : "never",
+		action : [["action", ""]],
+		spellFirstColTitle : "Ch",
+		spellcastingBonus : [{
+			name : "2 charges",
+			spells : ["lesser restoration"],
+			selection : ["lesser restoration"],
+			firstCol : 2
+		}, {
+			name : "4 charges",
+			spells : ["greater restoration"],
+			selection : ["greater restoration"],
+			firstCol : 4
+		}],
+	},
+	"snowball strike" : {
+		name : "Chwinga Charm - Snowball Strike",
+		source : [["RotF", 283]],
+		description : "As a bonus action, I can can expend 1 of the charm's charges to create a magical snowball in my hand and throw it. The snowball is a magic ranged weapon , has a 20/60 range, deals 1d4 cold damage, and scores a critical hit on a roll of 19 or 20. On a critical hit, the target is blinded until the end of its next turn",
+		usages : 5,
+		recovery : "never",
+		action : [["bonus action", ""]]
+	},
+	"the ice troll" : {
+		name : "Chwinga Charm - The Ice Troll",
+		source : [["RotF", 283]],
+		description : "As a reaction when I take cold damage, I can expend the charm to reduce the damage to 0. I regain a number of hit points equal to half the cold damage I would have taken.",
+		usages : 1,
+		recovery : "never",
+		action : [["reaction", "Chwinga Charm (cold damage)"]]
+	},
+	"the mirage" : {
+		name : "Chwinga Charm - The Mirage",
+		source : [["CM", 212]],
+		description : "As an action, I can cast the Hallucinatory Terrain spell (save DC 15). Once used, this charm vanishes from me.",
+		usages : 1,
+		recovery : "never",
+		spellFirstColTitle : "Ch",
+		fixedDC : 15,
+		spellcastingBonus : [{
+		name : "1 charge",
+		spells : ["hallucinatory terrain"],
+		selection : ["hallucinatory terrain"],
+		firstCol : "1",
+		}],
+		action : [["action", ""]]
+	},
+	"the slayer" : {
+		name : "Chwinga Charm - The Slayer",
+		source : [["D", 228]],
+		description : "One sword in my possession becomes a Dragon Slayer or Giant Slayer (DM's choice) for the next 9 days. The charm then vanishes from me, and the weapon returns to normal.",
+		usages : "9 days",
+		recovery : "never",
+	},
+	"the snow walker" : {
+		name : "Chwinga Charm - The Snow Walker",
+		source : [["RotF", 283]],
+		description : "As an action, I can expend 1 of the charm's charges to gain these 24 hour benefits: I can see 60 ft through areas heavily obscured by snow, I am immune to the effects of extreme cold (described in DMG), and I and my allies within 15 feet of me ignore snow/ice difficult terrain. The charm disappears after 3 uses.",
+		usages : 3,
+		recovery : "never",
+		action : [["action", ""]]
+	},
+	"the traveler's haven" : {
+		name : "Chwinga Charm - The Traveler's Haven",
+		source : [["RotF", 283]],
+		description : "As an action, I can expend 1 of the charm's charges to cast the Leomund's Tiny Hut spell, no components required. The charm disappears after 3 uses.",
+		usages : 3,
+		recovery : "never",
+		spellFirstColTitle : "Ch",
+		spellcastingBonus : [{
+		name : "1 charge",
+		spells : ["leomund's tiny hut"],
+		selection : ["leomund's tiny hut"],
+		firstCol : "1",
+		}],
+	},
+	"the water bearer" : {
+		name : "Chwinga Charm - The Water Bearer",
+		source : [["CM", 212]],
+		description : "This charm allows me to create up to 1 gallon of fresh water, which fills one or more empty containers in my possession. I can do this up to thrice per day for 10 days, after which this charm vanishes.",
+		descriptionFull : "This charm allows you to create up to 1 gallon of fresh water, which fills one or more empty containers in your possession. You can do this up to thrice per day for 10 days, after which this charm vanishes from you.",
+		usages : 3,
+		recovery : "day",
+		additional : "10 days"
+	},
+	"vitality" : {
+		name : "Chwinga Charm - Vitality",
+		source : [["D", 228]],
+		description : "As an action, I can use the charm to give myself the benefit of a Potion of Vitality. I remove any Exhaustion levels I'm suffering and am cured of the Poisoned condition. For the next 24 hours, I regain the maximum number of HP for any Hit Point Die I spend.",
+		descriptionFull : "As a Magic action, you can expend the charm to give yourself the benefit of a Potion of Vitality. It removes any Exhaustion levels you have and ends the Poisoned condition on you. For the next 24 hours, you regain the maximum number of Hit Points for any Hit Point Die you spend.",
+		usages : 1,
+		recovery : "never",
+		action : [["action", ""]]
+	}
+};
