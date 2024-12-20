@@ -364,7 +364,7 @@ MagicItemsList["al staffs"] = {
 			times : 3
 		},
 		action : [["reaction", " (reflect enchant. spell)"]],
-		weaponsAdd : { select : "Staff of Charming", options : ["Staff of Charming"] },
+		weaponsAdd : { select : ["Staff of Charming"], options : ["Staff of Charming"] },
 		},
 	"staff of defense (sj-dc-bst-6)" : {
 		name : "Staff of Defense (SJ-DC-BST-6)",
@@ -387,7 +387,7 @@ MagicItemsList["al staffs"] = {
 		additional : "regains 1d6+4",
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
-		weaponsAdd : { select : "Staff of Defense", options : ["Staff of Defense"] },
+		weaponsAdd : { select : ["Staff of Defense"], options : ["Staff of Defense"] },
 		spellcastingBonus : [{
 			name : "1 charge",
 			spells : ["mage armor"],
@@ -429,7 +429,7 @@ MagicItemsList["al staffs"] = {
 		additional : "regains 1d6+4",
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
-		weaponsAdd : { select : "Xuanwu Jade Shuttle, Staff of Defense", options : ["Xuanwu Jade Shuttle, Staff of Defense"] },
+		weaponsAdd : { select : ["Xuanwu Jade Shuttle, Staff of Defense"], options : ["Xuanwu Jade Shuttle, Staff of Defense"] },
 		spellcastingBonus : [{
 			name : "1 charge",
 			spells : ["mage armor"],
@@ -472,7 +472,7 @@ MagicItemsList["al staffs"] = {
 		additional : "regains 1d6+4",
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
-		weaponsAdd : { select : "Black Root, Staff of Defense", options : ["Black Root, Staff of Defense"] },
+		weaponsAdd : { select : ["Black Root, Staff of Defense"], options : ["Black Root, Staff of Defense"] },
 		spellcastingBonus : [{
 			name : "1 charge",
 			spells : ["mage armor"],
@@ -513,7 +513,7 @@ MagicItemsList["al staffs"] = {
 		additional : "regains 1d6+4",
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
-		weaponsAdd : { select : "Staff of Defense", options : ["Staff of Defense"] },
+		weaponsAdd : { select : ["Staff of Defense"], options : ["Staff of Defense"] },
 		spellcastingBonus : [{
 			name : "1 charge",
 			spells : ["mage armor"],
@@ -1698,7 +1698,7 @@ MagicItemsList["al staffs"] = {
 		source : [["AL","S5"]],
 		rarity : "very rare",
 		magicItemTable : "H",
-		description : "This giant-sized quarterstaff is shaped like a bolt of lightning, and automatically resizes to fit the hands of its wielder. The +2 quarterstaff has 5 special actions, each 1/dawn. 'Lightning'- when hit, 2d6 lightning. 'Thunder'- when hit, DC 17 Con or stunned(1 rd). 'Lightning Strike'- 5x120ft, DC 17 Dex, 9d6 lightning or 1/2. 'Thunderclap'- w/i 60ft, DC 17 Con or 2d6 thunder + deaf(1 min) (1/2 dmg on save). 'Thunder & Lightning'- Lightning Strike & Thunderclap at same time.",
+		description : "This giant-sized quarterstaff is shaped like a bolt of lightning, and automatically resizes to fit my hands. The +2 quarterstaff has 5 special actions, each 1/dawn. 'Lightning'- when hit, 2d6 lightning. 'Thunder'- when hit, DC 17 Con or stunned(1 rd). 'Lightning Strike'- 5x120ft, DC 17 Dex, 9d6 lightning or 1/2. 'Thunderclap'- w/i 60ft, DC 17 Con or 2d6 thunder + deaf(1 min) (1/2 dmg on save). 'Thunder & Lightning'- Lightning Strike & Thunderclap at same time.",
 		descriptionFull : "This giant-sized quarterstaff is shaped like a bolt of lightning, and automatically resizes to fit the hands of its wielder. The staff can be wielded as a magic quarterstaff that grants a +2 bonus to attack and damage rolls made with it. It also has the following additional properties. When one of these properties is used, it can't be used again until the next dawn.\n   " + toUni("Lightning") + ". When you hit with a melee attack using the staff, you can cause the target to take an extra 2d6 lightning damage.\n   " + toUni("Thunder") + ". When you hit with a melee attack using the staff, you can cause the staff to emit a crack of thunder, audible out to 300 feet. The target you hit must succeed on a DC 17 Constitution saving throw or become stunned until the end of your next turn.\n   " + toUni("Lightning Strike") + ". You can use an action to cause a bolt of lightning to leap from the staff's tip in a line that is 5 feet wide and 120 feet long. Each creature in that line must make a DC 17 Dexterity saving throw, taking 9d6 lightning damage on a failed save, or half as much damage on a successful one.\n   " + toUni("Thunderclap") + ". You can use an action to cause the staff to issue a deafening thunderclap, audible out to 600 feet. Each creature within 60 feet of you (not including you) must make a DC 17 Constitution saving throw. On a failed save, a creature takes 2d6 thunder damage and becomes deafened for 1 minute. On a successful save, a creature takes half damage and isn't deafened.\n   " + toUni("Thunder and Lightning") + ". You can use an action to use the Lightning Strike and Thunderclap properties at the same time. Doing so doesn't expend the daily use of those properties, only the use of this one.",
 		attunement : true,
 		allowDuplicates : true,
@@ -2191,8 +2191,8 @@ MagicItemsList["al staffs"] = {
 		source : [["AL","WBW-DC"]],
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "This quarterstaff, once gnarled & sickly, now sprouts with bioluminescent flowers. As a bonus action, the flowers glow with a beautiful blue light that sheds 10 ft bright light & another 10 ft dim, or stop. The +2 staff also adds +2 to spell atk rolls & has 10 charges for its spells (see sheet), regaining 1d6+4 at dawn, 5% chance of losing magic when last charge used. As an action, plant it into the ground & expend 1 charge to grow it into a 60 ft tree.",
-		descriptionLong : "This staff, once gnarled and sickly, now sprouts with flowers after being dipped in the poison cure. The flowers are bioluminescent and can be made to glow with a beautiful blue light as a bonus action. When glowing, it sheds 10 ft bright light & 10 ft dim. The +2 quarterstaff adds +2 to spell attack rolls & has 10 charges, regaining 1d6+4 at dawn. If the last charge is used, roll a d20. On a 1 it turns nonmagical. As an action, expend charges to cast 1 of these spells using my DC: Pass Without Trace (0 charges), Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges). I can also use 1 charge & an action to plant the staff in fertile earth & turn it into a 60 ft tree. It has a 5-ft-diameter trunk & a 20-ft radius of branches at the top. Speak the command word (action) while touching the tree to return it to a staff.",
+		description : "This staff, once gnarled & sickly, now sprouts with bioluminescent flowers. As a bonus action, the flowers glow with a beautiful blue light that sheds 10 ft bright light & another 10 ft dim, or stop. The +2 staff also adds +2 to spell atk rolls & has 10 charges for its spells (see sheet), regaining 1d6+4 at dawn, 5% chance of losing magic when last charge used. As an action, plant it into the ground & expend 1 charge to grow it into a 60 ft tree.",
+		descriptionLong : "This staff, once gnarled and sickly, now sprouts with flowers after being dipped in the poison cure. The flowers are bioluminescent and can be made to glow with a beautiful blue light as a bonus action. When glowing, it sheds 10 ft bright light & 10 ft dim. The +2 staff adds +2 to spell attack rolls & has 10 charges, regaining 1d6+4 at dawn. If the last charge is used, roll a d20. On a 1 it turns nonmagical. As an action, expend charges to cast 1 of these spells using my DC: Pass Without Trace (0 charges), Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges). I can also use 1 charge & an action to plant the staff in fertile earth & turn it into a 60 ft tree. It has a 5-ft-diameter trunk & a 20-ft radius of branches at the top. Speak the command word (action) while touching the tree to return it to a staff.",
 		descriptionFull : "This staff, once gnarled and sickly, now sprouts with flowers and growth after having been dipped in the poison cure. The flowers are bioluminescent and can be made to glow with a beautiful blue light.\n   " + toUni("Beacon") + ". The bearer can use a bonus action to cause the item to shed bright light in a 10-foot radius and dim light for an additional 10 feet, or to extinguish the light.\n   This staff can be wielded as a magic quarterstaff that grants a +2 bonus to attack and damage rolls made with it. While holding it, you have a +2 bonus to spell attack rolls.\n   The staff has 10 charges for the following properties. It regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff loses its properties and becomes a nonmagical quarterstaff.\n   " + toUni("Spells") + ". You can use an action to expend 1 or more of the staff's charges to cast one of the following spells from it, using your spell save DC: Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges).\n   You can also use an action to cast the Pass Without Trace spell from the staff without using any charges.\n   " + toUni("Tree Form") + ". You can use an action to plant one end of the staff in fertile earth and expend 1 charge to transform the staff into a healthy tree. The tree is 60 feet tall and has a 5-foot-diameter trunk, and its branches at the top spread out in a 20-foot radius. The tree appears ordinary but radiates a faint aura of transmutation magic if targeted by Detect Magic. While touching the tree and using another action to speak its command word, you return the staff to its normal form. Any creature in the tree falls when it reverts to a staff.",
 		attunement : true,
 		weight : 4,
@@ -2951,7 +2951,7 @@ MagicItemsList["al swords"] = {
 		attunement : true,
 		description : "This defender greatsword is made out of crude black iron. Inscribed upon the blade in Abyssal is the name “Deathshield.” I have a +3 bonus to atk & dmg rolls made with this magic sword. The 1st time I attack with it on each of my turns, I can transfer (part of) the bonus to AC instead. This AC adjustment remains in affect until my next turn, although I must be holding the sword to gain it.",
 		descriptionFull : "This defender is a greatsword and is made out of crude black iron. Inscribed upon the blade in Abyssal is the name “Deathshield.” You gain a +3 bonus to attack and damage rolls made with this magic weapon.\n   The first time you attack with the sword on each of my turns, you can transfer some or all of the sword's bonus to my Armor Class, instead of using the bonus on any attacks that turn. For example, you could reduce the bonus to my attack and damage rolls to +1 and gain a +2 bonus to AC. The adjusted bonuses remain in effect until the start of my next turn, although you must hold the sword to gain a bonus to AC from it.",
-		weaponsAdd : { select : "Deathshield, Defender Greatsword", options : ["Deathshield, Defender Greatsword"] },
+		weaponsAdd : { select : ["Deathshield, Defender Greatsword"], options : ["Deathshield, Defender Greatsword"] },
 		calcChanges : { //For Defender
 			atkAdd : [
 				function (fields, v) {
@@ -2979,7 +2979,7 @@ MagicItemsList["al swords"] = {
 		magicItemTable : "G",
 		description : "Made of what appears to be roughly crafted pig iron with a crude leather haft, this enormous greatsword possesses a bold Davek rune at the base of both sides of the blade which reads “Wyrmripper”. I have a +1 bonus to attack and damage rolls made with this magic sword. When I hit a creature of the dragon type with this sword, it does 3d6 extra damage.",
 		descriptionFull : "Made of what appears to be roughly crafted pig iron with a crude leather haft, this enormous greatsword possesses a bold Davek rune at the base of both sides of the blade which reads “Wyrmripper”. You gain a +1 bonus to attack and damage rolls made with this magic weapon.\n  When you hit a dragon with this weapon, the dragon takes an extra 3d6 damage of the weapon's type. For the purpose of this weapon, \"dragon\" refers to any creature with the dragon type, including dragon turtles and wyverns.",
-		weaponsAdd : { select : "Wyrmripper, Dragon Slayer Greatsword", options : ["Wyrmripper, Dragon Slayer Greatsword"] },
+		weaponsAdd : { select : ["Wyrmripper, Dragon Slayer Greatsword"], options : ["Wyrmripper, Dragon Slayer Greatsword"] },
 		calcChanges : { //For Dragon Slayer
 			atkAdd : [
 				function (fields, v) {
@@ -3309,7 +3309,7 @@ MagicItemsList["al swords"] = {
 		magicItemTable : "G",
 		attunement : true,
 		allowDuplicates : true,
-		description : "This sword is serrated along the back edge w/ a single, deep fuller running the length of its blade, bifurcating the point. The sharkskin-wrapped hilt ends in a pommel formed of a large, unfinished gems. This sword has a tragic history. Anyone familiar w/ Aleyd Burral & her fall from grace recognizes weapon & treats me suspicously. HP lost to this sword can only be regained by resting. 1/turn, when I hit creature, I can wound target. See full notes.",
+		description : "This sword is serrated along the back edge w/ a single, deep fuller running the length of its blade, bifurcating the point. The sharkskin-wrapped hilt ends in a pommel formed of a large, unfinished gem. This sword has a tragic history. Anyone familiar w/ Aleyd Burral & her fall from grace recognizes weapon & treats me suspicously. HP lost to this sword can only be regained by resting. 1/turn, when I hit creature, I can wound target. See full notes.",
 		descriptionFull : "This sword's blade is serrated along the back edge with a single, deep fuller running the length of its blade, bifurcating the point. The sharkskin-wrapped hilt ends in a pommel fashioned of a large, unfinished gemstone. This sword, however, has a tragic history. Anyone familiar with Aleyd Burral and her fall from grace recognizes the weapon and treat the wielder with suspicion. Hit points lost to this weapon's damage can be regained only through a short or long rest, rather than by regeneration, magic, or any other means.\n   Once per turn, when you hit a creature with an attack using this magic weapon, you can wound the target. At the start of each of the wounded creature's turns, it takes 1d4 necrotic damage for each time you've wounded it, and it can then make a DC 15 Constitution saving throw, ending the effect of all such wounds on itself on a success. Alternatively, the wounded creature, or a creature within 5 feet of it, can use an action to make a DC 15 Wisdom (Medicine) check, ending the effect of such wounds on it on a success.",
 		weaponOptions : {
 			baseWeapon : "greatsword",
@@ -3811,7 +3811,7 @@ MagicItemsList["al swords"] = {
 		descriptionFull : "This bone-crafted, thin bladed scimitar bears intricate engravings of tentacles that snake from blade tip to hilt-a kraken’s head. The remaining tentacles entwine to form the weapons cross guard.\n   Krakenfang radiates a continuous necrotic magic aura. The scimitar’s surface lightens when it draws blood, from deep black to maroon red. It reverts back to its original color 8 hours after its last use.\n   When you attack a creature with this magic weapon and roll a 20 on the attack roll, that target takes an extra 10 necrotic damage if it isn't a construct or an undead. You also gain 10 temporary hit points.", // the SRD says 3d6 but that is incorrect
 		weaponOptions : {
 			baseWeapon : "scimitar",
-			regExpSearch : /^(?=.*night)(?=.*cutter).*$/i,
+			regExpSearch : /^(?=.*krakenfang).*$/i,
 			name : "Krakenfang, Scimitar of Life Stealing",
 			source : [["AL","PO"]],
 			description : "Light; finesse; On 20 to hit: +10 Necrotic dmg, 10 temp HP (unless against construct/undead)",
@@ -5037,7 +5037,7 @@ MagicItemsList["al weapons +1, +2, or +3"] = {
 			rarity : "uncommon",
 			magicItemTable : "F",
 			description : "This astral net was built by thri-kreen to fish the most savage brown scavvers. It can only be destroyed through special means. I have a +2 bonus to attack and damage rolls made with this magic net.",
-			descriptionFull : "This astral net was built by thri-kreen to fish the most savage brown scavvers.\n   " + toUni("Strange Material") + ". The item can't be broken. Special means must be used to destroy it.\n   " + toUni("Special") + ". A Large or smaller creature hit by a net is restrained until it is freed. A net has no effect on creatures that are formless, or creatures that are Huge or larger. A creature can use its action to make a DC 10 Strength check, freeing itself or another creature within its reach on a success.\n   When you use an action, bonus action, or reaction to attack with a net, you can make only one attack regardless of the number of attacks you can normally make.",
+			descriptionFull : "This astral net was built by thri-kreen to fish the most savage brown scavvers.\n   " + toUni("Strange Material") + ". The item can't be broken. Special means must be used to destroy it.\n   " + toUni("Special") + ". A Large or smaller creature hit by a net is restrained until it is freed. A net has no effect on creatures that are formless, or creatures that are Huge or larger. A creature can use its action to make a DC 10 Strength check, freeing itself or another creature within its reach on a success.\n   When you use an action, bonus action, or reaction to attack with a net, you can make only one attack regardless of the number of attacks you can normally make.\n   You have a +2 bonus to attack and damage rolls made with this magic weapon.",
 			weaponsAdd : { select : ["Net +2"], options : ["Net +2"] },
 			},
 		"+2 pike: horizon caller (sj-dc-conmar-1)" : {
@@ -6459,7 +6459,7 @@ MagicItemsList["al weapons (other)"] = {
 		magicItemTable : "H",
 		description : "Selestria is strung with unicorn hair & made from the heartwood of an elder treant dedicated to protecting the forest. The bow mutters Elvish prayers to Mielikki & grumbles in cities about being far from nature. If I listen carefully, I may learn something. When I atk w/ bow & say command phrase, the target becomes sworn enemy for 7 days or until death. Bow atks vs it get adv, +3d6 dmg, ignore cover (not full), & no disadv. at long range. While it lives, I have disadv. w/ other weapons. Property can't be used again until dawn after enemy dies.",
 		descriptionLong : "Selestria is strung with the hair of a unicorn and made from the heartwood of an elder treant who served Mielikki and wished to dedicate their afterlife to protecting the forest. While wielded, the bow mutters Elvish prayers to Mielikki & grumbles about being far from nature while in urban settings. If I listen carefully, I might learn something useful. When I use this weapon to make a ranged attack & say its command phrase \"Swift death to you who have wronged me.\", my target becomes my sworn enemy until it dies or until dawn 7 days later. I can have only one sworn enemy at a time & when it dies, I can choose a new one after the next dawn. My ranged attack rolls with this weapon against my sworn enemy have adv., do +3d6 piercing damage, ignore all cover but full, & don't suffer disadv. due to long range. While my sworn enemy lives, I have disadv. on attack rolls with other weapons.",
-		descriptionFull : 'Selestria is made from the heartwood of an elder treant who served Mielikki and wished to dedicate their afterlife to protecting the forest. Selestria is strung with the hair of a unicorn.\n   " + toUni("Muttering") + ". Seletria mutters prayers to Mielikki in Elvish while wielded, and grumbles about being far from nature while in urban settings. A creature who listens carefully to the item might learn something useful.\n   When you nock an arrow on this bow, it whispers in Elvish, "Swift defeat to my enemies." When you use this weapon to make a ranged attack, you can, as a command phrase, say, "Swift death to you who have wronged me." The target of your attack becomes your sworn enemy until it dies or until dawn seven days later. You can have only one such sworn enemy at a time. When your sworn enemy dies, you can choose a new one after the next dawn.\n   When you make a ranged attack roll with this weapon against your sworn enemy, you have advantage on the roll. In addition, your target gains no benefit from cover, other than total cover, and you suffer no disadvantage due to long range. If the attack hits, your sworn enemy takes an extra 3d6 piercing damage.\n   While your sworn enemy lives, you have disadvantage on attack rolls with all other weapons.',
+		descriptionFull : 'Selestria is made from the heartwood of an elder treant who served Mielikki and wished to dedicate their afterlife to protecting the forest. Selestria is strung with the hair of a unicorn.\n   " + toUni("Muttering") + ". Selestria mutters prayers to Mielikki in Elvish while wielded, and grumbles about being far from nature while in urban settings. A creature who listens carefully to the item might learn something useful.\n   When you nock an arrow on this bow, it whispers in Elvish, "Swift defeat to my enemies." When you use this weapon to make a ranged attack, you can, as a command phrase, say, "Swift death to you who have wronged me." The target of your attack becomes your sworn enemy until it dies or until dawn seven days later. You can have only one such sworn enemy at a time. When your sworn enemy dies, you can choose a new one after the next dawn.\n   When you make a ranged attack roll with this weapon against your sworn enemy, you have advantage on the roll. In addition, your target gains no benefit from cover, other than total cover, and you suffer no disadvantage due to long range. If the attack hits, your sworn enemy takes an extra 3d6 piercing damage.\n   While your sworn enemy lives, you have disadvantage on attack rolls with all other weapons.',
 		attunement : true,
 		weight : 2,
 		weaponOptions : {
@@ -6657,7 +6657,7 @@ MagicItemsList["al weapons (other)"] = {
 		type : "weapon (glaive)",
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "The blade of this weapon is made into that of a stylized black raven feather. The wielder of the weapon has the sensation of flying whenever they close their eyes. When I roll a 20 on my attack roll with this magic weapon, the target takes an extra 7 damage of the weapon's type.",
+		description : "The blade of this weapon is made into that of a stylized black raven feather. I have the sensation of flying whenever I close my eyes. When I roll a 20 on my attack roll with this magic weapon, the target takes an extra 7 damage of the weapon's type.",
 		descriptionFull : "The blade of this weapon is made into that of a stylized black raven feather. The wielder of the weapon has the sensation of flying whenever they close their eyes. When you roll a 20 on your attack roll with this magic weapon, the target takes an extra 7 damage of the weapon's type.",
 		weaponOptions : {
 			baseWeapon : "glaive",

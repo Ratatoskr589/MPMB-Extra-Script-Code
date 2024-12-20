@@ -713,7 +713,7 @@ MagicItemsList["al armor (common)"] = {
 		name : "Smoldering Studded Leather (DC-POA-CODEX-2)",
 		source : [["AL", "DC-POA"]],
 		type : "armor (light)",
-		description : "This reinforced studded leather jerkin is edged in red thread & embroidered with Husk's personal mark on the back. It has a turned-down collar lined with fox fur & a detachable hood fastened in place by lodestone studs. Wisps of harmless, odorless smoke rise from it when it's worn.",
+		description : "This reinforced leather jerkin is edged in red thread & embroidered with Husk's personal mark on the back. It has a turned-down collar lined with fox fur \u0026 a detachable hood fastened in place by lodestone studs. Wisps of harmless, odorless smoke rise from it when worn.",
 		descriptionFull : "This reinforced leather jerkin is edged in red thread and embroidered with Husk's personal mark on the back. It has a turned-down collar lined with fox fur, and a detachable hood fastened in place by lodestone studs. Wisps of harmless, odorless smoke rise from the studded leather armor while it is worn.",
 		armorAdd : { select : "Smoldering Studded Leather", options : ["Smoldering Studded Leather"] },
 	},
@@ -1538,7 +1538,7 @@ MagicItemsList["al shields"] = {
 		source : [["AL", "S2"]],
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "This shield is fashioned of dull, black steel and festooned with hundreds upon hundreds of human teeth. Whenever the wielder of the shield is presented with an opportunity to act in a selfish or malevolent way, the item heightens their urge to do so. While holding this shield, I have a +2 bonus to AC in addition to the shield's normal AC bonus.",
+		description : "This shield is fashioned of dull, black steel and festooned with hundreds upon hundreds of human teeth. Whenever I'm presented with an opportunity to act in a selfish or malevolent way, the item heightens my urge to do so. While held, I have a +2 bonus to AC in addition to the shield's normal AC bonus.",
 		descriptionFull : "This shield is fashioned of dull, black steel and festooned with hundreds upon hundreds of human teeth. Whenever the wielder of the shield is presented with an opportunity to act in a selfish or malevolent way, the item heightens their urge to do so. While holding this shield, you have a +2 bonus to AC in addition to the shield's normal AC bonus.\n   While holding this shield, you have a bonus to AC. This bonus is in addition to the shield's normal bonus to AC. The bonus is determined by the rarity of the shield: uncommon (+1), rare (+2), or very rare (+3).",
 		allowDuplicates : true,
 		shieldAdd : "+2 Shield (Wall of Teeth)"

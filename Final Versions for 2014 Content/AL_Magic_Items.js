@@ -653,7 +653,7 @@ MagicItemsList["al accessories"] = {
 		rarity : "rare",
 		magicItemTable : "G",
 		description : "While wearing these bracers, I gain a +2 bonus to AC if I'm not wearing armor or using a shield. They also whisper warnings, granting +2 to initiative if I'm not incapacitated.",
-		descriptionFull : "While wearing these bracers, you gain a +2 bonus to AC if you are wearing no armor and using no shield. These bracers have the guardian minor property.\n   " + toUni("Guardian") + ". The bracers whisper warnings to its bearer, granted a +2 bonus to initiative if the bearer isn't incapacitated.",
+		descriptionFull : "While wearing these bracers, you gain a +2 bonus to AC if you are wearing no armor and using no shield. These bracers have the guardian minor property.\n   " + toUni("Guardian") + ". The bracers whisper warnings to its bearer, granting a +2 bonus to initiative if the bearer isn't incapacitated.",
 		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
 		attunement : true,
 		extraAC : [{
@@ -1069,7 +1069,7 @@ MagicItemsList["al accessories"] = {
 		source : [["AL","CCC"]],
 		rarity : "uncommon",
 		magicItemTable : "F",
-		description : "These delicate, goatskin gloves are colored bright green & slip onto my hands effortlessly. While wearing them, I experience irresistible generosity, expressing compliments to those around me & spending coin for others w/o hesitation. These gloves don't turn invisible when worn, but shrink or grow to accommodate the wearer. While wearing them, I gain a +5 bonus to DEX (Sleight of Hand) checks & Dexterity checks to pick locks.",
+		description : "These delicate, goatskin gloves are colored bright green & slip onto my hands effortlessly. While worn, I experience irresistible generosity, expressing compliments to those around me & spending coin for others w/o hesitation. These gloves don't turn invisible when worn, but shrink or grow to accommodate the wearer. I gain a +5 bonus to DEX (Sleight of Hand) checks & Dexterity checks to pick locks.",
 		descriptionFull : "These delicate, goatskin gloves are colored with a bright green pigment and slip onto the wearer's hands effortlessly. While wearing these gloves, the wearer experiences irresistible generosity, expressing compliments to those around them and spending coin for the benefit of others without hesitation. Unlike conventional gloves of thievery, these gloves do not turn invisible when worn, but shrink or grow to accommodate a small or medium wearer's size. While wearing them, you gain a +5 bonus to Dexterity (Sleight of Hand) checks and Dexterity checks made to pick locks.",
 		addMod : [{ type: "skill", field : "Sleight of Hand", mod : 5, text : "I gain a +5 bonus to Dexterity (Sleight of Hand) checks while wearing Gloves of Thievery." }]
 	},
@@ -1078,7 +1078,7 @@ MagicItemsList["al accessories"] = {
 		source : [["AL","CCC"]],
 		rarity : "uncommon",
 		magicItemTable : "F",
-		description : "These vines from the Cormanthor Forest can be wrapped around my hands as fingerless gloves, turning invisible when worn correctly. Whenever I contemplate vengeance, I see a vision of a grand hearth lying in ruins. The fabric at the fingertips is very thin, granting me more sensitivity for delicate work. While wearing the vines, I gain a +5 bonus to DEX (Sleight of Hand) checks & DEX checks made to pick locks.",
+		description : "These vines from the Cormanthor Forest can be wrapped around my hands as fingerless gloves, turning invisible when worn correctly. Whenever I contemplate vengeance, I see a vision of a grand hearth lying in ruins. While wearing the vines, I gain a +5 bonus to DEX (Sleight of Hand) checks & DEX checks made to pick locks.",
 		descriptionFull : "These vines from the Cormanthor Forest can be wrapped around someone's hands as a pair of fingerless gloves, turning invisible when worn correctly. They function as gloves of thievery. Whenever the wearer contemplates vengeance, they see a vision of a grand hearth lying in ruins. The fabric at the fingertips is very thin, granting the wearer more sensitivity for more delicate work. While wearing them, you gain a +5 bonus to Dexterity (Sleight of Hand) checks and Dexterity checks made to pick locks.",
 		addMod : [{ type: "skill", field : "Sleight of Hand", mod : 5, text : "I gain a +5 bonus to Dexterity (Sleight of Hand) checks while wearing Gloves of Thievery." }]
 	},
@@ -1087,7 +1087,7 @@ MagicItemsList["al accessories"] = {
 		source : [["AL","CCC"]],
 		rarity : "uncommon",
 		magicItemTable : "F",
-		description : "These soft, black leather gloves have a small W embroidered in silver thread on their back & are invisible while worn. The fabric at the fingertips is very thin, granting me more sensitivity for delicate work. While wearing the gloves, I gain a +5 bonus to DEX (Sleight of Hand) checks & DEX checks made to pick locks.",
+		description : "These soft, black leather gloves have a small W embroidered in silver thread on their back & are invisible while worn. While wearing the gloves, I gain a +5 bonus to DEX (Sleight of Hand) checks & DEX checks made to pick locks.",
 		descriptionFull : "These soft, black leather gloves have a small W embroidered in silver thread on their back and are invisible while worn. The fabric at the fingertips is very thin, granting the wearer more sensitivity for more delicate work. While wearing them, you gain a +5 bonus to Dexterity (Sleight of Hand) checks and Dexterity checks made to pick locks.",
 		addMod : [{ type: "skill", field : "Sleight of Hand", mod : 5, text : "I gain a +5 bonus to Dexterity (Sleight of Hand) checks while wearing Gloves of Thievery." }]
 	},
@@ -4053,7 +4053,7 @@ MagicItemsList["al books"] = {
 		source : [["AL","WBW-DC"]],
 		rarity : "very rare",
 		magicItemTable : "H",
-		description : "The cover of this leather-bound tome is embossed with patterns of cherry blossoms and flowers, and the owner's name is inscribed in the middle. The tome contains intuition & insight exercises & its words are charged w/ magic. If I spend 48 hrs w/i 6 days studying the book & practicing its guidelines, my WIS score & max go up by 2. The tome then loses its magic for 100 yrs.",
+		description : "The cover of this leather-bound tome is embossed with patterns of cherry blossoms and flowers, and my name is inscribed in the middle. The tome contains intuition & insight exercises & its words are charged w/ magic. If I spend 48 hrs w/i 6 days studying the book & practicing its guidelines, my WIS score & max go up by 2. The tome then loses its magic for 100 yrs.",
 		descriptionFull : "The cover of this leather-bound tome is embossed with patterns of cherry blossoms and flowers, the owner's name is also inscribed in the middle of this tome. This book contains intuition and insight exercises, and its words are charged with magic. If you spend 48 hours over a period of 6 days or fewer studying the book's contents and practicing its guidelines, your Wisdom score increases by 2, as does your maximum for that score. The manual then loses its magic, but regains it in a century.",
 		weight : 5,
 		eval : function() {
@@ -5791,7 +5791,7 @@ MagicItemsList["al clothing"] = {
 		magicItemTable : "G",
 		attunement : true,
 		savetxt : { adv_vs : ["spells"], immune : ["temps btwn -20\u00B0F/120\u00B0F"] },
-		description: "While attuned to and wearing this cloak, I have advantage on saving throws against spells & are unaffected by temps from -20\u00B0F to 120\u00B0F.",
+		description: "While attuned to and wearing this cloak, I have advantage on saving throws against spells & am unaffected by temps from -20\u00B0F to 120\u00B0F.",
 		descriptionFull: "The bearer suffers no harm in temperatures as cold as −20 degrees Fahrenheit or as warm as 120 degrees Fahrenheit. While attuned to and wearing this cloak, you have advantage on saving throws against spells."
 		},
 	"mantle of spell resistance: zion manta (wbw-dc-zion-3)" : {
@@ -6036,7 +6036,7 @@ MagicItemsList["al clothing"] = {
 		},
 		spellChanges : {
 			"magic missile" : {
-				description : "8 darts hit creature(s) I can see for 1d4+1 Force dmg per dart",
+				description : "7 darts hit creature(s) I can see for 1d4+1 Force dmg per dart",
 				changes : "Magic Missile cast from the Robe of Stars is always at 5th-level."
 				}
 			}
@@ -6065,7 +6065,7 @@ MagicItemsList["al clothing"] = {
 		},
 		spellChanges : {
 			"magic missile" : {
-				description : "8 darts hit creature(s) I can see for 1d4+1 Force dmg per dart",
+				description : "7 darts hit creature(s) I can see for 1d4+1 Force dmg per dart",
 				changes : "Magic Missile cast from the Robe of Stars is always at 5th-level."
 				}
 			}
@@ -6095,7 +6095,7 @@ MagicItemsList["al clothing"] = {
 		},
 		spellChanges : {
 			"magic missile" : {
-				description : "8 darts hit creature(s) I can see for 1d4+1 Force dmg per dart",
+				description : "7 darts hit creature(s) I can see for 1d4+1 Force dmg per dart",
 				changes : "Magic Missile cast from the Robe of Stars is always at 5th-level."
 				}
 			}
@@ -6124,7 +6124,7 @@ MagicItemsList["al clothing"] = {
 		},
 		spellChanges : {
 			"magic missile" : {
-				description : "8 darts hit creature(s) I can see for 1d4+1 Force dmg per dart",
+				description : "7 darts hit creature(s) I can see for 1d4+1 Force dmg per dart",
 				changes : "Magic Missile cast from the Robe of Stars is always at 5th-level."
 				}
 			}
@@ -6135,7 +6135,7 @@ MagicItemsList["al clothing"] = {
 		rarity : "very rare",
 		magicItemTable : "H",
 		description : "This black or dark blue robe is embroidered with small white or silver stars. While worn, I gain +1 to saves and can enter the Astral Plane or return as an action. I reappear in the same space, or the nearest unoccupied space. 6 stars are special. As an action, remove 1 star to cast Magic Missile at 5th-lvl. Daily at dusk, 1d6 removed stars reappear. I can speak Turmic while it's on my person.",
-		descriptionFull : "This black or dark blue robe is embroidered with small white or silver stars. You gain a +1 bonus to saving throws while you wear it.\n   Six stars, located on the robe's upper front portion, are particularly large. While wearing this robe, you can use an action to pull off one of the stars and use it to cast Magic Missile as a 5th-level spell. Daily at dusk, 1d6 removed stars reappear on the robe.\n   While you wear the robe, you can use an action to enter the Astral Plane along with everything you are wearing and carrying. You remain there until you use an action to return to the plane you were on. You reappear in the last space you occupied, or if that space is occupied, the nearest unoccupied space.",
+		descriptionFull : "This black or dark blue robe is embroidered with small white or silver stars. You gain a +1 bonus to saving throws while you wear it.\n   Six stars, located on the robe's upper front portion, are particularly large. While wearing this robe, you can use an action to pull off one of the stars and use it to cast Magic Missile as a 5th-level spell. Daily at dusk, 1d6 removed stars reappear on the robe.\n   While you wear the robe, you can use an action to enter the Astral Plane along with everything you are wearing and carrying. You remain there until you use an action to return to the plane you were on. You reappear in the last space you occupied, or if that space is occupied, the nearest unoccupied space.\n   " + toUni("Language") + ". The wearer can speak and understand the human language Turmic while the item is on the bearer’s person."",
 		attunement : true,
 		weight : 4,
 		limfeaname : "Robe of Stars",
@@ -6153,7 +6153,7 @@ MagicItemsList["al clothing"] = {
 		},
 		spellChanges : {
 			"magic missile" : {
-				description : "8 darts hit creature(s) I can see for 1d4+1 Force dmg per dart",
+				description : "7 darts hit creature(s) I can see for 1d4+1 Force dmg per dart",
 				changes : "Magic Missile cast from the Robe of Stars is always at 5th-level."
 				}
 			}
@@ -6857,7 +6857,7 @@ MagicItemsList["al containers"] = {
 		magicItemTable : "H",
 		description : "I can shake this brass bottle & see the tiny form of the efreeti Assai bobbing in red liquid. He isn't pleased. When I remove the stopper as an action, a cloud of thick smoke flows out. When my turn ends, an efreeti appears in an empty space within 30 ft. The 1st time the bottle opens, the DM rolls d100. 1-10: the efreeti atks for 5 rounds then disappears. 11-90: the efreeti follows my commands for 1 hr. It will serve me twice more with 24 hrs in-between. 91-100: the efreeti will cast Wish 3 times.",
 		descriptionLong : "I can shake this brass bottle & see the tiny form of the efreeti Assai bobbing in red liquid. He isn't pleased. When I remove the stopper as an action, a cloud of thick smoke flows out. At the end of my turn, an efreeti appears in an empty space in 30 ft. The 1st time the bottle is opened, the DM rolls a d100 to determine what happens. 1-10: the efreeti attacks me for 5 rounds before disappearing. 11-90: the efreeti serves me for 1 hour, following my commands. It then returns to the bottle. I can have it serve me twice more, at least 24 hours after it returned to the bottle. 91-100: the efreeti grants me 3 wishes as per the spell.",
-		descriptionFull : "This painted brass bottle weighs 1 pound. When you use an action to remove the stopper, a cloud of thick smoke flows out of the bottle. At the end of your turn, the smoke disappears with a flash of harmless fire, and an efreeti appears in an unoccupied space within 30 feet of you.\n   The first time the bottle is opened, the DM rolls to determine what happens.\n\n" + toUni("d100") + "\t" + toUni("Effect") + "\n01-10\tThe efreeti attacks you. After fighting for 5 rounds, the efreeti disappears, and the bottle loses its magic.\n11-90\tThe efreeti serves you for 1 hour, doing as you command. Then the efreeti returns to the bottle, and a new stopper contains it. The stopper can't be removed for 24 hours. The next two times the bottle is opened, the same effect occurs. If the bottle is opened a fourth time, the efreeti escapes and disappears, and the bottle loses its magic.\n91-00\tThe efreeti can cast the Wish spell three times for you. It disappears when it grants the final wish or after 1 hour, and the bottle loses its magic.\n   You can shake the bottle and see the tiny form of the efreeti Assai bobbing in the red liquid. He is not pleased.",
+		descriptionFull : "You can shake the bottle and see the tiny form of the efreeti Assai bobbing in the red liquid. He is not pleased.\n   This painted brass bottle weighs 1 pound. When you use an action to remove the stopper, a cloud of thick smoke flows out of the bottle. At the end of your turn, the smoke disappears with a flash of harmless fire, and an efreeti appears in an unoccupied space within 30 feet of you.\n   The first time the bottle is opened, the DM rolls to determine what happens.\n\n" + toUni("d100") + "\t" + toUni("Effect") + "\n01-10\tThe efreeti attacks you. After fighting for 5 rounds, the efreeti disappears, and the bottle loses its magic.\n11-90\tThe efreeti serves you for 1 hour, doing as you command. Then the efreeti returns to the bottle, and a new stopper contains it. The stopper can't be removed for 24 hours. The next two times the bottle is opened, the same effect occurs. If the bottle is opened a fourth time, the efreeti escapes and disappears, and the bottle loses its magic.\n91-00\tThe efreeti can cast the Wish spell three times for you. It disappears when it grants the final wish or after 1 hour, and the bottle loses its magic.",
 		weight : 1,
 		action : [["action", "Efreeti Bottle"]]
 	},
@@ -8935,7 +8935,7 @@ MagicItemsList["al equipment (common)"] = {//need to split
 		source : [["AL","WBW-DC"]],
 		magicItemTable : "?",
 		description : "While smoking this pipe, I can use an action to exhale a puff of smoke that takes the form of a single creature, such as a dragon or flumph. The form must fit in a 1-ft cube & loses its shape after a few seconds, becoming an ordinary puff of smoke. When underground, I always know my depth below the surface and the direction to the nearest path upward.",
-		descriptionFull : "While smoking the pipe, you can use an action to exhale a puff of smoke that takes the form of a single creature, such as a dragon, flumph, or froghemoth. The form must be small enough to fit in a 1-foot cube and loses its shape after a few seconds, becoming an ordinary puff of smoke.\n   " + toUni("Delver") + ". The trapped soul whispers warnings to the bearer granting a +2 bonus to initiative.",
+		descriptionFull : "While smoking the pipe, you can use an action to exhale a puff of smoke that takes the form of a single creature, such as a dragon, flumph, or froghemoth. The form must be small enough to fit in a 1-foot cube and loses its shape after a few seconds, becoming an ordinary puff of smoke.\n   " + toUni("Delver") + ". While underground, you always know the item’s depth below the surface and the direction to the nearest staircase, ramp, or other path leading upward.",
 		action : [["action", "Pipe of Smoke Monsters"]]
 	},
 	"pipe of smoke monsters: tiger's pipe (wbw-dc-zodiac-3)" : {
@@ -8994,7 +8994,6 @@ MagicItemsList["al equipment (common)"] = {//need to split
 		magicItemTable : "?",
 		description : "This magical pot smells of earthy mango with notes of woodsy spice & enhances pangs of conscience when I consider or do malevolent acts. If I plant an ordinary shrub there & let it grow for 30 days, it magically transforms into a friendly awakened shrub. When the shrub awakens, its roots destroy the pot. Absent commands from me, it does nothing.",
 		descriptionFull : "If you plant an ordinary shrub in this 10-lb pot and let it grow for 30 days, the shrub magically transforms into an awakened shrub at the end of that time. When the shrub awakens, its roots break the pot, destroying it.\n   The awakened shrub is friendly toward you. Absent commands from you, it does nothing.\n   This magical pot smells of earthy mango with notes of woodsy spice. When the bearer of this item contemplates or undertakes a malevolent act, the item enhances pangs of conscience.",
-		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
 		weight : 10
 	},
 	"prosthetic limb (ddal10-6)" : {
@@ -9104,7 +9103,7 @@ MagicItemsList["al equipment (common)"] = {//need to split
 		source : ["AL", "SJ-DC"],
 		magicItemTable : "?",
 		description : "I can cut this 50-ft rope into smaller pieces, and then speak a command word as an action to make the pieces knit back together. The pieces must be in contact with each other and not otherwise in use. If a section is lost, the rope is forever shortened. While underground, I always know my depth below the surface and the direction to the nearest path leading upward.",
-		descriptionFull : "You can cut this 50-foot coil of hempen rope into any number of smaller pieces, and then use an action to speak a command word and cause the pieces to knit back together. The pieces must be in contact with each other and not otherwise in use. A rope of mending is forever shortened if a section of it is lost or destroyed.\n   " + toUni("Delver") + ". While underground, the bearer of this item always knows the item's depth below the surface and the direction to the nearest staircase, ramp, or other path leading upward. One end of the rope will point to said direction while being held in hand while underground.",
+		descriptionFull : "You can cut this 50-foot coil of hempen rope into any number of smaller pieces, and then use an action to speak a command word and cause the pieces to knit back together. The pieces must be in contact with each other and not otherwise in use. A rope of mending is forever shortened if a section of it is lost or destroyed.\n   " + toUni("Delver") + ". While underground, the bearer of this item always knows the item's depth below the surface and the direction to the nearest staircase, ramp, or other path leading upward.",
 		action : [["action", "Rope of Mending (repair)"]],
 		weight : 10
 	},
@@ -11623,7 +11622,7 @@ MagicItemsList["al headwear"] = {
 		source : [["AL","SJ-DC"]],
 		rarity : "uncommon",
 		magicItemTable : "F",
-		description : "This wide-brimmed leather chapeaux is made of naturally iridescent hide that appears as shades of brown, grey, and rust-red. The item is imbued with illusion magic, letting my alter its appearance in minor cosmetic ways. These changes revert when off my person. While worn, I can cast the Disguise Self spell from it at will. The spell ends if the hat is removed.",
+		description : "This wide-brimmed leather chapeaux is made of naturally iridescent hide that appears as shades of brown, grey, and rust-red. It's imbued with illusion magic, letting me alter its appearance in minor cosmetic ways. These changes revert when off my person. While worn, I can cast the Disguise Self spell from it at will. The spell ends if the hat is removed.",
 		descriptionFull : "This wide-brimmed, leather chapeaux is made of naturally iridescent hide; however, the iridescence only appears as shades of brown, grey, and rust-red.\n   " + toUni("Illusion") + ". The item is imbued with illusion magic, allowing its bearer to alter the item's appearance in minor ways. Such alterations don't change how the item is worn, carried, or wielded, and they have no effect on its other magical properties. For example, the wearer could make a red robe appear blue, or make a gold ring look like it's made of ivory. The item reverts to its true appearance when no one is carrying or wearing it.\n   While wearing this hat, you can use an action to cast the Disguise Self spell from it at will. The spell ends if the hat is removed.",
 		attunement : true,
 		spellcastingBonus : [{
@@ -11639,7 +11638,7 @@ MagicItemsList["al headwear"] = {
 		source : [["AL","SJ-DC"]],
 		rarity : "uncommon",
 		magicItemTable : "F",
-		description : "This traditional magician's black top hat has white cat ears on either side, sticking out of the brim. These ears move of their own accord, reflecting the mood of the wearer. Attuning to this item takes only 1 minute & I can cast the Disguise Self spell from it at will. The spell ends if the hat is removed.",
+		description : "This traditional magician's black top hat has white cat ears on either side, sticking out of the brim. These ears move of their own accord, reflecting my mood. Attuning to the hat takes only 1 minute & I can cast the Disguise Self spell from it at will. The spell ends if the hat is removed.",
 		descriptionFull : "This hat looks like the traditional black top hat of a magician. The difference is that it has white cat ears on either side of the top hat, sticking out of the brim of the hat. These ears move of their own accord reflecting the mood of the wearer, clearly enchanted.\n   " + toUni("Harmonious") + ". Attuning to this item takes only 1 minute.\n   While wearing this hat, you can use an action to cast the Disguise Self spell from it at will. The spell ends if the hat is removed.",
 		attunement : true,
 		spellcastingBonus : [{
@@ -11702,7 +11701,7 @@ MagicItemsList["al headwear"] = {
 		name : "Bulaga Wizard Hat of Vermin (CCC-GSP2-1)",
 		source : [["AL","CCC"]],
 		rarity : "common",
-		description : "This is a wizard's hat w/ a swirly 3-color design & 3 charges, all regained at dawn. As an action while holding it, I can use 1 charge & speak command word to have 1 bat, frog, or rat appear in the hat. It acts like a normal animal & disappears after 1 hr or at 0 HP. Each beast represents a shard of a wizard's soul. The bat leaves a trail of red glitter, the frog's skin is shiny yellow, & the rat has dark blue eyes & teeth.",
+		description : "This wizard's hat has a swirly 3-color design & 3 charges, regained at dawn. As an action while holding it, I can use 1 charge & say command to have 1 bat, frog, or rat appear in the hat. It acts like a normal animal & disappears after 1 hr or at 0 HP. Each beast represents a shard of a wizard's soul. The bat leaves a trail of red glitter, the frog's skin is shiny yellow, & the rat has dark blue eyes & teeth.",
 		descriptionFull : "This hat has 3 charges. While holding the hat, you can use an action to expend 1 of its charges and speak a command word that summons your choice of a bat, a frog, or a rat. The summoned creature magically appears in the hat and tries to get away from you as quickly as possible. The creature is neither friendly nor hostile, and it isn't under your control. It behaves as an ordinary creature of its kind and disappears after 1 hour or when it drops to 0 hit points. The hat regains all expended charges daily at dawn.\n   The hat looks like a pointy wizard's hat with three swirly color designs (red, blue, & yellow). Each beast represents a shard of a wizard's soul trapped in the hat. When the bat is summoned, it always leaves a trail of red glitter. The frog's skin is shiny yellow, and the rat has dark blue eyes and teeth.",
 		limfeaname : "Hat of Vermin",
 		action : [["action", " (Summon)"]],
@@ -11724,7 +11723,7 @@ MagicItemsList["al headwear"] = {
 		name : "Hat of Vermin (WBW-DC-BIRE-2)",
 		source : [["AL","WBW-DC"]],
 		rarity : "common",
-		description : "While wearing this bronze top hat, I can speak Sylvan. It has 3 charges, regained at dawn. As an action while holding the sock, I can use 1 charge & the command word to have 1 bat, frog, or rat appear in the hat. It acts like a normal animal & disappears after 1 hr or at 0 HP.",
+		description : "While wearing this bronze top hat, I can speak Sylvan. It has 3 charges, regained at dawn. As an action while held, I can use 1 charge & the command word to have 1 bat, frog, or rat appear in the hat. It acts like a normal animal & disappears after 1 hr or at 0 HP.",
 		descriptionFull : "While wearing this bronze-coloured top hat, you can speak and understand Sylvan.\n   This hat has 3 charges. While holding the hat, you can use an action to expend 1 of its charges and speak a command word that summons your choice of a bat, a frog, or a rat. The summoned creature magically appears in the hat and tries to get away from you as quickly as possible. The creature is neither friendly nor hostile, and it isn't under your control. It behaves as an ordinary creature of its kind and disappears after 1 hour or when it drops to 0 hit points. The hat regains all expended charges daily at dawn.",
 		limfeaname : "Hat of Vermin",
 		languageProfs : ["Sylvan"],
@@ -11821,6 +11820,8 @@ MagicItemsList["al headwear"] = {
 		description : "This military officer's hat bears the rank markings of a general. It acts as a focus for my wizard spells and as an action, I can make my voice carry clearly for up to 300 ft until my next turn ends. Once per long rest, I can try to cast an unknown wizard cantrip with a DC 10 INT (Arcana) check, wasting the action if failed.",
 		descriptionFull : "This antiquated, cone—shaped hat is adorned with gold crescent moons and stars. While you are wearing it, you gain the following benefits:\n \u2022 You can use the hat as a spellcasting focus for your wizard spells.\n \u2022 You can try to cast a cantrip that you don't know. The cantrip must be on the wizard spell list, and you must make a DC 10 Intelligence (Arcana) check. If the check succeeds, you cast the spell. If the check fails, so does the spell, and the action used to cast the spell is wasted. In either case, you can't use this property again until you finish a long rest.\n   This hat is in the fashion of a military officer, bearing the rank markings of a general.\n   " + toUni("War Leader") + ". The bearer can use an action to cause his or her voice to carry clearly for up to 300 feet until the end of the bearer's next turn.",
 		attunement : true,
+		prerequisite : "Requires attunement by a wizard",
+		prereqeval : function (v) { return classes.known.wizard ? true : false; },
 		limfeaname : "Hat of Wizardry",
 		usages : 1,
 		recovery : "long rest",
@@ -11887,6 +11888,8 @@ MagicItemsList["al headwear"] = {
 		description : "This antiquated cone-shaped hat is bright red and adorned with Thayan runes. While worn, any hair and natural coverings on my head are invisible, making me appear completely bald. The hat acts as a focus for my wizard spells and once per long rest, I can try to cast an unknown wizard cantrip with a DC 10 INT (Arcana) check, wasting the action if failed.",
 		descriptionFull : "This antiquated, cone—shaped hat is adorned with gold crescent moons and stars. While you are wearing it, you gain the following benefits:\n \u2022 You can use the hat as a spellcasting focus for your wizard spells.\n \u2022 You can try to cast a cantrip that you don't know. The cantrip must be on the wizard spell list, and you must make a DC 10 Intelligence (Arcana) check. If the check succeeds, you cast the spell. If the check fails, so does the spell, and the action used to cast the spell is wasted. In either case, you can't use this property again until you finish a long rest.\n   This antiquated, cone-shaped hat is bright red, adorned with Thayan runes. While worn, any hair or other natural covering on a creature’s head is invisible, and the creature appears completely bald.",
 		attunement : true,
+		prerequisite : "Requires attunement by a wizard",
+		prereqeval : function (v) { return classes.known.wizard ? true : false; },
 		limfeaname : "Hat of Wizardry",
 		usages : 1,
 		recovery : "long rest",
@@ -11952,6 +11955,8 @@ MagicItemsList["al headwear"] = {
 		description : "Yenushya’s old kerchief smells of morning dew and cold running water. While worn, it acts as a focus for my wizard spells and lets me speak Primordial. Once per long rest, I can try to cast an unknown wizard cantrip with a DC 10 INT (Arcana) check, wasting the action if failed.",
 		descriptionFull : "This antiquated, cone—shaped hat is adorned with gold crescent moons and stars. While you are wearing it, you gain the following benefits:\n \u2022 You can use the hat as a spellcasting focus for your wizard spells.\n \u2022 You can try to cast a cantrip that you don't know. The cantrip must be on the wizard spell list, and you must make a DC 10 Intelligence (Arcana) check. If the check succeeds, you cast the spell. If the check fails, so does the spell, and the action used to cast the spell is wasted. In either case, you can't use this property again until you finish a long rest.\n   Yenushya’s old kerchief smells of morning dew and cold running water.\n   " + toUni("Language") + ". Additionally, this item grants the language minor property allowing them to understand and speak primordial.",
 		attunement : true,
+		prerequisite : "Requires attunement by a wizard",
+		prereqeval : function (v) { return classes.known.wizard ? true : false; },
 		limfeaname : "Hat of Wizardry",
 		usages : 1,
 		recovery : "long rest",
@@ -12018,6 +12023,8 @@ MagicItemsList["al headwear"] = {
 		description : "Created by Nicolli the Nasty Necromancer, this antiquated, cone—shaped hat is adorned with gold crescent moons and stars that have skeletal faces. It acts as a focus for my wizard spells and can be attuned to in 1 min. Once per long rest, I can try to cast an unknown wizard cantrip with a DC 10 INT (Arcana) check, wasting the action if failed.",
 		descriptionFull : "This antiquated, cone—shaped hat is adorned with gold crescent moons and stars. While you are wearing it, you gain the following benefits:\n \u2022 You can use the hat as a spellcasting focus for your wizard spells.\n \u2022 You can try to cast a cantrip that you don't know. The cantrip must be on the wizard spell list, and you must make a DC 10 Intelligence (Arcana) check. If the check succeeds, you cast the spell. If the check fails, so does the spell, and the action used to cast the spell is wasted. In either case, you can't use this property again until you finish a long rest.\n   Created by Nicolli the Nasty Necromancer, the moons and stars have skeletal faces.\n   " + toUni("Harmonious") + ". Attuning to this item takes only 1 minute.",
 		attunement : true,
+		prerequisite : "Requires attunement by a wizard",
+		prereqeval : function (v) { return classes.known.wizard ? true : false; },
 		limfeaname : "Hat of Wizardry",
 		usages : 1,
 		recovery : "long rest",
@@ -12083,6 +12090,8 @@ MagicItemsList["al headwear"] = {
 		description : "This two-pronged hairpin is carved from dragon bone and adorned with delicate fluorite irises that pulse faintly with inner light. It acts as a focus for my wizard spells and as a bonus action, sheds 10-ft bright light & 10-ft more dim, or stops. Once per long rest, I can try to cast an unknown wizard cantrip with a DC 10 INT (Arcana) check, wasting the action if failed.",
 		descriptionFull : "This antiquated, cone—shaped hat is adorned with gold crescent moons and stars. While you are wearing it, you gain the following benefits:\n \u2022 You can use the hat as a spellcasting focus for your wizard spells.\n \u2022 You can try to cast a cantrip that you don't know. The cantrip must be on the wizard spell list, and you must make a DC 10 Intelligence (Arcana) check. If the check succeeds, you cast the spell. If the check fails, so does the spell, and the action used to cast the spell is wasted. In either case, you can't use this property again until you finish a long rest.\n   This two-pronged hairpin is carved from a sliver of dragon bone and adorned with delicate fluorite irises that pulsate faintly with inner light.\n   " + toUni("Beacon") + ". The bearer can use a bonus action to cause the item to shed bright light in a 10-foot radius and dim light for an additional 10 feet, or to extinguish the light.",
 		attunement : true,
+		prerequisite : "Requires attunement by a wizard",
+		prereqeval : function (v) { return classes.known.wizard ? true : false; },
 		limfeaname : "Hat of Wizardry",
 		usages : 1,
 		recovery : "long rest",
@@ -12148,6 +12157,8 @@ MagicItemsList["al headwear"] = {
 		description : "This plush purple tricorn hat has a long red feather & makes me obsessed with material wealth. The hat also acts as a focus for my wizard spells. Once per long rest, I can try to cast an unknown wizard cantrip with a DC 10 INT (Arcana) check, wasting the action if failed.",
 		descriptionFull : "This antiquated, cone—shaped hat is adorned with gold crescent moons and stars. While you are wearing it, you gain the following benefits:\n \u2022 You can use the hat as a spellcasting focus for your wizard spells.\n \u2022 You can try to cast a cantrip that you don't know. The cantrip must be on the wizard spell list, and you must make a DC 10 Intelligence (Arcana) check. If the check succeeds, you cast the spell. If the check fails, so does the spell, and the action used to cast the spell is wasted. In either case, you can't use this property again until you finish a long rest.\n   This hat is fashioned to resemble a plush purple tricorn hat with a long red feather. The hat has the Covetous quirk, the bearer becomes obsessed with material wealth.",
 		attunement : true,
+		prerequisite : "Requires attunement by a wizard",
+		prereqeval : function (v) { return classes.known.wizard ? true : false; },
 		limfeaname : "Hat of Wizardry",
 		usages : 1,
 		recovery : "long rest",
@@ -12213,6 +12224,8 @@ MagicItemsList["al headwear"] = {
 		description : "This pirate hat was worn by Captain Quor'hin of the githyanki Space Galleon Kur'Rakesh. Made of dark purple fabric & trimmed with silver lace, the hat is both a fashion statement and useful item for an enterprising wizard. Goldfish is embroidered on the inside brim. The hat acts as a focus for my wizard spells. Once per long rest, I can try to cast an unknown wizard cantrip with a DC 10 INT (Arcana) check, wasting the action if failed.",
 		descriptionFull : "This antiquated, cone—shaped hat is adorned with gold crescent moons and stars. While you are wearing it, you gain the following benefits:\n \u2022 You can use the hat as a spellcasting focus for your wizard spells.\n \u2022 You can try to cast a cantrip that you don't know. The cantrip must be on the wizard spell list, and you must make a DC 10 Intelligence (Arcana) check. If the check succeeds, you cast the spell. If the check fails, so does the spell, and the action used to cast the spell is wasted. In either case, you can't use this property again until you finish a long rest.\n   This pirate hat was once worn by Captain Quor'hin of the githyanki Space Galleon Kur'Rakesh. Made of dark purple fabric and trimmed with silver lace, the hat is both a fashion statement and a useful item for any enterprising wizard, all rolled up into one. The password to disable the glyph of warding in the Captain's Quarters is embroidered on the inside of the hat's brim. The password is Goldfish.\n   " + toUni("Hidden Message") + ". A message is hidden somewhere on the item. It might be visible only at a certain time of the year, under the light of one phase of the moon, or in a specific location.",
 		attunement : true,
+		prerequisite : "Requires attunement by a wizard",
+		prereqeval : function (v) { return classes.known.wizard ? true : false; },
 		limfeaname : "Hat of Wizardry",
 		usages : 1,
 		recovery : "long rest",
@@ -12278,6 +12291,8 @@ MagicItemsList["al headwear"] = {
 		description : "This antiquated cone—shaped hat is adorned with gold crescent moons and stars. It has the FauxCon logo and “Employee of a Month” laser-etched over the top. The hat acts as a focus for my wizard spells. Once per long rest, I can try to cast an unknown wizard cantrip with a DC 10 INT (Arcana) check, wasting the action if failed. While on my person, I can speak Deep Speech.",
 		descriptionFull : "This antiquated, cone—shaped hat is adorned with gold crescent moons and stars. While you are wearing it, you gain the following benefits:\n \u2022 You can use the hat as a spellcasting focus for your wizard spells.\n \u2022 You can try to cast a cantrip that you don't know. The cantrip must be on the wizard spell list, and you must make a DC 10 Intelligence (Arcana) check. If the check succeeds, you cast the spell. If the check fails, so does the spell, and the action used to cast the spell is wasted. In either case, you can't use this property again until you finish a long rest.\n   This particular hat has the FauxCon logo and “Employee of a Month” laser-etched over the top.\n   " + toUni("Language") + ". The bearer can speak and understand Deep Speech while the item is on the bearer's person.",
 		attunement : true,
+		prerequisite : "Requires attunement by a wizard",
+		prereqeval : function (v) { return classes.known.wizard ? true : false; },
 		limfeaname : "Hat of Wizardry",
 		usages : 1,
 		recovery : "long rest",
@@ -12344,6 +12359,8 @@ MagicItemsList["al headwear"] = {
 		description : "Forged on the treacherous grounds of Hudson 123 and adorned with the lab's emblem, this hat carries the weight of its origins and grants me a touch of the asteroid's mystical essence. I can speak Celestial while its on my person. The hat acts as a focus for my wizard spells. Once per long rest, I can try to cast an unknown wizard cantrip with a DC 10 INT (Arcana) check, wasting the action if failed.",
 		descriptionFull : "This antiquated, cone—shaped hat is adorned with gold crescent moons and stars. While you are wearing it, you gain the following benefits:\n \u2022 You can use the hat as a spellcasting focus for your wizard spells.\n \u2022 You can try to cast a cantrip that you don't know. The cantrip must be on the wizard spell list, and you must make a DC 10 Intelligence (Arcana) check. If the check succeeds, you cast the spell. If the check fails, so does the spell, and the action used to cast the spell is wasted. In either case, you can't use this property again until you finish a long rest.\n   Forged on the treacherous grounds of Hudson 123, this hat, adorned with the emblem of the magic lab, carries the weight of its origins and grants its wearer a touch of the asteroid's mystical essence.\n   " + toUni("Language") + ". The bearer can speak and understand a language of the DM's choice while the item is on the bearer's person. The language is Celestial.",
 		attunement : true,
+		prerequisite : "Requires attunement by a wizard",
+		prereqeval : function (v) { return classes.known.wizard ? true : false; },
 		languageProfs : ["Celestial"],
 		limfeaname : "Hat of Wizardry",
 		usages : 1,
@@ -12410,6 +12427,8 @@ MagicItemsList["al headwear"] = {
 		description : "This antiquated cone—shaped hat is adorned with gold crescent moons and stars. When I read written text, a soft light gently bounces between the stars on its silk surface, and observers feel drawn to “connect the dots” by tracing their finger across the constellations. The hat acts as a focus for my wizard spells. Once per long rest, I can try to cast an unknown wizard cantrip with a DC 10 INT (Arcana) check, wasting the action if failed.",
 		descriptionFull : "This antiquated, cone—shaped hat is adorned with gold crescent moons and stars. While you are wearing it, you gain the following benefits:\n \u2022 You can use the hat as a spellcasting focus for your wizard spells.\n \u2022 You can try to cast a cantrip that you don't know. The cantrip must be on the wizard spell list, and you must make a DC 10 Intelligence (Arcana) check. If the check succeeds, you cast the spell. If the check fails, so does the spell, and the action used to cast the spell is wasted. In either case, you can't use this property again until you finish a long rest.\n   " + toUni("Hidden Message") + ". Whenever a creature wearing the hat reads written text, a soft light gently bounces between the stars on its silk surface, and observers feel drawn to “connect the dots” by tracing their finger across the constellations, even if the wearer is not attuned to the hat.",
 		attunement : true,
+		prerequisite : "Requires attunement by a wizard",
+		prereqeval : function (v) { return classes.known.wizard ? true : false; },
 		limfeaname : "Hat of Wizardry",
 		usages : 1,
 		recovery : "long rest",
@@ -12475,6 +12494,8 @@ MagicItemsList["al headwear"] = {
 		description : "This tattered green sleeping cap belonged to someone the Caretaker may have known. The hat acts as a focus for my wizard spells. Once per long rest, I can try to cast an unknown wizard cantrip with a DC 10 INT (Arcana) check, wasting the action if failed.",
 		descriptionFull : "This antiquated, cone—shaped hat is adorned with gold crescent moons and stars. While you are wearing it, you gain the following benefits:\n \u2022 You can use the hat as a spellcasting focus for your wizard spells.\n \u2022 You can try to cast a cantrip that you don't know. The cantrip must be on the wizard spell list, and you must make a DC 10 Intelligence (Arcana) check. If the check succeeds, you cast the spell. If the check fails, so does the spell, and the action used to cast the spell is wasted. In either case, you can't use this property again until you finish a long rest.\n   This tattered green hued sleeping cap belonged to someone The Caretaker may have known. They don’t remember.",
 		attunement : true,
+		prerequisite : "Requires attunement by a wizard",
+		prereqeval : function (v) { return classes.known.wizard ? true : false; },
 		limfeaname : "Hat of Wizardry",
 		usages : 1,
 		recovery : "long rest",
@@ -12540,6 +12561,8 @@ MagicItemsList["al headwear"] = {
 		description : "This antiquated cone—shaped hat is adorned with gold crescent moons & stars. Originally stolen from his roommate by Manshoon's clone's simulacrum, it makes me paranoid, imagining personal grudges with everyone & heightening my urge to act selfishly or malevolently per that emnity. The hat acts as a focus for my wizard spells. Once per long rest, I can try to cast an unknown wizard cantrip with a DC 10 INT (Arcana) check, wasting the action if failed.",
 		descriptionFull : "This antiquated, cone—shaped hat is adorned with gold crescent moons and stars. While you are wearing it, you gain the following benefits:\n \u2022 You can use the hat as a spellcasting focus for your wizard spells.\n \u2022 You can try to cast a cantrip that you don't know. The cantrip must be on the wizard spell list, and you must make a DC 10 Intelligence (Arcana) check. If the check succeeds, you cast the spell. If the check fails, so does the spell, and the action used to cast the spell is wasted. In either case, you can't use this property again until you finish a long rest.\n   This hat was the property of Manshoon's clone's simulacrum's former roommate. The simulacrum stole it, because he is evil. The hat makes the bearer paranoid, imaging personal grudges with even those whom the bearer has never met.\n   " + toUni("Wicked") + ". It heightens the wearer's urges to act selfishly or malevolently in accordance with the imagined enmity.",
 		attunement : true,
+		prerequisite : "Requires attunement by a wizard",
+		prereqeval : function (v) { return classes.known.wizard ? true : false; },
 		limfeaname : "Hat of Wizardry",
 		usages : 1,
 		recovery : "long rest",
@@ -12894,7 +12917,7 @@ MagicItemsList["al headwear"] = {
 			name : "Special Properties",
 			popupName : "Helm of Brilliance's Special Properties",
 			note : [
-				"This helm is decorated with scenes of underwater volcanoes. While you wear it, you can speak and understand Aquan. When found, the helm has 5 diamonds, 11 rubies, 16 fire opals, & 22 opals. You can use an action to destroy a gem & cast a spell. When all the gems are used or destroyed, the helm loses its magic.",
+				"This \"helm\" is a really a projection of light cast by a group of incoporeal fireflies. Fireflies serve instead of gems, vanishing forever once they've done their duty.\n   This helm is set with 1d10 diamonds, 2d10 rubies, 3d10 fire opals, and 4d10 opals. Any gem pried from the helm crumbles to dust. When all the gems are removed or destroyed, the helm loses its magic.",
 				"As an action, I can cast one of the following spells (save DC 18), using one of the helm's gems of the specified type as a component: Daylight (opal), Fireball (fire opal), Prismatic Spray (diamond), or Wall of Fire (ruby). The gem is destroyed when the spell is cast and disappears from the helm.",
 				"As long as the helm has at least one diamond remaining, it emits dim light in a 30-ft radius when at least one undead is within that area. Any undead that starts its turn in that area takes 1d6 radiant damage.",
 				"As long as the helm has at least one ruby remaining, I have resistance to fire damage.",
@@ -13186,7 +13209,7 @@ MagicItemsList["al headwear"] = {
 		source : [["AL","DC-POA"]],
 		rarity : "uncommon",
 		magicItemTable : "F",
-		description : "This helm is covered in the saliva of a gnome squidling & is slimey to the touch. While it's been cleaned as much as possible, there's always a bit of drool coming off on my head or hands. While wearing the helm, I can cast Detect Thoughts (DC 13). As a bonus action, I can send a telepathic message to a creature that I'm focusing on w/ Detect Thoughts, which can reply as a bonus action. Once per day, I can cast Suggestion (DC 13) on a creature I'm focusing on w/ the spell.",
+		description : "This helm is covered in the saliva of a gnome squidling & is slimey to the touch. While it's been cleaned as best possible, there's always a bit of drool coming off on my head or hands. While wearing the helm, I can cast Detect Thoughts (DC 13). As a bonus action, I can send a telepathic message to a creature that I'm focusing on w/ Detect Thoughts, which can reply as a bonus action. Once per day, I can cast Suggestion (DC 13) on a creature I'm focusing on w/ the spell.",
 		descriptionFull : "This helm is unfortunately covered in the saliva of a gnome squidling that thought it might be worth trying to eat. The helm is slimey to touch and while it has been cleaned up as best as it can be, there always appears to be a bit of drool coming off on your head or hands.\n   While wearing the helm, you can use an action to cast the Detect Thoughts spell (save DC 13) from it. As long as you maintain concentration on the spell, you can use a bonus action to send a telepathic message to a creature you are focused on. It can reply - using a bonus action - while your focus on it continues.\n   While focusing on a creature with Detect Thoughts, you can use an action to cast the Suggestion spell (save DC 13) from the helm on that creature. Once used, the suggestion property can't be used again until the next dawn.",
 		attunement : true,
 		limfeaname : "Helm of Telepathy: Suggestion",
@@ -16638,7 +16661,7 @@ MagicItemsList["al jewelry"] = {
 		rarity : "rare",
 		magicItemTable : "G",
 		description : "The necklace is made from 6 lockets on a chain and can be attuned to in 1 min. Each locket casts 1 spell once per dawn as a bonus action: 2 blessing (Bless), 3 favor (Greater Restoration), 1 summons (Planar Ally). If I've earned Chloe's Gratitude, the following occurs per locket used: 1st) Targets hear Chloe's song, 2nd) Targets see Chloe singing and dancing, 3rd) Target sees girl and father before tomb, 4th) Target sees girl singing for her father, 5th) Target sees father hugging crying girl, 6th) Chloe's song plays aloud, improving ally's mood if celestial.",
-		descriptionLong : "The necklace is made from 6 lockets strung on a chain and can be attuned to in 1 minute. Each locket be used to cast 1 spell once per dawn as a bonus action. The spells are: 2 blessing (Bless), 3 favor (Greater Restoration) and 1 summons bead (Planar Ally). If I'eve earned Chloe's Gratitude, these affects occur when that bead is used: 1st) The targets hear Chloe's final song to Lucas. 2nd) The targets see Chloe dancing and singing a cheerful song. 3rd) The target sees a 3 yr old girl and her father before a tomb. 4th) The target sees a 4 yr old girl singing to her father happily. 5th) The target sees a 5 yr old girl crying after failing a performance and her father hugging her. 6th) Chloe's song begins playing. If summoning a celestial, the song lightens its mood.",
+		descriptionLong : "The necklace is made from 6 lockets strung on a chain and can be attuned to in 1 minute. Each locket be used to cast 1 spell once per dawn as a bonus action. The spells are: 2 blessing (Bless), 3 favor (Greater Restoration) and 1 summons bead (Planar Ally). If I've earned Chloe's Gratitude, these affects occur when that bead is used: 1st) The targets hear Chloe's final song to Lucas. 2nd) The targets see Chloe dancing and singing a cheerful song. 3rd) The target sees a 3 yr old girl and her father before a tomb. 4th) The target sees a 4 yr old girl singing to her father happily. 5th) The target sees a 5 yr old girl crying after failing a performance and her father hugging her. 6th) Chloe's song begins playing. If summoning a celestial, the song lightens its mood.",
 		descriptionFull : "Chloe's Necklace of Songs and Memories has six lockets strung through with a small chain, forming a necklace. Each locket contains a song Chloe sang and acts as beads of blessing (2), favor (3) or summons (1).\n   " + toUni("Harmonious") + ". Attuning to this item takes only 1 minute.\n   " + toUni("Flavor") + ". The flavor of this necklace is only enabled if the attuned character has the story award, ‘Chloe's Gratitude'.\n   " + toUni("Bead One") + ". When used, the characters under the bless effect can hear Chloe's final song, which was sung for Lucas, in their mind.\n   " + toUni("Bead Two") + ". When used, the characters under the bless effect can see Chloe's visage dancing and singing a cheerful song for them.\n   " + toUni("Bead Three") + ". When used, the character affected by the greater restoration spell from this bead sees an image of a three year old girl and her father standing in front of a tomb.\n   " + toUni("Bead Four") + ". When used, the character affected by the greater restoration spell from this bead sees an image of a four year old girl giving her best in a singing session. Her father is her audience. They were very happy.\n   " + toUni("Bead Five") + ". When used, the character affected by the greater restoration spell from this bead sees an image of a five year old girl crying after failing her first performance. Her father comforts her with a hug.\n   " + toUni("Bead Six") + ". When used, Chloe's beautiful song begins playing around you. If the summoned creature is a celestial, it hears the song too, lightening its mood!\n   This necklace has 1d4+2 magic beads made from aquamarine, black pearl, or topaz. It also has many nonmagical beads made from stones such as amber, bloodstone, citrine, coral, jade, pearl, or quartz. If a magic bead is removed from the necklace, that bead loses its magic.\n   Six types of magic beads exist. The DM decides the type of each bead on the necklace or determines it randomly. A necklace can have more than one bead of the same type. To use one, you must be wearing the necklace. Each bead contains a spell that you can cast from it as a bonus action (using your spell save DC if a save is necessary). Once a magic bead's spell is cast, that bead can't be used again until the next dawn.\n\n" + toUni("d20\tBead of ...\tSpell") + "\n1-6\tBlessing\t\tBless\n7-12\tCuring\t\tCure Wounds (2nd level) or Lesser Restoration\n13-16\tFavor\t\tGreater Restoration\n17-18\tSmiting\t\tBranding Smite\n19\tSummons   \tPlanar Ally\n20\tWind walking\tWind Walk",
 		attunement : true,
 		prerequisite : "Requires attunement by a cleric, druid or paladin",
@@ -16926,7 +16949,7 @@ MagicItemsList["al jewelry"] = {
 		source : [["JRC",139]],
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "The necklace's beads look like tiny fangs. 1d4+1 are magical and each can be used to cast 1 spell once per dawn as a bonus action. 1 bead contains Wind Walk. The DM randomly selects or chooses the others from: blessing (Bless), curing (2nd level Cure Wounds/Lesser Restoration), favor (Greater Restoration), smithing (Branding Smite), summons (Planar Ally) & wind walking (Wind Walk).",
+		description : "The necklace's beads look like tiny fangs. 1d4+1 are magical and each can be used to cast 1 spell once per dawn as a bonus action. 1 bead contains Wind Walk. The DM randomly selects or chooses the others from: blessing (Bless), curing (2nd level Cure Wounds/Lesser Restoration), favor (Greater Restoration), smiting (Branding Smite), summons (Planar Ally) & wind walking (Wind Walk).",
 		descriptionLong : "The necklace's beads look like tiny fangs. 1d4+1 of the beads are magical & can be used to cast 1 spell once per dawn as a bonus action. One bead contains Wind Walk. The DM decides or randomly determines the other spells from: blessing bead (Bless), curing bead (Cure Wounds \u0026 Lesser Restoration), favor bead (Greater Restoration), smiting bead (Branding Smite), summons bead (Planar Ally), & wind walking bead (Wind Walk).",
 		descriptionFull : "The necklace's beads look like tiny fangs and include a bead of wind walk and 1d4 other magic beads.\n   This necklace has 1d4+2 magic beads made from aquamarine, black pearl, or topaz. It also has many nonmagical beads made from stones such as amber, bloodstone, citrine, coral, jade, pearl, or quartz. If a magic bead is removed from the necklace, that bead loses its magic.\n   Six types of magic beads exist. The DM decides the type of each bead on the necklace or determines it randomly. A necklace can have more than one bead of the same type. To use one, you must be wearing the necklace. Each bead contains a spell that you can cast from it as a bonus action (using your spell save DC if a save is necessary). Once a magic bead's spell is cast, that bead can't be used again until the next dawn.\n\n" + toUni("d20\tBead of ...\tSpell") + "\n1-6\tBlessing\t\tBless\n7-12\tCuring\t\tCure Wounds (2nd level) or Lesser Restoration\n13-16\tFavor\t\tGreater Restoration\n17-18\tSmiting\t\tBranding Smite\n19\tSummons   \tPlanar Ally\n20\tWind walking\tWind Walk",
 		attunement : true,
@@ -17132,7 +17155,7 @@ MagicItemsList["al jewelry"] = {
 		source : [["AL","S5"]],
 		rarity : "uncommon",
 		magicItemTable : "F",
-		description : "This wide, leather choker is set w a blood-red stone the size of a man's fist. The stone glows with a faint red light that pulses in time with my heartbeat. While worn, I stabilize whenever I'm dying at the start of my turn & when I roll a Hit Die to regain hp, double the amount restored.",
+		description : "This wide, leather choker is set with a blood-red stone the size of a man's fist. The stone glows with a faint red light that pulses in time with my heartbeat. While worn, I stabilize whenever I'm dying at the start of my turn & when I roll a Hit Die to regain hp, double the amount restored.",
 		descriptionFull : "This wide, leather choker is set with a blood-red stone the size of a man's fist. The stone glows with a faint red light that pulses in time with the wearer's heartbeat. While you wear this pendant, you stabilize whenever you are dying at the start of your turn. In addition, whenever you roll a Hit Die to regain hit points, double the number of hit points it restores.",
 		attunement : true,
 		weight : 1
@@ -19193,8 +19216,8 @@ MagicItemsList["al minerals"] = {
 		source : [["AL","MToF"]],
 		rarity : "common",
 		magicItemTable : "?",
-		description : "This 1-inch emerald is etched with eldritch runes. The green color seems to pulse gently. By pressing this emerald to a simple or martial weapon for 10 minutes, it attaches itself to the weapon. I can then use that weapon as a spellcasting focus. Once attached, it can't be removed unless my attunement ends, I detach it as an action, or the weapon is destroyed.",
-		descriptionFull : "Etched with eldritch runes, the 1-inch-diameter emerald allows you to use a simple or martial weapon as a spellcasting focus for your spells. For this property to work, you must attach the emerald to the weapon by pressing the emerald against it for at least 10 minutes. Thereafter, the emerald can't be removed unless you detach it as an action or the weapon is destroyed. Not even an Antimagic Field causes it to fall off. The emerald does fall off the weapon if your attunement to the emerald ends.",
+		description : "This 1-inch emerald is etched with eldritch runes. By pressing this emerald to a simple or martial weapon for 10 minutes, it attaches itself to the weapon. I can then use that weapon as a spellcasting focus. Once attached, it can't be removed unless my attunement ends, I detach it as an action, or the weapon is destroyed.",
+		descriptionFull : "A fist-sized emerald carved to resemble an eye. Etched with eldritch runes, the emerald allows you to use a simple or martial weapon as a spellcasting focus for your spells. For this property to work, you must attach the emerald to the weapon by pressing the emerald against it for at least 10 minutes. Thereafter, the emerald can't be removed unless you detach it as an action or the weapon is destroyed. Not even an Antimagic Field causes it to fall off. The emerald does fall off the weapon if your attunement to the emerald ends.",
 		attunement : true,
 		prerequisite : "Requires attunement by a spellcaster",
 		prereqeval : function(v) { return v.isSpellcaster; }
@@ -19926,7 +19949,7 @@ MagicItemsList["al rings"] = {
 			additional : "2 charges",
 			note : [
 				"As an action, I can create 1-4 spheres of lightning of 3-ft diameter within 120 ft",
-				"These last while I concentrate, up to 1 min; As a bonus action, I can more them 30 ft",
+				"These last while I concentrate, up to 1 min; As a bonus action, I can move them 30 ft",
 				"When a creature (not me) comes within 5 ft of a sphere, it discharges and disappears",
 				"The target must make a DC 15 Dex save or take lightning damage",
 				"A sphere sheds dim light in 30-ft radius, its damage depends on the number created:",
@@ -19999,7 +20022,7 @@ MagicItemsList["al rings"] = {
 				compMaterial : "Spells cast by magic items don't require any components other than the magic item itself.",
 				duration : "Instantaneous",
 				description : "15-ft cube in range per expended charge; all crea in cubes take 5d4 Fire damage, save halves",
-				descriptionFull : "You can expend 1 to 3 charges from the ring of shooting starts as an action. For every charge you expend, you launch a glowing mote of light from the ring at a point you can see within 60 feet of you. Each creature within a 15-foot cube originating from that point is showered in sparks and must make a DC 15 Dexterity saving throw. taking 5d4 fire damage on a failed save, or half as much damage on a successful one.",
+				descriptionFull : "You can expend 1 to 3 charges from the ring of shooting stars as an action. For every charge you expend, you launch a glowing mote of light from the ring at a point you can see within 60 feet of you. Each creature within a 15-foot cube originating from that point is showered in sparks and must make a DC 15 Dexterity saving throw. taking 5d4 fire damage on a failed save, or half as much damage on a successful one.",
 				completeRewrite : true, // indicates that the changes here even overwrite the tooltip
 				changes : "The listing of 'Magic Missile' has been completely changed to reflect the 'Shooting Stars' ability of the Ring of Shooting Stars. Even the information above is changed."
 			}
@@ -20020,7 +20043,7 @@ MagicItemsList["al rings"] = {
 			additional : "2 charges",
 			note : [
 				"As an action, I can create 1-4 spheres of lightning of 3-ft diameter within 120 ft",
-				"These last while I concentrate, up to 1 min; As a bonus action, I can more them 30 ft",
+				"These last while I concentrate, up to 1 min; As a bonus action, I can move them 30 ft",
 				"When a creature (not me) comes within 5 ft of a sphere, it discharges and disappears",
 				"The target must make a DC 15 Dex save or take lightning damage",
 				"A sphere sheds dim light in 30-ft radius, its damage depends on the number created:",
@@ -20093,7 +20116,7 @@ MagicItemsList["al rings"] = {
 				compMaterial : "Spells cast by magic items don't require any components other than the magic item itself.",
 				duration : "Instantaneous",
 				description : "15-ft cube in range per expended charge; all crea in cubes take 5d4 Fire damage, save halves",
-				descriptionFull : "You can expend 1 to 3 charges from the ring of shooting starts as an action. For every charge you expend, you launch a glowing mote of light from the ring at a point you can see within 60 feet of you. Each creature within a 15-foot cube originating from that point is showered in sparks and must make a DC 15 Dexterity saving throw. taking 5d4 fire damage on a failed save, or half as much damage on a successful one.",
+				descriptionFull : "You can expend 1 to 3 charges from the ring of shooting stars as an action. For every charge you expend, you launch a glowing mote of light from the ring at a point you can see within 60 feet of you. Each creature within a 15-foot cube originating from that point is showered in sparks and must make a DC 15 Dexterity saving throw. taking 5d4 fire damage on a failed save, or half as much damage on a successful one.",
 				completeRewrite : true, // indicates that the changes here even overwrite the tooltip
 				changes : "The listing of 'Magic Missile' has been completely changed to reflect the 'Shooting Stars' ability of the Ring of Shooting Stars. Even the information above is changed."
 			}
@@ -20114,7 +20137,7 @@ MagicItemsList["al rings"] = {
 			additional : "2 charges",
 			note : [
 				"As an action, I can create 1-4 spheres of lightning of 3-ft diameter within 120 ft",
-				"These last while I concentrate, up to 1 min; As a bonus action, I can more them 30 ft",
+				"These last while I concentrate, up to 1 min; As a bonus action, I can move them 30 ft",
 				"When a creature (not me) comes within 5 ft of a sphere, it discharges and disappears",
 				"The target must make a DC 15 Dex save or take lightning damage",
 				"A sphere sheds dim light in 30-ft radius, its damage depends on the number created:",
@@ -20187,7 +20210,7 @@ MagicItemsList["al rings"] = {
 				compMaterial : "Spells cast by magic items don't require any components other than the magic item itself.",
 				duration : "Instantaneous",
 				description : "15-ft cube in range per expended charge; all crea in cubes take 5d4 Fire damage, save halves",
-				descriptionFull : "You can expend 1 to 3 charges from the ring of shooting starts as an action. For every charge you expend, you launch a glowing mote of light from the ring at a point you can see within 60 feet of you. Each creature within a 15-foot cube originating from that point is showered in sparks and must make a DC 15 Dexterity saving throw. taking 5d4 fire damage on a failed save, or half as much damage on a successful one.",
+				descriptionFull : "You can expend 1 to 3 charges from the ring of shooting stars as an action. For every charge you expend, you launch a glowing mote of light from the ring at a point you can see within 60 feet of you. Each creature within a 15-foot cube originating from that point is showered in sparks and must make a DC 15 Dexterity saving throw. taking 5d4 fire damage on a failed save, or half as much damage on a successful one.",
 				completeRewrite : true, // indicates that the changes here even overwrite the tooltip
 				changes : "The listing of 'Magic Missile' has been completely changed to reflect the 'Shooting Stars' ability of the Ring of Shooting Stars. Even the information above is changed."
 			}
@@ -20208,7 +20231,7 @@ MagicItemsList["al rings"] = {
 			additional : "2 charges",
 			note : [
 				"As an action, I can create 1-4 spheres of lightning of 3-ft diameter within 120 ft",
-				"These last while I concentrate, up to 1 min; As a bonus action, I can more them 30 ft",
+				"These last while I concentrate, up to 1 min; As a bonus action, I can move them 30 ft",
 				"When a creature (not me) comes within 5 ft of a sphere, it discharges and disappears",
 				"The target must make a DC 15 Dex save or take lightning damage",
 				"A sphere sheds dim light in 30-ft radius, its damage depends on the number created:",
@@ -20281,7 +20304,7 @@ MagicItemsList["al rings"] = {
 				compMaterial : "Spells cast by magic items don't require any components other than the magic item itself.",
 				duration : "Instantaneous",
 				description : "15-ft cube in range per expended charge; all crea in cubes take 5d4 Fire damage, save halves",
-				descriptionFull : "You can expend 1 to 3 charges from the ring of shooting starts as an action. For every charge you expend, you launch a glowing mote of light from the ring at a point you can see within 60 feet of you. Each creature within a 15-foot cube originating from that point is showered in sparks and must make a DC 15 Dexterity saving throw. taking 5d4 fire damage on a failed save, or half as much damage on a successful one.",
+				descriptionFull : "You can expend 1 to 3 charges from the ring of shooting stars as an action. For every charge you expend, you launch a glowing mote of light from the ring at a point you can see within 60 feet of you. Each creature within a 15-foot cube originating from that point is showered in sparks and must make a DC 15 Dexterity saving throw. taking 5d4 fire damage on a failed save, or half as much damage on a successful one.",
 				completeRewrite : true, // indicates that the changes here even overwrite the tooltip
 				changes : "The listing of 'Magic Missile' has been completely changed to reflect the 'Shooting Stars' ability of the Ring of Shooting Stars. Even the information above is changed."
 			}
@@ -20302,7 +20325,7 @@ MagicItemsList["al rings"] = {
 			additional : "2 charges",
 			note : [
 				"As an action, I can create 1-4 spheres of lightning of 3-ft diameter within 120 ft",
-				"These last while I concentrate, up to 1 min; As a bonus action, I can more them 30 ft",
+				"These last while I concentrate, up to 1 min; As a bonus action, I can move them 30 ft",
 				"When a creature (not me) comes within 5 ft of a sphere, it discharges and disappears",
 				"The target must make a DC 15 Dex save or take lightning damage",
 				"A sphere sheds dim light in 30-ft radius, its damage depends on the number created:",
@@ -20375,7 +20398,7 @@ MagicItemsList["al rings"] = {
 				compMaterial : "Spells cast by magic items don't require any components other than the magic item itself.",
 				duration : "Instantaneous",
 				description : "15-ft cube in range per expended charge; all crea in cubes take 5d4 Fire damage, save halves",
-				descriptionFull : "You can expend 1 to 3 charges from the ring of shooting starts as an action. For every charge you expend, you launch a glowing mote of light from the ring at a point you can see within 60 feet of you. Each creature within a 15-foot cube originating from that point is showered in sparks and must make a DC 15 Dexterity saving throw. taking 5d4 fire damage on a failed save, or half as much damage on a successful one.",
+				descriptionFull : "You can expend 1 to 3 charges from the ring of shooting stars as an action. For every charge you expend, you launch a glowing mote of light from the ring at a point you can see within 60 feet of you. Each creature within a 15-foot cube originating from that point is showered in sparks and must make a DC 15 Dexterity saving throw. taking 5d4 fire damage on a failed save, or half as much damage on a successful one.",
 				completeRewrite : true, // indicates that the changes here even overwrite the tooltip
 				changes : "The listing of 'Magic Missile' has been completely changed to reflect the 'Shooting Stars' ability of the Ring of Shooting Stars. Even the information above is changed."
 			}
@@ -20640,7 +20663,7 @@ MagicItemsList["al rods"] = {
 		source : [["AL","CCC"]],
 		rarity : "uncommon",
 		magicItemTable : "B",
-		description : "This gnarled stick is a mix of bramble, vine & birchwood, twisted around the spine of a humongous Moonsea Cod. Druidic runes are etched in the handle, their meaning lost to the seasons. I can thread a line though the spine to a crude reel made of a sea chub's skull. While activated, if any fish-like beasts are w/i 10ft, the skull exclaims, “You got a bite!”. Action to press button on end, magically fixing the rod in place or making it movable. Once fixed, it holds 8000 lb. More causes it to deactivate. DC 30 Str check to move 10ft.",
+		description : "This gnarled stick is a mix of bramble, vine & birchwood, twisted around the spine of a humongous Moonsea Cod. Druidic runes are etched in the handle, their meaning lost to the seasons. I can thread a line through the spine to a crude reel made of a sea chub's skull. While activated, if any fish-like beasts are w/i 10ft, the skull exclaims, “You got a bite!”. Action to press button on end, magically fixing the rod in place or making it movable. Once fixed, it holds 8000 lb. More causes it to deactivate. DC 30 Str check to move 10ft.",
 		descriptionFull : "This gnarled stick is a warped mix of bramble, vine and birchwood, twisted around the spine of a humongous Moonsea Cod. Druidic runes are etched in the handle, their meaning, lost through the seasons. The fish spine permits threading of a line down to a crude reel made of a sea chub's skull. While activated, if there are any fish-like beasts within 10ft. of the rod, it will shake, and the skull will excitedly exclaim, “You got a bite! You got a bite!”. There's a button on one end. You can use an action to press the button, which causes the rod to become magically fixed in place. Until you or another creature uses an action to push the button again, the rod doesn't move, even if it is defying gravity. The rod can hold up to 8,000 pounds of weight. More weight causes the rod to deactivate and fall. A creature can use an action to make a DC 30 Strength check, moving the fixed rod up to 10 feet on a success.",
 		weight : 2,
 		action : [["action", "Immovable Rod (activate/deactivate)"]]
@@ -21001,7 +21024,7 @@ MagicItemsList["al rods"] = {
 		source : [["AL","S8"]],
 		rarity : "legendary",
 		magicItemTable : "I",
-		description : "This rod is engraved with sun symbols and bejeweled with faceted citrines. It glows equal to a torch when within 100 ft. of undead. The rod has 5 charges and regains 1 expended charge daily at dawn. While holding it, I can use an action to expend 1 charge and cast Heal from it, or expend 5 charges and cast Resurrection. If the rod is reduced to 0 charges, roll a d20. On a 1, the rod disappears in a burst of radiance.",
+		description : "This rod is engraved with sun symbols and bejeweled with faceted citrines. It glows equal to a torch when within 100 ft of undead. The rod has 5 charges and regains 1 expended charge daily at dawn. While holding it, I can use an action to expend 1 charge and cast Heal from it, or expend 5 charges and cast Resurrection. If the rod is reduced to 0 charges, roll a d20. On a 1, the rod disappears in a burst of radiance.",
 		descriptionFull : "This rod is engraved with sun symbols and bejeweled with faceted citrines. It glows equal to a torch when within 100 ft. of undead. The rod has 5 charges. While you hold it, you can use an action to cast one of the following spells from it: Heal (expends 1 charge) or Resurrection (expends 5 charges).\n   The rod regains 1 expended charge daily at dawn. If the rod is reduced to 0 charges, roll a d20. On a 1, the rod disappears in a burst of radiance.",
 		attunement : true,
 		weight : 2,
@@ -21768,14 +21791,15 @@ MagicItemsList["al stones"] = {
 		magicItemTable : "C",
 		description : "These smooth stones made of marble have the crest of Hillsfar carved into them. While touching one stone, I can cast Sending as an action once per dawn, targeting the bearer of the other stone or the First Lord of Hillsfar. If no one else has the stone, the spell doesn't cast. Sending allows each bearer to communicate up to 25 words.",
 		descriptionFull : "These smooth stones made of marble have the crest of Hillsfar carved into them. In addition to normal use, these stones also have the ability to directly contact the First Lord of Hillsfar. You have been assured that he always keeps the stone close at hand. Contacting the First Lord expends the single use the stones gain every dawn.\n   While you touch one stone, you can use an action to cast the Sending spell from it. The target is the bearer of on of the other stones. If no creature bears the other stone, you know that fact as soon as you use the stone and don't cast the spell.\n   Once Sending is cast through the stones, they can't be used again until the next dawn. If one of the stones in a set is destroyed, the other ones become nonmagical.",
+		limfeaname : "Sending Stones",
+		usages : 1, 
+		recovery : "dawn",
 		spellcastingBonus : {
 			name : "To other stone bearer only",
 			spells : ["sending"],
 			selection : ["sending"],
 			firstCol : "oncelr"
 				},
-		usages : 1, 
-		recovery : "dawn",
 		spellChanges : {
 			"sending" : {
 				description : "Send a 25 word message to the bearer of the other Sending Stone, who can respond with 25 words",
@@ -21790,14 +21814,15 @@ MagicItemsList["al stones"] = {
 		magicItemTable : "C",
 		description : "This pair of stones is engraved with a pattern of stars from the Feywild sky. While touching 1 stone, I can cast Sending as an action once/dawn, targeting whoever has the other stone. If no one has it, the spell won't cast. Sending allows each bearer to communicate up to 25 words.",
 		descriptionFull : "This pair of magic stones are engraved with a pattern of stars from the Feywild sky.\n   While you touch one stone, you can use an action to cast the Sending spell from it. The target is the bearer of on of the other stones. If no creature bears the other stone, you know that fact as soon as you use the stone and don't cast the spell.\n   Once Sending is cast through the stones, they can't be used again until the next dawn. If one of the stones in a set is destroyed, the other ones become nonmagical.",
+		limfeaname : "Sending Stones",
+		usages : 1, 
+		recovery : "dawn",
 		spellcastingBonus : {
 			name : "To other stone bearer only",
 			spells : ["sending"],
 			selection : ["sending"],
 			firstCol : "oncelr"
 				},
-		usages : 1, 
-		recovery : "dawn",
 		spellChanges : {
 			"sending" : {
 				description : "Send a 25 word message to the bearer of the other Sending Stone, who can respond with 25 words",
@@ -21810,16 +21835,17 @@ MagicItemsList["al stones"] = {
 		source : [["AL","CCC"]],
 		rarity : "uncommon",
 		magicItemTable : "C",
-		description : "These stones are inside male & female stuffed sphinxes. To activate, I must hug the toy & say “I love you Mr./Mrs. Wubsy.” You can command the sphinx's eyes to glow w/ a soft blue light equal to a candle. Removing the stones destroys the magic. While touching 1 stone, I can cast Sending as an action once/dawn, targeting whoever has the other stone. If no one has it, the spell won't cast. Sending allows each bearer to communicate up to 25 words.",
+		description : "These stones are inside male & female stuffed sphinxes. To activate, I must hug the toy & say “I love you Mr./Mrs. Wubsy.” I can command the sphinx's eyes to glow w/ a soft blue light equal to a candle. Removing the stones destroys the magic. While touching 1 stone, I can cast Sending as an action once/dawn, targeting whoever has the other stone. If no one has it, the spell won't cast. Sending allows each bearer to communicate up to 25 words.",
 		descriptionFull : "These stones are inside male and female sphinx stuffed children's toys. To activate one, the owner must hug the animal and say “I love you Mr./Mrs. Wubsy.” The sphinx's eyes can be commanded to glow with a soft blue light equal to a candle. The stones cannot be removed from the toys without destroying the magic.\n   While you touch one stone, you can use an action to cast the Sending spell from it. The target is the bearer of on of the other stones. If no creature bears the other stone, you know that fact as soon as you use the stone and don't cast the spell.\n   Once Sending is cast through the stones, they can't be used again until the next dawn. If one of the stones in a set is destroyed, the other ones become nonmagical.",
+		limfeaname : "Sending Stones",
+		usages : 1, 
+		recovery : "dawn",
 		spellcastingBonus : {
 			name : "To other stone bearer only",
 			spells : ["sending"],
 			selection : ["sending"],
 			firstCol : "oncelr"
 				},
-		usages : 1, 
-		recovery : "dawn",
 		spellChanges : {
 			"sending" : {
 				description : "Send a 25 word message to the bearer of the other Sending Stone, who can respond with 25 words",
@@ -21834,14 +21860,15 @@ MagicItemsList["al stones"] = {
 		magicItemTable : "C",
 		description : "There are 3 stones in this set, crafted from a small, polished river rocks inscribed w/ a strange sigil. When the stones are used, there's a 10% chance the message is overheard by Witchthorn who twists or distorts the message — trying to put any listeners in peril. While touching one stone, I can cast Sending as an action once/dawn, targeting the bearer of another stone. If no creature has one, the spell won't cast. Sending allows each bearer to communicate up to 25 words.",
 		descriptionFull : "Instead of only two stones, there are three stones in this set. Each is crafted from a small, polished river stone, inscribed with a strange sigil. Their use is not without risk, however. Each time the stones are used, there is a 1-in-10 chance that the message is overheard by Witchthorn who, in turn twists or otherwise distorts the message — preferably in a way to put any listeners in peril.\n   While you touch one stone, you can use an action to cast the Sending spell from it. The target is the bearer of on of the other stones. If no creature bears the other stone, you know that fact as soon as you use the stone and don't cast the spell.\n   Once Sending is cast through the stones, they can't be used again until the next dawn. If one of the stones in a set is destroyed, the other ones become nonmagical.",
+		limfeaname : "Sending Stones",
+		usages : 1, 
+		recovery : "dawn",
 		spellcastingBonus : {
 			name : "To other stone bearer only",
 			spells : ["sending"],
 			selection : ["sending"],
 			firstCol : "oncelr"
 				},
-		usages : 1, 
-		recovery : "dawn",
 		spellChanges : {
 			"sending" : {
 				description : "Send a 25 word message to the bearer of the other Sending Stone, who can respond with 25 words",
@@ -21856,14 +21883,15 @@ MagicItemsList["al stones"] = {
 		magicItemTable : "C",
 		description : "These stones were plucked from a raging river. Worn smooth by eons of fast-moving water, each is struck through with streaks of silvery metal and chunks of blue crystal, and engraved with a sigil of unknown origin. While touching one stone, I can cast Sending as an action once/dawn, targeting the bearer of the other stone. If no one has it, the spell won't cast. Sending allows each bearer to communicate up to 25 words.",
 		descriptionFull : "These stones were plucked from a raging river. Worn smooth by eons of fast-moving water, each is struck through with streaks of silvery metal and chunks of blue crystal, and engraved with a sigil of unknown origin.\n   Sending stones come in pairs, with each smooth stone carved to match the other so the pairing is easily recognized. While you touch one stone, you can use an action to cast the Sending spell from it. The target is the bearer of the other stone. If no creature bears the other stone, you know that fact as soon as you use the stone and don't cast the spell.\n   Once Sending is cast through the stones, they can't be used again until the next dawn. If one of the stones in a pair is destroyed, the other one becomes nonmagical.",
+		limfeaname : "Sending Stones",
+		usages : 1, 
+		recovery : "dawn",
 		spellcastingBonus : {
 			name : "To other stone bearer only",
 			spells : ["sending"],
 			selection : ["sending"],
 			firstCol : "oncelr"
 				},
-		usages : 1, 
-		recovery : "dawn",
 		spellChanges : {
 			"sending" : {
 				description : "Send a 25 word message to the bearer of the other Sending Stone, who can respond with 25 words",
@@ -24162,7 +24190,7 @@ MagicItemsList["al transport"] = {
 		source : [["AL:SA","11A"]],
 		rarity : "uncommon",
 		magicItemTable : "B",
-		description : "Constructed by sea elves and made of hardened seaweed and lily pads, this saddle allows my mount to understand me. While in this saddle, I can't be dismounted against my will if conscious & atk rolls against the mount have disadvantage",
+		description : "Constructed by sea elves and made of hardened seaweed and lily pads, this saddle allows my mount to understand me. While in this saddle, I can't be dismounted against my will if conscious & atk rolls against the mount have disadvantage.",
 		descriptionFull : "While in this saddle on a mount, you can't be dismounted against your will if you're conscious, and attack rolls against the mount have disadvantage. \n   Constructed by sea elves and made of hardened seaweed and lily pads, this item allows the mount to understand you."
 	},
 	"saddle of the cavalier (ccc-centric1-2)" : {
@@ -24209,8 +24237,8 @@ MagicItemsList["al wands"] = {
 		source : [["AL","S4"]],
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "This wand is made from amber carved to look like strands of rope wrapped around a skeletal hand w/ the index finger outstretched. Its owner is plagued by nightmares of being buried alive & leaving important things undone. The wand has 7 charges for its spells, regaining 1d6+1 at dawn. 1 charge to gain adv. on grapple escape chk or saves vs. paralyzed/restrained, latter uses reaction. 5% chance of destruction if use last charge (1 on d20)",
-		descriptionLong : "This wand is made of a piece of amber carved to look like strands of rope entwined around a skeletal hand with the index finger outstretched. The owner's dreams are plagued by nightmares of being buried alive and leaving important things left unfinished. The wand has 7 charges, regaining 1d6+1 at dawn. I can expend charges to cast (save DC 17) Hold Monster (5 charges) or Hold Person (2 charges). As a reaction, I can expend 1 charge to gain adv. on a save to avoid being paralyzed or restrained. I can also expend 1 charge to gain adv. on a check to escape a grapple. If I expend the wand's last charge, roll a d20. On a 1, the wand crumbles into ashes and is destroyed.",
+		description : "This wand is made from amber carved to look like strands of rope wrapped around a skeletal hand w/ the index finger outstretched. I'm plagued by nightmares of being buried alive & leaving important things undone. The wand has 7 charges for its spells, regaining 1d6+1 at dawn. 1 charge to gain adv. on grapple escape chk or saves vs. paralyzed/restrained, latter uses reaction. 5% chance of destruction if use last charge (1 on d20)",
+		descriptionLong : "This wand is made of a piece of amber carved to look like strands of rope entwined around a skeletal hand with the index finger outstretched. My dreams are plagued by nightmares of being buried alive and leaving important things left unfinished. The wand has 7 charges, regaining 1d6+1 at dawn. I can expend charges to cast (save DC 17) Hold Monster (5 charges) or Hold Person (2 charges). As a reaction, I can expend 1 charge to gain adv. on a save to avoid being paralyzed or restrained. I can also expend 1 charge to gain adv. on a check to escape a grapple. If I expend the wand's last charge, roll a d20. On a 1, the wand crumbles into ashes and is destroyed.",
 		descriptionFull : "This wand is made of a piece of amber carved to look like strands of rope entwined around a skeletal hand with the index finger outstretched. The owner's dreams are plagued by nightmares of being buried alive and leaving important things left unfinished. The wand has 7 charges for the following properties. It regains 1d6+1 expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand crumbles into ashes and is destroyed.\n   " + toUni("Spells") + ". While holding the wand, you can use an action to expend some of its charges to cast one of the following spells (save DC 17): Hold Monster (5 charges) or Hold Person (2 charges).\n   " + toUni("Assisted Escape") + ". While holding the wand, you can use your reaction to expend 1 charge and gain advantage on a saving throw you make to avoid being paralyzed or restrained, or you can expend 1 charge and gain advantage on any check you make to escape a grapple.",
 		attunement : true,
 		weight : 1,
@@ -24325,7 +24353,7 @@ MagicItemsList["al wands"] = {
 		source : [["AL","DRW"]],
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "This black wand has red veins that resemble antlers. It's warm to the touch, as if the embers of hell burn under its surface. The wand has 7 charges, regaining 1d6+1 at dawn. As an action, I can spend 1 or more charges to cast Fireball (save DC 15) from it at 3rd lvl. The spell lvl increases by 1 for each charge after the 1st. 5% chance of of crumbling to ashes if use last charge (1 on d20)",
+		description : "This black wand has red veins that resemble antlers. It's warm to the touch, as if the embers of hell burn under its surface. The wand has 7 charges, regaining 1d6+1 at dawn. As an action, I can spend 1 or more charges to cast Fireball (save DC 15) from it at 3rd lvl. The spell lvl increases by 1 for each charge after the 1st. 5% chance of crumbling to ashes if use last charge (1 on d20)",
 		descriptionFull : "This black wand has red veins that resemble little antlers. It is warm to the touch, as if the embers of hell burn under its surface. This wand has 7 charges. While holding it, you can use an action to expend 1 or more of its charges to cast the Fireball spell (save DC 15) from it. For 1 charge, you cast the 3rd-level version of the spell. You can increase the spell slot level by one for each additional charge you expend.\n   The wand regains 1d6+1 expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand crumbles into ashes and is destroyed.",
 		attunement : true,
 		weight : 1,
@@ -24355,7 +24383,7 @@ MagicItemsList["al wands"] = {
 		source : [["AL","CCC"]],
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "This wand has 7 charges, regaining 1d6+1 at dawn. As an action, I can spend 1 or more charges to cast a green Fireball (save DC 15) from it at 3rd lvl. The spell lvl increases by 1 for each charge after the 1st. 5% chance of of crumbling to ashes if use last charge (1 on d20)",
+		description : "This wand has 7 charges, regaining 1d6+1 at dawn. As an action, I can spend 1 or more charges to cast a green Fireball (save DC 15) from it at 3rd lvl. The spell lvl increases by 1 for each charge after the 1st. 5% chance of crumbling to ashes if use last charge (1 on d20)",
 		descriptionFull : "This wand has 7 charges. While holding it, you can use an action to expend 1 or more of its charges to cast a customized green Fireball spell (save DC 15) from it. For 1 charge, you cast the 3rd-level version of the spell. You can increase the spell slot level by one for each additional charge you expend.\n   The wand regains 1d6+1 expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand crumbles into ashes and is destroyed.",
 		attunement : true,
 		weight : 1,
@@ -24416,7 +24444,7 @@ MagicItemsList["al wands"] = {
 		source : [["AL","SJ-DC"]],
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "Wilhelm’s Pyrotechnic Device got the One Exit shut down and looks like it was meant for mining applications. While underground, I always know my depth below the surface & the direction to the nearest path leading upward. This wand has 7 charges, regaining 1d6+1 at dawn. As an action, I can spend 1 or more charges to cast Fireball (save DC 15) from it at 3rd lvl. The spell lvl increases by 1 for each charge after the 1st. 5% chance of of crumbling to ashes if last charge used (1 on d20).",
+		description : "Wilhelm’s Pyrotechnic Device got the One Exit shut down and looks like it was meant for mining applications. While underground, I always know my depth below the surface & the direction to the nearest path leading upward. This wand has 7 charges, regaining 1d6+1 at dawn. As an action, I can spend 1 or more charges to cast Fireball (save DC 15) from it at 3rd lvl. The spell lvl increases by 1 for each charge after the 1st. 5% chance of crumbling to ashes if last charge used (1 on d20).",
 		descriptionFull : "Wilhelm’s Pyrotechnic Device got the One Exit shut down in the past, it looks like it may have been meant for mining applications as it has the delver minor property.\n   " + toUni("Delver") + ". While underground, the bearer of this item always knows the item’s depth below the surface and the direction to the nearest staircase, ramp, or other path leading upward.\n   This wand has 7 charges. While holding it, you can use an action to expend 1 or more of its charges to cast the Fireball spell (save DC 15) from it. For 1 charge, you cast the 3rd-level version of the spell. You can increase the spell slot level by one for each additional charge you expend.\n   The wand regains 1d6+1 expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand crumbles into ashes and is destroyed.",
 		attunement : true,
 		weight : 1,
@@ -24446,7 +24474,7 @@ MagicItemsList["al wands"] = {
 		source : [["AL","SJ-DC"]],
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "This wand is shaped like an ornate revolver with an ivory grip. An engraving on the grip reads, “true steel needs a little grit”. The wand has 7 charges, regaining 1d6+1 at dawn. As an action, I can spend 1 or more charges to cast Fireball (save DC 15) from it at 3rd lvl. The spell lvl increases by 1 for each charge after the 1st. 5% chance of of crumbling to ashes if last charge used (1 on d20). It can't be broken by other means.",
+		description : "This wand is shaped like an ornate revolver with an ivory grip. An engraving on the grip reads, “true steel needs a little grit”. The wand has 7 charges, regaining 1d6+1 at dawn. As an action, I can spend 1 or more charges to cast Fireball (save DC 15) from it at 3rd lvl. The spell lvl increases by 1 for each charge after the 1st. 5% chance of crumbling to ashes if last charge used (1 on d20). It can't be broken by other means.",
 		descriptionFull : "This Wand of Fireballs is shaped like an ornate revolver with an ivory grip. An engraving on the grip reads, “true steel needs a little grit”.\n   " + toUni("Unbreakable") + ". The item can't be broken. Special means must be used to destroy it.\n   This wand has 7 charges. While holding it, you can use an action to expend 1 or more of its charges to cast the Fireball spell (save DC 15) from it. For 1 charge, you cast the 3rd-level version of the spell. You can increase the spell slot level by one for each additional charge you expend.\n   The wand regains 1d6+1 expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand crumbles into ashes and is destroyed.",
 		attunement : true,
 		weight : 1,
@@ -24476,7 +24504,7 @@ MagicItemsList["al wands"] = {
 		source : [["AL","SJ-DC"]],
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "This wand is made from the fang of a red dragon and is curved with a pointed tip. While held, I can speak Draconic. The wand has 7 charges, regaining 1d6+1 at dawn. As an action, I can spend 1 or more charges to cast Fireball (save DC 15) from it at 3rd lvl. The spell lvl increases by 1 for each charge after the 1st. 5% chance of of crumbling to ashes if last charge used (1 on d20).",
+		description : "This wand is made from the fang of a red dragon and is curved with a pointed tip. While held, I can speak Draconic. The wand has 7 charges, regaining 1d6+1 at dawn. As an action, I can spend 1 or more charges to cast Fireball (save DC 15) from it at 3rd lvl. The spell lvl increases by 1 for each charge after the 1st. 5% chance of crumbling to ashes if last charge used (1 on d20).",
 		descriptionFull : "This wand is made from the fang of a red dragon and is curved with a pointed tip instead of straight.\n   " + toUni("Language") + ". While holding this wand, the bearer can speak and understand spoken Draconic.\n   This wand has 7 charges. While holding it, you can use an action to expend 1 or more of its charges to cast the Fireball spell (save DC 15) from it. For 1 charge, you cast the 3rd-level version of the spell. You can increase the spell slot level by one for each additional charge you expend.\n   The wand regains 1d6+1 expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand crumbles into ashes and is destroyed.",
 		attunement : true,
 		weight : 1,
@@ -24507,7 +24535,7 @@ MagicItemsList["al wands"] = {
 		source : [["AL","SJ-DC"]],
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "Forged in the City of Brass by an efreeti, this wand is made of pure adamantine. Ripples of folded metal swirl across the haft from the 10,000 hammer blows that shaped it. The wand has 7 charges, regaining 1d6+1 at dawn. As an action, I can spend 1 or more charges to cast Fireball (save DC 15) from it at 3rd lvl. The spell lvl increases by 1 for each charge after the 1st. 5% chance of of crumbling to ashes if last charge used (1 on d20).",
+		description : "Forged in the City of Brass by an efreeti, this wand is made of pure adamantine. Ripples of folded metal swirl across the haft from the 10,000 hammer blows that shaped it. The wand has 7 charges, regaining 1d6+1 at dawn. As an action, I can spend 1 or more charges to cast Fireball (save DC 15) from it at 3rd lvl. The spell lvl increases by 1 for each charge after the 1st. 5% chance of crumbling to ashes if last charge used (1 on d20).",
 		descriptionFull : "Forged in the City of Brass by an efreeti smith, this wand is made of pure adamantine. Ripples of folded metal swirl across the haft of the wand, a product of the ten thousand hammer blows used to shape it.\n   " + toUni("Strange Material") + ". The item was created from a material that is bizarre given its purpose. Its durability is unaffected.\n   This wand has 7 charges. While holding it, you can use an action to expend 1 or more of its charges to cast the Fireball spell (save DC 15) from it. For 1 charge, you cast the 3rd-level version of the spell. You can increase the spell slot level by one for each additional charge you expend.\n   The wand regains 1d6+1 expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand crumbles into ashes and is destroyed.",
 		attunement : true,
 		weight : 1,
@@ -24537,7 +24565,7 @@ MagicItemsList["al wands"] = {
 		source : [["AL","SJ-DC"]],
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "This wand is made of opalescent crystal that's faintly warm to the touch and turns blood red when I'm angry. The wand has 7 charges, regaining 1d6+1 at dawn, and can be attuned to in 1 min. As an action, I can spend 1 or more charges to cast Fireball (save DC 15) from it at 3rd lvl. The spell lvl increases by 1 for each charge after the 1st. 5% chance of of crumbling to ashes if last charge used (1 on d20).",
+		description : "This wand is made of opalescent crystal that's faintly warm to the touch and turns blood red when I'm angry. The wand has 7 charges, regaining 1d6+1 at dawn, and can be attuned to in 1 min. As an action, I can spend 1 or more charges to cast Fireball (save DC 15) from it at 3rd lvl. The spell lvl increases by 1 for each charge after the 1st. 5% chance of crumbling to ashes if last charge used (1 on d20).",
 		descriptionFull : "This wand is made of opalescent crystal that is faintly warm to the touch. The wand turns blood red when its wielder is angry.\n   " + toUni("Harmonious") + ". Attuning to this item takes only 1 minute.\n   This wand has 7 charges. While holding it, you can use an action to expend 1 or more of its charges to cast the Fireball spell (save DC 15) from it. For 1 charge, you cast the 3rd-level version of the spell. You can increase the spell slot level by one for each additional charge you expend.\n   The wand regains 1d6+1 expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand crumbles into ashes and is destroyed.",
 		attunement : true,
 		weight : 1,
@@ -24597,7 +24625,7 @@ MagicItemsList["al wands"] = {
 		source : [["AL","SJ-DC"]],
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "This wand has 7 charges, regaining 1d6+1 at dawn. As an action, I can spend 1 or more charges to cast Fireball (save DC 15) from it at 3rd lvl. The spell lvl increases by 1 for each charge after the 1st. 5% chance of of crumbling to ashes if last charge used (1 on d20). The wand also whispers warnings, giving +2 initiative if I'm not incapacitated.",
+		description : "This wand has 7 charges, regaining 1d6+1 at dawn. As an action, I can spend 1 or more charges to cast Fireball (save DC 15) from it at 3rd lvl. The spell lvl increases by 1 for each charge after the 1st. 5% chance of crumbling to ashes if last charge used (1 on d20). The wand also whispers warnings, giving +2 initiative if I'm not incapacitated.",
 		descriptionFull : "This wand has 7 charges. While holding it, you can use an action to expend 1 or more of its charges to cast the Fireball spell (save DC 15) from it. For 1 charge, you cast the 3rd-level version of the spell. You can increase the spell slot level by one for each additional charge you expend.\n   The wand regains 1d6+1 expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand crumbles into ashes and is destroyed.\n   " + toUni("Guardian") + ". The item whispers warnings to its bearer, granting a +2 bonus to initiative if the bearer isn't incapacitated.",
 		attunement : true,
 		weight : 1,
@@ -24628,7 +24656,7 @@ MagicItemsList["al wands"] = {
 		source : [["AL","SJ-DC"]],
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "This polished crystal shard is warm to the touch and shines with an inner light. It has 7 charges, regaining 1d6+1 at dawn. As an action, I can spend 1 or more charges to cast Fireball (save DC 15) from it at 3rd lvl. The spell lvl increases by 1 for each charge after the 1st. 5% chance of of crumbling to ashes if last charge used (1 on d20). The shard flashes brighly when I'm in imminent danger, giving +2 initiative if not incapacitated.",
+		description : "This polished crystal shard is warm to the touch and shines with an inner light. It has 7 charges, regaining 1d6+1 at dawn. As an action, I can spend 1 or more charges to cast Fireball (save DC 15) from it at 3rd lvl. The spell lvl increases by 1 for each charge after the 1st. 5% chance of crumbling to ashes if last charge used (1 on d20). The shard flashes brightly when I'm in imminent danger, giving +2 initiative if not incapacitated.",
 		descriptionFull : "This wand has 7 charges. While holding it, you can use an action to expend 1 or more of its charges to cast the Fireball spell (save DC 15) from it. For 1 charge, you cast the 3rd-level version of the spell. You can increase the spell slot level by one for each additional charge you expend.\n   The wand regains 1d6+1 expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand crumbles into ashes and is destroyed.\n   " + toUni("Guardian") + ". The shard flashes brightly when its bearer is in imminent danger, granting a +2 bonus to initiative if the bearer isn’t incapacitated.",
 		attunement : true,
 		weight : 1,
@@ -24659,7 +24687,7 @@ MagicItemsList["al wands"] = {
 		source : [["AL","SJ-DC"]],
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "The trophy is a stick with a sphere on top. Carved on the sphere are the letters: PRNDL. As a prize from a race dedicated to speed, attuning to it takes only 1 min. The wand has 7 charges, regaining 1d6+1 at dawn. As an action, I can spend 1 or more charges to cast Fireball (save DC 15) from it at 3rd lvl. The spell lvl increases by 1 for each charge after the 1st. 5% chance of of crumbling to ashes if last charge used (1 on d20).",
+		description : "The trophy is a stick with a sphere on top. Carved on the sphere are the letters: PRNDL. As a prize from a race dedicated to speed, attuning to it takes only 1 min. The wand has 7 charges, regaining 1d6+1 at dawn. As an action, I can spend 1 or more charges to cast Fireball (save DC 15) from it at 3rd lvl. The spell lvl increases by 1 for each charge after the 1st. 5% chance of crumbling to ashes if last charge used (1 on d20).",
 		descriptionFull : "The trophy resembles a stick with a sphere on top. Carved on this sphere are the letters: PRNDL. As a prize from a race dedicated to speed, this item has the Harmonious minor property. Attuning to this item takes only 1 minute.\n   This wand has 7 charges. While holding it, you can use an action to expend 1 or more of its charges to cast the Fireball spell (save DC 15) from it. For 1 charge, you cast the 3rd-level version of the spell. You can increase the spell slot level by one for each additional charge you expend.\n   The wand regains 1d6+1 expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand crumbles into ashes and is destroyed.",
 		attunement : true,
 		weight : 1,
@@ -24689,7 +24717,7 @@ MagicItemsList["al wands"] = {
 		source : [["AL","SJ-DC"]],
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "This magic wand has been fashioned into a metal piece that looks like a small black pistol. When the trigger is pulled, the fireball shoots out of the barrel like a bullet. The wand has 7 charges, regaining 1d6+1 at dawn. As an action, I can spend 1 or more charges to cast Fireball (save DC 15) from it at 3rd lvl. The spell lvl increases by 1 for each charge after the 1st. 5% chance of of crumbling to ashes if last charge used (1 on d20).",
+		description : "This magic wand has been fashioned into a metal piece that looks like a small black pistol. When the trigger is pulled, the fireball shoots out of the barrel like a bullet. The wand has 7 charges, regaining 1d6+1 at dawn. As an action, I can spend 1 or more charges to cast Fireball (save DC 15) from it at 3rd lvl. The spell lvl increases by 1 for each charge after the 1st. 5% chance of crumbling to ashes if last charge used (1 on d20).",
 		descriptionFull : "This magic wand has been fashioned into a metal piece that looks identical to a small, black pistol. When the trigger is pulled, the fireball is shot out of the barrel like a bullet.\n   This wand has 7 charges. While holding it, you can use an action to expend 1 or more of its charges to cast the Fireball spell (save DC 15) from it. For 1 charge, you cast the 3rd-level version of the spell. You can increase the spell slot level by one for each additional charge you expend.\n   The wand regains 1d6+1 expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand crumbles into ashes and is destroyed.",
 		attunement : true,
 		weight : 1,
@@ -24750,7 +24778,7 @@ MagicItemsList["al wands"] = {
 		source : [["AL","SJ-DC"]],
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "This beautiful wand is carved with purple eldritch sigils. It has 7 charges, regaining 1d6+1 at dawn. As an action, I can spend 1 or more charges to cast Fireball (save DC 15) from it at 3rd lvl. The spell lvl increases by 1 for each charge after the 1st. 5% chance of of crumbling to ashes if last charge used (1 on d20). While on my person, I suffer no harm in temperatures from -20\u00B0F to 120\u00B0F.",
+		description : "This beautiful wand is carved with purple eldritch sigils. It has 7 charges, regaining 1d6+1 at dawn. As an action, I can spend 1 or more charges to cast Fireball (save DC 15) from it at 3rd lvl. The spell lvl increases by 1 for each charge after the 1st. 5% chance of crumbling to ashes if last charge used (1 on d20). While on my person, I suffer no harm in temperatures from -20\u00B0F to 120\u00B0F.",
 		descriptionFull : "This beautiful wand with purple eldritch sigil carved onto its body is a wand of fireball with temperate minor property.\n   " + toUni("Temperate") + ". The bearer suffers no harm in temperatures as cold as –20 degrees Fahrenheit or as warm as 120 degrees Fahrenheit.\n   This wand has 7 charges. While holding it, you can use an action to expend 1 or more of its charges to cast the Fireball spell (save DC 15) from it. For 1 charge, you cast the 3rd-level version of the spell. You can increase the spell slot level by one for each additional charge you expend.\n   The wand regains 1d6+1 expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand crumbles into ashes and is destroyed.",
 		attunement : true,
 		weight : 1,
@@ -24781,7 +24809,7 @@ MagicItemsList["al wands"] = {
 		source : [["AL","SJ-DC"]],
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "This is one of Tai Yang's smaller scales, slightly bigger than my hand. It has 7 charges, regaining 1d6+1 at dawn. As an action, I can spend 1 or more charges to cast Fireball (save DC 15) from it at 3rd lvl. The spell lvl increases by 1 for each charge after the 1st. 5% chance of of crumbling to ashes if last charge used (1 on d20).",
+		description : "This is one of Tai Yang's smaller scales, slightly bigger than my hand. It has 7 charges, regaining 1d6+1 at dawn. As an action, I can spend 1 or more charges to cast Fireball (save DC 15) from it at 3rd lvl. The spell lvl increases by 1 for each charge after the 1st. 5% chance of crumbling to ashes if last charge used (1 on d20).",
 		descriptionFull : "This is one of Tai Yang's smaller scales. It is slightly bigger than your hand.\n   This wand has 7 charges. While holding it, you can use an action to expend 1 or more of its charges to cast the Fireball spell (save DC 15) from it. For 1 charge, you cast the 3rd-level version of the spell. You can increase the spell slot level by one for each additional charge you expend.\n   The wand regains 1d6+1 expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand crumbles into ashes and is destroyed.",
 		attunement : true,
 		weight : 1,
@@ -24841,7 +24869,7 @@ MagicItemsList["al wands"] = {
 		source : [["AL","SJ-DC"]],
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "This olive-drab oiled canvas sack is filled with magically replenishing giff-made grenades. It has 7 charges, regaining 1d6+1 at dawn. As an action, I can spend 1 or more charges to cast Fireball (save DC 15) from it at 3rd lvl. The spell lvl increases by 1 for each charge after the 1st. When used, a grenade of appropriate explosivity is pulled out of the bag and thrown. 5% chance of of crumbling to ashes if last charge used (1 on d20).",
+		description : "This olive-drab oiled canvas sack is filled with magically replenishing giff-made grenades. It has 7 charges, regaining 1d6+1 at dawn. As an action, I can spend 1 or more charges to cast Fireball (save DC 15) from it at 3rd lvl. The spell lvl increases by 1 for each charge after the 1st. When used, a grenade of appropriate explosivity is pulled out of the bag and thrown. 5% chance of crumbling to ashes if last charge used (1 on d20).",
 		descriptionFull : "This wand has 7 charges. While holding it, you can use an action to expend 1 or more of its charges to cast the Fireball spell (save DC 15) from it. For 1 charge, you cast the 3rd-level version of the spell. You can increase the spell slot level by one for each additional charge you expend.\n   The wand regains 1d6+1 expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand crumbles into ashes and is destroyed.\n   " + toUni("Strange Material") + ". This wand is actually an olive-drab oiled canvas sack filled with giff-made grenades. For each charge spent, a grenade of appropriate explosivity can be pulled out of the bag and thrown. Each dawn, the grenades magically replenish themselves.",
 		attunement : true,
 		weight : 1,
@@ -25691,7 +25719,7 @@ MagicItemsList["al wands"] = {
 		rarity : "unique",  //per AL admins on the official Discord
 		attunement : true,
 		description : "While holding this golden hand mirror, I gain a +1 bonus to spell attack rolls and ignore half cover when making a spell attack. While in darkness, this arcane focus sheds dim light in a 5-ft radius. Once per dawn while attuned and holding the mirror, I can use a bonus action to cast the enhance ability spell on myself.",
-		descriptionFull : "This wand of the war mage takes the form of an exquisite golden hand mirror and graints a +1 bonus to spell attack rolls while you are holding it. In addition, you ignore half cover when making a spell attack. When surrounded by darkness, it sheds dim light in a 5-foot radius. A creature that is attuned to Radiance can use a bonus action while holding the mirror to cast the enhance ability spell, choosing itself and no other creature as the spell’s target. Once this property of the wand is used, it can’t be used again until the next dawn.",
+		descriptionFull : "This wand of the war mage takes the form of an exquisite golden hand mirror and grants a +1 bonus to spell attack rolls while you are holding it. In addition, you ignore half cover when making a spell attack. When surrounded by darkness, it sheds dim light in a 5-foot radius. A creature that is attuned to Radiance can use a bonus action while holding the mirror to cast the enhance ability spell, choosing itself and no other creature as the spell’s target. Once this property of the wand is used, it can’t be used again until the next dawn.",
 		prerequisite : "Requires attunement by a spellcaster",
 		prereqeval : function(v) { return v.isSpellcaster; },
 		usages : 1,
