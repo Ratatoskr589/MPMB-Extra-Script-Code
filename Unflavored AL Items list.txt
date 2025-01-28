@@ -1,5 +1,9 @@
 Unflavored items in AL modules:
-(This list is incomplete as I only started noting items down about halfway through this project and not consistently)
+(This list is incomplete as I only started noting unflavored items about halfway through this project and not consistently)
+
+BMG-MOON-MD-9 The Prince's Fairy Godmother
+-Shield of Expression
+-Potion of Supreme Healing
 
 CCC-AWE-1-2 The Chi Directive
 -Lantern of Revealing
@@ -30,6 +34,9 @@ CCC-HERO-BK3-2 The Fire Rekindled
 CCC-PIPYAPS Glasyas Little Helpers
 -Ylkwa of Warning
 
+CCC-SAC-1
+-Efreeti Bottle
+
 CCC-TRI-11 Contact
 -Dwarven Plate
 
@@ -58,6 +65,10 @@ DC-POA-AOT1-3
 DC-POA-DOBU-1-1 Beneath a Stony Stump
 -Masquerade Tattoo
 -Grey Bag of Tricks
+
+DC-POA-ROG-3 Last Refufe of Spring
+-Arcane Grimoire +1
+-Illuminator's Tattoo
 
 DC-POA-Sunlit-3 A Solstice Tradition
 -Shield of Expression
@@ -148,11 +159,37 @@ FR-DC-AEG-5 The Hunting
 FR-DC-AEG-7 The Missing Adventurers
 -Candle of the Deep
 
+FR-DC-AEG-8 The Lost Artifact
+-Orb of Direction
+
+FR-DC-AEG-9 What's in the box?
+-Cloak of Billowing
+
+FR-DC-AMAK-1 You Better Watch Out
+-Pipe of Smoke Monsters
+-Wand of Wonder
+
 FR-DC-ARCON-01 Mines and Monsters
 -Wand of Wonder
 
 FR-DC-BG The Flying Flame
 -Blessing of Magic Resistance (Bahamut's)
+
+FR-DC_BMK-1 Phandelver and the Blood Moon Curse
+-Keoghtom's Ointment
+
+FR-DC-BMK-4 Phandelver and the Blood Moon Behemoth
+-Candle of the Deep
+
+FR-DC-BTW-1 Father's Conscience
+-Staff of the Python
+
+FR-DC-DRESS-1 Goblin in a Dress
+-Stone of Good Luck
+
+FR-DC-DUNG Witch Please, It's a Carnival
+-Deck of Miscellany
+-Deck of Illusions (missing 1 card)
 
 FR-DC-FALL-1 Cathedral of Ice
 -Mystery Key
@@ -161,6 +198,12 @@ FR-DC-FALL-1 Cathedral of Ice
 FR-DC-GHG-1 Griffons of Longsaddle
 -Staff of Birdcalls
 
+FR-DC-LAX-1-1 A Bone to Pick
+-Staff of Birdcalls
+
+FR-DC-LAX-1-2 No Strings Attached
+-Mystery Key
+
 FR-DC-LIGA-1 Wyrmwell Flame
 -Blessing of Protection
 
@@ -168,11 +211,39 @@ FR-DC-LIGA-2 House of Shadow
 -Deck of Illusions
 -Dread Helm
 
+FR-DC-LIGA-3 Doom Reborn
+-Mind Crystal (Quickened)
+-Mystra's Blessing of Magic Resistance
+
+FR-DC-LIGA-4 Many Spells Gambit
+-Ioun Stone of Fortitude
+
+FR-DC-LIGA-5 Blue Wyrm Rhapsody
+-Elemental Gem (Yellow Diamond)
+-Mind Crystal (Careful)
+
+FR-DC-LIGA-6 Malaeragoth_and_the_Chaos_King
+-Blessing of Magic Resistance
+-Spellwrought Tattoo (Summon Draconic Spirit)
+
+FR-DC-LIGA-8 A Song of Closure
+-Spellguard Shield
+-Horn of Silent Alarm
+-Potion of Invulnerability
+-Scroll of Protection
+
 FR-DC-MELB-1-4 Monsters
 -Wand of Binding
 
+FR-DC-NUKE-3 Sapphire Hoard
+-Potion of Superior Healing
+-Potion of Lightning Resistance
+
 FR-DC-ONI-1 Oni of the Thousand Gates
 -Orb of Direction
+
+FR-DC-PANDORA-JWEI-8 Minerva
+-Blessing of Weapon Enhancement
 
 FR-DC-PANDORA-JWEI-10 Ares
 -Charm of the Fate
@@ -183,15 +254,29 @@ FR-DC-QLA-1 Mel's Pit
 FR-DC-QLA-2 The Ceremony
 -Rope of Mending
 
+FR-DC-RFJK-1 Punny You Ask
+-Paper Bird
+
+FR-DC-RWIE-3 Circus Berserkus
+-Potion of Fire Giant Strength
+-Blessing of Magic Resistance
+
+FR-DC-STRAT-DRAGON-1 Dancing in the Moonlight
+-Potion of Psionic Fortitude
+-Potion of Psychic Resistance
+
 FR-DC-TGT-2 Those Who Plant
 -Gem of Brightness
+
+FR-DC-TGT-2 The Show Must Go on
+-Boots of Elvenkind
 
 FR-DC-TRIDEN-MYKE-5 Shadow on the Sands
 -Orb of Direction
 -Dried Leech
 
 FR-DC-VECNA-1 Three Body Problem
--Deck of Miscellany (“A dark purple deck with embossed golden borders.” - too annoying to code unless needed)
+-Deck of Miscellany (“A dark purple deck with embossed golden borders.” - too annoying to code unless the flavor is more signifcant)
 
 FR-DC-WATERDEEP-GSZ Sweet Dreams... Geese
 -Deck of Miscellany
@@ -264,6 +349,9 @@ PO-BK-3-8 Weeding Out Trouble
 PO-BK-3-9 The Isle of Death
 -Amethyst Dragon Wing Longbow
 
+PO-BK-3-13 A Ship on Silent Seas
+-Dagger of Blindsight
+
 PO-BK-4-1 (Premier)
 -Glowrune Pigment (rare)
 
@@ -278,15 +366,49 @@ PO-BMG-DRW-KS-1 The Thief of Thay
 -Dust of Disappearance
 -Sekholah Worshipping Statue
 
-RV-DC-OH1 In the Mist of Keening
--Horn of Silent Alarm
--Dagger +2
+PO-BMG-DRW-KS-6 In the Palace of a Thousand Halls
+-Mind Crystal (Quickened)
+-Quaal's Feather Token (Bird)
+
+PS-DC-AUG-02 The Dark Sun
+-Boon of Invincibility
 
 PS-DC-CEG-2 Snakes on a Planescape
 -Ruby of the War Mage
 
+PS-DC-DRAGON24-01 At the Edge of No Tomorrows
+-Dark Shard Amulet
+-Deck of Illusions
+-Dust of Dryness
+
+PS-DC-DRAGON24-02 The Merchant of Ruin
+-Deck of Miscellany
+-Pipe of Smoke Monsters
+
+PS-DC-DRAGON24-03 The Birdcage
+-Dust of Disappearance
+
+PS-DC-DRAGON24-04 The Gallery of Souls
+-Keoghtom's Ointment
+
+PS-DC-ELEMENT-DEATH And Then They Attacked
+-Boon of the Fire Soul
+
 PS-DC-HNL-1 Nowhere Fast
 -Ring of the Orator
+
+PS-DC-MAR-1 Death and Taxes
+-Boon of Speed
+
+PS-DC-MAR-2 Planes, Trains, and Automatons
+-Boon of Planar Travel
+
+PS-DC-MIKE-01 Clash of the Multiversal Championship
+-Boon of High Magic
+
+PS-DC-NBDD-1 The Greatest Gameshow
+-Chest of Preserving
+-Blessing of Magic Resistance
 
 PS-DC-NOS-1 Githzerai Glitch
 -Boon of Luck
@@ -294,8 +416,40 @@ PS-DC-NOS-1 Githzerai Glitch
 PS-DC-NOS-2 Broken Yet Unbowed
 -Boon of Irresistible Offense
 
+PS-DC-NOS-3 It's Always Boring in Automata
+-Boon of Spell Recall
+
+PS-DC-MORD-1 Mordekainen's Memory Palace
+-Deck of Illusion
+
+PS-DC-PKL-05 Mass Hysteria
+-Dark Shard Amulet
+
+PS-DC-PKL-06 It's a Toss Up
+-Keoghtom's Ointment
+-Chest of Preserving
+
+PS-DC-PKL-08 Darker Shade of Pale
+-Enduring Spellbook (Detect Magic, Magic Missile)
+
 PS-DC-SS Soul and Shadow
 -Boon of Truesight
+
+PS-DC-STRAT-DRAGON-6 Our Shattered Ambitions
+-Boon of Skill Proficiency
+
+PS-DC-STRAT-DRAGON-7 The War of Dragons
+-Boon of Immortality
+
+PS-DC-STRAT-UNDEAD-5 Return of the Dragon
+-Boon of Spell Recall
+
+RV-DC-OH1 In the Mist of Keening
+-Horn of Silent Alarm
+-Dagger +2
+
+RV-DC-SDG-01 A Cursed Key
+-Driftglobe
 
 SJ-DC-ANGKA-7 Sleep Now in the Fire
 -Pipe of Remembrance
@@ -369,31 +523,59 @@ SJ-DC-CONMAR-4 Finally Saving Marcus
 SJ-DC-DAP Goldfish island
 -Ring of Feather Falling (Not actually a legal reward for that tier, but eh)
 
+SJ-DC-DCS-1 Rocks Fall, Everybody Dies
+-Quaal's Feather Token Anchor
+
 SJ-DC-DES05-03 Galactic Gigglefit
 -Stone of Good Luck (also not actually a legal reward for SJ; has fancy name but no flavor)
 
-SJ-DC-DD-12
+SJ-DC-DD-12 End of the Line
 -Blessing of Magic Resistance
 
-SJ-DC-DRA-2
+SJ-DC-DRA-2 To Find a Friend
 -Masquerade Tattoo
 
-SJ-DC-DRA-3
--Boots of Leviation (to be updated)
+SJ-DC-DRA-3 What a Strange Blue World
+-Boots of Leviation 
 -Hat of Wizardry
 
-SJ-DC-DRA-4
+SJ-DC-DRA-4 The Frigid Cold of Despair
 -Tankard of Sobriety
 
-SJ-DC-DRA-5
+SJ-DC-DRA-5 The Hunger in the Marshes
 -Figurine of Wondrous Power (Ebony Fly)
 -Pole of Collapsing
+
+SJ-DC-DRAGON-1 The Rock of Bral Caper
+-Dust of Dryness
+-Giant Fly Figurine
+-Masquerade Tattoo
+
+SJ-DC-DRAGON-2 Crossing the Void
+-Deck of Illusions (15 Cards)
+-Clothes of Mending
+
+SJ-DC-DRAGON-2 Crossing the Void
+-Deck of Illusions
+-Clothes of Mending
+
+SJ-DC-DRAGON-3 The Starfire Gambit
+-Pole of Collapsing
+-Dust of Disappearance
+
+SJ-DC-DRAGON-4 The Call from Space
+-Boots of Levitation
+-Hat of Wizardry
 
 SJ-DC-ECHO-2 Bug Hunt
 -Masquerade Tattoo
 
 SJ-DC-ENIGMA Bloom and Doom
 -Heward's Handy Spice Pouch
+
+SJ-DC-ETO-1 Enter the Octalith 1
+-Heward's Handy Spice Pouch
+-Frost Brand Longsword
 
 SJ-DC-FAT-1 Flight of the Chungus
 -Elemental Essence Shard - Air
@@ -477,6 +659,10 @@ SJ-DC-PHP-2 Securing Passage
 
 SJ-DC-PHP-ORNG Thousand Tiny Ducks
 -Blessing of Magic Resistance
+
+SJ-DC-PND-3 The Littlest Monster
+-Bead of Nourishment
+-Sling Bullets +1
 
 SJ-DC-ROCK-1 Turmoil in Bral
 -Cloak of Many Fashions

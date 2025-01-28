@@ -1,11 +1,25 @@
+After 12/20/24
+-Updated ChooseGear items to take advantage of the new code in version v13.2.3 for more elegant names
+-Updated Demon Skin armor with the new code to correctly remove stealth disdvantage 
+-Edited a lot of item descriptions to better fit into the available space and added long descriptions for many items.
+-Fixed a few more errors, and updated the Staff of the Python short description as that was missed in the first pass
+-I also failed to update the Javelin of Lightning to the new rules the first time around, so fixed that now.
+-Updated Story Award formatting to better fit in the feats section.
+-Fixed an issue with Gwa'thern Faln not populating properly (in final 2014 version as well)
+-Updated Berserker statblock in AL Creatures to match the current Horns of Valhalla
+-Fixed so many typos
+-Added new items from DC and PO modules
+-Added the SCAG racial variants and AL Winged Aasimar to the AL Adjustments file
+
+
+
 After 11/16/14
--Added code to remove all my flavored items from the master choice list just for sanity. Only the master category shold appear now.
+-Added code to remove all my flavored items from the master choice list just for sanity. Only the master category should appear now.
 -Updated all of my flavored item files to match new DMG 2024 content. I matched capitalization in the full descriptions, but have chosen not to capitalize some words in the short descriptions. So it's resistance, shield and bonus action but Critical Hit, Dmg types, and Magic/Utilize actions.
 -I will also freely admit I'm not super consistent about this, so things may get tweaked later.
 -I also updated the Minor Properties that have changed, such as Temperate and War Leader.
 -I also corrected a number of description flavor errors and other issues while updating items. Some of these I also corrected in the 2014 file, but I don't plan to update that one regularly anymore.
 -Added the non-reprinted boons and charms to my AL Adjustments file to match the style used in the 2024 code
-
 
 
 After 10/30/24

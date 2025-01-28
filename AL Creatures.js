@@ -157,8 +157,8 @@ CreatureList["sea lion"] = {
 }
 
 //Here because I'm tired of manually looking up the stats for my Horns of Valhalla
-CreatureList["berserker"] = {
-	name : "Berserker",
+CreatureList["berserker (valhalla)"] = {
+	name : "Berserker (Valhalla)",
 	header : "Summon",
 	source : [["SRD",392], ["M", 344], ["AL","Item"]],
 	size : 3, //medium
@@ -171,6 +171,7 @@ CreatureList["berserker"] = {
 	speed : "30 ft",
 	scores : [16, 12, 17, 9, 22, 9],
 	senses : "",
+	condition_immunities : "charmed, frightened",
 	passivePerception : 10,
 	languages : "Any one language (usually Common)",
 	challengeRating : "2",
@@ -185,11 +186,14 @@ CreatureList["berserker"] = {
 	}],
 	traits : [{
 		name : "Reckless",
-		description : "At the start of its turn, the berserker can gain advantage on all melee weapon attack rolls during that turn, but attack rolls against it have advantage until the start of its next turn."
-			}],
+		description : "At the start of its turn, the Berserker can gain advantage on all melee weapon attack rolls during that turn, but attack rolls against it have advantage until the start of its next turn."
+		}],
 	features : [{
 		name : "Summoned Spirits",
-		description : "These warrior spirits were summoned from Ysgard. They are friendly to you and your companions and follow your commands. They return to Ysgard after 1 hour or when they drop to 0 hit points."
+		description : "These warrior spirits were summoned from Ysgard. They are Friendly to you and your allies and follow your commands. They return to Ysgard after 1 hour or when they drop to 0 Hit Points."
+		}, {
+		name : "Immunities",
+		description : "The spirits look like living breathing warriors, and they have Immunity to the Charmed and Frightened conditions."
 		}],
 }
 
@@ -623,21 +627,21 @@ CreatureList["black pudding cup"] = {
 			description : ""
 		}],
 		traits : [{
+			name : "Corrosive Form",
+			description : "The pudding can eat through ½ inch of wood in 1 round. A creature that touches the pudding cup or hits it with a melee attack while in 5 ft takes 1 (1d4-1) acid damage."
+			}, {
+			name : "Resummon",
+			description : "The creature can be returned via Find Familiar if killed. If its cup was also destroyed, a new cup needs to be purchased (1gp).",
+			}, {
+			name : "Description",
+			description : "This sturdy ceramic cup holds a tiny black jelly-like substance. While in the cup, it has AC 9. [Trading Post v13.1 2024]",
+			}],
+		features : [{
 			name : "Amorphous",
 			description : "The pudding can move through a space as narrow as 1 inch wide without squeezing."
 			}, {
 			name : "Spider Climb",
 			description : "The pudding can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check."
-			}, {
-			name : "Corrosive Form",
-			description : "The pudding can eat through ½ inch of wood in 1 round. A creature that touches the pudding cup or hits it with a melee attack while in 5 ft takes 1 (1d4-1) acid damage."
-			}],
-		features : [{
-			name : "Description",
-			description : "This sturdy ceramic cup holds a tiny black jelly-like substance. While in the cup, it has AC 9. [Trading Post v13.1 2024]",
-			}, {
-			name : "Resummon",
-			description : "The creature can be returned via Find Familiar if killed. If its cup was also destroyed, a new cup needs to be purchased (1gp).",
 			}],
 	},
 

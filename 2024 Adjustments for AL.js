@@ -1508,3 +1508,180 @@ FeatsList["chwinga charm"] = {
 		action : [["action", ""]]
 	}
 };
+
+
+// pub_al_20190917_ALPG-v9.1.js
+// This attempts to adds the winged aasimar from the Adventurers League Player's Guide v9.1: Inglorious Redemption to the new version of Aasimar.
+
+// Define the source
+SourceList["ALPGs9"] = {
+	name : "AL Player's Guide v9.1: Inglorious Redemption",
+	abbreviation : "ALPGs9",
+	group : "Adventurers League",
+	url : "https://www.dropbox.com/s/8r1cwjrk6n2rzyo/AL-Players-Guide-v9.1-Forgotten-Realms.pdf?dl=1", // used to be https://www.dmsguild.com/product/208178
+	date : "2019/09/17",
+	defaultExcluded : true
+};
+
+[
+	["aasimar", false],
+].forEach(function (rac) {
+	var rObj = rac[1] ? RaceSubList[rac[0]] : RaceList[rac[0]];
+	if (!rObj) return;
+	rObj.source = (isArray(rObj.source[0]) ? rObj.source : [rObj.source]).concat([["ALPGs9", 6]]);
+	if (rac[0].indexOf("aasimar") !== -1) {
+		AddRacialVariant(rac[0], "winged", {
+			regExpSearch : /wing/i,
+			name : "Winged " + rObj.name,
+			source : [["ALPGs9", 6]],
+			plural : "Winged " + rObj.plural,
+			speed : {
+				walk : { spd : 30, enc : 20 },
+				fly : { spd : 30, enc : 0 }
+			},
+			trait : "Winged Aasimar:\n\nHealing Hands:\n   As a Magic action, once per long rest, I can touch a creature and roll a number of d4s equal to my Proficiency Bonus. The creature regains an amount of Hit Points equal to the total rolled.\n\nWings:\n   Once I'm 5th level, I sprout feathered wings from my shoulder blades that give me a flying speed of 30 feet when I'm not wearing heavy armor.",
+			features : {
+				"healing hands" : {
+					name : "Healing Hands",
+					usages : 1,
+					minlevel : 1,
+					recovery : "long rest",
+					additional: levels.map(function (n) {
+        return (n < 5 ? 2 : n < 9 ? 3 : n < 13 ? 4 : n < 17 ? 5 : 6) + 'd4';
+      }),
+					action : [["action", ""]]
+				}
+			},
+			abilitySave : "",
+			spellcastingAbility : "",
+			spellcastingBonus : "",
+		});
+	}
+});
+
+//This attempts to add the tiefling racial variants from SCAG to the new version. It assumes that you do get to keep the original Tiefling Fire resistance even though you replace the spells, as that's the closest to the original feature. I also didn't bother to code the Feral Tiefling since that was only a stat change.
+AddRacialVariant("tiefling", "winged", {
+	regExpSearch : /wing/i,
+	name : "Winged tiefling",
+	source : [["S", 118]],
+	plural : "Winged tieflings",
+	speed : {
+		walk : { spd : 30, enc : 20 },
+		fly : { spd : 30, enc : 0 }
+	},
+	trait : "Winged Tiefling\n\nInfernal Legacy:\n   I have resistance to Fire damage.\n   Wings:\n   I have bat-like wings sprouting from my shoulder blades that give me flying speed of 30 ft when I'm not wearing heavy armor.",
+	features : "",
+	dmgres: ["Fire"],
+	spellcastingAbility : "",
+	spellcastingBonus : ""
+});
+AddRacialVariant("tiefling", "devil's tongue", {
+	regExpSearch : /^(?=.*devil)(?=.*tongue).*$/i,
+	name : "Devil's Tongue tiefling",
+	source : [["S", 118]],
+	plural : "Devil's Tongue tieflings",
+	trait : "Devil's Tongue Tiefling\n\nInfernal Legacy (Devil's Tongue):\n   I have resistance to Fire damage.\n   I know the Vicious Mockery cantrip.\n   At 3rd level, I can cast the Charm Person spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Enthrall spell once per long rest.\n   I can choose Int, Wis, or Cha as my spellcasting ability for spells I cast with this trait",
+	dmgres: ["Fire"],
+	spellcastingBonus : [{
+		name : "Devil's Tongue (level 1)",
+		spells : ["vicious mockery"],
+		selection : ["vicious mockery"],
+		firstCol : 'atwill'
+	}],
+	features : {
+		"charm person" : {
+			name : "Devil's Tongue (level 3)",
+			limfeaname : "Charm Person (2 targets)",
+			minlevel : 3,
+			usages : 1,
+			recovery : "long rest",
+			spellcastingBonus : [{
+				name : "Devil's Tongue (level 3)",
+				spells : ["charm person"],
+				selection : ["charm person"],
+				firstCol : 'oncelr'
+			}],
+			spellChanges : {
+				"charm person" : {
+					description : "2 humanoids, max 30 ft apart, save or charmed; advantage on save if I or my allies are fighting it",
+					changes : "Using Devil's Tongue, I cast Charm Person as if I'm using a 2nd-level spell slot, affecting 2 humanoids."
+				}
+			}
+		},
+		"enthrall" : {
+			name : "Devil's Tongue (level 5)",
+			limfeaname : "Enthrall",
+			minlevel : 5,
+			usages : 1,
+			recovery : "long rest",
+			spellcastingBonus : [{
+				name : "Devil's Tongue (level 5)",
+				spells : ["enthrall"],
+				selection : ["enthrall"],
+				firstCol : 'oncelr'
+			}]
+		}
+	}
+});
+AddRacialVariant("tiefling", "hellfire", {
+	regExpSearch : /hellfire/i,
+	name : "Hellfire tiefling",
+	source : [["S", 118]],
+	plural : "Hellfire tieflings",
+	trait : "Hellfire Tiefling\n\nInfernal Legacy (Hellfire):\n   I have resistance to Fire damage.\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast the Burning Hands spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Darkness spell once per long rest.\n   I can choose Int, Wis, or Cha as my spellcasting ability for spells I cast with this trait",
+	dmgres: ["Fire"],
+	features : {
+		"burning hands" : {
+			name : "Hellfire Legacy (level 3)",
+			limfeaname : "Burning Hands (4d6)",
+			minlevel : 3,
+			usages : 1,
+			recovery : "long rest",
+			spellcastingBonus : [{
+				name : "Hellfire Legacy (level 3)",
+				spells : ["burning hands"],
+				selection : ["burning hands"],
+				firstCol : 'oncelr'
+			}],
+			spellChanges : {
+				"burning hands" : {
+					description : "4d6 Fire damage; save halves; unattended flammable objects ignite",
+					changes : "Using Hellfire Legacy, I cast Burning Hands as if I'm using a 2nd-level spell slot, doing 4d6 Fire damage."
+				}
+			}
+		},
+		"darkness" : {
+			name : "Hellfire Legacy (level 5)",
+			limfeaname : "Darkness",
+			minlevel : 5,
+			usages : 1,
+			recovery : "long rest",
+			spellcastingBonus : [{
+				name : "Infernal Legacy (level 5)",
+				spells : ["darkness"],
+				selection : ["darkness"],
+				firstCol : 'oncelr'
+			}]
+		}
+	}
+});
+
+//This adds the Ghostwise halfling variant from SCAG to the sheet. It's my best guess on how to adjust the features.
+RaceList["ghostwise halfling"] = {
+	regExpSearch : /^(?=.*\b(halflings?|hobbits?)\b)(?=.*ghostwise).*$/i,
+	name : "Ghostwise halfling",
+	sortname : "Halfling, Ghostwise",
+	plural : "Ghostwise halflings",
+	source : [["S", 110]],
+	size : 4,
+	speed: {walk: {spd: 30, enc: 20}},
+	languageProfs: ["Common", 2],
+	savetxt : { adv_vs : ["Frightened"] },
+	age: " reach maturity in late teens and live about 150 years",
+	height: " are about 2-3 feet tall",
+	weight : " weigh around 40 lb (35 + 2d4 lb)",
+	heightMetric : " average about 90 cm tall (80 + 5d4)",
+	weightMetric : " weigh around 18 kg (16 + 5d4 / 10 kg)",
+	scores : [0, 2, 0, 0, 1, 0],
+	trait : "Ghostwise Halfling" + (typePF ? "\n" : " ") + "\nLuck: When I roll a 1 on a D20 Test, I can reroll and must use the new roll." + (typePF ? "\n" : " ") + "\nHalfling Nimbleness: I can move through the space of any creature larger than me, but can't stop in the same space." + (typePF ? "\n" : " ") + "\nSilent Speech: I can speak telepathically to any one creature within 30 feet of me. It only understands me if we share a language."
+};

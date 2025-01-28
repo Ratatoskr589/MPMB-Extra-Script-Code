@@ -371,8 +371,8 @@ MagicItemsList["al staffs"] = {
 		source : [["AL", "SJ-DC"]],
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "The nasty wizard Nicolli's staff is carved from the wood of a yggdrasti root. While held, I gain a +1 to AC. The staff has 10 charges and regains 1d6+4 at dawn. 5% chance it's destroyed if last charge used (roll 1 on d20). I can use charges to cast Mage Armor (1 charge) or Shield (2 charges).",
-		descriptionLong : "Pulled from the ruins of the extractor staff assembly, this hollow slender staff is made of sharp and jagged obsidian, yet it does not cut my hands. While held, I gain a +1 to AC. It has 10 charges, regaining 1d6+4 expended charges at dawn. If I use the last charge, roll a d20. On a 1, it's destroyed. I can use its charges to cast Mage Armor (1 charge) or Shield (2 charges).",
+		description : "The nasty wizard Nicolli's staff is carved from a yggdrasti root. While held, I gain a +1 to AC. The staff has 10 charges and regains 1d6+4 at dawn. 5% chance it's destroyed if last charge used (roll 1 on d20). I can use charges to cast Mage Armor (1 charge) or Shield (2 charges).",
+		descriptionLong : "The nasty wizard Nicolli's staff is carved from the wood of a yggdrasti root. While held, I gain a +1 to AC. It has 10 charges, regaining 1d6+4 expended charges at dawn. If I use the last charge, roll a d20. On a 1, it's destroyed. I can use its charges to cast Mage Armor (1 charge) or Shield (2 charges).",
 		descriptionFull : "This slender, hollow staff is made of glass yet is as strong as oak. It weighs 3 pounds. While holding the staff, you have a +1 bonus to your Armor Class."+
 		toUni("\n   Spells") + ". The staff has 10 charges. While holding it, you can expend the requisite number of charges to cast one of the following spells from the staff: mage armor (1 charge) or shield (2 charges)."+
 		"\n   The staff regains 1d6+4 expended charges daily at dawn. If you expend the staff's last charge, roll a d20. On a 1, the staff shatters and is destroyed."+
@@ -3653,11 +3653,12 @@ MagicItemsList["al swords"] = {
 		type : "weapon (any sword)",
 		rarity : "common",
 		magicItemTable : "?",
-		description : "This sword is paper-thin. Geometric runes run along its length in contrast to the sweeping elven make. The script is unknown, but purportedly reads: “I am but a shard.” In darkness, the unsheathed blade sheds moonlight, creating 15-ft of bright light & 15-ft dim.",
+		description : "This sword is paper-thin. Geometric runes along its length contrast the sweeping elven make. The script is unknown, but purportedly reads: \"I am but a shard.\" In darkness, the unsheathed blade sheds moonlight, creating 15-ft of bright light & 15-ft dim.",
 		descriptionFull : "The blade is thin to the point of being paper. Geometric runes run along its length, in stark contrast to the sweeping elven make. The script is unknown, but purportedly it reads: “I am but a shard.” In darkness, the unsheathed blade of this magical sword sheds moonlight, creating bright light in a 15-ft radius and dim light for an additional 15 ft.",
 	chooseGear : {
 		type : "weapon",
-		prefixOrSuffix : "suffix",
+		prefixOrSuffix : "brackets",
+		itemName1stPage : ["suffix", "Moon-Touched"],
 		descriptionChange : ["replace", "sword"],
 		excludeCheck : function (inObjKey, inObj) {
 			var testRegex = /sword|scimitar|rapier/i;
@@ -3686,7 +3687,8 @@ MagicItemsList["al swords"] = {
 		descriptionFull : "A shard of pure moonlight, this sword has no guard and barely enough hilt for the wielder's grip. It always glows with a soft, pale white radiance. In darkness, the unsheathed blade of this magical sword sheds moonlight, creating bright light in a 15-ft radius and dim light for an additional 15 ft.",
 	chooseGear : {
 		type : "weapon",
-		prefixOrSuffix : "suffix",
+		prefixOrSuffix : "brackets",
+		itemName1stPage : ["suffix", "Moon-Touched"],
 		descriptionChange : ["replace", "sword"],
 		excludeCheck : function (inObjKey, inObj) {
 			var testRegex = /sword|scimitar|rapier/i;
@@ -3790,7 +3792,8 @@ MagicItemsList["al swords"] = {
 		rarity : "rare",
 		magicItemTable : "G",
 		attunement : true,
-		description : "The blade of this scimitar is solid black & etched with intricate spider webs. It belonged to a respected captain of House Rakarn and when bearing it openly, drow treat me as a usuper unless I'm also drow. While carried, I always know my depth below the surface & the direction to the nearest upward path. If I attack a creature with it & roll a nat 20, it takes an extra 10 necrotic dmg if not a construct/undead. I also gain 10 temp hp.",
+		description : "The blade of this scimitar is solid black & etched with intricate spider webs. It belonged to a respected captain of House Rakarn and when bearing it openly, drow treat me as a usurper unless I'm also drow. While carried, I always know my depth below the surface & the direction to the nearest upward path. If I attack a creature with it & roll a nat 20, it takes an extra 10 necrotic dmg if not a construct/undead. I also gain 10 temp hp.",
+		descriptionLong : "The blade of this scimitar is solid black and etched with intricate spider webs. It belonged to a respected captain of House Rakarn. When I bear it openly, drow consider me unworthy of it and treat me as a usurper unless I'm also drow. While carried, I always know my depth underground and the direction to the nearest upward path. When I roll a natural 20, the target takes +15 Necrotic if not a Construct or Undead. I gain temporary HP equal to the Necrotic damage dealt.",
 		descriptionFull : "The blade of this scimitar is solid black and etched with intricate spider webs. While bearing it, you always know the item's depth below the surface and the direction to the nearest staircase, ramp, or other path leading upward.\n   You openly carry the black-bladed scimitar called Night Cutter, which once belonged to a respected drow captain of House Rakarn. Unless your race is drow, you are considered unworthy by most drow to carry it, and they take an instant dislike to you, treating you as a usurper. If your race is drow, or if you do not openly carry the weapon, this drawback does not apply to you.\n   When you attack a creature with this magic weapon and roll a 20 on the attack roll, that target takes an extra 10 necrotic damage if it isn't a construct or an undead. You also gain 10 temporary hit points.", // the SRD says 3d6 but that is incorrect
 		weaponOptions : {
 			baseWeapon : "scimitar",
@@ -4339,7 +4342,7 @@ MagicItemsList["al weapons +1, +2, or +3"] = {
 			rarity : "uncommon",
 			magicItemTable : "F",
 			allowDuplicates : true,
-			description : "This serrated blade looks like a 100 wolf claws jumbled together & has a wolf's head pommel. I gain a +1 bonus to atk & dmg rolls made with it. I can also sense the emotions of wolves in 30 ft. If I concentrate on the dagger, I can ask the DM what any one wolf in range is feeling & be answered truthfully.",
+			description : "This serrated blade looks like 100 wolf claws jumbled together & has a wolf's head pommel. I gain a +1 bonus to atk & dmg rolls made with it. I can also sense the emotions of wolves in 30 ft. If I concentrate on the dagger, I can ask the DM what any one wolf in range is feeling & be answered truthfully.",
 			descriptionFull : "This serrated blade has the visage of a hundred wolves' claws all jumbled together with a wolf 's head for a pommel. You gain a +1 bonus to attack and damage rolls made with this magic weapon. You can also sense the emotions of wolves when you're within 30 feet of them. If you concentrate on the dagger for a moment you ask the Dungeon Master what any one wolf in range is feeling. They must tell you the truth.",
 			weaponsAdd : { select : ["The Wolves' Claw, Dagger +1"], options : ["The Wolves' Claw, Dagger +1"] },
 			},
@@ -4421,7 +4424,7 @@ MagicItemsList["al weapons +1, +2, or +3"] = {
 			rarity : "uncommon",
 			magicItemTable : "F",
 			allowDuplicates : true,
-			description : "This black wooden hand crossbow is engraved with a blood red heart that bleeds every one of its bolts kills someone. I gain a +1 bonus to attack and damage rolls made with this weapon.",
+			description : "This black wooden hand crossbow is engraved with a blood red heart that bleeds whenever one of its bolts kills someone. I gain a +1 bonus to attack and damage rolls made with this weapon.",
 			descriptionFull : "This black wooden hand crossbow has a blood red heart engraved on it that bleeds a little every a bolt from it kills someone. You gain a +1 bonus to attack and damage rolls made with this magic weapon.",
 			weaponsAdd : { select : ["Widowmaker, +1 Hand Crossbow"], options : ["Widowmaker, +1 Hand Crossbow"] },
 			},
@@ -4453,7 +4456,19 @@ MagicItemsList["al weapons +1, +2, or +3"] = {
 			allowDuplicates : true,
 			description : "This ancient longbow is made from a thick, gnarled piece of yew & polished to a lustrous shine. The weapon (Shadowbreaker in Elvish) was once wielded by a legendary elven warrior & can also be used as a quarterstaff. I gain a +1 bonus to atk & dmg rolls made with it. By whispering the bow's name & firing an arrow at a point I can see in 60 ft, I can cast faerie fire (save DC 15) as an action once per dawn.",
 			descriptionFull : "This ancient longbow's staff is fashioned from a thick, gnarled piece of yew and polished to a lustrous shine. The weapon (whose name means Shadowbreaker in Elvish) was once wielded by a legendary elven warrior You gain a +1 bonus to attack and damage rolls made with this magic weapon—which can also be used as a quarterstaff. By whispering the bow's name and firing an arrow at a point you can see within 60 feet, you can use an action to cast faerie fire (save DC 15). Once used, this property of the bow can't be used again until the following dawn.",
-			weaponsAdd : { select : ["Gwa'thern Faln, Longbow +1","Gwa'thern Faln, Quarterstaff +1"], options : ["Gwa'thern Faln, Longbow +1","Gwa'thern Faln, Quarterstaff +1"] },
+			weaponOptions : [{
+				baseWeapon : "longbow",
+				name : "Gwa'thern Faln, +1 Longbow",
+				regExpSearch : /gwa\u0027thern\u0020faln\u002c\u0020\u002b1\u0020longbow/i,
+				selectNow : true,
+				source : [["AL","MToF"]],
+			},{
+				baseWeapon : "quarterstaff",
+				name : "Gwa'thern Faln, +1 Quarterstaff",	
+				regExpSearch : /gwa\u0027thern\u0020faln\u002c\u0020\u002b1\u0020quarterstaff/i,
+				selectNow : true,	
+				source : [["AL","MToF"]],				
+			}],
 			fixedDC : 15,
 			spellcastingBonus : [{
 				name : "Once per long rest",
@@ -4722,8 +4737,8 @@ MagicItemsList["al weapons +1, +2, or +3"] = {
 			rarity : "rare",
 			magicItemTable : "G",
 			allowDuplicates : true,
-			description : "This dagger's blade is coated in a thin layer of unknown chemical that can never be washed away. The chemical was thought to be completely destroyed by the Forgotten Realms environmental protection agency centuries ago, due to the extreme* (normal) damage it does when in contact with plants. Druids are sure to try to confiscate this fell blade should they see it. I have a +2 bonus to atk and dmg rolls made with this magic weapon.",
-			descriptionFull : "The blade of this dagger is coated in a thin layer of unknown chemical that can never be washed away. This chemical was thought to be completely destroyed by the Forgotten Realms environmental protection agency centuries ago, due to the extreme* (normal) damage it does when in contact with plants. Druids are sure to try to confiscate this fell blade should they see it (Custom flavor from the 2023 DWB Trading Post).\n   You have a +2 bonus to attack and damage rolls made with this magic weapon.",
+			description : "This dagger's blade is coated in a thin layer of an unknown chemical that can never be washed away. The chemical was thought to be completely destroyed by the Forgotten Realms environmental protection agency centuries ago, due to the extreme* (normal) damage it does when in contact with plants. Druids are sure to try to confiscate this fell blade should they see it. I have a +2 bonus to atk and dmg rolls made with this magic weapon.",
+			descriptionFull : "The blade of this dagger is coated in a thin layer of an unknown chemical that can never be washed away. This chemical was thought to be completely destroyed by the Forgotten Realms environmental protection agency centuries ago, due to the extreme* (normal) damage it does when in contact with plants. Druids are sure to try to confiscate this fell blade should they see it (Custom flavor from the 2023 DWB Trading Post).\n   You have a +2 bonus to attack and damage rolls made with this magic weapon.",
 			weaponsAdd : { select : ["Dagger +2"], options : ["Dagger +2"] },
 			},
 		"+2 glaive: azure sky (sj-dc-angka-6)" : {
@@ -4755,7 +4770,6 @@ MagicItemsList["al weapons +1, +2, or +3"] = {
 			source : [["AL","SJ-DC"]],
 			rarity : "rare",
 			magicItemTable : "G",
-			attunement : true,
 			allowDuplicates : true,
 			description : "Giant in origin, the servants of royalty used this ancient artifact to prepare meals. The golden greataxe is ensorcelled to never get dirty, making it a perfect utensil for an oversized kitchen. I have a +2 bonus to atk and dmg rolls made with this magic weapon.",
 			descriptionFull : "Giant in origin, the servants of royalty used this ancient artifact to prepare meals. The golden hatchet is ensorcelled to never get dirty, making it a perfect utensil for an oversized kitchen.\n   " + toUni("Gleaming") + ". This item never gets dirty.\n   You have +2 bonus to attack and damage rolls made with this magic weapon.",
@@ -4766,7 +4780,6 @@ MagicItemsList["al weapons +1, +2, or +3"] = {
 			source : [["AL","SJ-DC"]],
 			rarity : "rare",
 			magicItemTable : "G",
-			attunement : true,
 			allowDuplicates : true,
 			description : "A greataxe of the two-bladed thri-kreen style. Moss-ink designs etched in the handle let me suffer no harm in temperatures from -20\u00B0F to 120\u00B0F. I have a +2 bonus to atk and dmg rolls made with this magic weapon.",
 			descriptionFull : "A greataxe of the two-bladed thri-kreen style. Moss-ink designs etched in the handle grant it the temperate minor property.\n   " + toUni("Temperate") + ". The bearer suffers no harm in temperatures as cold as –20 degrees Fahrenheit or as warm as 120 degrees Fahrenheit.\n   You have +2 bonus to attack and damage rolls made with this magic weapon.",
@@ -4863,7 +4876,7 @@ MagicItemsList["al weapons +1, +2, or +3"] = {
 			rarity : "uncommon",
 			magicItemTable : "F",
 			allowDuplicates : true,
-			description : "Mahaxara, captain of Bral's royal guard, favours this sleek and deadly hand crossbow. It's shaped like 2 intertwined snakes, etched along the stock and barrel, wih the crossbow's limbs protruding from each snake's head like deadly fangs. I gain a +2 bonus to attack and damage rolls made with the weapon. It also whispers warnings, giving +2 initiative unless incapacitated.",
+			description : "Mahaxara, captain of Bral's royal guard, favours this sleek and deadly hand crossbow. It's shaped like 2 intertwined snakes, etched along the stock and barrel, with the crossbow's limbs protruding from each snake's head like deadly fangs. I gain a +2 bonus to attack and damage rolls made with the weapon. It also whispers warnings, giving +2 initiative unless incapacitated.",
 			descriptionFull : "Mahaxara, captain of Bral's royal guard, favours this sleek and deadly hand crossbow. It is shaped like two intertwined snakes, etched along the stock and barrel. The crossbow's limbs protrude from each snake's head, resembling the viper's deadly fangs. You gain a +2 bonus to attack and damage rolls made with this magic weapon.\n   " + toUni("Guardian") + ". The item whispers warnings to its bearer, granting a +2 bonus to initiative if the bearer isn't incapacitated.",
 			addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
 			weaponsAdd : { select : ["Hand Crossbow +2"], options : ["Hand Crossbow +2"] },
@@ -5017,6 +5030,7 @@ MagicItemsList["al weapons +1, +2, or +3"] = {
 			allowDuplicates : true,
 			description : "This Space Clown Hammer is named Whack-a-Mole and makes a laughing sound on a successful hit. I have a +2 bonus to attack and damage rolls made with this magic weapon.",
 			descriptionFull : "This weapon a Space Clown Hammer and is named Whack-a-Mole. It makes a laughing sound on a successful hit.\n   You have a +2 bonus to attack and damage rolls made with this magic weapon.",
+			addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on Initiative rolls." },
 			weaponsAdd : { select : ["Whack-a-Mole, Maul +2"], options : ["Whack-a-Mole, Maul +2"] },
 			},
 		"+2 morningstar: mourning star (sj-dc-angka-5)" : {
@@ -5340,10 +5354,10 @@ MagicItemsList["al weapons (other)"] = {
 			name : "Berserker Flail",
 			description : "Cursed; counts as magical",
 			modifiers : [1, 1],
-				},
-			calcChanges : {
-			hp : function (totalHD) { return [totalHD]; },
 			selectNow : true,
+				},
+		calcChanges : {
+		hp : function (totalHD) { return [totalHD]; },
 		}
 	},
 	"dagger of blindsight: panther's claw (rmh-9)" : {
@@ -5864,7 +5878,6 @@ MagicItemsList["al weapons (other)"] = {
 		description : "This long narrow javelin of fey origin is crafted from mithral & reflects rainbows or other light tricks. When swung, it leaves behind arcs of white light or colors linked to my gender identity/sexual orientation. The spearhead is forged of pure light & only appears when I atk. Once per dawn, speak the command word & make a ranged weapon atk with the baton on a target in 120 ft. Anyone between me & the target in a 5-ft wide line takes 4d6 lightning dmg, DC 13 Dex save halves. If I hit, the target takes 1d6 piercing & 4d6 lightning dmg.",
 		descriptionFull : "The Processional Baton is a long narrow staff of fey origin, crafted from mithral and reflecting light in interesting ways. This makes the baton cast rainbows and other tricks of light around it. When swung, the baton leaves behind arcs of white light. Alternately, the wielder can have the baton cast arcs of color linked to their gender identity or sexual orientation (see the chart below). The spearhead only appears when used as a weapon, forged of pure light. The damage type of the weapon is unchanged by this property.\n   When you hurl it and speak its command word, it transforms into a bolt of lightning, forming a line 5 feet wide that extends out from you to a target within 120 feet. Each creature in the line excluding you and the target must make a DC 13 Dexterity saving throw, taking 4d6 lightning damage on a failed save, and half as much damage on a successful one. The lightning bolt turns back into a javelin when it reaches the target. Make a ranged weapon attack against the target. On a hit, the target takes damage from the javelin plus 4d6 lightning damage.\n   The javelin's property can't be used again until the next dawn. In the meantime, the javelin can still be used as a magic weapon.",
 		weight : 2,
-		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
 		limfeaname : "Javelin of Lightning",
 		usages : 1,
 		recovery : "dawn",
@@ -5945,7 +5958,7 @@ MagicItemsList["al weapons (other)"] = {
 		type : "weapon (javelin)",
 		rarity : "uncommon",
 		magicItemTable : "F",
-		description : "This javelin was crafted from an artifact infused the residual power of the Reigar, giving it an affinity with lightning. It can only be broken via special means. Once per dawn, speak the command word & make a ranged weapon attack with the javelin on a target in 120 ft. Anyone between me & the target in a 5-ft wide line takes 4d6 lightning dmg, DC 13 Dex save halves. If the javelin hits, the target takes 1d6 piercing & 4d6 lightning dmg.",
+		description : "This javelin was crafted from an artifact infused with the residual power of the Reigar, giving it an affinity with lightning. It can only be broken via special means. Once per dawn, speak the command word & make a ranged weapon attack with the javelin on a target in 120 ft. Anyone between me & the target in a 5-ft wide line takes 4d6 lightning dmg, DC 13 Dex save halves. If the javelin hits, the target takes 1d6 piercing & 4d6 lightning dmg.",
 		descriptionFull : "This javelin was crafted with a small fragment of the artifact, which, infused the residual power of the Reigar, bestowed upon it an unparalleled affinity with lightning.\n   This javelin is a magic weapon. When you hurl it and speak its command word, it transforms into a bolt of lightning, forming a line 5 feet wide that extends out from you to a target within 120 feet. Each creature in the line excluding you and the target must make a DC 13 Dexterity saving throw, taking 4d6 lightning damage on a failed save, and half as much damage on a successful one. The lightning bolt turns back into a javelin when it reaches the target. Make a ranged weapon attack against the target. On a hit, the target takes damage from the javelin plus 4d6 lightning damage.\n   The javelin's property can't be used again until the next dawn. In the meantime, the javelin can still be used as a magic weapon.\n   " + toUni("Unbreakable") + ". The item can't be broken. Special means must be used to destroy it.",
 		weight : 2,
 		limfeaname : "Javelin of Lightning",
@@ -6076,19 +6089,19 @@ MagicItemsList["al weapons (other)"] = {
 			"\n   " + toUni("Melody of Reverberation") + ". The melody you strum echoes loudly. On a hit, the target takes extra thunder damage equal to your Charisma modifier.",
 			addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
 			weaponsAdd : { select : ["Lavender's Scent, Longbow of Melodies"], options : ["Lavender's Scent, Longbow of Melodies"] },
-		calcChanges : {
-			atkAdd : [
-				function (fields, v) {
-					var chaMod = Number(What('Cha Mod'));
-					// Only add a description if positive Cha Mod and Melody of Precision is not an option or Reverberation is part of the name
-					if (!v.theWea.isMagicWeapon && chaMod > 0 && v.isRangedWeapon && /bow/i.test(v.baseWeaponName) && /^(?=.*melod(ies|y))(?!.*precision).*$/i.test(v.WeaponTextName) && (/reverberation/i.test(v.WeaponTextName) || !hasSkillProf("Performance")[0])) {
-						v.theWea.isMagicWeapon = true;
-						fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
-						fields.Description += (fields.Description ? '; ' : '') + '+' + chaMod + ' (Cha mod) thunder damage';
-					}
-				},
-				'If I include the word "Melody" or "Melodies" in the name of a bow, it will be treated as the magic weapon Bow of Melodies. If I also include either "Precision" or "Reverberation" in the name, the respective bonus will be added. if I include neither of those in the name, the bonus will be determined automatically, the Melody of Precision if proficient with Performance (+1 or +2 bonus to hit) or Melody of Reverberation otherwise (+Cha mod thunder damage).'
-			],
+	calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				var chaMod = Number(What('Cha Mod'));
+				// Only add a description if positive Cha Mod and Melody of Precision is not an option or Reverberation is part of the name
+				if (!v.theWea.isMagicWeapon && chaMod > 0 && v.isRangedWeapon && /bow/i.test(v.baseWeaponName) && /^(?=.*melod(ies|y))(?!.*precision).*$/i.test(v.WeaponTextName) && (/reverberation/i.test(v.WeaponTextName) || !hasSkillProf("Performance")[0])) {
+					v.theWea.isMagicWeapon = true;
+					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+					fields.Description += (fields.Description ? '; ' : '') + '+' + chaMod + ' (Cha mod) thunder damage';
+				}
+			},
+			'If I include the word "Melody" or "Melodies" in the name of a bow, it will be treated as the magic weapon Bow of Melodies. If I also include either "Precision" or "Reverberation" in the name, the respective bonus will be added. if I include neither of those in the name, the bonus will be determined automatically, the Melody of Precision if proficient with Performance (+1 or +2 bonus to hit) or Melody of Reverberation otherwise (+Cha mod thunder damage).'
+		],
 			atkCalc : [
 				function (fields, v, output) {
 					// Add to hit bonus if name doesn't include Reverberation. Will be zero if not proficient in Performance
@@ -6143,7 +6156,7 @@ MagicItemsList["al weapons (other)"] = {
 		rarity : "rare",
 		magicItemTable : "G",
 		type : "weapon (mace)",
-		description : "The once-fine haft of this magical mace has gone to soggy rot; even the leather wrapping its pommel doesn't stop it from soaking through my gloves. The adamantine head is carved into the giant rune Rün (ruin). Upon striking a construct, it unleashes a shower of gold sparks. This mace adds +1 (+3 vs. constructs) to atk & dmg rolls. On a nat. 20 to hit, the target takes an extra 7 bludgeoning dmg (+14 to contructs). If a construct has under 26 HP after this dmg, it's destroyed.",
+		description : "The once-fine haft of this magical mace has gone to soggy rot; even the leather wrapping its pommel doesn't stop it from soaking through my gloves. The adamantine head is carved into the giant rune Rün (ruin). Upon striking a construct, it unleashes a shower of gold sparks. This mace adds +1 (+3 vs. constructs) to atk & dmg rolls. On a nat. 20 to hit, the target takes an extra 7 bludgeoning dmg (+14 to constructs). If a construct has under 26 HP after this dmg, it's destroyed.",
 		descriptionFull : "The once-fine haft of this club has long-since gone to soggy rot; even the leather wrapping its pommel isn't enough to stop it from soaking through the wearer's gloves. The adamantine head of the mace is carved to resemble the giant rune Rün (ruin). Upon striking a construct with the mace, it unleashes a shower of gold sparks. You gain a +1 bonus to attack and damage rolls made with this magic weapon. The bonus increases to +3 when you use the mace to attack a construct.\n   When you roll a 20 on an attack roll made with this weapon, the target takes an extra 7 bludgeoning damage, or an extra 14 bludgeoning damage if it's a construct. If a construct has 25 hit points or fewer after taking this damage, it is destroyed.",
 		weight : 4,
 		weaponOptions : {
@@ -6161,7 +6174,7 @@ MagicItemsList["al weapons (other)"] = {
 		rarity : "rare",
 		magicItemTable : "G",
 		type : "weapon (mace)",
-		description : "This head of this magic mace features an angry dwarven face. The ghost of Reizzlerum Caskview still maintains a connection to the weapon, giving me an unending thirst for good ale. As I grow intoxicated, the face appears more drunkenly joyful. The longer I go without a drink, the angrier the face appears. This mace adds +1 (+3 vs. constructs) to atk & dmg rolls. On a nat. 20 to hit, the target takes an extra 7 bludgeoning dmg (+14 to contructs). If a construct has under 26 HP after this dmg, it's destroyed.",
+		description : "This head of this magic mace features an angry dwarven face. The ghost of Reizzlerum Caskview still maintains a connection to the weapon, giving me an unending thirst for good ale. As I grow intoxicated, the face appears more drunkenly joyful. The longer I go without a drink, the angrier the face appears. This mace adds +1 (+3 vs. constructs) to atk & dmg rolls. On a nat. 20 to hit, the target takes an extra 7 bludgeoning dmg (+14 to constructs). If a construct has under 26 HP after this dmg, it's destroyed.",
 		descriptionFull : "This head of the mace of smiting features an angry dwarven face. The ghost of Reizzlerum Caskview still maintains a connection to the weapon, causing the owner to gain an unending thirst for good ale. As the owner becomes intoxicated, the face on the mace shifts to appear more drunkenly joyful. The longer the owner goes without a drink, the angrier the face appears. You gain a +1 bonus to attack and damage rolls made with this magic weapon. The bonus increases to +3 when you use the mace to attack a construct.\n   When you roll a 20 on an attack roll made with this weapon, the target takes an extra 7 bludgeoning damage, or an extra 14 bludgeoning damage if it's a construct. If a construct has 25 hit points or fewer after taking this damage, it is destroyed.",
 		weight : 4,
 		weaponOptions : {
@@ -6179,7 +6192,7 @@ MagicItemsList["al weapons (other)"] = {
 		rarity : "rare",
 		magicItemTable : "G",
 		type : "weapon (mace)",
-		description : "This mace is fashioned from a single piece of obsidian. The following phrase is inscribed over & over in Draconic around the haft: “Those willing to deny themselves the radiance of the stars would be better to pluck out their eyes & cast them away.” This mace adds +1 (+3 vs. constructs) to atk & dmg rolls. On a nat. 20 to hit, the target takes an extra 7 bludgeoning dmg (+14 to contructs). If a construct has < 26 HP after this dmg, it's destroyed.",
+		description : "This mace is fashioned from a single piece of obsidian. The following phrase is inscribed over & over in Draconic around the haft: “Those willing to deny themselves the radiance of the stars would be better to pluck out their eyes & cast them away.” This mace adds +1 (+3 vs. constructs) to atk & dmg rolls. On a nat. 20 to hit, the target takes an extra 7 bludgeoning dmg (+14 to constructs). If a construct has < 26 HP after this dmg, it's destroyed.",
 		descriptionFull : "This mace is fashioned from a single piece of obsidian. The following phrase is inscribed over and over in Draconic around the mace's haft: “Those willing to deny themselves the radiance of the stars would be better to pluck out their eyes and cast them away.” You gain a +1 bonus to attack and damage rolls made with this magic weapon. The bonus increases to +3 when you use the mace to attack a construct.\n   When you roll a 20 on an attack roll made with this weapon, the target takes an extra 7 bludgeoning damage, or an extra 14 bludgeoning damage if it's a construct. If a construct has 25 hit points or fewer after taking this damage, it is destroyed.",
 		weight : 4,
 		weaponOptions : {
@@ -6453,7 +6466,7 @@ MagicItemsList["al weapons (other)"] = {
 	},
 	"oathbow: selestria (wbw-dc-tmp-3)" : {
 		name : "Selestria, Oathbow (WBW-DC-TMP-3)",
-		source : [["AL","CCC"]],
+		source : [["AL","WBW-DC"]],
 		type : "weapon (longbow)",
 		rarity : "very rare",
 		magicItemTable : "H",
@@ -6486,19 +6499,19 @@ MagicItemsList["al weapons (other)"] = {
 			"\n   " + toUni("Melody of Reverberation") + ". The melody you strum echoes loudly. On a hit, the target takes extra thunder damage equal to your Charisma modifier.",
 			savetxt : { immune : ["temps btwn -20\u00B0F/120\u00B0F"] },
 			weaponsAdd : { select : ["Shortbow of Melodies"], options : ["Shortbow of Melodies"] },
-		calcChanges : {
-			atkAdd : [
-				function (fields, v) {
-					var chaMod = Number(What('Cha Mod'));
-					// Only add a description if positive Cha Mod and Melody of Precision is not an option or Reverberation is part of the name
-					if (!v.theWea.isMagicWeapon && chaMod > 0 && v.isRangedWeapon && /bow/i.test(v.baseWeaponName) && /^(?=.*melod(ies|y))(?!.*precision).*$/i.test(v.WeaponTextName) && (/reverberation/i.test(v.WeaponTextName) || !hasSkillProf("Performance")[0])) {
-						v.theWea.isMagicWeapon = true;
-						fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
-						fields.Description += (fields.Description ? '; ' : '') + '+' + chaMod + ' (Cha mod) thunder damage';
-					}
-				},
-				'If I include the word "Melody" or "Melodies" in the name of a bow, it will be treated as the magic weapon Bow of Melodies. If I also include either "Precision" or "Reverberation" in the name, the respective bonus will be added. if I include neither of those in the name, the bonus will be determined automatically, the Melody of Precision if proficient with Performance (+1 or +2 bonus to hit) or Melody of Reverberation otherwise (+Cha mod thunder damage).'
-			],
+	calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				var chaMod = Number(What('Cha Mod'));
+				// Only add a description if positive Cha Mod and Melody of Precision is not an option or Reverberation is part of the name
+				if (!v.theWea.isMagicWeapon && chaMod > 0 && v.isRangedWeapon && /bow/i.test(v.baseWeaponName) && /^(?=.*melod(ies|y))(?!.*precision).*$/i.test(v.WeaponTextName) && (/reverberation/i.test(v.WeaponTextName) || !hasSkillProf("Performance")[0])) {
+					v.theWea.isMagicWeapon = true;
+					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+					fields.Description += (fields.Description ? '; ' : '') + '+' + chaMod + ' (Cha mod) thunder damage';
+				}
+			},
+			'If I include the word "Melody" or "Melodies" in the name of a bow, it will be treated as the magic weapon Bow of Melodies. If I also include either "Precision" or "Reverberation" in the name, the respective bonus will be added. if I include neither of those in the name, the bonus will be determined automatically, the Melody of Precision if proficient with Performance (+1 or +2 bonus to hit) or Melody of Reverberation otherwise (+Cha mod thunder damage).'
+		],
 			atkCalc : [
 				function (fields, v, output) {
 					// Add to hit bonus if name doesn't include Reverberation. Will be zero if not proficient in Performance
@@ -6518,7 +6531,7 @@ MagicItemsList["al weapons (other)"] = {
 		rarity : "rare",
 		attunement : true,
 		description : "This black wooden crossbow has pearl inlays depicting 3 constellations. Interlacing silver ferns —a popular Rashemi motif— adorn both sides of the foregrip. It ignores loading and produces its own ammo when fired. The crossbow has 3 charges, regaining 1d3 at dawn. As a bonus action, use 1 charge to invoke a constellation until next turn ends. Balance: next hit with crossbow heals someone in 30 ft for 1d8 + PB. Flames: crossbow deals +2d8 fire dmg. Rogue: I become invisible.",
-		descriptionLong : "This crossbow of blackened wood has pearl inlays depicting three different constellations. Interlacing silver ferns—a popular Rashemi motif— adorn both sides of the foregrip. It has 3 charges and regains 1d3 used charged daily at dawn. It produces its own ammo that lasts until it hits or misses a target. As a bonus action, I can use 1 charge to tap and invoke one of its constellations until my next turn ends. Balance: next hit with the crossbow heals me or another within 30 ft of me for 1d8 + my Prof Bonus. Flames: the crossbow deals +2d8 fire damage. Rogue: I become invisible as well as anything I'm wearing or carrying.",
+		descriptionLong : "This crossbow of blackened wood has pearl inlays depicting three different constellations. Interlacing silver ferns—a popular Rashemi motif— adorn both sides of the foregrip. It has 3 charges and regains 1d3 used charges daily at dawn. It produces its own ammo that lasts until it hits or misses a target and ignores loading. As a bonus action, I can use 1 charge to tap and invoke one of its constellations until my next turn ends. Balance: next hit with the crossbow heals me or another within 30 ft of me for 1d8 + my Prof Bonus. Flames: the crossbow deals +2d8 fire damage. Rogue: I become invisible as well as anything I'm wearing or carrying.",
 		descriptionFull : "Interlacing silver ferns—a popular Rashemi motif— adorn both sides of the foregrip.\n   This crossbow is crafted from blackened wood, and its limbs bear pearl inlays depicting constellations. You ignore the loading property with this crossbow. If you load no ammunition in the weapon, it produces its own, automatically creating one piece of magic ammunition when you make a ranged attack with it. The ammunition created by the weapon vanishes the instant after it hits or misses a target. The crossbow has 3 charges and regains 1d3 expended charges daily at dawn."+
 		"\n   " + toUni("Constellations") + ". The crossbow is decorated with three constellations. As a bonus action, you can tap one of the constellations to invoke it, expending 1 charge and producing one of the following effects:"+
 		"\n   " + toUni("Balance") + ". The next time you hit a creature with a ranged attack roll using this crossbow before the end of your next turn, you or another creature of your choice within 30 feet of you can regain hit points equal to 1d8 plus your proficiency bonus."+
@@ -6638,6 +6651,19 @@ MagicItemsList["al weapons (other)"] = {
 			}
 		}
 	},
+	"trident of warning (ccc-tri-34)" : {
+			name : "Trident of Warning (CCC-TRI-34)",
+			source : [["AL","CCC"]],
+			type : "weapon (trident)",
+			rarity : "uncommon",
+			magicItemTable : "F",
+			attunement : true,
+			advantages : [["Initiative", true]],
+			savetxt : { immune : ["surprised"] },
+			description : "This white trident is made from whale bones, laced together with dried tendons. While on my person, I have adv. on initiative. Also, I & my allies in 30 ft can't be surprised & the weapon magically awakens all of us when combat starts, unless incapacitated by something other than nonmagical sleep.",
+			descriptionFull : "This white trident is fashioned from whale bones, laced together with dried tendons.\n   This magic weapon warns you of danger. While the weapon is on your person, you have advantage on initiative rolls. In addition, you and any of your companions within 30 feet of you can't be surprised, except when incapacitated by something other than nonmagical sleep. The weapon magically awakens you and your companions within range if any of you are sleeping naturally when combat begins.",
+			weaponsAdd : { select : ["Trident of Warning"], options : ["Trident of Warning"] },
+			},
 	"trident of warning (ddex2-3)" : {
 			name : "Trident of Warning (DDEX2-3)",
 			source : [["AL","S2"]],
@@ -6699,19 +6725,6 @@ MagicItemsList["al weapons (other)"] = {
 			selectNow : true,
 		}
 	},
-	"trident of warning (ccc-tri-34)" : {
-			name : "Trident of Warning (CCC-TRI-34)",
-			source : [["AL","CCC"]],
-			type : "weapon (trident)",
-			rarity : "uncommon",
-			magicItemTable : "F",
-			attunement : true,
-			advantages : [["Initiative", true]],
-			savetxt : { immune : ["surprised"] },
-			description : "This white trident is made from whale bones, laced together with dried tendons. While on my person, I have adv. on initiative. Also, I & my allies in 30 ft can't be surprised & the weapon magically awakens all of us when combat starts, unless incapacitated by something other than nonmagical sleep.",
-			descriptionFull : "This white trident is fashioned from whale bones, laced together with dried tendons.\n   This magic weapon warns you of danger. While the weapon is on your person, you have advantage on initiative rolls. In addition, you and any of your companions within 30 feet of you can't be surprised, except when incapacitated by something other than nonmagical sleep. The weapon magically awakens you and your companions within range if any of you are sleeping naturally when combat begins.",
-			weaponsAdd : { select : ["Trident of Warning"], options : ["Trident of Warning"] },
-			},
 	"weapon of warning (ddal0-7)" : {
 			name : "of Warning (DDAL0-7)",
 			source : [["AL","S0"]],

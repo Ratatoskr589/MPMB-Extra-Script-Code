@@ -935,7 +935,7 @@ MagicItemsList["al armor (other)"] = {
 		type : "armor (chain mail)",
 		rarity : "legendary",
 		magicItemTable : "I",
-		description : "The efreeti Prince Rashidi al-Zahar ibn Rath transmogrified an efreeti sultana into this delicate suit of crimson chain mail. While wearing this armor, I always feels a slight draft, & sometimes finds it hard to stay focused on a task. But I gain a +3 bonus to AC, are immune to fire damage, and can understand and speak Primordial. I can also stand on & walk across molten rock as if solid ground.",
+		description : "The efreeti Prince Rashidi al-Zahar ibn Rath transmogrified an efreeti sultana into this delicate suit of crimson chain mail. While wearing this armor, I always feel a slight draft, & sometimes finds it hard to stay focused on a task. But I gain a +3 bonus to AC, are immune to fire damage, & can speak Primordial. I can also stand on & walk across molten rock as if solid ground.",
 		descriptionFull : "The efreeti Prince Rashidi al-Zahar ibn Rath transmogrified an efreeti sultana into this delicate suit of crimson chain mail. The wearer of this armor always feels a slight draft, and sometimes finds it hard to stay focused on a task. While wearing this armor, you gain a +3 bonus to AC, you are immune to fire damage, and you can understand and speak Primordial. In addition, you can stand on and walk across molten rock as if it were solid ground.",
 		attunement : true,
 		weight : 55,
@@ -1215,7 +1215,7 @@ MagicItemsList["al armor (other)"] = {
 		type : "armor (studded leather)",
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "This studded lthr armor is tight & immodestly cut. While wearing it, I gain a +1 bonus to AC. As a bonus action, speak command word & cause the armor to look like normal clothing or another armor type. I decide appearance, but the armor retains normal bulk. Any illusion created by this item appears to be of the finest quality. No matter what form it takes, my appearance draws the eye. The illusion lasts until I use this property again or remove the armor.",
+		description : "This studded lthr armor is tight & immodestly cut. While worn, I gain a +1 bonus to AC. As a bonus action, speak command word & cause the armor to look like normal clothing or another armor type. I decide appearance, but the armor retains normal bulk. Any illusion created by this item appears to be of the finest quality. No matter what form it takes, my appearance draws the eye. The illusion lasts until I use this property again or remove the armor.",
 		descriptionLong : "This studded leather armor is tight and immodestly cut. While wearing it, I gain a +1 bonus to AC. As a bonus action, speak the command word and cause the armor to look like normal clothing or another armor type. I decide its appearance, but the armor retains normal bulk. Any illusion created by this item appears to be of the finest quality. No matter what form it takes, my appearance draws the eye. The illusion lasts until I use this property again or remove the armor.",
 		descriptionFull : "In its natural state, this armor is tight and immodestly cut. While wearing this armor, you gain a +1 bonus to AC. You can also use a bonus action to speak the armor's command word and cause the armor to assume the appearance of a normal set of clothing or some other kind of armor. You decide what it looks like, including color, style, and accessories, but the armor retains its normal bulk and weight. Any illusion of normal clothing and other types of armor created by this item can appear only to be of the finest quality. No matter what form it takes, when you wear this item, your appearance draws the eye of those around you. The illusory appearance last until you use this property again or remove the armor.",
 		armorOptions : [{
@@ -1234,7 +1234,7 @@ MagicItemsList["al armor (other)"] = {
 		type : "armor (studded leather)",
 		rarity : "rare",
 		magicItemTable : "G",
-		description : "This studded armor is made of salmon leather that has been dyed midnight black. While wearing it, I cannot become wet unless fully immersed in a liquid & I gain a +1 bonus to AC. As a bonus action, I can speak the command word & cause the armor to look like normal clothing or another armor type. I decide appearance, but the armor retains normal bulk. The illusion lasts until I use this property again or remove the armor.",
+		description : "This studded armor is made of salmon leather dyed midnight black. While worn, I can't become wet unless fully immersed in a liquid and gain +1 to AC. As a bonus action, I can make the armor look like normal clothing or another armor type. I decide its appearance, but the armor retains its bulk. The illusion lasts until I use this property again or doff the armor.",
 		descriptionFull : "This armor is made of salmon leather that has been dyed midnight black. While wearing this studded leather, you cannot become wet unless fully immersed in a liquid & you gain a +1 bonus to AC. You can also use a bonus action to speak the armor's command word and cause the armor to assume the appearance of a normal set of clothing or some other kind of armor. You decide what it looks like, including color, style, and accessories, but the armor retains its normal bulk and weight. The illusory appearance last until you use this property again or remove the armor.",
 		armorOptions : [{
 			regExpSearch : /^(?=.*glamou?r)(?=.*(studded|studs))(?=.*leather).*$/i,
@@ -1677,6 +1677,7 @@ MagicItemsList["al shields"] = {
 		descriptionFull : "This buckler was created from a scale gifted by one of Amaranthraxine's draconic allies on Abeir.\n   This crystalline blue shield is fashioned from a sapphire dragon's scale and is created to aid in rooting out the influence of Aberrations. While wielding the shield, you have resistance to psychic and thunder damage. Also, when you take damage from a creature that is within 5 feet of you, you can use your reaction to deal 2d6 thunder damage to that creature."+
 		"\n   As an action, you can use the shield to help you locate Aberrations until the end of your next turn. If any Aberrations are within 1 mile of you, the shield emits a low humming tone for a moment, and you know the direction of all Aberrations within that range. Once this property is used, it can't be used again until the next dawn.",
 		weight : 6,
+		limfeaname : "Sapphire Buckler",
 		shieldAdd : "Sapphire Buckler",
 		dmgres : ["Psychic", "Thunder"],
 		action : [["reaction", " (damaged in 5ft)"], ["action", " (locate aberrations"]]
@@ -1691,6 +1692,7 @@ MagicItemsList["al shields"] = {
 		"\n   As an action, you can use the shield to help you locate Aberrations until the end of your next turn. If any Aberrations are within 1 mile of you, the shield emits a low humming tone for a moment, and you know the direction of all Aberrations within that range. Once this property is used, it can't be used again until the next dawn."+
 		"\n   " + toUni("Beacon") + ". The bearer can use a bonus action to cause the item to shed bright light in a 10-foot radius and dim light for an additional 10 feet, or to extinguish the light.",
 		weight : 6,
+		limfeaname : "Sapphire Buckler",
 		shieldAdd : "Sapphire Buckler",
 		dmgres : ["Psychic", "Thunder"],
 		action : [["reaction", " (damaged in 5ft)"], ["action", " (locate aberrations"], ["bonus action", " (light/dim)"]]
@@ -1704,6 +1706,7 @@ MagicItemsList["al shields"] = {
 		descriptionFull : "This shield is made from scales of various dragons who had their breath weapons stolen by star spawn. Nezzium fueling the device makes sapphire blue the shield's dominant color, but it can reflect other colors in the appropriate light. There are no metallic parts to the shield.\n   This crystalline blue shield is fashioned from a sapphire dragon's scale and is created to aid in rooting out the influence of Aberrations. While wielding the shield, you have resistance to psychic and thunder damage. Also, when you take damage from a creature that is within 5 feet of you, you can use your reaction to deal 2d6 thunder damage to that creature."+
 		"\n   As an action, you can use the shield to help you locate Aberrations until the end of your next turn. If any Aberrations are within 1 mile of you, the shield emits a low humming tone for a moment, and you know the direction of all Aberrations within that range. Once this property is used, it can't be used again until the next dawn.",
 		weight : 6,
+		limfeaname : "Sapphire Buckler",
 		shieldAdd : "Sapphire Buckler",
 		dmgres : ["Psychic", "Thunder"],
 		action : [["reaction", " (damaged in 5ft)"], ["action", " (locate aberrations"]]
@@ -1718,6 +1721,7 @@ MagicItemsList["al shields"] = {
 		"\n   As an action, you can use the shield to help you locate Aberrations until the end of your next turn. If any Aberrations are within 1 mile of you, the shield emits a low humming tone for a moment, and you know the direction of all Aberrations within that range. Once this property is used, it can't be used again until the next dawn."+
 		"\n   " + toUni("Temperate") + ". The bearer suffers no harm in temperatures as cold as –20 degrees Fahrenheit or as warm as 120 degrees Fahrenheit.",
 		weight : 6,
+		limfeaname : "Sapphire Buckler",
 		shieldAdd : "Sapphire Buckler",
 		dmgres : ["Psychic", "Thunder"],
 		action : [["reaction", " (damaged in 5ft)"], ["action", " (locate aberrations"]]
@@ -1733,6 +1737,7 @@ MagicItemsList["al shields"] = {
 		"\n   This crystalline blue shield is fashioned from a sapphire dragon's scale and is created to aid in rooting out the influence of Aberrations. While wielding the shield, you have resistance to psychic and thunder damage. Also, when you take damage from a creature that is within 5 feet of you, you can use your reaction to deal 2d6 thunder damage to that creature."+
 		"\n   As an action, you can use the shield to help you locate Aberrations until the end of your next turn. If any Aberrations are within 1 mile of you, the shield emits a low humming tone for a moment, and you know the direction of all Aberrations within that range. Once this property is used, it can't be used again until the next dawn.",
 		weight : 6,
+		limfeaname : "Sapphire Buckler",
 		shieldAdd : "Sapphire Buckler",
 		dmgres : ["Psychic", "Thunder"],
 		action : [["reaction", " (damaged in 5ft)"], ["action", " (locate aberrations"]]
@@ -1748,6 +1753,7 @@ MagicItemsList["al shields"] = {
 		"\n   This crystalline blue shield is fashioned from a sapphire dragon's scale and is created to aid in rooting out the influence of Aberrations. While wielding the shield, you have resistance to psychic and thunder damage. Also, when you take damage from a creature that is within 5 feet of you, you can use your reaction to deal 2d6 thunder damage to that creature."+
 		"\n   As an action, you can use the shield to help you locate Aberrations until the end of your next turn. If any Aberrations are within 1 mile of you, the shield emits a low humming tone for a moment, and you know the direction of all Aberrations within that range. Once this property is used, it can't be used again until the next dawn.",
 		weight : 6,
+		limfeaname : "Sapphire Buckler",
 		shieldAdd : "Sapphire Buckler",
 		dmgres : ["Psychic", "Thunder"],
 		action : [["reaction", " (damaged in 5ft)"], ["action", " (locate aberrations"]]

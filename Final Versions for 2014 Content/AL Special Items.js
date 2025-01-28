@@ -118,17 +118,17 @@ FeatsList["al story awards"] = {
 		descriptionFull : "A battle scarred, one-eared angry tomcat that reeks of city has taken a liking to you. 'Like' is a generous term as it spends its free time soiling your footwear and caterwauling. Once per adventure, if you would be arrested by the city watch, the angry cat descends like an avenging angel, distracting the watch enough for you to escape.",
 	},
 	"black pudding cup: cuddly (trading post)" : {
-			name : "Black Pudding Cup (Cuddly)",
-			source : [["AL:EL","VW"]],
-			rarity : "rare",
-			attunement : true,
-			description : "This special ooze has undergone magical experimentation, which resulted in its body being the perfect huggable consistency. When hugged, the pudding whispers words of self affirmation like \"You are enough.\" and \"All you need is within you right now.\" It can be returned via Find Familiar if killed. If its cup was also destroyed, a new cup needs to be purchased (1gp).",
-			descriptionFull : "This special ooze has undergone magical experimentation, which resulted in its body being the perfect, huggable consistency. When hugged, the creature whispers words of self affirmation like \"You are enough.\" and \"All you need is within you right now.\" The creature can be returned via Find Familiar if killed. If its cup was also destroyed, a new cup needs to be purchased (1gp). [Custom flavor from the November 2024 VDDW Trading Post v13.1]",
-			creaturesAdd : [["Black Pudding Cup"]],
+		name : "Black Pudding Cup (Cuddly)",
+		source : [["AL:EL","2024 VW"]],
+		rarity : "rare",
+		attunement : true,
+		description : "This special ooze has undergone magical experimentation, which resulted in its body being the perfect huggable consistency. When hugged, the pudding whispers words of self affirmation like \"You are enough.\" and \"All you need is within you right now.\" It can be returned via Find Familiar if killed. If its cup was also destroyed, a new cup needs to be purchased (1gp).",
+		descriptionFull : "This special ooze has undergone magical experimentation, which resulted in its body being the perfect, huggable consistency. When hugged, the creature whispers words of self affirmation like \"You are enough.\" and \"All you need is within you right now.\" The creature can be returned via Find Familiar if killed. If its cup was also destroyed, a new cup needs to be purchased (1gp). [Custom flavor from the November 2024 VDDW Trading Post v13.1]",
+		creaturesAdd : [["Black Pudding Cup"]],
 		},
 	"blessing of magic resistance: aether's blessing (fr-dc-monster-4)" : {
-		name : "Aether's Blessing of Magic Resistance (FR-DC-MONSTER-4)",
-		source : [["AL","FR-DC"]],
+		name : "Aether's Blessing of Magic Resistance",
+		source : [["AL","FR-DC-MONSTER-4"]],
 		description : "I have advantage on saving throws against spells and other magical effects. Every time this blessing activates, my eyes glow as I tap into the four elements and energies of Aether.",
 		descriptionFull : "“Everytime the blessing activates, your eyes glow as you tap into the four elements and energies of Aether.” You have advantage on saving throws against spells and other magical effects.",
         savetxt : {
@@ -136,8 +136,8 @@ FeatsList["al story awards"] = {
         },
 	},
 	"blessing of magic resistance: favor of primus (ps-dc-php-cka2)" : {
-		name : "Favor of Primus (Blessing of Magic Resistance, PS-DC-PHP-CKA2)",
-		source : [["AL","PS-DC"]],
+		name : "Favor of Primus (Blessing of Magic Resistance)",
+		source : [["AL","PS-DC-PHP-CKA2"]],
 		description : "Primus has favored me for my assistance in protecting the Gate-Town of Automata and the modrons it created. I have advantage on saving throws against spells and other magical effects.",
 		descriptionFull : "Primus has favored you for your assistance in protecting the Gate-Town of Automata and the modrons it has created. You have advantage on saving throws against spells and other magical effects.",
         savetxt : {
@@ -161,16 +161,16 @@ FeatsList["al story awards"] = {
 		addMod : [{ type : "save", field : "all", mod : 1, text : "I gain a +1 bonus to all my saving throws." }]
 	},
 	"blessing of protection: selune's (fr-dc-pandora-jwei-6)" : {	
-		name : "Selune's Blessing of Protection (FR-DC-PANDORA-JWEI-6)",
-		source : [["AL","FR-DC"]],
+		name : "Selune's Blessing of Protection",
+		source : [["AL","FR-DC-PANDORA-JWEI-6"]],
 		description : "Selune grants me her blessing for as long as I hold sympathy and kindness in my heart towards the good-aligned, and give my all to protect Pandora. I gain a +1 bonus to AC and saving throws.",
 		descriptionFull : "Selune grants her blessing upon you for as long as you hold sympathy and kindness in your heart towards the good aligned and for as long as you give it your all to protect Pandora.\n   You gain a +1 bonus to AC and saving throws.",
 		extraAC : [{name : "Blessing of Protection", mod : 1, magic : true, text : "I gain a +1 bonus to AC."}],
 		addMod : [{ type : "save", field : "all", mod : 1, text : "I gain a +1 bonus to all my saving throws." }]
 	},
 	"blessing of valhalla: illithids (fr-dc-death)" : {
-		name : "Illithids (Blessing) of Valhalla (FR-DC-DEATH)",
-		source : [["AL","FR-DC"]],
+		name : "Illithids (Blessing) of Valhalla",
+		source : [["AL","FR-DC-DEATH"]],
 		description : "As an action once per 7 days, I can summon 2d4+2 friendly warrior spirits within 60 ft. These spirits appear as spectral mind flayers (Berserker statblock). They're friendly to me and follow my commands, disappearing after 1 hour or at 0 hp.",
 		descriptionFull : "When using the Blessing of Valhalla awarded by this module, the berserkers summoned appear as spectral mind flayer. This is only a cosmetic change.\n   This blessing grants  the benefits of blowing a Silver Horn of Valhalla. 2d4+2 friendly Warrior Spirits (use Berserker statistics) from the plane of Ysgard appear within 60 feet. They return to Ysgard after 1 hour or when they drop to 0 hit points. Once you use this blessing, you can't use it again until 7 days have passed.",
 		limfeaname : "Blessing of Valhalla",
@@ -179,8 +179,8 @@ FeatsList["al story awards"] = {
 		action : [["action", " (2d4+2 Berserkers)"]],
 	},
 	"blessing of valhalla: the friends you made along the way (sj-dc-dd-11)" : {
-		name : "The Friends You Made Along the Way (Blessing of Valhalla)",
-		source : [["AL","SJ-DC"]],
+		name : "The Friends You Made Along the Way (Valhalla)",
+		source : [["AL","SJ-DC-DD-11"]],
 		description : "The Monad has taken me on numerous adventures and the bonds I built across worlds will last a lifetime. No matter where I am, I can always count on my fellow passengers and friends from Wildspace to come to my aid. All I need to do is call. As an action once per 7 days, 2d4+2 friendly warrior spirits (Berserker statblock) appear within 60 ft. They're friendly to me and follow my commands, disappearing after 1 hr or at 0 hp.",
 		descriptionFull : "The Monad’s course has taken you on numerous adventures, and the bonds you built in myriad worlds will last a lifetime. No matter where you are, you know you can always count on your fellow passengers and friends from Wildspace to come to your aid. All you need to do is call.\n   This blessing grants  the benefits of blowing a Silver Horn of Valhalla. 2d4+2 friendly Warrior Spirits (use Berserker statistics) from the plane of Ysgard appear within 60 feet. They return to Ysgard after 1 hour or when they drop to 0 hit points. Once you use this blessing, you can't use it again until 7 days have passed.",
 		limfeaname : "Blessing of Valhalla",
@@ -235,7 +235,8 @@ FeatsList["al story awards"] = {
 		action : [["action", ""]],
 	},
 	"charm of the sage: high heralds (fr-dc-saerloon-0)" : {
-		name : "Charm of the High Heralds (Sage, FR-DC-Saerloon-0)",
+		name : "Charm of the High Heralds (Sage)",
+		source : [["AL","FR-DC-Saerloon-0"]],
 		description : "I can cast Divination, requiring no components and using my Intelligence, Wisdom, or Charisma as the spellcasting ability (my choice). When cast in this way, I contact Old Night, a High Herald and head librarian of Herald's Holdfast, the library complex holding the lore gathered by the Heralds over centuries. Charm vanishes once used 3 times.",
 		descriptionFull : "I can cast Divination, requiring no spell components and using my Intelligence, Wisdom, or Charisma as the spellcasting ability (my choice). Charm vanishes once used 3 times.\n   Instead of contacting a god or a god’s servant, this charm allows you to contact Old Night: A High Herald and head librarian of Herald's Holdfast, the library complex holding all the lore gathered by the Heralds over centuries.",
 		limfeaname : "Charm of the Sage",
@@ -295,8 +296,8 @@ FeatsList["al story awards"] = {
 			}
 	},
 	"gratitude of brightstar moonsilver (ccc-bmg-37 hulb3-1)" : {	
-		name : "Gratitude of Brightstar Moonsilver (CCC-BMG-37 HULB3-1)",
-		source : [["AL","CCC"]],
+		name : "Gratitude of Brightstar Moonsilver",
+		source : [["AL","CCC-BMG-37 HULB3-1"]],
 		description : "For rescuing Brightstar, he is grateful and will serve as a mount for lawful good adventurers for three adventures. His stats are the standard unicorn stats found on page 294 of the Monster Manual.",
 		limfeaname : "Unicorn Mount (Brightstar Moonsilver)",
 		usages : 3,
@@ -417,23 +418,23 @@ FeatsList["al story awards"] = {
 		languageProfs : ["Infernal"]
 	},
 	"luna lightbearers (wbw-dc-zodiac-0)" : {
-		name : "Luna Lightbearers (WBW-DC-ZODIAC-0)",
-		source : [["AL","WBW-DC"]],
+		name : "Luna Lightbearers",
+		source : [["AL","WBW-DC-ZODIAC-0"]],
 		description : "Lunafrey has made me an officer of the Luna Carnival. I may use the carnival as a home or place of rest & carnival folk are more inclined to help me. As a Lightbearer I have a magical tattoo of a golden crescent moon that only reveals itself under a full moon's light or when activated. As a bonus action, I can make the tattoo shed bright moonlight in a 5-ft radius & dim light for another 5 ft, or extinguish the light.",
 		descriptionFull : "Lunafreya offers patronage, as officers of the carnival. Characters may use the carnival as a home, or place of rest. Carnival folk from the Luna Carnival may be more inclined to provide assistance to the characters.\n   Lightbearers are offered a magical tattoo of a golden crescent moon, this invisible golden tattoo only reveals itself under the light of a full moon, or when activated.\n   " + toUni("Beacon") + ". The bearer can use a bonus action to cause the item to shed bright moonlight in a 5-foot radius and dim light for an additional 5 feet, or to extinguish the light.",
 		action : [["bonus action", "Moon Tattoo (Glow/Extinguish)"]]
 	},
 	"nature of the weave (ccc-rozk-1-2) (arcana prof)" : {	
-		name : "Nature of the Weave (CCC-ROZK-1-2)",
-		source : [["AL","CCC"]],
+		name : "Nature of the Weave (Proficiency)",
+		source : [["AL","CCC-ROZK-1-2"]],
 		description : "I have uncovered a series of tomes written by the archmage, Manshoon. After spending 50 downtime days, I gained proficiency in the Arcana skill.",
 		descriptionFull : "You have uncovered a series of tomes written by the archmage, Manshoon. By spending 50 downtime days, you gain proficiency in the Arcana skill. If you are already proficient in Arcana, you double your proficiency when making checks with the skill.",
 		skillstxt : "You gain proficiency in Arcana. If you are already proficient, you gain expertise.",
 		skills : ["Arcana"]
 	},
 	"nature of the weave (ccc-rozk-1-2) (arcana expert)" : {	
-		name : "Nature of the Weave (CCC-ROZK-1-2)",
-		source : [["AL","CCC"]],
+		name : "Nature of the Weave (Expertise)",
+		source : [["AL","CCC-ROZK-1-2"]],
 		description : "I have uncovered a series of tomes written by the archmage, Manshoon. After spending 50 downtime days and already being proficient in Arcana, I double my proficiency when making checks with the skill.",
 		descriptionFull : "You have uncovered a series of tomes written by the archmage, Manshoon. By spending 50 downtime days, you gain proficiency in the Arcana skill. If you are already proficient in Arcana, you double your proficiency when making checks with the skill.",
 		skillstxt : "You gain proficiency in Arcana. If you are already proficient, you gain expertise.",
@@ -447,8 +448,8 @@ FeatsList["al story awards"] = {
 		savetxt : { adv_vs : ["disease"] },
 	},
 	"the qualith experience (ddia-volo)" : {
-		name : "The Qualith Experience (DDIA-VOLO)",
-		source : [["AL","Volo"]],
+		name : "The Qualith Experience",
+		source : [["AL","DDIA-VOLO"]],
 		description : "Though the mind flayer “written” language is practically impossible for anyone to craft other than mind flayers, I gain the ability to better understand the nature of the mind flayer's seldom-used written language; any Intelligence check made to identify or translate a Qualith expression automatically succeeds.",
 		descriptionFull : "Though the mind flayer “written” language is practically impossible for anyone to craft other than mind flayers, you gain the ability to better understand the nature of the mind flayer's seldom-used written language; any Intelligence check made to identify or translate a Qualith expression automatically succeeds.",
 		languageProfs : ["Qualith (translate)"]
@@ -529,7 +530,7 @@ FeatsList["al story awards"] = {
 	"uku the spider boy (ddep7-1)" : {
 		name : "Uku the Spider Boy (DDEP7-1)",
 		source : [["AL","S7"]],
-		description : "A naughty flying monkey called “Uku the Spider Boy” has latched onto me. Uku (“OO-koo”) wears a crimson waistcoat adorned with tiny mirrors and sports a silk skullcap. He has a naturally mischievous nature. Uku can smell gold from 30 feet away, even if it's kept inside a purse or container. As an action, I can command Uku to steal or retrieve up to 100gp using his Sleight of Hand skill bonus of +4. Uku keeps 10% of the takings, which he spends on boiled sweets next time 'm in town.",
+		description : "A naughty flying monkey latched onto me. Uku (“OO-koo”) has a crimson waistcoat adorned with tiny mirrors, a silk skullcap & has a mischievous nature. Uku can smell gold from 30 ft away, even in a purse or container. As an action, I can tell Uku to steal or retrieve up to 100 GP using his +4 Sleight of Hand bonus. Uku keeps 10% of the GP, which he spends on boiled sweets when I'm in town.",
 		descriptionFull : "A naughty flying monkey called “Uku the Spider Boy” has latched onto you. Uku (“OO-koo”) wears a crimson waistcoat adorned with tiny mirrors and sports a silk skullcap. He has a naturally mischievous nature. Uku can smell gold from 30 feet away, even if it's kept inside a purse or container. As an action, you can command Uku to steal or retrieve up to 100gp using his Sleight of Hand skill bonus of +4. Uku keeps 10% of the takings, which he spends on boiled sweets next time you're in town.",
 		action : [["action", "Uku the Spider Boy (steal)"]],
 	},
@@ -556,7 +557,10 @@ MagicItemsList["al event award items"] = {
 		chooseGear : {
 			type : "ammo",
 			prefixOrSuffix : "brackets",
-			descriptionChange : ["replace", "ammunition"]
+			descriptionChange : ["replace", "ammunition"],
+			excludeCheck : function (inObjKey, inObj) {
+			return /vials|flasks/i.test(inObj.icon);
+			}
 		},
 		ammoAdd : [["Ammunition of Sprouting", 20]],
 		},
@@ -1423,64 +1427,65 @@ MagicItemsList["al trinkets"] = {
 		name: "Arcane Curio: Belt (DDEX2-10)",
 		nameAlt: "Arcane Curio: Belt",
 		source : ["AL", "S2"],
+		defaultExcluded : true,
 		description: "A belt with a self-adjusting buckle.",
-		descriptionFull: "A belt with a self-adjusting buckle.",
 		weight: 1,
 	},
 	"arcane curio: brush (ddex2-10)" : {
 		name: "Arcane Curio: Brush (DDEX2-10)",
 		nameAlt: "Arcane Curio: Brush",
 		source : ["AL", "S2"],
+		defaultExcluded : true,
 		description: "A makeup brush that never requires makeup.",
-		descriptionFull: "A makeup brush that never requires makeup.",
 		weight: 0.25,
 	},
 	"arcane curio: cloak (ddex2-10)" : {
 		name: "Arcane Curio: Cloak (DDEX2-10)",
 		nameAlt: "Arcane Curio: Cloak",
 		source : ["AL", "S2"],
+		defaultExcluded : true,
 		description: "A cloak that never gets wet in the rain.",
-		descriptionFull: "A cloak that never gets wet in the rain.",
 		weight: 1,
 	},
 	"arcane curio: inkpot (ddex2-10)" : {
 		name: "Arcane Curio: Inkpot (DDEX2-10)",
 		nameAlt: "Arcane Curio: Inkpot",
 		source : ["AL", "S2"],
+		defaultExcluded : true,
 		description: "An inkpot that never dries out.",
-		descriptionFull: "An inkpot that never dries out.",
 		weight: 1,
 	},
 	"arcane curio: pipe (ddex2-10)" : {
 		name: "Arcane Curio: Pipe (DDEX2-10)",
 		nameAlt: "Arcane Curio: Pipe",
 		source : ["AL", "S2"],
+		defaultExcluded : true,
 		description: "A pipe that fills with tobacco each morning.",
-		descriptionFull: "A pipe that fills with tobacco each morning.",
 		weight: 0.5,
 	},
 	"arcane curio: quill (ddex2-10)" : {
 		name: "Arcane Curio: Quill (DDEX2-10)",
 		nameAlt: "Arcane Curio: Quill",
 		source : ["AL", "S2"],
+		defaultExcluded : true,
 		description: "A quill that never blunts.",
-		descriptionFull: "A quill that never blunts.",
 		weight: 0.1,
 	},
 	"arcane curio: wand (ddex2-10)" : {
 		name: "Arcane Curio: Wand (DDEX2-10)",
 		nameAlt: "Arcane Curio: Wand",
 		source : ["AL", "S2"],
+		defaultExcluded : true,
 		description: "A wand that summons a mundane toad once per day.",
-		descriptionFull: "A wand that summons a mundane toad once per day.",
 		weight: 1,
-		limfeaname : "Arcane Curio: Wand",
+		limfeaname : "Arcane Curio: Wand (Toad)",
 		usages : 1,
 		recovery : "dawn"
 	},
 	"artor's blood mead: six-pack (dc-poa-snipe-1)" : {
-		name: "Six-pack of Artor's Blood Mead (DC-POA-SNIPE-1)",
+		name: "Six-pack of Artor's Blood Mead (SNIPE-1)",
 		source : ["AL", "DC-POA"],
+		defaultExcluded : true,
 		description: "This small wooden crate has 6 ceramic bottles containing dark red mead specially commissioned for Artor Morlin. His frowning face is stenciled on the bottles. When drunk, the mead has an unsettling metallic taste.",
 		descriptionFull: "A small wooden crate containing six ceramic bottles containing dark red mead especially commissioned for Artor Morlin, with the frowning face of Artor stenciled on the bottles. When you drink it, it has an unsettling metallic taste.",
 		weight: 1,
@@ -1488,80 +1493,80 @@ MagicItemsList["al trinkets"] = {
 	"dinosaur eggshell (wbw-dc-conmar-6)" : {
 		name: "Dinosaur Eggshell (WBW-DC-CONMAR-6)",
 		source : ["AL", "WBW-DC"],
+		defaultExcluded : true,
 		description: "This leathery, scale-like fragment of eggshell has an earthy smell and is the color of dirt.",
-		descriptionFull: "This leathery, scale-like fragment of eggshell has an earthy smell to it and is the color of dirt.",
 	},
 	"efreeti crown of wishes (ccc-odfc2-2)" : {
 		name : "Efreeti Crown of Wishes (CCC-ODFC2-2)",
 		source : [["AL","CCC"]],
-		description : "This beautiful golden crown is covered with diamonds that gleam with their own light & resizes to fit my head. Despite its name, the crown doesn't actually grant wishes. Instead, when you feel strong emotions of any kind, the crown sprouts harmless, colorful flames from its pinnacle. The color of the flames is based on my mood: red for anger, blue for sorrow, green for amusement, etc.",
+		defaultExcluded : true,
+		description : "This beautiful golden crown is covered with diamonds that gleam with their own light & resizes to fit my head. Despite its name, the crown doesn't grant wishes. Instead, when I feel strong emotions, the crown sprouts harmless, colorful flames from its pinnacle. The color is based on my mood: red for anger, blue for sorrow, green for amusement, etc.",
 		descriptionFull : "This beautiful golden crown is covered with diamonds each of which gleams with its own light. The crown resizes to fit the head of any wearer. Contrary to its name, the crown does not actually grant any wishes. Instead, when the person wearing it feels strong emotion of any kind, the crown sprouts harmless, colorful flames from its pinnacle, with the color of the flames based on the wearer's mood: red for anger, blue for sorrow, green for amusement, and so on. This crown can be sold for 1,500 gp. It does not count as a magic item and cannot be traded. (To be kept as a trinket, this crown may not be sold)."
 	},
 	"feast invite (wbw-dc-tmp-2)" : {
 		name : "Feast Invite (WBW-DC-TMP-2)",
 		source : [["AL","WBW-DC"]],
+		defaultExcluded : true,
 		description : "An old invitation to a banquet in the Summer Court, written in ink on vellum in Sylvan. This is Dyul's invitation to the feast that led to the Shadowfell hunt and the problems in his domain. Theun Win'Nin found it in a wine bottle.",
-		descriptionFull : "An old invitation to the banquet in the Summer Court, written in ink on vellum in Sylvan. This is Dyul's invitation to the feast that led to the Shadowfell hunt and the problems in his domain. Theun Win'Nin found it in a wine bottle earlier."
 	},
 	"flamesoul stone (ccc-ylra1-3)" : {
 		name : "Flamesoul Stone (CCC-YLRA1-3)",
 		source : [["AL","CCC"]],
+		defaultExcluded : true,
 		description : "This fist-sized crystal produces a flickering coppery-orange glow from within. The light is magical, but isn't bright enough to significantly illuminate an area. Casting detect magic on the Flamesoul Stone shows a hint of necrotic magic emanating from it. The light from the stone is the same color as the comet that was recently seen over Ylraphon.",
 		descriptionFull : "A fist-sized crystal that produces a flickering coppery-orange glow from within. The light is magical, but isn't bright enough to significantly illuminate any area. Casting detect magic on the Flamesoul Stone shows a slight hint of necrotic magic emanating from within. The light from the stone is the same color as the comet that has recently been seen over Ylraphon."
 	},
 	"heirloom necklace (fm)" : {
 		name : "Heirloom Necklace",
 		source : [["AL:FM",2024]],
-		description : "From this clay beaded necklace hangs a locket painted with the tiny portrait of 3 of my family members. Inside is a secret compartment, containing 1 pinch of grave soil, mixed with peppermint incense ashes. When I hold the locket close to my chest, I feel the words of those family members.",
+		defaultExcluded : true,
+		description : "A locket with the tiny painted portrait of 3 of my family members hangs from this clay beaded necklace. Inside is a secret compartment, containing 1 pinch of grave soil mixed with peppermint incense ashes. When I hold the locket close, I feel the words of those family members.",
 		descriptionFull : "From this clay beaded necklace hangs a locket, painted with the tiny portrait of three of your family members. Inside is a secret compartment, containing one pinch of grave soil, mixed with the ash of peppermint incense. When you hold the locket close to your chest, you feel the words of those family members."
 	},
 	"leaf with amber veins (wbw-dc-conmar-6)" : {
 		name: "Leaf With Amber Veins (WBW-DC-CONMAR-6)",
 		source : ["AL", "WBW-DC"],
-		description: "This small dark leaf feels smooth to the touch and slightly waxy. Amber veins crisscross its surface. Though somewhat delicate, the leaf is resistant to crumpling and crushing. This is a token of Turanok's trust in you. You are a friend of Lohringar and are always welcome there. This leaf is also a conduit into Lohringar and all you need to get there is the ritual components.",
+		defaultExcluded : true,
+		description: "This small dark leaf feels smooth and slightly waxy. Amber veins crisscross its surface. Though somewhat delicate, the leaf is resistant to crumpling and crushing. This is a token of Turanok's trust in me. I'm a friend of Lohringar and always welcome there. This leaf is also a conduit into Lohringar. All I need to get there is the ritual components.",
 		descriptionFull: "This is a small, dark leaf that feels smooth to the touch and slightly waxy. Amber veins crisscross its surface. Though somewhat delicate, the leaf is resistant to crumpling and crushing. This is a token of Turanok's trust in you. You are a friend of Lohringar and you are always welcome there. This leaf is itself a conduit into Lohringar and all you need to get there is just the ritual components.",
 	},
 	"lohringan pink opal (wbw-dc-conmar-6)" : {
 		name: "Lohringan Pink Opal (WBW-DC-CONMAR-6)",
 		source : ["AL", "WBW-DC"],
 		defaultExcluded : true,
-		description: "This small pink opal no larger than a child's fingernail is a symbol of love, gentleness, and healing. It glows faintly in the moonlight.",
-		descriptionFull: "This is a small, pink opal no larger than a child's fingernail and a symbol of love, gentleness, and healing. It glows faintly in the moonlight.",
+		description : "This small pink opal no larger than a child's fingernail is a symbol of love, gentleness, and healing. It glows faintly in the moonlight.",
 	},
 	"magic mirror (wbw-dc-vmt-1)" : {
 		name: "Magic Mirror (WBW-DC-VMT-1)",
 		source : ["AL", "WBW-DC"],
 		defaultExcluded : true,
-		description: "This silver hand mirror shows the viewer's heart's desire. The image reflected in the mirror's polished surface comes purely from their memories or imagination, and can't be seen by anyone else.",
-		descriptionFull: "This silver hand mirror shows the viewer's heart's desire. The image reflected in the mirror's polished surface comes purely from the viewer's memories or imagination, and cannot be seen by anyone else.",
+		description : "This silver hand mirror shows the viewer's heart's desire. The image reflected in the mirror's polished surface comes purely from their memories or imagination, and can't be seen by anyone else.",
 	},
 	"piece of the infernal machine of lum the mad (imr)" : {
 		name: "Piece of the Machine of Lum the Mad (IMR)",
 		source : ["AL:EL", 2019],
 		defaultExcluded : true,
-		description: "Once operated via a vast array of buttons, dials, & levers, the Infernal Machine of Lum the Mad was dismantled & lies scattered through the world. Who knows what function this piece controlled? It's a jeweled button marked with a mysterious glyph & hung from a delicate chain.",
-		descriptionFull: "Once operated via its vast array of buttons, dials, and levers, the Infernal Machine of Lum the Mad has been dismantled and lies scattered throughout the world.\n   Who knows what function of it this piece controlled? This appears as a jeweled button marked with a mysterious glyph, hung from a delicate chain.",
+		description : "Once operated via its vast array of buttons, dials, and levers, the Infernal Machine of Lum the Mad has been dismantled and lies scattered throughout the world. Who knows what function of it this piece controlled? This appears as a jeweled button marked with a mysterious glyph, hung from a delicate chain.",
 	},
 	"sign of the snail (ddia05)" : {
 		name: "Sign of the Snail (DDIA05)",
 		source : ["AL", "S5"],
 		defaultExcluded : true,
-		description: "This heavy silver amulet shows the sigil of the Zhentarim on the front and an ornate snail on the back. Kella and Xolbrin didn't hide the fact that they work for the “the Snail”, but didn't speak of them further. Wearing this amulet grants you advantage on Charisma checks with other Zhentarim, but may impose penalties when dealing with other factions and characters.",
-		descriptionFull: "This heavy silver amulet proudly shows the sigil of the Zhentarim on the front and has an ornate snail on the back. Kella and Xolbrin made no secret of the fact that they work for the “the Snail”, but did not speak of him/her further. Wearing this amulet grants you advantage on Charisma checks with other Zhentarim, but may impose penalties when dealing with other factions and characters.",
+		description: "This heavy silver amulet shows the sigil of the Zhentarim on the front and an ornate snail on the back. Kella and Xolbrin didn't hide the fact that they work for \"the Snail\", but didn't speak of it further. While worn, I have advantage on Charisma checks with other Zhentarim, but may receive penalties when dealing with other factions and characters.",
+		descriptionFull : "This heavy silver amulet proudly shows the sigil of the Zhentarim on the front and has an ornate snail on the back. Kella and Xolbrin made no secret of the fact that they work for \"the Snail\", but did not speak of him/her further. Wearing this amulet grants you advantage on Charisma checks with other Zhentarim, but may impose penalties when dealing with other factions and characters.",
 	},
 	"snipe feather pillow (dc-poa-snipe-1)" : {
 		name : "Snipe Feather Pillow (DC-POA-SNIPE-1)",
 		source : ["AL", "DC-POA"],
 		defaultExcluded : true,
-		description : "This feather pillow is made of snipe feathers and salvaged Ice Spider silk. It allows restful sleep without nightmares. When using this pillow during a long rest, you may roll 1d6. On a 1, you dream about a snipe mother and her baby chicks happily treading through clean snow.",
+		description : "This feather pillow is made of snipe feathers and salvaged Ice Spider silk. It allows restful sleep without nightmares. When used during a long rest, I may roll 1d6. On a 1, I dream about a snipe mother and her baby chicks happily treading through clean snow.",
 		descriptionFull : "This feather pillow is made of snipe feathers and salvaged Ice Spider silk. It allows restful sleep without nightmares [treat like trinket #65 on the PHB trinkets table]. A PC using this pillow during a long rest may roll 1d6. On a one, their dreams are all filled with a snipe mother and her baby chicks happily treading through clean snow.",
 		},
 	"striking at the bare neck (dc-poa-snipe-1)" : {
 		name : "Striking at the Bare Neck (DC-POA-SNIPE-1)",
 		source : ["AL", "DC-POA"],
 		defaultExcluded : true,
-		description : "This red-leather book is a disturbing collection of military and political strategy framed as poetry. While the insights are profound and the poetry skilled artistry, the underlying theme of mortals as prey makes reading more than a few poems in a sitting deeply unsettling to most humanoids.",
-		descriptionFull : "This red-leather book is a disturbing collection of military and political strategy framed as poetry. While the insights are profound and the poetry skilled, musical, and high artistry, the underlying theme of mortals as prey makes reading more than a few poems in a sitting deeply unsettling to most humanoids.",
+		description : "This red-leather book is a disturbing collection of military and political strategy framed as poetry. While the insights are profound and the poetry skilled, musical, and high artistry, the underlying theme of mortals as prey makes reading more than a few poems in a sitting deeply unsettling to most humanoids.",
 		},
 }
 
@@ -1574,7 +1579,6 @@ MagicItemsList["tree spirit weapon"] = {
 		magicItemTable : "?",
 		attunement : true,
 		description : "A tree spirit weapon is crafted from the wood of a sentient tree. The spirit of the tree remains in the wood so the weapon contains a sentience. The bonuses provided by a tree spirit weapon depend on the level of the attuned wielder. It gets more powerful — and more dangerous to wield — as you become more powerful as well.",
-		descriptionLong : "A tree spirit weapon is one crafted from the wood of a sentient tree. The spirit of the tree remains in the wood, and therefore the weapon contains a sentience. The bonuses provided by a tree spirit weapon are dependent on the level of the person to whom it is attuned. In this way, the tree spirit weapon is progressive: it gets more powerful — and more dangerous to wield — as the attuned wielder becomes more powerful as well.",
 		descriptionFull : "A tree spirit weapon is one crafted from the wood of a sentient tree. It must be made of wood and deal bludgeoning or piercing damage. The spirit of the tree remains in the wood, and therefore the weapon contains a sentience. The bonuses provided by a tree spirit weapon are dependent on the level of the person to whom it is attuned. In this way, the tree spirit weapon is progressive: it gets more powerful — and more dangerous to wield — as the attuned wielder becomes more powerful as well."+
 		"\n   Levels 1-4: +1 bonus to attack and damage rolls, wielder feels the desires of the tree spirit."+
 		"\n   Levels 5-10: +2 bonus to attack and damage rolls, wielder gains flaw “constantly hears the voice of the tree spirit”"+
@@ -1583,8 +1587,7 @@ MagicItemsList["tree spirit weapon"] = {
 	choices : ["Tier 1", "Tier 2", "Tier 3", "Tier 4"],
 	"tier 1" : {
 		name : "T1 Tree Spirit",
-		description : "A tree spirit weapon is crafted from the wood of a sentient tree. The weapon contains that sentience and you feel the desires of the tree spirit. You also gain a +1 bonus to attack and damage rolls made with this magic weapon.",
-		descriptionLong : "A tree spirit weapon is one crafted from the wood of a sentient tree. The spirit of the tree remains in the wood, and therefore the weapon contains a sentience. You feel the desires of the tree spirit. You also gain a +1 bonus to attack and damage rolls made with this magic weapon.",
+		description : "A tree spirit club is crafted from the wood of a sentient tree. The weapon contains that sentience and I feel the desires of the tree spirit. I also gain a +1 bonus to attack and damage rolls made with this magic weapon.",
 		chooseGear : {
 			type : "weapon",
 			prefixOrSuffix : "suffix",
@@ -1598,8 +1601,7 @@ MagicItemsList["tree spirit weapon"] = {
 	},
 	"tier 2" : {
 		name : "T2 Tree Spirit",
-		description : "A tree spirit weapon is crafted from the wood of a sentient tree. You feel the desires of the tree spirit & gain the flaw “constantly hears the voice of the tree spirit”. You also gain a +2 bonus to attack and damage rolls made with this magic weapon.",
-		descriptionLong : "A tree spirit weapon is one crafted from the wood of a sentient tree. The spirit of the tree remains in the wood, and therefore the weapon contains a sentience. You feel the desires of the tree spirit and gain the flaw “constantly hears the voice of the tree spirit”. You also gain a +2 bonus to attack and damage rolls made with this magic weapon.",
+		description : "A tree spirit weapon is crafted from the wood of a sentient tree. I feel the desires of the tree and gain the flaw \"constantly hears the voice of the tree spirit\". I also gain a +2 bonus to attack and damage rolls made with this weapon.",
 		chooseGear : {
 			type : "weapon",
 			prefixOrSuffix : "suffix",
@@ -1613,8 +1615,7 @@ MagicItemsList["tree spirit weapon"] = {
 	},
 	"tier 3" : {
 		name : "T3 Tree Spirit",
-		description : "A tree spirit weapon is crafted from the wood of a sentient tree. You feel the desires of the tree spirit & gain the flaw “constantly hears the voice of the tree spirit”. You also have advantage on Constitution saves & my movement is reduced by 10 ft. You gain a +3 bonus to attack & damage rolls made with this magic weapon.",
-		descriptionLong : "A tree spirit weapon is one crafted from the wood of a sentient tree. The spirit of the tree remains in the wood, and therefore the weapon contains a sentience. You feel the desires of the tree spirit and gain the flaw “constantly hears the voice of the tree spirit”. You also have advantage on Constitution saving throws and your movement is reduced by 10 feet. You gain a +3 bonus to attack & damage rolls made with this magic weapon",
+		description : "A tree spirit weapon is crafted from the wood of a sentient tree. I feel its desires and gain the flaw \"constantly hears the voice of the tree spirit\". I also have advantage on Constitution saves and my movement is reduced by 10 ft. I gain a +3 bonus to attack and damage rolls made with this magic weapon.",
 		savetxt : { text : ["Adv on Con saves"] },
 		speed : { allModes : "-10" },
 		chooseGear : {
@@ -1630,8 +1631,7 @@ MagicItemsList["tree spirit weapon"] = {
 	},
 	"tier 4" : {
 		name : "T4 Tree Spirit",
-		description : "A tree spirit weapon is crafted from the wood of a sentient tree. You feel the desires of the tree spirit & gain the flaw “constantly hears the voice of the tree spirit”. You also have advantage on CON saves & resistance to bludgeoning dmg, but my speed is reduced by 10 ft & you have vulnerability to fire dmg. You gain a +4 bonus to atk & dmg rolls made with this magic weapon.",
-		descriptionLong : "A tree spirit weapon is one crafted from the wood of a sentient tree. The spirit of the tree remains in the wood, and therefore the weapon contains a sentience. You feel the desires of the tree spirit and gain the flaw “constantly hears the voice of the tree spirit”. You also have advantage on Constitution saving throws and resistance to bludgeoning damage, but your movement is reduced by 10 feet and you have vulnerability to fire damage that can't be removed. You also gain a +4 bonus to attack and damage rolls made with this magic weapon.",
+		description : "A tree spirit weapon is crafted from the wood of a sentient tree. I feel its desires and gain the flaw \"constantly hears the voice of the tree spirit\". I have advantage on Con saves and resistance to Bludgeoning, but my speed is reduced by 10 ft and I have vulnerability to Fire. I gain a +4 bonus to attack and damage rolls made with this magic weapon.",
 		dmgres : ["Bludgeoning"],
 		speed : { allModes : "-10" },
 		savetxt : { text : ["Adv on Con saves; Vulnerable to fire damage"] },
