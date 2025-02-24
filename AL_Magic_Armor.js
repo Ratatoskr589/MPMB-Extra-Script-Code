@@ -50,6 +50,14 @@ SourceList["AL:FC"] = {   //Fai Chen & Trading Post
 	defaultExcluded : true
 };
 
+SourceList["WDotMM"] = {	//For standard items with specific flavor. New items are added via MPMB's code.
+	name : "Waterdeep: Dungeon of the Mad Mage [items]",
+	abbreviation : "WDotMM",
+	group : "Adventure Books",
+	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/waterdeep-dungeon-mad-mage",
+	date : "2018/11/20"
+};
+
 
 //AL Flavored Armor
 MagicItemsList["al adamantine/mithral armor"] = {
@@ -59,7 +67,7 @@ MagicItemsList["al adamantine/mithral armor"] = {
 		allowDuplicates : true,
 		choicesNotInMenu : true,
 		magicItemTable : "?",
-	choices : ["Adamantine Armor (DDAL0-1)","Adamantine Chain (CCC-SALT1-1)","Adamantine Chain Shirt (CCC-BMG-MOON3-2)","Adamantine Chain Shirt (CCC-PDXAGE-1-1)","Adamantine Chain Shirt (DDEP5-2)","Adamantine Chain Mail (CCC-BMG-MOON5-1)","Adamantine Plate: Durgeddin's Unbreakable Auspice (DDEP6-1)","Mithral Scale Barding (DC-POA-CONMAR-18)","Mithral Scale Barding (DC-POA-DRAGON-2)","Mithral Scale Barding (DC-POA-GaryXIII-2)","Mithral Scale Barding: G.O.A.T. Barding (DC-POA-TDG1-8)","Mithral Scale Mail (CCC-ODFC2-1)","Mithral Scale Mail: Hulk-Buster Armor (DC-POA-TDG1-7)","Mithral Breastplate (CCC-BMG-MOON16-2)","Mithral Half Plate (CCC-GLIP-1-3)","Mithral Chain Mail (CCC-SAF2-1)","Mithral Splint (CCC-DES-2-2)","Mithral Splint: Armor of Insults (CCC-GSP-OOZE1-1)","Mithral Splint (DDAL5-4)","Mithral Plate (DDHC-MORD-1)"],
+	choices : ["Adamantine Armor (DDAL0-1)","Adamantine Chain (CCC-SALT1-1)","Adamantine Chain Shirt (CCC-BMG-MOON3-2)","Adamantine Chain Shirt (CCC-PDXAGE-1-1)","Adamantine Chain Shirt (DDEP5-2)","Adamantine Chain Mail (CCC-BMG-MOON5-1)","Adamantine Plate: Durgeddin's Unbreakable Auspice (DDEP6-1)","Mithral Scale Barding (DC-POA-CONMAR-18)","Mithral Scale Barding (DC-POA-DRAGON-2)","Mithral Scale Barding (DC-POA-GaryXIII-2)","Mithral Scale Barding: G.O.A.T. Barding (DC-POA-TDG1-8)","Mithral Chain Shirt (WDotMM)","Mithral Scale Mail (CCC-ODFC2-1)","Mithral Scale Mail: Hulk-Buster Armor (DC-POA-TDG1-7)","Mithral Breastplate (CCC-BMG-MOON16-2)","Mithral Half Plate (CCC-GLIP-1-3)","Mithral Chain Mail (CCC-SAF2-1)","Mithral Splint (CCC-DES-2-2)","Mithral Splint: Armor of Insults (CCC-GSP-OOZE1-1)","Mithral Splint (DDAL5-4)","Mithral Plate (DDHC-MORD-1)"],
 	"adamantine armor (ddal0-1)" : {
 		name: "Adamantine (DDAL0-1)",
 		nameTest : "/adamantine.*(ddal0-1)/i",
@@ -150,6 +158,15 @@ MagicItemsList["al adamantine/mithral armor"] = {
 		source : [["AL", "DC-POA"]],
 		description : "This barding has an intricate design with a motif of winter flora and fauna. Mithral is a light, flexible metal and this scale mail barding doesn't impose disadvantage on stealth checks.",
 		descriptionFull : "Light and flexible armor of an intricate design with a motif of winter flora and fauna.\n   Mithral is a light, flexible metal. Armor made of this substance can be worn under normal clothes. If the armor normally imposes Disadvantage on Dexterity (Stealth) checks or has a Strength requirement, the mithral version of the armor doesn't. Barding is armor designed to protect an animal's head, neck, chest, and body.",
+	},
+	"mithral chain shirt (wdotmm)" : {
+		name : "Mithral Chain Shirt (WDotMM)",
+		source : [["WDotMM", 237]],
+		rarity : "unique",
+		magicItemTable : "",
+		description : "This light flexible chain shirt belonged to Vanrak Moonstar and grants me 60 ft of Darkvision. It also doesn't impose disadvantage on stealth checks and can be worn under normal clothes.",
+		descriptionFull : "This armor belonged to Vanrak Moonstar and has the additional property of granting its wearer Darkvision out to a range of 60 feet.\n   Mithral is a light, flexible metal. Armor made of this substance can be worn under normal clothes. If the armor normally imposes Disadvantage on Dexterity (Stealth) checks or has a Strength requirement, the mithral version of the armor doesn't.",
+		armorAdd : { select : "Mithral Chain Shirt", options : ["Mithral Chain Shirt"] },
 	},
 	"mithral scale mail (ccc-odfc2-1)" : {
 		name : "Mithral Scale Mail (CCC-ODFC2-1)",

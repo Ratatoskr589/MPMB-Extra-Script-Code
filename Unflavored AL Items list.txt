@@ -66,13 +66,16 @@ DC-POA-DOBU-1-1 Beneath a Stony Stump
 -Masquerade Tattoo
 -Grey Bag of Tricks
 
-DC-POA-ROG-3 Last Refufe of Spring
+DC-POA-ROG-3 Last Refuge of Spring
 -Arcane Grimoire +1
 -Illuminator's Tattoo
 
 DC-POA-Sunlit-3 A Solstice Tradition
 -Shield of Expression
 -Ring of Truth Telling
+
+DC-POA-Z-T1S3
+-Psi Crystal
 
 DC-WBW-GaryXIV-01 The First Forest
 -Feywild Shard
@@ -99,6 +102,12 @@ DDAL09-18 Consequences of Choice
 DDAL09-19 Fang and Claw
 -Scarab of Protection
 -Shield +2
+
+DDAL10-01 The Frozen North
+-Illuminator's Tattoo
+
+DDAL10-05 A Blight in the Darkness
+-Wand of Pyrotechnics
 
 DDAL-DRWEP4:
 -Cloak of Arachnida

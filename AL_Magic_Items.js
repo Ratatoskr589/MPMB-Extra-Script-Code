@@ -3128,7 +3128,7 @@ MagicItemsList["al bags"] = {
 		name : "Heward's Handy Spice Pouch (CCC-KUMORI-2-1)",
 		source : [["AL", "CCC"]],
 		rarity : "common",
-		description : "Two waxy heart-shaped leaves are sewn together to form this pouch. It appears empty and has 10 charges, 1d6+4 regained at dawn. While held, I can use 1 charge as a Magic action, name a nonmagical seasoning (e.g. salt or saffron) and then remove a pinch of that seasoning from the pouch. This will season a single meal.",
+		description : "Two waxy heart-shaped leaves are sewn together to form this pouch. It appears empty and has 10 charges, 1d6+4 regained at dawn. While held, I can use 1 charge as a Magic action, name a nonmagical seasoning (e.g. salt, pepper, cilantro or saffron) and then remove a pinch of that seasoning from the pouch. This will season a single meal.",
 		descriptionFull : "Two waxy, heart-shaped leaves, sewn together form this pouch.\n   This belt pouch appears empty and has 10 charges. While holding the pouch, you can take a Magic action to expend 1 charge, name any nonmagical food seasoning (such as salt, pepper, saffron, or cilantro), and remove a pinch of the desired seasoning from the pouch. A pinch is enough to season a single meal. The pouch regains 1d6 + 4 expended charges daily at dawn.",
 		weight : 1,
 		limfeaname : "Heward's Handy Spice Pouch",
@@ -10100,7 +10100,19 @@ MagicItemsList["al figurines"] = {  // contains contributions by Larry Hoy
 					"The goat of terror becomes a Giant Goat for up to 3 hours. The goat can't attack, but you can (harmlessly) remove its horns and use them as weapons. One horn becomes a +1 Lance, and the other becomes a +2 Longsword. Removing a horn requires a Magic action, and the weapons disappear and the horns return when the goat reverts to figurine form. While you ride the goat, any Hostile creature that starts its turn within a 30-foot Emanation originating from the goat must succeed on a DC 15 Wisdom saving throw or have the Frightened condition for 1 minute, until you are no longer riding the goat, or until the goat reverts to figurine form. The Frightened creature repeats the save at the end of each of its turns, ending the effect on itself on a success. Once it succeeds on the save, a creature is immune to this effect for the next 24 hours. Once the figurine has been used, it can't be used again until 15 days have passed."
 				]
 			}],
-			weaponsAdd : { select : ["Lance +1, Ivory Goat Horn","Longsword +2, Ivory Goat Horn"], options : ["Lance +1, Ivory Goat Horn","Longsword +2, Ivory Goat Horn"] },
+			weaponOptions : [{
+				baseWeapon : "lance",
+				name : "Ivory Goat Horn, Lance +1",
+				regExpSearch : /ivory goat horn/i,
+				selectNow : true,
+				source : [["AL","WBW-DC"]],
+			},{
+				baseWeapon : "longsword",
+				name : "Goat of Terror Horn, Longsword +2",	
+				regExpSearch : /goat of terror horn/i,
+				selectNow : true,	
+				source : [["AL","WBW-DC"]],				
+			}],
 		},
 		"ivory goats (ccc-des-1-1)" : {
 			name : "Ivory Goats (CCC-DES-1-1)",
@@ -10134,7 +10146,19 @@ MagicItemsList["al figurines"] = {  // contains contributions by Larry Hoy
 					"The goat of terror becomes a Giant Goat for up to 3 hours. The goat can't attack, but you can (harmlessly) remove its horns and use them as weapons. One horn becomes a +1 Lance, and the other becomes a +2 Longsword. Removing a horn requires a Magic action, and the weapons disappear and the horns return when the goat reverts to figurine form. While you ride the goat, any Hostile creature that starts its turn within a 30-foot Emanation originating from the goat must succeed on a DC 15 Wisdom saving throw or have the Frightened condition for 1 minute, until you are no longer riding the goat, or until the goat reverts to figurine form. The Frightened creature repeats the save at the end of each of its turns, ending the effect on itself on a success. Once it succeeds on the save, a creature is immune to this effect for the next 24 hours. Once the figurine has been used, it can't be used again until 15 days have passed."
 				]
 			}],
-			weaponsAdd : { select : ["Lance +1, Ivory Goat Horn","Longsword +2, Ivory Goat Horn"], options : ["Lance +1, Ivory Goat Horn","Longsword +2, Ivory Goat Horn"] },
+			weaponOptions : [{
+				baseWeapon : "lance",
+				name : "Ivory Goat Horn, Lance +1",
+				regExpSearch : /ivory goat horn/i,
+				selectNow : true,
+				source : [["AL","WBW-DC"]],
+			},{
+				baseWeapon : "longsword",
+				name : "Goat of Terror Horn, Longsword +2",	
+				regExpSearch : /goat of terror horn/i,
+				selectNow : true,	
+				source : [["AL","WBW-DC"]],				
+			}],
 		},
 		"ivory goats (ccc-ziege-1)" : {
 			name : "Ivory Goats (CCC-ZIEGE-1)",
@@ -10168,7 +10192,19 @@ MagicItemsList["al figurines"] = {  // contains contributions by Larry Hoy
 					"The goat of terror becomes a Giant Goat for up to 3 hours. The goat can't attack, but you can (harmlessly) remove its horns and use them as weapons. One horn becomes a +1 Lance, and the other becomes a +2 Longsword. Removing a horn requires a Magic action, and the weapons disappear and the horns return when the goat reverts to figurine form. While you ride the goat, any Hostile creature that starts its turn within a 30-foot Emanation originating from the goat must succeed on a DC 15 Wisdom saving throw or have the Frightened condition for 1 minute, until you are no longer riding the goat, or until the goat reverts to figurine form. The Frightened creature repeats the save at the end of each of its turns, ending the effect on itself on a success. Once it succeeds on the save, a creature is immune to this effect for the next 24 hours. Once the figurine has been used, it can't be used again until 15 days have passed."
 				]
 			}],
-			weaponsAdd : { select : ["Lance +1, Ivory Goat Horn","Longsword +2, Ivory Goat Horn"], options : ["Lance +1, Ivory Goat Horn","Longsword +2, Ivory Goat Horn"] },
+			weaponOptions : [{
+				baseWeapon : "lance",
+				name : "Ivory Goat Horn, Lance +1",
+				regExpSearch : /ivory goat horn/i,
+				selectNow : true,
+				source : [["AL","WBW-DC"]],
+			},{
+				baseWeapon : "longsword",
+				name : "Goat of Terror Horn, Longsword +2",	
+				regExpSearch : /goat of terror horn/i,
+				selectNow : true,	
+				source : [["AL","WBW-DC"]],				
+			}],
 		},
 		"ivory goats - chocolate (wbw-dc-conmar-5)" : {
 			name : "Chocolate Ivory Goats (WBW-DC-CONMAR-5)",
@@ -10202,7 +10238,19 @@ MagicItemsList["al figurines"] = {  // contains contributions by Larry Hoy
 					"The goat of terror becomes a Giant Goat for up to 3 hours. The goat can't attack, but you can (harmlessly) remove its horns and use them as weapons. One horn becomes a +1 Lance, and the other becomes a +2 Longsword. Removing a horn requires a Magic action, and the weapons disappear and the horns return when the goat reverts to figurine form. While you ride the goat, any Hostile creature that starts its turn within a 30-foot Emanation originating from the goat must succeed on a DC 15 Wisdom saving throw or have the Frightened condition for 1 minute, until you are no longer riding the goat, or until the goat reverts to figurine form. The Frightened creature repeats the save at the end of each of its turns, ending the effect on itself on a success. Once it succeeds on the save, a creature is immune to this effect for the next 24 hours. Once the figurine has been used, it can't be used again until 15 days have passed."
 				]
 			}],
-			weaponsAdd : { select : ["Lance +1, Ivory Goat Horn","Longsword +2, Ivory Goat Horn"], options : ["Lance +1, Ivory Goat Horn","Longsword +2, Ivory Goat Horn"] },
+			weaponOptions : [{
+				baseWeapon : "lance",
+				name : "Ivory Goat Horn, Lance +1",
+				regExpSearch : /ivory goat horn/i,
+				selectNow : true,
+				source : [["AL","WBW-DC"]],
+			},{
+				baseWeapon : "longsword",
+				name : "Goat of Terror Horn, Longsword +2",	
+				regExpSearch : /goat of terror horn/i,
+				selectNow : true,	
+				source : [["AL","WBW-DC"]],				
+			}],
 		},
 		"ivory goats - sheep (wbw-dcmv-1)" : {
 			name : "Floofy Sheep Stack (Ivory Goats, WBW-DCMV-1)",
@@ -10236,7 +10284,19 @@ MagicItemsList["al figurines"] = {  // contains contributions by Larry Hoy
 					"The sheep of terror becomes a Giant Goat for up to 3 hours. The sheep can't attack, but you can (harmlessly) remove its horns and use them as weapons. One horn becomes a +1 Lance, and the other becomes a +2 Longsword. Removing a horn requires a Magic action, and the weapons disappear and the horns return when the sheep reverts to figurine form. While you ride the sheep, any Hostile creature that starts its turn within a 30-foot Emanation originating from the sheep must succeed on a DC 15 Wisdom saving throw or have the Frightened condition for 1 minute, until you are no longer riding the sheep, or until the sheep reverts to figurine form. The Frightened creature repeats the save at the end of each of its turns, ending the effect on itself on a success. Once it succeeds on the save, a creature is immune to this effect for the next 24 hours. Once the figurine has been used, it can't be used again until 15 days have passed."
 				]
 			}],
-			weaponsAdd : { select : ["Lance +1, Ivory Goat Horn","Longsword +2, Ivory Goat Horn"], options : ["Lance +1, Ivory Goat Horn","Longsword +2, Ivory Goat Horn"] },
+			weaponOptions : [{
+				baseWeapon : "lance",
+				name : "Ivory Sheep Horn, Lance +1",
+				regExpSearch : /ivory sheep horn/i,
+				selectNow : true,
+				source : [["AL","WBW-DC"]],
+			},{
+				baseWeapon : "longsword",
+				name : "Longsword +2, Sheep of Terror Horn",	
+				regExpSearch : /sheep of terror horn/i,
+				selectNow : true,	
+				source : [["AL","WBW-DC"]],				
+			}],
 		},
 		"ivory goats - golden (wbw-dc-zodiac-8)" : {
 			name : "Golden Ivory Goats (WBW-DC-ZODIAC-8)",
@@ -10271,7 +10331,19 @@ MagicItemsList["al figurines"] = {  // contains contributions by Larry Hoy
 					"The goat of terror becomes a Giant Goat for up to 3 hours. The goat can't attack, but you can (harmlessly) remove its horns and use them as weapons. One horn becomes a +1 Lance, and the other becomes a +2 Longsword. Removing a horn requires a Magic action, and the weapons disappear and the horns return when the goat reverts to figurine form. While you ride the goat, any Hostile creature that starts its turn within a 30-foot Emanation originating from the goat must succeed on a DC 15 Wisdom saving throw or have the Frightened condition for 1 minute, until you are no longer riding the goat, or until the goat reverts to figurine form. The Frightened creature repeats the save at the end of each of its turns, ending the effect on itself on a success. Once it succeeds on the save, a creature is immune to this effect for the next 24 hours. Once the figurine has been used, it can't be used again until 15 days have passed."
 				]
 			}],
-			weaponsAdd : { select : ["Lance +1, Ivory Goat Horn","Longsword +2, Ivory Goat Horn"], options : ["Lance +1, Ivory Goat Horn","Longsword +2, Ivory Goat Horn"] },
+			weaponOptions : [{
+				baseWeapon : "lance",
+				name : "Ivory Goat Horn, Lance +1",
+				regExpSearch : /ivory goat horn/i,
+				selectNow : true,
+				source : [["AL","WBW-DC"]],
+			},{
+				baseWeapon : "longsword",
+				name : "Goat of Terror Horn, Longsword +2",	
+				regExpSearch : /goat of terror horn/i,
+				selectNow : true,	
+				source : [["AL","WBW-DC"]],				
+			}],
 		},
 		"steel elephant - mammoth (ccc-odfc3-3)" : {
 			name : "Steel Mammoth (CCC-ODFC3-3)",
@@ -11263,7 +11335,8 @@ MagicItemsList["al footwear"] = {
 		limfeaname : "Winged Boots",
 		usages: "4",
 		recovery: "dawn",
-		additional: "regains 1d4"
+		additional: "regains 1d4",
+		action : [["action", ""]],
 	},
 	"winged boots: magpie's wings (ccc-des-1-5)" : {
 		name : "Magpie's Wings, Winged Boots (DES-1-5)",
@@ -11276,7 +11349,8 @@ MagicItemsList["al footwear"] = {
 		limfeaname : "Winged Boots",
 		usages: "4",
 		recovery: "dawn",
-		additional: "regains 1d4"
+		additional: "regains 1d4",
+		action : [["action", ""]],
 	},
 	"winged boots (ccc-sea-1-2)" : {
 		name : "Winged Boots (CCC-SEA-1-2)",
@@ -11288,7 +11362,8 @@ MagicItemsList["al footwear"] = {
 		limfeaname : "Winged Boots",
 		usages: "4",
 		recovery: "dawn",
-		additional: "regains 1d4"
+		additional: "regains 1d4",
+		action : [["action", ""]],
 	},
 	"winged boots (ccc-sqc-3-2)" : {
 		name : "Winged Boots (CCC-SQC-3-2)",
@@ -11300,7 +11375,8 @@ MagicItemsList["al footwear"] = {
 		limfeaname : "Winged Boots",
 		usages: "4",
 		recovery: "dawn",
-		additional: "regains 1d4"
+		additional: "regains 1d4",
+		action : [["action", ""]],
 	},
 	"winged boots: the auftrag's buskins (ccc-tarot2-5)" : {
 		name : "The Auftrag's Buskins (Winged Boots)",
@@ -11312,7 +11388,8 @@ MagicItemsList["al footwear"] = {
 		limfeaname : "Winged Boots",
 		usages: "4",
 		recovery: "dawn",
-		additional: "regains 1d4"
+		additional: "regains 1d4",
+		action : [["action", ""]],
 	},
 	"winged boots (ddep0-1)" : {
 		name : "Winged Boots (DDEP0-1)",
@@ -11324,7 +11401,8 @@ MagicItemsList["al footwear"] = {
 		limfeaname : "Winged Boots",
 		usages: "4",
 		recovery: "dawn",
-		additional: "regains 1d4"
+		additional: "regains 1d4",
+		action : [["action", ""]],
 	},
 	"winged boots (ddep8-3)" : {
 		name : "Winged Boots (DDEP8-3)",
@@ -11336,7 +11414,8 @@ MagicItemsList["al footwear"] = {
 		limfeaname : "Winged Boots",
 		usages: "4",
 		recovery: "dawn",
-		additional: "regains 1d4"
+		additional: "regains 1d4",
+		action : [["action", ""]],
 	},
 	"winged boots (fr-dc-dog)" : {
 		name : "Winged Boots (FR-DC-DOG)",
@@ -11348,7 +11427,8 @@ MagicItemsList["al footwear"] = {
 		limfeaname : "Winged Boots",
 		usages: "4",
 		recovery: "dawn",
-		additional: "regains 1d4"
+		additional: "regains 1d4",
+		action : [["action", ""]],
 	},
 };
 	
@@ -12765,7 +12845,7 @@ MagicItemsList["al headwear (common)"] = {
 		rarity : "common",
 		description : "A symbol of power among those that know The Desolation Gang, this fearsome steel helm was previously owned by the leader herself, Dakota Death. While worn, it makes my eyes glow red and hides my face in shadow. I can also use a Magic action to make my voice carry clearly for up to 600 ft until my next turn ends.",
 		descriptionFull : "A symbol of power among those that know The Desolation Gang, this helm was previously owned by the leader herself, Dakota Death.\n   " + toUni("War Leader") + ". The bearer can use an action to cause his or her voice to carry clearly for up to 300 feet until the end of the bearer's next turn.\n   While you're wearing this fearsome steel helm, your eyes glow red and the rest of your face is hidden in shadow.",
-		action : [["action", " (600ft Voice)"]],
+		action : [["action", "Dread Helm (600ft Voice)"]],
 		},
 	"dread helm (wbw-dc-den-h1)" : {
 		name : "Dread Helm (WBW-DC-DEN-H1)",
@@ -25369,7 +25449,7 @@ MagicItemsList["al wands"] = {
 		},
 		spellChanges : {
 			"fireball" : {
-				description : "20-ft rad all crea 8d6 Fire (+1d6/extra charge); save halves; unattended flammable objects ignite",
+				description : "20-ft rad all crea 8d6 Fire (+1d6/extra charge, max 3); save halves; unattended flammable objects ignite",
 				changes : "For 1 charge, it is cast as the 3rd-level version of the spell. I can increase the spell level by one for each additional charge expended (max 3)."
 			}
 		}
@@ -25398,7 +25478,7 @@ MagicItemsList["al wands"] = {
 		},
 		spellChanges : {
 			"fireball" : {
-				description : "20-ft rad all crea 8d6 Fire (+1d6/extra charge); save halves; unattended flammable objects ignite",
+				description : "20-ft rad all crea 8d6 Fire (+1d6/extra charge, max 3); save halves; unattended flammable objects ignite",
 				changes : "For 1 charge, it is cast as the 3rd-level version of the spell. I can increase the spell level by one for each additional charge expended (max 3)"
 			}
 		}
@@ -25428,7 +25508,7 @@ MagicItemsList["al wands"] = {
 		},
 		spellChanges : {
 			"fireball" : {
-				description : "20-ft rad all crea 8d6 Fire (+1d6/extra charge); save halves; unattended flammable objects ignite",
+				description : "20-ft rad all crea 8d6 Fire (+1d6/extra charge, max 3); save halves; unattended flammable objects ignite",
 				changes : "For 1 charge, it is cast as the 3rd-level version of the spell. I can increase the spell level by one for each additional charge expended (max 3)"
 			}
 		}
@@ -25457,7 +25537,7 @@ MagicItemsList["al wands"] = {
 		},
 		spellChanges : {
 			"fireball" : {
-				description : "20-ft rad all crea 8d6 Fire (+1d6/extra charge); save halves; unattended flammable objects ignite",
+				description : "20-ft rad all crea 8d6 Fire (+1d6/extra charge, max 3); save halves; unattended flammable objects ignite",
 				changes : "For 1 charge, it is cast as the 3rd-level version of the spell. I can increase the spell level by one for each additional charge expended (max 3)"
 			}
 		}
@@ -25486,7 +25566,7 @@ MagicItemsList["al wands"] = {
 		},
 		spellChanges : {
 			"fireball" : {
-				description : "20-ft rad all crea 8d6 Fire (+1d6/extra charge); save halves; unattended flammable objects ignite",
+				description : "20-ft rad all crea 8d6 Fire (+1d6/extra charge, max 3); save halves; unattended flammable objects ignite",
 				changes : "For 1 charge, it is cast as the 3rd-level version of the spell. I can increase the spell level by one for each additional charge expended (max 3)"
 			}
 		}
@@ -25516,7 +25596,7 @@ MagicItemsList["al wands"] = {
 		},
 		spellChanges : {
 			"fireball" : {
-				description : "20-ft rad all crea 8d6 Fire (+1d6/extra charge); save halves; unattended flammable objects ignite",
+				description : "20-ft rad all crea 8d6 Fire (+1d6/extra charge, max 3); save halves; unattended flammable objects ignite",
 				changes : "For 1 charge, it is cast as the 3rd-level version of the spell. I can increase the spell level by one for each additional charge expended (max 3)"
 			}
 		}
@@ -25545,7 +25625,7 @@ MagicItemsList["al wands"] = {
 		},
 		spellChanges : {
 			"fireball" : {
-				description : "20-ft rad all crea 8d6 Fire (+1d6/extra charge); save halves; unattended flammable objects ignite",
+				description : "20-ft rad all crea 8d6 Fire (+1d6/extra charge, max 3); save halves; unattended flammable objects ignite",
 				changes : "For 1 charge, it is cast as the 3rd-level version of the spell. I can increase the spell level by one for each additional charge expended (max 3)"
 			}
 		}
@@ -25574,7 +25654,7 @@ MagicItemsList["al wands"] = {
 		},
 		spellChanges : {
 			"fireball" : {
-				description : "20-ft rad all crea 8d6 Fire (+1d6/extra charge); save halves; unattended flammable objects ignite",
+				description : "20-ft rad all crea 8d6 Fire (+1d6/extra charge, max 3); save halves; unattended flammable objects ignite",
 				changes : "For 1 charge, it is cast as the 3rd-level version of the spell. I can increase the spell level by one for each additional charge expended (max 3)"
 			}
 		}
@@ -25603,7 +25683,7 @@ MagicItemsList["al wands"] = {
 		},
 		spellChanges : {
 			"fireball" : {
-				description : "20-ft rad all crea 8d6 Fire (+1d6/extra charge); save halves; unattended flammable objects ignite",
+				description : "20-ft rad all crea 8d6 Fire (+1d6/extra charge, max 3); save halves; unattended flammable objects ignite",
 				changes : "For 1 charge, it is cast as the 3rd-level version of the spell. I can increase the spell level by one for each additional charge expended (max 3)"
 			}
 		}
@@ -25632,7 +25712,7 @@ MagicItemsList["al wands"] = {
 		},
 		spellChanges : {
 			"fireball" : {
-				description : "20-ft rad all crea 8d6 Fire (+1d6/extra charge); save halves; unattended flammable objects ignite",
+				description : "20-ft rad all crea 8d6 Fire (+1d6/extra charge, max 3); save halves; unattended flammable objects ignite",
 				changes : "For 1 charge, it is cast as the 3rd-level version of the spell. I can increase the spell level by one for each additional charge expended (max 3)"
 			}
 		}
@@ -25662,7 +25742,7 @@ MagicItemsList["al wands"] = {
 		},
 		spellChanges : {
 			"fireball" : {
-				description : "20-ft rad all crea 8d6 Fire (+1d6/extra charge); save halves; unattended flammable objects ignite",
+				description : "20-ft rad all crea 8d6 Fire (+1d6/extra charge, max 3); save halves; unattended flammable objects ignite",
 				changes : "For 1 charge, it is cast as the 3rd-level version of the spell. I can increase the spell level by one for each additional charge expended (max 3)"
 			}
 		}
@@ -25692,7 +25772,7 @@ MagicItemsList["al wands"] = {
 		},
 		spellChanges : {
 			"fireball" : {
-				description : "20-ft rad all crea 8d6 Fire (+1d6/extra charge); save halves; unattended flammable objects ignite",
+				description : "20-ft rad all crea 8d6 Fire (+1d6/extra charge, max 3); save halves; unattended flammable objects ignite",
 				changes : "For 1 charge, it is cast as the 3rd-level version of the spell. I can increase the spell level by one for each additional charge expended (max 3)"
 			}
 		}
@@ -25721,7 +25801,7 @@ MagicItemsList["al wands"] = {
 		},
 		spellChanges : {
 			"fireball" : {
-				description : "20-ft rad all crea 8d6 Fire (+1d6/extra charge); save halves; unattended flammable objects ignite",
+				description : "20-ft rad all crea 8d6 Fire (+1d6/extra charge, max 3); save halves; unattended flammable objects ignite",
 				changes : "For 1 charge, it is cast as the 3rd-level version of the spell. I can increase the spell level by one for each additional charge expended (max 3)"
 			}
 		}
@@ -25750,7 +25830,7 @@ MagicItemsList["al wands"] = {
 		},
 		spellChanges : {
 			"fireball" : {
-				description : "20-ft rad all crea 8d6 Fire (+1d6/extra charge); save halves; unattended flammable objects ignite",
+				description : "20-ft rad all crea 8d6 Fire (+1d6/extra charge, max 3); save halves; unattended flammable objects ignite",
 				changes : "For 1 charge, it is cast as the 3rd-level version of the spell. I can increase the spell level by one for each additional charge expended (max 3)"
 			}
 		}
@@ -25780,7 +25860,7 @@ MagicItemsList["al wands"] = {
 		},
 		spellChanges : {
 			"fireball" : {
-				description : "20-ft rad all crea 8d6 Fire (+1d6/extra charge); save halves; unattended flammable objects ignite",
+				description : "20-ft rad all crea 8d6 Fire (+1d6/extra charge, max 3); save halves; unattended flammable objects ignite",
 				changes : "For 1 charge, it is cast as the 3rd-level version of the spell. I can increase the spell level by one for each additional charge expended (max 3)"
 			}
 		}
@@ -25810,7 +25890,7 @@ MagicItemsList["al wands"] = {
 		},
 		spellChanges : {
 			"fireball" : {
-				description : "20-ft rad all crea 8d6 Fire (+1d6/extra charge); save halves; unattended flammable objects ignite",
+				description : "20-ft rad all crea 8d6 Fire (+1d6/extra charge, max 3); save halves; unattended flammable objects ignite",
 				changes : "For 1 charge, it is cast as the 3rd-level version of the spell. I can increase the spell level by one for each additional charge expended (max 3)"
 			}
 		}
@@ -25839,7 +25919,7 @@ MagicItemsList["al wands"] = {
 		},
 		spellChanges : {
 			"fireball" : {
-				description : "20-ft rad all crea 8d6 Fire (+1d6/extra charge); save halves; unattended flammable objects ignite",
+				description : "20-ft rad all crea 8d6 Fire (+1d6/extra charge, max 3); save halves; unattended flammable objects ignite",
 				changes : "For 1 charge, it is cast as the 3rd-level version of the spell. I can increase the spell level by one for each additional charge expended (max 3)"
 			}
 		}
@@ -25868,7 +25948,7 @@ MagicItemsList["al wands"] = {
 		},
 		spellChanges : {
 			"fireball" : {
-				description : "20-ft rad all crea 8d6 Fire (+1d6/extra charge); save halves; unattended flammable objects ignite",
+				description : "20-ft rad all crea 8d6 Fire (+1d6/extra charge, max 3); save halves; unattended flammable objects ignite",
 				changes : "For 1 charge, it is cast as the 3rd-level version of the spell. I can increase the spell level by one for each additional charge expended (max 3)"
 			}
 		}
@@ -25898,7 +25978,7 @@ MagicItemsList["al wands"] = {
 		},
 		spellChanges : {
 			"fireball" : {
-				description : "20-ft rad all crea 8d6 Fire (+1d6/extra charge); save halves; unattended flammable objects ignite",
+				description : "20-ft rad all crea 8d6 Fire (+1d6/extra charge, max 3); save halves; unattended flammable objects ignite",
 				changes : "For 1 charge, it is cast as the 3rd-level version of the spell. I can increase the spell level by one for each additional charge expended (max 3)"
 			}
 		}
@@ -25927,7 +26007,7 @@ MagicItemsList["al wands"] = {
 		},
 		spellChanges : {
 			"fireball" : {
-				description : "20-ft rad all crea 8d6 Fire (+1d6/extra charge); save halves; unattended flammable objects ignite",
+				description : "20-ft rad all crea 8d6 Fire (+1d6/extra charge, max 3); save halves; unattended flammable objects ignite",
 				changes : "For 1 charge, it is cast as the 3rd-level version of the spell. I can increase the spell level by one for each additional charge expended (max 3)"
 			}
 		}
@@ -25956,7 +26036,7 @@ MagicItemsList["al wands"] = {
 		},
 		spellChanges : {
 			"lightning bolt" : {
-				description : "100-ft long 5-ft wide line all crea 8d6+1d6/extra charge Lightning; save halves",
+				description : "100-ft long 5-ft wide line all crea 8d6+1d6/extra charge (max 3) Lightning dmg; save halves",
 				changes : "For 1 charge, it is cast as the 3rd-level version of the spell. I can increase the spell level by one for each additional charge expended (max 3)"
 				},
 			}
@@ -25985,7 +26065,7 @@ MagicItemsList["al wands"] = {
 		},
 		spellChanges : {
 			"lightning bolt" : {
-				description : "100-ft long 5-ft wide line all crea 8d6+1d6/extra charge Lightning; save halves",
+				description : "100-ft long 5-ft wide line all crea 8d6+1d6/extra charge (max 3) Lightning dmg; save halves",
 				changes : "For 1 charge, it is cast as the 3rd-level version of the spell. I can increase the spell level by one for each additional charge expended (max 3)"
 				},
 			}
@@ -26014,7 +26094,7 @@ MagicItemsList["al wands"] = {
 		},
 		spellChanges : {
 			"lightning bolt" : {
-				description : "100-ft long 5-ft wide line all crea 8d6+1d6/extra charge Lightning; save halves",
+				description : "100-ft long 5-ft wide line all crea 8d6+1d6/extra charge (max 3) Lightning dmg; save halves",
 				changes : "For 1 charge, it is cast as the 3rd-level version of the spell. I can increase the spell level by one for each additional charge expended (max 3)"
 				},
 			}
@@ -26094,7 +26174,7 @@ MagicItemsList["al wands"] = {
 		},
 		spellChanges : {
 			"magic missile" : {
-				description : "3+1/extra charge darts hit same or different creatures for 1d4+1 Force per dart",
+				description : "3+1/extra charge (max 3) darts hit same or different creatures for 1d4+1 Force per dart",
 				changes : "For 1 charge, it is cast as the 1st-level version of the spell. I can increase the spell slot level by one for each additional charge expended (max 3)."
 			}
 		}
@@ -26120,7 +26200,7 @@ MagicItemsList["al wands"] = {
 		},
 		spellChanges : {
 			"magic missile" : {
-				description : "3+1/extra charge darts hit same or different creatures for 1d4+1 Force per dart",
+				description : "3+1/extra charge (max 3) darts hit same or different creatures for 1d4+1 Force per dart",
 				changes : "For 1 charge, it is cast as the 1st-level version of the spell. I can increase the spell slot level by one for each additional charge expended (max 3)."
 			}
 		}
@@ -26145,7 +26225,7 @@ MagicItemsList["al wands"] = {
 		},
 		spellChanges : {
 			"magic missile" : {
-				description : "3+1/extra charge darts hit same or different creatures for 1d4+1 Force per dart",
+				description : "3+1/extra charge (max 3) darts hit same or different creatures for 1d4+1 Force per dart",
 				changes : "For 1 charge, it is cast as the 1st-level version of the spell. I can increase the spell slot level by one for each additional charge expended (max 3)."
 			}
 		}
@@ -26170,7 +26250,7 @@ MagicItemsList["al wands"] = {
 		},
 		spellChanges : {
 			"magic missile" : {
-				description : "3+1/extra charge darts hit same or different creatures for 1d4+1 Force per dart",
+				description : "3+1/extra charge (max 3) darts hit same or different creatures for 1d4+1 Force per dart",
 				changes : "For 1 charge, it is cast as the 1st-level version of the spell. I can increase the spell slot level by one for each additional charge expended (max 3)."
 			}
 		}
@@ -26726,6 +26806,7 @@ MagicItemsList["al wands"] = {
 		source : [["CM", 87]],
 		type : "wand",
 		rarity : "unique",  //per AL admins on the official Discord
+		magicItemTable : "",
 		attunement : true,
 		description : "While holding this golden hand mirror, I gain a +1 bonus and ignore half cover for spell attack rolls. While in darkness, the mirror sheds dim light in a 5-ft radius. Once per dawn while holding the mirror, I can use a bonus action to cast Enhance Ability on myself.",
 		descriptionFull : "This wand of the war mage takes the form of an exquisite golden hand mirror and grants a +1 bonus to spell attacks. When surrounded by darkness, it sheds dim light in a 5-foot radius. A creature that is attuned to Radiance can use a bonus action while holding the mirror to cast the enhance ability spell, choosing itself and no other creature as the spell's target. Once this property of the wand is used, it can't be used again until the next dawn.\n   While holding this wand, you gain a bonus to spell attack rolls determined by the wand's rarity: uncommon (+1), rare (+2), or very rare (+3). In addition, you ignore Half Cover when making a spell attack roll.",

@@ -391,7 +391,7 @@ BackgroundList["survivor"] = {
 		["Hempen rope, feet of", 50, 0.2]
 	],
 	equipright : [
-		["A knife hidden in your boot", "", 1],
+		["A knife hidden in my boot", "", 1],
 		["Cold Weather Clothing", "", 5],
 		["Belt pouch (with coins)", "", 1]
 	],
@@ -442,7 +442,7 @@ BackgroundList["survivor"] = {
 		"I pretend to know what’s going on at all times so others don’t think I am weak.",
 		"Trust is a lie."
 	],
-	toolProfs : ["Herbalist's Kit"],
+	toolProfs : ["Herbalism Kit"],
 	languageProfs : [1],
 };
 
@@ -2170,7 +2170,7 @@ BackgroundList["city watch"] = {
 	languageProfs : [2],
 	lifestyle : "modest"
 };
-/*BackgroundList[""guild artisan", "clan crafter] = {   //Guild artisan wasn't replaced in new PHB
+/*BackgroundList["guild artisan", "clan crafter"] = {   //Guild artisan wasn't replaced in new PHB
 	regExpSearch : /^(?=.*clan)(?=.*(crafter|smith|builder|miner)).*$/i,
 	name : "Clan Crafter",
 	source : [["S", 145], ["ALbackground", 0]],
@@ -2257,7 +2257,7 @@ BackgroundList["cloistered scholar"] = {
 	languageProfs : [2],
 	lifestyle : "modest"
 };
-/*BackgroundList[""guild artisan", "courtier] = { //not replaced in new PHB
+BackgroundList["courtier"] = { //not replaced in new PHB, but adding here to adjust the Traits/Bonds/etc to better match courts instead of guilds.
 	regExpSearch : /courtier/i,
 	name : "Courtier",
 	source : [["S", 146], ["ALbackground", 0]],
@@ -2269,11 +2269,71 @@ BackgroundList["cloistered scholar"] = {
 		["Belt pouch (with coins)", "", 1],
 	],
 	feature : "Court Functionary",
-	extra : "",
+	extra : [
+		"Court location",
+		"Athkatla",
+		"Baldur's Gate",
+		"Daggerford",
+		"Elturel",
+		"Hillsfar",
+		"Mithral Hall",
+		"Mirabar",
+		"Mulmaster",
+		"Neverwinter",
+		"Phlan",
+		"Silverymoon",
+		"Waterdeep"
+	],
+	trait : [
+		"I believe that anything worth doing is worth doing right. I can't help it\u2015 I'm a perfectionist.",
+		"I'm a snob who looks down on those who can't appreciate nobility.",
+		"I always want to know how organization's work and what makes people tick.",
+		"I'm full of witty aphorisms and have a proverb for every occasion.",
+		"I'm rude to people who lack my commitment to hard work and fair play.",
+		"I like to talk at length about my profession.",
+		"I don't part with my favors easily and will haggle tirelessly to get the best deal possible.",
+		"I'm well known for my work at court, and I want to make sure everyone appreciates it. I'm always taken aback when people haven't heard of me."
+	],
+	ideal : [
+		["Community",
+			"Community: It is the duty of all civilized people to strengthen the bonds of community and the security of civilization. (Lawful)"
+		],
+		["Generosity",
+			"Generosity: My talents were given to me so that I could use them to benefit the world. (Good)"
+		],
+		["Freedom",
+			"Freedom: Everyone should be free to pursue his or her own position. (Chaotic)"
+		],
+		["Greed",
+			"Greed: I'm only in it for the money and fame. (Evil)"
+		],
+		["People",
+			"People: I'm committed to the people I care about, not to ideals. (Neutral)"
+		],
+		["Aspiration",
+			"Aspiration: I work hard to be the best there is at my job. (Any)"
+		]
+	],
+	bond : [
+		"The bureaucratic organization where I learned my skills is the most important place in the world to me.",
+		"I pledged myself to a noble's service, and then found them unworthy. I'm still looking for someone worthy.",
+		"I owe my organization a great debt for forging me into the person I am today.",
+		"I pursue wealth and power to secure someone's love.",
+		"One day I will return to court and prove that I am the greatest courtier of them all.",
+		"I will get revenge on the evil forces that destroyed my organization and ruined my livelihood."
+	],
+	flaw : [
+		"I'll do anything to get my hands on rare or priceless information.",
+		"I'm quick to assume that someone is trying to cheat or lie to me.",
+		"No one must ever learn that I once stole money from the court coffers.",
+		"I'm never satisfied with what I have\u2015 I always want more.",
+		"I would kill to acquire a noble title.",
+		"I'm horribly jealous of anyone who can outshine me. Everywhere I go, I'm surrounded by rivals."
+	],
 	toolProfs : "",
 	languageProfs : [2],
 	lifestyle : "comfortable"
-};*/ 
+};
 BackgroundList["faction agent"] = {
 	regExpSearch : /^(?=.*agent)(?=.*(faction|harper|order of the gauntlet|emerald enclave|lord.?s alliance|zhentarim)).*$/i,
 	name : "Faction Agent",
@@ -2299,18 +2359,18 @@ BackgroundList["faction agent"] = {
 		"The Zhentarim"
 	],
 	trait : [
-			"I venerate a distinct hero of my faith, and persistently reference that individual's accomplishments and lessons.",
+			"I venerate a distinct hero of my faction, and persistently reference that individual's accomplishments and lessons.",
 			"I can find universal ground between the most vehement enemies, sympathizing with them and always moving toward unity.",
 			"I see portents in all things. The gods attempt to communicate to us, we just need to pay attention.",
 			"Nothing can rattle my positive attitude.",
-			"I quote (or misquote) holy scripture and aphorisms in nearly all circumstances.",
-			"I am accepting (or unaccepting) of other faiths and honor (or dishonor) the devotion to other deities.",
-			"I've enjoyed exquisite food, drink, and aristocracy among my faith's most elite. Rougher lifestyles chafe me.",
-			"I've spent so much time in the confines of the temple that I have few functional skills interacting with individuals in the rest of the world."
+			"I quote (or misquote) sayings and aphorisms in nearly all circumstances.",
+			"I am accepting (or unaccepting) of other factions and honor (or dishonor) the devotion to other causes.",
+			"I've enjoyed exquisite food, drink, and aristocracy among my faction's most elite. Rougher lifestyles chafe me.",
+			"I've spent so much time in the confines of my faction that I have few functional skills interacting with individuals in the rest of the world."
 		],
 		ideal : [
 			["Tradition",
-				"Tradition: The age-old institutions of devotion and forfeiture must be sustained and maintained. (Lawful)"
+				"Tradition: The age-old institutions of duty and forfeiture must be sustained and maintained. (Lawful)"
 			],
 			["Charity",
 				"Charity: I always attempt to assist those in need, regardless of the personal cost. (Good)"
@@ -2319,27 +2379,27 @@ BackgroundList["faction agent"] = {
 				"Change: We must help induce the developments the gods are continually cultivating in the world. (Chaotic)"
 			],
 			["Power",
-				"Power: I aspire to someday ascend to the elite of my faith's highest echelon. (Lawful)"
+				"Power: I aspire to someday ascend to the elite of my faction's highest echelon. (Lawful)"
 			],
 			["Faith",
-				"Faith: I believe that my deity will direct my work. I have confidence that if I work diligently, my work will be rewarded. (Lawful)"
+				"Faith: I believe that my faction will direct my work. I have confidence that if I work diligently, my work will be rewarded. (Lawful)"
 			],
 			["Aspiration",
-				"Aspiration: I aim to demonstrate myself worth my deity's favor by paralleling my actions against their instruction. (Any)"
+				"Aspiration: I aim to demonstrate myself worth my faction's favor by paralleling my actions against their instruction. (Any)"
 			]
 		],
 		bond : [
-			"I would sacrifice anything to recover a long lost ancient relic of my temple (or faith).",
-			"I will get revenge on my temple's corrupted hierarchy that branded me a heretic.",
-			"I can never repay what I owe to the priest that took me in as an orphan.",
+			"I would sacrifice anything to recover a long lost ancient relic of my faction.",
+			"I will get revenge on my faction's corrupted hierarchy that branded me a heretic.",
+			"I can never repay what I owe to the person that took me in as an orphan.",
 			"Everything I do is for those less fortunate.",
-			"I will do whatever is necessary to keep my temple safe.",
+			"I will do whatever is necessary to keep my faction safe.",
 			"I safeguard holy scripture that some claim is heretical and seek to destroy."
 		],
 		flaw : [
 			"I hold others to a high standard, and myself even higher.",
-			"I place too much faith in those most powerful within my temple's hierarchy.",
-			"My religiosity can lead me to naively trust those that claim faith in my deity.",
+			"I place too much faith in those most powerful within my faction's hierarchy.",
+			"My conviction can lead me to naively trust those that claim faith in my faction.",
 			"I am very stubborn in my thinking.",
 			"I am pessimistic and distrustful of strangers.",
 			"Once I choose an objective, I become so single minded that the rest of my life fades into the background."
@@ -2542,6 +2602,7 @@ BackgroundList["uthgardt tribe member"] = {
 	regExpSearch : /^(?=.*(uthgardt|barbarian|nomad|clan))(?=.*tribe)(?=.*member).*$/i,
 	name : "Uthgardt Tribe Member",
 	source : [["S", 153], ["ALbackground", 0]],
+	skills : ["Athletics", "Survival"],
 	equipright : [
 		["Traveler's clothes", "", 4],
 		["Hunting trap", "", 25],
@@ -2603,6 +2664,7 @@ BackgroundList["waterdhavian noble"] = {
 	regExpSearch : /^(?=.*(waterdhavian|waterdeep))(?=.*noble).*$/i,
 	name : "Waterdhavian Noble",
 	source : [["S", 154], ["ALbackground", 0]],
+	skills : ["History", "Persuasion"],
 	gold : 20,
 	equipleft : [
 		["Scroll of pedigree", "", ""],

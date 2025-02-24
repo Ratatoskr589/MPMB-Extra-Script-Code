@@ -1,3 +1,16 @@
+After 1/31/25
+-Added missing SCAG background skills to the Guild Adept Backgrounds file.
+- Fixed the Paladin Harness Divine Power OCF in the AL Adjustments file
+-Updated the special AL creatures that were based on animal statblocks that got updated in the 2024 PHB. I'd missed those earlier
+-Updated the Faction Agent traits/bonds/etc to better match a faction rather than acolyte (which they're based on).
+-Corrected Dragonnel to a Dragon not Beast. Also changed a few of the special AL familiars away from Beast so they'll stop showing as wildshape options.
+- Added most beasts from the Beasts of Jungle Rot supplement. All beasts CR 6 or less for wildshape, plus 2 higher CR beasts as polymorph options.
+- Updated the Ivory Goats to actually show both weapon options. They were hitting the same glitch as Gwa'thern Faln previously.
+-Added the SCAG Totem options to the Wild Heart barbarian since it's stated as the replacement for that subclass. You will needto manually move some of the information to the 3rd page because of how I had to code it.
+-Added 'Action' code to Winged Boots since they do take an action now
+
+
+
 After 12/20/24
 -Updated ChooseGear items to take advantage of the new code in version v13.2.3 for more elegant names
 -Updated Demon Skin armor with the new code to correctly remove stealth disdvantage 

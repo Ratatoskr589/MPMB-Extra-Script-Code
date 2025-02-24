@@ -715,7 +715,7 @@ AddFeatureChoice(ClassList.monk.features["slow fall"], true, "Focused Aim (1-3 f
 
 
 // Paladin Optional Class Features
-AddFeatureChoice(ClassList.paladin.features["subclassfeature3.0-channel divinity"], true, "Harness Divine Power", {
+AddFeatureChoice(ClassList.paladin.features["channel divinity"], true, "Harness Divine Power", {
 	name : "Channel Divinity: Harness Divine Power",
 	extraname : "Optional Paladin 3",
 	source : [["T", 52]],
@@ -1569,7 +1569,7 @@ AddRacialVariant("tiefling", "winged", {
 		walk : { spd : 30, enc : 20 },
 		fly : { spd : 30, enc : 0 }
 	},
-	trait : "Winged Tiefling\n\nInfernal Legacy:\n   I have resistance to Fire damage.\n   Wings:\n   I have bat-like wings sprouting from my shoulder blades that give me flying speed of 30 ft when I'm not wearing heavy armor.",
+	trait : "Winged Tiefling\n\nInfernal Legacy:\n   I have resistance to Fire damage.\nWings:\n   I have bat-like wings sprouting from my shoulder blades that give me flying speed of 30 ft when I'm not wearing heavy armor.",
 	features : "",
 	dmgres: ["Fire"],
 	spellcastingAbility : "",
@@ -1685,3 +1685,263 @@ RaceList["ghostwise halfling"] = {
 	scores : [0, 2, 0, 0, 1, 0],
 	trait : "Ghostwise Halfling" + (typePF ? "\n" : " ") + "\nLuck: When I roll a 1 on a D20 Test, I can reroll and must use the new roll." + (typePF ? "\n" : " ") + "\nHalfling Nimbleness: I can move through the space of any creature larger than me, but can't stop in the same space." + (typePF ? "\n" : " ") + "\nSilent Speech: I can speak telepathically to any one creature within 30 feet of me. It only understands me if we share a language."
 };
+
+/*
+//This adds the SCAG Totem variants to the Wild Heart barbarian (since it replaces totem per the updated subclasses table: https://www.dndbeyond.com/posts/1810-updates-in-the-players-handbook-2024?. Note that this code won't remove the original rage options from page 3 because I couldn't figure out how to do that. You'll need to delete them or copy over the new text from the Notes page.
+
+if (ClassSubList["barbarian-wild heart"]) {
+	var SCAG_WildHeartFeature = ClassSubList["barbarian-wild heart"].features["subclassfeature6"];
+	if (SCAG_WildHeartFeature) {
+		AddFeatureChoice(SCAG_WildHeartFeature, false, "Elk", {
+			name : "Elk",
+			source : [["S", 122]],
+			description : desc([
+				"While mounted or on foot and not Incapacitated, my travel pace is doubled",
+				"I can extend this benefit to up to ten companions, while they are within 60 ft of me"
+			]),
+		toNotesPage : [{
+			name : "Aspect of the Wild Options (Change on LR)",
+			popupName : "Aspect of the Wild Rage Options",
+			note : [
+				"Elk - While mounted or on foot and not Incapacitated, my travel pace is doubled. I can extend this benefit to up to ten companions, while they're in 60 ft of me.",
+				"Owl - I have 60 ft Darkvision. If I already have Darkvision, its range increases by 60 ft.",
+				"Panther - I have a Climb Speed equal to my Speed.",
+				"Salmon - I have a Swim Speed equal to my Speed.",
+				"Tiger - I gain proficiency with two skills chosen from: Athletics, Acrobatics, Stealth, or Survival."
+				]
+			}]
+		});
+		AddFeatureChoice(SCAG_WildHeartFeature, false, "Tiger", {
+			name : "Tiger",
+			source : [["S", 122]],
+			description : "\n   I gain proficiency with two skills chosen from: Athletics, Acrobatics, Stealth, or Survival",
+			skillstxt : "Choose two from Athletics, Acrobatics, Stealth, and Survival",
+		toNotesPage : [{
+			name : "Aspect of the Wild Options (Change on LR)",
+			popupName : "Aspect of the Wild Rage Options",
+			note : [
+				"Elk - While mounted or on foot and not Incapacitated, my travel pace is doubled. I can extend this benefit to up to ten companions, while they're in 60 ft of me.",
+				"Owl - I have 60 ft Darkvision. If I already have Darkvision, its range increases by 60 ft.",
+				"Panther - I have a Climb Speed equal to my Speed.",
+				"Salmon - I have a Swim Speed equal to my Speed.",
+				"Tiger - I gain proficiency with two skills chosen from: Athletics, Acrobatics, Stealth, or Survival."
+				]
+			}]
+		});
+	}
+}
+
+
+if (ClassSubList["barbarian-wild heart"]) {
+	CreateClassFeatureVariant("barbarian-wild heart", "subclassfeature3.1", "SCAG Rage of the Wilds", {
+      name: "SCAG Rage of the Wilds",
+      source : [["S", 122]],
+      minlevel: 3,
+      description: desc([
+        "Choose an animal aspect when I enter a Rage (Copy Notes list to the 3rd Page).",
+      ]),
+		toNotesPage : [{
+			name : "Rage of the Wilds Options",
+			popupName : "Rage of the Wild Rages Options",
+			note : [
+				"Bear - Resistance to all but Force, Necrotic, Psychic, and Radiant damage.",
+				"Eagle - Disengage and Dash as a Bonus Action.",
+				"Elk - While not in heavy armor, Speed increases by 15 ft",
+				"Tiger - Add 10 ft to my long jump and 3 ft to my high jump distance",
+				"Wolf - Allies have Advantage on attacks against enemies in 5 ft of me."
+				]
+			}]
+   });
+}
+
+if (ClassSubList["barbarian-wild heart"]) {
+	CreateClassFeatureVariant("barbarian-wild heart", "subclassfeature14", "SCAG Power of the Wilds", {
+      name: "SCAG Power of the Wilds",
+      source : [["S", 122]],
+      minlevel: 14,
+      description: desc([
+        "I gain 5 Power of the Wilds options (Copy Notes list to the 3rd Page).",
+      ]),
+		toNotesPage : [{
+			name : "Power of the Wild Options",
+			popupName : "Power of the Wild Rage Options",
+			note : [
+				"Falcon - Without armor, I have a Fly Speed equal to my Speed.",
+				"Elk - Bonus Action to move through Large or smaller creature. Str save (8+PB+Str Mod) or Prone and takes 1d12+Str Bludgeoning.",
+				"Lion - Enemies in 5 ft have Disadvantage on attacks against targets other than me or another Lion barbarian.",
+				"Ram - Knock Large or smaller creatures Prone when hit with melee attack.",
+				"Tiger - If move 20 ft toward target before making melee weapon attack, bonus action for another melee weapon attack against it."
+				]
+			}]
+   });
+}
+
+/*
+if(ClassSubList["barbarian-wild heart"]) {
+    var SCAG_WildHeartFeature = ClassSubList["barbarian-wild heart"].features["subclassfeature3"];
+    if(SCAG_WildHeartFeature ) {
+            AddFeatureChoice(SCAG_WildHeartFeature, false, "Rage of the Wild Level 3 Options", {
+            name : "Rage of the Wild Level 3 Options",
+            source : [["S", 122]],
+            description : "Test worked",
+            extrachoices : ["Elk", "Tiger"],
+            "elk" : {
+                name : "Elk",
+                source : [["S", 122]],
+                description : "\n   While raging without heavy armor, my base walking speed increases by 15 ft.",
+            },
+            "tiger" : {
+                name : "Tiger",
+                source : [["S", 122]],
+                description : "\n   While raging, I can add 10 ft to my long jump and 3 ft to my high jump distance.",
+            },
+            autoSelectExtrachoices : [
+                {extrachoice : "tiger", minlevel : 3},
+                {extrachoice : "elk", minlevel : 3}
+            ]
+        }, true);
+    }
+};
+
+
+if(ClassSubList["barbarian-wild heart"]) {
+    var SCAG_WildHeartFeature = ClassSubList["barbarian-wild heart"].features["subclassfeature14"];
+    if(SCAG_WildHeartFeature ) {
+            AddFeatureChoice(SCAG_WildHeartFeature, false, "SCAG Power of the Wilds", {
+            name : "SCAG Power of the Wilds",
+            source : [["S", 122]],
+            description : "Test worked",
+            extrachoices : ["Elk", "Tiger"],
+            "elk" : {
+                name : "Elk",
+                source : [["S", 122]],
+                description : "\n   Bonus Action to move through Large or smaller creature. Str save (8+PB+Str Mod) or Prone and takes 1d12+Str Bludgeoning.",
+            },
+            "tiger" : {
+                name : "Tiger",
+                source : [["S", 122]],
+                description : "\n   If move 20 ft toward target before making melee weapon attack, bonus action for another melee weapon attack against it.",
+            },
+            autoSelectExtrachoices : [
+                {extrachoice : "tiger", minlevel : 14},
+                {extrachoice : "elk", minlevel : 14}
+            ]
+        }, true);
+    }
+};*/
+
+RunFunctionAtEnd(function() {
+	if(ClassSubList["barbarian-wild heart"]) {
+		// The object holding the class features
+		var cFeats = ClassSubList["barbarian-wild heart"].features;
+		if(cFeats["subclassfeature6"]) {
+			// Create elk and tiger objects and add their respective choices if they don't already exist.
+			// This can be appended to 3rd page notes by setting `page3notes : true`
+			var theFea = ClassSubList["barbarian-wild heart"].features["subclassfeature6"];
+			if(!theFea["elk"]) {
+				if(theFea.choices.indexOf("Elk") === -1) theFea.choices.push("Elk");
+				theFea["elk"] = {
+					name : "Elk",
+					source : [["S", 122]],
+					description : desc([
+						"While mounted or on foot and not Incapacitated, my travel pace is doubled",
+						"I can extend this benefit to up to ten companions, while they are within 60 ft of me"
+					]),
+					toNotesPage : [{
+						name : "Aspect of the Wild Options (Change on LR)",
+						popupName : "Aspect of the Wild Rage Options",
+						note : [
+							"Elk - While mounted or on foot and not Incapacitated, my travel pace is doubled. I can extend this benefit to up to ten companions, while they're in 60 ft of me.",
+							"Owl - I have 60 ft Darkvision. If I already have Darkvision, its range increases by 60 ft.",
+							"Panther - I have a Climb Speed equal to my Speed.",
+							"Salmon - I have a Swim Speed equal to my Speed.",
+							"Tiger - I gain proficiency with two skills chosen from: Athletics, Acrobatics, Stealth, or Survival."
+						]
+					}]
+				}
+			}
+			if(!theFea["tiger"]) {
+				if(theFea.choices.indexOf("Tiger") === -1) theFea.choices.push("Tiger");
+				theFea["tiger"] = {
+					name : "Tiger",
+					source : [["S", 122]],
+					description : "\n   I gain proficiency with two skills chosen from: Athletics, Acrobatics, Stealth, or Survival",
+					skillstxt : "Choose two from Athletics, Acrobatics, Stealth, and Survival",
+					toNotesPage : [{
+						name : "Aspect of the Wild Options (Change on LR)",
+						popupName : "Aspect of the Wild Rage Options",
+						note : [
+							"Elk - While mounted or on foot and not Incapacitated, my travel pace is doubled. I can extend this benefit to up to ten companions, while they're in 60 ft of me.",
+							"Owl - I have 60 ft Darkvision. If I already have Darkvision, its range increases by 60 ft.",
+							"Panther - I have a Climb Speed equal to my Speed.",
+							"Salmon - I have a Swim Speed equal to my Speed.",
+							"Tiger - I gain proficiency with two skills chosen from: Athletics, Acrobatics, Stealth, or Survival."
+						]
+					}]
+				}
+			}
+		}
+		// Create or overwrite the subclassfeature3.1 regardless
+		cFeats["subclassfeature3.1"] = {
+			name: "SCAG Rage of the Wilds",
+			source : [["S", 122]],
+			minlevel: 3,
+			description: desc([
+				"Choose an animal aspect when I enter a Rage. See 3rd page.",
+			]),
+			toNotesPage : [{
+				name : "Rage of the Wilds Options",
+				popupName : "Rage of the Wild Rages Options",
+				page3notes : true,
+				note : desc([
+					"Bear - Resistance to all but Force, Necrotic, Psychic, and Radiant damage.",
+					"Eagle - Disengage and Dash as a Bonus Action.",
+					"Elk - While not in heavy armor, Speed increases by 15 ft",
+					"Tiger - Add 10 ft to my long jump and 3 ft to my high jump distance",
+					"Wolf - Allies have Advantage on attacks against enemies in 5 ft of me."
+				])
+			}]
+		}
+		// Create or overwrite the subclassfeature14 regardless
+		cFeats["subclassfeature14"] = {
+			name: "SCAG Power of the Wilds",
+			source : [["S", 122]],
+			minlevel: 14,
+			description: desc([
+				"Choose a second animal aspect when I enter Rage. See 3rd page.",
+			]),
+			toNotesPage : [{
+				name : "Power of the Wild Options",
+				popupName : "Power of the Wild Rage Options",
+				page3notes : true,
+				note : [
+					"Falcon - Without armor, I have a Fly Speed equal to my Speed.",
+					"Elk - Bonus Action to move through Large or smaller creature. Str save (8+PB+Str Mod) or Prone and takes 1d12+Str Bludgeoning.",
+					"Lion - Enemies in 5 ft have Disadvantage on attacks against targets other than me or another Lion barbarian.",
+					"Ram - Knock Large or smaller creatures Prone when hit with melee attack.",
+					"Tiger - If move 20 ft toward target before making melee weapon attack, bonus action for another melee weapon attack against it."
+				]
+			}]
+		}
+		SetStringifieds("choices"); CurrentUpdates.types.push("choices");
+	}
+});
+
+if (ClassSubList["barbarian-wild heart"]) {
+	CreateClassFeatureVariant("barbarian-wild heart", "subclassfeature3", "Ghost Tree Animal Speaker", {
+		name : "Ghost Tree Animal Speaker",
+		source : [["S", 122]],
+		minlevel: 3,
+		spellcastingAbility: 5,
+      spellcastingBonus: [{
+        name: "Ghost Tree Animal Speaker",
+        spells: ["beast sense", "speak with plants"],
+        selection: ["beast sense", "speak with plants"],
+        times: 2,
+        firstCol: "R",
+      }],
+      description: desc([
+        "Cast Beast Sense and Speak with Plants as Rituals using Wisdom."
+			]),
+	});
+}
