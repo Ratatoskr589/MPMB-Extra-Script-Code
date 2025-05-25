@@ -1,3 +1,12 @@
+After 2/24/25
+-Added Tasha's Favored Foe as a OCF for 2024 since I realized that actually would still work with the new phrasing.
+-Added more items from DC and PO adventures. 
+-Fixed some minor errors
+-Corrected resistance type for BMK-4
+-Added multiple variables to help reduce file size and remove redundant item code (I went a little wild with this, so the code looks very different).
+-Added missing Guardian property code for several items
+
+
 After 1/31/25
 -Added missing SCAG background skills to the Guild Adept Backgrounds file.
 - Fixed the Paladin Harness Divine Power OCF in the AL Adjustments file
@@ -8,7 +17,6 @@ After 1/31/25
 - Updated the Ivory Goats to actually show both weapon options. They were hitting the same glitch as Gwa'thern Faln previously.
 -Added the SCAG Totem options to the Wild Heart barbarian since it's stated as the replacement for that subclass. You will needto manually move some of the information to the 3rd page because of how I had to code it.
 -Added 'Action' code to Winged Boots since they do take an action now
-
 
 
 After 12/20/24
@@ -23,7 +31,6 @@ After 12/20/24
 -Fixed so many typos
 -Added new items from DC and PO modules
 -Added the SCAG racial variants and AL Winged Aasimar to the AL Adjustments file
-
 
 
 After 11/16/14

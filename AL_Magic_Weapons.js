@@ -77,6 +77,475 @@ SourceList.CM = {
 };
 
 
+//Variables to help condense code and reduce unnecessary duplication:
+var bowOfMelodies = {
+	calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				var chaMod = Number(What('Cha Mod'));
+				// Only add a description if positive Cha Mod and Melody of Precision is not an option or Reverberation is part of the name
+				if (!v.theWea.isMagicWeapon && chaMod > 0 && v.isRangedWeapon && /bow/i.test(v.baseWeaponName) && /^(?=.*melod(ies|y))(?!.*precision).*$/i.test(v.WeaponTextName) && (/reverberation/i.test(v.WeaponTextName) || !hasSkillProf("Performance")[0])) {
+					v.theWea.isMagicWeapon = true;
+					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+					fields.Description += (fields.Description ? '; ' : '') + '+' + chaMod + ' (Cha mod) thunder damage';
+				}
+			},
+			'If I include the word "Melody" or "Melodies" in the name of a bow, it will be treated as the magic weapon Bow of Melodies. If I also include either "Precision" or "Reverberation" in the name, the respective bonus will be added. if I include neither, the bonus will be determined automatically: the Melody of Precision if proficient with Performance (+1 or +2 bonus to hit) or Melody of Reverberation otherwise (+Cha mod Thunder damage).'
+		],
+			atkCalc : [
+				function (fields, v, output) {
+					// Add to hit bonus if name doesn't include Reverberation. Will be zero if not proficient in Performance
+					if (!v.theWea.isMagicWeapon && v.isRangedWeapon && /bow/i.test(v.baseWeaponName) && /^(?=.*melod(ies|y))(?!.*reverberation).*$/i.test(v.WeaponTextName)) {
+						v.theWea.isMagicWeapon = true;
+						var perfProf = hasSkillProf("Performance");
+						output.extraHit += perfProf[1] ? 2 : perfProf[0] ? 1 : 0;
+					}
+				}, ''
+			]
+		},
+ }
+ 
+var defenderSword = {
+		calcChanges : { //For Defender
+			atkAdd : [
+				function (fields, v) {
+					if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/defender/i).test(v.WeaponText)) {
+						v.theWea.isMagicWeapon = true;
+						fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+						fields.Description += (fields.Description ? '; ' : '') + '+3 bonus can be used for AC instead';
+					}
+				},
+				'If I include the word "Defender" in the name of a sword, it will be treated as the magic weapon Defender. It has +3 to hit and damage, but the bonus can be lowered and added to AC instead. Decide to do so with the first attack on your turn.'
+			],
+			atkCalc : [
+				function (fields, v, output) {
+					if (v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/defender/i).test(v.WeaponText)) {
+						output.magic = v.thisWeapon[1] + 3;
+					}
+				}, ''
+			]
+			},
+ }
+
+var dragonSlayerWeapon = {
+		calcChanges : { //For Dragon Slayer
+			atkAdd : [
+				function (fields, v) {
+					if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/^(?=.*dragon)(?=.*slayer).*$/i).test(v.WeaponText)) {
+						v.theWea.isMagicWeapon = true;
+						fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+						fields.Description += (fields.Description ? '; ' : '') + '+3d6 damage vs Dragons';
+					}
+				},
+				'If I include the words "Dragon Slayer" in a the name of a sword, it will be treated as the magic weapon Dragon Slayer. It has +1 to hit and damage and deals +3d6 damage to creatures with the Dragon type.'
+			],
+			atkCalc : [
+				function (fields, v, output) {
+					if (v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/^(?=.*dragon)(?=.*slayer).*$/i).test(v.WeaponText)) {
+						output.magic = v.thisWeapon[1] + 1;
+						}
+					}, ''
+				]
+			},
+ }
+ 
+var flameTongueWeapon = {
+		calcChanges : {
+			atkAdd : [
+			function (fields, v) {
+				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/^(?=.*flame)(?=.*tongue).*$/i).test(v.WeaponTextName)) {
+					v.theWea.isMagicWeapon = true;
+					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+					fields.Description += (fields.Description ? '; ' : '') + 'While active, +2d6 Fire damage';
+				}
+			},
+			'If I include the words "Flame Tongue" in a the name of a melee weapon, it will be treated as the magic weapon Flame Tongue. When the command word is spoken, the blade erupts with flames, adding +2d6 Fire damage on a hit and emitting light.'
+			]
+		},
+ }
+ 
+var frostBrandSword = {
+	calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/glaive|greatsword|longsword|rapier|scimitar|shortsword/i).test(v.baseWeaponName) && (/^(?=.*frost)(?=.*brand).*$/i).test(v.WeaponTextName)) {
+					v.theWea.isMagicWeapon = true;
+					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+					fields.Description += (fields.Description ? '; ' : '') + '+1d6 Cold damage';
+				}
+			},
+			'If I include the words "Frost Brand" in a the name of a sword, it will be treated as the magic weapon Frost Brand. It does +1d6 Cold damage.'
+		]
+	},
+ }
+ 
+var giantSlayerWeapon = {
+	calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				if (!v.theWea.isMagicWeapon && (/^(?=.*giant)(?=.*slayer).*$/i).test(v.WeaponTextName)) {
+					v.theWea.isMagicWeapon = true;
+					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+					fields.Description += (fields.Description ? '; ' : '') + '+2d6 damage vs Giants; Giants DC 15 Str save or Prone';
+				}
+			},
+			'If I include the words "Giant Slayer" in a the name of a weapon, it will be treated as the magic weapon Giant Slayer. It has +1 to hit and damage and when hitting a creatures with the Gisnt type, it does +2d6 damage and the target has to make a DC 15 Strength save or be knocked Prone.'
+		],
+		atkCalc : [
+			function (fields, v, output) {
+				if (v.isWeapon && (/^(?=.*giant)(?=.*slayer).*$/i).test(v.WeaponTextName)) {
+					output.magic = v.thisWeapon[1] + 1;
+				}
+			}, ''
+		]
+		},
+ }
+ 
+ var moonSickleSpells = {
+		spellAdd : [
+			function (spellKey, spellObj, spName) {
+				if (spellObj.psionic || !spellObj.level) return;
+				switch (spellKey) {
+					case "enervation" :
+					case "life transference" :
+					case "vampiric touch" :
+						var useSpellDescr = getSpellShortDescription(spellKey, spellObj);
+						var strAdd = " +1d4";
+						spellObj.description = useSpellDescr.replace(/(heals? (half|twice)( the damage dealt| that)?)( in HP)?/, "$1" + strAdd);
+						return true;
+					default :
+						return genericSpellDmgEdit(spellKey, spellObj, "heal", "1d4");
+				}
+			},
+			"While holding the Moon Sickle when I cast a spell that restores hit points, I can roll a d4 and add the number rolled to the amount of hit points restored."
+		],
+ }
+ 
+var nineLivesStealer = {
+	calcChanges: {
+		atkAdd: [
+			function (fields, v) {
+				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/^(?=.*(9|nine))(?=.*(lives|life))(?=.*stealer).*$/i).test(v.WeaponTextName)) {
+					v.theWea.isMagicWeapon = true;
+					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+					fields.Description += (fields.Description ? '; ' : '') + 'On crit to target <100 HP, DC 15 Con save or die';
+				}
+			},
+			'If I include the words "Nine Lives Stealer" in a the name of a weapon, it will be treated as the magic weapon Nine Lives Stealer with +2 to hit and damage. If it still has charges, critical hits against a creature with less than 100 HP, cause that creature to make a DC 15 Con saving throw or die.'
+		],
+		atkCalc: [
+			function (fields, v, output) {
+				if (v.isMeleeWeapon && (/^(?=.*(9|nine))(?=.*(lives|life))(?=.*stealer).*$/i).test(v.WeaponTextName)) {
+					output.magic = v.thisWeapon[1] + 2;
+				}
+			}, ''
+		]
+		}
+ } 
+
+var oathbowChanges = {
+	calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				if (!v.theWea.isMagicWeapon && v.isRangedWeapon && (/oathbow/i).test(v.WeaponTextName)) {
+					v.theWea.isMagicWeapon = true;
+					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+					fields.Description += (fields.Description ? '; ' : '') + 'Vs sworn enemy: adv, +3d6 dmg, no cover/range penalty';
+				}
+			},
+			"If I include the words Oathbow in a the name of a bow, it will be treated as the magic weapon Oathbow. It gains special benefits against my sworn enemy."
+		]
+	},
+ }
+ 
+var staffDefenseCalcs = {
+		spellcastingBonus : [{
+			name : "1 charge",
+			spells : ["mage armor"],
+			selection : ["mage armor"],
+			firstCol : 1
+		}, {
+			name : "2 charges",
+			spells : ["shield"],
+			selection : ["shield"],
+			firstCol : 2
+		}],
+		spellChanges : {
+			"shield" : {
+				time : "1 a",
+				changes : "Cast as an action."
+			}
+		},
+		extraAC : [{name : "Staff of Defense", mod : 1, magic : true, text : "I gain a +1 bonus to AC while holding the Staff of Defense."}],
+ }
+
+var staffFrostSpells = {
+		spellcastingBonus : [{
+			name : "1 charge",
+			spells : ["fog cloud"],
+			selection : ["fog cloud"],
+			firstCol : 1
+		}, {
+			name : "4 charges",
+			spells : ["ice storm", "wall of ice"],
+			selection : ["ice storm", "wall of ice"],
+			firstCol : 4,
+			times : 2
+		}, {
+			name : "5 charges",
+			spells : ["cone of cold"],
+			selection : ["cone of cold"],
+			firstCol : 5
+		}]
+ }
+ 
+var staffHealingSpells = {
+		spellcastingBonus : [{
+			name : "1+ charges",
+			spells : ["cure wounds"],
+			selection : ["cure wounds"],
+			firstCol : "1+"
+		}, {
+			name : "2 charges",
+			spells : ["lesser restoration"],
+			selection : ["lesser restoration"],
+			firstCol : 2
+		}, {
+			name : "5 charges",
+			spells : ["mass cure wounds"],
+			selection : ["mass cure wounds"],
+			firstCol : 5
+		}],
+		spellChanges : {
+			"cure wounds" : {
+				description : "1 creature heals 2d8+spellcasting ability modifier HP, +2d8 per charge after the 1st (max 4)",
+				changes : "The spell level Cure Wounds is cast at depends on the amount of charges spend, 1 charge per spell slot level. Max 4th."
+			}
+		}
+ }
+ 
+var staffOfPowerCalc = {
+		calcChanges : {
+			spellCalc : [
+				function (type, spellcasters, ability) {
+					if (type == "attack") return 2;
+				},
+				"While holding the Staff of Power, I have a +2 bonus to spell attack rolls."
+			]
+		},
+		spellcastingBonus : [{
+			name : "5 charges; 5th level",
+			spells : ["fireball", "lightning bolt"],
+			selection : ["fireball", "lightning bolt"],
+			firstCol : 5,
+			times : 2
+		}, {
+			name : "6 charges",
+			spells : ["globe of invulnerability"],
+			selection : ["globe of invulnerability"],
+			firstCol : 6
+		}, {
+			name : "5 charges",
+			spells : ["cone of cold", "hold monster", "wall of force"],
+			selection : ["cone of cold", "hold monster", "wall of force"],
+			firstCol : 5,
+			times : 3
+		}, {
+			name : "2 charges",
+			spells : ["levitate"],
+			selection : ["levitate"],
+			firstCol : 2
+		}, {
+			name : "1 charge",
+			spells : ["magic missile", "ray of enfeeblement"],
+			selection : ["magic missile", "ray of enfeeblement"],
+			firstCol : 1,
+			times : 2
+		}],
+		spellChanges : {
+			"fireball" : {
+				nameShort : "Fireball (5th level)",
+				description : "20-ft rad all crea 10d6 Fire dmg; save halves; unattended flammable objects ignite",
+				changes : "Cast as if using a 5th-level spell slot."
+			},
+			"lightning bolt" : {
+				nameShort : "Lightning Bolt (5th level)",
+				description : "100-ft long 5-ft wide all 10d6 Lightning dmg; save halves",
+				changes : "Cast as if using a 5th-level spell slot."
+			}
+		}
+ }
+ 
+var staffSwarmingInsects = {
+		spellcastingBonus : [{
+			name : "4 charges",
+			spells : ["giant insect"],
+			selection : ["giant insect"],
+			firstCol : 4
+		}, {
+			name : "5 charges",
+			spells : ["insect plague"],
+			selection : ["insect plague"],
+			firstCol : 5
+		}]
+ }
+ 
+var staffOfWoodlands = {
+		calcChanges : {
+			spellCalc : [
+				function (type, spellcasters, ability) {
+					if (type == "attack") return 2;
+				},
+				"While holding the Staff of the Woodlands, I have a +2 bonus to spell attack rolls."
+			]
+		},
+	spellcastingBonus: [{
+		name: "1 charge",
+		spells: ["animal friendship", "speak with animals"],
+		selection: ["animal friendship", "speak with animals"],
+		firstCol: 1,
+		times: 2
+	}, {
+		name: "2 charges",
+		spells: ["barkskin", "locate animals or plants", "pass without trace"],
+		selection: ["barkskin", "locate animals or plants", "pass without trace"],
+		firstCol: 2,
+		times: 2
+	}, {
+		name: "3 charges",
+		spells: ["speak with plants"],
+		selection: ["speak with plants"],
+		firstCol: 3
+	}, {
+		name: "5 charges",
+		spells: ["awaken"],
+		selection: ["awaken"],
+		firstCol: 5
+	}, {
+		name: "6 charges",
+		spells: ["wall of thorns"],
+		selection: ["wall of thorns"],
+		firstCol: 6
+	}],
+ }
+ 
+var swordOfLifeStealing = {
+	calcChanges: {
+		atkAdd: [
+			function (fields, v) {
+				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/glaive|greatsword|longsword|rapier|scimitar|shortsword/i).test(v.baseWeaponName) && (/^(?=.*life)(?=.*stealing).*$/i).test(v.WeaponTextName)) {
+					v.theWea.isMagicWeapon = true;
+					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+					fields.Description += (fields.Description ? '; ' : '') + 'On 20 to hit: +15 Necrotic dmg, +15 temp HP';
+				}
+			},
+			'If I include the words "Life Stealing" in a the name of a sword, it will be treated as the magic weapon Sword of Life Stealing. It does +15 Necrotic damage when I roll a 20 on the attack and gives me 15 temporary HP. It doesn\'t work against Constructs or Undead.'
+		]
+	},
+ }
+
+var swordOfVengeance = {
+		calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/of vengeance/i).test(v.WeaponText)) {
+					v.theWea.isMagicWeapon = true;
+					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+					fields.Description += (fields.Description ? '; ' : '') + 'Cursed';
+				}
+			},
+			'If I include the words "of Vengeance" in the name of a sword, it will be treated as the magic weapon Sword of Vengeance. It has +1 to hit and damage, but also bears a curse.'
+		],
+		atkCalc : [
+			function (fields, v, output) {
+				if (v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/of vengeance/i).test(v.WeaponText)) {
+					output.magic = v.thisWeapon[1] + 1;
+				}
+			}, ''
+			]
+		},
+ }
+ 
+var swordOfWounding = {
+	calcChanges: {
+		atkAdd: [
+			function (fields, v) {
+				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/Glaive|Greatsword|Longsword|Rapier|Scimitar|Shortsword/i).test(v.baseWeaponName) && (/of wounding/i).test(v.WeaponTextName)) {
+					v.theWea.isMagicWeapon = true;
+					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+					fields.Description += (fields.Description ? '; ' : '') + 'target: +2d6 Necrotic dmg; DC 15 CON Save or no HP 1 hour';
+				}
+			},
+			'If you include the words "of Wounding" in the name of a weapon, it will be treated as the magic weapon Sword of Wounding.'
+		]
+	},
+ }
+ 
+var sunBladeCalc = {
+		calcChanges : {
+			atkAdd : [
+				function (fields, v) {
+					if (v.theWea.name == "Sun Blade" && !fields.Proficiency) {
+						fields.Proficiency = CurrentProfs.weapon.otherWea && CurrentProfs.weapon.otherWea.finalProfs.indexOf("shortsword") !== -1;
+					}
+				}, ''
+			]
+		},
+ }
+ 
+var tridentFishSpells = {
+		spellcastingBonus : {
+			name : "1 charge",
+			spells : ["dominate beast"],
+			selection : ["dominate beast"],
+			firstCol : 1
+		},
+		spellChanges : {
+			"dominate beast" : {
+				description : "1 beast with Swim Speed save or Charmed; redo on dmg; follows telepathic commands; rea to use rea",
+				changes : "Can only affect beasts with innate Swim Speed."
+			}
+		}
+ }
+ 
+var viciousWeaponCalc = {
+	calcChanges: {
+		atkAdd: [
+			function (fields, v) {
+				if (!v.isSpell && !v.theWea.isMagicWeapon && (/vicious/i).test(v.WeaponTextName)) {
+					v.theWea.isMagicWeapon = true;
+					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+					fields.Description += (fields.Description ? '; ' : '') + '+2d6 ' + (fields.Damage_Type);
+				}
+			},
+			'If you include the word "Vicious" in a the name of a weapon, it will be treated as the magic weapon Vicious Weapon. On a successful hit, target takes an extra 2d6 of the weapon type.'
+		]
+	}
+ }
+ 
+ var vorpalSword = {
+		calcChanges : {  //For Vorpal Sword
+		atkAdd: [
+			function (fields, v) {
+				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/glaive|greatsword|longsword|scimitar/i).test(v.baseWeaponName) && (/vorpal/i).test(v.WeaponTextName) && v.theWea.damage[2] == "slashing") {
+					v.theWea.isMagicWeapon = true;
+					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+					fields.Description += (fields.Description ? '; ' : '') + 'Ignores slashing resistance; On 20 to hit: cut off head';
+				}
+			},
+			'If I include the word "Vorpal" in a the name of a weapon that deals Slashing damage, it will be treated as the magic weapon Vorpal Sword. It has +3 to hit and damage and on a roll of 20 on the attack roll, it cuts off a head of the target.'
+		],
+		atkCalc: [
+			function (fields, v, output) {
+				if (v.isMeleeWeapon && (/glaive|greatsword|longsword|scimitar/i).test(v.baseWeaponName) && (/vorpal/i).test(v.WeaponTextName) && v.theWea.damage[2] == "slashing") {
+					output.magic = v.thisWeapon[1] + 3;
+				}
+			}, ''
+		]
+		},
+ }
+
+
 RunFunctionAtEnd(function () {//this code makes it so the AL variations of common items don't appear as an option for artificers to create
 //AL flavored Weapons
 
@@ -86,7 +555,63 @@ MagicItemsList["al staffs"] = {
 			choicesNotInMenu : true,
 			type : "staff",
 			magicItemTable : "?",
-		choices : ["Staff of the Adder (CCC-SRCC1-3)","Staff of Adornment (CCC-3MAGS-ONE)","Staff of Adornment (PS-DC-PKL-10)","Staff of Adornment: K's Ashenwood Staff (SJ-DC-AMO-KURI-3)","Staff of Adornment (SJ-DC-ARQ-2)","Staff of Adornment: Ocharine (SJ-DC-DD-7)","Staff of Adornment (SJ-DC-DEN-H5)","Staff of Adornment (SJ-DC-IGC-ECP-5)","Staff of Adornment (SJ-DC-MONSTER-1)","Staff of Adornment: Shakujo (SJ-DC-MWG-1)","Staff of Adornment (SJ-DC-ROTU-5)","Staff of Adornment (SJ-DC-TEL-12)","Staff of Adornment (WBW-DC-NJ-COU-2)","Staff of Birdcalls (FR-DC-TT-T201)","Staff of Birdcalls (WBW-DC-BIRE-1)","Staff of Birdcalls (WBW-DC-CONMAR-3)","Staff of Birdcalls (WBW-DC-Death)","Staff of Birdcalls (WBW-DC-FDC-3)","Staff of Birdcalls (WBW-DC-HBK-1)","Staff of Birdcalls (WBW-DC-ROBIN-1-2)","Staff of Birdcalls (WBW-DC-ROOK-1-4)","Staff of Birdcalls: Dark Crystal (WBW-DC-ZODIAC-10)","Staff of Charming (DDEX2-2)","Staff of Defense (SJ-DC-BST-6)","Staff of Defense: Xuanwu Jade Shuttle (SJ-DC-DD-9)","Staff of Defense (SJ-DC-ETO-2)","Staff of Defense: Black Root of Clathrus Archeri (SJ-DC-PANDORA-JWEI-3A)","Staff of Defense (SJ-DC-RFJK-2-2)","Staff of Defense (SJ-DC-TEL-2)","Staff of Fate (BMG-MOON-MD-10)","Staff of Flowers (CCC-KUMORI-3-1)","Staff of Frost (DDAL0-11E)","Staff of Frost (DDAL-DRW5)","Staff of Frost (WBW-DC-AEG-2)","Staff of Healing: Driftwood Staff (CCC-DES-1-2)","Staff of Healing (CCC-GHC-BK2-8)","Staff of Healing (CCC-QCC2019-3)","Staff of Healing (CCC-WYC-2-1)","Staff of Healing (DDEP4)","Staff of the Magi (DDAL7-17)","Staff of Power (DDAL5-19)","Staff of Power (DDEP4)","Staff of Power: Tongkat Nenek Kebayan (WBW-DC-DMMC-1)","Staff of Power: Oblivia (WBW-DC-PHP-ORNG-2)","Staff of the Python (CCC-BMG-MOON7-1)","Staff of the Python: Earth Tender's Branch (CCC-BMG-MOON8-2)","Staff of the Python: Bulkawa's Benevolence (CCC-GSP2-2)","Staff of the Python (FR-DC-GHG-4)","Staff of the Python: Blackztaff (FR-DC-WATERDEEP-KYZ)","Staff of Striking (CCC-TRI-14 YUL1-3)","Staff of Striking (DDAL7-12)","Staff of Striking (DDAL10-10)","Staff of Striking: Moon Dance (SJ-DC-PANDORA-JWEI-1)","Staff of Striking: Dragon's Glory (SJ-DC-ROTU-5)","Staff of Striking: Orcus Wand Splinter (SJ-DC-TRIDEN-MW3)","Staff of Swarming Insects (DDEX3-3)","Staff of Swarming Insects: Mildy's (WBW-DC-DES-1-7)","Staff of Swarming Insects: Scorpion Staff (WBW-DC-DGE-2)","Staff of Swarming Insects: Drone Control Rod (WBW-DC-LEGIT-SV-6)","Staff of Swarming Insects: Mariposa (WBW-DC-PHP-ORNG-2)","Staff of Swarming Insects: Ygorl's Crook (WBW-DC-Rook-3-3)","Staff of Thunder and Lightning (DDAL5-8)","Staff of Thunder and Lightning (DDEP5-2)","Staff of Withering (DDEX2-13)","Staff of Withering (DDAL8-13)","Staff of Withering: The Inoculum (SJ-DC-VEN-2)","Staff of Withering: Positive Prognosis (SJ-DC-VEN-2)","Staff of the Woodlands (CCC-BMG-MOON12-1)","Staff of the Woodlands (CCC-GARY-9)","Staff of the Woodlands (DDAL7-8/DDEP7-1)","Staff of the Woodlands: Liwanag (WBW-DC-ANDL-3)","Staff of the Woodlands: Temperate (WBW-DC-CONMAR-6)","Staff of the Woodlands (WBW-DC-HAVN-1)","Staff of the Woodlands: Guardian (WBW-DC-HH-2)","Staff of the Woodlands (WBW-DC-IDL1)","Staff of the Woodlands (WBW-DC-PHP-LCL-1)","Staff of the Woodlands: Hope's Emissary (WBW-DC-Rook-3-2)","Staff of the Woodlands: Sunlit (WBW-DC-Sunlit-6)","Staff of the Woodlands: Delver's (WBW-DC-ZEP-T2S2)","Staff of the Woodlands: Dragon's Seed (WBW-DC-ZODIAC-5)"],
+		choices : ["Eldritch Staff (PS-DC-PESCH)","Eldritch Staff (PS-DC-PKL-15)","Staff of the Adder (CCC-SRCC1-3)","Staff of Adornment (CCC-3MAGS-ONE)","Staff of Adornment (PS-DC-PKL-10)","Staff of Adornment: K's Ashenwood Staff (SJ-DC-AMO-KURI-3)","Staff of Adornment (SJ-DC-ARQ-2)","Staff of Adornment: Ocharine (SJ-DC-DD-7)","Staff of Adornment (SJ-DC-DEN-H5)","Staff of Adornment (SJ-DC-IGC-ECP-5)","Staff of Adornment (SJ-DC-MONSTER-1)","Staff of Adornment: Shakujo (SJ-DC-MWG-1)","Staff of Adornment (SJ-DC-ROTU-5)","Staff of Adornment (SJ-DC-TEL-12)","Staff of Adornment (WBW-DC-NJ-COU-2)","Staff of Birdcalls (FR-DC-TT-T201)","Staff of Birdcalls (WBW-DC-BIRE-1)","Staff of Birdcalls (WBW-DC-CONMAR-3)","Staff of Birdcalls (WBW-DC-Death)","Staff of Birdcalls (WBW-DC-FDC-3)","Staff of Birdcalls (WBW-DC-HBK-1)","Staff of Birdcalls (WBW-DC-ROBIN-1-2)","Staff of Birdcalls (WBW-DC-ROOK-1-4)","Staff of Birdcalls: Dark Crystal (WBW-DC-ZODIAC-10)","Staff of Charming (DDEX2-2)","Staff of Defense (SJ-DC-BST-6)","Staff of Defense: Xuanwu Jade Shuttle (SJ-DC-DD-9)","Staff of Defense (SJ-DC-ETO-2)","Staff of Defense: Black Root of Clathrus Archeri (SJ-DC-PANDORA-JWEI-3A)","Staff of Defense (SJ-DC-RFJK-2-2)","Staff of Defense (SJ-DC-TEL-2)","Staff of Fate (BMG-MOON-MD-10)","Staff of Flowers (CCC-KUMORI-3-1)","Staff of Frost (DDAL0-11E)","Staff of Frost (DDAL-DRW5)","Staff of Frost (WBW-DC-AEG-2)","Staff of Healing: Driftwood Staff (CCC-DES-1-2)","Staff of Healing (CCC-GHC-BK2-8)","Staff of Healing (CCC-QCC2019-3)","Staff of Healing (CCC-WYC-2-1)","Staff of Healing (DDEP4)","Staff of the Magi (DDAL7-17)","Staff of Power (DDAL5-19)","Staff of Power (DDEP4)","Staff of Power: Tongkat Nenek Kebayan (WBW-DC-DMMC-1)","Staff of Power: Oblivia (WBW-DC-PHP-ORNG-2)","Staff of the Python (CCC-BMG-MOON7-1)","Staff of the Python: Earth Tender's Branch (CCC-BMG-MOON8-2)","Staff of the Python: Bulkawa's Benevolence (CCC-GSP2-2)","Staff of the Python (FR-DC-GHG-4)","Staff of the Python: Blackztaff (FR-DC-WATERDEEP-KYZ)","Staff of the Python (FR-DC-WCAG3-4)","Staff of Striking (CCC-TRI-14 YUL1-3)","Staff of Striking (DDAL7-12)","Staff of Striking (DDAL10-10)","Staff of Striking: Moon Dance (SJ-DC-PANDORA-JWEI-1)","Staff of Striking: Dragon's Glory (SJ-DC-ROTU-5)","Staff of Striking: Orcus Wand Splinter (SJ-DC-TRIDEN-MW3)","Staff of Swarming Insects (DDEX3-3)","Staff of Swarming Insects: Mildy's (WBW-DC-DES-1-7)","Staff of Swarming Insects: Scorpion Staff (WBW-DC-DGE-2)","Staff of Swarming Insects: Drone Control Rod (WBW-DC-LEGIT-SV-6)","Staff of Swarming Insects: Mariposa (WBW-DC-PHP-ORNG-2)","Staff of Swarming Insects: Ygorl's Crook (WBW-DC-Rook-3-3)","Staff of Thunder and Lightning (DDAL5-8)","Staff of Thunder and Lightning (DDEP5-2)","Staff of Thunder and Lightning (PS-DC-PKL-16)","Staff of Withering (DDEX2-13)","Staff of Withering (DDAL8-13)","Staff of Withering: The Inoculum (SJ-DC-VEN-2)","Staff of Withering: Positive Prognosis (SJ-DC-VEN-2)","Staff of the Woodlands (CCC-BMG-MOON12-1)","Staff of the Woodlands (CCC-GARY-9)","Staff of the Woodlands (DDAL7-8/DDEP7-1)","Staff of the Woodlands: Liwanag (WBW-DC-ANDL-3)","Staff of the Woodlands: Temperate (WBW-DC-CONMAR-6)","Staff of the Woodlands (WBW-DC-HAVN-1)","Staff of the Woodlands: Guardian (WBW-DC-HH-2)","Staff of the Woodlands (WBW-DC-IDL1)","Staff of the Woodlands (WBW-DC-PHP-LCL-1)","Staff of the Woodlands: Hope's Emissary (WBW-DC-Rook-3-2)","Staff of the Woodlands: Sunlit (WBW-DC-Sunlit-6)","Staff of the Woodlands: Delver's (WBW-DC-ZEP-T2S2)","Staff of the Woodlands: Dragon's Seed (WBW-DC-ZODIAC-5)"],
+	"eldritch staff (ps-dc-pesch)" : {
+		name : "Eldritch Staff (PS-DC-PESCH)",
+		source : [["AL", "PS-DC"]],
+		rarity : "very rare",
+		attunement : true,
+		description : "Z'althir's staff is twisted black iron, capped with obsidian, & a smooth ebony grip. As a bonus action, a blade of purple eldritch energy appears/disappears, making it a magic spear. The blade thrums with a deep hum of ancient arcane power. The +1 staff has 10 charges, 1d6+4 regained at dawn. 5% chance destroyed if last charge used. When I hit with it, I can deal +1d8 Lightning per charge (max 3). As Reaction if damaged, 3 charges to teleport 60 ft to visible space & become Invisible until my next turn, or I atk/cast/dmg.",
+		descriptionLong : "Z'althir's staff is made from twisted black iron, capped with a flat obsidian plate, and has a smooth ebony grip. As a bonus action, a blade of purplish eldritch energy appears or disappears, giving it the properties of a magic spear. The blade thrums with a deep, resonant hum of ancient arcane power. The staff has 10 charges, 1d6+4 regained at dawn. If last charge used, roll a d20. On a 1, the staff is destroyed in a harmless burst of eldritch energy. When I hit with it in melee, I can deal +1d8 Lightning per charge (max 3). As a Reaction when damaged, I can use 3 charges to become Invisible and teleport 60 ft to visible empty space. I'm Invisible until my next turn or I attack, cast a spell, or deal damage.",
+		descriptionFull : "Z'althir's eldritch staff is crafted from twisted black iron, capped with a flat obsidian plate, and features a smooth, ebony wood grip; when the energy blade springs out, it thrums with a deep, resonant hum, reminiscent of ancient arcane power. While grasping the staff, you can use a bonus action to cause a blade of purplish eldritch energy to spring into existence, or make the blade disappear. While the blade exists, this magic quarterstaff has the properties of a magic spear."+
+		"\n   This staff can be wielded as a magic quarterstaff that grants a +1 bonus to attack and damage rolls made with it."+
+		"\n   The staff has 10 charges and regains 1d6 + 4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff is destroyed in an otherwise harmless burst of eldritch energy."+
+		"\n   " + toUni("Eldritch Attack") + ". When you hit with a melee attack using the staff, you can expend up to 3 of its charges. For each charge you expend, the target takes an extra 1d8 lightning damage."+
+		"\n   " + toUni("Eldritch Escape") + ". If you take damage while holding the staff, you can use your reaction to expend 3 of the staff's charges, whereupon you turn invisible and teleport yourself, along with any equipment you are wearing or carrying, up to 60 feet to an unoccupied space that you can see. You remain invisible until the start of your next turn or until you attack, cast a spell, or deal damage.",
+		weight : 4,
+		limfeaname : "Eldritch Staff",
+		action : [["reaction", " (if damaged)"]],
+		usages : 10,
+		recovery : "dawn",
+		additional : "regains 1d6+4",
+	weaponOptions : [{
+		baseWeapon : "quarterstaff",
+		regExpSearch : /eldritch staff/i,
+		name : "Eldritch Staff",
+		source : [["AL", "PS-DC"]],
+		description : "Versatile (1d8); Topple; On hit, +1d8 Lightning per charge (max 3); ba switch to Spear",
+		modifiers : [1, 1],
+		selectNow : true
+		}]
+	},
+	"eldritch staff (ps-dc-pkl-15)" : {
+		name : "Eldritch Staff (PS-DC-PKL-15)",
+		source : [["AL", "PS-DC"]],
+		rarity : "very rare",
+		attunement : true,
+		description : "This +1 quarterstaff has 10 charges, 1d6+4 regained at dawn, and can be attuned to in 1 minute. 5% chance destroyed if last charge used. When I hit with it, I can deal +1d8 Lightning dmg per charge (max 3). As Reaction if I'm damaged, 3 charges to teleport 60 ft to visible empty space & become Invisible until my next turn, or I atk/cast/dmg.",
+		descriptionLong : "This +1 quarterstaff has 10 charges, 1d6+4 regained at dawn, and can be attuned to in 1 minute. If last charge used, roll a d20. On a 1, the staff is destroyed in a harmless burst of eldritch energy. When I hit with it in melee, I can deal +1d8 Lightning per charge (max 3). As a Reaction when damaged, I can use 3 charges to become Invisible and teleport 60 ft to visible empty space. I'm Invisible until my next turn or I attack, cast a spell, or deal damage.",
+		descriptionFull : "This staff can be wielded as a magic quarterstaff that grants a +1 bonus to attack and damage rolls made with it."+
+		"\n   The staff has 10 charges and regains 1d6 + 4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff is destroyed in an otherwise harmless burst of eldritch energy."+
+		"\n   " + toUni("Eldritch Attack") + ". When you hit with a melee attack using the staff, you can expend up to 3 of its charges. For each charge you expend, the target takes an extra 1d8 lightning damage."+
+		"\n   " + toUni("Eldritch Escape") + ". If you take damage while holding the staff, you can use your reaction to expend 3 of the staff's charges, whereupon you turn invisible and teleport yourself, along with any equipment you are wearing or carrying, up to 60 feet to an unoccupied space that you can see. You remain invisible until the start of your next turn or until you attack, cast a spell, or deal damage."+
+		"\n   " + toUni("Harmonious") + ". Attuning to this item takes only 1 minute.",
+		weight : 4,
+		limfeaname : "Eldritch Staff",
+		action : [["reaction", " (if damaged)"]],
+		usages : 10,
+		recovery : "dawn",
+		additional : "regains 1d6+4",
+	weaponOptions : [{
+		baseWeapon : "quarterstaff",
+		regExpSearch : /eldritch staff/i,
+		name : "Eldritch Staff",
+		source : [["AL", "PS-DC"]],
+		description : "Versatile (1d8); Topple; On hit, +1d8 Lightning per charge (max 3)",
+		modifiers : [1, 1],
+		selectNow : true
+		}]
+	},
 	"staff of the adder (ccc-srcc1-3)" : {
 		name : "Staff of the Adder (CCC-SRCC1-3)",
 		source : [["AL","CCC"]],
@@ -384,24 +909,9 @@ MagicItemsList["al staffs"] = {
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
 		weaponsAdd : { select : ["Staff of Defense"], options : ["Staff of Defense"] },
-		spellcastingBonus : [{
-			name : "1 charge",
-			spells : ["mage armor"],
-			selection : ["mage armor"],
-			firstCol : 1
-		}, {
-			name : "2 charges",
-			spells : ["shield"],
-			selection : ["shield"],
-			firstCol : 2
-		}],
-		spellChanges : {
-			"shield" : {
-				time : "1 a",
-				changes : "Cast as an action."
-			}
-		},
-		extraAC : [{name : "Staff of Defense", mod : 1, magic : true, text : "I gain a +1 bonus to AC while holding the Staff of Defense."}],
+		spellcastingBonus : staffDefenseCalcs.spellcastingBonus,
+		spellChanges : staffDefenseCalcs.spellChanges,
+		extraAC : staffDefenseCalcs.extraAC,
 	},
 	"staff of defense: xuanwu jade shuttle (sj-dc-dd-9)" : {
 		name : "Xuanwu Jade Shuttle, Staff of Defense (DD-9)",
@@ -425,24 +935,9 @@ MagicItemsList["al staffs"] = {
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
 		weaponsAdd : { select : ["Xuanwu Jade Shuttle, Staff of Defense"], options : ["Xuanwu Jade Shuttle, Staff of Defense"] },
-		spellcastingBonus : [{
-			name : "1 charge",
-			spells : ["mage armor"],
-			selection : ["mage armor"],
-			firstCol : 1
-		}, {
-			name : "2 charges",
-			spells : ["shield"],
-			selection : ["shield"],
-			firstCol : 2
-		}],
-		spellChanges : {
-			"shield" : {
-				time : "1 a",
-				changes : "Cast as an action."
-			}
-		},
-		extraAC : [{name : "Staff of Defense", mod : 1, magic : true, text : "I gain a +1 bonus to AC while holding the Staff of Defense."}],
+		spellcastingBonus : staffDefenseCalcs.spellcastingBonus,
+		spellChanges : staffDefenseCalcs.spellChanges,
+		extraAC : staffDefenseCalcs.extraAC,
 		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on Initiative rolls." },
 	},
 	"staff of defense (sj-dc-eto-2)" : {
@@ -465,24 +960,9 @@ MagicItemsList["al staffs"] = {
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
 		weaponsAdd : { select : ["Staff of Defense"], options : ["Staff of Defense"] },
-		spellcastingBonus : [{
-			name : "1 charge",
-			spells : ["mage armor"],
-			selection : ["mage armor"],
-			firstCol : 1
-		}, {
-			name : "2 charges",
-			spells : ["shield"],
-			selection : ["shield"],
-			firstCol : 2
-		}],
-		spellChanges : {
-			"shield" : {
-				time : "1 a",
-				changes : "Cast as an action."
-			}
-		},
-		extraAC : [{name : "Staff of Defense", mod : 1, magic : true, text : "I gain a +1 bonus to AC while holding the Staff of Defense."}],
+		spellcastingBonus : staffDefenseCalcs.spellcastingBonus,
+		spellChanges : staffDefenseCalcs.spellChanges,
+		extraAC : staffDefenseCalcs.extraAC,
 	},
 	"staff of defense: black root of clathrus archeri (sj-dc-pandora-jwei-3a)" : {
 		name : "Black Root of Clathrus Archeri (Staff of Defense)",
@@ -506,24 +986,9 @@ MagicItemsList["al staffs"] = {
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
 		weaponsAdd : { select : ["Black Root, Staff of Defense"], options : ["Black Root, Staff of Defense"] },
-		spellcastingBonus : [{
-			name : "1 charge",
-			spells : ["mage armor"],
-			selection : ["mage armor"],
-			firstCol : 1
-		}, {
-			name : "2 charges",
-			spells : ["shield"],
-			selection : ["shield"],
-			firstCol : 2
-		}],
-		spellChanges : {
-			"shield" : {
-				time : "1 a",
-				changes : "Cast as an action."
-			}
-		},
-		extraAC : [{name : "Staff of Defense", mod : 1, magic : true, text : "I gain a +1 bonus to AC while holding the Staff of Defense."}],
+		spellcastingBonus : staffDefenseCalcs.spellcastingBonus,
+		spellChanges : staffDefenseCalcs.spellChanges,
+		extraAC : staffDefenseCalcs.extraAC,
 	},
 	"staff of defense (sj-dc-rfjk-2-2)" : {
 		name : "Staff of Defense (SJ-DC-RFJK-2-2)",
@@ -546,24 +1011,9 @@ MagicItemsList["al staffs"] = {
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
 		weaponsAdd : { select : ["Staff of Defense"], options : ["Staff of Defense"] },
-		spellcastingBonus : [{
-			name : "1 charge",
-			spells : ["mage armor"],
-			selection : ["mage armor"],
-			firstCol : 1
-		}, {
-			name : "2 charges",
-			spells : ["shield"],
-			selection : ["shield"],
-			firstCol : 2
-		}],
-		spellChanges : {
-			"shield" : {
-				time : "1 a",
-				changes : "Cast as an action."
-			}
-		},
-		extraAC : [{name : "Staff of Defense", mod : 1, magic : true, text : "I gain a +1 bonus to AC while holding the Staff of Defense."}],
+		spellcastingBonus : staffDefenseCalcs.spellcastingBonus,
+		spellChanges : staffDefenseCalcs.spellChanges,
+		extraAC : staffDefenseCalcs.extraAC,
 	},
 	"staff of defense (sj-dc-tel-2)" : {
 		name : "Staff of Defense (SJ-DC-TEL-2)",
@@ -585,24 +1035,9 @@ MagicItemsList["al staffs"] = {
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
 		weaponsAdd : { select : ["Staff of Defense"], options : ["Staff of Defense"] },
-		spellcastingBonus : [{
-			name : "1 charge",
-			spells : ["mage armor"],
-			selection : ["mage armor"],
-			firstCol : 1
-		}, {
-			name : "2 charges",
-			spells : ["shield"],
-			selection : ["shield"],
-			firstCol : 2
-		}],
-		spellChanges : {
-			"shield" : {
-				time : "1 a",
-				changes : "Cast as an action."
-			}
-		},
-		extraAC : [{name : "Staff of Defense", mod : 1, magic : true, text : "I gain a +1 bonus to AC while holding the Staff of Defense."}],
+		spellcastingBonus : staffDefenseCalcs.spellcastingBonus,
+		spellChanges : staffDefenseCalcs.spellChanges,
+		extraAC : staffDefenseCalcs.extraAC,
 	},
 	"staff of fate (bmg-moon-md-10)" : {
 		name : "Staff of Fate (BMG-MOON-MD-10)",
@@ -635,7 +1070,7 @@ MagicItemsList["al staffs"] = {
 		name : "Staff of Flowers (CCC-KUMORI-3-1)",
 		source : [["AL","CCC"]],
 		rarity : "common",
-		description : "This uncarved branch of a weir tree has silver-brown leaves with velvet-black undersides sprouting from the top. It glows faintly blue in magically-lit areas & for 10 min after leaving. The staff has 10 charges, 1d6+4 regained at dawn; 5% chance destroyed if use last charge. As Magic action, 1 charge makes a flower sprout from staff or soil in 5 ft. It's nonmagical & grows or withers normally.",
+		description : "This uncarved branch of a weir tree has silver-brown leaves with velvet-black undersides sprouting from the top. It glows faintly blue in magically-lit areas & for 10 min after leaving. The staff has 10 charges, 1d6+4 regained at dawn; 5% chance destroyed if use last charge. As Magic action, 1 charge makes a flower sprout from staff or soil in 5 ft. It's nonmagical & grows or withers normally. Daisy by default.",
 		descriptionLong : "This uncarved branch of a weir tree has silver-brown leaves with velvet-black undersides sprouting from the top. It glows faintly blue in magically-lit areas & continues for 10 min after leaving. The staff has 10 charges, 1d6+4 regained at dawn; 5% chance destroyed when last charge used. As Magic action, use 1 charge to make chosen flower sprout from staff or soil in 5 ft. The flower is nonmagical & grows or withers normally.",
 		descriptionFull : "The natural, uncarved branch of a weir tree makes up the entirety of this staff. New growth sprouts from the head of the staff, silver-brown leaves with velvet-black undersides. The staff glows faintly blue when inside a magically-lit area; after leaving the area, the staff's illumination continues for ten minutes but is not bright enough to light an area.\n   This wooden staff has 10 charges. While holding it, you can take a Magic action to expend 1 charge from the staff and cause a flower to sprout from a patch of earth or soil within 5 feet of yourself, or from the staff itself. Unless you choose a specific kind of flower, the staff creates a mild-scented daisy. The flower is harmless and nonmagical, and it grows or withers as a normal flower would." + toUni("Regaining Charges") + "The staff regains 1d6 + 4 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff turns into flower petals and is lost forever.",
 		weight : 4,
@@ -663,23 +1098,7 @@ MagicItemsList["al staffs"] = {
 		dmgres : ["Cold"],
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
-		spellcastingBonus : [{
-			name : "1 charge",
-			spells : ["fog cloud"],
-			selection : ["fog cloud"],
-			firstCol : 1
-		}, {
-			name : "4 charges",
-			spells : ["ice storm", "wall of ice"],
-			selection : ["ice storm", "wall of ice"],
-			firstCol : 4,
-			times : 2
-		}, {
-			name : "5 charges",
-			spells : ["cone of cold"],
-			selection : ["cone of cold"],
-			firstCol : 5
-		}]
+		spellcastingBonus : staffFrostSpells.spellcastingBonus,
 	},
 	"staff of frost (ddal-drw5)" : {
 		name : "Staff of Frost (DDAL-DRW5)",
@@ -698,23 +1117,7 @@ MagicItemsList["al staffs"] = {
 		dmgres : ["Cold"],
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
-		spellcastingBonus : [{
-			name : "1 charge",
-			spells : ["fog cloud"],
-			selection : ["fog cloud"],
-			firstCol : 1
-		}, {
-			name : "4 charges",
-			spells : ["ice storm", "wall of ice"],
-			selection : ["ice storm", "wall of ice"],
-			firstCol : 4,
-			times : 2
-		}, {
-			name : "5 charges",
-			spells : ["cone of cold"],
-			selection : ["cone of cold"],
-			firstCol : 5
-		}]
+		spellcastingBonus : staffFrostSpells.spellcastingBonus,
 	},
 	"staff of frost (wbw-dc-aeg-2)" : {
 		name : "Staff of Frost (WBW-DC-AEG-2)",
@@ -733,23 +1136,7 @@ MagicItemsList["al staffs"] = {
 		dmgres : ["Cold"],
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
-		spellcastingBonus : [{
-			name : "1 charge",
-			spells : ["fog cloud"],
-			selection : ["fog cloud"],
-			firstCol : 1
-		}, {
-			name : "4 charges",
-			spells : ["ice storm", "wall of ice"],
-			selection : ["ice storm", "wall of ice"],
-			firstCol : 4,
-			times : 2
-		}, {
-			name : "5 charges",
-			spells : ["cone of cold"],
-			selection : ["cone of cold"],
-			firstCol : 5
-		}]
+		spellcastingBonus : staffFrostSpells.spellcastingBonus,
 	},
 	"staff of healing: driftwood staff (ccc-des-1-2)" : {
 		name : "Driftwood Staff of Healing (DES-1-2)",
@@ -768,28 +1155,8 @@ MagicItemsList["al staffs"] = {
 		additional : "regains 1d6+4",
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
-		spellcastingBonus : [{
-			name : "1+ charges",
-			spells : ["cure wounds"],
-			selection : ["cure wounds"],
-			firstCol : "1+"
-		}, {
-			name : "2 charges",
-			spells : ["lesser restoration"],
-			selection : ["lesser restoration"],
-			firstCol : 2
-		}, {
-			name : "5 charges",
-			spells : ["mass cure wounds"],
-			selection : ["mass cure wounds"],
-			firstCol : 5
-		}],
-		spellChanges : {
-			"cure wounds" : {
-				description : "1 creature heals 2d8+spellcasting ability modifier HP, +2d8 per charge after the 1st (max 4)",
-				changes : "The spell level Cure Wounds is cast at depends on the amount of charges spend, 1 charge per spell slot level. Max 4th."
-			}
-		}
+		spellcastingBonus : staffHealingSpells.spellcastingBonus,
+		spellChanges : staffHealingSpells.spellChanges,
 	},
 	"staff of healing (ccc-ghc-bk2-8)" : {
 		name : "Staff of Healing (CCC-GHC-BK2-8)",
@@ -807,28 +1174,8 @@ MagicItemsList["al staffs"] = {
 		additional : "regains 1d6+4",
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
-		spellcastingBonus : [{
-			name : "1+ charges",
-			spells : ["cure wounds"],
-			selection : ["cure wounds"],
-			firstCol : "1+"
-		}, {
-			name : "2 charges",
-			spells : ["lesser restoration"],
-			selection : ["lesser restoration"],
-			firstCol : 2
-		}, {
-			name : "5 charges",
-			spells : ["mass cure wounds"],
-			selection : ["mass cure wounds"],
-			firstCol : 5
-		}],
-		spellChanges : {
-			"cure wounds" : {
-				description : "1 creature heals 2d8+spellcasting ability modifier HP, +2d8 per charge after the 1st (max 4)",
-				changes : "The spell level Cure Wounds is cast at depends on the amount of charges spend, 1 charge per spell slot level. Max 4th."
-			}
-		}
+		spellcastingBonus : staffHealingSpells.spellcastingBonus,
+		spellChanges : staffHealingSpells.spellChanges,
 	},
 	"staff of healing (ccc-qcc2019-3)" : {
 		name : "Staff of Healing (CCC-QCC2019-3)",
@@ -846,28 +1193,8 @@ MagicItemsList["al staffs"] = {
 		additional : "regains 1d6+4",
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
-		spellcastingBonus : [{
-			name : "1+ charges",
-			spells : ["cure wounds"],
-			selection : ["cure wounds"],
-			firstCol : "1+"
-		}, {
-			name : "2 charges",
-			spells : ["lesser restoration"],
-			selection : ["lesser restoration"],
-			firstCol : 2
-		}, {
-			name : "5 charges",
-			spells : ["mass cure wounds"],
-			selection : ["mass cure wounds"],
-			firstCol : 5
-		}],
-		spellChanges : {
-			"cure wounds" : {
-				description : "1 creature heals 2d8+spellcasting ability modifier HP, +2d8 per charge after the 1st (max 4)",
-				changes : "The spell level Cure Wounds is cast at depends on the amount of charges spend, 1 charge per spell slot level. Max 4th."
-			}
-		}
+		spellcastingBonus : staffHealingSpells.spellcastingBonus,
+		spellChanges : staffHealingSpells.spellChanges,
 	},
 	"staff of healing (ccc-wyc-2-1)" : {
 		name : "Staff of Healing (CCC-WYC-2-1)",
@@ -885,28 +1212,8 @@ MagicItemsList["al staffs"] = {
 		additional : "regains 1d6+4",
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
-		spellcastingBonus : [{
-			name : "1+ charges",
-			spells : ["cure wounds"],
-			selection : ["cure wounds"],
-			firstCol : "1+"
-		}, {
-			name : "2 charges",
-			spells : ["lesser restoration"],
-			selection : ["lesser restoration"],
-			firstCol : 2
-		}, {
-			name : "5 charges",
-			spells : ["mass cure wounds"],
-			selection : ["mass cure wounds"],
-			firstCol : 5
-		}],
-		spellChanges : {
-			"cure wounds" : {
-				description : "1 creature heals 2d8+spellcasting ability modifier HP, +2d8 per charge after the 1st (max 4)",
-				changes : "The spell level Cure Wounds is cast at depends on the amount of charges spend, 1 charge per spell slot level. Max 4th."
-			}
-		}
+		spellcastingBonus : staffHealingSpells.spellcastingBonus,
+		spellChanges : staffHealingSpells.spellChanges,
 	},
 	"staff of healing (ddep4)" : {
 		name : "Staff of Healing (DDEP4)",
@@ -924,28 +1231,8 @@ MagicItemsList["al staffs"] = {
 		additional : "regains 1d6+4",
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
-		spellcastingBonus : [{
-			name : "1+ charges",
-			spells : ["cure wounds"],
-			selection : ["cure wounds"],
-			firstCol : "1+"
-		}, {
-			name : "2 charges",
-			spells : ["lesser restoration"],
-			selection : ["lesser restoration"],
-			firstCol : 2
-		}, {
-			name : "5 charges",
-			spells : ["mass cure wounds"],
-			selection : ["mass cure wounds"],
-			firstCol : 5
-		}],
-		spellChanges : {
-			"cure wounds" : {
-				description : "1 creature heals 2d8+spellcasting ability modifier HP, +2d8 per charge after the 1st (max 4)",
-				changes : "The spell level Cure Wounds is cast at depends on the amount of charges spend, 1 charge per spell slot level. Max 4th."
-			}
-		}
+		spellcastingBonus : staffHealingSpells.spellcastingBonus,
+		spellChanges : staffHealingSpells.spellChanges,
 	},
 	"staff of the magi (ddal7-17)" : { // contains contributions by Pengsloth
 		name : "Staff of the Magi (DDAL7-17)",
@@ -1083,60 +1370,14 @@ MagicItemsList["al staffs"] = {
 			modifiers : [2, 2],
 			selectNow : true,
 		},
-		calcChanges : {
-			spellCalc : [
-				function (type, spellcasters, ability) {
-					if (type == "attack") return 2;
-				},
-				"While holding the Staff of Power, I have a +2 bonus to spell attack rolls."
-			]
-		},
+		calcChanges: staffOfPowerCalc.calcChanges,
 		addMod : [{ type : "save", field : "all", mod : 2, text : "While holding the Staff of Power, I gain a +2 bonus to all my saving throws." }],
 		extraAC : [{name : "Staff of Power", mod : 2, magic : true, text : "I gain a +2 bonus to AC while attuned."}],
 		action : [["action", " (Retributive Strike)"]],
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
-		spellcastingBonus : [{
-			name : "5 charges; 5th level",
-			spells : ["fireball", "lightning bolt"],
-			selection : ["fireball", "lightning bolt"],
-			firstCol : 5,
-			times : 2
-		}, {
-			name : "6 charges",
-			spells : ["globe of invulnerability"],
-			selection : ["globe of invulnerability"],
-			firstCol : 6
-		}, {
-			name : "5 charges",
-			spells : ["cone of cold", "hold monster", "wall of force"],
-			selection : ["cone of cold", "hold monster", "wall of force"],
-			firstCol : 5,
-			times : 3
-		}, {
-			name : "2 charges",
-			spells : ["levitate"],
-			selection : ["levitate"],
-			firstCol : 2
-		}, {
-			name : "1 charge",
-			spells : ["magic missile", "ray of enfeeblement"],
-			selection : ["magic missile", "ray of enfeeblement"],
-			firstCol : 1,
-			times : 2
-		}],
-		spellChanges : {
-			"fireball" : {
-				nameShort : "Fireball (5th level)",
-				description : "20-ft rad all crea 10d6 Fire; save halves; unattended flammable objects ignite",
-				changes : "Cast as if using a 5th-level spell slot."
-			},
-			"lightning bolt" : {
-				nameShort : "Lightning Bolt (5th level)",
-				description : "100-ft long 5-ft wide all 10d6 Lightning dmg; save halves",
-				changes : "Cast as if using a 5th-level spell slot."
-			}
-		}
+		spellcastingBonus : staffOfPowerCalc.spellcastingBonus,
+		spellChanges : staffOfPowerCalc.spellChanges,
 	},
 	"staff of power (ddep4)" : {
 		name : "Staff of Power (DDEP4)",
@@ -1162,60 +1403,14 @@ MagicItemsList["al staffs"] = {
 			modifiers : [2, 2],
 			selectNow : true,
 		},
-		calcChanges : {
-			spellCalc : [
-				function (type, spellcasters, ability) {
-					if (type == "attack") return 2;
-				},
-				"While holding the Staff of Power, I have a +2 bonus to spell attack rolls."
-			]
-		},
+		calcChanges: staffOfPowerCalc.calcChanges,
 		addMod : [{ type : "save", field : "all", mod : 2, text : "While holding the Staff of Power, I gain a +2 bonus to all my saving throws." }],
 		extraAC : [{name : "Staff of Power", mod : 2, magic : true, text : "I gain a +2 bonus to AC while attuned."}],
 		action : [["action", " (Retributive Strike)"]],
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
-		spellcastingBonus : [{
-			name : "5 charges; 5th level",
-			spells : ["fireball", "lightning bolt"],
-			selection : ["fireball", "lightning bolt"],
-			firstCol : 5,
-			times : 2
-		}, {
-			name : "6 charges",
-			spells : ["globe of invulnerability"],
-			selection : ["globe of invulnerability"],
-			firstCol : 6
-		}, {
-			name : "5 charges",
-			spells : ["cone of cold", "hold monster", "wall of force"],
-			selection : ["cone of cold", "hold monster", "wall of force"],
-			firstCol : 5,
-			times : 3
-		}, {
-			name : "2 charges",
-			spells : ["levitate"],
-			selection : ["levitate"],
-			firstCol : 2
-		}, {
-			name : "1 charge",
-			spells : ["magic missile", "ray of enfeeblement"],
-			selection : ["magic missile", "ray of enfeeblement"],
-			firstCol : 1,
-			times : 2
-		}],
-		spellChanges : {
-			"fireball" : {
-				nameShort : "Fireball (5th level)",
-				description : "20-ft rad all crea 10d6 Fire dmg; save halves; unattended flammable objects ignite",
-				changes : "Cast as if using a 5th-level spell slot."
-			},
-			"lightning bolt" : {
-				nameShort : "Lightning Bolt (5th level)",
-				description : "100-ft long 5-ft wide all 10d6 Lightning dmg; save halves",
-				changes : "Cast as if using a 5th-level spell slot."
-			}
-		}
+		spellcastingBonus : staffOfPowerCalc.spellcastingBonus,
+		spellChanges : staffOfPowerCalc.spellChanges,
 	},
 	"staff of power: tongkat nenek kebayan (wbw-dc-dmmc-1)" : {
 		name : "Tongkat Nenek Kebayan (Staff of Power)",
@@ -1240,60 +1435,14 @@ MagicItemsList["al staffs"] = {
 			modifiers : [2, 2],
 			selectNow : true,
 		},
-		calcChanges : {
-			spellCalc : [
-				function (type, spellcasters, ability) {
-					if (type == "attack") return 2;
-				},
-				"While holding the Staff of Power, I have a +2 bonus to spell attack rolls."
-			]
-		},
+		calcChanges: staffOfPowerCalc.calcChanges,
 		addMod : [{ type : "save", field : "all", mod : 2, text : "While holding the Staff of Power, I gain a +2 bonus to all my saving throws." }],
 		extraAC : [{name : "Staff of Power", mod : 2, magic : true, text : "I gain a +2 bonus to AC while attuned."}],
 		action : [["action", " (Retributive Strike)"]],
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
-		spellcastingBonus : [{
-			name : "5 charges; 5th level",
-			spells : ["fireball", "lightning bolt"],
-			selection : ["fireball", "lightning bolt"],
-			firstCol : 5,
-			times : 2
-		}, {
-			name : "6 charges",
-			spells : ["globe of invulnerability"],
-			selection : ["globe of invulnerability"],
-			firstCol : 6
-		}, {
-			name : "5 charges",
-			spells : ["cone of cold", "hold monster", "wall of force"],
-			selection : ["cone of cold", "hold monster", "wall of force"],
-			firstCol : 5,
-			times : 3
-		}, {
-			name : "2 charges",
-			spells : ["levitate"],
-			selection : ["levitate"],
-			firstCol : 2
-		}, {
-			name : "1 charge",
-			spells : ["magic missile", "ray of enfeeblement"],
-			selection : ["magic missile", "ray of enfeeblement"],
-			firstCol : 1,
-			times : 2
-		}],
-		spellChanges : {
-			"fireball" : {
-				nameShort : "Fireball (5th level)",
-				description : "20-ft rad all crea 10d6 Fire dmg; save halves; unattended flammable objects ignite",
-				changes : "Cast as if using a 5th-level spell slot."
-			},
-			"lightning bolt" : {
-				nameShort : "Lightning Bolt (5th level)",
-				description : "100-ft long 5-ft wide all 10d6 Lightning dmg; save halves",
-				changes : "Cast as if using a 5th-level spell slot."
-			}
-		}
+		spellcastingBonus : staffOfPowerCalc.spellcastingBonus,
+		spellChanges : staffOfPowerCalc.spellChanges,
 	},
 	"staff of power: oblivia (wbw-dc-php-orng-2)" : {
 		name : "Oblivia, Staff of Power (PHP-ORNG-2)",
@@ -1318,60 +1467,14 @@ MagicItemsList["al staffs"] = {
 			modifiers : [2, 2],
 			selectNow : true,
 		},
-		calcChanges : {
-			spellCalc : [
-				function (type, spellcasters, ability) {
-					if (type == "attack") return 2;
-				},
-				"While holding the Staff of Power, I have a +2 bonus to spell attack rolls."
-			]
-		},
+		calcChanges: staffOfPowerCalc.calcChanges,
 		addMod : [{ type : "save", field : "all", mod : 2, text : "While holding the Staff of Power, I gain a +2 bonus to all my saving throws." }],
 		extraAC : [{name : "Staff of Power", mod : 2, magic : true, text : "I gain a +2 bonus to AC while attuned."}],
 		action : [["action", " (Retributive Strike)"]],
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
-		spellcastingBonus : [{
-			name : "5 charges; 5th level",
-			spells : ["fireball", "lightning bolt"],
-			selection : ["fireball", "lightning bolt"],
-			firstCol : 5,
-			times : 2
-		}, {
-			name : "6 charges",
-			spells : ["globe of invulnerability"],
-			selection : ["globe of invulnerability"],
-			firstCol : 6
-		}, {
-			name : "5 charges",
-			spells : ["cone of cold", "hold monster", "wall of force"],
-			selection : ["cone of cold", "hold monster", "wall of force"],
-			firstCol : 5,
-			times : 3
-		}, {
-			name : "2 charges",
-			spells : ["levitate"],
-			selection : ["levitate"],
-			firstCol : 2
-		}, {
-			name : "1 charge",
-			spells : ["magic missile", "ray of enfeeblement"],
-			selection : ["magic missile", "ray of enfeeblement"],
-			firstCol : 1,
-			times : 2
-		}],
-		spellChanges : {
-			"fireball" : {
-				nameShort : "Fireball (5th level)",
-				description : "20-ft rad all crea 10d6 Fire dmg; save halves; unattended flammable objects ignite",
-				changes : "Cast as if using a 5th-level spell slot."
-			},
-			"lightning bolt" : {
-				nameShort : "Lightning Bolt (5th level)",
-				description : "100-ft long 5-ft wide all 10d6 Lightning dmg; save halves",
-				changes : "Cast as if using a 5th-level spell slot."
-			}
-		}
+		spellcastingBonus : staffOfPowerCalc.spellcastingBonus,
+		spellChanges : staffOfPowerCalc.spellChanges,
 	},
 	"staff of the python (ccc-bmg-moon7-1)" : {
 		name : "Staff of the Python (CCC-BMG-MOON7-1)",
@@ -1427,6 +1530,18 @@ MagicItemsList["al staffs"] = {
 		attunement : true,
 		weight : 4,
 		action : [["action", "Staff of the Python (animate)"], ["bonus action", "Staff of the Python (end)"]]
+	},
+	"staff of the python (fr-dc-wcag3-4)" : {
+		name : "Staff of the Python (FR-DC-WCAG3-4)",
+		source : [["AL","FR-DC"]],
+		rarity : "uncommon",
+		description : "This magic staff is made of old but sturdy Phandar wood. Its gnarls resemble the head of a python. In danger, a pair of unseeing yellow eyes open & my mind fills with low hisses. The hisses implore me to unleash the staff & give +2 initiative if not Incapacitated. As a Magic action, throw staff in 10 ft to turn it into a Giant Constrictor Snake with full HP that acts after me. I can command it mentally on my turn if in 60 ft. Bonus action to revert to a staff. If snake reaches 0 HP, staff is destroyed.",
+		descriptionLong : "This magic staff is made of old but sturdy Phandar wood. Its gnarls resemble the head of a python. When in danger, a pair of unseeing yellow eyes open on the head and my mind fills with low hisses. The hisses implore me to unleash the staff on foes, as if eager to fight, and give +2 initiative if not Incapacitated. As a Magic action, I can throw the staff to the ground in 10 ft where it becomes a Giant Constrictor Snake. It reverts as a bonus action. I can mentally command the snake on my turn if in 60 ft and I'm not Incapacitated, deciding exactly what it does or a general command. It acts directly after me. If the snake is reduced to 0 HP, it reverts to a staff and is destroyed. Otherwise, the snake always starts out with full HP.",
+		descriptionFull : "This magic staff is made of old but still sturdy Phandar wood. The gnarls on its head resemble the head of a python. When danger reveals itself, a pair of unseeing yellow eyes open on the head and the wielder’s head fills with low hisses. The hisses seem to implore the wielder to unleash the staff on foes, as if the item were eager to get into a fight.\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don’t have the Incapacitated condition.\n   As a Magic action, you can throw this staff so that it lands in an unoccupied space within 10 feet of you, causing the staff to become a Giant Constrictor Snake in that space. The snake is under your control and shares your Initiative count, taking its turn immediately after yours.\n   On your turn, you can mentally command the snake (no action required) if it is within 60 feet of you and you don't have the Incapacitated condition. You decide what action the snake takes and where it moves during its turn, or you can issue it a general command, such as to attack your enemies or guard a location. Absent commands from you, the snake defends itself.\n   As a Bonus Action, you can command the snake to revert to staff form in its current space, and you can't use the staff's property again for 1 hour. If the snake is reduced to 0 Hit Points, it dies and reverts to its staff form; the staff then shatters and is destroyed. If the snake reverts to staff form before losing all its Hit Points, it regains all of them.",
+		attunement : true,
+		weight : 4,
+		action : [["action", "Staff of the Python (animate)"], ["bonus action", "Staff of the Python (end)"]],
+		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
 	},
 	"staff of striking (ccc-tri-14 yul1-3)" : {
 		name : "Staff of Striking (CCC-TRI-14 YUL1-3)",
@@ -1575,17 +1690,7 @@ MagicItemsList["al staffs"] = {
 		action : [["action", ""]],
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
-		spellcastingBonus : [{
-			name : "4 charges",
-			spells : ["giant insect"],
-			selection : ["giant insect"],
-			firstCol : 4
-		}, {
-			name : "5 charges",
-			spells : ["insect plague"],
-			selection : ["insect plague"],
-			firstCol : 5
-		}]
+		spellcastingBonus : staffSwarmingInsects.spellcastingBonus,
 	},
 	"staff of swarming insects: mildy's (wbw-dc-des-1-7)" : {
 		name : "Mildy's Staff of Swarming Insects (DES-1-7)",
@@ -1606,17 +1711,7 @@ MagicItemsList["al staffs"] = {
 		action : [["action", ""]],
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
-		spellcastingBonus : [{
-			name : "4 charges",
-			spells : ["giant insect"],
-			selection : ["giant insect"],
-			firstCol : 4
-		}, {
-			name : "5 charges",
-			spells : ["insect plague"],
-			selection : ["insect plague"],
-			firstCol : 5
-		}]
+		spellcastingBonus : staffSwarmingInsects.spellcastingBonus,
 	},
 	"staff of swarming insects: scorpion staff (wbw-dc-dge-2)" : {
 		name : "Scorpion Staff of Swarming Insects (DGE-2)",
@@ -1638,17 +1733,7 @@ MagicItemsList["al staffs"] = {
 		savetxt : { text : ["Adv on Str (Athletics) chks to swim"] },
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
-		spellcastingBonus : [{
-			name : "4 charges",
-			spells : ["giant insect"],
-			selection : ["giant insect"],
-			firstCol : 4
-		}, {
-			name : "5 charges",
-			spells : ["insect plague"],
-			selection : ["insect plague"],
-			firstCol : 5
-		}]
+		spellcastingBonus : staffSwarmingInsects.spellcastingBonus,
 	},
 	"staff of swarming insects: drone control rod (wbw-dc-legit-sv-6)" : {
 		name : "Drone Control Rod (Staff of Swarming Insects)",
@@ -1668,17 +1753,7 @@ MagicItemsList["al staffs"] = {
 		action : [["action", ""]],
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
-		spellcastingBonus : [{
-			name : "4 charges",
-			spells : ["giant insect"],
-			selection : ["giant insect"],
-			firstCol : 4
-		}, {
-			name : "5 charges",
-			spells : ["insect plague"],
-			selection : ["insect plague"],
-			firstCol : 5
-		}]
+		spellcastingBonus : staffSwarmingInsects.spellcastingBonus,
 	},
 	"staff of swarming insects: mariposa (wbw-dc-php-orng-2)" : {
 		name : "Mariposa, Staff of Swarming Insects (PHP-ORNG-2)",
@@ -1699,17 +1774,7 @@ MagicItemsList["al staffs"] = {
 		action : [["action", ""], ["bonus action", " (light/dim)"]],
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
-		spellcastingBonus : [{
-			name : "4 charges",
-			spells : ["giant insect"],
-			selection : ["giant insect"],
-			firstCol : 4
-		}, {
-			name : "5 charges",
-			spells : ["insect plague"],
-			selection : ["insect plague"],
-			firstCol : 5
-		}]
+		spellcastingBonus : staffSwarmingInsects.spellcastingBonus,
 	},
 	"staff of swarming insects: ygorl's crook (wbw-dc-rook-3-3)" : {
 		name : "Ygorl's Crook (Staff of Swarming Insects)",
@@ -1731,17 +1796,7 @@ MagicItemsList["al staffs"] = {
 		languageProfs : ["Slaad"],
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
-		spellcastingBonus : [{
-			name : "4 charges",
-			spells : ["giant insect"],
-			selection : ["giant insect"],
-			firstCol : 4
-		}, {
-			name : "5 charges",
-			spells : ["insect plague"],
-			selection : ["insect plague"],
-			firstCol : 5
-		}]
+		spellcastingBonus : staffSwarmingInsects.spellcastingBonus,
 	},
 	"staff of thunder and lightning (ddal5-8)" : {
 		name : "Staff of Thunder and Lightning (DDAL5-8)",
@@ -1774,6 +1829,31 @@ MagicItemsList["al staffs"] = {
 		description : "This giant-sized +2 staff is shaped like a bolt of lightning, and automatically resizes to my hands. It has 5 options, each 1 per dawn. On a hit, Lightning: +2d6 Lightning dmg; Thunder: DC 17 Con or Stunned to my next turn end; Thunder & Lightning: bonus action for both effects. Magic Action, Lightning Strike: 5\xD7120 ft line, DC 17 Dex, 9d6 Lightning or 1/2; Thunderclap: all in 60ft, 2d6 Thunder and Deaf (1 min), DC 17 Con for 1/2 dmg only.",
 		descriptionLong : "This giant-sized +2 staff is shaped like a bolt of lightning, and automatically resizes to fit my hands. It has 5 special options, each 1 per dawn. On a hit: Lightning for +2d6 Lightning; Thunder for DC 17 Con or Stunned to my next turn end; Thunder & Lightning - use bonus action for both. Magic Action: Lightning Strike - 5\xD7120ft line, DC 17 Dex, 9d6 Lightning or 1/2 on save; Thunderclap - all in 60ft, 2d6 Thunder and Deaf (1 min), DC 17 Con for 1/2 dmg only.",
 		descriptionFull : "This giant-sized quarterstaff is shaped like a bolt of lightning, and automatically resizes to fit the hands of its wielder.\n    This staff can be wielded as a magic Quarterstaff that grants a +2 bonus to attack rolls and damage rolls made with it. It also has the following additional properties. Once one of these properties is used, it can't be used again until the next dawn.\n    " + toUni("Lightning") + ". When you hit with a melee attack using the staff, you can cause the target to take an extra 2d6 Lightning damage (no action required).\n    " + toUni("Thunder") + ". When you hit with a melee attack using the staff, you can cause the staff to emit a crack of thunder, audible out to 300 feet (no action required). The target you hit must succeed on a DC 17 Constitution saving throw or have the Stunned condition until the end of your next turn.\n    " + toUni("Lightning Strike") + ". You can take a Magic action to cause a bolt of lightning to leap from the staff's tip in a Line that is 5 feet wide and 120 feet long. Each creature in that Line must make a DC 17 Dexterity saving throw, taking 9d6 Lightning damage on a failed save, or half as much damage on a successful one.\n    " + toUni("Thunderclap") + ". You can take a Magic action to cause the staff to produce a thunderclap audible out to 600 feet. Every creature a within 60-foot Emanation origination from you must make a DC 17 Constitution saving throw. On a failed save, a creature takes 2d6 Thunder damage and has the Deafened condition for 1 minute. On a successful save, a creature takes half damage and isn't deafened.\n    " + toUni("Thunder and Lightning") + ". Thunder and Lightning. Immediately after you hit with a melee attack using the staff, you can take a Bonus Action to use the Lightning and Thunder properties (see above) at the same time. Doing so doesn't expend the daily use of those properties, only the use of this one.",
+		attunement : true,
+		allowDuplicates : true,
+		weight : 4,
+		action: [["action", "Staff of T\u0026L: Lightning Strike, Thunderclap"], ["bonus action", "Staff of T\u0026L: Thunder \u0026 Lighting"]],
+		weaponOptions : {
+			baseWeapon : "quarterstaff",
+			regExpSearch : /^(?=.*staff)(?=.*thunder)(?=.*lightning).*$/i,
+			name : "Staff of Thunder and Lightning",
+			description : "Versatile (1d8), topple; Lightning: 1/dawn, +2d6 Lightning; Thunder: 1/dawn DC 17 Con or 1 rnd Stunned",
+			modifiers : [2, 2],
+			selectNow : true,
+		},
+		extraLimitedFeatures : [{
+			name : "Staff of T\u0026L [5 options, 1 use each]",
+			usages : 5,
+			recovery : "dawn"
+		}],
+	},
+	"staff of thunder and lightning (ps-dc-pkl-16)" : {
+		name : "Staff of Thunder and Lightning (PS-DC-PKL-16)",
+		source : [["AL","PS-DC"]],
+		rarity : "very rare",
+		description : "In the presence of Despayr, this +2 quarterstaff bears the word \"Foe\" in Draconic. It has 5 options, each 1 per dawn. On a hit, Lightning: +2d6 Lightning dmg; Thunder: DC 17 Con or Stunned until my next turn ends; Thunder & Lightning: bonus action for both effects. Magic Action, Lightning Strike: 5\xD7120 ft line, DC 17 Dex, 9d6 Lightning or 1/2 dmg; Thunderclap: all in 60ft, 2d6 Thunder dmg and Deafened (1 min), DC 17 Con for 1/2 dmg only.",
+		descriptionLong : "This +2 quarterstaff has 5 special options, each usable 1 per dawn. On a hit: Lightning for +2d6 Lightning dmg; Thunder for DC 17 Con or Stunned till my next turn ends; Thunder & Lightning - use bonus action for both. Magic Action: Lightning Strike - 5\xD7120ft line, DC 17 Dex, 9d6 Lightning or 1/2 on save; Thunderclap - all in 60ft, 2d6 Thunder and Deaf (1 min), DC 17 Con for 1/2 dmg only. In the presence of Despayr, the staff has the word \"Foe\" in Draconic.",
+		descriptionFull : "This staff can be wielded as a magic Quarterstaff that grants a +2 bonus to attack rolls and damage rolls made with it. It also has the following additional properties. Once one of these properties is used, it can't be used again until the next dawn.\n    " + toUni("Lightning") + ". When you hit with a melee attack using the staff, you can cause the target to take an extra 2d6 Lightning damage (no action required).\n    " + toUni("Thunder") + ". When you hit with a melee attack using the staff, you can cause the staff to emit a crack of thunder, audible out to 300 feet (no action required). The target you hit must succeed on a DC 17 Constitution saving throw or have the Stunned condition until the end of your next turn.\n    " + toUni("Lightning Strike") + ". You can take a Magic action to cause a bolt of lightning to leap from the staff's tip in a Line that is 5 feet wide and 120 feet long. Each creature in that Line must make a DC 17 Dexterity saving throw, taking 9d6 Lightning damage on a failed save, or half as much damage on a successful one.\n    " + toUni("Thunderclap") + ". You can take a Magic action to cause the staff to produce a thunderclap audible out to 600 feet. Every creature a within 60-foot Emanation origination from you must make a DC 17 Constitution saving throw. On a failed save, a creature takes 2d6 Thunder damage and has the Deafened condition for 1 minute. On a successful save, a creature takes half damage and isn't deafened.\n    " + toUni("Thunder and Lightning") + ". Thunder and Lightning. Immediately after you hit with a melee attack using the staff, you can take a Bonus Action to use the Lightning and Thunder properties (see above) at the same time. Doing so doesn't expend the daily use of those properties, only the use of this one.\n   " + toUni("Hidden Message") + ".  In the presence of Despayr, the staff bears the word, “Foe” in draconic.",
 		attunement : true,
 		allowDuplicates : true,
 		weight : 4,
@@ -1901,44 +1981,10 @@ MagicItemsList["al staffs"] = {
 			modifiers : [2, 2],
 			selectNow : true,
 		},
-		calcChanges : {
-			spellCalc : [
-				function (type, spellcasters, ability) {
-					if (type == "attack") return 2;
-				},
-				"While holding the Staff of the Woodlands, I have a +2 bonus to spell attack rolls."
-			]
-		},
+		calcChanges: staffOfWoodlands.calcChanges,
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
-	spellcastingBonus: [{
-		name: "1 charge",
-		spells: ["animal friendship", "speak with animals"],
-		selection: ["animal friendship", "speak with animals"],
-		firstCol: 1,
-		times: 2
-	}, {
-		name: "2 charges",
-		spells: ["barkskin", "locate animals or plants", "pass without trace"],
-		selection: ["barkskin", "locate animals or plants", "pass without trace"],
-		firstCol: 2,
-		times: 2
-	}, {
-		name: "3 charges",
-		spells: ["speak with plants"],
-		selection: ["speak with plants"],
-		firstCol: 3
-	}, {
-		name: "5 charges",
-		spells: ["awaken"],
-		selection: ["awaken"],
-		firstCol: 5
-	}, {
-		name: "6 charges",
-		spells: ["wall of thorns"],
-		selection: ["wall of thorns"],
-		firstCol: 6
-	}],
+		spellcastingBonus : staffOfWoodlands.spellcastingBonus,
 		},
 	"staff of the woodlands (ccc-gary-9)" : {
 		name : "Staff of the Woodlands (CCC-GARY-9)",
@@ -1963,44 +2009,10 @@ MagicItemsList["al staffs"] = {
 			modifiers : [2, 2],
 			selectNow : true,
 		},
-		calcChanges : {
-			spellCalc : [
-				function (type, spellcasters, ability) {
-					if (type == "attack") return 2;
-				},
-				"While holding the Staff of the Woodlands, I have a +2 bonus to spell attack rolls."
-			]
-		},
+		calcChanges: staffOfWoodlands.calcChanges,
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
-	spellcastingBonus: [{
-		name: "1 charge",
-		spells: ["animal friendship", "speak with animals"],
-		selection: ["animal friendship", "speak with animals"],
-		firstCol: 1,
-		times: 2
-	}, {
-		name: "2 charges",
-		spells: ["barkskin", "locate animals or plants", "pass without trace"],
-		selection: ["barkskin", "locate animals or plants", "pass without trace"],
-		firstCol: 2,
-		times: 2
-	}, {
-		name: "3 charges",
-		spells: ["speak with plants"],
-		selection: ["speak with plants"],
-		firstCol: 3
-	}, {
-		name: "5 charges",
-		spells: ["awaken"],
-		selection: ["awaken"],
-		firstCol: 5
-	}, {
-		name: "6 charges",
-		spells: ["wall of thorns"],
-		selection: ["wall of thorns"],
-		firstCol: 6
-	}],
+		spellcastingBonus : staffOfWoodlands.spellcastingBonus,
 		},
 	"staff of the woodlands (ddal7-8/ddep7-1)" : {
 		name : "Staff of the Woodlands (DDAL7-8/DDEP7-1)",
@@ -2025,44 +2037,10 @@ MagicItemsList["al staffs"] = {
 			modifiers : [2, 2],
 			selectNow : true,
 		},
-		calcChanges : {
-			spellCalc : [
-				function (type, spellcasters, ability) {
-					if (type == "attack") return 2;
-				},
-				"While holding the Staff of the Woodlands, I have a +2 bonus to spell attack rolls."
-			]
-		},
+		calcChanges: staffOfWoodlands.calcChanges,
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
-	spellcastingBonus: [{
-		name: "1 charge",
-		spells: ["animal friendship", "speak with animals"],
-		selection: ["animal friendship", "speak with animals"],
-		firstCol: 1,
-		times: 2
-	}, {
-		name: "2 charges",
-		spells: ["barkskin", "locate animals or plants", "pass without trace"],
-		selection: ["barkskin", "locate animals or plants", "pass without trace"],
-		firstCol: 2,
-		times: 2
-	}, {
-		name: "3 charges",
-		spells: ["speak with plants"],
-		selection: ["speak with plants"],
-		firstCol: 3
-	}, {
-		name: "5 charges",
-		spells: ["awaken"],
-		selection: ["awaken"],
-		firstCol: 5
-	}, {
-		name: "6 charges",
-		spells: ["wall of thorns"],
-		selection: ["wall of thorns"],
-		firstCol: 6
-	}],
+		spellcastingBonus : staffOfWoodlands.spellcastingBonus,
 		},
 	"staff of the woodlands: liwanag (wbw-dc-andl-3)" : {
 		name : "Liwanag, Staff of the Woodlands (ANDL-3)",
@@ -2087,45 +2065,11 @@ MagicItemsList["al staffs"] = {
 			modifiers : [2, 2],
 			selectNow : true,
 		},
-		calcChanges : {
-			spellCalc : [
-				function (type, spellcasters, ability) {
-					if (type == "attack") return 2;
-				},
-				"While holding the Staff of the Woodlands, I have a +2 bonus to spell attack rolls."
-			]
-		},
+		calcChanges: staffOfWoodlands.calcChanges,
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
-	spellcastingBonus: [{
-		name: "1 charge",
-		spells: ["animal friendship", "speak with animals"],
-		selection: ["animal friendship", "speak with animals"],
-		firstCol: 1,
-		times: 2
-	}, {
-		name: "2 charges",
-		spells: ["barkskin", "locate animals or plants", "pass without trace"],
-		selection: ["barkskin", "locate animals or plants", "pass without trace"],
-		firstCol: 2,
-		times: 2
-	}, {
-		name: "3 charges",
-		spells: ["speak with plants"],
-		selection: ["speak with plants"],
-		firstCol: 3
-	}, {
-		name: "5 charges",
-		spells: ["awaken"],
-		selection: ["awaken"],
-		firstCol: 5
-	}, {
-		name: "6 charges",
-		spells: ["wall of thorns"],
-		selection: ["wall of thorns"],
-		firstCol: 6
-	}],
-		},
+		spellcastingBonus : staffOfWoodlands.spellcastingBonus,
+	},
 	"staff of the woodlands: temperate (wbw-dc-conmar-6)" : {
 		name : "Temperate Staff of the Woodlands (CONMAR-6)",
 		source : [["AL","WBW-DC"]],
@@ -2150,44 +2094,10 @@ MagicItemsList["al staffs"] = {
 			modifiers : [2, 2],
 			selectNow : true,
 		},
-		calcChanges : {
-			spellCalc : [
-				function (type, spellcasters, ability) {
-					if (type == "attack") return 2;
-				},
-				"While holding the Staff of the Woodlands, I have a +2 bonus to spell attack rolls."
-			]
-		},
+		calcChanges: staffOfWoodlands.calcChanges,
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
-	spellcastingBonus: [{
-		name: "1 charge",
-		spells: ["animal friendship", "speak with animals"],
-		selection: ["animal friendship", "speak with animals"],
-		firstCol: 1,
-		times: 2
-	}, {
-		name: "2 charges",
-		spells: ["barkskin", "locate animals or plants", "pass without trace"],
-		selection: ["barkskin", "locate animals or plants", "pass without trace"],
-		firstCol: 2,
-		times: 2
-	}, {
-		name: "3 charges",
-		spells: ["speak with plants"],
-		selection: ["speak with plants"],
-		firstCol: 3
-	}, {
-		name: "5 charges",
-		spells: ["awaken"],
-		selection: ["awaken"],
-		firstCol: 5
-	}, {
-		name: "6 charges",
-		spells: ["wall of thorns"],
-		selection: ["wall of thorns"],
-		firstCol: 6
-	}],
+		spellcastingBonus : staffOfWoodlands.spellcastingBonus,
 		},
 	"staff of the woodlands (wbw-dc-havn-1)" : {
 		name : "Staff of the Woodlands (WBW-DC-HAVN-1)",
@@ -2212,44 +2122,10 @@ MagicItemsList["al staffs"] = {
 			modifiers : [2, 2],
 			selectNow : true,
 		},
-		calcChanges : {
-			spellCalc : [
-				function (type, spellcasters, ability) {
-					if (type == "attack") return 2;
-				},
-				"While holding the Staff of the Woodlands, I have a +2 bonus to spell attack rolls."
-			]
-		},
+		calcChanges: staffOfWoodlands.calcChanges,
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
-	spellcastingBonus: [{
-		name: "1 charge",
-		spells: ["animal friendship", "speak with animals"],
-		selection: ["animal friendship", "speak with animals"],
-		firstCol: 1,
-		times: 2
-	}, {
-		name: "2 charges",
-		spells: ["barkskin", "locate animals or plants", "pass without trace"],
-		selection: ["barkskin", "locate animals or plants", "pass without trace"],
-		firstCol: 2,
-		times: 2
-	}, {
-		name: "3 charges",
-		spells: ["speak with plants"],
-		selection: ["speak with plants"],
-		firstCol: 3
-	}, {
-		name: "5 charges",
-		spells: ["awaken"],
-		selection: ["awaken"],
-		firstCol: 5
-	}, {
-		name: "6 charges",
-		spells: ["wall of thorns"],
-		selection: ["wall of thorns"],
-		firstCol: 6
-	}],
+		spellcastingBonus : staffOfWoodlands.spellcastingBonus,
 		},
 	"staff of the woodlands: guardian (wbw-dc-hh-2)" : {
 		name : "Guardian Staff of the Woodlands (HH-2)",
@@ -2275,44 +2151,10 @@ MagicItemsList["al staffs"] = {
 			modifiers : [2, 2],
 			selectNow : true,
 		},
-		calcChanges : {
-			spellCalc : [
-				function (type, spellcasters, ability) {
-					if (type == "attack") return 2;
-				},
-				"While holding the Staff of the Woodlands, I have a +2 bonus to spell attack rolls."
-			]
-		},
+		calcChanges: staffOfWoodlands.calcChanges,
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
-	spellcastingBonus: [{
-		name: "1 charge",
-		spells: ["animal friendship", "speak with animals"],
-		selection: ["animal friendship", "speak with animals"],
-		firstCol: 1,
-		times: 2
-	}, {
-		name: "2 charges",
-		spells: ["barkskin", "locate animals or plants", "pass without trace"],
-		selection: ["barkskin", "locate animals or plants", "pass without trace"],
-		firstCol: 2,
-		times: 2
-	}, {
-		name: "3 charges",
-		spells: ["speak with plants"],
-		selection: ["speak with plants"],
-		firstCol: 3
-	}, {
-		name: "5 charges",
-		spells: ["awaken"],
-		selection: ["awaken"],
-		firstCol: 5
-	}, {
-		name: "6 charges",
-		spells: ["wall of thorns"],
-		selection: ["wall of thorns"],
-		firstCol: 6
-	}],
+		spellcastingBonus : staffOfWoodlands.spellcastingBonus,
 		},
 	"staff of the woodlands (wbw-dc-idl1)" : {
 		name : "Staff of the Woodlands (WBW-DC-IDL1)",
@@ -2347,44 +2189,10 @@ MagicItemsList["al staffs"] = {
 			modifiers : [2, 2],
 			selectNow : true,
 		},
-		calcChanges : {
-			spellCalc : [
-				function (type, spellcasters, ability) {
-					if (type == "attack") return 2;
-				},
-				"While holding the Staff of the Woodlands, I have a +2 bonus to spell attack rolls."
-			]
-		},
+		calcChanges: staffOfWoodlands.calcChanges,
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
-	spellcastingBonus: [{
-		name: "1 charge",
-		spells: ["animal friendship", "speak with animals"],
-		selection: ["animal friendship", "speak with animals"],
-		firstCol: 1,
-		times: 2
-	}, {
-		name: "2 charges",
-		spells: ["barkskin", "locate animals or plants", "pass without trace"],
-		selection: ["barkskin", "locate animals or plants", "pass without trace"],
-		firstCol: 2,
-		times: 2
-	}, {
-		name: "3 charges",
-		spells: ["speak with plants"],
-		selection: ["speak with plants"],
-		firstCol: 3
-	}, {
-		name: "5 charges",
-		spells: ["awaken"],
-		selection: ["awaken"],
-		firstCol: 5
-	}, {
-		name: "6 charges",
-		spells: ["wall of thorns"],
-		selection: ["wall of thorns"],
-		firstCol: 6
-	}],
+		spellcastingBonus : staffOfWoodlands.spellcastingBonus,
 		},
 	"staff of the woodlands (wbw-dc-php-lcl-1)" : {
 		name : "Staff of the Woodlands (PHP-LCL-1)",
@@ -2410,44 +2218,10 @@ MagicItemsList["al staffs"] = {
 			modifiers : [2, 2],
 			selectNow : true,
 		},
-		calcChanges : {
-			spellCalc : [
-				function (type, spellcasters, ability) {
-					if (type == "attack") return 2;
-				},
-				"While holding the Staff of the Woodlands, I have a +2 bonus to spell attack rolls."
-			]
-		},
+		calcChanges: staffOfWoodlands.calcChanges,
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
-	spellcastingBonus: [{
-		name: "1 charge",
-		spells: ["animal friendship", "speak with animals"],
-		selection: ["animal friendship", "speak with animals"],
-		firstCol: 1,
-		times: 2
-	}, {
-		name: "2 charges",
-		spells: ["barkskin", "locate animals or plants", "pass without trace"],
-		selection: ["barkskin", "locate animals or plants", "pass without trace"],
-		firstCol: 2,
-		times: 2
-	}, {
-		name: "3 charges",
-		spells: ["speak with plants"],
-		selection: ["speak with plants"],
-		firstCol: 3
-	}, {
-		name: "5 charges",
-		spells: ["awaken"],
-		selection: ["awaken"],
-		firstCol: 5
-	}, {
-		name: "6 charges",
-		spells: ["wall of thorns"],
-		selection: ["wall of thorns"],
-		firstCol: 6
-	}],
+		spellcastingBonus : staffOfWoodlands.spellcastingBonus,
 		},
 	"staff of the woodlands: hope's emissary (wbw-dc-rook-3-2)" : {
 		name : "Hope's Emissary (Staff of the Woodlands)",
@@ -2472,44 +2246,10 @@ MagicItemsList["al staffs"] = {
 			modifiers : [2, 2],
 			selectNow : true,
 		},
-		calcChanges : {
-			spellCalc : [
-				function (type, spellcasters, ability) {
-					if (type == "attack") return 2;
-				},
-				"While holding the Staff of the Woodlands, I have a +2 bonus to spell attack rolls."
-			]
-		},
+		calcChanges: staffOfWoodlands.calcChanges,
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
-	spellcastingBonus: [{
-		name: "1 charge",
-		spells: ["animal friendship", "speak with animals"],
-		selection: ["animal friendship", "speak with animals"],
-		firstCol: 1,
-		times: 2
-	}, {
-		name: "2 charges",
-		spells: ["barkskin", "locate animals or plants", "pass without trace"],
-		selection: ["barkskin", "locate animals or plants", "pass without trace"],
-		firstCol: 2,
-		times: 2
-	}, {
-		name: "3 charges",
-		spells: ["speak with plants"],
-		selection: ["speak with plants"],
-		firstCol: 3
-	}, {
-		name: "5 charges",
-		spells: ["awaken"],
-		selection: ["awaken"],
-		firstCol: 5
-	}, {
-		name: "6 charges",
-		spells: ["wall of thorns"],
-		selection: ["wall of thorns"],
-		firstCol: 6
-	}],
+		spellcastingBonus : staffOfWoodlands.spellcastingBonus,
 		},
 	"staff of the woodlands: sunlit (wbw-dc-sunlit-6)" : {
 		name : "Staff of the Sunlit Woodlands (Sunlit-6)",
@@ -2534,44 +2274,10 @@ MagicItemsList["al staffs"] = {
 			modifiers : [2, 2],
 			selectNow : true,
 		},
-		calcChanges : {
-			spellCalc : [
-				function (type, spellcasters, ability) {
-					if (type == "attack") return 2;
-				},
-				"While holding the Staff of the Woodlands, I have a +2 bonus to spell attack rolls."
-			]
-		},
+		calcChanges: staffOfWoodlands.calcChanges,
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
-	spellcastingBonus: [{
-		name: "1 charge",
-		spells: ["animal friendship", "speak with animals"],
-		selection: ["animal friendship", "speak with animals"],
-		firstCol: 1,
-		times: 2
-	}, {
-		name: "2 charges",
-		spells: ["barkskin", "locate animals or plants", "pass without trace"],
-		selection: ["barkskin", "locate animals or plants", "pass without trace"],
-		firstCol: 2,
-		times: 2
-	}, {
-		name: "3 charges",
-		spells: ["speak with plants"],
-		selection: ["speak with plants"],
-		firstCol: 3
-	}, {
-		name: "5 charges",
-		spells: ["awaken"],
-		selection: ["awaken"],
-		firstCol: 5
-	}, {
-		name: "6 charges",
-		spells: ["wall of thorns"],
-		selection: ["wall of thorns"],
-		firstCol: 6
-	}],
+		spellcastingBonus : staffOfWoodlands.spellcastingBonus,
 		},
 	"staff of the woodlands: delver's (wbw-dc-zep-t2s2)" : {
 		name : "Delver's Staff of the Woodlands (ZEP-T2S2)",
@@ -2596,44 +2302,10 @@ MagicItemsList["al staffs"] = {
 			modifiers : [2, 2],
 			selectNow : true,
 		},
-		calcChanges : {
-			spellCalc : [
-				function (type, spellcasters, ability) {
-					if (type == "attack") return 2;
-				},
-				"While holding the Staff of the Woodlands, I have a +2 bonus to spell attack rolls."
-			]
-		},
+		calcChanges: staffOfWoodlands.calcChanges,
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
-	spellcastingBonus: [{
-		name: "1 charge",
-		spells: ["animal friendship", "speak with animals"],
-		selection: ["animal friendship", "speak with animals"],
-		firstCol: 1,
-		times: 2
-	}, {
-		name: "2 charges",
-		spells: ["barkskin", "locate animals or plants", "pass without trace"],
-		selection: ["barkskin", "locate animals or plants", "pass without trace"],
-		firstCol: 2,
-		times: 2
-	}, {
-		name: "3 charges",
-		spells: ["speak with plants"],
-		selection: ["speak with plants"],
-		firstCol: 3
-	}, {
-		name: "5 charges",
-		spells: ["awaken"],
-		selection: ["awaken"],
-		firstCol: 5
-	}, {
-		name: "6 charges",
-		spells: ["wall of thorns"],
-		selection: ["wall of thorns"],
-		firstCol: 6
-	}],
+		spellcastingBonus : staffOfWoodlands.spellcastingBonus,
 		},
 	"staff of the woodlands: dragon's seed (wbw-dc-zodiac-5)" : {
 		name : "Dragon's Seed (Staff of the Woodlands)",
@@ -2659,44 +2331,10 @@ MagicItemsList["al staffs"] = {
 			modifiers : [2, 2],
 			selectNow : true,
 		},
-		calcChanges : {
-			spellCalc : [
-				function (type, spellcasters, ability) {
-					if (type == "attack") return 2;
-				},
-				"While holding the Staff of the Woodlands, I have a +2 bonus to spell attack rolls."
-			]
-		},
+		calcChanges: staffOfWoodlands.calcChanges,
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
-	spellcastingBonus: [{
-		name: "1 charge",
-		spells: ["animal friendship", "speak with animals"],
-		selection: ["animal friendship", "speak with animals"],
-		firstCol: 1,
-		times: 2
-	}, {
-		name: "2 charges",
-		spells: ["barkskin", "locate animals or plants", "pass without trace"],
-		selection: ["barkskin", "locate animals or plants", "pass without trace"],
-		firstCol: 2,
-		times: 2
-	}, {
-		name: "3 charges",
-		spells: ["speak with plants"],
-		selection: ["speak with plants"],
-		firstCol: 3
-	}, {
-		name: "5 charges",
-		spells: ["awaken"],
-		selection: ["awaken"],
-		firstCol: 5
-	}, {
-		name: "6 charges",
-		spells: ["wall of thorns"],
-		selection: ["wall of thorns"],
-		firstCol: 6
-	}],
+		spellcastingBonus : staffOfWoodlands.spellcastingBonus,
 		},
 	}
 	
@@ -2706,7 +2344,7 @@ MagicItemsList["al swords"] = {
 		allowDuplicates : true,
 		choicesNotInMenu : true,
 		magicItemTable : "?",
-	choices : ["Adamantine Shortsword (FR-DC-UCON24)","Ascendant Amethyst Dragon's Wrath Longsword: The First Sword (PO-BK-3-11)","Crystal Rapier (BMG-DRW-OD-5)","Crystal Rapier (PO-BK-4-1)","Dancing Longsword: Antgaladion (WBW-DC-AA-ASHALON-1)","Dancing Rapier: Angel's Sting (CCC-GHC-BK1-10)","Dancing Rapier: Raptor (CCC-LINKS-2)","Defender Greatsword: Deathshield (DDAL9-20)","Dragon Slayer: Wyrmripper (DDEP5-1)","Flame Tongue Longsword: Velahr'kerym (DDAL0-2D)","Flame Tongue Longsword (DDAL-DRW13)","Flame Tongue Shortsword: Flare (CCC-WYC-1-2)","Frost Brand Greatsword (SJ-DC-NOS-4)","Frost Brand Greatsword: Duty (SJ-DC-TRIDEN-TFC)","Frost Brand Greatsword: Quintessence's Edge (SJ-DC-WINE-1)","Frost Brand Longsword: Blade of Aaqa (SJ-DC-AUG-9)","Frost Brand Rapier: Bitter Wrath (DDAL7-9)","Frost Brand Rapier: Familiar's (SJ-DC-ZODIAC-14-3)","Frost Brand Scimitar (DDEP5-2)","Frost Brand Scimitar (SJ-DC-TEL-12)","Frost Brand Shortsword: Frostbite Cryo Katana (SJ-DC-DD-11)","Giant Slayer Greatsword (DDEP5-2)","Greatsword of Sharpness: Desolation (DDAL8-14)","Greatsword of Warning: Ever Vigilant (CCC-BMG-MOON3-3)","Greatsword of Wounding (DDEX2-15)","Longsword of Vengeance (CCC-BMG-MOON15-2)","Longsword of Vengeance (CCC-GARY-8)","Longsword of Vengeance (CCC-HATMS1-2)","Longsword of Vengeance (CCC-MACE1-3)","Moon-Touched Greatsword (DDAL-DRW17)","Moon-Touched Longsword (BMG-DRW-OD-1)","Moon-Touched Longsword (CCC-GHC-BK1-1)","Moon-Touched Longsword (CCC-TAROT2-6)","Moon-Touched Longsword (DDAL0-11D)","Moon-Touched Rapier (CCC-GAD2-1)","Moon-Touched Rapier (CCC-SAC-4)","Moon-Touched Rapier (CCC-UNITE-5)","Moon-Touched Scimitar (FR-DC-DUNG-1)","Moon-Touched Scimitar (FR-DC-GHG-4)","Moon-Touched Scimitar: Moonmaiden's Blade (FR-DC-STRAT-DRAGON-1)","Moon-Touched Shortsword (DC-POA-CONMAR-9)","Moon-Touched Shortsword (DC-POA-DES-5B)","Moon-Touched Shortsword (DC-POA-GSP2-3H)","Moon-Touched Shortsword: Fang (DC-POA-GSP3-2)","Moon-Touched Shortsword (DC-POA-JCDC-1)","Moon-Touched Shortsword (DC-POA-MCWWS-2)","Moon-Touched Shortsword: Tsukuyomi (DC-POA-TDG1-3)","Moon-Touched Shortsword: Blade of the Black Tortoise (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: Green Dragon Gladius (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: Red Phoenix Falchion (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: White Tiger Tulwar (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: Platinum Fang (FR-DC-DMJA-1)","Moon-Touched Shortsword (FR-DC-UCON24)","Moon-Touched Sword (CCC-BMG-MOON6-2)","Moon-Touched Sword (CCC-BMG-MOON10-2)","Nine Lives Stealer Longsword: Love's Bite (DDAL7-11)","Nine Lives Stealer Scimitar (CCC-QCC2018-1)","Rapier of Life Stealing (CCC-PDXAGE-2-1)","Scimitar of Life Stealing: Night Cutter (CCC-RCC-1-4)","Scimitar of Life Stealing: Krakenfang (PO-BK-3-7)","Scimitar of Speed (SJ-DC-AMOT-3)","Scimitar of Speed: Deceiver (SJ-DC-DFA-3)","Scimitar of Speed: Radiance's Glare (SJ-DC-PHP-LRD-1)","Scimitar of Speed (SJ-DC-TRIDEN-MYKE-2)","Scimitar of Speed: Beam (SJ-DC-VMT-1)","Scimitar of Speed: Manthor “Vow of the Forest” (WBW-DC-ANDL-3)","Scimitar of Speed: Bregrist (WBW-DC-TREY-1)","Scimitar of Speed: Dread Cutlass (SJ-DC-DWR-3)","Scimitar of Warning: Miir (CCC-BWM-4-1)","Steel: Amdraig (BMG-MOON-MD-9)","Sun Blade: The Seventh Sword (CCC-6SWORDS-1)","Sun Blade: Dawnfire (CCC-STORM-1)","Sun Blade (CCC-WYC-2-2)","Sun Blade: Starshard (RMH-12)","Sun Blade: Scintilmorn (WDotMM)","Sword of Vengeance (CCC-SAF2-2)","Sword of Wounding (DDAL-CGB)","Vicious Longsword (CCC-HATMS2-1)","Vicious Rapier: Hag's Clawblade (AL:SA-11A)","Vorpal Scimitar (DDAL7-16)","Vorpal Scimitar: Abi Teos's Machete (RMH-9/RMH-10)"],
+	choices : ["Adamantine Shortsword (FR-DC-UCON24)","Ascendant Amethyst Dragon's Wrath Longsword: The First Sword (PO-BK-3-11)","Crystal Rapier (BMG-DRW-OD-5)","Crystal Rapier (PO-BK-4-1)","Dancing Longsword: Antgaladion (WBW-DC-AA-ASHALON-1)","Dancing Rapier: Angel's Sting (CCC-GHC-BK1-10)","Dancing Rapier: Raptor (CCC-LINKS-2)","Defender Greatsword: Deathshield (DDAL9-20)","Dragon Slayer: Wyrmripper (DDEP5-1)","Flame Tongue Longsword (BMG-MOON-MD-6)","Flame Tongue Longsword: Velahr'kerym (DDAL0-2D)","Flame Tongue Longsword (DDAL-DRW13)","Flame Tongue Shortsword: Flare (CCC-WYC-1-2)","Frost Brand Greatsword (SJ-DC-NOS-4)","Frost Brand Greatsword: Immolator's Domain (SJ-DC-TBS-2)","Frost Brand Greatsword: Duty (SJ-DC-TRIDEN-TFC)","Frost Brand Greatsword: Quintessence's Edge (SJ-DC-WINE-1)","Frost Brand Longsword: Blade of Aaqa (SJ-DC-AUG-9)","Frost Brand Rapier: Bitter Wrath (DDAL7-9)","Frost Brand Rapier: Familiar's (SJ-DC-ZODIAC-14-3)","Frost Brand Scimitar (DDEP5-2)","Frost Brand Scimitar (SJ-DC-TEL-12)","Frost Brand Shortsword: Frostbite Cryo Katana (SJ-DC-DD-11)","Giant Slayer Greatsword (DDEP5-2)","Greatsword of Sharpness: Desolation (DDAL8-14)","Greatsword of Warning: Ever Vigilant (CCC-BMG-MOON3-3)","Greatsword of Wounding (DDEX2-15)","Longsword of Vengeance (CCC-BMG-MOON15-2)","Longsword of Vengeance (CCC-GARY-8)","Longsword of Vengeance (CCC-HATMS1-2)","Longsword of Vengeance (CCC-MACE1-3)","Moon-Touched Greatsword (DDAL-DRW17)","Moon-Touched Longsword (BMG-DRW-OD-1)","Moon-Touched Longsword (CCC-GHC-BK1-1)","Moon-Touched Longsword (CCC-TAROT2-6)","Moon-Touched Longsword (DDAL0-11D)","Moon-Touched Rapier (CCC-GAD2-1)","Moon-Touched Rapier (CCC-SAC-4)","Moon-Touched Rapier (CCC-UNITE-5)","Moon-Touched Rapier (FR-DC-Saerloon-3)","Moon-Touched Rapier: Pointy End (FR-DC-THAY-2)","Moon-Touched Scimitar (FR-DC-DUNG-1)","Moon-Touched Scimitar (FR-DC-GHG-4)","Moon-Touched Scimitar (FR-DC-PHP-PEST-1)","Moon-Touched Scimitar: Moonmaiden's Blade (FR-DC-STRAT-DRAGON-1)","Moon-Touched Shortsword (BMG-MOON-MD-6)","Moon-Touched Shortsword (DC-POA-CONMAR-9)","Moon-Touched Shortsword (DC-POA-DES-5B)","Moon-Touched Shortsword (DC-POA-GSP2-3H)","Moon-Touched Shortsword: Fang (DC-POA-GSP3-2)","Moon-Touched Shortsword (DC-POA-JCDC-1)","Moon-Touched Shortsword (DC-POA-MCWWS-2)","Moon-Touched Shortsword: Tsukuyomi (DC-POA-TDG1-3)","Moon-Touched Shortsword: Blade of the Black Tortoise (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: Green Dragon Gladius (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: Red Phoenix Falchion (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: White Tiger Tulwar (DC-POA-VAN-MT-1)","Moon-Touched Shortsword (FR-DC-DIGM-1-2)","Moon-Touched Shortsword: Platinum Fang (FR-DC-DMJA-1)","Moon-Touched Shortsword (FR-DC-UCON24)","Moon-Touched Sword (CCC-BMG-MOON6-2)","Moon-Touched Sword (CCC-BMG-MOON10-2)","Nine Lives Stealer Longsword: Love's Bite (DDAL7-11)","Nine Lives Stealer Scimitar (CCC-QCC2018-1)","Rapier of Life Stealing (CCC-PDXAGE-2-1)","Scimitar of Life Stealing: Night Cutter (CCC-RCC-1-4)","Scimitar of Life Stealing: Krakenfang (PO-BK-3-7)","Scimitar of Speed (SJ-DC-AMOT-3)","Scimitar of Speed: Deceiver (SJ-DC-DFA-3)","Scimitar of Speed: Radiance's Glare (SJ-DC-PHP-LRD-1)","Scimitar of Speed: Spirit's Edge (SJ-DC-TBS-1)","Scimitar of Speed (SJ-DC-TRIDEN-MYKE-2)","Scimitar of Speed: Beam (SJ-DC-VMT-1)","Scimitar of Speed: Manthor “Vow of the Forest” (WBW-DC-ANDL-3)","Scimitar of Speed: Bregrist (WBW-DC-TREY-1)","Scimitar of Speed: Dread Cutlass (SJ-DC-DWR-3)","Scimitar of Warning: Miir (CCC-BWM-4-1)","Steel: Amdraig (BMG-MOON-MD-9)","Sun Blade: The Seventh Sword (CCC-6SWORDS-1)","Sun Blade: Dawnfire (CCC-STORM-1)","Sun Blade (CCC-WYC-2-2)","Sun Blade: Starshard (RMH-12)","Sun Blade: Scintilmorn (WDotMM)","Sword of Vengeance (CCC-SAF2-2)","Sword of Wounding (DDAL-CGB)","Vicious Longsword (CCC-HATMS2-1)","Vicious Rapier: Hag's Clawblade (AL:SA-11A)","Vorpal Scimitar (DDAL7-16)","Vorpal Scimitar: Abi Teos's Machete (RMH-9/RMH-10)","Wakened White Dragon's Wrath Greatsword (BMG-MOON-MD-12)"],
 	"adamantine shortsword (fr-dc-ucon24)" : {
 		name : "Adamantine Shortsword (FR-DC-UCON24)",
 		source : [["AL","FR-DC"]],
@@ -2868,25 +2506,7 @@ MagicItemsList["al swords"] = {
 		descriptionLong : "This magic greatsword is made out of crude black iron. Inscribed upon the blade in Abyssal is the name \"Deathshield.\" I have a +3 bonus to attack and damage rolls made with the sword. The 1st time I attack with it on each of my turns, I can transfer any part of the bonus to Armor Class instead. This Armor Class adjustment remains in affect until my next turn, although I must be holding the sword to gain it.",
 		descriptionFull : "This defender is a greatsword and is made out of crude black iron. Inscribed upon the blade in Abyssal is the name “Deathshield.”\n   You gain a +3 bonus to attack rolls and damage rolls made with this magic weapon.\n   The first time you attack with the weapon on each of your turns, you can transfer some or all of the weapon's bonus to your Armor Class. For example, you could reduce the bonus to your attack rolls and damage rolls to +1 and gain a +2 bonus to Armor Class. The adjusted bonuses remain in effect until the start of your next turn, although you must hold the weapon to gain a bonus to AC from it.",
 		weaponsAdd : { select : ["Deathshield, Defender Greatsword"], options : ["Deathshield, Defender Greatsword"] },
-		calcChanges : { //For Defender
-			atkAdd : [
-				function (fields, v) {
-					if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/defender/i).test(v.WeaponText)) {
-						v.theWea.isMagicWeapon = true;
-						fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
-						fields.Description += (fields.Description ? '; ' : '') + '+3 bonus can be used for AC instead';
-					}
-				},
-				'If I include the word "Defender" in a the name of a sword, it will be treated as the magic weapon Defender. It has +3 to hit and damage, but this bonus can be lowered and added to AC instead. Decide to do so with the first attack on your turn.'
-			],
-			atkCalc : [
-				function (fields, v, output) {
-					if (v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/defender/i).test(v.WeaponText)) {
-						output.magic = v.thisWeapon[1] + 3;
-					}
-				}, ''
-			]
-			},
+		calcChanges: defenderSword.calcChanges,
 		},
 	"dragon slayer: wyrmripper (ddep5-1)" : {
 		name : "Wyrmripper, Dragon Slayer Greatsword (DDEP5-1)",
@@ -2896,26 +2516,20 @@ MagicItemsList["al swords"] = {
 		description : "Made of what appears to be roughly crafted pig iron with a crude leather haft, this enormous greatsword possesses a bold Davek rune at the base of both sides of the blade which reads \"Wyrmripper\". I have a +1 bonus to attack and damage rolls made with this sword. When I hit a Dragon with the sword, it does +3d6 damage.",
 		descriptionFull : "Made of what appears to be roughly crafted pig iron with a crude leather haft, this enormous greatsword possesses a bold Davek rune at the base of both sides of the blade which reads \"Wyrmripper\". You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon.\n   The weapon deals an extra 3d6 damage of the weapon's type if the target is a Dragon.",
 		weaponsAdd : { select : ["Wyrmripper, Dragon Slayer Greatsword"], options : ["Wyrmripper, Dragon Slayer Greatsword"] },
-		calcChanges : { //For Dragon Slayer
-			atkAdd : [
-				function (fields, v) {
-					if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/^(?=.*dragon)(?=.*slayer).*$/i).test(v.WeaponText)) {
-						v.theWea.isMagicWeapon = true;
-						fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
-						fields.Description += (fields.Description ? '; ' : '') + '+3d6 damage vs Dragons';
-					}
-				},
-				'If I include the words "Dragon Slayer" in a the name of a sword, it will be treated as the magic weapon Dragon Slayer. It has +1 to hit and damage and deals +3d6 damage to creatures with the dragon type.'
-			],
-			atkCalc : [
-				function (fields, v, output) {
-					if (v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/^(?=.*dragon)(?=.*slayer).*$/i).test(v.WeaponText)) {
-						output.magic = v.thisWeapon[1] + 1;
-						}
-					}, ''
-				]
-			},
+		calcChanges: dragonSlayerWeapon.calcChanges,
 		},
+	"flame tongue longsword (bmg-moon-md-6)" : {
+		name : "Flame Tongue Longsword (BMG-MOON-MD-6)",
+		source : [["AL","PO"]],
+		type : "weapon (any melee weapon)",
+		rarity : "rare",
+		description : "This 42-in steel sword is made of the millenniumold remains of Hoondarrh, an ancient red dragon. It has a dragon bone hilt carved into a rising half-sun inlaid with red gold. As a bonus action, I can use command to ignite the blade. When flame crawls up the sword, it casts the hues of a sunrise on the waters east of Caer Callidyrr. As the flames reach the tip, I hear its smith whisper \"Protect Alaron and its people.\" The flames deal +2d6 Fire and last until I repeat the command (bonus action) or drop/sheathe the sword.",
+		descriptionLong : "This 42-inch steel sword was crafted from the millenniumold remains of Hoondarrh, an ancient red dragon. It bears a shapely dragon bone hilt carved into a rising half-sun inlaid with red gold. As a bonus action, I can use command word to ignite the blade. When flame crawls up the sword, it casts all the familiar hues of a sunrise reflected on the waters east of Caer Callidyrr. As the flames reach the tip, I hear its smith whisper in an ancient Ffolk dialect, \"Protect Alaron and its people.\" While lit, it deals +2d6 Fire damage. The flames last until I repeat the command as a bonus action or drop or sheathe the sword.",
+		descriptionFull : "This 42-inch steel sword was crafted from the millenniumold remains of Hoondarrh, an ancient red dragon. It bears a shapely dragon bone hilt carved into a rising half-sun inlaid with red gold. When flame crawls up the blade, it casts all the familiar hues of a sunrise reflected on the waters east of Caer Callidyrr. As the flames reach the tip, you hear its smith whisper in an ancient Ffolk dialect, \"Protect Alaron and its people.\"\n   While holding this magic weapon, you can take a Bonus Action and use a command word to cause flames to engulf the damage-dealing part of the weapon. These flames shed Bright Light in a 40-foot radius and Dim Light for an additional 40 feet. While the weapon is ablaze, it deals an extra 2d6 Fire damage on a hit. The flames last until you take a Bonus Action to issue the command again or until you drop, stow, or sheathe the weapon.",
+		action : [["bonus action", "Flame Tongue (activate/end)"]],
+		weaponsAdd : { select : ["Flame Tongue Longsword"], options : ["Flame Tongue Longsword"] },
+		calcChanges: flameTongueWeapon.calcChanges,
+	},
 	"flame tongue longsword: velahr'kerym (ddal0-2d)" : {
 		name : "Velahr'kerym, Flame Tongue Longsword (DDAL0-2D)",
 		source : [["AL","S0"]],
@@ -2924,13 +2538,8 @@ MagicItemsList["al swords"] = {
 		description : "This mithril longsword has a beautiful ironwood hilt. The crossguard, blade \u0026 hilt have a forest motif inlaid with emeralds \u0026 platinum filigree. Delicate blue flames dance along the blade when drawn. As a bonus action with command, it ignites and deals +2d6 Fire, shedding 40-ft bright light \u0026 40-ft more dim. The flames last until I repeat the command (bonus action) or drop/sheathe the sword.",
 		descriptionFull : "This longsword is crafted of mithril with a beautiful hilt of carved ironwood. The crossguard, blade, and hilt are worked through with a forest motif inlaid with shining emeralds and platinum filigree. Delicate blue flames dance along the blade whenever it is drawn from its scabbard.\n   While holding this magic weapon, you can take a Bonus Action and use a command word to cause flames to engulf the damage-dealing part of the weapon. These flames shed Bright Light in a 40-foot radius and Dim Light for an additional 40 feet. While the weapon is ablaze, it deals an extra 2d6 Fire damage on a hit. The flames last until you take a Bonus Action to issue the command again or until you drop, stow, or sheathe the weapon.",
 		action : [["bonus action", "Flame Tongue (activate/end)"]],
-		weaponOptions : {
-			baseWeapon : "longsword",
-			regExpSearch : /^(?=.*velahr'kerym).*$/i,
-			name : "Velahr'kerym, Flame Tongue Longsword",
-			description : "Versatile (d10); Sap; While active, +2d6 Fire damage.",
-			selectNow : true,
-			},
+		weaponsAdd : { select : ["Velahr'kerym, Flame Tongue Longsword"], options : ["Velahr'kerym, Flame Tongue Longsword"] },
+		calcChanges: flameTongueWeapon.calcChanges,
 	},
 	"flame tongue longsword (ddal-drw13)" : {
 		name : "Flame Tongue Longsword (DDAL-DRW13)",
@@ -2940,13 +2549,8 @@ MagicItemsList["al swords"] = {
 		description : "This steel blade is covered in a distinctive pattern of banding & mottling reminiscent of flowing water. The patterns shift \u0026 change slowly over time. As a bonus action, I can use command word to ignite the blade. While lit, it deals +2d6 Fire, shedding 40-ft bright light \u0026 40-ft more dim. The flames last until I repeat the command (bonus action) or drop/sheathe the sword.",
 		descriptionFull : "This crucible steel blade is covered in a distinctive pattern of banding and mottling reminiscent of flowing water. These patterns shift and change slowly over time.\n   While holding this magic weapon, you can take a Bonus Action and use a command word to cause flames to engulf the damage-dealing part of the weapon. These flames shed Bright Light in a 40-foot radius and Dim Light for an additional 40 feet. While the weapon is ablaze, it deals an extra 2d6 Fire damage on a hit. The flames last until you take a Bonus Action to issue the command again or until you drop, stow, or sheathe the weapon.",
 		action : [["bonus action", "Flame Tongue (activate/end)"]],
-		weaponOptions : {
-			baseWeapon : "longsword",
-			regExpSearch : /^(?=.*flame)(?=.*tongue).*$/i,
-			name : "Flame Tongue Longsword",
-			description : "Versatile (d10); Sap; While active, +2d6 Fire damage.",
-			selectNow : true,
-			},
+		weaponsAdd : { select : ["Flame Tongue Longsword"], options : ["Flame Tongue Longsword"] },
+		calcChanges: flameTongueWeapon.calcChanges,
 	},
 	"flame tongue shortsword: flare (ccc-wyc-1-2)" : {
 		name : "Flare, Flame Tongue Shortsword (WYC-1-2)",
@@ -2957,13 +2561,8 @@ MagicItemsList["al swords"] = {
 		descriptionFull : "This shortsword appears to be made of molten steel that seems to find its way to shape right before it strikes its target. While attuned to this sword, you feel comfortable in temperatures as low as 20 degrees below zero Fahrenheit and as high as 120 degrees above zero Fahrenheit.\n   While holding this magic weapon, you can take a Bonus Action and use a command word to cause flames to engulf the damage-dealing part of the weapon. These flames shed Bright Light in a 40-foot radius and Dim Light for an additional 40 feet. While the weapon is ablaze, it deals an extra 2d6 Fire damage on a hit. The flames last until you take a Bonus Action to issue the command again or until you drop, stow, or sheathe the weapon.",
 		savetxt : { immune : ["temps past 0\u00B0F/100\u00B0F"] },
 		action : [["bonus action", "Flare (activate/end)"]],
-		weaponOptions : {
-			baseWeapon : "shortsword",
-			regExpSearch : /^(?=.*flare).*$/i,
-			name : "Flare, Flame Tongue Shortsword",
-			description : "Finesse, Light; Vex; While active, +2d6 Fire damage.",
-			selectNow : true,
-			},
+		weaponsAdd : { select : ["Flare, Flame Tongue Shortsword"], options : ["Flare, Flame Tongue Shortsword"] },
+		calcChanges: flameTongueWeapon.calcChanges,
 	},
 	"frost brand greatsword (sj-dc-nos-4)" : {
 		name : "Frost Brand Greatsword (SJ-DC-NOS-4)",
@@ -2980,13 +2579,26 @@ MagicItemsList["al swords"] = {
 		additional : "extinguish flames",
 		dmgres : ["Fire"],
 		languageProfs : ["Deep Speech"],
-		weaponOptions : {
-			baseWeapon : "greatsword",
-			regExpSearch : /^(?=.*frost)(?=.*brand).*$/i,
-			name : "Frost Brand Greatsword",
-			description : "Heavy, Two-handed, Graze; +1d6 Cold damage",
-			selectNow : true,
-			},
+		weaponsAdd : { select : ["Frost Brand Greatsword"], options : ["Frost Brand Greatsword"] },
+		calcChanges: frostBrandSword.calcChanges,
+		},	
+	"frost brand greatsword: immolator's domain (sj-dc-tbs-2)" : {
+		name : "Immolator's Domain, Frost Brand Greatsword (TBS-2)",
+		source : [["AL","SJ-DC"]],
+		type : "weapon (any sword or glaive)",
+		rarity : "very rare",
+		attunement : true,
+		allowDuplicates : true,
+		description : "This greatsword deals +1d6 Cold dmg per hit and grants Fire resistance while held. When in freezing temperaturess, it emits 10-ft bright light and 10-ft more dim light. Once per hour when drawn, I can make freezing blue flames slowly burst and engulf the blade, extinguishing all nonmagical flames in 30 ft. I also gain +2 initiative if not Incapacitated.",
+		descriptionFull : "Blue freezing flames slowly burst and engulf the weapon’s body, extinguishing all sources of non magical fire within 30 feet of its wielder, except for itself.\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don’t have the Incapacitated condition.\n   When you hit with an attack roll using this magic weapon, the target takes an extra 1d6 Cold damage. In addition, while you hold the weapon, you have Resistance to Fire damage.\n   In freezing temperatures, the weapon sheds Bright Light in a 10-foot radius and Dim Light for an additional 10 feet.\n   When you draw this weapon, you can extinguish all nonmagical flames within 30 feet of yourself. Once used, this property can't be used again for 1 hour.",
+		limfeaname : "Frost Brand",
+		usages : 1,
+		recovery : "Hour",
+		additional : "extinguish flames",
+		dmgres : ["Fire"],
+		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on Initiative rolls." },
+		weaponsAdd : { select : ["Immolator's Domain, Frost Brand Greatsword"], options : ["Immolator's Domain, Frost Brand Greatsword"] },
+		calcChanges: frostBrandSword.calcChanges,
 		},	
 	"frost brand greatsword: duty (sj-dc-triden-tfc)" : {
 		name : "Duty, Frost Brand Greatsword (SJ-DC-TRIDEN-TFC)",
@@ -3002,13 +2614,8 @@ MagicItemsList["al swords"] = {
 		recovery : "Hour",
 		additional : "extinguish flames",
 		dmgres : ["Fire"],
-		weaponOptions : {
-			baseWeapon : "greatsword",
-			regExpSearch : /^(?=.*frost)(?=.*brand).*$/i,
-			name : "Frost Brand Greatsword",
-			description : "Heavy, Two-handed, Graze; +1d6 Cold damage",
-			selectNow : true,
-			},
+		weaponsAdd : { select : ["Duty, Frost Brand Greatsword"], options : ["Duty, Frost Brand Greatsword"] },
+		calcChanges: frostBrandSword.calcChanges,
 		},	
 	"frost brand greatsword: quintessence's edge (sj-dc-wine-1)" : {
 		name : "Quintessence's Edge, Frost Brand Greatsword",
@@ -3025,13 +2632,8 @@ MagicItemsList["al swords"] = {
 		additional : "extinguish flames",
 		dmgres : ["Fire"],
 		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on Initiative rolls." },
-		weaponOptions : {
-			baseWeapon : "greatsword",
-			regExpSearch : /^(?=.*quintessence|quintessence's)(?=.*edge).*$/i,
-			name : "Quintessence's Edge, Frost Brand Greatsword",
-			description : "Heavy, Two-handed, Graze; +1d6 Cold damage",
-			selectNow : true,
-			},
+		weaponsAdd : { select : ["Quintessence's Edge, Frost Brand Greatsword"], options : ["Quintessence's Edge, Frost Brand Greatsword"] },
+		calcChanges: frostBrandSword.calcChanges,
 		},	
 	"frost brand longsword: blade of aaqa (sj-dc-aug-9)" : {
 		name : "Blade of Aaqa, Frost Brand Longsword",
@@ -3047,13 +2649,8 @@ MagicItemsList["al swords"] = {
 		recovery : "Hour",
 		additional : "extinguish flames",
 		dmgres : ["Fire"],
-		weaponOptions : {
-			baseWeapon : "longsword",
-			regExpSearch : /^(?=.*blade)(?=.*aaqa).*$/i,
-			name : "Blade of Aaqa, Frost Brand Longsword",
-			description : "Versatile (d10); Sap; +1d6 Cold damage",
-			selectNow : true,
-			},
+		weaponsAdd : { select : ["Blade of Aaqa, Frost Brand Longsword"], options : ["Blade of Aaqa, Frost Brand Longsword"] },
+		calcChanges: frostBrandSword.calcChanges,
 		},	
 	"frost brand rapier: bitter wrath (ddal7-9)" : {
 		name : "Bitter Wrath, Frost Brand Rapier (DDAL7-9)",
@@ -3069,13 +2666,8 @@ MagicItemsList["al swords"] = {
 		recovery : "Hour",
 		additional : "extinguish flames",
 		dmgres : ["Fire"],
-		weaponOptions : {
-			baseWeapon : "rapier",
-			regExpSearch : /^(?=.*bitter)(?=.*wrath).*$/i,
-			name : "Bitter Wrath, Frost Brand Rapier",
-			description : "Finesse; Vex; +1d6 Cold damage",
-			selectNow : true,
-			},
+		weaponsAdd : { select : ["Bitter Wrath, Frost Brand Rapier"], options : ["Bitter Wrath, Frost Brand Rapier"] },
+		calcChanges: frostBrandSword.calcChanges,
 		},	
 	"frost brand rapier: familiar's (sj-dc-zodiac-14-3)" : {
 		name : "Familiar's Frost Brand Rapier (ZODIAC-14-3)",
@@ -3092,13 +2684,8 @@ MagicItemsList["al swords"] = {
 		additional : "extinguish flames",
 		dmgres : ["Fire"],
 		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on Initiative rolls." },
-		weaponOptions : {
-			baseWeapon : "rapier",
-			regExpSearch : /^(?=.*familiar|s)(?=.*frost)(?=.*brand)(?=.*rapier).*$/i,
-			name : "Familiar's Frost Brand Rapier",
-			description : "Finesse; Vex; +1d6 Cold damage",
-			selectNow : true,
-			},
+		weaponsAdd : { select : ["Familiar's Frost Brand Rapier"], options : ["Familiar's Frost Brand Rapier"] },
+		calcChanges: frostBrandSword.calcChanges,
 		},	
 	"frost brand scimitar (ddep5-2)" : {
 		name : "Frost Brand Scimitar (DDEP5-2)",
@@ -3113,13 +2700,8 @@ MagicItemsList["al swords"] = {
 		recovery : "Hour",
 		additional : "extinguish flames",
 		dmgres : ["Fire"],
-		weaponOptions : {
-			baseWeapon : "scimitar",
-			regExpSearch : /^(?=.*scimitar)(?=.*brand)(?=.*frost).*$/i,
-			name : "Frost Brand Scimitar",
-			description : "Finesse, Light; Nick; +1d6 Cold damage",
-			selectNow : true,
-			},
+		weaponsAdd : { select : ["Frost Brand Scimitar"], options : ["Frost Brand Scimitar"] },
+		calcChanges: frostBrandSword.calcChanges,
 		},
 	"frost brand scimitar (sj-dc-tel-12)" : {
 		name : "Frost Brand Scimitar (SJ-DC-TEL-12)",
@@ -3134,13 +2716,8 @@ MagicItemsList["al swords"] = {
 		recovery : "Hour",
 		additional : "extinguish flames",
 		dmgres : ["Fire"],
-		weaponOptions : {
-			baseWeapon : "scimitar",
-			regExpSearch : /^(?=.*scimitar)(?=.*brand)(?=.*frost).*$/i,
-			name : "Frost Brand Scimitar",
-			description : "Finesse, Light; Nick; +1d6 Cold damage",
-			selectNow : true,
-			},
+		weaponsAdd : { select : ["Frost Brand Scimitar"], options : ["Frost Brand Scimitar"] },
+		calcChanges: frostBrandSword.calcChanges,
 		},
 	"frost brand shortsword: frostbite cryo katana (sj-dc-dd-11)" : {
 		name : "Frostbite, Cryo Katana (Frost Brand, DD-11)",
@@ -3157,13 +2734,8 @@ MagicItemsList["al swords"] = {
 		recovery : "Hour",
 		additional : "extinguish flames",
 		dmgres : ["Fire"],
-		weaponOptions : {
-			baseWeapon : "shortsword",
-			regExpSearch : /^(?=.*frostbite)(?=.*cryo)(?=.*katana).*$/i,
-			name : "Frostbite Cryo Katana, Frost Brand Shortsword",
-			description : "Finesse, Light; Vex; +1d6 Cold damage",
-			selectNow : true,
-			},
+		weaponsAdd : { select : ["Frostbite Cryo Katana, Frost Brand Shortsword"], options : ["Frostbite Cryo Katana, Frost Brand Shortsword"] },
+		calcChanges: frostBrandSword.calcChanges,
 		},	
 	"giant slayer greatsword (ddep5-2)" : {
 		name : "Giant Slayer Greatsword (DDEP5-2)",
@@ -3173,25 +2745,7 @@ MagicItemsList["al swords"] = {
 		description : "This immense +1 weapon is fashioned from crudely-forged black iron with an unfinished translucent white stone set in the pommel — engraved with the rune Dod (death). When I hit a Giant, it does +2d6 damage and the Giant must make a DC 15 Strength save or fall Prone.",
 		descriptionFull : "This immense weapon is fashioned from crudely-forged black iron with an unfinished, translucent white stone set in the pommel — engraved with the rune Dod (death).\n   You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon.\n   When you hit a Giant with this weapon, the Giant takes an extra 2d6 damage of the weapon's type and must succeed on a DC 15 Strength saving throw or have the Prone condition.",
 		weaponsAdd : { select : ["Giant Slayer Greatsword"], options : ["Giant Slayer Greatsword"] },
-	calcChanges : {
-		atkAdd : [
-			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && (/^(?=.*giant)(?=.*slayer).*$/i).test(v.WeaponTextName)) {
-					v.theWea.isMagicWeapon = true;
-					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
-					fields.Description += (fields.Description ? '; ' : '') + '+2d6 damage vs Giants; Giants DC 15 Str save or Prone';
-				}
-			},
-			'If I include the words "Giant Slayer" in a the name of a weapon, it will be treated as the magic weapon Giant Slayer. It has +1 to hit and damage and when hitting a creatures with the giant type, it does +2d6 damage and the target has to make a DC 15 Strength save or be knocked prone.'
-		],
-		atkCalc : [
-			function (fields, v, output) {
-				if (v.isWeapon && (/^(?=.*giant)(?=.*slayer).*$/i).test(v.WeaponTextName)) {
-					output.magic = v.thisWeapon[1] + 1;
-				}
-			}, ''
-		]
-		}
+		calcChanges: giantSlayerWeapon.calcChanges,
 		},
 	"greatsword of sharpness: desolation (ddal8-14)" : {
 		name : "Desolation, Sword of Sharpness (DDAL8-14)",
@@ -3251,25 +2805,7 @@ MagicItemsList["al swords"] = {
 		descriptionLong : "This clear crystal +1 longsword is no longer tainted by Malar's corruption. It's only loyal to me, appearing as a dull blade to everyone else, and leaves a blue-white trail in its wake when striking a target. I'm unwilling to let it go and have disadvantage on attacks with other weapons. If I take damage in combat, I must pass a DC 15 Wis save or attack my attacker until they drop to 0 or I can't reach them in melee. Banishment turns it into a normal +1 longsword.",
 		descriptionFull : "The sword, no longer tainted by Malar's corruption, is now a clear crystal. The sword is only loyal to the wielder, becoming a dull blade to anyone else. When the sword strikes a target, a blue-white trail is left briefly in its wake.\n   You gain a +1 bonus to attack and damage rolls made with this magic weapon.\n   " + toUni("Curse") + ". This weapon is cursed and possessed by a vengeful spirit. Becoming attuned to it extends the curse to you. As long as you remain cursed, you are unwilling to part with the weapon, keeping it on your person at all times. While attuned to this weapon, you have Disadvantage on attack rolls made with weapons other than this one.\n   In addition, while the weapon is on your person, you must succeed on a DC 15 Wisdom saving throw whenever you take damage from another creature in combat. On a failed save, you must attack the creature that damaged you until you drop to 0 hit points or it does, or until you can't reach the creature to make a melee attack against it.\n   You can break the curse in the usual ways. Alternatively, casting Banishment on the weapon forces the vengeful spirit to leave it. The sword then becomes a +1 Weapon with no other properties.",
 		weaponsAdd : { select : ["Longsword of Vengeance"], options : ["Longsword of Vengeance"] },
-		calcChanges : {
-		atkAdd: [
-			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/glaive|greatsword|longsword|rapier|scimitar|swordsword/i).test(v.baseWeaponName) && (/of vengeance/i).test(v.WeaponTextName)) {
-					v.theWea.isMagicWeapon = true;
-					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
-					fields.Description += (fields.Description ? '; ' : '') + 'Cursed';
-				}
-			},
-			'If I include the words "of Vengeance" in the name of a sword, it will be treated as the magic weapon Sword of Vengeance. It has +1 to hit and damage, but also bears a curse.'
-		],
-		atkCalc : [
-			function (fields, v, output) {
-				if (v.isMeleeWeapon && (/glaive|greatsword|longsword|rapier|scimitar|swordsword/i).test(v.baseWeaponName) && (/of vengeance/i).test(v.WeaponTextName)) {
-					output.magic = v.thisWeapon[1] + 1;
-				}
-			}, ''
-			]
-		}
+		calcChanges: swordOfVengeance.calcChanges,
 	},
 	"longsword of vengeance (ccc-gary-8)" : {
 		name : "Longsword of Vengeance (CCC-GARY-8)",
@@ -3279,25 +2815,7 @@ MagicItemsList["al swords"] = {
 		description : "This beautiful +1 longsword has a gold-trimmed hilt and is cursed. I'm unwilling to give it up and have disadvantage on atks with other weapons. If I take damage in combat, I must pass a DC 15 Wis save or attack my attacker until they drop to 0 or I can't reach them in melee. Banishment turns it into a normal +1 longsword.",
 		descriptionFull : "This beautiful longsword has a gold-trimmed hilt.\n   You gain a +1 bonus to attack and damage rolls made with this magic weapon.\n   " + toUni("Curse") + ". This weapon is cursed and possessed by a vengeful spirit. Becoming attuned to it extends the curse to you. As long as you remain cursed, you are unwilling to part with the weapon, keeping it on your person at all times. While attuned to this weapon, you have Disadvantage on attack rolls made with weapons other than this one.\n   In addition, while the weapon is on your person, you must succeed on a DC 15 Wisdom saving throw whenever you take damage from another creature in combat. On a failed save, you must attack the creature that damaged you until you drop to 0 hit points or it does, or until you can't reach the creature to make a melee attack against it.\n   You can break the curse in the usual ways. Alternatively, casting Banishment on the weapon forces the vengeful spirit to leave it. The sword then becomes a +1 Weapon with no other properties.",
 		weaponsAdd : { select : ["Longsword of Vengeance"], options : ["Longsword of Vengeance"] },
-		calcChanges : {
-		atkAdd: [
-			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/glaive|greatsword|longsword|rapier|scimitar|swordsword/i).test(v.baseWeaponName) && (/of vengeance/i).test(v.WeaponTextName)) {
-					v.theWea.isMagicWeapon = true;
-					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
-					fields.Description += (fields.Description ? '; ' : '') + 'Cursed';
-				}
-			},
-			'If I include the words "of Vengeance" in the name of a sword, it will be treated as the magic weapon Sword of Vengeance. It has +1 to hit and damage, but also bears a curse.'
-		],
-		atkCalc : [
-			function (fields, v, output) {
-				if (v.isMeleeWeapon && (/glaive|greatsword|longsword|rapier|scimitar|swordsword/i).test(v.baseWeaponName) && (/of vengeance/i).test(v.WeaponTextName)) {
-					output.magic = v.thisWeapon[1] + 1;
-				}
-			}, ''
-			]
-		}
+		calcChanges: swordOfVengeance.calcChanges,
 	},
 	"longsword of vengeance (ccc-hatms1-2)" : {
 		name : "Longsword of Vengeance (HATMS1-2)",
@@ -3308,25 +2826,7 @@ MagicItemsList["al swords"] = {
 		descriptionLong : "This +1 black metal longsword has a sheen of red and is cursed. The black leather-wrapped hilt ends in a pommel shaped like a human skull. It's possessed by the spirit of the orc warchief K'tagh Redeye, who urges me to violence against humans. I won't part with it and have disadvantage on attacks with other weapons. If I take damage in combat, I must pass a DC 15 Wis save or attack my attacker until they drop to 0 or I can't reach them in melee. Banishment turns it into a normal +1 longsword.",
 		descriptionFull : "The blackened metal of this longsword has a sheen of red. The black leather-wrapped hilt ends in a pommel shaped like a human skull.\n  The longsword is inhabited by an orc warchief, K'tagh Redeye, a berserker who has a terrible loathing of humans. If K'tagh is banished or otherwise removed from the sword, the blade loses its red sheen.\n  While holding the sword, the voice of K'tagh Redeye echoes in the wielder's mind, cursing and nudging the owner to greater violence, especially toward humans. If the person wielding the sword is a human, K'tagh constantly casts insults and threats. The spirit cannot withhold the benefits of the sword from a wielder, however.\n   You gain a +1 bonus to attack and damage rolls made with this magic weapon.\n   " + toUni("Curse") + ". This weapon is cursed and possessed by a vengeful spirit. Becoming attuned to it extends the curse to you. As long as you remain cursed, you are unwilling to part with the weapon, keeping it on your person at all times. While attuned to this weapon, you have Disadvantage on attack rolls made with weapons other than this one.\n   In addition, while the weapon is on your person, you must succeed on a DC 15 Wisdom saving throw whenever you take damage from another creature in combat. On a failed save, you must attack the creature that damaged you until you drop to 0 hit points or it does, or until you can't reach the creature to make a melee attack against it.\n   You can break the curse in the usual ways. Alternatively, casting Banishment on the weapon forces the vengeful spirit to leave it. The sword then becomes a +1 Weapon with no other properties.",
 		weaponsAdd : { select : ["Longsword of Vengeance"], options : ["Longsword of Vengeance"] },
-		calcChanges : {
-		atkAdd: [
-			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/glaive|greatsword|longsword|rapier|scimitar|swordsword/i).test(v.baseWeaponName) && (/of vengeance/i).test(v.WeaponTextName)) {
-					v.theWea.isMagicWeapon = true;
-					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
-					fields.Description += (fields.Description ? '; ' : '') + 'Cursed';
-				}
-			},
-			'If I include the words "of Vengeance" in the name of a sword, it will be treated as the magic weapon Sword of Vengeance. It has +1 to hit and damage, but also bears a curse.'
-		],
-		atkCalc : [
-			function (fields, v, output) {
-				if (v.isMeleeWeapon && (/glaive|greatsword|longsword|rapier|scimitar|swordsword/i).test(v.baseWeaponName) && (/of vengeance/i).test(v.WeaponTextName)) {
-					output.magic = v.thisWeapon[1] + 1;
-				}
-			}, ''
-			]
-		}
+		calcChanges: swordOfVengeance.calcChanges,
 	},
 	"longsword of vengeance (ccc-mace1-3)" : {
 		name : "Longsword of Vengeance (MACE1-3)",
@@ -3337,25 +2837,7 @@ MagicItemsList["al swords"] = {
 		descriptionLong : "The pommel of this cursed +1 longsword is carved into a skull wreathed in purple flames. It carries a secret message I don't know how to find and while attuned, I hear faint mumbling voices. I won't part with the sword and have disadvantage on attacks with other weapons. If I take damage in combat, I must pass a DC 15 Wis save or attack my attacker until they drop to 0 or I can't reach them in melee. Banishment turns it into a normal +1 longsword.",
 		descriptionFull : "The pommel of this sword is carved to look like a skull wreathed in purple flames. You hear faint, mumbling voices when you are attuned to the sword. The sword carries a secret message but you have no idea how to find it.\n   You gain a +1 bonus to attack and damage rolls made with this magic weapon.\n   " + toUni("Curse") + ". This weapon is cursed and possessed by a vengeful spirit. Becoming attuned to it extends the curse to you. As long as you remain cursed, you are unwilling to part with the weapon, keeping it on your person at all times. While attuned to this weapon, you have Disadvantage on attack rolls made with weapons other than this one.\n   In addition, while the weapon is on your person, you must succeed on a DC 15 Wisdom saving throw whenever you take damage from another creature in combat. On a failed save, you must attack the creature that damaged you until you drop to 0 hit points or it does, or until you can't reach the creature to make a melee attack against it.\n   You can break the curse in the usual ways. Alternatively, casting Banishment on the weapon forces the vengeful spirit to leave it. The sword then becomes a +1 Weapon with no other properties.",
 		weaponsAdd : { select : ["Longsword of Vengeance"], options : ["Longsword of Vengeance"] },
-		calcChanges : {
-		atkAdd: [
-			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/glaive|greatsword|longsword|rapier|scimitar|swordsword/i).test(v.baseWeaponName) && (/of vengeance/i).test(v.WeaponTextName)) {
-					v.theWea.isMagicWeapon = true;
-					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
-					fields.Description += (fields.Description ? '; ' : '') + 'Cursed';
-				}
-			},
-			'If I include the words "of Vengeance" in the name of a sword, it will be treated as the magic weapon Sword of Vengeance. It has +1 to hit and damage, but also bears a curse.'
-		],
-		atkCalc : [
-			function (fields, v, output) {
-				if (v.isMeleeWeapon && (/glaive|greatsword|longsword|rapier|scimitar|swordsword/i).test(v.baseWeaponName) && (/of vengeance/i).test(v.WeaponTextName)) {
-					output.magic = v.thisWeapon[1] + 1;
-				}
-			}, ''
-			]
-		}
+		calcChanges: swordOfVengeance.calcChanges,
 	},
 	"moon-touched greatsword (ddal-drw17)" : {
 		name : "Moon-Touched Greatsword (DDAL-DRW17)",
@@ -3430,6 +2912,25 @@ MagicItemsList["al swords"] = {
 		languageProfs : ["Undercommon"],
 		weaponsAdd : { select : ["Moon-Touched Rapier"], options : ["Moon-Touched Rapier"] },
 	},
+	"moon-touched rapier (fr-dc-saerloon-3)" : {
+		name : "Moon-Touched Rapier (FR-DC-Saerloon-3)",
+		source : [["AL","FR-DC"]],
+		type : "weapon (rapier)",
+		rarity : "common",
+		description : "This rapier was made for the Knights of the Vine by Elven smiths in the Cormanthor Forest and never gets dirty. The blade is triangular and the basket hilt looks like a bunch of red grapes. In darkness, its unsheathed blade sheds moonlight, creating bright light in a 15-ft radius and dim light for another 15 ft.",
+		descriptionFull : "This rapier was made for the Knights of the Vine by Elven smiths in the Cormanthor. The blade is triangular, and the basket hilt appears like a bunch of red grapes.\n   " + toUni("Gleaming") + ". This item never gets dirty.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
+		weaponsAdd : { select : ["Moon-Touched Rapier"], options : ["Moon-Touched Rapier"] },
+	},
+	"moon-touched rapier: pointy end (fr-dc-thay-2)" : {
+		name : "Point End, Moon-Touched Rapier (THAY-2)",
+		source : [["AL","FR-DC"]],
+		type : "weapon (rapier)",
+		rarity : "common",
+		description : "The name of this sword is carved onto the blade in untidy Elvish: \"Pointy End\". Or are the words merely a reminder? The sword floats on water and other liquids, giving adv on Strength (Athletics) checks to swim. In darkness, its unsheathed blade sheds moonlight, creating bright light in a 15-ft radius and dim light for another 15 ft.",
+		descriptionFull : "The name of this sword is carved onto the blade in untidy Elvish: \"Pointy End\". Or are the words merely a reminder?\n   " + toUni("Waterborne") + ". This item floats on water and other liquids. You have advantage on Strength (Athletics) checks to swim.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
+		weaponsAdd : { select : ["Pointy End, Moon-Touched Rapier"], options : ["Pointy End, Moon-Touched Rapier"] },
+		savetxt : { text : ["Adv on Str (Athletic) chks to swim"] },
+	},
 	"moon-touched scimitar (fr-dc-dung-1)" : {
 		name : "Moon-Touched Scimitar (FR-DC-DUNG-1)",
 		source : [["AL","FR-DC"]],
@@ -3437,7 +2938,7 @@ MagicItemsList["al swords"] = {
 		rarity : "common",
 		description : "This katana is stored in an ornate mahogany case with a silver label that reads \"Legendary Sword of Selúne\". In darkness, the unsheathed blade sheds moonlight, with 15-ft bright light and 15-ft more dim light. While underground, I always know my depth below the surface and the direction to the nearest upward path toward Selúne.",
 		descriptionFull : "In the style of a katana (functionally a scimitar) stored in an ornate mahogany case with a silver label that reads \"Legendary Sword of Selúne\".\n   " + toUni("Delver") + ". While underground, the bearer of this item always knows the item's depth below the surface and the direction to the nearest staircase, ramp, or other path leading upward toward Selúne.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
-		weaponsAdd : { select : ["Moon-Touched Scimitar"], options : ["Moon-Touched Scimitar "] },
+		weaponsAdd : { select : ["Moon-Touched Scimitar"], options : ["Moon-Touched Scimitar"] },
 	},
 	"moon-touched scimitar (fr-dc-ghg-4)" : {
 		name : "Moon-Touched Scimitar (FR-DC-GHG-4)",
@@ -3446,8 +2947,18 @@ MagicItemsList["al swords"] = {
 		rarity : "common",
 		description : "This scimitar has the holy symbol of Vecna, the Whispered One engraved in the pommel. It warns me, giving +2 initiative if I'm not Incapacitated. In darkness, the unsheathed blade sheds moonlight, with 15-ft bright light and 15-ft more dim light.",
 		descriptionFull : "This scimitar has the holy symbol of Vecna, the Whispered One engraved in the pommel.\n   " + toUni("Guardian") + ". The item whispers warnings to its bearer, granting a +2 bonus to initiative if the bearer isn't incapacitated.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
-		weaponsAdd : { select : ["Moon-Touched Scimitar"], options : ["Moon-Touched Scimitar "] },
+		weaponsAdd : { select : ["Moon-Touched Scimitar"], options : ["Moon-Touched Scimitar"] },
 		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
+	},
+	"moon-touched scimitar (fr-dc-php-pest-1)" : {
+		name : "Moon-Touched Scimitar (FR-DC-PHP-PEST-1)",
+		source : [["AL","FR-DC"]],
+		type : "weapon (scimitar)",
+		rarity : "common",
+		description : "The guard of this scimitar is adorned with a silver spider, its abdomen encrusted with a large sapphire. In darkness, the unsheathed blade sheds moonlight, with 15-ft bright light and 15-ft more dim. While on my person, I can speak Undercommon.",
+		descriptionFull : "The guard of the blade is adorned with a silver spider, its abdomen is encrusted with a large sapphire.\n   " + toUni("Language") + ". The bearer can speak and understand Undercommon while the item is on the bearer’s person.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
+		weaponsAdd : { select : ["Moon-Touched Scimitar"], options : ["Moon-Touched Scimitar"] },
+		languageProfs : ["Undercommon"],
 	},
 	"moon-touched scimitar: moonmaiden's blade (fr-dc-strat-dragon-1)" : {
 		name : "Moonmaiden's Blade, Moon-Touched Scimitar",
@@ -3457,7 +2968,17 @@ MagicItemsList["al swords"] = {
 		description : "This scimitar is shaped like a waxing moon. Runes hold a prayer for those buried underground to always find the light. In darkness, the unsheathed blade sheds moonlight, with 15-ft bright light and 15-ft dim. While underground, I always know my depth below the surface and the direction to the nearest upward path.",
 		descriptionLong : "This scimitar is shaped like a waxing moon. Runes along the blade hold a prayer that those buried underground will always find the light. In darkness, the unsheathed blade sheds moonlight, creating a 15-ft radius of bright light and another 15-ft dim. While underground, I always know my depth below the surface and the direction to the nearest upward path.",
 		descriptionFull : "This scimitar's blade is shaped like a waxing moon. Runes along the blade have a prayer that those buried underground always find the light of the moon.\n   " + toUni("Delver") + ". While underground, the bearer of this item always knows the item's depth below the surface and the direction to the nearest staircase, ramp, or other path leading upward.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
-		weaponsAdd : { select : ["Moonmaiden's Blade, Moon-Touched Scimitar"], options : ["Moonmaiden's Blade, Moon-Touched Scimitar "] },
+		weaponsAdd : { select : ["Moonmaiden's Blade, Moon-Touched Scimitar"], options : ["Moonmaiden's Blade, Moon-Touched Scimitar"] },
+	},
+	"moon-touched shortsword (bmg-moon-md-6)" : {
+		name : "Moon-Touched Shortsword (BMG-MOON-MD-6)",
+		source : [["AL","PO"]],
+		type : "weapon (shortsword)",
+		rarity : "common",
+		description : "This ornate falcata has a single forward-curving edge that's wider near the point, giving it a heavy cutting momentum that feels powerful. Its hooked grip is made into a silver-blue crescent whose arms reach upward in reverence for the moon. In darkness, the unsheathed blade sheds moonlight, creating 15-ft bright light and 15-ft more dim. The light gently grows as the moon nears its fullness.",
+		descriptionLong : "This ornate falcata has a single forward-curving edge that grows wider near the point, giving it a heavy cutting momentum that feels powerful in my hand. Its hooked grip is fashioned into a silver-blue crescent whose arms reach upward along the blade in reverence for the moon. In darkness, the unsheathed sword sheds moonlight, creating a 15-ft radius of bright light and 15-ft more dim light. The light gently grows as the moon nears its fullness.",
+		descriptionFull : "This ornate falcata has a single forward-curving edge that grows wider near the point, giving it a heavy cutting momentum that feels powerful in the hand. Its hooked grip is fashioned into a silver-blue crescent whose arms reach upward along the blade in reverence for the moon. The light it gives gently grows as the moon nears its fullness.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
+		weaponsAdd : { select : ["Moon-Touched Shortsword"], options : ["Moon-Touched Shortsword"] },
 	},
 	"moon-touched shortsword (dc-poa-conmar-9)" : {
 		name : "Moon-Touched Shortsword (CONMAR-9)",
@@ -3572,6 +3093,16 @@ MagicItemsList["al swords"] = {
 		descriptionFull : "This sword's sheath is made of mammoth ivory, and bears a relief carving of mighty tiger, teeth bared and claws extended, captured forever in mid-pounce. The sword's pommel is polished to a high sheen, and bears the following inscription in Chultan: \"Swift, as a coursing river.\"\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
 		weaponsAdd : { select : ["White Tiger Tulwar, Moon-Touched Shortsword"], options : ["White Tiger Tulwar, Moon-Touched Shortsword"] },
 	},
+	"moon-touched shortsword (fr-dc-digm-1-2)" : {
+		name : "Moon-Touched Shortsword (DIGM-1-2)",
+		source : [["AL","FR-DC"]],
+		type : "weapon (shortsword)",
+		rarity : "common",
+		description : "This shortsword has a silver blade and a dark red hilt. In darkness, the unsheathed blade sheds moonlight, creating a 15-ft radius of bright light and another 15-ft radius of dim light. When glowing, images of flames flow up and down the blade as if dancing. I'm also unharmed by extreme temps past 0\u00B0F & 100\u00B0F.",
+		descriptionFull : "This sword has a silver blade and a dark red hilt. When the sword shines, images of flames flow up and down the blade, as if they’re dancing.\n   " + toUni("Temperate") + ". You are unharmed by temperatures of 0 degrees Fahrenheit or lower, and 100 degrees Fahrenheit or higher.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
+		weaponsAdd : { select : ["Moon-Touched Shortsword"], options : ["Moon-Touched Shortsword"] },
+		savetxt : { immune : ["temps past 0\u00B0F/100\u00B0F"] },
+	},
 	"moon-touched shortsword: platinum fang (fr-dc-dmja-1)" : {
 		name : "Platinum Fang, Moon-Touched Shortsword (DMJA-1)",
 		source : [["AL","FR-DC"]],
@@ -3662,25 +3193,7 @@ MagicItemsList["al swords"] = {
 		usages : "1d8+1",
 		recovery : "Never",
 		weaponsAdd : { select : ["Love's Bite, Nine Lives Stealer Longsword"], options : ["Love's Bite, Nine Lives Stealer Longsword"] },
-	calcChanges: {
-		atkAdd: [
-			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/^(?=.*(9|nine))(?=.*(lives|life))(?=.*stealer).*$/i).test(v.WeaponTextName)) {
-					v.theWea.isMagicWeapon = true;
-					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
-					fields.Description += (fields.Description ? '; ' : '') + 'On crit to target <100 HP, DC 15 Con save or die';
-				}
-			},
-			'If I include the words "Nine Lives Stealer" in a the name of a weapon, it will be treated as the magic weapon Nine Lives Stealer. It has +2 to hit and damage. Also, as long as it has charges left, when it does a critical hit against a creature with fewer than 100 HP, that creature must make a DC 15 Constitution saving throw or die.'
-		],
-		atkCalc: [
-			function (fields, v, output) {
-				if (v.isMeleeWeapon && (/^(?=.*(9|nine))(?=.*(lives|life))(?=.*stealer).*$/i).test(v.WeaponTextName)) {
-					output.magic = v.thisWeapon[1] + 2;
-				}
-			}, ''
-		]
-		}
+		calcChanges: nineLivesStealer.calcChanges,
 	},
 	"nine lives stealer scimitar (ccc-qcc2018-1)" : {
 		name : "Nine Lives Stealer Scimitar (CCC-QCC2018-1)",
@@ -3693,25 +3206,7 @@ MagicItemsList["al swords"] = {
 		usages : "9",
 		recovery : "Never",
 		weaponsAdd : { select : ["Nine Lives Stealer Scimitar"], options : ["Nine Lives Stealer Scimitar"] },
-	calcChanges: {
-		atkAdd: [
-			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/^(?=.*(9|nine))(?=.*(lives|life))(?=.*stealer).*$/i).test(v.WeaponTextName)) {
-					v.theWea.isMagicWeapon = true;
-					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
-					fields.Description += (fields.Description ? '; ' : '') + 'On crit to target <100 HP, DC 15 Con save or die';
-				}
-			},
-			'If I include the words "Nine Lives Stealer" in a the name of a weapon, it will be treated as the magic weapon Nine Lives Stealer. It has +2 to hit and damage. Also, as long as it has charges left, when it does a critical hit against a creature with fewer than 100 HP, that creature must make a DC 15 Constitution saving throw or die.'
-		],
-		atkCalc: [
-			function (fields, v, output) {
-				if (v.isMeleeWeapon && (/^(?=.*(9|nine))(?=.*(lives|life))(?=.*stealer).*$/i).test(v.WeaponTextName)) {
-					output.magic = v.thisWeapon[1] + 2;
-				}
-			}, ''
-		]
-		}
+		calcChanges: nineLivesStealer.calcChanges,
 	},
 	"rapier of life stealing (ccc-pdxage-2-1)" : {
 		name : "Rapier of Life Stealing (PDXAGE-2-1)",
@@ -3721,14 +3216,8 @@ MagicItemsList["al swords"] = {
 		description : "This matte-black rapier doesn't reflect light, emits a fiendish aura & is chill to the touch in 30 ft of a good cleric or paladin. I feel hungry even if I've eaten. On a nat 20, target takes +15 Necrotic if not Construct or Undead. I gain temp HP equal to Necrotic dealt. I also feel an invigorating euphoria & am satiated. The blade glows dully when fed.",
 		descriptionLong : "This matte-black rapier doesn't reflect light, radiates a fiendish aura and turns chill to the touch within 30 ft of a good cleric or paladin. While attuned, I often feel hungry even if I've eaten. When I roll a natural 20, the target takes +15 Necrotic damage if not a Construct or Undead. I gain temp HP equal to the Necrotic dealt. I also feel an invigorating euphoria and am satiated. The blade glows dully when fed.",
 		descriptionFull : "This matte-black rapier does not reflect light. It radiates a faint fiendish aura, and turns chill to the touch when within 30 feet of a good-aligned cleric or paladin. Once attuned, the wielder often feels hungry, even if they have just eaten. However, when the life stealing power is used, the wielder experiences an invigorating euphoria and feels satiated. The blade glows dully when it has fed.\n   When you attack a creature with this magic weapon and roll a 20 on the d20 for the attack roll, that target takes an extra 15 Necrotic damage if it isn't a Construct or an Undead, and you gain Temporary Hit Points equal to the amount of Necrotic damage taken.", 
-		weaponOptions : {
-			baseWeapon : "rapier",
-			regExpSearch : /^(?=.*rapier)(?=.*life)(?=.*stealing).*$/i,
-			name : "Rapier of Life Stealing",
-			source : [["AL","CCC"]],
-			description : "Finesse, vex; On 20: +15 Necrotic (if not Construct/Undead), temp HP equal to Necrotic taken",
-			selectNow : true,
-			},
+		weaponsAdd : { select : ["Rapier of Life Stealing"], options : ["Rapier of Life Stealing"] },
+		calcChanges: swordOfLifeStealing.calcChanges,
 	},
 	"scimitar of life stealing: night cutter (ccc-rcc-1-4)" : {
 		name : "Night Cutter, Scimitar of Life Stealing (RCC-1-4)",
@@ -3738,14 +3227,8 @@ MagicItemsList["al swords"] = {
 		description : "The solid black blade of this scimitar is etched with intricate spider webs. It belonged to a captain of House Rakarn. If worn openly, drow treat me as a usurper if I'm not drow. I always know my depth underground & the direction to the nearest upward path. On a nat 20, target takes +15 Necrotic if not Construct/Undead. I gain temp HP equal to Necrotic dealt.",
 		descriptionLong : "The blade of this scimitar is solid black and etched with intricate spider webs. It belonged to a respected captain of House Rakarn. When I bear it openly, drow consider me unworthy of it and treat me as a usurper unless I'm also drow. While carried, I always know my depth underground and the direction to the nearest upward path. When I roll a natural 20, the target takes +15 Necrotic if not a Construct or Undead. I gain temporary HP equal to the Necrotic damage dealt.",
 		descriptionFull : "The blade of this scimitar is solid black and etched with intricate spider webs. While bearing it, you always know the item's depth below the surface and the direction to the nearest staircase, ramp, or other path leading upward.\n   You openly carry the black-bladed scimitar called Night Cutter, which once belonged to a respected drow captain of House Rakarn. Unless your race is drow, you are considered unworthy by most drow to carry it, and they take an instant dislike to you, treating you as a usurper. If your race is drow, or if you do not openly carry the weapon, this drawback does not apply to you.\n   When you attack a creature with this magic weapon and roll a 20 on the d20 for the attack roll, that target takes an extra 15 Necrotic damage if it isn't a Construct or an Undead, and you gain Temporary Hit Points equal to the amount of Necrotic damage taken.", 
-		weaponOptions : {
-			baseWeapon : "scimitar",
-			regExpSearch : /^(?=.*night)(?=.*cutter).*$/i,
-			name : "Night Cutter, Scimitar of Life Stealing",
-			source : [["AL","CCC"]],
-			description : "Finesse, light, nick; On 20: +15 Necrotic (if not Construct/Undead), temp HP equal to Necrotic taken",
-			selectNow : true,
-			},
+		weaponsAdd : { select : ["Night Cutter, Scimitar of Life Stealing"], options : ["Night Cutter, Scimitar of Life Stealing"] },
+		calcChanges: swordOfLifeStealing.calcChanges,
 	},
 	"scimitar of life stealing: krakenfang (po-bk-3-7)" : {
 		name : "Krakenfang, Scimitar of Life Stealing (BK-3-7)",
@@ -3755,14 +3238,8 @@ MagicItemsList["al swords"] = {
 		description : "This thin-bladed bone sword has engravings of tentacles from tip to kraken head hilt. More tentacles entwine to form the guard. It radiates necrotic magic & lightens when it draws blood, from deep black to maroon. It reverts to the original color 8 hrs later. When I roll a nat 20, target takes +15 Necrotic if not a Construct/Undead. I gain temp HP equal to Necrotic dealt.",
 		descriptionLong : "This bone-crafted thin-bladed sword bears intricate engravings of tentacles from its tip to the kraken head hilt. The remaining tentacles entwine to form the cross guard. Krakenfang radiates a continuous necrotic magic aura and lightens when it draws blood, from deep black to maroon. It reverts to its original color 8 hrs later. When I roll a natural 20, the target takes +15 Necrotic if not a Construct or Undead. I gain temporary HP equal to the Necrotic dealt.",
 		descriptionFull : "This bone-crafted, thin bladed scimitar bears intricate engravings of tentacles that snake from blade tip to hilt-a kraken's head. The remaining tentacles entwine to form the weapons cross guard.\n   Krakenfang radiates a continuous necrotic magic aura. The scimitar's surface lightens when it draws blood, from deep black to maroon red. It reverts back to its original color 8 hours after its last use.\n   When you attack a creature with this magic weapon and roll a 20 on the d20 for the attack roll, that target takes an extra 15 Necrotic damage if it isn't a Construct or an Undead, and you gain Temporary Hit Points equal to the amount of Necrotic damage taken.",
-		weaponOptions : {
-			baseWeapon : "scimitar",
-			regExpSearch : /^(?=.*krakenfang).*$/i,
-			name : "Krakenfang, Scimitar of Life Stealing",
-			source : [["AL","PO"]],
-			description : "Finesse, light, nick; On 20: +15 Necrotic (if not Construct/Undead), temp HP equal to Necrotic taken",
-			selectNow : true,
-			},
+		weaponsAdd : { select : ["Krakenfang, Scimitar of Life Stealing"], options : ["Krakenfang, Scimitar of Life Stealing"] },
+		calcChanges: swordOfLifeStealing.calcChanges,
 	},
 	"scimitar of speed (sj-dc-amot-3)" : {
 		name : "Scimitar of Speed (SJ-DC-AMOT-3)",
@@ -3779,7 +3256,7 @@ MagicItemsList["al swords"] = {
 			baseWeapon : "scimitar",
 			regExpSearch : /^(?=.*scimitar)(?=.*speed).*$/i,
 			name : "Scimitar of Speed",
-			description: "Finesse, light, nick; Extra attack as bonus action",
+			description: "Finesse, Light, Nick; Extra attack as bonus action",
 			modifiers : [2, 2],
 			selectNow : true,
 		},
@@ -3800,7 +3277,7 @@ MagicItemsList["al swords"] = {
 			baseWeapon : "scimitar",
 			regExpSearch : /^(?=.*deceiver).*$/i,
 			name : "Deceiver, Scimitar of Speed",
-			description: "Finesse, light, nick; Extra attack as bonus action",
+			description: "Finesse, Light, Nick; Extra attack as bonus action",
 			modifiers : [2, 2],
 			selectNow : true,
 		},
@@ -3821,7 +3298,27 @@ MagicItemsList["al swords"] = {
 			baseWeapon : "scimitar",
 			regExpSearch : /^(?=.*radiance|radiance's)(?=.*glare).*$/i,
 			name : "Radiance's Glare, Scimitar of Speed",
-			description: "Finesse, light, nick; Extra attack as bonus action",
+			description: "Finesse, Light, Nick; Extra attack as bonus action",
+			modifiers : [2, 2],
+			selectNow : true,
+		},
+	},
+	"scimitar of speed: spirit's edge (sj-dc-tbs-1)" : {
+		name : "Spirit's Edge, Scimitar of Speed (TBS-1)",
+		source : [["AL","SJ-DC"]],
+		type : "weapon (scimitar)",
+		rarity : "very rare",
+		description : "This +2 scimitar was forged from folded steel and the blood of the dead. Its edge has a soft radiant glow and the whispers of dead souls from planet Trigolath warn of nearby dangers,  giving me +2 initiative if I'm not Incapacitated. I can also make 1 attack with the scimitar as a bonus action on each of my turns.",
+		descriptionFull : "This weapon is forged from folded steel and blood of the deceased. Its edge retains the slightest of a soft radiant glow and its wielder can hear the soft whispers of the dead souls from planet Trigolath warning them of dangers nearby.\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don’t have the Incapacitated condition.\n   You gain a +2 bonus to attack rolls and damage rolls made with this magic weapon. In addition, you can make one attack with it as a Bonus Action on each of your turns.",
+		attunement : true,
+		weight : 3,
+		action : [["bonus action", "Scimitar of Speed"]],
+		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
+		weaponOptions : {
+			baseWeapon : "scimitar",
+			regExpSearch : /^(?=.*spirit|spirit's)(?=.*edge).*$/i,
+			name : "Spirit's Edge, Scimitar of Speed",
+			description: "Finesse, Light, Nick; Extra attack as bonus action",
 			modifiers : [2, 2],
 			selectNow : true,
 		},
@@ -3841,7 +3338,7 @@ MagicItemsList["al swords"] = {
 			baseWeapon : "scimitar",
 			regExpSearch : /^(?=.*scimitar)(?=.*speed).*$/i,
 			name : "Scimitar of Speed",
-			description: "Finesse, light, nick; Extra attack as bonus action",
+			description: "Finesse, Light, Nick; Extra attack as bonus action",
 			modifiers : [2, 2],
 			selectNow : true,
 		},
@@ -3861,7 +3358,7 @@ MagicItemsList["al swords"] = {
 			baseWeapon : "scimitar",
 			regExpSearch : /^(?=.*beam)(?=.*scimitar)(?=.*speed).*$/i,
 			name : "Beam Scimitar of Speed",
-			description: "Finesse, light, nick; Extra attack as bonus action",
+			description: "Finesse, Light, Nick; Extra attack as bonus action",
 			modifiers : [2, 2],
 			selectNow : true,
 		},
@@ -3882,7 +3379,7 @@ MagicItemsList["al swords"] = {
 			regExpSearch : /^(?=.*manthor)(?=.*vow)(?=.*forest).*$/i,
 			name : "Manthor, Vow of the Forest",
 			source : [["AL","WBW-DC"]],
-			description: "Finesse, light, nick; Extra attack as bonus action",
+			description: "Finesse, Light, Nick; Extra attack as bonus action",
 			modifiers : [2, 2],
 			selectNow : true,
 		},
@@ -3903,7 +3400,7 @@ MagicItemsList["al swords"] = {
 			baseWeapon : "scimitar",
 			regExpSearch : /^(?=.*bregrist).*$/i,
 			name : "Bregrist, Scimitar of Speed",
-			description: "Finesse, light, nick; Extra attack as bonus action",
+			description: "Finesse, Light, Nick; Extra attack as bonus action",
 			modifiers : [2, 2],
 			selectNow : true,
 		},
@@ -3924,7 +3421,7 @@ MagicItemsList["al swords"] = {
 			baseWeapon : "scimitar",
 			regExpSearch : /^(?=.*dread)(?=.*cutlass).*$/i,
 			name : "Bregrist, Scimitar of Speed",
-			description: "Finesse, light, nick; Extra attack as bonus action",
+			description: "Finesse, Light, Nick; Extra attack as bonus action",
 			modifiers : [2, 2],
 			selectNow : true,
 		},
@@ -3996,15 +3493,7 @@ MagicItemsList["al swords"] = {
 			modifiers : [2, 2],
 			selectNow : true,
 		},
-		calcChanges : {
-			atkAdd : [
-				function (fields, v) {
-					if (v.theWea.name == "Sun Blade" && !fields.Proficiency) {
-						fields.Proficiency = CurrentProfs.weapon.otherWea && CurrentProfs.weapon.otherWea.finalProfs.indexOf("shortsword") !== -1;
-					}
-				}, ''
-			]
-		}
+		calcChanges: sunBladeCalc.calcChanges,
 	},
 	"sun blade: dawnfire (ccc-storm-1)" : {
 		name : "Dawnfire, Sun Blade (STORM-1)",
@@ -4026,15 +3515,7 @@ MagicItemsList["al swords"] = {
 			modifiers : [2, 2],
 			selectNow : true,
 		},
-		calcChanges : {
-			atkAdd : [
-				function (fields, v) {
-					if (v.theWea.name == "Sun Blade" && !fields.Proficiency) {
-						fields.Proficiency = CurrentProfs.weapon.otherWea && CurrentProfs.weapon.otherWea.finalProfs.indexOf("shortsword") !== -1;
-					}
-				}, ''
-			]
-		}
+		calcChanges: sunBladeCalc.calcChanges,
 	},
 	"sun blade (ccc-wyc-2-2)" : {
 		name : "Sun Blade (CCC-WYC-2-2)",
@@ -4056,15 +3537,7 @@ MagicItemsList["al swords"] = {
 			modifiers : [2, 2],
 			selectNow : true,
 		},
-		calcChanges : {
-			atkAdd : [
-				function (fields, v) {
-					if (v.theWea.name == "Sun Blade" && !fields.Proficiency) {
-						fields.Proficiency = CurrentProfs.weapon.otherWea && CurrentProfs.weapon.otherWea.finalProfs.indexOf("shortsword") !== -1;
-					}
-				}, ''
-			]
-		}
+		calcChanges: sunBladeCalc.calcChanges,
 	},
 	"sun blade: starshard (rmh-12)" : {
 		name : "Starshard, Sun Blade",
@@ -4086,15 +3559,7 @@ MagicItemsList["al swords"] = {
 			modifiers : [2, 2],
 			selectNow : true,
 		},
-		calcChanges : {
-			atkAdd : [
-				function (fields, v) {
-					if (v.theWea.name == "Sun Blade" && !fields.Proficiency) {
-						fields.Proficiency = CurrentProfs.weapon.otherWea && CurrentProfs.weapon.otherWea.finalProfs.indexOf("shortsword") !== -1;
-					}
-				}, ''
-			]
-		}
+		calcChanges: sunBladeCalc.calcChanges,
 	},
 	"sun blade: scintilmorn (wdotmm)" : {
 		name : "Scintilmorn, Sun Blade",
@@ -4116,15 +3581,7 @@ MagicItemsList["al swords"] = {
 			modifiers : [2, 2],
 			selectNow : true,
 		},
-		calcChanges : {
-			atkAdd : [
-				function (fields, v) {
-					if (v.theWea.name == "Sun Blade" && !fields.Proficiency) {
-						fields.Proficiency = CurrentProfs.weapon.otherWea && CurrentProfs.weapon.otherWea.finalProfs.indexOf("shortsword") !== -1;
-					}
-				}, ''
-			]
-		}
+		calcChanges: sunBladeCalc.calcChanges,
 	},
 	"sword of vengeance (ccc-saf2-2)" : {
 		name : "of Vengeance (CCC-SAF2-2)",
@@ -4143,25 +3600,7 @@ MagicItemsList["al swords"] = {
 				return !(testRegex).test(inObjKey) && (!inObj.baseWeapon || !(testRegex).test(inObj.baseWeapon));
 			}
 		},
-		calcChanges : {
-		atkAdd : [
-			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/of vengeance/i).test(v.WeaponText)) {
-					v.theWea.isMagicWeapon = true;
-					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
-					fields.Description += (fields.Description ? '; ' : '') + 'Cursed';
-				}
-			},
-			'If I include the words "of Vengeance" in the name of a sword, it will be treated as the magic weapon Sword of Vengeance. It has +1 to hit and damage, but also bears a curse.'
-		],
-		atkCalc : [
-			function (fields, v, output) {
-				if (v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/of vengeance/i).test(v.WeaponText)) {
-					output.magic = v.thisWeapon[1] + 1;
-				}
-			}, ''
-			]
-		}
+		calcChanges: swordOfVengeance.calcChanges,
 	},
 	"sword of wounding (ddal-cgb)" : {
 		name : "Sword of Wounding (DDAL-CGB)",
@@ -4181,19 +3620,8 @@ MagicItemsList["al swords"] = {
 			var testRegex = /Glaive|Greatsword|Longsword|Rapier|Scimitar|Shortsword/i;
 			return !(testRegex).test(inObjKey) && (!inObj.baseWeapon || !(testRegex).test(inObj.baseWeapon));
 		}
-	},
-	calcChanges: {
-		atkAdd: [
-			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/Glaive|Greatsword|Longsword|Rapier|Scimitar|Shortsword/i).test(v.baseWeaponName) && (/of wounding/i).test(v.WeaponTextName)) {
-					v.theWea.isMagicWeapon = true;
-					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
-					fields.Description += (fields.Description ? '; ' : '') + 'target: +2d6 Necrotic dmg; DC 15 CON Save or no HP 1 hour';
-				}
-			},
-			'If you include the words "of Wounding" in a the name of a weapon, it will be treated as the magic weapon Sword of Wounding.'
-		]
-	}
+		},
+		calcChanges: swordOfWounding.calcChanges,
 	},
 	"vicious longsword (ccc-hatms2-1)" : {
 		name : "Vicious Longsword (CCC-HATMS2-1)",
@@ -4202,13 +3630,8 @@ MagicItemsList["al swords"] = {
 		rarity : "rare",
 		description : "This longsword does +2d6 damage. Its scabbard is jet black with gold embellishments and the initials ‘ST' at the top. The gold and mithral hilt is set with a skull with red ruby eyes. It's wrapped with bone white cord to provide exceptional grip. When I roll a natural 20, I hear sinister laughter.",
 		descriptionFull : "The scabbard of this weapon is jet black with gold embellishments with the initials ‘ST' at the top of it. The hilt of the weapon appears to be made from gold and mithral. The top of the hilt has a skull with red ruby eyes set in it. The hilt is wrapped with bone white cord which provides exceptional grip. When a critical hit is scored the wielder hears unnerving sinister laughter.\n   This magic weapon deals an extra 2d6 damage to any creature it hits. This extra damage is of the same type as the weapon's normal damage.",
-		weaponOptions : {
-			baseWeapon : "longsword",
-			regExpSearch : /^(?=.*longsword)(?=.*vicious).*$/i,
-			name : "Vicious Longsword",
-			description : "Sap; +2d6 damage",
-			selectNow : true,
-		}
+		weaponsAdd : { select : ["Vicious Longsword"], options : ["Vicious Longsword"] },
+		calcChanges: viciousWeaponCalc.calcChanges,
 	},
 	"vicious rapier: hag's clawblade (al:sa-11a)" : {
 		name : "Hag's Clawblade, Vicious Rapier (AL:SA-11A)",
@@ -4217,13 +3640,8 @@ MagicItemsList["al swords"] = {
 		rarity : "rare",
 		description : "This magic rapier does +2d6 damage. It has a malachite blade and bears jagged claw-like protrusions along its length. The hilt changes appearance each dusk, which has no effect on its other properties.",
 		descriptionFull : "This rapier has a malachite blade and bears jagged, claw-like protrusions along its length. Its hilt changes its appearance each dusk, which has no effect on its other properties.\n   This magic weapon deals an extra 2d6 damage to any creature it hits. This extra damage is of the same type as the weapon's normal damage.",
-		weaponOptions : {
-			baseWeapon : "rapier",
-			regExpSearch : /^(?=.*clawblade)(?=.*hag|hag's).*$/i,
-			name : "Hag's Clawblade, Vicious Rapier",
-			description : "Finesse; Vex; +2d6 damage",
-			selectNow : true,
-		},
+		weaponsAdd : { select : ["Hag's Clawblade, Vicious Rapier"], options : ["Hag's Clawblade, Vicious Rapier"] },
+		calcChanges: viciousWeaponCalc.calcChanges,
 	},
 	"vorpal scimitar (ddal7-16)" : {
 		name : "Vorpal Scimitar (DDAL7-16)",
@@ -4236,25 +3654,7 @@ MagicItemsList["al swords"] = {
 		descriptionLong : "This +3 scimitar hums and vibrates with energy, slicing through obstacles with ease and ignoring Slashing resistance. If it doesn't claim a sentient life each day, I'm easily angered and frustrated by the smallest obstacles. On a natural 20, the sword cuts off 1 head from the target (possibly causing death). If the target headless, immune to Slashing, too big (per DM) or uses 1 Legendary Resistance, it takes +30 Slashing damage instead.",
 		descriptionFull : "This blade hums and vibrates with great energy, and slices through obstacles with the greatest of ease. If the sword does not claim the life of a sentient creature each day, you find that you are easily angered and become frustrated by even the smallest obstacles.\n   You gain a +3 bonus to attack rolls and damage rolls made with this magic weapon. In addition, the weapon ignores Resistance to Slashing damage.\n   When you use this weapon to attack a creature that has at least one head and roll a 20 on the d20 for the attack roll, you cut off one of the creature's heads. The creature dies if it can't survive without the lost head. A creature is immune to this effect if it has Immunity to Slashing damage, if it doesn't have or need a head, or if the DM decides that the creature is too big for its head to be cut off with this weapon. Such a creature instead takes an extra 30 Slashing damage from the hit. If the creature has Legendary Resistance, it can expend one daily use of that trait to avoid losing its head, taking the extra damage instead.",
 		weaponsAdd : { select : ["Vorpal Scimitar"], options : ["Vorpal Scimitar"] },
-		calcChanges : {  //For Vorpal Sword
-		atkAdd: [
-			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/glaive|greatsword|longsword|scimitar/i).test(v.baseWeaponName) && (/vorpal/i).test(v.WeaponTextName) && v.theWea.damage[2] == "slashing") {
-					v.theWea.isMagicWeapon = true;
-					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
-					fields.Description += (fields.Description ? '; ' : '') + 'Ignores slashing resistance; On 20 to hit: cut off head';
-				}
-			},
-			'If I include the word "Vorpal" in a the name of a weapon that deals slashing damage, it will be treated as the magic weapon Vorpal Sword. It has +3 to hit and damage and on a roll of 20 on the attack roll, it cuts off a head of the target.'
-		],
-		atkCalc: [
-			function (fields, v, output) {
-				if (v.isMeleeWeapon && (/glaive|greatsword|longsword|scimitar/i).test(v.baseWeaponName) && (/vorpal/i).test(v.WeaponTextName) && v.theWea.damage[2] == "slashing") {
-					output.magic = v.thisWeapon[1] + 3;
-				}
-			}, ''
-		]
-		},
+		calcChanges: vorpalSword.calcChanges,
 	},
 	"vorpal scimitar: abi teos's machete (rmh-9/rmh-10)" : {
 		name : "Abi Teos's Machete (Vorpal Scimitar)",
@@ -4270,26 +3670,50 @@ MagicItemsList["al swords"] = {
 		"\n   When you use this weapon to attack a creature that has at least one head and roll a 20 on the d20 for the attack roll, you cut off one of the creature's heads. The creature dies if it can't survive without the lost head. A creature is immune to this effect if it has Immunity to Slashing damage, if it doesn't have or need a head, or if the DM decides that the creature is too big for its head to be cut off with this weapon. Such a creature instead takes an extra 30 Slashing damage from the hit. If the creature has Legendary Resistance, it can expend one daily use of that trait to avoid losing its head, taking the extra damage instead."+
 		"\n   " + toUni("Curse") + ". Whenever you deal damage with Abi-Teos's machete, you take 1d6 necrotic damage as the weapon drains your blood. If you roll a 1 on an attack roll made with the weapon, the leeches carved into the handle animate and crawl down your throat—infesting you with throat leeches (a disease). You must succeed on a DC 12 Constitution saving throw or gain 1 level of exhaustion that can only be removed by succeeding on a DC 12 Constitution saving throw upon completing a long rest. If the saving throw fails, you gain another level of exhaustion. If a successful saving throw reduces your exhaustion level below 1, you recover from the disease.",
 		weaponsAdd : { select : ["Abi Teos's Machete, Vorpal Scimitar"], options : ["Abi Teos's Machete, Vorpal Scimitar"] },
-		calcChanges : {  //For Vorpal Sword
-		atkAdd: [
-			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/glaive|greatsword|longsword|scimitar/i).test(v.baseWeaponName) && (/vorpal/i).test(v.WeaponTextName) && v.theWea.damage[2] == "slashing") {
-					v.theWea.isMagicWeapon = true;
-					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
-					fields.Description += (fields.Description ? '; ' : '') + 'Ignores slashing resistance; On 20 to hit: cut off head';
-				}
-			},
-			'If I include the word "Vorpal" in a the name of a weapon that deals slashing damage, it will be treated as the magic weapon Vorpal Sword. It has +3 to hit and damage and on a roll of 20 on the attack roll, it cuts off a head of the target.'
-		],
-		atkCalc: [
-			function (fields, v, output) {
-				if (v.isMeleeWeapon && (/glaive|greatsword|longsword|scimitar/i).test(v.baseWeaponName) && (/vorpal/i).test(v.WeaponTextName) && v.theWea.damage[2] == "slashing") {
-					output.magic = v.thisWeapon[1] + 3;
-				}
-			}, ''
-		]
-		},
+		calcChanges: vorpalSword.calcChanges,
 	},
+	"wakened white dragon's wrath greatsword (bmg-moon-md-12)" : {
+		name : "Wakened White Dragon Wrath Greatsword (MOON)",
+		source : [["AL","PO"]],
+		rarity : "rare",
+		attunement : true,
+		description : "Pulled from the freezing lair of an adult white dragon, this greatsword is still cold to the touch and a glove is needed to wield it without pain. Along the ice that rimes its length are runes in Thorass that read \"Cold hands, cold heart.\" On a 20, chosen creatures in 5 ft of target take 5 Cold. As action once per dawn, 30-ft cone: 8d6 Cold DC 16 Dex for half.",
+		descriptionLong : "Pulled from the freezing lair of an adult white dragon, this greatsword is still cold to the touch and a glove is needed to wield it without pain. Along the ice that rimes its length are runes in Thorass that read \"Cold hands, cold heart.\" The blade adds +2 to attack and damage and deals +2d6 Cold damage on a hit. On a 20, each chosen creature in 5 ft of the target takes 5 Cold damage. As an action once per dawn, I can create a 30-ft cone: 8d6 Cold damage, Dex DC 16 for half.",
+		descriptionFull : "Pulled from the freezing lair of an adult white dragon, this blade is still cold to the touch and a glove is needed to wield it without pain. Along the ice that rimes its length are runes in Thorass that read \"Cold hands, cold heart.\""+
+		"\n   This weapon is decorated with dragon heads, claws, wings, scales, or Draconic letters. When it steeps in a dragon's hoard, it absorbs the energy of the dragon's breath weapon and deals damage of that type with its special properties. This weapon cannot change rarity or power level."+
+		"\n   >>Slumbering (Uncommon)<<. Whenever you roll a 20 on your attack roll with this weapon, each creature of your choice within 5 feet of the target takes 5 damage of the type dealt by the dragon's breath weapon."+
+		"\n   >>Stirring (Rare)<<. The Stirring weapon has the Slumbering property. In addition, you gain a +1 bonus to attack and damage rolls made using the weapon. On a hit, the weapon deals an extra 1d6 damage of the type dealt by the dragon's breath weapon."+
+		"\n   >>Wakened (Very Rare)<<. The Wakened weapon has the Slumbering property, and it improves on the Stirring property. The bonus to attack and damage rolls increases to +2, and the extra damage dealt by the weapon increases to 2d6."+
+		"\n   As an action, you can unleash a 30-foot cone of destructive energy from the weapon. Each creature in that area must make a DC 16 Dexterity saving throw, taking 8d6 damage of the type dealt by the dragon's breath weapon on a failed save, or half as much damage on a successful one. Once this action is used, it can't be used again until the next dawn."+
+		"\n   >>Ascendant (Legendary)<<. The Ascendant weapon has the Slumbering property, and it improves on the Stirring and Wakened properties. The bonus to attack and damage rolls increases to +3, and the extra damage dealt by the weapon increases to 3d6."+
+		"\n   The cone of destructive energy the weapon creates increases to a 60-foot cone, the save DC increases to 18, and the damage increases to 12d6.",
+		limfeaname : "White Wrath Breath",
+		usages : 1,
+		recovery : "dawn",
+		action : [["action", "White Wrath Breath"]],
+		weaponOptions : [{
+			baseWeapon : "greatsword",
+				name : "Wakened White Wrath Greatsword",
+				regExpSearch : /wakened white wrath greatsword/i,
+				source : [["AL","PO"]],
+				description : "Heavy, Two-handed; Graze; +2d6 Cold; On a 20, 5 Cold to any creature in 5ft",
+				modifiers : [2,2],
+				selectNow : true
+			},{			
+			name : "Wakened White Wrath Cone",
+				regExpSearch : /wakened white wrath cone/i,
+				source : [["AL","PO"]],
+				ability : 0,
+				type : "Magic Item",
+				damage : [8, 6, "Cold"],
+				range : "30-ft cone",
+				description : "Hits all in area; Dex save, success - half damage; Usable once per dawn",
+				abilitytodamage : false,
+				dc : true,
+				modifiers : [8, ""],
+				selectNow : true
+			}],
+		},
 }
 	
 MagicItemsList["al weapons +1"] = {
@@ -4649,7 +4073,7 @@ MagicItemsList["al weapons +2 or +3"] = {
 			allowDuplicates : true,
 			choicesNotInMenu : true,
 			magicItemTable : "?",
-		choices : ["+2 Bow (DDEX3-7)","+2 Dagger (CCC-GHC-6)","+2 Dagger (SJ-DC-INAS-3)","+2 Dagger: EPA (Trading Post)","+2 Glaive: Azure Sky (SJ-DC-ANGKA-6)","+2 Greataxe: Whisper (DDHC-TOA-8)","+2 Greataxe: Gleaming (SJ-DC-NMB1-3)","+2 Greataxe: Gythka (SJ-DC-PAT-1)","+2 Greatsword: Tyr's Justice (CCC-GHC-8)","+2 Greatsword: Githyanki Greater Silver Sword (CCC-TRI-27 ROSE1-2)","+2 Greatsword (FR-DC-AEG-6)","+2 Greatsword: Elven Curve Blade (FR-DC-LAX-1-2)","+2 Greatsword (FR-DC-MELB-1-2)","+2 Greatsword: Agony (SJ-DC-ANGKA-1)","+2 Greatsword: Lux Machaera (SJ-DC-LIGA6)","+2 Greatsword (SJ-DC-RH-1)","+2 Hand Crossbow (SJ-DC-ECHO-4)","+2 Hand Crossbow (SJ-DC-ROCK-1)","+2 Heavy Crossbow: First Blood (SJ-DC-TBS-4)","+2 Longbow: Deep's Reach (CCC-BMG-MOON12-2)","+2 Longbow: Giant's Bane (CCC-GHC-9)","+2 Longbow (DDEP5-2)","+2 Longbow: Bloodthirst (SJ-DC-EPOCH-1)","+2 Longbow: Friendbow (SJ-DC-SCR-1)","+2 Longbow: Craygen's Bow (SJ-DC-SSM-UBCon-1)","+2 Longsword: Elven Blade of the Third Age (CCC-BWM-2)","+2 Longsword: Stout (CCC-GHC-BK1-5)","+2 Longsword: Blazherserblane (FR-DC-LIGA-2)","+2 Longsword: Westdeck Sword (SJ-DC-CGG-2)","+2 Longsword (SJ-DC-END-1-4)","+2 Maul: Manyoshu's Kanabo (FR-DC-ONI-1)","+2 Maul: Coral Great Hammer (SJ-DC-DEN-H5)","+2 Maul: Space Clown Hammer (SJ-DC-FXC-JEFF-1)","+2 Morningstar: Mourning Star (SJ-DC-ANGKA-5)","+2 Pike: Horizon Caller (SJ-DC-CONMAR-1)","+2 Quarterstaff: Herfren's Marshaling Wand (SJ-DC-BST-2)","+2 Rapier: The Sixth Sword (CCC-HAL-3)","+2 Rapier (FR-DC-AEG-9)","+2 Rapier (SJ-DC-DRAGON-3)","+2 Scimitar (SJ-DC-DRA-1)","+2 Scimitar (SJ-DC-IGC-ECP-5)","+2 Shortsword: Smoke (CCC-SFBAY1-1)","+2 Shortsword (DDAL0-13)","+2 Shortsword (RV-DC-POE-1)","+2 Spear (PS-DC-DRAGON24-2)","+2 Trident (CCC-CIC-12)","+2 Trident: Deep Sashelas (PS-DC-PKL-9)","+2 War Pick (CCC-MYR1-1)","+2 Warhammer (FR-DC-BMK-1)","+2 Weapon (PotA)","+2 Weapon (SJ-DC-MAD-2)","+2 Whip: Flogger's Bouquet (SJ-DC-ENIGMA)","+2 Whip (SJ-DC-TEL-1)","+2 Yklwa: Naga's Warning (SJ-DC-PAT-2)","+3 Battleaxe: Skeggöx (DDAL5-9)","+3 Dagger (CCC-TRI-29 TIDE1-1)","+3 Glaive: Empyrean's Unbreaking Glaive (WBW-DC-Sunlit-6)","+3 Greatsword: Wyrmguard (PS-DC-STRAT-DRAGON-5)","+3 Greatsword (WBW-DC-PLS-1)","+3 Hand Crossbow: Belmore (WBW-DC-PHP-LCL-2)","+3 Lance: Dream Whirl (CCC-BMG-39 HULB3-3)","+3 Longbow (BMG-DRWEP-OD-2)","+3 Piercing Weapon: Midnight Phaeton's Horn (CCC-ODFC2-3)","+3 Pike: Krahharuan Fork (DDAL7-10)","+3 Scimitar (DDEP6-2)","+3 Shortsword: Harengon's Freedom (AL:SA-11A)","+3 Spear: Blood-Drinker's Backbone (RMH-5/RMH-6)"],
+		choices : ["+2 Bow (DDEX3-7)","+2 Club (PS-DC-GMM-1)","+2 Dagger (CCC-GHC-6)","+2 Dagger (SJ-DC-INAS-3)","+2 Dagger: EPA (Trading Post)","+2 Glaive: Azure Sky (SJ-DC-ANGKA-6)","+2 Greataxe: Whisper (DDHC-TOA-8)","+2 Greataxe: Statikax (SJ-DC-LLL-1)","+2 Greataxe: Gleaming (SJ-DC-NMB1-3)","+2 Greataxe: Gythka (SJ-DC-PAT-1)","+2 Greatsword: Tyr's Justice (CCC-GHC-8)","+2 Greatsword: Githyanki Greater Silver Sword (CCC-TRI-27 ROSE1-2)","+2 Greatsword (FR-DC-AEG-6)","+2 Greatsword: Elven Curve Blade (FR-DC-LAX-1-2)","+2 Greatsword (FR-DC-MELB-1-2)","+2 Greatsword: Agony (SJ-DC-ANGKA-1)","+2 Greatsword: Lesser (SJ-DC-FTC-2)","+2 Greatsword: Lux Machaera (SJ-DC-LIGA6)","+2 Greatsword (SJ-DC-RH-1)","+2 Hand Crossbow (SJ-DC-ECHO-4)","+2 Hand Crossbow (SJ-DC-ROCK-1)","+2 Heavy Crossbow: First Blood (SJ-DC-TBS-4)","+2 Longbow: Deep's Reach (CCC-BMG-MOON12-2)","+2 Longbow: Giant's Bane (CCC-GHC-9)","+2 Longbow (DDEP5-2)","+2 Longbow: Bloodthirst (SJ-DC-EPOCH-1)","+2 Longbow: Friendbow (SJ-DC-SCR-1)","+2 Longbow: Craygen's Bow (SJ-DC-SSM-UBCon-1)","+2 Longsword: Elven Blade of the Third Age (CCC-BWM-2)","+2 Longsword: Stout (CCC-GHC-BK1-5)","+2 Longsword: Pride (FR-DC-BTW-3)","+2 Longsword: Blazherserblane (FR-DC-LIGA-2)","+2 Longsword: Westdeck Sword (SJ-DC-CGG-2)","+2 Longsword (SJ-DC-END-1-4)","+2 Maul: Manyoshu's Kanabo (FR-DC-ONI-1)","+2 Maul: Coral Great Hammer (SJ-DC-DEN-H5)","+2 Maul: Space Clown Hammer (SJ-DC-FXC-JEFF-1)","+2 Morningstar: Mourning Star (SJ-DC-ANGKA-5)","+2 Pike: Horizon Caller (SJ-DC-CONMAR-1)","+2 Quarterstaff: Herfren's Marshaling Wand (SJ-DC-BST-2)","+2 Rapier: The Sixth Sword (CCC-HAL-3)","+2 Rapier (FR-DC-AEG-9)","+2 Rapier (SJ-DC-DRAGON-3)","+2 Scimitar (SJ-DC-DRA-1)","+2 Scimitar (SJ-DC-IGC-ECP-5)","+2 Shortsword: Smoke (CCC-SFBAY1-1)","+2 Shortsword (DDAL0-13)","+2 Shortsword (RV-DC-POE-1)","+2 Spear (PS-DC-DRAGON24-2)","+2 Trident (CCC-CIC-12)","+2 Trident: Deep Sashelas (PS-DC-PKL-9)","+2 War Pick (CCC-MYR1-1)","+2 Warhammer (FR-DC-BMK-1)","+2 Weapon (PotA)","+2 Weapon (SJ-DC-MAD-2)","+2 Whip: Flogger's Bouquet (SJ-DC-ENIGMA)","+2 Whip (SJ-DC-TEL-1)","+2 Yklwa: Naga's Warning (SJ-DC-PAT-2)","+3 Battleaxe: Skeggöx (DDAL5-9)","+3 Battleaxe: Pickleaxe (PS-DC-PKL-20B)","+3 Dagger (CCC-TRI-29 TIDE1-1)","+3 Glaive: Empyrean's Unbreaking Glaive (WBW-DC-Sunlit-6)","+3 Greatsword: Wyrmguard (PS-DC-STRAT-DRAGON-5)","+3 Greatsword (WBW-DC-PLS-1)","+3 Hand Crossbow: Belmore (WBW-DC-PHP-LCL-2)","+3 Lance: Dream Whirl (CCC-BMG-39 HULB3-3)","+3 Longbow (BMG-DRWEP-OD-2)","+3 Piercing Weapon: Midnight Phaeton's Horn (CCC-ODFC2-3)","+3 Pike: Krahharuan Fork (DDAL7-10)","+3 Scimitar (DDEP6-2)","+3 Shortsword: Harengon's Freedom (AL:SA-11A)","+3 Shortsword (PS-DC-NOS-4)","+3 Spear: Blood-Drinker's Backbone (RMH-5/RMH-6)"],
 		"+2 bow (ddex3-7)" : {
 			name : "+2 (DDEX3-7)",
 			source : [["AL","S3"]],
@@ -4666,6 +4090,15 @@ MagicItemsList["al weapons +2 or +3"] = {
 				return !(/shortbow|longbow/i).test(inObj.name);
 					},
 				}
+			},
+		"+2 club (ps-dc-gmm-1)" : {
+			name : "+2 Club (PS-DC-GMM-1)",
+			source : [["AL","PS-DC"]],
+			rarity : "rare",
+			allowDuplicates : true,
+			description : "This club is made of cheese, but it's durablility is unaffected. I have a +2 bonus to attack and damage rolls made with it.",
+			descriptionFull : "You have a +2 bonus to attack and damage rolls made with this magic weapon. Minor Property: Strange Material-Cheese. This item was created from a material that is bizarre given its purpose. Its durability is unaffected.",
+			weaponsAdd : { select : ["Club +2"], options : ["Club +2"] },
 			},
 		"+2 dagger (ccc-ghc-6)" : {
 			name : "+2 Dagger (CCC-GHC-6)",
@@ -4717,6 +4150,16 @@ MagicItemsList["al weapons +2 or +3"] = {
 			vision : [["Darkvision", "fixed 120"], ["Darkvision", "120"]],
 			weaponsAdd : { select : ["Whisper, Greataxe +2"], options : ["Whisper, Greataxe +2"] },
 			advantages : [["Stealth", true]],
+			},
+		"+2 greataxe: statikax (sj-dc-lll-1)" : {
+		name : "Statikax, Greataxe +2 (SJ-DC-LLL-1)",
+			source : [["AL","SJ-DC"]],
+			rarity : "rare",
+			allowDuplicates : true,
+			description : "This +2 greataxe was constructed with the single-minded purpose of destroying shapeshifters. The axe head is engraved with images of various were-creatures being split asunder and it glows when a Shapeshifter is within 120 ft.",
+			descriptionLong : "This greataxe was constructed with the single-minded purpose of destroying shapeshifters. The axe head is engraved with images of various were-creatures being split asunder and it glows when any creature that's a Shapeshifter is within 120 ft. I have a +2 bonus to attack and damage rolls made with the greataxe.",
+			descriptionFull : "This specific greataxe was constructed with the single-minded purpose of destroying shapeshifters. The axe head is engraved with images of various were-creatures being split asunder.\n   " + toUni("Sentinel") + ". As such, Statikax glows faintly when any creature with the “shapeshifter” tag is within 120 feet of it.\n   You have +2 bonus to attack and damage rolls made with this magic weapon.",
+			weaponsAdd : { select : ["Statikax, Greataxe +2"], options : ["Statikax, Greataxe +2"] },
 			},
 		"+2 greataxe: gleaming (sj-dc-nmb1-3)" : {
 		name : "Gleaming Greataxe +2 (NMB1-3)",
@@ -4798,6 +4241,15 @@ MagicItemsList["al weapons +2 or +3"] = {
 			descriptionFull : "The hilt of this greatsword is wrapped in black leather. The blade itself is blood red, and its sheath is the color of red wine. Created through ritual sacrifice, this greatsword radiates the hot, metallic scent of fear and the singed sulfur smell of anger. When you hold it, you can hear the whispered cries of the soul fragment trapped within.\n   " + toUni("Guardian") + ". The trapped soul whispers warnings to the bearer granting a +2 bonus to Initiative.\n   You have a +2 bonus to attack and damage rolls made with this magic weapon.",
 			addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on Initiative rolls." },
 			weaponsAdd : { select : ["Agony, Greatsword +2"], options : ["Agony, Greatsword +2"] },
+			},
+		"+2 greatsword: lesser (sj-dc-ftc-2)" : {
+		name : "Lesser Silver Greatsword +2 (FTC-2)",
+			source : [["AL","SJ-DC"]],
+			rarity : "rare",
+			allowDuplicates : true,
+			description : "This greatsword is made from gleaming Githyanki Silver. At first glance, it appears to be a Greater Silver Sword sacred to Githyanki, but upon closer inspection it is not. I also have a +2 bonus to attack and damage rolls made with this magic sword.",
+			descriptionFull : "At first glance, this appears to be a Greater Silver Sword sacred to Githyanki, but upon closer inspection it is not.\n   " + toUni("Strange Material") + ". This Greatsword is made from gleaming Githyanki Silver.\n   You have a +2 bonus to attack and damage rolls made with this magic weapon.",
+			weaponsAdd : { select : ["Lesser Silver Greatsword +2"], options : ["Lesser Silver Greatsword +2"] },
 			},
 		"+2 greatsword: lux machaera (sj-dc-liga6)" : {
 		name : "Lux Machaera, +2 Greatsword (LIGA6)",
@@ -4934,6 +4386,15 @@ MagicItemsList["al weapons +2 or +3"] = {
 			description : "This longsword has a cross-guard shaped like a tree branch and an oak tree embossed on its pommel. It has the Gleaming property and never gets dirty. I have a +2 bonus to attack and damage rolls made with it.",
 			descriptionFull : "This longsword has a cross-guard shaped like a tree branch and an oak tree embossed on its pommel. In addition, the sword has the Gleaming minor property and never gets dirty.\n   You have a +2 bonus to attack and damage rolls made with this magic weapon.",
 			weaponsAdd : { select : ["Stout, Longsword +2"], options : ["Stout, Longsword +2"] },
+			},
+		"+2 longsword: pride (fr-dc-btw-3)" : {
+			name : "Pride, +2 Longsword (FR-DC-BTW-3)",
+			source : [["AL","FR-DC"]],
+			rarity : "rare",
+			allowDuplicates : true,
+			description : "This magical longsword has a black blade and a valuable ruby set into the copper handle. The word \"Pride\" is engraved on the blade. I have a +2 bonus to attack and damage rolls made with this sword.",
+			descriptionFull : "It has a black blade and a valuable ruby is set into the copper handle. The word \"Pride\" is engraved on the black blade.\n   You have a +2 bonus to attack and damage rolls made with this magic weapon.",
+			weaponsAdd : { select : ["Pride, Longsword +2"], options : ["Pride, Longsword +2"] },
 			},
 		"+2 longsword: blazherserblane (fr-dc-liga-2)" : {
 			name : "Blazherserblane, +2 Longsword (FR-DC-LIGA-2)",
@@ -5241,6 +4702,16 @@ MagicItemsList["al weapons +2 or +3"] = {
 			action : [["bonus action", " (Intimidation Ck Adv)"]],
 			weaponsAdd : { select : ["Skeggöx, Battleaxe +3"], options : ["Skeggöx, Battleaxe +3"] },
 			},
+		"+3 battleaxe: pickleaxe (ps-dc-pkl-20b)" : {
+		name : "Pickleaxe, +3 Battleaxe (PS-DC-PKL-20B)",
+			source : [["AL","PS-DC"]],
+			rarity : "very rare",
+			allowDuplicates : true,
+			description : "This battleaxe whispers warnings, giving e +2 initiative unless I'm Incapacitated. I also gain +3 to attack and damage rolls with this weapon.",
+			descriptionFull : "This battleaxe whispers gently to the wielder giving them a +2 to their Initiative (Unless Incapacitated per Guardian property).\n   You have a +3 bonus to attack and damage rolls made with this magic weapon.",
+			addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
+			weaponsAdd : { select : ["Battleaxe +3"], options : ["Battleaxe +3"] },
+			},
 		"+3 dagger (ccc-tri-29 tide1-1)" : {
 		name : "+3 Dagger (CCC-TRI-29 TIDE1-1)",
 			source : [["AL","CCC"]],
@@ -5357,10 +4828,20 @@ MagicItemsList["al weapons +2 or +3"] = {
 			rarity : "very rare",
 			allowDuplicates : true,
 			description : "The hilt of this +3 shortsword is decorated with images of frolicking harengon and the blade is made of a shimmering dark purple crystal. When wielded, I gain a +2 bonus to initiative if I'm not Incapacitated.",
-			descriptionLong : "The hilt of this shortsword is decorated with images of frolicking harengon and the blade is made of a shimmering dark purple crystal. When wielded, I gain a +2 bonus to initiative if I'm not Incapacitated and have +3 bonus to attack and damage rolls made with this magic weapon.",
+			descriptionLong : "The hilt of this shortsword is decorated with images of frolicking harengon and the blade is made of a shimmering dark purple crystal. When wielded, I gain a +2 bonus to initiative if I'm not Incapacitated and have a +3 bonus to attack and damage rolls made with this magic weapon.",
 			descriptionFull : "The hilt of this shortswordis decorated with images of frolicking harengon and the blade is constructed of a shimmering dark purple crystal. When wielded, you gain a +2 bonus to Initiative if you're not Incapacitated.\n   You have a +3 bonus to attack and damage rolls made with this magic weapon.",
 			addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on Initiative rolls." },
 			weaponsAdd : { select : ["Harengon's Freedom, Shortsword +3"], options : ["Harengon's Freedom, Shortsword +3"] },
+			},
+		"+3 shortsword (ps-dc-nos-4)" : {
+		name : "+3 Shortsword (PS-DC-NOS-4)",
+			source : [["AL","PS-DC"]],
+			rarity : "very rare",
+			allowDuplicates : true,
+			description : "This +3 shortsword once belonged to an Ancients paladin. It was broken and repaired, losing its special properties but not its edge. The hilt is that of a Holy Avenger Longsword, but the blade shows markings where it was reassembled. It glows within 120 ft of Fey.",
+			descriptionLong : "This shortsword was once the Holy Avenger of an Oath of Ancients paladin. It has since broken and been repaired, losing its special properties but not its edge. The hilt is clearly that of a Holy Avenger Longsword, but the blade has been shattered and shows markings where it was reassembled. It glows within 120 feet of Fey. I have a +3 bonus to attack and damage rolls made with this magic weapon.",
+			descriptionFull : "\"Oathbroken Avenger.\" This weapon was once the holy avenger of an Oath of Ancients paladin. It has since broken and been repaired, losing its special properties but not its edge. The hilt is clearly that of a Holy Avenger Longsword, but the blade has been shattered and shows markings where it was reassembled.\n   " + toUni("Sentinel") + ". This item glows faintly when Fey are within 120 feet of it.\n   You have a +3 bonus to attack and damage rolls made with this magic weapon.",
+			weaponsAdd : { select : ["Shortsword +3"], options : ["Shortsword +3"] },
 			},
 		"+3 spear: blood-drinker's backbone (rmh-5/rmh-6)" : {
 		name : "Blood-Drinker's Backbone, +3 Spear",
@@ -5380,7 +4861,7 @@ MagicItemsList["al weapons (other)"] = {
 		allowDuplicates : true,
 		choicesNotInMenu : true,
 		magicItemTable : "?",
-	choices : ["Berserker Flail (CCC-UCON-1)","Dagger of Blindsight: Panther's Claw (RMH-9)","Dagger of Venom: Fang of Sibyl (CCC-GARY-1)","Dagger of Venom (DDAL4-11)", "Dagger of Venom (DDAL5-17)","Devotee's Censer (BMG-DRW-OD-4)","Dragon Wing Bow: Radiant (BMG-DRWEP-OD-2)","Drow-made Dagger (WDotMM)","Dwarven Thrower: Skyfist (DDEP4)","Dwarven Thrower: Foehammer (WBW-DC-MOM-2)","Elven Thrower (FR-DC-DEATH)","Elven Thrower: Araelathila (FR-DC-LIGA-1)","Elven Thrower: Naginata (FR-DC-PANDORA-JWEI-8)","Elven Thrower (FR-DC-RWIE-3)","Flame Tongue (CCC-YLRA-2)","Forcebreaker Sling (PO-BMG-DRW-KS-6)","Glaive of Warning: The Harbinger (CCC-EPI1-2)","Glaive of Warning: Losspatan's War-scythe (CCC-GGC-2-1)","Greatclub of Warning: U'u War Club (WBW-DC-DEN-H2)","Greatclub of Warning: Clobber (WBW-DC-MIKE-1)","Green-Flame Mace: Face of Umberlee's Fury (CCC-AWE-1-2)","Javelin of Lightning (CCC-BFG1-3)","Javelin of Lightning (CCC-BMG-MOON6-3)","Javelin of Lightning (CCC-BMG-MOON16-1)","Javelin of Lightning (CCC-GAD2-2)","Javelin of Lightning (CCC-SAC-4)","Javelin of Lightning (CCC-SFBAY-4-1)","Javelin of Lightning (DDAL8-5)","Javelin of Lightning (SJ-DC-AS-1)","Javelin of Lightning: Comet Spear (SJ-DC-CJK2-2)","Javelin of Lightning: Stormstrike (SJ-DC-DD-4)","Javelin of Lightning: Processional Baton (SJ-DC-DES5-1)","Javelin of Lightning: Rrakkma's Smite (SJ-DC-FLUMPH-1)","Javelin of Lightning: Jensen's Lure (SJ-DC-ISL-1)","Javelin of Lightning (SJ-DC-LIGA1)","Javelin of Lightning (SJ-DC-MB5-AH123)","Javelin of Lightning: Reigar's Rage (SJ-DC-MDW-1)","Javelin of Lightning (SJ-DC-TRIDEN-UPR)","Javelin of Lightning (SJ-DC-TTUC-1)","Javelin of Warning: Jeny's Hairpin (CCC-VOTE-1-1)","Lash of Immolation: Dragon's Tail (FR-DC-STRAT-DRAGON-2)","Longbow of Melodies: Airalinde (FR-DC-IMP-2)","Longbow of Melodies: Lavender's Scent (FR-DC-PANDORA-JWEI-10)","Mace of Disruption (CCC-CIC-3)","Mace of Disruption: Death's Head (CCC-GHC-BK1-2)","Mace of Smiting (DDAL7-6)","Mace of Smiting (DDAL8-7)","Mace of Smiting (DDAL10-7)","Mace of Terror: Durgeddin's Fist (DDEP6-1)","Moon Sickle +1 (DDAL-DRW10)","Moon Sickle +2 (BMG-DRWEP-OD-1)","Moon Sickle +2: Selune's Guidance (WBW-DC-NJ-COU-2)","Moon Sickle +2: Tsukikama (WBW-DC-PHP-1)","Moon Sickle +3 (FR-DC-UCON24)","Oathbow: Syranna's Folly (CCC-OCC-1)","Oathbow (DDAL-DRW8)","Oathbow: Shadowsong (DDEX3-7)","Oathbow: Selestria (WBW-DC-TMP-3)","Shortbow of Melodies (FR-DC-FALL-1)","Starshot Hand Crossbow (PO-BMG-DRW-KS-2)","Stone Greataxe (DDAL0-13)","Trident of Fish Command (CCC-BMG-MOON14-1)","Trident of Fish Command (CCC-TAROT2-8)","Trident of Fish Command (CCC-WWC-2)","Trident of Warning (CCC-TRI-34)","Trident of Warning (DDEX2-3)","Vicious Glaive: Ptahrek's Glaive (CCC-SVH1-2)","Vicious Mace (CCC-BMG-1 HULB1-1)","Vicious Spear (DDAL0-13)","Wakened Crystal Dragon's Wrath Glaive (PO-BMG-DRW-KS-5)","Weapon of Warning (CCC-ELF-3-1)","Weapon of Warning (DDAL0-7)","Whip of Warning (CCC-GHC-BK2-10)","Whip of Warning (DDAL4-2)"],
+	choices : ["Berserker Flail (CCC-UCON-1)","Dagger of Blindsight: Panther's Claw (RMH-9)","Dagger of Venom: Fang of Sibyl (CCC-GARY-1)","Dagger of Venom (DDAL4-11)", "Dagger of Venom (DDAL5-17)","Devotee's Censer (BMG-DRW-OD-4)","Dragon Wing Bow: Radiant (BMG-DRWEP-OD-2)","Drow-made Dagger (WDotMM)","Dwarven Thrower: Skyfist (DDEP4)","Dwarven Thrower: Foehammer (WBW-DC-MOM-2)","Elven Thrower (FR-DC-DEATH)","Elven Thrower: Araelathila (FR-DC-LIGA-1)","Elven Thrower: Naginata (FR-DC-PANDORA-JWEI-8)","Elven Thrower (FR-DC-RWIE-3)","Flame Tongue (CCC-YLRA-2)","Forcebreaker Sling (PO-BMG-DRW-KS-6)","Glaive of Warning: The Harbinger (CCC-EPI1-2)","Glaive of Warning: Losspatan's War-scythe (CCC-GGC-2-1)","Greatclub of Warning: U'u War Club (WBW-DC-DEN-H2)","Greatclub of Warning: Clobber (WBW-DC-MIKE-1)","Green-Flame Mace: Face of Umberlee's Fury (CCC-AWE-1-2)","Hand Crossbow of Melodies: Leeley's (PS-DC-PKL-14)","Javelin of Lightning (CCC-BFG1-3)","Javelin of Lightning (CCC-BMG-MOON6-3)","Javelin of Lightning (CCC-BMG-MOON16-1)","Javelin of Lightning (CCC-GAD2-2)","Javelin of Lightning (CCC-SAC-4)","Javelin of Lightning (CCC-SFBAY-4-1)","Javelin of Lightning (DDAL8-5)","Javelin of Lightning (SJ-DC-AS-1)","Javelin of Lightning: Comet Spear (SJ-DC-CJK2-2)","Javelin of Lightning: Stormstrike (SJ-DC-DD-4)","Javelin of Lightning: Processional Baton (SJ-DC-DES5-1)","Javelin of Lightning: Rrakkma's Smite (SJ-DC-FLUMPH-1)","Javelin of Lightning: Jensen's Lure (SJ-DC-ISL-1)","Javelin of Lightning (SJ-DC-LIGA1)","Javelin of Lightning (SJ-DC-MB5-AH123)","Javelin of Lightning: Reigar's Rage (SJ-DC-MDW-1)","Javelin of Lightning (SJ-DC-TRIDEN-UPR)","Javelin of Lightning (SJ-DC-TTUC-1)","Javelin of Warning: Jeny's Hairpin (CCC-VOTE-1-1)","Lash of Immolation: Demonweb Punisher (FR-DC-PHP-PEST-2)","Lash of Immolation: Dragon's Tail (FR-DC-STRAT-DRAGON-2)","Lash of Immolation: Ebon Lash (FR-DC-THAY-1)","Longbow of Melodies: Airalinde (FR-DC-IMP-2)","Longbow of Melodies: Lavender's Scent (FR-DC-PANDORA-JWEI-10)","Mace of Disruption (CCC-CIC-3)","Mace of Disruption: Death's Head (CCC-GHC-BK1-2)","Mace of Smiting (DDAL7-6)","Mace of Smiting (DDAL8-7)","Mace of Smiting (DDAL10-7)","Mace of Terror: Durgeddin's Fist (DDEP6-1)","Moon Sickle +1 (DDAL-DRW10)","Moon Sickle +2 (BMG-DRWEP-OD-1)","Moon Sickle +2: Selune's Guidance (WBW-DC-NJ-COU-2)","Moon Sickle +2: Tsukikama (WBW-DC-PHP-1)","Moon Sickle +3 (FR-DC-UCON24)","Oathbow: Syranna's Folly (CCC-OCC-1)","Oathbow (DDAL-DRW8)","Oathbow: Shadowsong (DDEX3-7)","Oathbow: Selestria (WBW-DC-TMP-3)","Shortbow of Melodies (FR-DC-FALL-1)","Starshot Hand Crossbow (PO-BMG-DRW-KS-2)","Stone Greataxe (DDAL0-13)","Sylvan Talon: Zigfreed's Spear (FR-DC-SCROG-1)","Trident of Fish Command (CCC-BMG-MOON14-1)","Trident of Fish Command (CCC-TAROT2-8)","Trident of Fish Command (CCC-WWC-2)","Trident of Warning (CCC-TRI-34)","Trident of Warning (DDEX2-3)","Vicious Glaive: Ptahrek's Glaive (CCC-SVH1-2)","Vicious Mace (CCC-BMG-1 HULB1-1)","Vicious Spear (DDAL0-13)","Wakened Crystal Dragon's Wrath Glaive (PO-BMG-DRW-KS-5)","Weapon of Warning (CCC-ELF-3-1)","Weapon of Warning (DDAL0-7)","Whip of Warning (CCC-GHC-BK2-10)","Whip of Warning (DDAL4-2)"],
 	"berserker flail (ccc-ucon-1)" : {
 		name : "Berserker Flail (CCC-UCON-1)",//Based on the Berserker axe 
 		source : [["AL","CCC"]],
@@ -5534,7 +5015,7 @@ MagicItemsList["al weapons (other)"] = {
 					fields.Description += (fields.Description ? '; ' : '') + '+1d6 Radiant dmg; Creates own ammo';
 				}
 			},
-			'If I include Radiant Dragon Wing in a the name of a bow, it will be treated as the weapon Dragon Wing Bow for a Crystal Dragon.'
+			'If I include Radiant DW in a the name of a bow, it will be treated as the weapon Dragon Wing Bow for a Crystal Dragon.'
 			]
 			}
 		},
@@ -5723,18 +5204,7 @@ MagicItemsList["al weapons (other)"] = {
 			return (/ranged/i).test(inObj.list);
 			},
 		},
-		calcChanges : {
-			atkAdd : [
-			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/^(?=.*flame)(?=.*tongue).*$/i).test(v.WeaponTextName)) {
-					v.theWea.isMagicWeapon = true;
-					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
-					fields.Description += (fields.Description ? '; ' : '') + 'While active, +2d6 Fire damage';
-				}
-			},
-			'If I include the words "Flame Tongue" in a the name of a melee weapon, it will be treated as the magic weapon Flame Tongue. When the command word is spoken, the blade erupts with flames, adding +2d6 fire damage on a hit and shining light.'
-			]
-		}
+		calcChanges: flameTongueWeapon.calcChanges,
 	},
 	"forcebreaker sling (po-bmg-drw-ks-6)" : {
 		name : "Forcebreaker Sling (PO-BMG-DRW-KS-6)",
@@ -5827,6 +5297,23 @@ MagicItemsList["al weapons (other)"] = {
 			description : "Sap; +1 fire dmg while lit",
 			selectNow : true,
 		}
+	},
+	"hand crossbow of melodies: leeley's (ps-dc-pkl-14)" : {
+			name : "Leeley's Hand Crossbow of Melodies (PKL-14)",
+			source : [["AL","PS-DC"]],
+			type : "weapon (hand crossbow)",
+			rarity : "very rare",
+			attunement : true,
+			description : "This hand crossbow is shaped like a harp & whispers warning, giving +2 initiative if not Incapacitated. When I atk with it, I can play 1 melody on each atk. Precision: If proficient with Performance, add +1 (+2 if expertise) to atk roll. Reverberation: add Cha mod Thunder dmg to atk.",
+			descriptionLong : "This hand crossbow resembles a lyre with multiple strings. I can use the strings to play 1 melody on each attack. Melody of Precision: If I'm proficient with Performance, add +1 (+2 if expertise) to the attack roll. Melody of Reverberation: add Charisma modifier in Thunder damage to the attack. The crossbow also whispers warnings, giving me +2 initiative unless Incapacitated.",
+			descriptionFull : "This bow has multiple strings and resembles a lyre or small harp. By strumming the strings while setting an arrow to the bow, you imbue the arrow with magic."+
+			"\n   You can play one of the following melodies when you use the bow to make a ranged weapon attack. You must choose to do so before you make the attack roll, and you can play only one melody per attack."+
+			"\n   " + toUni("Melody of Precision") + ". If you're proficient in Performance, you gain a +1 bonus to the attack roll. If you have expertise in Performance, you gain a +2 bonus instead."+
+			"\n   " + toUni("Melody of Reverberation") + ". The melody you strum echoes loudly. On a hit, the target takes extra thunder damage equal to your Charisma modifier."+
+			"\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don’t have the Incapacitated condition.",
+			weaponsAdd : { select : ["Hand Crossbow of Melodies"], options : ["Hand Crossbow of Melodies"] },
+			addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
+		calcChanges: bowOfMelodies.calcChanges,
 	},
 	"javelin of lightning (ccc-bfg1-3)" : { // contains contributions by Larry Hoy
 		name : "Javelin of Lightning (CCC-BFG1-3)",
@@ -6202,6 +5689,35 @@ MagicItemsList["al weapons (other)"] = {
 			"" + toUni("Supernatural Readiness") + ". Each subject has Advantage on its Initiative rolls.",
 			weaponsAdd : { select : ["Jeny's Hairpin, Javelin of Warning"], options : ["Jeny's Hairpin, Javelin of Warning"] 	},
 			},
+	"lash of immolation: demonweb punisher (fr-dc-php-pest-2)" : {
+		name : "Demonweb Punisher, Lash of Immolation (PHP-PEST-2)",
+		source : [["AL", "FR-DC"]],
+		type : "weapon (whip)",
+		rarity : "rare",
+		description : "A lash of flame-resistant spider silk used by high-ranking Spyder-Fiends to punish lesser demons in Pandesmos. This +1 whip deals +1d6 Fire and glows red in 120 ft of Fiends as if craving blood. If I roll a critical hit with the whip, fiery bands restrain the target until my next turn. As a reaction once per dawn, I can invoke fire rune to make the Fire dmg 2d6 on a hit.",
+		descriptionLong : "A lash of flame-resistant spider silk used by high-ranking Spyder-Fiends to punish lesser demons in Pandesmos. This +1 whip glows fiery red in 120 ft of Fiends as if craving their blood and deals +1d6 Fire. Despite being designed to abuse demons, it's unsurprisingly ineffective against them. When I roll a critical hit with the whip, fiery bands restrain the target until my next turn. As a reaction once per dawn when I hit with it, I can invoke its fire rune to increase the Fire damage to 2d6.",
+		descriptionFull : "A lash made of flame-resistant spider silk used by high-ranking Spyder-Fiends to punish lesser demons in Pandesmos. The whip glows fiery red near the presence of fiends as if craving for their blood. Despite being designed to abuse demons it is unsurprisingly ineffective against them."+
+		"\n   " + toUni("Sentinel") + ". This item glows faintly when Fiends are within 120 feet of it."+
+		"\n   The handle of this dark leather whip bears the fire rune, and embers dance around the whip's tail."+
+		"\n   You gain a +1 bonus to attack and damage rolls made with this weapon, and on a hit, the whip deals an extra 1d6 fire damage. When you score a critical hit with an attack using this whip, the target also has the restrained condition until the start of your next turn, as fiery bands lash around the target."+
+		"\n   " + toUni("Invoking the Rune") + ". When you make an attack with the whip and hit, you can use your reaction to invoke the whip's rune. Doing so increases the extra fire damage dealt by the whip to 2d6."+
+		"\n   Once the rune has been invoked, it can't be invoked again until the next dawn.",
+		weight : 3,
+		weaponOptions : [{
+			baseWeapon : "whip",
+			regExpSearch : /^(?=.*dragon|s)(?=.*tail).*$/i,
+			name : "Dragon's Tail, Lash of Immolation",
+			description : "Finesse, reach, slow; +1d6 fire dmg (1/dawn +2d6); Critical hit: restrained until my next turn",
+			modifiers : [1, 1],
+			selectNow : true
+		}],
+		action : [["reaction", " (invoke rune)"]],
+		limfeaname : "Lash of Immolation",
+		usages : 1,
+		recovery : "dawn",
+		additional : "invoke rune",
+		savetxt : { immune : ["temps past 0\u00B0F/100\u00B0F"] },
+	},
 	"lash of immolation: dragon's tail (fr-dc-strat-dragon-2)" : {
 		name : "Dragon's Tail, Lash of Immolation (STRAT-DRAGON-2)",
 		source : [["AL", "FR-DC"]],
@@ -6209,7 +5725,7 @@ MagicItemsList["al weapons (other)"] = {
 		rarity : "rare",
 		description : "This +1 whip made from Dalagh's discarded scales deals +1d6 Fire. The Tear of Selûne bound \u0026 enchanted the scales in thin flexible lines. When I roll a crit, fiery bands restrain the target until my next turn. As a reaction once per dawn when I hit, I can invoke its fire rune to increase the Fire damage to 2d6. I also suffer no harm in extreme temps past 0\u00B0F \u0026 100\u00B0F.",
 		descriptionLong : "This +1 whip is made from Dalagh's discarded scales and deals +1d6 Fire damage. The Tear of Selûne bound and enchanted the scales in thin flexible lines. When I roll a critical hit with the whip, fiery bands restrain the target until my next turn. As a reaction once per dawn when I hit with it, I can invoke its fire rune to increase the Fire damage to 2d6. I also suffer no harm in extreme temperatures past 0\u00B0F and 100\u00B0F.",
-		descriptionFull : "This whip is made from Dalagh's discarded scales placed around the Tear of Selûne, which bound the scales together in thin flexible lines,  enchanted them, and let the whip do fire damage."+
+		descriptionFull : "This whip is made from Dalagh's discarded scales placed around the Tear of Selûne, which bound the scales together in thin flexible lines, enchanted them, and let the whip do fire damage."+
 		"\n   " + toUni("Temperate") + ". You are unharmed by temperatures of 0 degrees Fahrenheit or lower, and 100 degrees Fahrenheit or higher."+
 		"\n   The handle of this dark leather whip bears the fire rune, and embers dance around the whip's tail."+
 		"\n   You gain a +1 bonus to attack and damage rolls made with this weapon, and on a hit, the whip deals an extra 1d6 fire damage. When you score a critical hit with an attack using this whip, the target also has the restrained condition until the start of your next turn, as fiery bands lash around the target."+
@@ -6231,6 +5747,35 @@ MagicItemsList["al weapons (other)"] = {
 		additional : "invoke rune",
 		savetxt : { immune : ["temps past 0\u00B0F/100\u00B0F"] },
 	},
+	"lash of immolation: ebon lash (fr-dc-thay-1)" : {
+		name : "Ebon Lash of Immolation (FR-DC-THAY-1)",
+		source : [["AL", "FR-DC"]],
+		type : "weapon (whip)",
+		rarity : "rare",
+		description : "Curls of flame gild the line of this darkly glowing +1 whip, which deals +1d6 Fire. When I roll a critical hit, fiery bands restrain the target until my next turn. As a reaction once per dawn when I hit, I can invoke its fire rune to increase the Fire damage to 2d6. I can also speak Thayan.",
+		descriptionLong : "Curls of flame gild the line of this darkly glowing whip. It has +1 to attack and damage rolls, and deals +1d6 Fire damage. When I roll a critical hit with the whip, fiery bands restrain the target until my next turn. As a reaction once per dawn when I hit with it, I can invoke its fire rune to increase the Fire damage to 2d6. While on my person, I can speak Thayan.",
+		descriptionFull : "Curls of flame gild the line of this darkly glowing whip."+
+		"\n   " + toUni("Language") + ". You are unharmed by temperatures of 0 degrees Fahrenheit or lower, and 100 degrees Fahrenheit or higher."+
+		"\n   The handle of this dark leather whip bears the fire rune, and embers dance around the whip's tail."+
+		"\n   You gain a +1 bonus to attack and damage rolls made with this weapon, and on a hit, the whip deals an extra 1d6 fire damage. When you score a critical hit with an attack using this whip, the target also has the restrained condition until the start of your next turn, as fiery bands lash around the target."+
+		"\n   " + toUni("Invoking the Rune") + ". When you make an attack with the whip and hit, you can use your reaction to invoke the whip's rune. Doing so increases the extra fire damage dealt by the whip to 2d6."+
+		"\n   Once the rune has been invoked, it can't be invoked again until the next dawn.",
+		weight : 3,
+		weaponOptions : [{
+			baseWeapon : "whip",
+			regExpSearch : /^(?=.*dragon|s)(?=.*tail).*$/i,
+			name : "Dragon's Tail, Lash of Immolation",
+			description : "Finesse, reach, slow; +1d6 fire dmg (1/dawn +2d6); Critical hit: restrained until my next turn",
+			modifiers : [1, 1],
+			selectNow : true
+		}],
+		action : [["reaction", " (invoke rune)"]],
+		limfeaname : "Lash of Immolation",
+		usages : 1,
+		recovery : "dawn",
+		additional : "invoke rune",
+		languageProfs : ["Thayan"],
+	},
 	"longbow of melodies: airalinde (fr-dc-imp-2)" : {
 			name : "Airalinde, Longbow of Melodies (IMP-2)",
 			source : [["AL","FR-DC"]],
@@ -6246,30 +5791,7 @@ MagicItemsList["al weapons (other)"] = {
 			"\n   " + toUni("Melody of Precision") + ". If you're proficient in Performance, you gain a +1 bonus to the attack roll. If you have expertise in Performance, you gain a +2 bonus instead."+
 			"\n   " + toUni("Melody of Reverberation") + ". The melody you strum echoes loudly. On a hit, the target takes extra thunder damage equal to your Charisma modifier.",
 			weaponsAdd : { select : ["Airalinde, Longbow of Melodies"], options : ["Airalinde, Longbow of Melodies"] },
-	calcChanges : {
-		atkAdd : [
-			function (fields, v) {
-				var chaMod = Number(What('Cha Mod'));
-				// Only add a description if positive Cha Mod and Melody of Precision is not an option or Reverberation is part of the name
-				if (!v.theWea.isMagicWeapon && chaMod > 0 && v.isRangedWeapon && /bow/i.test(v.baseWeaponName) && /^(?=.*melod(ies|y))(?!.*precision).*$/i.test(v.WeaponTextName) && (/reverberation/i.test(v.WeaponTextName) || !hasSkillProf("Performance")[0])) {
-					v.theWea.isMagicWeapon = true;
-					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
-					fields.Description += (fields.Description ? '; ' : '') + '+' + chaMod + ' (Cha mod) thunder damage';
-				}
-			},
-			'If I include the word "Melody" or "Melodies" in the name of a bow, it will be treated as the magic weapon Bow of Melodies. If I also include either "Precision" or "Reverberation" in the name, the respective bonus will be added. if I include neither of those in the name, the bonus will be determined automatically, the Melody of Precision if proficient with Performance (+1 or +2 bonus to hit) or Melody of Reverberation otherwise (+Cha mod thunder damage).'
-		],
-			atkCalc : [
-				function (fields, v, output) {
-					// Add to hit bonus if name doesn't include Reverberation. Will be zero if not proficient in Performance
-					if (!v.theWea.isMagicWeapon && v.isRangedWeapon && /bow/i.test(v.baseWeaponName) && /^(?=.*melod(ies|y))(?!.*reverberation).*$/i.test(v.WeaponTextName)) {
-						v.theWea.isMagicWeapon = true;
-						var perfProf = hasSkillProf("Performance");
-						output.extraHit += perfProf[1] ? 2 : perfProf[0] ? 1 : 0;
-					}
-				}, ''
-			]
-		}
+		calcChanges: bowOfMelodies.calcChanges,
 	},
 	"longbow of melodies: lavender's scent (fr-dc-pandora-jwei-10)" : {
 			name : "Lavender's Scent, Bow of Melodies (PANDORA-JWEI-10)",
@@ -6287,30 +5809,7 @@ MagicItemsList["al weapons (other)"] = {
 			"\n   " + toUni("Melody of Reverberation") + ". The melody you strum echoes loudly. On a hit, the target takes extra thunder damage equal to your Charisma modifier.",
 			addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on Initiative rolls." },
 			weaponsAdd : { select : ["Lavender's Scent, Longbow of Melodies"], options : ["Lavender's Scent, Longbow of Melodies"] },
-	calcChanges : {
-		atkAdd : [
-			function (fields, v) {
-				var chaMod = Number(What('Cha Mod'));
-				// Only add a description if positive Cha Mod and Melody of Precision is not an option or Reverberation is part of the name
-				if (!v.theWea.isMagicWeapon && chaMod > 0 && v.isRangedWeapon && /bow/i.test(v.baseWeaponName) && /^(?=.*melod(ies|y))(?!.*precision).*$/i.test(v.WeaponTextName) && (/reverberation/i.test(v.WeaponTextName) || !hasSkillProf("Performance")[0])) {
-					v.theWea.isMagicWeapon = true;
-					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
-					fields.Description += (fields.Description ? '; ' : '') + '+' + chaMod + ' (Cha mod) thunder damage';
-				}
-			},
-			'If I include the word "Melody" or "Melodies" in the name of a bow, it will be treated as the magic weapon Bow of Melodies. If I also include either "Precision" or "Reverberation" in the name, the respective bonus will be added. if I include neither of those in the name, the bonus will be determined automatically, the Melody of Precision if proficient with Performance (+1 or +2 bonus to hit) or Melody of Reverberation otherwise (+Cha mod thunder damage).'
-		],
-			atkCalc : [
-				function (fields, v, output) {
-					// Add to hit bonus if name doesn't include Reverberation. Will be zero if not proficient in Performance
-					if (!v.theWea.isMagicWeapon && v.isRangedWeapon && /bow/i.test(v.baseWeaponName) && /^(?=.*melod(ies|y))(?!.*reverberation).*$/i.test(v.WeaponTextName)) {
-						v.theWea.isMagicWeapon = true;
-						var perfProf = hasSkillProf("Performance");
-						output.extraHit += perfProf[1] ? 2 : perfProf[0] ? 1 : 0;
-					}
-				}, ''
-			]
-		}
+		calcChanges: bowOfMelodies.calcChanges,
 	},
 	"mace of disruption (ccc-cic-3)" : {
 		name : "Mace of Disruption (CCC-CIC-3)",
@@ -6440,25 +5939,9 @@ MagicItemsList["al weapons (other)"] = {
 					if (type !== "prepare" && (/druid|ranger/).test(spellcasters)) return 1;
 				},
 				"While holding the Moon Sickle, I gain a +1 bonus to the spell attack rolls and saving throw DCs of my Druid and Ranger spells."
-			],
-		spellAdd : [
-			function (spellKey, spellObj, spName) {
-				if (spellObj.psionic || !spellObj.level) return;
-				switch (spellKey) {
-					case "enervation" :
-					case "life transference" :
-					case "vampiric touch" :
-						var useSpellDescr = getSpellShortDescription(spellKey, spellObj);
-						var strAdd = " +1d4";
-						spellObj.description = useSpellDescr.replace(/(heals? (half|twice)( the damage dealt| that)?)( in HP)?/, "$1" + strAdd);
-						return true;
-					default :
-						return genericSpellDmgEdit(spellKey, spellObj, "heal", "1d4");
-				}
-			},
-			"While holding the Moon Sickle when I cast a spell that restores hit points, I can roll a d4 and add the number rolled to the amount of hit points restored."
-		],
-	},
+				],
+				spellAdd : moonSickleSpells.spellAdd
+		},
 		weaponsAdd : { select : ["Moon Sickle +1"], options : ["Moon Sickle +1"] },
 	},
 	"moon sickle +2 (bmg-drwep-od-1)" : {
@@ -6483,25 +5966,9 @@ MagicItemsList["al weapons (other)"] = {
 					if (type !== "prepare" && (/druid|ranger/).test(spellcasters)) return 2;
 				},
 				"While holding the Moon Sickle, I gain a +2 bonus to the spell attack rolls and saving throw DCs of my Druid and Ranger spells."
-			],
-		spellAdd : [
-			function (spellKey, spellObj, spName) {
-				if (spellObj.psionic || !spellObj.level) return;
-				switch (spellKey) {
-					case "enervation" :
-					case "life transference" :
-					case "vampiric touch" :
-						var useSpellDescr = getSpellShortDescription(spellKey, spellObj);
-						var strAdd = " +1d4";
-						spellObj.description = useSpellDescr.replace(/(heals? (half|twice)( the damage dealt| that)?)( in HP)?/, "$1" + strAdd);
-						return true;
-					default :
-						return genericSpellDmgEdit(spellKey, spellObj, "heal", "1d4");
-				}
-			},
-			"While holding the Moon Sickle when I cast a spell that restores hit points, I can roll a d4 and add the number rolled to the amount of hit points restored."
-		],
-	},
+				],
+				spellAdd : moonSickleSpells.spellAdd
+		},
 		weaponsAdd : { select : ["Moon Sickle +2"], options : ["Moon Sickle +2"] },
 	},
 	"moon sickle +2: selune's guidance (wbw-dc-nj-cou-2)" : {
@@ -6526,25 +5993,9 @@ MagicItemsList["al weapons (other)"] = {
 					if (type !== "prepare" && (/druid|ranger/).test(spellcasters)) return 2;
 				},
 				"While holding the Moon Sickle, I gain a +2 bonus to the spell attack rolls and saving throw DCs of my Druid and Ranger spells."
-			],
-		spellAdd : [
-			function (spellKey, spellObj, spName) {
-				if (spellObj.psionic || !spellObj.level) return;
-				switch (spellKey) {
-					case "enervation" :
-					case "life transference" :
-					case "vampiric touch" :
-						var useSpellDescr = getSpellShortDescription(spellKey, spellObj);
-						var strAdd = " +1d4";
-						spellObj.description = useSpellDescr.replace(/(heals? (half|twice)( the damage dealt| that)?)( in HP)?/, "$1" + strAdd);
-						return true;
-					default :
-						return genericSpellDmgEdit(spellKey, spellObj, "heal", "1d4");
-				}
-			},
-			"While holding the Moon Sickle when I cast a spell that restores hit points, I can roll a d4 and add the number rolled to the amount of hit points restored."
-		],
-	},
+				],
+				spellAdd : moonSickleSpells.spellAdd
+		},
 		weaponsAdd : { select : ["Selune's Guidance, Moon Sickle +2"], options : ["Selune's Guidance, Moon Sickle +2"] },
 	},
 	"moon sickle +2: tsukikama (wbw-dc-php-1)" : {
@@ -6569,25 +6020,9 @@ MagicItemsList["al weapons (other)"] = {
 					if (type !== "prepare" && (/druid|ranger/).test(spellcasters)) return 2;
 				},
 				"While holding the Moon Sickle, I gain a +2 bonus to the spell attack rolls and saving throw DCs of my Druid and Ranger spells."
-			],
-		spellAdd : [
-			function (spellKey, spellObj, spName) {
-				if (spellObj.psionic || !spellObj.level) return;
-				switch (spellKey) {
-					case "enervation" :
-					case "life transference" :
-					case "vampiric touch" :
-						var useSpellDescr = getSpellShortDescription(spellKey, spellObj);
-						var strAdd = " +1d4";
-						spellObj.description = useSpellDescr.replace(/(heals? (half|twice)( the damage dealt| that)?)( in HP)?/, "$1" + strAdd);
-						return true;
-					default :
-						return genericSpellDmgEdit(spellKey, spellObj, "heal", "1d4");
-				}
-			},
-			"While holding the Moon Sickle when I cast a spell that restores hit points, I can roll a d4 and add the number rolled to the amount of hit points restored."
-		],
-	},
+				],
+				spellAdd : moonSickleSpells.spellAdd
+		},
 		weaponsAdd : { select : ["Tsukikama, Moon Sickle +2"], options : ["Tsukikama, Moon Sickle +2"] },
 	},
 	"moon sickle +3 (fr-dc-ucon24)" : {
@@ -6612,25 +6047,9 @@ MagicItemsList["al weapons (other)"] = {
 					if (type !== "prepare" && (/druid|ranger/).test(spellcasters)) return 3;
 				},
 				"While holding the Moon Sickle, I gain a +3 bonus to the spell attack rolls and saving throw DCs of my Druid and Ranger spells."
-			],
-		spellAdd : [
-			function (spellKey, spellObj, spName) {
-				if (spellObj.psionic || !spellObj.level) return;
-				switch (spellKey) {
-					case "enervation" :
-					case "life transference" :
-					case "vampiric touch" :
-						var useSpellDescr = getSpellShortDescription(spellKey, spellObj);
-						var strAdd = " +1d4";
-						spellObj.description = useSpellDescr.replace(/(heals? (half|twice)( the damage dealt| that)?)( in HP)?/, "$1" + strAdd);
-						return true;
-					default :
-						return genericSpellDmgEdit(spellKey, spellObj, "heal", "1d4");
-				}
-			},
-			"While holding the Moon Sickle when I cast a spell that restores hit points, I can roll a d4 and add the number rolled to the amount of hit points restored."
-		],
-	},
+				],
+				spellAdd : moonSickleSpells.spellAdd
+		},
 		weaponsAdd : { select : ["Moon Sickle +3"], options : ["Moon Sickle +3"] },
 	},
 	"oathbow: syranna's folly (ccc-occ-1)" : {
@@ -6654,18 +6073,7 @@ MagicItemsList["al weapons (other)"] = {
 			return !(testRegex).test(inObjKey) && (!inObj.baseWeapon || !(testRegex).test(inObj.baseWeapon));
 		}
 	},
-	calcChanges : {
-		atkAdd : [
-			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && v.isRangedWeapon && (/syranna's folly/i).test(v.WeaponTextName)) {
-					v.theWea.isMagicWeapon = true;
-					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
-					fields.Description += (fields.Description ? '; ' : '') + 'Vs sworn enemy: adv, +3d6 dmg, no cover/range penalty';
-				}
-			},
-			"If I include the words \"Syranna's Folly\" in a the name of a bow, it will be treated as the magic weapon Oathbow. It gains special benefits against my sworn enemy."
-		]
-	}
+		calcChanges: oathbowChanges.calcChanges,
 	},
 	"oathbow (ddal-drw8)" : {
 		name : "Oathbow (DDAL-DRW8)",
@@ -6687,18 +6095,7 @@ MagicItemsList["al weapons (other)"] = {
 			return !(testRegex).test(inObjKey) && (!inObj.baseWeapon || !(testRegex).test(inObj.baseWeapon));
 		}
 	},
-	calcChanges : {
-		atkAdd : [
-			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && v.isRangedWeapon && (/lava oathbow/i).test(v.WeaponTextName)) {
-					v.theWea.isMagicWeapon = true;
-					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
-					fields.Description += (fields.Description ? '; ' : '') + 'Vs sworn enemy: adv, +3d6 dmg, no cover/range penalty';
-				}
-			},
-			'If I include the words "Lava Oathbow" in a the name of a bow, it will be treated as the magic weapon Oathbow. It gains special benefits against my sworn enemy.'
-		]
-		}
+		calcChanges: oathbowChanges.calcChanges,
 	},
 	"oathbow: shadowsong (ddex3-7)" : {
 		name : "Shadowsong, Oathbow (DDEX3-7)",
@@ -6724,18 +6121,7 @@ MagicItemsList["al weapons (other)"] = {
 			return !(testRegex).test(inObjKey) && (!inObj.baseWeapon || !(testRegex).test(inObj.baseWeapon));
 		}
 	},
-	calcChanges : {
-		atkAdd : [
-			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && v.isRangedWeapon && (/^(?=.*shadowsong).*$/i).test(v.WeaponTextName)) {
-					v.theWea.isMagicWeapon = true;
-					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
-					fields.Description += (fields.Description ? '; ' : '') + 'Vs sworn enemy: adv, +3d6 dmg, no cover/range penalty';
-				}
-			},
-			'If I include the words "Shadowsong" in a the name of a bow, it will be treated as the magic weapon Oathbow. It gains special benefits against my sword enemy.'
-		]
-		}
+		calcChanges: oathbowChanges.calcChanges,
 	},
 	"oathbow: selestria (wbw-dc-tmp-3)" : {
 		name : "Selestria, Oathbow (DC-TMP-3)",
@@ -6757,59 +6143,25 @@ MagicItemsList["al weapons (other)"] = {
 			return !(testRegex).test(inObjKey) && (!inObj.baseWeapon || !(testRegex).test(inObj.baseWeapon));
 		}
 	},
-	calcChanges : {
-		atkAdd : [
-			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && v.isRangedWeapon && (/^(?=.*selestria).*$/i).test(v.WeaponTextName)) {
-					v.theWea.isMagicWeapon = true;
-					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
-					fields.Description += (fields.Description ? '; ' : '') + 'Vs sworn enemy: adv, +3d6 dmg, no cover/range penalty';
-				}
-			},
-			'If I include the word "Selestria" in a the name of a bow, it will be treated as the magic weapon Oathbow. It gains special benefits against my sworn enemy.'
-		]
-		}
+		calcChanges: oathbowChanges.calcChanges,
 	},
 	"shortbow of melodies (fr-dc-fall-1)" : {
-			name : "Shortbow of Melodies (FR-DC-FALL-1)",
-			source : [["AL","FR-DC"]],
-			type : "weapon (any bow)",
-			rarity : "very rare",
-			attunement : true,
-			description : "This shortbow is shaped like a harp with multiple strings. It's the color of Auril's rime and always cool to the touch. I suffer no harm in extreme temps past 0\u00B0F & 100\u00B0F. I can use the strings to play 1 melody per atk. Precision: If proficient with Performance, add +1 (+2 if expertise) to atk roll. Reverberation: add Charisma mod Thunder dmg.",
-			descriptionLong : "This shortbow is shaped like a harp with multiple strings. It's the color of Auril's rime and always cool to the touch. While on my person, I suffer no harm in extreme temperatures past 0\u00B0F and 100\u00B0F. I can use the strings to play 1 of 2 melodies on each attack. Melody of Precision: if I'm proficient with Performance, add +1 (+2 if expertise) to the attack roll. Melody of Reverberation: add my Charisma modifier in Thunder damage to the attack.",
-			descriptionFull : "This bow is the color of Auril's rime and is always cool to the touch."+
-			"\n   " + toUni("Temperate") + ". You are unharmed by temperatures of 0 degrees Fahrenheit or lower, and 100 degrees Fahrenheit or higher."+
-			"\n   This bow has multiple strings and resembles a lyre or small harp. By strumming the strings while setting an arrow to the bow, you imbue the arrow with magic."+
-			"\n   You can play one of the following melodies when you use the bow to make a ranged weapon attack. You must choose to do so before you make the attack roll, and you can play only one melody per attack."+
-			"\n   " + toUni("Melody of Precision") + ". If you're proficient in Performance, you gain a +1 bonus to the attack roll. If you have expertise in Performance, you gain a +2 bonus instead."+
-			"\n   " + toUni("Melody of Reverberation") + ". The melody you strum echoes loudly. On a hit, the target takes extra thunder damage equal to your Charisma modifier.",
-			savetxt : { immune : ["temps past 0\u00B0F/100\u00B0F"] },
-			weaponsAdd : { select : ["Shortbow of Melodies"], options : ["Shortbow of Melodies"] },
-	calcChanges : {
-		atkAdd : [
-			function (fields, v) {
-				var chaMod = Number(What('Cha Mod'));
-				// Only add a description if positive Cha Mod and Melody of Precision is not an option or Reverberation is part of the name
-				if (!v.theWea.isMagicWeapon && chaMod > 0 && v.isRangedWeapon && /bow/i.test(v.baseWeaponName) && /^(?=.*melod(ies|y))(?!.*precision).*$/i.test(v.WeaponTextName) && (/reverberation/i.test(v.WeaponTextName) || !hasSkillProf("Performance")[0])) {
-					v.theWea.isMagicWeapon = true;
-					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
-					fields.Description += (fields.Description ? '; ' : '') + '+' + chaMod + ' (Cha mod) thunder damage';
-				}
-			},
-			'If I include the word "Melody" or "Melodies" in the name of a bow, it will be treated as the magic weapon Bow of Melodies. If I also include either "Precision" or "Reverberation" in the name, the respective bonus will be added. if I include neither of those in the name, the bonus will be determined automatically, the Melody of Precision if proficient with Performance (+1 or +2 bonus to hit) or Melody of Reverberation otherwise (+Cha mod thunder damage).'
-		],
-			atkCalc : [
-				function (fields, v, output) {
-					// Add to hit bonus if name doesn't include Reverberation. Will be zero if not proficient in Performance
-					if (!v.theWea.isMagicWeapon && v.isRangedWeapon && /bow/i.test(v.baseWeaponName) && /^(?=.*melod(ies|y))(?!.*reverberation).*$/i.test(v.WeaponTextName)) {
-						v.theWea.isMagicWeapon = true;
-						var perfProf = hasSkillProf("Performance");
-						output.extraHit += perfProf[1] ? 2 : perfProf[0] ? 1 : 0;
-					}
-				}, ''
-			]
-		}
+		name : "Shortbow of Melodies (FR-DC-FALL-1)",
+		source : [["AL","FR-DC"]],
+		type : "weapon (any bow)",
+		rarity : "very rare",
+		attunement : true,
+		description : "This shortbow is shaped like a harp with multiple strings. It's the color of Auril's rime and always cool to the touch. I suffer no harm in extreme temps past 0\u00B0F & 100\u00B0F. I can use the strings to play 1 melody per atk. Precision: If proficient with Performance, add +1 (+2 if expertise) to atk roll. Reverberation: add Charisma mod Thunder dmg.",
+		descriptionLong : "This shortbow is shaped like a harp with multiple strings. It's the color of Auril's rime and always cool to the touch. While on my person, I suffer no harm in extreme temperatures past 0\u00B0F and 100\u00B0F. I can use the strings to play 1 of 2 melodies on each attack. Melody of Precision: if I'm proficient with Performance, add +1 (+2 if expertise) to the attack roll. Melody of Reverberation: add my Charisma modifier in Thunder damage to the attack.",
+		descriptionFull : "This bow is the color of Auril's rime and is always cool to the touch."+
+		"\n   " + toUni("Temperate") + ". You are unharmed by temperatures of 0 degrees Fahrenheit or lower, and 100 degrees Fahrenheit or higher."+
+		"\n   This bow has multiple strings and resembles a lyre or small harp. By strumming the strings while setting an arrow to the bow, you imbue the arrow with magic."+
+		"\n   You can play one of the following melodies when you use the bow to make a ranged weapon attack. You must choose to do so before you make the attack roll, and you can play only one melody per attack."+
+		"\n   " + toUni("Melody of Precision") + ". If you're proficient in Performance, you gain a +1 bonus to the attack roll. If you have expertise in Performance, you gain a +2 bonus instead."+
+		"\n   " + toUni("Melody of Reverberation") + ". The melody you strum echoes loudly. On a hit, the target takes extra thunder damage equal to your Charisma modifier.",
+		savetxt : { immune : ["temps past 0\u00B0F/100\u00B0F"] },
+		weaponsAdd : { select : ["Shortbow of Melodies"], options : ["Shortbow of Melodies"] },
+		calcChanges: bowOfMelodies.calcChanges,
 	},
 	"starshot hand crossbow (po-bmg-drw-ks-2)" : {
 		name : "Starshot Hand Crossbow (PO-BMG-DRW-KS-2)",
@@ -6846,7 +6198,29 @@ MagicItemsList["al weapons (other)"] = {
 		descriptionFull : "A stone greataxe with a handle made from chardalyn. While wielded by a creature at less than full hit points, the wielder has resistance to Cold damage. This is a rare magic item.",
 		dmgres : ["Cold (If injured)"],
 		weaponsAdd : { select : ["Stone Greataxe"], options : ["Stone Greataxe"] },
-			},
+	},
+	"sylvan talon: zigfreed's spear (fr-dc-scrog-1)" : {
+		name: "Zigfreed's Spear (Sylvan Talon, SCROG-1)",
+		source : [["AL","FR-DC"]],
+		type: "weapon (dagger, rapier, scimitar, shortsword, sickle, or spear)",
+		rarity: "common",
+		attunement: true,
+		description: "This slender spear is carved from an ancient ash tree that's said to have grown in a faerie glade. When used to strike a foe, I hear a fragment of Wagner’s Ride of the Valkyries. While on my person, I understand the nonwritten communication of all Fey, and they understand me. I can also use this weapon to cast Message as a Magic action once per day.",
+		descriptionFull: "This slender spear is carved from an ancient ash tree said to have grown in a faerie glade. When used to strike a foe, you hear a fragment of Wagner’s Ride of the Valkyries.\n   " + toUni("Songcraft") + ". Whenever this item is struck or is used to strike a foe, you hear a fragment of an ancient song.\n   While this weapon is on your person, you understand the nonwritten communication of all Fey, and they understand yours.\n\n" +
+		toUni("Secret Message") + "\n\n  As a Magic action, you can use the weapon to cast Message. Once this property is used, it can't be used again until the next dawn.",
+		limfeaname : "Sylvan Talon",
+		usages: 1,
+		recovery: "dawn",
+		action: [["action", "Talon (Secret Msg)"]],
+		languageProfs: ["Fey - nonwritten"],
+		spellcastingBonus: [{
+			name: "Secret Msg",
+			spells: ["message"],
+			selection: ["message"],
+			firstCol: "oncelr"
+		}],
+		weaponsAdd : { select : ["Sylvan Talon Spear"], options : ["Sylvan Talon Spear"] },
+	},
 	"trident of fish command (ccc-bmg-moon14-1)" : {
 		name : "Trident of Fish Command (BMG-MOON14-1)",
 		source : [["AL","CCC"]],
@@ -6863,18 +6237,8 @@ MagicItemsList["al weapons (other)"] = {
 		weaponsAdd : { select : ["Trident of Fish Command"], options : ["Trident of Fish Command"] },
 		fixedDC : 15,
 		spellFirstColTitle : "Ch",
-		spellcastingBonus : {
-			name : "1 charge",
-			spells : ["dominate beast"],
-			selection : ["dominate beast"],
-			firstCol : 1
-		},
-		spellChanges : {
-			"dominate beast" : {
-				description : "1 beast with Swim Speed save or Charmed; redo on dmg; follows telepathic commands; rea to use rea",
-				changes : "Can only affect beasts with innate Swim Speed."
-			}
-		}
+		spellcastingBonus : tridentFishSpells.spellcastingBonus,
+		spellChanges : tridentFishSpells.spellChanges,
 	},
 	"trident of fish command (ccc-tarot2-8)" : {
 		name : "Trident of Fish Command (TAROT2-8)",
@@ -6892,18 +6256,8 @@ MagicItemsList["al weapons (other)"] = {
 		weaponsAdd : { select : ["Trident of Fish Command"], options : ["Trident of Fish Command"] },
 		fixedDC : 15,
 		spellFirstColTitle : "Ch",
-		spellcastingBonus : {
-			name : "1 charge",
-			spells : ["dominate beast"],
-			selection : ["dominate beast"],
-			firstCol : 1
-		},
-		spellChanges : {
-			"dominate beast" : {
-				description : "1 beast with Swim Speed save or Charmed; redo on dmg; follows telepathic commands; rea to use rea",
-				changes : "Can only affect beasts with innate Swim Speed."
-			}
-		}
+		spellcastingBonus : tridentFishSpells.spellcastingBonus,
+		spellChanges : tridentFishSpells.spellChanges,
 	},
 	"trident of fish command (ccc-wwc-2)" : {
 		name : "Trident of Fish Command (CCC-WWC-2)",
@@ -6922,18 +6276,8 @@ MagicItemsList["al weapons (other)"] = {
 		weaponsAdd : { select : ["Trident of Fish Command"], options : ["Trident of Fish Command"] },
 		fixedDC : 15,
 		spellFirstColTitle : "Ch",
-		spellcastingBonus : {
-			name : "1 charge",
-			spells : ["dominate beast"],
-			selection : ["dominate beast"],
-			firstCol : 1
-		},
-		spellChanges : {
-			"dominate beast" : {
-				description : "1 beast with Swim Speed save or Charmed; redo on dmg; follows telepathic commands; rea to use rea",
-				changes : "Can only affect beasts with innate Swim Speed."
-			}
-		}
+		spellcastingBonus : tridentFishSpells.spellcastingBonus,
+		spellChanges : tridentFishSpells.spellChanges,
 	},
 	"vicious glaive: ptahrek's glaive (ccc-svh1-2)" : {
 		name : "Ptahrek's Vicious Glaive (CCC-SVH1-2)",
@@ -6942,13 +6286,8 @@ MagicItemsList["al weapons (other)"] = {
 		rarity : "rare",
 		description : "This glaive does +2d6 damage. Its blade is a stylized black raven feather. I have the sensation of flying whenever I close my eyes.",
 		descriptionFull : "The blade of this weapon is made into that of a stylized black raven feather. The wielder of the weapon has the sensation of flying whenever they close their eyes.\n   This magic weapon deals an extra 2d6 damage to any creature it hits. This extra damage is of the same type as the weapon's normal damage.",
-		weaponOptions : {
-			baseWeapon : "glaive",
-			regExpSearch : /^(?=.*glaive)(?=.*vicious)(?=.*ptahrek|ptharek's).*$/i,
-			name : "Ptahrek's Vicious Glaive",
-			description : "Heavy, Reach, Two-handed, Graze; +2d6 damage",
-			selectNow : true,
-		}
+		weaponsAdd : { select : ["Ptahrek's Vicious Glaive"], options : ["Ptahrek's Vicious Glaive"] },
+		calcChanges: viciousWeaponCalc.calcChanges,
 	},
 	"vicious mace (ccc-bmg-1 hulb1-1)" : {
 		name : "Vicious Mace (CCC-BMG-1 HULB1-1)",
@@ -6958,13 +6297,8 @@ MagicItemsList["al weapons (other)"] = {
 		description : "This mace is a clenched fist wearing spiked gauntlets. It does +2d6 damage and works as a holy symbol of Bane when wielded. A cleric or paladin of Bane has adv. on CHA (Intimidation) checks against followers of Bane.",
 		descriptionLong : "This mace is crafted into the image of a clenched fist wearing spiked gauntlets. It does +2d6 damage and functions as a holy symbol of Bane when wielded. A cleric or paladin of Bane has adv. on CHA (Intimidation) checks against followers of Bane.",
 		descriptionFull : "This mace is crafted into the image of a clenched fist wearing spiked gauntlets. It functions as a holy symbol of Bane when wielded. A cleric or paladin of Bane has advantage on Charisma (Intimidation) checks against followers of Bane when openly displaying this mace.\n   This magic weapon deals an extra 2d6 damage to any creature it hits. This extra damage is of the same type as the weapon's normal damage.",
-		weaponOptions : {
-			baseWeapon : "mace",
-			regExpSearch : /^(?=.*mace)(?=.*vicious).*$/i,
-			name : "Vicious Mace",
-			description : "Sap; +2d6 damage",
-			selectNow : true,
-		}
+		weaponsAdd : { select : ["Vicious Mace"], options : ["Vicious Mace"] },
+		calcChanges: viciousWeaponCalc.calcChanges,
 	},
 	"vicious spear (ddal0-13)" : {
 		name : "Vicious Spear (DDAL0-13)",
@@ -6973,16 +6307,11 @@ MagicItemsList["al weapons (other)"] = {
 		rarity : "rare",
 		description : "This spear is made from a polished narwhal tusk, and carved with symbols of slaughter and bloodshed. I may get strange looks when wielding it publicly. It does +2d6 damage and marks me as involved in the killing of an evil Wolf Tribe marauder.",
 		descriptionFull : "This spear is made from a polished narwhal tusk, and it has been carved with symbols of slaughter and bloodshed. By wielding it publicly, you may get strange looks. It may also mark you as someone involved in the killing of one of the evil Wolf Tribe marauders.\n   This magic weapon deals an extra 2d6 damage to any creature it hits. This extra damage is of the same type as the weapon's normal damage.",
-		weaponOptions : {
-			baseWeapon : "spear",
-			regExpSearch : /^(?=.*spear)(?=.*vicious).*$/i,
-			name : "Vicious Spear",
-			description : "Thrown, Versatile (1d8); Sap; +2d6 damage",
-			selectNow : true,
-		}
+		weaponsAdd : { select : ["Vicious Spear"], options : ["Vicious Spear"] },
+		calcChanges: viciousWeaponCalc.calcChanges,
 	},
 	"wakened crystal dragon's wrath glaive (po-bmg-drw-ks-5)" : {
-		name : "Wakened Crystal Dragon's Wrath Glaive (PO-BMG-DRW-KS-5)",
+		name : "Wakened Crystal Dragon Wrath Glaive (DRW-KS-5)",
 		source : [["AL","PO"]],
 		rarity : "rare",
 		attunement : true,
@@ -7005,7 +6334,7 @@ MagicItemsList["al weapons (other)"] = {
 				name : "Wakened Crystal Wrath Glaive",
 				regExpSearch : /wakened crystal wrath glaive/i,
 				source : [["AL","PO"]],
-				description : "Heavy, reach, two-Handed; Graze; +2d6 Radiant; On a 20, 5 Radiant to any creature in 5ft",
+				description : "Heavy, reach, two-handed; Graze; +2d6 Radiant; On a 20, 5 Radiant to any creature in 5ft",
 				modifiers : [2,2],
 				selectNow : true
 			},{			
@@ -7014,7 +6343,7 @@ MagicItemsList["al weapons (other)"] = {
 				source : [["AL","PO"]],
 				ability : 0,
 				type : "Magic Item",
-				damage : [8, 6, "Crystal"],
+				damage : [8, 6, "Radiant"],
 				range : "30-ft cone",
 				description : "Hits all in area; Dex save, success - half damage; Usable once per dawn",
 				abilitytodamage : false,

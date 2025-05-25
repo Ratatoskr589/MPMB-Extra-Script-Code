@@ -67,13 +67,29 @@ MagicItemsList["al adamantine/mithral armor"] = {
 		allowDuplicates : true,
 		choicesNotInMenu : true,
 		magicItemTable : "?",
-	choices : ["Adamantine Armor (DDAL0-1)","Adamantine Chain (CCC-SALT1-1)","Adamantine Chain Shirt (CCC-BMG-MOON3-2)","Adamantine Chain Shirt (CCC-PDXAGE-1-1)","Adamantine Chain Shirt (DDEP5-2)","Adamantine Chain Mail (CCC-BMG-MOON5-1)","Adamantine Plate: Durgeddin's Unbreakable Auspice (DDEP6-1)","Mithral Scale Barding (DC-POA-CONMAR-18)","Mithral Scale Barding (DC-POA-DRAGON-2)","Mithral Scale Barding (DC-POA-GaryXIII-2)","Mithral Scale Barding: G.O.A.T. Barding (DC-POA-TDG1-8)","Mithral Chain Shirt (WDotMM)","Mithral Scale Mail (CCC-ODFC2-1)","Mithral Scale Mail: Hulk-Buster Armor (DC-POA-TDG1-7)","Mithral Breastplate (CCC-BMG-MOON16-2)","Mithral Half Plate (CCC-GLIP-1-3)","Mithral Chain Mail (CCC-SAF2-1)","Mithral Splint (CCC-DES-2-2)","Mithral Splint: Armor of Insults (CCC-GSP-OOZE1-1)","Mithral Splint (DDAL5-4)","Mithral Plate (DDHC-MORD-1)"],
+	choices : ["Adamantine Armor (DDAL0-1)","Adamantine Armor: Starflow (FR-DC-MELB-0-3)","Adamantine Chain (CCC-SALT1-1)","Adamantine Chain Shirt (CCC-BMG-MOON3-2)","Adamantine Chain Shirt (CCC-PDXAGE-1-1)","Adamantine Chain Shirt (DDEP5-2)","Adamantine Chain Mail (CCC-BMG-MOON5-1)","Adamantine Plate: Durgeddin's Unbreakable Auspice (DDEP6-1)","Mithral Scale Barding (DC-POA-CONMAR-18)","Mithral Scale Barding (DC-POA-DRAGON-2)","Mithral Scale Barding (DC-POA-GaryXIII-2)","Mithral Scale Barding: G.O.A.T. Barding (DC-POA-TDG1-8)","Mithral Chain Shirt (WDotMM)","Mithral Scale Mail (CCC-ODFC2-1)","Mithral Scale Mail: Hulk-Buster Armor (DC-POA-TDG1-7)","Mithral Breastplate (CCC-BMG-MOON16-2)","Mithral Half Plate (CCC-GLIP-1-3)","Mithral Chain Mail (CCC-SAF2-1)","Mithral Splint (CCC-DES-2-2)","Mithral Splint: Armor of Insults (CCC-GSP-OOZE1-1)","Mithral Splint (DDAL5-4)","Mithral Plate (DDHC-MORD-1)"],
 	"adamantine armor (ddal0-1)" : {
 		name: "Adamantine (DDAL0-1)",
 		nameTest : "/adamantine.*(ddal0-1)/i",
 		source : [["AL", "S0"]],
 		description : "Appearing almost decorative, this suit of highly polished adamantine armor hails from ancient Netheril and is adorned in minute runes of protection. While I'm wearing it, any Critical Hit against me becomes a normal hit.",
 		descriptionFull : "Appearing almost decorative, this suit of highly polished armor hails from ancient Netheril and is adorned in minute runes of protection. This suit of armor is reinforced with adamantine, one of the hardest substances in existence. While you're wearing it, any Critical Hit against you becomes a normal hit.\n\nThere are several magic item tables in the Dungeon Masters Guide where this item appears on. It varies per type of armor and not all types are listed. See below for the table:\n\n" + toUni("Armor Type\tTable") + "\nChain Mail\t  F\nChain Shirt\t  F\nScale Mail  \t  F\nBreastplate\t  G\nSplint Armor\t  G\nHalf Plate Armor\t  H\nPlate Armor\t  H",
+		chooseGear : {
+			type : "armor",
+			prefixOrSuffix : ["between", "Adamantine", "(DDAL0-1)"],
+			itemName1stPage : ["suffix", "Adamantine"],
+			descriptionChange : ["prefix", "armor"],
+			excludeCheck : function (inObjKey, inObj) {
+				return !(/medium|heavy/i).test(inObj.type) || (/hide/i).test(inObj.name);
+			},
+		}
+	},
+	"adamantine armor: starflow (fr-dc-melb-0-3)" : {
+		name: "Starflow Adamantine (FR-DC-MELB-0-3)",
+		nameTest : "/adamantine.*(fr-dc-melb-0-3)/i",
+		source : [["AL", "FR-DC"]],
+		description : "Forged by greatwyrm dragon fire and master craftsmanship, this armor glitters with starry patterns and an ambient glow of fiery red. It flares in warning against fel enemies, glowing faintly when fiends or ethereal creatures are in 120 ft. While I'm wearing the armor, any Critical Hit against me becomes a normal hit.",
+		descriptionFull : "Forged by greatwyrm dragon fire and mastersmith craftsmanship. The armor glitters with starry patterns and an ambient glow of fiery red. The armor flares in warning against fel enemies.\n   " + toUni("Sentinel") + ". Fiends and ethereal creatures are sensed by the wearer of this armor. This item glows faintly when such creatures are within 120 feet of it.\n   This suit of armor is reinforced with adamantine, one of the hardest substances in existence. While you're wearing it, any Critical Hit against you becomes a normal hit.\n\nThere are several magic item tables in the Dungeon Masters Guide where this item appears on. It varies per type of armor and not all types are listed. See below for the table:\n\n" + toUni("Armor Type\tTable") + "\nChain Mail\t  F\nChain Shirt\t  F\nScale Mail  \t  F\nBreastplate\t  G\nSplint Armor\t  G\nHalf Plate Armor\t  H\nPlate Armor\t  H",
 		chooseGear : {
 			type : "armor",
 			prefixOrSuffix : ["between", "Adamantine", "(DDAL0-1)"],
@@ -241,7 +257,7 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		allowDuplicates : true,
 		choicesNotInMenu : true,
 		magicItemTable : "?",
-	choices : ["+1 Leather (DDEP7-1)","+1 Leather: Mummy Wraps (RV-DC-GC15-4)","+1 Studded Leather (CCC-BMG-21 HULB2-3)","+1 Studded Leather (FR-DC-AEG-7)","+1 Studded Leather: Star Lancer Corps Armor (SJ-DC-BAD-3)","+1 Scale Mail: Shroud of the Mourning Warrior (DDAL5-13)","+1 Breastplate: Glass (DDEP0-1)","+1 Breastplate (SJ-DC-ASI-3)","+1 Breastplate (SJ-DC-DRA-4)","+1 Breastplate: Bulletproof Vest (SJ-DC-LEGIT-SB-2)","+1 Breastplate: Sha'sal Khou (SJ-DC-RFJK-2-1)","+1 Breastplate: Chameleon (SJ-DC-TKM-3)","+1 Half Plate: Bone (CCC-TRI-6 NIGHT1-2)","+1 Half Plate (DDEP4)","+1 Half Plate (FR-DC-AEG-8)","+1 Half Plate: Valkur's Raiment (FR-DC-NUKE-2)","+1 Half Plate: Asano's Do-Maru (FR-DC-ONI-2)","+1 Half Plate: Jasper (PS-DC-PKL-6)","+1 Half Plate: Warforged Chest Piece (RV-DC-PHP-1313-1)","+1 Half Plate: Qumado's Gift (SJ-DC-DEN-H6)","+1 Half Plate (SJ-DC-DRAGON-2)","+1 Half Plate (SJ-DC-END-1-5)","+1 Half Plate: Legion's Peregrine Cuirass (SJ-DC-ROCK-2)","+1 Half Plate: Mazatil's Remorse (SJ-DC-STRATCON-1)","+1 Splint (DDEX1-12)","+1 Splint (DDAL5-4)","+1 Splint: Remorhaz (DDEP10-2)","+2 Studded Leather (CCC-TRI-23 STORM1-2)","+2 Studded Leather (PO-BK-1-5)","+2 Half Plate: Stone (DDEP7-2)","+2 Half Plate: Mythos (WBW-DC-PHP-PHAN-2)","+2 Splint: Remorhaz (DDEP10-2)","+2 Plate: Stone (CCC-JGD-1)","+2 Plate (BMG-DRWEP-OD-2)","+2 Plate (Trading Post)","+3 Studded Leather (PS-DC-ELEMENT-DEATH-2)","+3 Studded Leather (PS-DC-SS)","+3 Studded Leather (PS-DC-STRAT-DRAGON-7)","+3 Hide: Daphnaie Armor (AL:SA-11A)","+3 Breastplate: Champion's Badge (PS-DC-STRAT-UNDEAD-3)","+3 Half Plate (PS-DC-NOS-2)","+3 Plate (PS-DC-AUG-1)","+3 Plate (PS-DC-ELEMENT-DEATH-1)","+3 Plate (PS-DC-MIKE-1)","+3 Plate: Wyrmguard Armor (PS-DC-STRAT-DRAGON-4)"],
+	choices : ["+1 Leather (DDEP7-1)","+1 Leather: Mummy Wraps (RV-DC-GC15-4)","+1 Studded Leather (CCC-BMG-21 HULB2-3)","+1 Studded Leather (FR-DC-AEG-7)","+1 Studded Leather: Star Lancer Corps Armor (SJ-DC-BAD-3)","+1 Scale Mail: Shroud of the Mourning Warrior (DDAL5-13)","+1 Breastplate: Glass (DDEP0-1)","+1 Breastplate (SJ-DC-ASI-3)","+1 Breastplate (SJ-DC-DRA-4)","+1 Breastplate: Chitin (SJ-DC-EPOCH-3)","+1 Breastplate: Bulletproof Vest (SJ-DC-LEGIT-SB-2)","+1 Breastplate: Sha'sal Khou (SJ-DC-RFJK-2-1)","+1 Breastplate: Chameleon (SJ-DC-TKM-3)","+1 Half Plate: Bone (CCC-TRI-6 NIGHT1-2)","+1 Half Plate (DDEP4)","+1 Half Plate (FR-DC-AEG-8)","+1 Half Plate: Valkur's Raiment (FR-DC-NUKE-2)","+1 Half Plate: Asano's Do-Maru (FR-DC-ONI-2)","+1 Half Plate: Jasper (PS-DC-PKL-6)","+1 Half Plate: Warforged Chest Piece (RV-DC-PHP-1313-1)","+1 Half Plate: Qumado's Gift (SJ-DC-DEN-H6)","+1 Half Plate (SJ-DC-DRAGON-2)","+1 Half Plate (SJ-DC-END-1-5)","+1 Half Plate: Legion's Peregrine Cuirass (SJ-DC-ROCK-2)","+1 Half Plate: Mazatil's Remorse (SJ-DC-STRATCON-1)","+1 Splint (DDEX1-12)","+1 Splint (DDAL5-4)","+1 Splint: Remorhaz (DDEP10-2)","+2 Studded Leather (CCC-TRI-23 STORM1-2)","+2 Studded Leather (PO-BK-1-5)","+2 Half Plate: Stone (DDEP7-2)","+2 Half Plate: Mythos (WBW-DC-PHP-PHAN-2)","+2 Splint: Remorhaz (DDEP10-2)","+2 Plate: Stone (CCC-JGD-1)","+2 Plate (BMG-DRWEP-OD-2)","+2 Plate (Trading Post)","+3 Studded Leather (PS-DC-ELEMENT-DEATH-2)","+3 Studded Leather (PS-DC-SS)","+3 Studded Leather (PS-DC-STRAT-DRAGON-7)","+3 Studded Leather (PS-DC-TST-1)","+3 Hide: Daphnaie Armor (AL:SA-11A)","+3 Breastplate: Champion's Badge (PS-DC-STRAT-UNDEAD-3)","+3 Half Plate: Record Keeper (PS-DC-MECH-1)","+3 Half Plate (PS-DC-NOS-2)","+3 Plate (PS-DC-AUG-1)","+3 Plate (PS-DC-ELEMENT-DEATH-1)","+3 Plate (PS-DC-MIKE-1)","+3 Plate: Deep (PS-DC-PANDORA-JWEI-S2-1)","+3 Plate: Pickle's (PS-DC-PKL-20A)","+3 Plate: Wyrmguard Armor (PS-DC-STRAT-DRAGON-4)"],
 	"+1 leather (ddep7-1)" : {
 		name : "+1 Leather (DDEP7-1)",
 		source : [["AL", "S7"]],
@@ -334,6 +350,15 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		descriptionFull : "You have a +1 bonus to AC while wearing this armor.\n   " + toUni("Language") + ". The bearer can speak and understand dwarven while the item is on the bearer's person.",
 		languageProfs : ["Dwarvish"],
 		armorAdd : { select : "+1 Breastplate", options : ["+1 Breastplate"]  },
+	},
+	"+1 breastplate: chitin (sj-dc-epoch-3)" : {
+		name : "Chitin Breastplate +1 (SJ-DC-EPOCH-3)",
+		source : [["AL", "SJ-DC"]],
+		rarity : "rare",
+		allowDuplicates : true,
+		description : "This magic breastplate was created from bizarre non-metallic chitinous plates, taken from a ceremorphosized neogi. It's durability is unaffected. The armor grants a +1 bonus to Armor Class while worn.",
+		descriptionFull : "You have a +1 bonus to AC while wearing this armor.\n   " + toUni("Strange Material") + ". The item was created from bizarre non-metallic chitinous plates, taken from a ceremorphosized neogi. Its durability is unaffected.",
+		armorAdd : { select : "+1 Breastplate (Chitin)", options : ["+1 Breastplate (Chitin)"] },
 	},
 	"+1 breastplate: bulletproof vest (sj-dc-legit-sb-2)" : {
 		name : "Bulletproof Vest, +1 Breastplate (LEGIT-SB-2)",
@@ -604,6 +629,16 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		armorAdd : { select : "+3 Studded Leather", options : ["+3 Studded Leather"] },
 		savetxt : { immune : ["temps past 0\u00B0F/100\u00B0F"] },
 	},
+	"+3 studded leather (ps-dc-tst-1)" : {
+		name : "+3 Studded Leather (PS-DC-TST-1)",
+		source : [["AL", "PS-DC"]],
+		rarity : "legendary",
+		allowDuplicates : true,
+		description : "This +3 armor was forged by an avatar of Helm. It has a radiant shimmer and obsidian rivets. Etched on the chest is the symbol of Helm, a staring eye with a blue pupil on an upright gauntlet. If Zerah's ally, it reveals an inscription under moonlight: Your victories are seen and celebrated. In the shadows of defeat, you are not alone. If Ananias' ally, it reveals in darkness: True freedom is the knowledge that there is no moral law. Everything is permissible.",
+		description : "This +3 studded leather is forged by an avatar of Helm. The armor seems to have a radiant shimmer held together by obsidian rivets. Etched on the chest is the symbol of Helm, a staring eye with blue pupil on an upright gauntlet. If allied with Zerah, it reveals an inscription under moonlight: Your victories are seen and celebrated. In the shadows of defeat, you are not alone. If allied with Ananias, it reveals an inscription in complete darkness: True freedom is the knowledge that there is no moral law. Everything is permissible.",
+		descriptionFull : "This armor is forged by an avatar of Helm. The leather seem to have a radiant shimmer held together by obsidian rivets. Etched on the armor’s chest is the symbol of Helm, a staring eye with blue pupil on the upright left war gauntlet.\n   If allied with Zerah, it will reveal a hidden inscription under moonlight: Your victories are seen and celebrated. In the shadows of defeat, you are not alone.\n   If allied with Ananias, it will reveal a hidden inscription in complete darkness: True freedom is knowledge that there is no moral law. Everything is permissible.\n   The armor grants a +3 bonus to AC while worn.",
+		armorAdd : { select : "+3 Studded Leather", options : ["+3 Studded Leather"] },
+	},
 	"+3 hide: daphnaie armor (al:sa-11a)" : {
 		name : "Daphnaie Armor (+3 Hide)",
 		rarity : "legendary",
@@ -621,6 +656,15 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		description : "This breastplate is made from scales Thrax shed after he became a dracolich. It's a dull sapphire blue with hints of grey and smells vaguely of death. The breastplate gives +3 to AC when worn.",
 		descriptionFull : "This armor is made from Thrax's shed scales. He shed these scales after he became a dracolich, so this armor is a dull sapphire blue with hints of grey and smells vaguely of death.\n   " + toUni("Strange Material - Dragon Scale") + ". This breastplate is not metallic.\n   You have a +3 bonus to AC while wearing this armor.",
 		armorAdd : { select : "+3 Breastplate", options : ["+3 Breastplate"] },
+	},
+	"+3 half plate: record keeper (ps-dc-mech-1)" : {
+		name : "Record Keeper, +3 Half Plate (MECH-1)",
+		source : [["AL", "PS-DC"]],
+		rarity : "legendary",
+		allowDuplicates : true,
+		description : "This half plate is made from marble. Over time, it expertly carves faint replicas of your most famous (or embarrassing) actions into its ornate design. The armor gives +3 to my Armor Class when worn.",
+		descriptionFull : "This armor is made from marble. Over time, it expertly carves faint replicas of your most famous (or embarrassing) actions into its ornate design.\n   " + toUni("Strange Material") + ". Because this armor is made from marble and has no metal components, it can be worn by a druid (no longer a rule).\n   You have a +3 bonus to AC while wearing this armor.",
+		armorAdd : { select : "+3 Marble Half Plate", options : ["+3 Marble Half Plate"] },
 	},
 	"+3 half plate (ps-dc-nos-2)" : {
 		name : "+3 Half Plate (PS-DC-NOS-2)",
@@ -669,6 +713,25 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		descriptionFull : "This magnificent suit of plate armor was forged by the same legendary smith that crafted the Undisputed Multiversal Championship belt. As the champion marches forth, their presence is marked by the resounding clangor of steel and the shimmering brilliance of their armor—a shield against physical harm and a symbol of their indomitable spirit. In every clash and confrontation, the armor stands as a testament to the champion's honored status, destined to shape the fate of realms and etch their name in the annals of legend.\n   " + toUni("Song Craft") + ". Whenever this item is struck or is used to strike a foe, its bearer hears a fragment of an ancient song.\n   You have a +3 bonus to AC while wearing this armor.",
 		armorAdd : { select : "+3 Plate", options : ["+3 Plate"] },
 	},
+	"+3 plate: deep (ps-dc-pandora-jwei-s2-1)" : {
+		name : "+3 Plate of the Deep (PANDORA-JWEI-S2-1)",
+		source : [["AL", "PS-DC"]],
+		rarity : "legendary",
+		allowDuplicates : true,
+		description : "This metallic armor was crafted by mind flayers, glazed with cerebral fluids, and magically touched by Ilsensine, the god of the illithids. I understand all Deep Speech and gain +3 to my Armor Class while worn.",
+		descriptionFull : "You have a +3 bonus to AC while wearing this armor.\n   " + toUni("Deep Speech") + ". This metallic armor is crafted by the mind flayer, glazed with cerebral fluids, and magically touched by Ilsensine, the god of the illithids. You immediately understand all Deep Speech.",
+		armorAdd : { select : "+3 Plate", options : ["+3 Plate"] },
+		languageProfs : ["Deep Speech"],
+	},
+	"+3 plate: pickle's (ps-dc-pkl-20a)" : {
+		name : "Pickle's Armor, +3 Plate (PS-DC-PKL-20A)",
+		source : [["AL", "PS-DC"]],
+		rarity : "legendary",
+		allowDuplicates : true,
+		description : "This plate armor glows faintly with purple runes when in 120 ft of Dragons. I gain +3 to my Armor Class while worn.",
+		descriptionFull : "You have a +3 bonus to AC while wearing this armor.\n   " + toUni("Sentinel") + ". This item glows faintly with purple runes in the presence of dragons. (Sentinel - Dragons).",
+		armorAdd : { select : "+3 Plate", options : ["+3 Plate"] },
+	},
 	"+3 plate: wyrmguard armor (ps-dc-strat-dragon-4)" : {
 		name : "Wyrmguard Armor, +3 Plate (STRAT-DRAGON-4)",
 		source : [["AL", "PS-DC"]],
@@ -687,7 +750,17 @@ MagicItemsList["al armor (common)"] = {
 		choicesNotInMenu : true,
 		rarity : "common",
 		magicItemTable : "?",
-	choices : ["Cast-Off Breastplate (DC-POA-CONMAR-6)","Cast-Off Breastplate: Ooze (DC-POA-GaryXIII-4)","Cast-Off Breastplate (DC-POA-HAG-SF4)","Cast-Off Chain Mail: Scavenger's Shroud (CCC-DES-4-1)","Cast-Off Plate (BMG-DRW-OD-5)","Shield of Expression (DC-POA-CONMAR-15)","Shield of Expression (DC-POA-SNIPE-1)","Shield of Expression (WBW-DC-CONMAR-10)","Shield of Expression (WBW-DC-DCS-1)","Smoldering Armor: Flurried Furs (DDAL0-4)","Smoldering Studded Leather (DC-POA-CODEX-2)","Smoldering Studded Leather (DC-POA-CONMAR-8)","Smoldering Studded Leather (DC-POA-GSP2-2H)","Smoldering Studded Leather: Smokin' Hot Leather (DC-POA-LEGIT-SV-02)","Smoldering Studded Leather (DC-POA-OGG-1)","Smoldering Studded Leather: Armor of the Dark Knight (DC-POA-TDG1-4)","Smoldering Studded Leather (DDAL10-0)","Smoldering Scale Mail: Stygian Armor (CCC-GSP2-2)","Smoldering Breastplate: Jökulsbrynja (DC-POA-CONMAR-3)","Smoldering Breastplate: Wintergreen Guard (DC-POA-LEGIT-SV-01)","Spiked Armor of Gleaming: Axehead's Coat of Beaks (CCC-MTL-3)","Half Plate of Gleaming (PS-DC-ELEMENT-DEATH-1)"],
+	choices : ["Cast-Off Studded Leather (FR-DC-Saerloon-5)","Cast-Off Breastplate (DC-POA-CONMAR-6)","Cast-Off Breastplate: Ooze (DC-POA-GaryXIII-4)","Cast-Off Breastplate (DC-POA-HAG-SF4)","Cast-Off Chain Mail: Scavenger's Shroud (CCC-DES-4-1)","Cast-Off Plate (BMG-DRW-OD-5)","Shield of Expression (DC-POA-CONMAR-15)","Shield of Expression (DC-POA-SNIPE-1)","Shield of Expression (WBW-DC-CONMAR-10)","Shield of Expression (WBW-DC-DCS-1)","Smoldering Armor: Flurried Furs (DDAL0-4)","Smoldering Studded Leather (DC-POA-CODEX-2)","Smoldering Studded Leather (DC-POA-CONMAR-8)","Smoldering Studded Leather (DC-POA-GSP2-2H)","Smoldering Studded Leather: Smokin' Hot Leather (DC-POA-LEGIT-SV-02)","Smoldering Studded Leather (DC-POA-OGG-1)","Smoldering Studded Leather: Armor of the Dark Knight (DC-POA-TDG1-4)","Smoldering Studded Leather (DDAL10-0)","Smoldering Scale Mail: Stygian Armor (CCC-GSP2-2)","Smoldering Breastplate: Jökulsbrynja (DC-POA-CONMAR-3)","Smoldering Breastplate: Wintergreen Guard (DC-POA-LEGIT-SV-01)","Breastplate of Gleaming: Heth's Dragon Scale Cuirass (PS-DC-HRS-0)","Spiked Armor of Gleaming: Axehead's Coat of Beaks (CCC-MTL-3)","Half Plate of Gleaming (PS-DC-ELEMENT-DEATH-1)","Half Plate of Gleaming: Plasma Armor (PS-DC-FOT-1)","Half Plate of Gleaming (PS-DC-NOS-4)","Half Plate of Gleaming: Misty's Jacket (PS-DC-PKL-14)"],
+	"cast-off studded leather (fr-dc-saerloon-5)" : {
+		name : "Cast-Off Studded Leather (FR-DC-Saerloon-5)",
+		source : [["AL", "FR-DC"]],
+		type : "armor (medium)",
+		description : "This stylized black leather armor has carved green holly leaves and the studs are painted red to look like holly berries. It's imbued with the gratitude of the Hollymead family, letting me speak Halfling as if part of their community. I can doff it as a Magic Action.",
+		descriptionFull : "The leather on this armor is stylized black with carved, green holly leaves. The studs are painted red to appear like holly berries. It is imbued with the gratitude of the Hollymead family of halflings, allowing the wearer to speak to them as if they were part of their community.\n   " + toUni("Language") + ". The bearer can speak, read and understand Halfling while the item is on the bearer's person.\n   You can doff this armor as a Magic action.",
+		armorAdd : { select : "Cast-Off Studded Leather", options : ["Cast-Off Studded Leather"] },
+		action : [["action", "Cast-Off Armor"]],
+		languageProfs : ["Halfling"],
+	},
 	"cast-off breastplate (dc-poa-conmar-6)" : {
 		name : "Cast-Off Breastplate (DC-POA-CONMAR-6)",
 		source : [["AL", "DC-POA"]],
@@ -869,6 +942,14 @@ MagicItemsList["al armor (common)"] = {
 		descriptionFull : "When you are struck by bludgeoning damage, the armor emits oils which create a cool numbing sensation. While not particularly effective at its intended purpose, the volatile oils produce a visible and pleasant smelling vapor which wafts from under the armor.\n   Wisps of harmless, odorless smoke rise from this armor while it is worn.",
 		armorAdd : { select : "Smoldering Breastplate", options : ["Smoldering Breastplate"] },
 	},
+	"breastplate of gleaming: heth's dragon scale cuirass (ps-dc-hrs-0)" : {
+		name : "Heth's Dragon Scale Cuirass (Gleaming Breastplate, HRS-0)",
+		source : [["AL", "PS-DC"]],
+		type : "armor (medium)",
+		description : "This beautiful gleaming cuirass is made of iridescent scales from an ancient time dragon. It never gets dirty and I can see my reflection on every woven scale.",
+		descriptionFull : "This beautiful gleaming cuirass is made of iridescent scales from an ancient time dragon. You see your reflection on every woven scale.\n   " + toUni("Strange Material") + ". This breastplate devoid of any metal is made from woven iridescent scales of an ancient time dragon.\n   This armor never gets dirty.",
+		armorAdd : { select : "Breastplate of Gleaming", options : ["Breastplate of Gleaming"] },
+	},
 	"spiked armor of gleaming: axehead's coat of beaks (ccc-mtl-3)" : {
 		name : "Axehead's Coat of Beaks (Spiked Armor of Gleaming)",
 		source : [["AL", "CCC"]],
@@ -894,6 +975,31 @@ MagicItemsList["al armor (common)"] = {
 		descriptionFull : "Half plate consists of shaped metal plates that cover most of the wearer's body. It does not include leg protection beyond simple greaves that are attached with leather straps.\n   " + toUni("Strange Material") + ". This half plate armour is made of magically enchanted stone slabs, and there is no metal used enabling druids to wear it.\n   This armor never gets dirty.",
 		armorAdd : { select : "Half Plate of Gleaming", options : ["Half Plate of Gleaming"] },
 	},
+	"half plate of gleaming: plasma armor (ps-dc-fot-1)" : {
+		name : "Plasma Half Plate of Gleaming (FOT-1)",
+		source : [["AL", "PS-DC"]],
+		type : "armor (medium)",
+		description : "This half plate is made of harmless glowing fire similar to plasma and never gets dirty. The color of the fire is chosen when the armor is created. Due to its fluid nature, it adjusts to fit any creature that wears it perfectly, regardless of size or shape. and never gets dirty.",
+		descriptionFull : "Half plate consists of shaped metal plates that cover most of the wearer's body. It does not include leg protection beyond simple greaves that are attached with leather straps.\n   " + toUni("Strange Material") + ". This immaculately clean half plate is made of harmless glowing fire reminiscent of plasma. The fire can be any bright color of the wearer’s choice, but this must be done when it is created. Due to its fluid nature, it adjusts itself to perfectly fit any creature that wears it, regardless of their size or shape.\n   This armor never gets dirty.",
+		armorAdd : { select : "Half Plate of Gleaming", options : ["Half Plate of Gleaming"] },
+	},
+	"half plate of gleaming (ps-dc-nos-4)" : {
+		name : "Half Plate of Gleaming (NOS-4)",
+		source : [["AL", "PS-DC"]],
+		type : "armor (medium)",
+		description : "The core plates of a larger suit of armor, this half plate is covered in Netherese runes. While worn, I can speak Ancient Netherese and the armor never gets dirty.",
+		descriptionFull : "The core plates of a larger suit of armor, it is covered in Netherese runes.\n   " + toUni("Language") + ". The bearer can speak, read and understand Ancient Netherese while the item is on the bearer's person.\n   This armor never gets dirty.",
+		armorAdd : { select : "Half Plate of Gleaming", options : ["Half Plate of Gleaming"] },
+		languageProfs : ["Ancient Netherese"],
+	},
+	"half plate of gleaming: misty's jacket (ps-dc-pkl-14)" : {
+		name : "Misty's Jacket (Gleaming Half Plate (PKL-14)",
+		source : [["AL", "PS-DC"]],
+		type : "armor (medium)",
+		description : "This white half plate seems to be stitched together from clouds. It has a nice cottony and comfortable feel, and never gets dirty.",
+		descriptionFull : "This item seems to be stitched together from clouds. It has a nice cottony and comfortable feel. (Strange Material)\n   This armor never gets dirty. This is especially amazing considering that it is white.",
+		armorAdd : { select : "Half Plate of Gleaming", options : ["Half Plate of Gleaming"] },
+	},
 }
 })
 
@@ -902,7 +1008,7 @@ MagicItemsList["al armor (other)"] = {
 		allowDuplicates : true,
 		choicesNotInMenu : true,
 		magicItemTable : "?",
-	choices : ["Antimagic Breastplate (PO-BMG-DRW-KS-7)","Breastplate of Fungal Spores (FR-DC-DMJA-1)","Breastplate of Fungal Spores (FR-DC-GHG-2)","Breastplate of Fungal Spores: Cinnamon Bark (FR-DC-Saerloon-2)","Breastplate of Fungal Spores: Cheese Plate (FR-DC-WATERDEEP-CHZ)","Breastplate of Necrotic Resistance: Chardalyn (DDAL10-5)","Demon Armor (DDEX3-16)","Efreeti Chain (DDAL7-15)","Elven Chain (CCC-BMG-36 ELMW2-3)","Elven Chain (CCC-SQC-2-2)","Elven Chain: Armor of the First Frost (WBW-DC-AA-ASHALON-1)","Elven Chain (WBW-DC-AMQ-5)","Elven Chain: Astral (WBW-DC-CONMAR-12)","Elven Chain: Guardian (WBW-DC-GGS-1)","Elven Chain: Loud (WBW-DC-GGS-1)","Elven Chain (WBW-DC-PHP-SPAMMY-1)","Elven Chain (WBW-DC-Rook-2-1)","Elven Chain (WBW-DC-TAZ-1)","Elven Chain (WBW-DC-TEN-3)","Elven Chain: Tehettan's Protection (WBW-DC-TMP-2)","Elven Chain (WBW-DC-ZEP-T2S5)","Elven Chain: Sky's Armor (WBW-DC-ZODIAC-12)","Glamoured Studded Leather (DDAL4-9)","Glamoured Studded Leather (DDAL8-11)","Glamoured Studded Leather (DDAL9-6)","Glamoured Studded Leather: Cinderella's Wedding Corset (WBW-DC-CONMAR-15)","Half Plate of Fire Resistance (FR-DC-YLRA1-4)","Half Plate of Force Resistance: Pat's Ultimate Magic Armor of Awesome Adventuring (FR-DC-STRAT-UNDEAD-1)","Half Plate of Necrotic Resistance: Vehariel's Vestment (FR-DC-VECNA-3)","Half Plate of Necrotic Resistance: Winter's Warden (FR-DC-VECNA-3)","Half Plate of Poison Resistance: Mushroom (DDEX3-11)","Half Plate of Poison Resistance (FR-DC-BMK-4)","Hide Armor of Fungal Spores (PO-BMG-INT-2)","Mariner's Studded Leather (DDAL-DRW9)","Mariner's Breastplate (CCC-AETHER-1-2)","Mariner's Breastplate (CCC-MMT1-2)","Mariner's Scale Mail (AL:SA-11A)","Plate Armor of Etherealness (DDAL8-16)","Red Dragon Scale Mail (DDEP5-1)","Red Dragon Scale Mail (DDAL9-15)","Scale Mail of Psychic Resistance: Resin (CCC-TRI-21 YUL1-6)","Spiked Armor of Necrotic Resistance (WBW-DC-DEN-H1)","Studded Leather of Fire Resistance (DDAL0-11C)"],
+	choices : ["Antimagic Breastplate (PO-BMG-DRW-KS-7)","Breastplate of Fungal Spores: Seagrow Shell (FR-DC-DMJA-1)","Breastplate of Fungal Spores (FR-DC-GHG-2)","Breastplate of Fungal Spores: Phase Spider's Carapace (FR-DC-PHP-PEST-1)","Breastplate of Fungal Spores: Cinnamon Bark (FR-DC-Saerloon-2)","Breastplate of Fungal Spores: Cheese Plate (FR-DC-WATERDEEP-CHZ)","Breastplate of Necrotic Resistance: Chardalyn (DDAL10-5)","Demon Armor (DDEX3-16)","Efreeti Chain (DDAL7-15)","Elven Chain (CCC-BMG-36 ELMW2-3)","Elven Chain (CCC-SQC-2-2)","Elven Chain: Armor of the First Frost (WBW-DC-AA-ASHALON-1)","Elven Chain (WBW-DC-AMQ-5)","Elven Chain: Astral (WBW-DC-CONMAR-12)","Elven Chain: Guardian (WBW-DC-GGS-1)","Elven Chain: Loud (WBW-DC-GGS-1)","Elven Chain (WBW-DC-PHP-SPAMMY-1)","Elven Chain (WBW-DC-Rook-2-1)","Elven Chain (WBW-DC-TAZ-1)","Elven Chain (WBW-DC-TEN-3)","Elven Chain: Tehettan's Protection (WBW-DC-TMP-2)","Elven Chain (WBW-DC-ZEP-T2S5)","Elven Chain: Sky's Armor (WBW-DC-ZODIAC-12)","Glamoured Studded Leather (DDAL4-9)","Glamoured Studded Leather (DDAL8-11)","Glamoured Studded Leather (DDAL9-6)","Glamoured Studded Leather: Cinderella's Wedding Corset (WBW-DC-CONMAR-15)","Gloomwrought Studded Leather: Mistbound (FR-DC-THAY-3)","Half Plate of Fire Resistance (FR-DC-YLRA1-4)","Half Plate of Force Resistance: Pat's Ultimate Magic Armor of Awesome Adventuring (FR-DC-STRAT-UNDEAD-1)","Half Plate of Lightning Resistance (FR-DC-BMK-4)","Half Plate of Necrotic Resistance: Vehariel's Vestment (FR-DC-VECNA-3)","Half Plate of Necrotic Resistance: Winter's Warden (FR-DC-VECNA-3)","Half Plate of Poison Resistance: Mushroom (DDEX3-11)","Hide Armor of Fungal Spores (PO-BMG-INT-2)","Mariner's Studded Leather (DDAL-DRW9)","Mariner's Breastplate (CCC-AETHER-1-2)","Mariner's Breastplate (CCC-MMT1-2)","Mariner's Scale Mail (AL:SA-11A)","Plate Armor of Etherealness (DDAL8-16)","Red Dragon Scale Mail (DDEP5-1)","Red Dragon Scale Mail (DDAL9-15)","Scale Mail of Psychic Resistance: Resin (CCC-TRI-21 YUL1-6)","Spiked Armor of Necrotic Resistance (WBW-DC-DEN-H1)","Studded Leather of Fire Resistance (DDAL0-11C)"],
 	"antimagic breastplate (po-bmg-drw-ks-7)" : {
 		name : "Antimagic Breastplate (PO-BMG-DRW-KS-7)",
 		source : [["AL", "PO"]], // Chapter 9: Knight
@@ -939,8 +1045,8 @@ MagicItemsList["al armor (other)"] = {
 			}
 		}
 	},
-	"breastplate of fungal spores (fr-dc-dmja-1)" : {
-		name : "Breastplate of Fungal Spores (FR-DC-DMJA-1)",
+	"breastplate of fungal spores: seagrow shell (fr-dc-dmja-1)" : {
+		name : "Seagrow Shell, Breastplate of Fungal Spores (DMJA-1)",
 		source : [["AL", "FR-DC"]],
 		type : "armor (breastplate)",
 		rarity : "uncommon",
@@ -965,6 +1071,19 @@ MagicItemsList["al armor (other)"] = {
 		usages : 1,
 		recovery : "dawn",
 		armorAdd : { select : "Shell Breastplate of Fungal Spores", options : ["Shell Breastplate of Fungal Spores"] },
+	},
+	"breastplate of fungal spores: phase spider's carapace (fr-dc-php-pest-1)" : {
+		name : "Phase Spider's Carapace (Fungal Spores, PHP-PEST-1)",
+		source : [["AL", "FR-DC"]],
+		type : "armor (breastplate)",
+		rarity : "uncommon",
+		description : "This breastplate was made from the hardened carapace of a Phase Spider, scintillating with bright colors. As a bonus action once per dawn, it emits poisonous spores in a 10-ft radius. All creatures in area must pass a DC 15 Con save or be Poisoned until my next turn ends.",
+		descriptionFull : "While wearing this armor, you can take a bonus action to make the armor emit poisonous spores, which fill a 10-foot-radius sphere centered on yourself. Each creature in that area must succeed on a DC 15 Constitution saving throw or have the poisoned condition until the end of your next turn. Once this property is used, it can't be used again until the next dawn.\n   " + toUni("Strange Material") + ". This breastplate was made with the hardened carapace of a Phase Spider scintillating with bright colors. Its durability is unaffected.",
+		action : [["bonus action", ""]],
+		limfeaname : "Armor of Fungal Spores",
+		usages : 1,
+		recovery : "dawn",
+		armorAdd : { select : "Carapace Breastplate Fungal Spores", options : ["Carapace Breastplate Fungal Spores"] },
 	},
 	"breastplate of fungal spores: cinnamon bark (fr-dc-saerloon-2)" : {
 		name : "Cinnamon Bark Breastplate of Fungal Spores (Saerloon-2)",
@@ -1388,6 +1507,31 @@ MagicItemsList["al armor (other)"] = {
 		}],
 		action : [["bonus action", "Glamoured Studded Lthr (change)"]]
 	},
+	"gloomwrought studded leather: mistbound (fr-dc-thay-3)" : {
+		name : "Mistbound, Gloomwrought Studded Leather (THAY-3)",
+		source : [["AL", "FR-DC"]], // Chapter 9: Knight
+		type : "armor (light, medium, or heavy)",
+		rarity : "rare",
+		attunement : true,
+		description : "Mist drifts lazily across the surface of this smoke-gray studded leather forged in the Shadowfell. While worn, I have advantage on saves against the Frightened condition. The armor has 3 charges, 1d3 regained at dawn. As an action, I can use 1 charge to cast Calm Emotions (save DC 15) from it. When underground, I always know my depth and the direction to the nearest upward path.",
+		descriptionFull : "Mist drifts lazily across the surface of this smoke-gray armor.\n   " + toUni("Delver") + ". While underground, you always know the item’s depth below the surface and the direction to the nearest staircase, ramp, or other path leading upward.\n   This intricate grayscale armor was forged in the Shadowfell and is infused with that plane's gloom."+
+		"\n   While you're wearing this armor, you have advantage on saving throws you make to avoid or end the frightened condition on yourself."+
+		"\n   This armor has 3 charges. You can expend a charge to cast the Calm Emotions spell (save DC 15) from the armor. This armor regains 1d3 expended charges daily at dawn.",
+		limfeaname : "Gloomwrought Armor",
+		usages : 3,
+		recovery : "dawn",
+		additional : "regains 1d3",
+		savetxt : { adv_vs : ["frightened"] },
+		fixedDC : 15,
+		spellFirstColTitle : "Ch",
+		armorAdd : { select : "Gloomwrought Studded Leather", options : ["Gloomwrought Studded Leather"] },
+	spellcastingBonus : [{
+		name : "1 charge",
+		spells : ["calm emotions"],
+		selection : ["calm emotions"],
+		firstCol : 1
+		}]
+	},
 	"half plate of fire resistance (fr-dc-ylra1-4)" : {
 		name : "Half Plate of Fire Resist. (YLRA1-4)",
 		source : [["AL", "FR-DC"]],
@@ -1445,16 +1589,16 @@ MagicItemsList["al armor (other)"] = {
 		dmgres : ["Poison"],
 		armorAdd : { select : "Mushroom Half Plate", options : ["Mushroom Half Plate"] },
 	},
-	"half plate of poison resistance (fr-dc-bmk-4)" : {
-		name : "Half Plate of Poison Resistance (BMK-4)",
+	"half plate of lightning resistance (fr-dc-bmk-4)" : {
+		name : "Half Plate of Lightning Resistance (BMK-4)",
 		source : [["AL", "FR-DC"]],
 		type : "armor (half plate)",
 		rarity : "rare",
 		attunement : true,
-		description : "This half plate armor bears the searing imprint of a behir's wrath, its hardened azure scales mingled with leather and steel. While worn I have the title of \"Behirbane\" and resistance to Poison damage.",
-		descriptionFull : "This half-plate bears the searing imprint of the behir's wrath, its hardened azure scales mingle with steel and leather. Whoever dons this armor inherits the \"Behirbane\" title.\n   " + toUni("Strange Material") + ". The item was created from the scales of a behir. Its durability is unaffected.\n   You have resistance to poison damage while you wear this armor.\n	You have Resistance to one type of damage while you wear this armor. The DM chooses the type or determines it randomly by rolling on the following table:\n\n" + toUni("d10\tType\t\td10\tType") + "\n 1\tAcid\t\t 6\tNecrotic\n 2\tCold\t\t 7\tPoison\n 3\tFire\t\t 8\tPsychic\n 4\tForce\t\t 9\tRadiant\n 5\tLightning   \t 10\tThunder",
-		dmgres : ["Poison"],
-		armorAdd : { select : "Half Plate of Poison Resist.", options : ["Half Plate of Poison Resist."] },
+		description : "This half plate armor bears the searing imprint of a behir's wrath, its hardened azure scales mingled with leather and steel. While worn I have the title of \"Behirbane\" and resistance to Lightning damage.",
+		descriptionFull : "This half-plate bears the searing imprint of the behir's wrath, its hardened azure scales mingle with steel and leather. Whoever dons this armor inherits the \"Behirbane\" title.\n   " + toUni("Strange Material") + ". The item was created from the scales of a behir. Its durability is unaffected.\n   You have resistance to lightning damage while you wear this armor.\n	You have Resistance to one type of damage while you wear this armor. The DM chooses the type or determines it randomly by rolling on the following table:\n\n" + toUni("d10\tType\t\td10\tType") + "\n 1\tAcid\t\t 6\tNecrotic\n 2\tCold\t\t 7\tPoison\n 3\tFire\t\t 8\tPsychic\n 4\tForce\t\t 9\tRadiant\n 5\tLightning   \t 10\tThunder",
+		dmgres : ["Lightning"],
+		armorAdd : { select : "Half Plate of Lightn. Resist.", options : ["Half Plate of Lightn. Resist."] },
 	},
 	"hide armor of fungal spores (po-bmg-int-2)" : {
 		name : "Hide Armor of Fungal Spores (PO-BMG-INT-2)",
@@ -1640,7 +1784,7 @@ MagicItemsList["al armor (other)"] = {
 		type : "armor (studded leather)",
 		rarity : "rare",
 		attunement : true,
-		description : "This armor is reinforced with rivets of unmeltable ice, and steams faintly when I'm hit with fire attacks. While worn, I have resistance to Fire damage.",
+		description : "This studded leather armor is reinforced with rivets of unmeltable ice, and steams faintly when I'm hit with fire attacks. While worn, I have resistance to Fire damage.",
 		descriptionFull : "This studded leather armor is reinforced with rivets made of unmeltable ice, and steams faintly when the wearer is hit with fire attacks. While attuned and wearing this armor, you have resistance to fire damage.\n	You have Resistance to one type of damage while you wear this armor. The DM chooses the type or determines it randomly by rolling on the following table:\n\n" + toUni("d10\tType\t\td10\tType") + "\n 1\tAcid\t\t 6\tNecrotic\n 2\tCold\t\t 7\tPoison\n 3\tFire\t\t 8\tPsychic\n 4\tForce\t\t 9\tRadiant\n 5\tLightning   \t 10\tThunder",
 		dmgres : ["Fire"],
 		armorAdd : { select : "Studded Leather (Fire Resist)", options : ["Studded Leather (Fire Resist)"] },
@@ -1654,7 +1798,7 @@ MagicItemsList["al shields"] = {
 		type : "shield",
 		weight : 6,
 		magicItemTable : "?",
-	choices : ["+1 Shield (DDEX3-5)","+1 Shield of the Moon (CCC-TAROT1-2)","+1 Shield of the Salty Griffon (CCC-TRI-19 DEAD1-1)","+2 Shield: Wall of Teeth (DDEX2-14)","+2 Shield: Yata Mirror (CCC-ANIME1-2)","+3 Shield: Miltiades' Shield (CCC-BMG-13 PHLAN1-1)","+3 Shield: Aegis of the Raven Queen (CCC-BWM-3)","+3 Shield (BMG-DRW-OD-7)","Animated Shield (DDEP5-2)","Animated Shield (DDEP8-3)","Arrow-Catching Shield (CCC-BMG-MOON13-3)","Arrow-Catching Shield (CCC-GLIP-2-1)","Arrow-Catching Shield (DDAL9-8)","Arrow-Catching Shield (DDAL-DRWEP3)","Battering Shield (BMG-DRW-OD-2)","Sapphire Buckler (DDAL-DRW19)","Sapphire Buckler (SJ-DC-COD)","Sapphire Buckler: Soulflare (SJ-DC-DFA-6)","Sapphire Buckler: Riddick's Titan Shield (SJ-DC-FLUMPH-4)","Sapphire Buckler (SJ-DC-INAS-5)","Sapphire Buckler (SJ-DC-MIST-2)","Sapphire Buckler (SJ-DC-TEL-7)","Sapphire Buckler: Bee's Knees (SJ-DC-TRIDEN-BZ)","Sentinel Shield (CCC-BMG-MOON11-1)","Sentinel Shield (CCC-WWC-7)","Sentinel Shield (DDAL-CGB)","Sentinel Shield (DDEX2-12)","Shield of the Uven Rune (BMG-MOON-MD-11)","Shield of Missile Attraction: Ward of Chimali (RMH-10)","Spellguard Shield: Warden (CCC-ODFC1-3)","Spellguard Shield (CCC-ROZK1-3)","Spellguard Shield (DDEP7-2)","Spellguard Shield (DDAL-DRWEP2)"],
+	choices : ["+1 Shield (DDEX3-5)","+1 Shield of the Moon (CCC-TAROT1-2)","+1 Shield of the Salty Griffon (CCC-TRI-19 DEAD1-1)","+2 Shield: Wall of Teeth (DDEX2-14)","+2 Shield: Yata Mirror (CCC-ANIME1-2)","+3 Shield: Miltiades' Shield (CCC-BMG-13 PHLAN1-1)","+3 Shield: Aegis of the Raven Queen (CCC-BWM-3)","+3 Shield (BMG-DRW-OD-7)","Animated Shield (DDEP5-2)","Animated Shield (DDEP8-3)","Arrow-Catching Shield (CCC-BMG-MOON13-3)","Arrow-Catching Shield (CCC-GLIP-2-1)","Arrow-Catching Shield (DDAL9-8)","Arrow-Catching Shield (DDAL-DRWEP3)","Battering Shield (BMG-DRW-OD-2)","Sapphire Buckler (DDAL-DRW19)","Sapphire Buckler (SJ-DC-COD)","Sapphire Buckler: Soulflare (SJ-DC-DFA-6)","Sapphire Buckler: Riddick's Titan Shield (SJ-DC-FLUMPH-4)","Sapphire Buckler (SJ-DC-INAS-5)","Sapphire Buckler (SJ-DC-MIST-2)","Sapphire Buckler (SJ-DC-TEL-7)","Sapphire Buckler: Bee's Knees (SJ-DC-TRIDEN-BZ)","Sentinel Shield (CCC-BMG-MOON11-1)","Sentinel Shield (CCC-WWC-7)","Sentinel Shield (DDAL-CGB)","Sentinel Shield (DDEX2-12)","Shield of the Uven Rune (BMG-MOON-MD-11)","Shield of Missile Attraction: Ward of Chimali (RMH-10)","Spellguard Shield: Warden (CCC-ODFC1-3)","Spellguard Shield (CCC-ROZK1-3)","Spellguard Shield (DDEP7-2)","Spellguard Shield (DDAL-DRWEP2)","Spellguard Shield (FR-DC-TT-301)"],
 	"+1 shield (ddex3-5)" : {
 		name : "Shield +1 (DDEX3-5)",
 		source : [["AL", "S3"]],
@@ -2048,6 +2192,17 @@ MagicItemsList["al shields"] = {
 		rarity : "very rare",
 		description : "This tower shield is made of hundreds of interlocking humanoid bones, dipped in a shimmering silver resin. When I'm targeted by a spell, the bones vibrate gently \u0026 emit deep ominous chanting in ancient Oman, lasting for 1d6 rounds. While held, I have adv. on saves against spells \u0026 other magical effects, \u0026 spell atks have disadv. against me.",
 		descriptionFull : "This tower shield is made of hundreds of interlocking humanoid bones, dipped in a shimmering silver resin. When you are targeted by a spell, the bones vibrate gently and emit deep, ominous chanting in ancient Oman, lasting for 1d6 rounds.\n   While holding this Shield, you have Advantage on saving throws against spells and other magical effects, and spell attacks have Disadvantage against you.",
+		attunement : true,
+		weight : 6,
+		shieldAdd : "Spellguard Shield",
+		savetxt : { adv_vs : ["spells", "magical effects"], text : ["Spell attack rolls Disadvantage against me"] },
+	},
+	"spellguard shield (fr-dc-tt-301)" : {
+		name : "Spellguard Shield (FR-DC-TT-301)",
+		source : [["AL", "FR-DC"]],
+		rarity : "very rare",
+		description : "Made from dragonnel egg shell, infused with nilbog blood, and reinforced by Neothelid’s tentacles, this shield can be attuned to in 1 minute. While held, I have advantage on saves against spells \u0026 other magical effects, \u0026 spell atks have disadvantage against me.",
+		descriptionFull : "Made with dragonnel egg shell, infused with nilbog blood, and reinforced by Neothelid’s tentacles, this shield has the minor property:\n   " + toUni("Harmonious") + ". Attuning to this item takes only 1 minute.\n   While holding this Shield, you have Advantage on saving throws against spells and other magical effects, and spell attacks have Disadvantage against you.",
 		attunement : true,
 		weight : 6,
 		shieldAdd : "Spellguard Shield",

@@ -24,6 +24,9 @@ CCC-BMG-MOON17-1
 CCC-BMG-MOON17-2
 -Immovable Rod
 
+CCC-CNE-006 Burst!
+-Wand of Web
+
 CCC-DES-1-3 A Question Never Asked
 -Wand of Magic Missiles
 
@@ -34,8 +37,18 @@ CCC-HERO-BK3-2 The Fire Rekindled
 CCC-PIPYAPS Glasyas Little Helpers
 -Ylkwa of Warning
 
-CCC-SAC-1
+CCC-SAC-1 A Light in the Dark
 -Efreeti Bottle
+
+CCC-SAC-02 Fun With Fey
+-Cloak of Displacement
+
+CCC-SALT02-05 Darkness Never Forgets
+-Cape of the Mountebank
+
+CCC-SCAR-2-1 Glister by Night
+-Rope of Climbing
+-Clockwork Amulet
 
 CCC-TRI-11 Contact
 -Dwarven Plate
@@ -190,8 +203,21 @@ FR-DC_BMK-1 Phandelver and the Blood Moon Curse
 FR-DC-BMK-4 Phandelver and the Blood Moon Behemoth
 -Candle of the Deep
 
-FR-DC-BTW-1 Father's Conscience
+FR-DC-BTW-01 Father's Conscience
 -Staff of the Python
+
+FR-DC-BTW-02 Father's Curse
+-Orb of Direction
+-Periapt of Wound Closure
+
+FR-DC-BTW-03 Father's Mistake
+-Candle of the Deep
+
+FR-DC-BTW-04 Father's Decision
+-Wand of Binding
+
+FR-DC-DILL-01 Labor Day
+-Chest of Preserving, Blue Elemental Gem
 
 FR-DC-DRESS-1 Goblin in a Dress
 -Stone of Good Luck
@@ -205,6 +231,9 @@ FR-DC-FALL-1 Cathedral of Ice
 -Blessing of Wound Closure
 
 FR-DC-GHG-1 Griffons of Longsaddle
+-Staff of Birdcalls
+
+FR-DC-HAN-1-1 Harvest of the Winter Wilds
 -Staff of Birdcalls
 
 FR-DC-LAX-1-1 A Bone to Pick
@@ -241,6 +270,9 @@ FR-DC-LIGA-8 A Song of Closure
 -Potion of Invulnerability
 -Scroll of Protection
 
+FR-DC-LIGA-9 A Chromatic Crescendo
+-Wand of the War Mage +3
+
 FR-DC-MELB-1-4 Monsters
 -Wand of Binding
 
@@ -270,15 +302,57 @@ FR-DC-RWIE-3 Circus Berserkus
 -Potion of Fire Giant Strength
 -Blessing of Magic Resistance
 
+FR-DC-Saerloon-5 That's a Lot of Flambe
+-Dust of Corrosion
+
+FR-DC-SCROOGE-1 Funny Bunny Business
+-Cloak of Many Fashions
+-Pipes of the Sewers
+-Tankard of Plenty (ToD)
+-Staff of Flowers
+
+FR-DC-SSM-FAI-1 The Secret in Sanctuary
+-Rust Bag of Tricks
+-Cloak of Many Fashions
+
 FR-DC-STRAT-DRAGON-1 Dancing in the Moonlight
 -Potion of Psionic Fortitude
 -Potion of Psychic Resistance
+
+FR-DC-STRAT-FIEND-1 The Trouble With Quasits
+-Hat of Wizardry
+
+FR-DC-STRAT-FIEND-2 Beyond a Shadow of a Drought
+-Eyes of the Eagle
+-Dread Helm
+
+FR-DC-STRAT-FIEND-3 The Narrow Path
+-Cloak of Billowing
+
+FR-DC-STRAT-FIEND-4 A Devil in the Streets
+-Cloak of Billowing
+
+FR-DC-STRAT-FIEND-5 Those Who Walk Towards Goldenleaf
+-Saddle of the Cavalier
+-Horn of Silent Alarm
+-Potion of Pugilism
+
+FR-DC-STRAT-FIEND-6 Cold Blooded Bandit
+-Heward's Handy Haversack
+-Orb of Direction
+
+FR-DC-STRAT-FIEND-7 Go There and Kill More Things
+-Mystery Key
 
 FR-DC-TGT-2 Those Who Plant
 -Gem of Brightness
 
 FR-DC-TGT-2 The Show Must Go on
 -Boots of Elvenkind
+
+FR-DC-THAY-2 How to Seduce a Thayan in 10 Days
+-Dust of Disappearance
+-Dust of Sneezing and Choking
 
 FR-DC-TRIDEN-MYKE-5 Shadow on the Sands
 -Orb of Direction
@@ -403,14 +477,26 @@ PS-DC-DRAGON24-04 The Gallery of Souls
 PS-DC-ELEMENT-DEATH And Then They Attacked
 -Boon of the Fire Soul
 
+PS-DC-GMM-1 Elemental Demiplane of Cheest
+-Chest of Preserving
+
 PS-DC-HNL-1 Nowhere Fast
 -Ring of the Orator
+
+PS-DC-HNL-3 Ardragon of Sigil
+-Sensory Stone
+
+PS-DC-IC Iron Cook
+-Charm of the Sun
 
 PS-DC-MAR-1 Death and Taxes
 -Boon of Speed
 
 PS-DC-MAR-2 Planes, Trains, and Automatons
 -Boon of Planar Travel
+
+PS-DC-MECH-1 Melting Mechanus
+-Blessing of Magic Resistances
 
 PS-DC-MIKE-01 Clash of the Multiversal Championship
 -Boon of High Magic
@@ -428,6 +514,9 @@ PS-DC-NOS-2 Broken Yet Unbowed
 PS-DC-NOS-3 It's Always Boring in Automata
 -Boon of Spell Recall
 
+PS-DC-NOS-4 Goddess Interrupted
+-Blessing of Magic Resistance
+
 PS-DC-MORD-1 Mordekainen's Memory Palace
 -Deck of Illusion
 
@@ -441,6 +530,27 @@ PS-DC-PKL-06 It's a Toss Up
 PS-DC-PKL-08 Darker Shade of Pale
 -Enduring Spellbook (Detect Magic, Magic Missile)
 
+PS-DC-PKL-11 Short Metal Circuits
+-Rod of Hellish Flames
+-Charm of the Moon
+
+PS-DC-PKL-12 The Beating Drum
+-Pipe of Smoke Monsters
+
+PS-DC-PKL-13 The Endless Story
+-Sheela's Blessing of Protection
+
+PS-DC-PKL-14 The Split
+-Charm of Euryale
+
+PS-DC-PKL-17B That Ends Hell
+-Blessing of Wound Closure
+-Keoghtom's Ointment
+
+PS-DC-PKL-18B The Glory
+-Charm of the Gem
+-Keoghtom's Ointment
+
 PS-DC-SS Soul and Shadow
 -Boon of Truesight
 
@@ -452,6 +562,13 @@ PS-DC-STRAT-DRAGON-7 The War of Dragons
 
 PS-DC-STRAT-UNDEAD-5 Return of the Dragon
 -Boon of Spell Recall
+
+PS-DC-TST-1 The Eye Behind the Mask
+-Charm of Fates
+
+RV-DC-HH-01 Inheritance
+-Harkon's Bite
+-Talking Doll
 
 RV-DC-OH1 In the Mist of Keening
 -Horn of Silent Alarm
@@ -915,6 +1032,9 @@ WBW-DC-ZEP-T1S3 Zep Sightseeing
 
 WBW-DC-ZEP-T1S4 Mall of Zep
 -Bag of Holding
+
+WBW-DC-ZODIAC-03 Revenge of the Rakshasa
+-Lantern of Tracking Fiends
 
 WBW-DC-ZODIAC-06 Nightmare of the Naga
 -Deck of Illusions
