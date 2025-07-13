@@ -410,7 +410,7 @@ var staffOfWoodlands = {
 		spells: ["barkskin", "locate animals or plants", "pass without trace"],
 		selection: ["barkskin", "locate animals or plants", "pass without trace"],
 		firstCol: 2,
-		times: 2
+		times: 3
 	}, {
 		name: "3 charges",
 		spells: ["speak with plants"],
