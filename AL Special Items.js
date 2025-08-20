@@ -103,7 +103,7 @@ FeatsList["al story awards"] = {
 		name : "AL Story Awards",
 		description : "Special AL rewards available from conventions, epics and adventure modules. This only includes a small slice of the total awards available, primarily flavored boons and blessings, and story awards with major mechanical effects. This selection also assumes that you have spent any Downtime or other cost required to receive the reward.",
 		allowDuplicates : true,
-	choices : ["Annabelle's Gratitude (CCC-PRIORY-3)","Angry Alley Cat (FC)","Black Pudding Cup: Cuddly (Trading Post)","Blessing of Magic Resistance: Annointed by the Darkwater (FR-DC-IMP-2)","Blessing of Magic Resistance: Aether's Blessing (FR-DC-MONSTER-4)","Blessing of Magic Resistance: Ilsensine Touched (PS-DC-PANDORA-JWEI-S2-1)","Blessing of Magic Resistance: Favor of Primus (PS-DC-PHP-CKA2)","Blessing of Magic Resistance: Flaw's Gift (SJ-DC-FLUMPH-4)","Blessing of Protection (AL WPM)","Blessing of Protection (DDEP6-3)","Blessing of Protection: Selune's (FR-DC-PANDORA-JWEI-6)","Blessing of Protection: Flux's (SJ-DC-FLUMPH-3)","Blessing of Protection: Ilmater's (SJ-DC-TRIDEN-TFC)","Blessing of Valhalla: Illithids (FR-DC-DEATH)","Blessing of Valhalla: The Friends You Made Along the Way (SJ-DC-DD-11)","Blessing of Wound Closure (SJ-DC-MIST-1)","Boon of Fate: Crowd Favorite (PS-DC-STRAT-UNDEAD-3)","Boon of Quick Casting (PS-DC-CEG-2)","Boon of Recovery (PS-DC-STRAT-DRAGON-4)","Boon of Skill Proficiency: Star Power (PS-DC-RAVENGARD)","Boon of Speed: Dance of the Liberated (PS-DC-TYM-PHP-DIV-1)","Boon of the Unfettered (PS-DC-POP-1)","Chardalyn Poisoning (DDAL10-9)","Charm of the Comet: Enchanted Amulet (FR-DC-PANDORA-JWEI-7)","Charm of the Sage: High Heralds (FR-DC-Saerloon-0)","Dreamwalker (DDAL5-11)","Favor of Candlekeep - Language (DDAL0-3)","Flying Snake (DDEP7-1)","Gratitude of Brightstar Moonsilver (CCC-BMG-37 HULB3-1)","Gratitude of Hartkiller (DDAL5-17)","Hall of Honor (DDAL6-3)","Hall of Mirth (DDAL6-3)","Hall of Omens (DDAL6-3)(Diviner)","Hall of Omens (DDAL6-3)(Non-Diviner)","Lich Slayer (DDEP7-2)","Lord of the Gorge (DDAL0-11F)","Luna Lightbearers (WBW-DC-ZODIAC-0)","Nature of the Weave (CCC-ROZK-1-2) (Arcana Prof)","Nature of the Weave (CCC-ROZK-1-2) (Arcana Expert)","Plague Buster (DDEP7-2)","The Qualith Experience (DDIA-VOLO)","Quasit's Essence (DDAL5-8)","Student of Stone (DDAL5-11)","Szass Tam's Arcane Essence (DDEP0-1)","Szass Tam's Planar Essence (DDEP0-1)","Thanks of Ilmater - Immortality","Thanks of Ilmater - Planar Travel","Uku the Spider Boy (DDEP7-1)"],
+	choices : ["Annabelle's Gratitude (CCC-PRIORY-3)","Angry Alley Cat (FC)","Black Pudding Cup: Cuddly (Trading Post)","Blessing of Magic Resistance: Annointed by the Darkwater (FR-DC-IMP-2)","Blessing of Magic Resistance: Aether's Blessing (FR-DC-MONSTER-4)","Blessing of Magic Resistance: Ilsensine Touched (PS-DC-PANDORA-JWEI-S2-1)","Blessing of Magic Resistance: Favor of Primus (PS-DC-PHP-CKA2)","Blessing of Magic Resistance: Flaw's Gift (SJ-DC-FLUMPH-4)","Blessing of Protection (AL WPM)","Blessing of Protection (DDEP6-3)","Blessing of Protection: Selune's (FR-DC-PANDORA-JWEI-6)","Blessing of Protection: Flux's (SJ-DC-FLUMPH-3)","Blessing of Protection: Ilmater's (SJ-DC-TRIDEN-TFC)","Blessing of Valhalla: Illithids (FR-DC-DEATH)","Blessing of Valhalla: The Friends You Made Along the Way (SJ-DC-DD-11)","Blessing of Wound Closure (SJ-DC-MIST-1)","Boon of Fate: Crowd Favorite (PS-DC-STRAT-UNDEAD-3)","Boon of Quick Casting (PS-DC-CEG-2)","Boon of Recovery (PS-DC-STRAT-DRAGON-4)","Boon of Skill Proficiency: Star Power (PS-DC-RAVENGARD)","Boon of Speed: Dance of the Liberated (PS-DC-TYM-PHP-DIV-1)","Boon of the Unfettered (PS-DC-POP-1)","Chardalyn Poisoning (DDAL10-9)","Charm of the Comet: Enchanted Amulet (FR-DC-PANDORA-JWEI-7)","Charm of the Sage: High Heralds (FR-DC-Saerloon-0)","Charm of the Sun: Gift of Shine (FR-DC-DIVA)","Dreamwalker (DDAL5-11)","Favor of Candlekeep - Language (DDAL0-3)","Flying Snake (DDEP7-1)","Gratitude of Brightstar Moonsilver (CCC-BMG-37 HULB3-1)","Gratitude of Hartkiller (DDAL5-17)","Hall of Honor (DDAL6-3)","Hall of Mirth (DDAL6-3)","Hall of Omens (DDAL6-3)(Diviner)","Hall of Omens (DDAL6-3)(Non-Diviner)","Lich Slayer (DDEP7-2)","Lord of the Gorge (DDAL0-11F)","Luna Lightbearers (WBW-DC-ZODIAC-0)","Nature of the Weave (CCC-ROZK-1-2) (Arcana Prof)","Nature of the Weave (CCC-ROZK-1-2) (Arcana Expert)","Plague Buster (DDEP7-2)","The Qualith Experience (DDIA-VOLO)","Quasit's Essence (DDAL5-8)","Student of Stone (DDAL5-11)","Szass Tam's Arcane Essence (DDEP0-1)","Szass Tam's Planar Essence (DDEP0-1)","Thanks of Ilmater - Immortality","Thanks of Ilmater - Planar Travel","Uku the Spider Boy (DDEP7-1)"],
 	"annabelle's gratitude (ccc-priory-3)" : {
 		name : "Annabelle's Gratitude (CCC-PRIORY-3)",
 		source : [["AL","2018"]],
@@ -380,6 +380,34 @@ FeatsList["al story awards"] = {
 		"divination" : {
 			components : "",
 			changes : "My Charm of the Sage allows me to cast Divination three times without requiring components."
+			}
+		},
+	},
+	"charm of the sun: gift of shine (fr-dc-diva)" : {
+		name : "Gift of Shine (Charm of the Sun)",
+		source : [["AL","FR-DC-DIVA"]],
+		description : "Divaine bestowed upon me the gift of shine - a reminder that fame can be blinding, not just to me, but to everyone around me. Use it wisely. I learn the Light cantrip if I don't already know it. I can cast Sunburst, requiring no spell components and using my Intelligence, Wisdom, or Charisma as the spellcasting ability (my choice). Once used, the charm vanishes from me, and I unlearn the Light cantrip gained from this charm.",
+		descriptionFull : "Divaine bestows upon you the gift of shine—a reminder that fame can be blinding, not just to you, but to everyone around you. Use it wisely.\n   You learn the Light cantrip if you don't already know it. You can cast Sunburst, requiring no spell components and using your Intelligence, Wisdom, or Charisma as the spellcasting ability (your choice). Once used, the charm vanishes from you, and you unlearn the Light cantrip gained from this charm.",
+		limfeaname : "Gift of Shine (Sunburst)",
+		usages : 1,
+		recovery : "never",
+		spellFirstColTitle : "Ch",
+		spellcastingAbility : [4, 5, 6],
+		spellcastingBonus : [{
+			name : "Light",
+			spells : ["light"],
+			selection : ["light"],
+			firstCol : "atwill"
+		}, {
+			name : "1 charge",
+			spells : ["sunburst"],
+			selection : ["sunburst"],
+			firstCol : "1"
+		}],
+		spellChanges : {
+		"sunburst" : {
+			components : "",
+			changes : "My Charm of the Sun allows me to cast Sunburst one time without requiring components."
 			}
 		},
 	},
@@ -1033,11 +1061,12 @@ MagicItemsList["al new items"] = {
 			selectNow : true,
 		}
 	},
-	"darkling necklace (ddhc-toa-8)" : {
+	"darkling necklace (ddhc-toa-8)" : {//only allowed with campaign documentation
 		name : "Darkling Necklace (DDHC-TOA-8)",
 		source : [["AL:GA","RLK"]],
 		rarity : "rare",
 		attunement : true,
+		defaultExcluded : true,
 		description : "This necklace has a black pearl containing part of a darkling's soul and gives advantage on Stealth checks in dim light or darkness. As an action once per day, I can cast Darkness. I must pass a DC 10 Int save or be Blinded while the spell lasts. Once donned, the necklace can only be removed with Remove Curse.",
 		descriptionFull : "This necklace includes a black pearl that contains a part of a darkling's soul. Once attuned, the wearer gains advantage on Stealth checks made in dim light or total darkness. Also, once per day as an action the wearer can cast darkness as per the 2nd-level evocation spell. However, the user must succeed on a DC 10 Intelligence saving throw or be blinded for as long as the spell lasts. Once it is donned, it can only be removed with a remove curse spell.",
 		limfeaname : "Darkling Necklace",
@@ -1736,7 +1765,7 @@ MagicItemsList["al trinkets"] = {
 		},
 }
 
-//Tree Spirit Item from DDHC-TOA-8. In the past, only allowed with special campaign documentation. The PHB doesn't actually specify which weapons are made of wood, so the restrictions I've entered are largely just what seems right to me.
+//Tree Spirit Item from DDHC-TOA-8. Only allowed with special campaign documentation. The PHB doesn't actually specify which weapons are made of wood, so the restrictions I've entered are largely just what seems right to me.
 MagicItemsList["tree spirit weapon"] = {
 		name : "Tree Spirit Weapon",
 		source : [["AL:GA","RLK"]],
@@ -1744,6 +1773,7 @@ MagicItemsList["tree spirit weapon"] = {
 		rarity : "rare",
 		magicItemTable : "?",
 		attunement : true,
+		defaultExcluded : true,
 		description : "A tree spirit weapon is crafted from the wood of a sentient tree. The spirit of the tree remains in the wood so the weapon contains a sentience. The bonuses provided by a tree spirit weapon depend on the level of the attuned wielder. It gets more powerful — and more dangerous to wield — as you become more powerful as well.",
 		descriptionFull : "A tree spirit weapon is one crafted from the wood of a sentient tree. It must be made of wood and deal bludgeoning or piercing damage. The spirit of the tree remains in the wood, and therefore the weapon contains a sentience. The bonuses provided by a tree spirit weapon are dependent on the level of the person to whom it is attuned. In this way, the tree spirit weapon is progressive: it gets more powerful — and more dangerous to wield — as the attuned wielder becomes more powerful as well."+
 		"\n   Levels 1-4: +1 bonus to attack and damage rolls, wielder feels the desires of the tree spirit."+

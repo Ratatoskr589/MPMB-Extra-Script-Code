@@ -334,9 +334,9 @@ AddWarlockInvocation("Undying Servitude (prereq: level 5 warlock)", {
 });
 
 
-//Unreprinted PHB Invocations
- AddWarlockInvocation("Beast Speech", {
-					name : "Beast Speech",
+//Unreprinted PHB Invocations (most likely no longer allowed per ALPG 15.3)
+ AddWarlockInvocation("Beast Speech <P14>", {
+					name : "Beast Speech <P14>",
 					description : desc("I can cast Speak with Animals at will, without using a spell slots"),
 					source : [["SRD", 48], ["P", 110]],
 					spellcastingBonus : [{
@@ -346,14 +346,14 @@ AddWarlockInvocation("Undying Servitude (prereq: level 5 warlock)", {
 						firstCol : "atwill"
 					}]
 });
- AddWarlockInvocation("Beguiling Influence", {
-					name : "Beguiling Influence",
+ AddWarlockInvocation("Beguiling Influence <P14>", {
+					name : "Beguiling Influence <P14>",
 					description : desc("I gain proficiencies with the Deception and Persuasion skills"),
 					source : [["SRD", 48], ["P", 110]],
 					skills : ["Deception", "Persuasion"]
 });
- AddWarlockInvocation("Bewitching Whispers (prereq: level 7 warlock)", {
-					name : "Bewitching Whispers",
+ AddWarlockInvocation("Bewitching Whispers <P14> (prereq: level 7 warlock)", {
+					name : "Bewitching Whispers <P14>",
 					description : desc("Once per long rest, I can cast Compulsion using a warlock spell slot"),
 					source : [["SRD", 48], ["P", 110]],
 					submenu : "[Warlock Level 7+]",
@@ -367,8 +367,8 @@ AddWarlockInvocation("Undying Servitude (prereq: level 5 warlock)", {
 					}],
 					prereqeval : function(v) { return classes.known.warlock.level >= 7; }
 });
- AddWarlockInvocation("Book of Ancient Secrets (prereq: pact of the tome)", {
-					name : "Book of Ancient Secrets",
+ AddWarlockInvocation("Book of Ancient Secrets <P14> (prereq: pact of the tome)", {
+					name : "Book of Ancient Secrets <P14>",
 					description : desc([
 						"I can add any two 1st-level spells that have the ritual tag to my Book of Shadows",
 						"If I come across spells with the ritual tag, I can transcribe them into my book, as well",
@@ -418,8 +418,8 @@ AddWarlockInvocation("Undying Servitude (prereq: level 5 warlock)", {
 						]
 					}
 });
- AddWarlockInvocation("Chains of Carceri (prereq: level 15 warlock, Pact of the Chain)", {
-					name : "Chains of Carceri",
+ AddWarlockInvocation("Chains of Carceri <P14> (prereq: level 15 warlock, Pact of the Chain)", {
+					name : "Chains of Carceri <P14>",
 					description : desc([
 						"I can cast Hold Monster at will if the target is a celestial, fiend, or elemental",
 						"This uses no spell slots/material comp.; I can only target an individual once per long rest"
@@ -444,8 +444,8 @@ AddWarlockInvocation("Undying Servitude (prereq: level 5 warlock)", {
 						}
 					}
 });
- AddWarlockInvocation("Dreadful Word (prereq: level 7 warlock)", {
-					name : "Dreadful Word",
+ AddWarlockInvocation("Dreadful Word <P14> (prereq: level 7 warlock)", {
+					name : "Dreadful Word <P14>",
 					description : desc("Once per long rest, I can cast Confusion using a warlock spell slot"),
 					source : [["SRD", 49], ["P", 110]],
 					submenu : "[Warlock Level 7+]",
@@ -459,8 +459,8 @@ AddWarlockInvocation("Undying Servitude (prereq: level 5 warlock)", {
 					}],
 					prereqeval : function(v) { return classes.known.warlock.level >= 7; }
 });
- AddWarlockInvocation("Eldritch Sight", {
-					name : "Eldritch Sight",
+ AddWarlockInvocation("Eldritch Sight <P14>", {
+					name : "Eldritch Sight <P14>",
 					description : desc("I can cast Detect Magic at will, without using a spell slot"),
 					source : [["SRD", 49], ["P", 110]],
 					spellcastingBonus : [{
@@ -470,13 +470,13 @@ AddWarlockInvocation("Undying Servitude (prereq: level 5 warlock)", {
 						firstCol : "atwill"
 					}]
 });
- AddWarlockInvocation("Eyes of the Rune Keeper", {
-					name : "Eyes of the Rune Keeper",
+ AddWarlockInvocation("Eyes of the Rune Keeper <P14>", {
+					name : "Eyes of the Rune Keeper <P14>",
 					description : desc("I can read all writing"),
 					source : [["SRD", 49], ["P", 111]]
 });
- AddWarlockInvocation("Minions of Chaos (prereq: level 9 warlock)", {
-					name : "Minions of Chaos",
+ AddWarlockInvocation("Minions of Chaos <P14> (prereq: level 9 warlock)", {
+					name : "Minions of Chaos <P14>",
 					description : desc("Once per long rest, I can cast Conjure Elemental using a warlock spell slot"),
 					source : [["SRD", 49], ["P", 111]],
 					submenu : "[Warlock Level 9+]",
@@ -490,8 +490,8 @@ AddWarlockInvocation("Undying Servitude (prereq: level 5 warlock)", {
 					}],
 					prereqeval : function(v) { return classes.known.warlock.level >= 9; }
 });
- AddWarlockInvocation("Mire the Mind (prereq: level 5 warlock)", {
-					name : "Mire the Mind",
+ AddWarlockInvocation("Mire the Mind <P14> (prereq: level 5 warlock)", {
+					name : "Mire the Mind <P14>",
 					description : desc("Once per long rest, I can cast Slow using a warlock spell slot"),
 					source : [["SRD", 49], ["P", 111]],
 					submenu : "[Warlock Level 5+]",
@@ -505,8 +505,8 @@ AddWarlockInvocation("Undying Servitude (prereq: level 5 warlock)", {
 					}],
 					prereqeval : function(v) { return classes.known.warlock.level >= 5; }
 });
- AddWarlockInvocation("Sculptor of Flesh (prereq: level 7 warlock)", {
-					name : "Sculptor of Flesh",
+ AddWarlockInvocation("Sculptor of Flesh <P14> (prereq: level 7 warlock)", {
+					name : "Sculptor of Flesh <P14>",
 					description : desc("Once per long rest, I can cast Polymorph using a warlock spell slot"),
 					source : [["SRD", 50], ["P", 111]],
 					submenu : "[Warlock Level 7+]",
@@ -520,8 +520,8 @@ AddWarlockInvocation("Undying Servitude (prereq: level 5 warlock)", {
 					}],
 					prereqeval : function(v) { return classes.known.warlock.level >= 7; }
 });
- AddWarlockInvocation("Sign of Ill Omen (prereq: level 5 warlock)", {
-					name : "Sign of Ill Omen",
+ AddWarlockInvocation("Sign of Ill Omen <P14> (prereq: level 5 warlock)", {
+					name : "Sign of Ill Omen <P14>",
 					description : desc("Once per long rest, I can cast Bestow Curse using a warlock spell slot"),
 					source : [["SRD", 50], ["P", 111]],
 					submenu : "[Warlock Level 5+]",
@@ -535,8 +535,8 @@ AddWarlockInvocation("Undying Servitude (prereq: level 5 warlock)", {
 					}],
 					prereqeval : function(v) { return classes.known.warlock.level >= 5; }
 });
- AddWarlockInvocation("Thief of Five Fates", {
-					name : "Thief of Five Fates",
+ AddWarlockInvocation("Thief of Five Fates <P14>", {
+					name : "Thief of Five Fates <P14>",
 					description : desc("Once per long rest, I can cast Bane using a warlock spell slot"),
 					source : [["SRD", 50], ["P", 111]],
 					usages : 1,
@@ -548,8 +548,8 @@ AddWarlockInvocation("Undying Servitude (prereq: level 5 warlock)", {
 						firstCol : "oncelr"
 					}]
 });
- AddWarlockInvocation("Voice of the Chain Master (prereq: pact of the chain)", {
-					name : "Voice of the Chain Master",
+ AddWarlockInvocation("Voice of the Chain Master <P14> (prereq: pact of the chain)", {
+					name : "Voice of the Chain Master <P14>",
 					description : desc([
 						"While on the same plane as my familiar, I can communicate telepathically with it",
 						"Also, I can perceive through its senses and have it speak with my voice while doing so"
@@ -1834,147 +1834,3 @@ if (ClassSubList["barbarian-wild heart"]) {
 	});
 }
 
-
-/*
-//This adds the SCAG Totem variants to the Wild Heart barbarian (since it replaces totem per the updated subclasses table: https://www.dndbeyond.com/posts/1810-updates-in-the-players-handbook-2024?. Note that this code won't remove the original rage options from page 3 because I couldn't figure out how to do that. You'll need to delete them or copy over the new text from the Notes page.
-
-if (ClassSubList["barbarian-wild heart"]) {
-	var SCAG_WildHeartFeature = ClassSubList["barbarian-wild heart"].features["subclassfeature6"];
-	if (SCAG_WildHeartFeature) {
-		AddFeatureChoice(SCAG_WildHeartFeature, false, "Elk", {
-			name : "Elk",
-			source : [["S", 122]],
-			description : desc([
-				"While mounted or on foot and not Incapacitated, my travel pace is doubled",
-				"I can extend this benefit to up to ten companions, while they are within 60 ft of me"
-			]),
-		toNotesPage : [{
-			name : "Aspect of the Wild Options (Change on LR)",
-			popupName : "Aspect of the Wild Rage Options",
-			note : [
-				"Elk - While mounted or on foot and not Incapacitated, my travel pace is doubled. I can extend this benefit to up to ten companions, while they're in 60 ft of me.",
-				"Owl - I have 60 ft Darkvision. If I already have Darkvision, its range increases by 60 ft.",
-				"Panther - I have a Climb Speed equal to my Speed.",
-				"Salmon - I have a Swim Speed equal to my Speed.",
-				"Tiger - I gain proficiency with two skills chosen from: Athletics, Acrobatics, Stealth, or Survival."
-				]
-			}]
-		});
-		AddFeatureChoice(SCAG_WildHeartFeature, false, "Tiger", {
-			name : "Tiger",
-			source : [["S", 122]],
-			description : "\n   I gain proficiency with two skills chosen from: Athletics, Acrobatics, Stealth, or Survival",
-			skillstxt : "Choose two from Athletics, Acrobatics, Stealth, and Survival",
-		toNotesPage : [{
-			name : "Aspect of the Wild Options (Change on LR)",
-			popupName : "Aspect of the Wild Rage Options",
-			note : [
-				"Elk - While mounted or on foot and not Incapacitated, my travel pace is doubled. I can extend this benefit to up to ten companions, while they're in 60 ft of me.",
-				"Owl - I have 60 ft Darkvision. If I already have Darkvision, its range increases by 60 ft.",
-				"Panther - I have a Climb Speed equal to my Speed.",
-				"Salmon - I have a Swim Speed equal to my Speed.",
-				"Tiger - I gain proficiency with two skills chosen from: Athletics, Acrobatics, Stealth, or Survival."
-				]
-			}]
-		});
-	}
-}
-
-
-if (ClassSubList["barbarian-wild heart"]) {
-	CreateClassFeatureVariant("barbarian-wild heart", "subclassfeature3.1", "SCAG Rage of the Wilds", {
-      name: "SCAG Rage of the Wilds",
-      source : [["S", 122]],
-      minlevel: 3,
-      description: desc([
-        "Choose an animal aspect when I enter a Rage (Copy Notes list to the 3rd Page).",
-      ]),
-		toNotesPage : [{
-			name : "Rage of the Wilds Options",
-			popupName : "Rage of the Wild Rages Options",
-			note : [
-				"Bear - Resistance to all but Force, Necrotic, Psychic, and Radiant damage.",
-				"Eagle - Disengage and Dash as a Bonus Action.",
-				"Elk - While not in heavy armor, Speed increases by 15 ft",
-				"Tiger - Add 10 ft to my long jump and 3 ft to my high jump distance",
-				"Wolf - Allies have Advantage on attacks against enemies in 5 ft of me."
-				]
-			}]
-   });
-}
-
-if (ClassSubList["barbarian-wild heart"]) {
-	CreateClassFeatureVariant("barbarian-wild heart", "subclassfeature14", "SCAG Power of the Wilds", {
-      name: "SCAG Power of the Wilds",
-      source : [["S", 122]],
-      minlevel: 14,
-      description: desc([
-        "I gain 5 Power of the Wilds options (Copy Notes list to the 3rd Page).",
-      ]),
-		toNotesPage : [{
-			name : "Power of the Wild Options",
-			popupName : "Power of the Wild Rage Options",
-			note : [
-				"Falcon - Without armor, I have a Fly Speed equal to my Speed.",
-				"Elk - Bonus Action to move through Large or smaller creature. Str save (8+PB+Str Mod) or Prone and takes 1d12+Str Bludgeoning.",
-				"Lion - Enemies in 5 ft have Disadvantage on attacks against targets other than me or another Lion barbarian.",
-				"Ram - Knock Large or smaller creatures Prone when hit with melee attack.",
-				"Tiger - If move 20 ft toward target before making melee weapon attack, bonus action for another melee weapon attack against it."
-				]
-			}]
-   });
-}
-
-/*
-if(ClassSubList["barbarian-wild heart"]) {
-    var SCAG_WildHeartFeature = ClassSubList["barbarian-wild heart"].features["subclassfeature3"];
-    if(SCAG_WildHeartFeature ) {
-            AddFeatureChoice(SCAG_WildHeartFeature, false, "Rage of the Wild Level 3 Options", {
-            name : "Rage of the Wild Level 3 Options",
-            source : [["S", 122]],
-            description : "Test worked",
-            extrachoices : ["Elk", "Tiger"],
-            "elk" : {
-                name : "Elk",
-                source : [["S", 122]],
-                description : "\n   While raging without heavy armor, my base walking speed increases by 15 ft.",
-            },
-            "tiger" : {
-                name : "Tiger",
-                source : [["S", 122]],
-                description : "\n   While raging, I can add 10 ft to my long jump and 3 ft to my high jump distance.",
-            },
-            autoSelectExtrachoices : [
-                {extrachoice : "tiger", minlevel : 3},
-                {extrachoice : "elk", minlevel : 3}
-            ]
-        }, true);
-    }
-};
-
-
-if(ClassSubList["barbarian-wild heart"]) {
-    var SCAG_WildHeartFeature = ClassSubList["barbarian-wild heart"].features["subclassfeature14"];
-    if(SCAG_WildHeartFeature ) {
-            AddFeatureChoice(SCAG_WildHeartFeature, false, "SCAG Power of the Wilds", {
-            name : "SCAG Power of the Wilds",
-            source : [["S", 122]],
-            description : "Test worked",
-            extrachoices : ["Elk", "Tiger"],
-            "elk" : {
-                name : "Elk",
-                source : [["S", 122]],
-                description : "\n   Bonus Action to move through Large or smaller creature. Str save (8+PB+Str Mod) or Prone and takes 1d12+Str Bludgeoning.",
-            },
-            "tiger" : {
-                name : "Tiger",
-                source : [["S", 122]],
-                description : "\n   If move 20 ft toward target before making melee weapon attack, bonus action for another melee weapon attack against it.",
-            },
-            autoSelectExtrachoices : [
-                {extrachoice : "tiger", minlevel : 14},
-                {extrachoice : "elk", minlevel : 14}
-            ]
-        }, true);
-    }
-};*/

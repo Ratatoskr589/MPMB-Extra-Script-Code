@@ -1,3 +1,16 @@
+After 5/25/25
+-Made some adjustments to reflect rules from ALPG 15.3 and new unobtainable item categories: 
+   -noted the CR items that are no longer valid (once those adventures are updated with replacements, will update again)
+   -noted that Efreeti Bottles and Tree Spirit Weapons aren't valid
+   -marked PHB 14 warlock invocations since those may be banned again.
+   -updated unspecified random items with new usages based on rolled quantity rule (using max available)
+   -removed gold options from Robe of Useful Items
+-added some more variable code to reduce duplication of longer full descriptions and added weapons
+-corrected extra Dwarven Thrower damage to Force, and changed the Elven Thrower since it's explicitly based on the other item.
+-added more items from DC modules
+-split out Common wands and weapons to help with group size
+
+
 After 2/24/25
 -Added Tasha's Favored Foe as a OCF for 2024 since I realized that actually would still work with the new phrasing.
 -Added more items from DC and PO adventures. 

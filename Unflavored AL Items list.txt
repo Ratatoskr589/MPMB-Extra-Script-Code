@@ -8,6 +8,9 @@ BMG-MOON-MD-9 The Prince's Fairy Godmother
 CCC-AWE-1-2 The Chi Directive
 -Lantern of Revealing
 
+CCC-BFG01-01 A House Divided
+-Longsword of Warning
+
 CCC-BMG-37 HULB3-1 Weakness of Rock
 -Dex Book (Manual of Quickness of Action)
 
@@ -38,7 +41,7 @@ CCC-PIPYAPS Glasyas Little Helpers
 -Ylkwa of Warning
 
 CCC-SAC-1 A Light in the Dark
--Efreeti Bottle
+-Efreeti Bottle (Banned, see ALPG)
 
 CCC-SAC-02 Fun With Fey
 -Cloak of Displacement
@@ -230,11 +233,20 @@ FR-DC-FALL-1 Cathedral of Ice
 -Mystery Key
 -Blessing of Wound Closure
 
+FR-DC-F&ADDM-GW3 Leapin' Lizards
+-Ring of Waterwalking
+
+FR-DC-F&ADDM-GW5 A Terminal Ambition
+-Ring of Protection
+
 FR-DC-GHG-1 Griffons of Longsaddle
 -Staff of Birdcalls
 
 FR-DC-HAN-1-1 Harvest of the Winter Wilds
 -Staff of Birdcalls
+
+FR-DC-KKON-01 Kontraption-Kon
+-Rival Coin
 
 FR-DC-LAX-1-1 A Bone to Pick
 -Staff of Birdcalls
@@ -276,6 +288,12 @@ FR-DC-LIGA-9 A Chromatic Crescendo
 FR-DC-MELB-1-4 Monsters
 -Wand of Binding
 
+FR-DC-NEW-TIER1-1 Damsel in Distress
+-Adamantine Plate
+
+FR-DC-NEW-TIER2-1 The Bluebloods
+-Mantle of Spell Resistance
+
 FR-DC-NUKE-3 Sapphire Hoard
 -Potion of Superior Healing
 -Potion of Lightning Resistance
@@ -288,6 +306,23 @@ FR-DC-PANDORA-JWEI-8 Minerva
 
 FR-DC-PANDORA-JWEI-10 Ares
 -Charm of the Fate
+
+FR-DC-PANDORA-JWEI-S2-04 Echoes of the End
+-Vicious Weapon (unspecified)
+-Amulet of the Planes
+-Charm of the Sun 
+
+FR-DC-PANDORA-JWEI-S2-06 Hope
+-Lute of Thunderous Thumping
+-Amulet of the Planes
+-Charm of the Donjon
+
+FR-DC-PANDORA-JWEI-S2-07 Moonshire
+-Carpet of Flying 5x7
+-Belt of Fire Giant Strength
+
+FR-DC-PNKE-01 Vie for the Eye
+-Charm of the Void
 
 FR-DC-QLA-1 Mel's Pit
 -Chest of Preserving
@@ -354,9 +389,17 @@ FR-DC-THAY-2 How to Seduce a Thayan in 10 Days
 -Dust of Disappearance
 -Dust of Sneezing and Choking
 
+FR-DC-THAY-4 What Thayans Want
+-Elemental Gem (Blue, Red and Yellow)
+
 FR-DC-TRIDEN-MYKE-5 Shadow on the Sands
 -Orb of Direction
 -Dried Leech
+
+FR-DC-TT-101 Water has no shape
+-Driftglobe
+-Candle of the Deep
+-Dust of Dryness
 
 FR-DC-VECNA-1 Three Body Problem
 -Deck of Miscellany (“A dark purple deck with embossed golden borders.” - too annoying to code unless the flavor is more signifcant)
@@ -456,6 +499,10 @@ PO-BMG-DRW-KS-6 In the Palace of a Thousand Halls
 PS-DC-AUG-02 The Dark Sun
 -Boon of Invincibility
 
+PS-DC-CAR-01 13 Hours in Sigil
+-Ring of Spell Turning
+-Chest of Preserving
+
 PS-DC-CEG-2 Snakes on a Planescape
 -Ruby of the War Mage
 
@@ -479,6 +526,14 @@ PS-DC-ELEMENT-DEATH And Then They Attacked
 
 PS-DC-GMM-1 Elemental Demiplane of Cheest
 -Chest of Preserving
+
+PS-DC-GMM-2 Pazuzu's Askew Kazoo
+-Rope of Entanglement
+-Clothes of Mending
+
+PS-DC-GMM-3 Frantic Frontier Fiasco
+-Boomerang +2 (not actually a legal weapon)
+-Charlatan's Die
 
 PS-DC-HNL-1 Nowhere Fast
 -Ring of the Orator
@@ -519,6 +574,11 @@ PS-DC-NOS-4 Goddess Interrupted
 
 PS-DC-MORD-1 Mordekainen's Memory Palace
 -Deck of Illusion
+
+PS-DC-PANDORA-JWEI-S2-05
+-Hat of Many Spells
+-Charm of the Fates
+-Rod of the Pact Keeper +3
 
 PS-DC-PKL-05 Mass Hysteria
 -Dark Shard Amulet
@@ -565,6 +625,9 @@ PS-DC-STRAT-UNDEAD-5 Return of the Dragon
 
 PS-DC-TST-1 The Eye Behind the Mask
 -Charm of Fates
+
+PS-DC-TT-202 May the cause be with you
+-Dust of Sneezing and Choking
 
 RV-DC-HH-01 Inheritance
 -Harkon's Bite
@@ -803,6 +866,9 @@ SJ-DC-ROG-1 Rescue of Glyth
 SJ-DC-TBS-4 Brightshill
 -Tankard of Sobriety
 -Keoghtam's Ointment
+
+SJ-DC-TKM-CH03 A Sorrowful Farewell
+-Orb of Time
 
 SJ-DC-TRIDEN-BZ Sweet Dreams are Made of Bees
 -Blessing of Magic Resistance

@@ -8,7 +8,7 @@ Additionally, due to the length of some descriptions, you'll need to auto-size t
 
 /*  Subject: Flavored Weapons from AL adventures
 
-    Effect:	This script adds the flavored versions of standard magic weapons found in AL adventures to the MPMB sheet (and a couple flavored book items). They will all be listed as AL [item category] in the Magic Item selection, with further choices as needed. The main categories are as follows: Staffs (all special staffs, whether specifically called out as weapons or not), Swords (special swords - including ones where the mod only gave a sword version), Weapons +1, Weapons +2/+3, Weapons (Other) [all other special weapons].  All Rods can be found in the AL Magic Items script, even those that can be used as a weapon.
+    Effect:	This script adds the flavored versions of standard magic weapons found in AL adventures to the MPMB sheet (and a couple flavored book items). They will all be listed as AL [item category] in the Magic Item selection, with further choices as needed. The main categories are as follows: Staffs (all special staffs, whether specifically called out as weapons or not), Swords (special swords - including ones where the mod only gave a sword version), Weapons +1, Weapons +2/+3, Weapons (Common) [all common weapons regardless of type), Weapons (Other) [all other special weapons].  All Rods can be found in the AL Magic Items script, even those that can be used as a weapon.
 	
 	This is not a complete list since I don't have every published adventure yet, but it's a start. If you do not see an item listed from a season marked complete, it should be because there was no flavor.*/
 	
@@ -103,6 +103,21 @@ var bowOfMelodies = {
 				}, ''
 			]
 		},
+ }
+ 
+var dancingSword = {
+	calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/dancing/i).test(v.WeaponTextName)) {
+					v.theWea.isMagicWeapon = true;
+					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+					fields.Description += (fields.Description ? '; ' : '') + 'Attacks on its own as a bonus action';
+				}
+			},
+			'If I include the word "Dancing" in a the name of a sword, it will be treated as the magic weapon Dancing Sword. The sword can be made to attack on its own as a bonus action.'
+		]
+	},
  }
  
 var defenderSword = {
@@ -201,6 +216,87 @@ var giantSlayerWeapon = {
 		},
  }
  
+  var hammerThunderboltsBonus = {
+		calcChanges : {
+			atkAdd : [
+				function (fields, v) {
+					if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/warhammer|maul/i).test(v.baseWeaponName) && (/of thunderbolts/i).test(v.WeaponTextName)) {
+						v.theWea.isMagicWeapon = true;
+						fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+						fields.Description += (fields.Description ? '; ' : '') + 'On 20 to hit vs. Giant: DC 17 Con save or die; Expend charge to throw';
+					}
+				},
+				'If I include the words "of Thunderbolts" in a the name of an warhammer or maul, it will be treated as the magic weapon Hammer of Thunderbolts. It has +1 to hit and damage.'
+			],
+			atkCalc : [
+				function (fields, v, output) {
+					if (v.isMeleeWeapon && (/warhammer|maul/i).test(v.baseWeaponName) && (/of thunderbolts/i).test(v.WeaponTextName)) {
+						output.magic = v.thisWeapon[1] + 1;
+					}
+				}, ''
+			],
+		}
+ }
+ 
+ var hammerThunderboltsNoBonus = {
+	calcChanges: {
+			atkAdd : [
+				function (fields, v) {
+					if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/warhammer|maul/i).test(v.baseWeaponName) && (/of thunderbolts/i).test(v.WeaponTextName)) {
+						v.theWea.isMagicWeapon = true;
+						fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+					}
+				},
+				'If I include the words "of Thunderbolts" in the name of an warhammer or maul, it will be treated as the magic weapon Hammer of Thunderbolts. It has +1 to hit and damage.'
+			],
+			atkCalc : [
+				function (fields, v, output) {
+					if (v.isMeleeWeapon && (/warhammer|maul/i).test(v.baseWeaponName) && (/of thunderbolts/i).test(v.WeaponTextName)) {
+						output.magic = v.thisWeapon[1] + 1;
+					}
+				}, ''
+			],
+		}
+ }
+ 
+ var holyAvengerCalcs = { 
+ 	calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				if (!v.theWea.isMagicWeapon && v.isWeapon && (/^(?=.*holy)(?=.*avenger).*$/i).test(v.WeaponTextName)) {
+					v.theWea.isMagicWeapon = true;
+					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+					fields.Description += (fields.Description ? '; ' : '') + '+2d10 radiant damage vs. fiends and undead';
+				}
+			},
+			'If I include the words "Holy Avenger" in a the name of a weapon, it will be treated as the magic weapon Holy Avenger. It has +3 to hit and damage and does +2d10 radiant damage to fiends and undead.'
+		],
+		atkCalc : [
+			function (fields, v, output) {
+				if (v.isWeapon && (/^(?=.*holy)(?=.*avenger).*$/i).test(v.WeaponTextName)) {
+					output.magic = v.thisWeapon[1] + 3;
+				}
+			}, ''
+		]
+	},
+ }
+ 
+var moonBladeDescription = desc([
+	"    Of all the magic items created by elves, one of the most prized and jealously guarded is a Moonblade. In ancient times, nearly all elven noble houses claimed one such weapon. Over the centuries, some of these weapons have faded from the world, their magic lost as family lines have become extinct. Others have vanished with their bearers during great quests. Thus, only a few of these weapons remain.\n   Every Moonblade longs for a bearer whose disposition and goals are compatible with its own. If you try to attune to a Moonblade that doesn’t want you as its bearer, the weapon not only rejects you but also places a curse on you, causing you to make d20 Tests with Disadvantage for 24 hours or until the curse is ended by a Remove Curse spell or similar magic. If you’re accepted by the weapon and try to attune to it, you become attuned to it instantly, and a new rune appears on it. You remain attuned to the weapon until you die or the weapon is destroyed. A Moonblade functions like a nonmagical weapon of its kind for anyone other than its chosen bearer.\n   A Moonblade has one rune on it for each bearer it has willingly served (typically 1d6 + 1). The first rune grants a +1 bonus to attack rolls and damage rolls made with this magic weapon. Each rune beyond the first grants the Moonblade an additional property. The DM chooses each property or determines it randomly by rolling on the Moonblade Properties table.\n>>Minor Property<<. In addition to its aforementioned properties, each Moonblade has a minor property determined by rolling on the Magic Item's Minor Property table.\n>>Sentience<<. A Moonblade is a sentient weapon with an Intelligence of 12, a Wisdom of 10, and a Charisma of 12. It has hearing and Darkvision out to 120 feet. Its alignment matches that of its creator.\n   The weapon communicates by transmitting emotions, sending a tingling sensation through the wielder's hand when it wants to communicate something it has sensed. It can communicate through visions or dreams when the wielder is either in a trance or asleep.\n>>Personality<<. A Moonblade has a personality similar to that of its creator. Once a Moonblade has decided on an owner, it believes that only that person should wield it, even if the bearer's alignment differs from that of the weapon's or the bearer's goals later clash with the weapon's goals",
+		"\n>>1d100\t\Property<<\n",
+		"01-60\tIncrease the weapon's bonus to attack rolls and damage rolls by 1, to a maximum of +3. Reroll if the Moonblade already has a +3 bonus.",
+		"61-75\tWhen you hit with an attack roll using the Moonblade, you deal an extra 1d6 Force damage. Each time the weapon gains this property after the first, the extra damage increases by 1d6, to a maximum of 3d6. Reroll if the Moonblade already deals an extra 3d6 Force damage on a hit.",
+		"76-80\tThe Moonblade gains the Thrown property with a normal range of 20 feet and a long range of 60 feet. Each time you throw the weapon, it flies back to your hand after the attack.",
+		"81-85\tThe Moonblade scores a Critical Hit on a roll of 19 or 20 on the d20.",
+		"86-95\tYou can take a Bonus Action to cause the Moonblade to flash brightly. Each other creature that is within 30 feet of you and not behind Total Cover must succeed on a DC 15 Constitution saving throw or have the Blinded condition for 1 minute. A creature repeats the save at the end of each of its turns, ending the effect on itself on a success. You can't use this property again until you finish a Short or Long Rest.",
+		"96-99\tThe Moonblade has the properties of a Ring of Spell Storing.",
+		"00\tYou can take a Magic action to conjure a spectral entity that resembles a shadowy elf if you don't already have one serving you. The entity appears in an unoccupied space within 120 feet of you. It uses the Shadow stat block with these changes: it is a Fey, has a Neutral alignment, and doesn't create new shadows. You control this entity, deciding how it acts and moves. It remains until it drops to 0 Hit Points or you dismiss it as a Magic action."
+], "\n  ");
+moonBladeDescriptionTxt = { // a public variable
+	base : moonBladeDescription,
+	unicode : moonBladeDescription.replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+};
+
  var moonSickleSpells = {
 		spellAdd : [
 			function (spellKey, spellObj, spName) {
@@ -219,6 +315,33 @@ var giantSlayerWeapon = {
 			},
 			"While holding the Moon Sickle when I cast a spell that restores hit points, I can roll a d4 and add the number rolled to the amount of hit points restored."
 		],
+ }
+ 
+var moonSickle1 = {
+				spellCalc : [
+				function (type, spellcasters, ability) {
+					if (type !== "prepare" && (/druid|ranger/).test(spellcasters)) return 1;
+				},
+				"While holding the Moon Sickle, I gain a +1 bonus to the spell attack rolls and saving throw DCs of my Druid and Ranger spells."
+				],
+ }
+
+var moonSickle2 = {
+				spellCalc : [
+				function (type, spellcasters, ability) {
+					if (type !== "prepare" && (/druid|ranger/).test(spellcasters)) return 2;
+				},
+				"While holding the Moon Sickle, I gain a +2 bonus to the spell attack rolls and saving throw DCs of my Druid and Ranger spells."
+				],
+ }
+ 
+var moonSickle3 = {
+				spellCalc : [
+				function (type, spellcasters, ability) {
+					if (type !== "prepare" && (/druid|ranger/).test(spellcasters)) return 3;
+				},
+				"While holding the Moon Sickle, I gain a +3 bonus to the spell attack rolls and saving throw DCs of my Druid and Ranger spells."
+				],
  }
  
 var nineLivesStealer = {
@@ -254,6 +377,21 @@ var oathbowChanges = {
 				}
 			},
 			"If I include the words Oathbow in a the name of a bow, it will be treated as the magic weapon Oathbow. It gains special benefits against my sworn enemy."
+		]
+	},
+ }
+ 
+var silverWeaponCalc = {
+	calcChanges: {
+		atkAdd: [
+			function (fields, v) {
+				if (!v.theWea.isMagicWeapon && !v.isSpell && (/silvered/i).test(v.WeaponTextName)) {
+					v.theWea.isMagicWeapon = true;
+					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+					fields.Description += (fields.Description ? '; ' : '') + '+1 dmg die on a crit vs shape-shifted';
+				}
+			},
+			'If I include the words "Silvered" in the name of a weapon, critical hits add 1 extra damage die to creatures that are shape-shifted.'
 		]
 	},
  }
@@ -331,6 +469,13 @@ var staffOfPowerCalc = {
 					if (type == "attack") return 2;
 				},
 				"While holding the Staff of Power, I have a +2 bonus to spell attack rolls."
+			],
+			atkCalc : [
+			function (fields, v, output) {
+				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/Staff|Quarterstaff/i).test(v.baseWeaponName) && (/of Power/i).test(v.WeaponTextName)) {
+					output.magic = v.thisWeapon[1] + 2;
+				}
+			}, ''
 			]
 		},
 		spellcastingBonus : [{
@@ -376,6 +521,14 @@ var staffOfPowerCalc = {
 		}
  }
  
+var staffPowerDescription = desc([
+	"    This staff has 20 charges and can be wielded as a magic Quarterstaff that grants a +2 bonus to attack rolls and damage rolls made with it. While holding it, you gain a +2 bonus to Armor Class, saving throws, and spell attack rolls.\n>>Spells<<. While holding the staff, you can cast one of the spells on the following table from it, using your spell save DC. The table indicates how many charges you must expend to cast the spell: Cone of Cold (5 charges), Fireball (5th-level version, 5 charges), Globe of Invulnerability (6 charges), Hold Monster (5 charges), Levitate (2 charges). Lightning Bolt (5th-level version, 5 charges), Magic Missile (1 charge), Ray of Enfeeblement (1 charge), or Wall of Force (5 charges).\n>>Regaining Charges<<. The staff regains 2d8 + 4 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff retains its +2 bonus to attack rolls and damage rolls but loses all other properties. On a 20, the staff regains 1d8 + 2 charges.\n>>Retributive Strike<<. You can take a Magic action to break the staff over your knee or against a solid surface. The staff is destroyed and releases its magic in an explosion that fills a 30-foot Emanation originating from itself. You have a 50 percent chance to instantly travel to a random plane of existence, avoiding the explosion. If you fail to avoid the effect, you take Force damage equal to 16 times the number of charges in the staff. Each other creature in the area makes a DC 17 Dexterity saving throw. On a failed save, a creature takes Force damage equal to 4 times the number of charges in the staff. On a successful save, a creature takes half as much damage."
+], "\n  ");
+staffPowerDescriptionTxt = { // a public variable
+	base : staffPowerDescription,
+	unicode : staffPowerDescription.replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+};
+ 
 var staffSwarmingInsects = {
 		spellcastingBonus : [{
 			name : "4 charges",
@@ -390,6 +543,55 @@ var staffSwarmingInsects = {
 		}]
  }
  
+ var staffThunderLightning = {
+		extraLimitedFeatures : [{
+			name : "Staff of T\u0026L [5 options, 1 use each]",
+			usages : 5,
+			recovery : "dawn"
+		}],
+	calcChanges: {
+		atkAdd: [
+			function (fields, v) {
+				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/Staff|Quarterstaff/i).test(v.baseWeaponName) && (/of Thunder and Lightning/i).test(v.WeaponTextName)) {
+					v.theWea.isMagicWeapon = true;
+					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+					fields.Description += (fields.Description ? '; ' : '') + 'Lightning: 1/dawn, +2d6 Lightning; Thunder: 1/dawn DC 17 Con or 1 rnd Stunned';
+				}
+			},
+			'If you include the words "of Thunder and Lightning in the name of a staff, it will be treated as the magic weapon Staff of Thunder and Lightning.'
+		],
+		atkCalc : [
+			function (fields, v, output) {
+				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/Staff|Quarterstaff/i).test(v.baseWeaponName) && (/of Thunder and Lightning/i).test(v.WeaponTextName)) {
+					output.magic = v.thisWeapon[1] + 2;
+				}
+			}, ''
+			]
+	},
+ }
+ 
+var staffTLDescription = desc([
+	"    This staff can be wielded as a magic Quarterstaff that grants a +2 bonus to attack rolls and damage rolls made with it. It also has the following additional properties. Once one of these properties is used, it can't be used again until the next dawn.    >>Lightning<<. When you hit with a melee attack using the staff, you can cause the target to take an extra 2d6 Lightning damage (no action required).\n    >>Thunder<<. When you hit with a melee attack using the staff, you can cause the staff to emit a crack of thunder, audible out to 300 feet (no action required). The target you hit must succeed on a DC 17 Constitution saving throw or have the Stunned condition until the end of your next turn.\n    >>Lightning Strike<<. You can take a Magic action to cause a bolt of lightning to leap from the staff's tip in a Line that is 5 feet wide and 120 feet long. Each creature in that Line must make a DC 17 Dexterity saving throw, taking 9d6 Lightning damage on a failed save, or half as much damage on a successful one.\n    >>Thunderclap<<. You can take a Magic action to cause the staff to produce a thunderclap audible out to 600 feet. Every creature a within 60-foot Emanation origination from you must make a DC 17 Constitution saving throw. On a failed save, a creature takes 2d6 Thunder damage and has the Deafened condition for 1 minute. On a successful save, a creature takes half damage and isn't deafened.\n    >>Thunder and Lightning<<. Thunder and Lightning. Immediately after you hit with a melee attack using the staff, you can take a Bonus Action to use the Lightning and Thunder properties (see above) at the same time. Doing so doesn't expend the daily use of those properties, only the use of this one."
+], "\n  ");
+staffTLDescriptionTxt = { // a public variable
+	base : staffTLDescription,
+	unicode : staffTLDescription.replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+};
+
+var staffWitheringCalc = {
+	calcChanges : {
+		atkAdd : [
+			function (fields, v, output) {
+				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/Staff|Quarterstaff/i).test(v.baseWeaponName) && (/of Withering/i).test(v.WeaponTextName)) {
+					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+					fields.Description += (fields.Description ? '; ' : '') + '1 charge: +2d10 Necrotic & DC 15 Con or disadv 1 hr (Str/Con chks/saves)';
+				}
+			},
+			"If I include the words of Withering on a staff, it'll be treated as a Staff of Withering."
+		]
+	},
+ }
+ 
 var staffOfWoodlands = {
 		calcChanges : {
 			spellCalc : [
@@ -397,6 +599,13 @@ var staffOfWoodlands = {
 					if (type == "attack") return 2;
 				},
 				"While holding the Staff of the Woodlands, I have a +2 bonus to spell attack rolls."
+			],
+			atkCalc : [
+			function (fields, v, output) {
+				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/Staff|Quarterstaff/i).test(v.baseWeaponName) && (/of the Woodlands/i).test(v.WeaponTextName)) {
+					output.magic = v.thisWeapon[1] + 2;
+				}
+			}, ''
 			]
 		},
 	spellcastingBonus: [{
@@ -428,6 +637,14 @@ var staffOfWoodlands = {
 		firstCol: 6
 	}],
  }
+ 
+var staffWoodlandsDescription = desc([
+	"This staff has 6 charges and can be wielded as a magic Quarterstaff that grants a +2 bonus to attack rolls and damage rolls made with it. While holding it, you have a +2 bonus to spell attack rolls.\n>>Spells<<. Using your spell save DC, you can to expend 1 or more of the staff's charges to cast one of the following spells from it: Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Pass Without Trace (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges).\n>>Tree Form<<. You can take a Magic action to plant one end of the staff in earth in an unoccupied space and expend 1 charge to transform the staff into a healthy tree. The tree is 60 feet tall and has a 5-foot-diameter trunk, and its branches at the top spread out in a 20-foot radius. The tree appears ordinary but radiates a faint aura of Transmutation magic that can be discerned with the Detect Magic spell. While touching the tree and using a Magic action, you return the staff to its normal form. Any creature in the tree falls when the tree reverts to a staff.\n>>Regaining Charges<<. The staff regains 1d6 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff loses its properties and becomes a nonmagical Quarterstaff."
+], "\n  ");
+staffWoodlandsDescriptionTxt = { // a public variable
+	base : staffWoodlandsDescription,
+	unicode : staffWoodlandsDescription.replace(/>>(.*?)<</g, function(a, match) { return toUni(match); }),
+};
  
 var swordOfLifeStealing = {
 	calcChanges: {
@@ -546,16 +763,13 @@ var viciousWeaponCalc = {
  }
 
 
-RunFunctionAtEnd(function () {//this code makes it so the AL variations of common items don't appear as an option for artificers to create
-//AL flavored Weapons
-
 MagicItemsList["al staffs"] = {
 			name : "AL Staffs",
 			allowDuplicates : true,
 			choicesNotInMenu : true,
 			type : "staff",
 			magicItemTable : "?",
-		choices : ["Eldritch Staff (PS-DC-PESCH)","Eldritch Staff (PS-DC-PKL-15)","Staff of the Adder (CCC-SRCC1-3)","Staff of Adornment (CCC-3MAGS-ONE)","Staff of Adornment (PS-DC-PKL-10)","Staff of Adornment: K's Ashenwood Staff (SJ-DC-AMO-KURI-3)","Staff of Adornment (SJ-DC-ARQ-2)","Staff of Adornment: Ocharine (SJ-DC-DD-7)","Staff of Adornment (SJ-DC-DEN-H5)","Staff of Adornment (SJ-DC-IGC-ECP-5)","Staff of Adornment (SJ-DC-MONSTER-1)","Staff of Adornment: Shakujo (SJ-DC-MWG-1)","Staff of Adornment (SJ-DC-ROTU-5)","Staff of Adornment (SJ-DC-TEL-12)","Staff of Adornment (WBW-DC-NJ-COU-2)","Staff of Birdcalls (FR-DC-TT-T201)","Staff of Birdcalls (WBW-DC-BIRE-1)","Staff of Birdcalls (WBW-DC-CONMAR-3)","Staff of Birdcalls (WBW-DC-Death)","Staff of Birdcalls (WBW-DC-FDC-3)","Staff of Birdcalls (WBW-DC-HBK-1)","Staff of Birdcalls (WBW-DC-ROBIN-1-2)","Staff of Birdcalls (WBW-DC-ROOK-1-4)","Staff of Birdcalls: Dark Crystal (WBW-DC-ZODIAC-10)","Staff of Charming (DDEX2-2)","Staff of Defense (SJ-DC-BST-6)","Staff of Defense: Xuanwu Jade Shuttle (SJ-DC-DD-9)","Staff of Defense (SJ-DC-ETO-2)","Staff of Defense: Black Root of Clathrus Archeri (SJ-DC-PANDORA-JWEI-3A)","Staff of Defense (SJ-DC-RFJK-2-2)","Staff of Defense (SJ-DC-TEL-2)","Staff of Fate (BMG-MOON-MD-10)","Staff of Flowers (CCC-KUMORI-3-1)","Staff of Frost (DDAL0-11E)","Staff of Frost (DDAL-DRW5)","Staff of Frost (WBW-DC-AEG-2)","Staff of Healing: Driftwood Staff (CCC-DES-1-2)","Staff of Healing (CCC-GHC-BK2-8)","Staff of Healing (CCC-QCC2019-3)","Staff of Healing (CCC-WYC-2-1)","Staff of Healing (DDEP4)","Staff of the Magi (DDAL7-17)","Staff of Power (DDAL5-19)","Staff of Power (DDEP4)","Staff of Power: Tongkat Nenek Kebayan (WBW-DC-DMMC-1)","Staff of Power: Oblivia (WBW-DC-PHP-ORNG-2)","Staff of the Python (CCC-BMG-MOON7-1)","Staff of the Python: Earth Tender's Branch (CCC-BMG-MOON8-2)","Staff of the Python: Bulkawa's Benevolence (CCC-GSP2-2)","Staff of the Python (FR-DC-GHG-4)","Staff of the Python: Blackztaff (FR-DC-WATERDEEP-KYZ)","Staff of the Python (FR-DC-WCAG3-4)","Staff of Striking (CCC-TRI-14 YUL1-3)","Staff of Striking (DDAL7-12)","Staff of Striking (DDAL10-10)","Staff of Striking: Moon Dance (SJ-DC-PANDORA-JWEI-1)","Staff of Striking: Dragon's Glory (SJ-DC-ROTU-5)","Staff of Striking: Orcus Wand Splinter (SJ-DC-TRIDEN-MW3)","Staff of Swarming Insects (DDEX3-3)","Staff of Swarming Insects: Mildy's (WBW-DC-DES-1-7)","Staff of Swarming Insects: Scorpion Staff (WBW-DC-DGE-2)","Staff of Swarming Insects: Drone Control Rod (WBW-DC-LEGIT-SV-6)","Staff of Swarming Insects: Mariposa (WBW-DC-PHP-ORNG-2)","Staff of Swarming Insects: Ygorl's Crook (WBW-DC-Rook-3-3)","Staff of Thunder and Lightning (DDAL5-8)","Staff of Thunder and Lightning (DDEP5-2)","Staff of Thunder and Lightning (PS-DC-PKL-16)","Staff of Withering (DDEX2-13)","Staff of Withering (DDAL8-13)","Staff of Withering: The Inoculum (SJ-DC-VEN-2)","Staff of Withering: Positive Prognosis (SJ-DC-VEN-2)","Staff of the Woodlands (CCC-BMG-MOON12-1)","Staff of the Woodlands (CCC-GARY-9)","Staff of the Woodlands (DDAL7-8/DDEP7-1)","Staff of the Woodlands: Liwanag (WBW-DC-ANDL-3)","Staff of the Woodlands: Temperate (WBW-DC-CONMAR-6)","Staff of the Woodlands (WBW-DC-HAVN-1)","Staff of the Woodlands: Guardian (WBW-DC-HH-2)","Staff of the Woodlands (WBW-DC-IDL1)","Staff of the Woodlands (WBW-DC-PHP-LCL-1)","Staff of the Woodlands: Hope's Emissary (WBW-DC-Rook-3-2)","Staff of the Woodlands: Sunlit (WBW-DC-Sunlit-6)","Staff of the Woodlands: Delver's (WBW-DC-ZEP-T2S2)","Staff of the Woodlands: Dragon's Seed (WBW-DC-ZODIAC-5)"],
+		choices : ["Eldritch Staff (PS-DC-PESCH)","Eldritch Staff (PS-DC-PKL-15)","Staff of the Adder (CCC-SRCC1-3)","Staff of Charming (DDEX2-2)","Staff of Defense (SJ-DC-BST-6)","Staff of Defense: Xuanwu Jade Shuttle (SJ-DC-DD-9)","Staff of Defense (SJ-DC-ETO-2)","Staff of Defense: Black Root of Clathrus Archeri (SJ-DC-PANDORA-JWEI-3A)","Staff of Defense (SJ-DC-RFJK-2-2)","Staff of Defense (SJ-DC-TEL-2)","Staff of Fate (BMG-MOON-MD-10)","Staff of Frost (DDAL0-11E)","Staff of Frost (DDAL-DRW5)","Staff of Frost (WBW-DC-AEG-2)","Staff of Healing: Driftwood Staff (CCC-DES-1-2)","Staff of Healing (CCC-GHC-BK2-8)","Staff of Healing (CCC-QCC2019-3)","Staff of Healing (CCC-WYC-2-1)","Staff of Healing (DDEP4)","Staff of Healing: Zee's Control (FR-DC-THAY-4)","Staff of the Magi (DDAL7-17)","Staff of Power (DDAL5-19)","Staff of Power (DDEP4)","Staff of Power (FR-DC-PANDORA-JWEI-S2-4/6)","Staff of Power: Tongkat Nenek Kebayan (WBW-DC-DMMC-1)","Staff of Power: Oblivia (WBW-DC-PHP-ORNG-2)","Staff of the Python (CCC-BMG-MOON7-1)","Staff of the Python: Earth Tender's Branch (CCC-BMG-MOON8-2)","Staff of the Python: Bulkawa's Benevolence (CCC-GSP2-2)","Staff of the Python (FR-DC-GHG-4)","Staff of the Python: Blackztaff (FR-DC-WATERDEEP-KYZ)","Staff of the Python (FR-DC-WCAG3-4)","Staff of Striking (CCC-TRI-14 YUL1-3)","Staff of Striking (DDAL7-12)","Staff of Striking (DDAL10-10)","Staff of Striking: Moon Dance (SJ-DC-PANDORA-JWEI-1)","Staff of Striking: Dragon's Glory (SJ-DC-ROTU-5)","Staff of Striking: Orcus Wand Splinter (SJ-DC-TRIDEN-MW3)","Staff of Swarming Insects (DDEX3-3)","Staff of Swarming Insects: Mildy's (WBW-DC-DES-1-7)","Staff of Swarming Insects: Scorpion Staff (WBW-DC-DGE-2)","Staff of Swarming Insects: Drone Control Rod (WBW-DC-LEGIT-SV-6)","Staff of Swarming Insects: Mariposa (WBW-DC-PHP-ORNG-2)","Staff of Swarming Insects: Ygorl's Crook (WBW-DC-Rook-3-3)","Staff of Thunder and Lightning (DDAL5-8)","Staff of Thunder and Lightning (DDEP5-2)","Staff of Thunder and Lightning (PS-DC-PKL-16)","Staff of Thunder and Lightning: Morwen's Crone (PS-DC-SB-BISH1)","Staff of Withering (DDEX2-13)","Staff of Withering (DDAL8-13)","Staff of Withering: The Inoculum (SJ-DC-VEN-2)","Staff of Withering: Positive Prognosis (SJ-DC-VEN-2)","Staff of the Woodlands (CCC-BMG-MOON12-1)","Staff of the Woodlands (CCC-GARY-9)","Staff of the Woodlands (DDAL7-8/DDEP7-1)","Staff of the Woodlands: Liwanag (WBW-DC-ANDL-3)","Staff of the Woodlands: Temperate (WBW-DC-CONMAR-6)","Staff of the Woodlands (WBW-DC-HAVN-1)","Staff of the Woodlands: Guardian (WBW-DC-HH-2)","Staff of the Woodlands (WBW-DC-IDL1)","Staff of the Woodlands (WBW-DC-PHP-LCL-1)","Staff of the Woodlands: Hope's Emissary (WBW-DC-Rook-3-2)","Staff of the Woodlands: Sunlit (WBW-DC-Sunlit-6)","Staff of the Woodlands: Delver's (WBW-DC-ZEP-T2S2)","Staff of the Woodlands: Dragon's Seed (WBW-DC-ZODIAC-5)"],
 	"eldritch staff (ps-dc-pesch)" : {
 		name : "Eldritch Staff (PS-DC-PESCH)",
 		source : [["AL", "PS-DC"]],
@@ -634,226 +848,6 @@ MagicItemsList["al staffs"] = {
 			abilitytodamage : false,
 			selectNow : true,
 			}
-	},
-	"staff of adornment (ccc-3mags-one)" : {
-		name : "Staff of Adornment (CCC-3MAGS-ONE)",
-		source : [["AL","CCC"]],
-		rarity : "common",
-		description : "Flowering hop vines are entwined around this light, pale wooden staff. If I put an object up to 1 pound above the tip, it floats 1 inch from the staff & remains there until removed or out of my possession. The staff can have 3 objects floating at a time. I can make 1 or more of them turn in place. No matter what floats atop it, the object(s) smells like fresh hops.",
-		descriptionFull : "Flowering hop vines are entwined around the shaft of this light, pale wooden staff.\n   If you place a Tiny object weighing no more than 1 pound (such as a shard of crystal, an egg, or a stone) above the tip of this staff while holding it, the object floats an inch from the staff's tip and remains there until it is removed or until the staff is no longer in your possession. The staff can have up to three such objects floating over its tip at any given time. While holding the staff, you can make one or more of the objects slowly spin or turn in place.",
-		weight : 4
-	},
-	"staff of adornment (ps-dc-pkl-10)" : {
-		name : "Staff of Adornment (PS-DC-PKL-10)",
-		source : [["AL","PS-DC"]],
-		rarity : "common",
-		description : "This staff is embossed with numerous eyes that seem to shift toward anyone looking at it. If I put an object up to 1 pound above the tip, it floats 1 inch from the staff and remains there until removed or out of my possession. The staff can have 3 objects floating at a time; I can make 1 or more spin or turn in place. I can also speak Deep Speech.",
-		descriptionFull : "This staff is embossed with numerous amounts of eyes that seem to shift in the direction of whomever is looking at it. It has the minor language property allowing the owner to understand deep speech.\n   If you place a Tiny object weighing no more than 1 pound (such as a shard of crystal, an egg, or a stone) above the tip of this staff while holding it, the object floats an inch from the staff's tip and remains there until it is removed or until the staff is no longer in your possession. The staff can have up to three such objects floating over its tip at any given time. While holding the staff, you can make one or more of the objects slowly spin or turn in place.",
-		weight : 4,
-		languageProfs : ["Deep Speech"],
-	},
-	"staff of adornment: k's ashenwood staff (sj-dc-amo-kuri-3)" : {
-		name : "K's Ashenwood Staff of Adornment (AMO-KURI-3)",
-		source : [["AL","SJ-DC"]],
-		rarity : "common",
-		description : "This ashenwood staff has stood through time. There are visible bite marks in the middle and a secret message somewhere on the item. If I put an object up to 1 pound above the tip, it floats 1 inch from the staff & remains there until removed or out of my possession. The staff can have 3 objects floating at a time. I can make them spin or turn in place.",
-		descriptionFull : "This ashenwood staff has stood through time. You can see there's some visible bite marks in the middle of this staff.\n   " + toUni("Secret Message") + ". A message is hidden somewhere on the item. It might be visible only at a certain time, under the light of one phase of the moon, or in a specific location.\n   If you place a Tiny object weighing no more than 1 pound (such as a shard of crystal, an egg, or a stone) above the tip of this staff while holding it, the object floats an inch from the staff's tip and remains there until it is removed or until the staff is no longer in your possession. The staff can have up to three such objects floating over its tip at any given time. While holding the staff, you can make one or more of the objects slowly spin or turn in place.",
-		weight : 4,
-	},
-	"staff of adornment (sj-dc-arq-2)" : {
-		name : "Staff of Adornment (SJ-DC-ARQ-2)",
-		source : [["AL","SJ-DC"]],
-		rarity : "common",
-		description : "This finely crafted wooden staff has symbols of air, earth, fire and water artfully carved into its surface. If I put an object up to 1 pound above the tip, it floats 1 inch from the staff and remains there until removed or out of my possession. The staff can have 3 objects floating at a time, which I can make spin or turn in place.",
-		descriptionFull : "It's a finely crafted wooden staff with symbols of air, erath, fire and water artfully carved into its surface.\n   " + toUni("Language") + ". The bearer can speak and understand Primordial while the item is on the bearer's person.\n   If you place a Tiny object weighing no more than 1 pound (such as a shard of crystal, an egg, or a stone) above the tip of this staff while holding it, the object floats an inch from the staff's tip and remains there until it is removed or until the staff is no longer in your possession. The staff can have up to three such objects floating over its tip at any given time. While holding the staff, you can make one or more of the objects slowly spin or turn in place.",
-		weight : 4,
-		languageProfs : ["Primordial"],
-	},
-	"staff of adornment: ocharine (sj-dc-dd-7)" : {
-		name : "Ocharine, Staff of Adornment (SJ-DC-DD-7)",
-		source : [["AL","SJ-DC"]],
-		rarity : "common",
-		description : "This intricately-carved lightweight obsidian staff is used in the Harmonization process, focusing hot pressurized water to carve Azurite into Azure Crystals. It's captured a sequence of tones that it releases on a hit. If I put an object \u22641 pound over the tip, it floats 1 inch from the staff & stays until removed or out of my possession. The staff can have 3 floating objects, which I can make spin in place.",
-		descriptionFull : "This lightweight, intricately carved obsidian stone staff is the main tool in the Harmonization process. It is used to focus the heated and pressurized water that carves the Azurite into Azure Crystals. This process produces a sequence of tones that have been captured by the staff and released by it when it strikes something.\n   " + toUni("Songcraft") + ". Whenever this item is struck or is used to strike a foe, its bearer hears a fragment of an ancient song.\n   If you place a Tiny object weighing no more than 1 pound (such as a shard of crystal, an egg, or a stone) above the tip of this staff while holding it, the object floats an inch from the staff's tip and remains there until it is removed or until the staff is no longer in your possession. The staff can have up to three such objects floating over its tip at any given time. While holding the staff, you can make one or more of the objects slowly spin or turn in place.",
-		weight : 4,
-	},
-	"staff of adornment (sj-dc-den-h5)" : {
-		name : "Staff of Adornment (SJ-DC-DEN-H5)",
-		source : [["AL","SJ-DC"]],
-		rarity : "common",
-		description : "This staff is made from polished driftwood. If I put an object \u22641 pound above the tip, it floats 1 inch from the staff & stays until removed or out of my possession. The staff can have 3 objects floating at a time. When used in any way, it loudly sings the haunting sahuagin song heard at the Reef of Living Memory when souls are ritually trapped in the coral. I can make the objects spin or turn in place.",
-		descriptionFull : "This staff is made from polished driftwood. When this staff is used to adorn an item to it, used as an arcane focus, or used as a weapon, the staff begins to loudly sing a few lines of the haunting song heard at the Reef of Living Memory when souls are ritually trapped in the coral. The words of the song are in sahuagin.\n   " + toUni("Loud") + ". The item makes a loud noise—such as a clang, a shout, or a resonating gong—when used. In this case, a few lines of a sahuagin ritual song.\n   If you place a Tiny object weighing no more than 1 pound (such as a shard of crystal, an egg, or a stone) above the tip of this staff while holding it, the object floats an inch from the staff's tip and remains there until it is removed or until the staff is no longer in your possession. The staff can have up to three such objects floating over its tip at any given time. While holding the staff, you can make one or more of the objects slowly spin or turn in place.",
-		weight : 4,
-	},
-	"staff of adornment (sj-dc-igc-ecp-5)" : {
-		name : "Staff of Adornment (SJ-DC-IGC-ECP-5)",
-		source : [["AL","SJ-DC"]],
-		rarity : "common",
-		description : "This wooden staff is carved with the words \"PROPERTY OF THE HOUSE OF THE PATH AND THE WAY. PLEASE RETURN IF FOUND\". It warns me, giving +2 initiative unless Incapacitated. If I put an object \u22641 pound above the tip, it floats 1 inch from the staff \u0026 stays until removed or out of my possession. The staff can have 3 objects floating at a time, which I can make turn in place.",
-		descriptionFull : "This wooden staff has the words \"PROPERTY OF THE HOUSE OF THE PATH AND THE WAY. PLEASE RETURN IF FOUND.\" carved into it and the item warns you, granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition. (Guardian)\n   If you place a Tiny object weighing no more than 1 pound (such as a shard of crystal, an egg, or a stone) above the tip of this staff while holding it, the object floats an inch from the staff's tip and remains there until it is removed or until the staff is no longer in your possession. The staff can have up to three such objects floating over its tip at any given time. While holding the staff, you can make one or more of the objects slowly spin or turn in place.",
-		weight : 4,
-		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on Initiative rolls." },
-	},
-	"staff of adornment (sj-dc-monster-1)" : {
-		name : "Staff of Adornment (SJ-DC-MONSTER-1)",
-		source : [["AL","SJ-DC"]],
-		rarity : "common",
-		description : "This staff is warm to the touch, crafted from plane-touched fire trees. Sigils of flames cover its surface in shades of red \u0026 orange. If I put an object \u22641 pound above the tip, it floats 1 inch from the staff \u0026 stays until removed or out of my possession. The staff can have 3 floating objects. I can make them spin or turn in place \u0026 I suffer no harm in extreme temps past 0\u00B0F \u0026 100\u00B0F.",
-		descriptionFull : "This item is warm to the touch, crafted from plane-touched fire trees. Sigils of flames cover its surface. Shades of red and orange are the prominent colors.\n   " + toUni("Temperate") + ". You are unharmed by temperatures of 0 degrees Fahrenheit or lower, and 100 degrees Fahrenheit or higher.\n   If you place a Tiny object weighing no more than 1 pound (such as a shard of crystal, an egg, or a stone) above the tip of this staff while holding it, the object floats an inch from the staff's tip and remains there until it is removed or until the staff is no longer in your possession. The staff can have up to three such objects floating over its tip at any given time. While holding the staff, you can make one or more of the objects slowly spin or turn in place.",
-		weight : 4,
-		savetxt : { immune : ["temps past 0\u00B0F/100\u00B0F"] },
-	},
-	"staff of adornment: shakujo (sj-dc-mwg-1)" : {
-		name : "Shakujo, Staff of Adornment (SJ-DC-MWG-1)",
-		source : [["AL","SJ-DC"]],
-		rarity : "common",
-		description : "The shakujō is a wooden staff with a decorative metal head. 2 loops form the base of the headpiece, each with 3 gilded iron rings attached. The rings jangle softly to warn of danger, giving +2 initiative if not Incapacitated. If I put an object \u22641 pound over the tip, it floats 1 inch from the staff & stays until removed or off my person. The staff can have 3 floating objects, that I can make turn in place.",
-		descriptionFull : "The shakujō is a wooden staff with a decorative metal head. Two loops form the base of the headpiece, each from which three gilded iron rings are attached.\n   " + toUni("Guardian") + ". When the bearer rolls Initiative, the iron rings jangle softly, warning you and granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition.\n   If you place a Tiny object weighing no more than 1 pound (such as a shard of crystal, an egg, or a stone) above the tip of this staff while holding it, the object floats an inch from the staff's tip and remains there until it is removed or until the staff is no longer in your possession. The staff can have up to three such objects floating over its tip at any given time. While holding the staff, you can make one or more of the objects slowly spin or turn in place.",
-		weight : 4,
-		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on Initiative rolls." },
-	},
-	"staff of adornment (sj-dc-rotu-5)" : {
-		name : "Staff of Adornment (SJ-DC-ROTU-5)",
-		source : [["AL","SJ-DC"]],
-		rarity : "common",
-		description : "As long as this staff is in the Hangout Quarter of the illithid's colony on Planet Cereillithid, 666666 appears on the shaft. If I put an object up to 1 pound above the tip, it floats 1 inch from the staff \u0026 stays until removed or out of my possession. The staff can have 3 objects floating at a time. I can make them spin or turn in place.",
-		descriptionFull : "If you place a Tiny object weighing no more than 1 pound (such as a shard of crystal, an egg, or a stone) above the tip of this staff while holding it, the object floats an inch from the staff's tip and remains there until it is removed or until the staff is no longer in your possession. The staff can have up to three such objects floating over its tip at any given time. While holding the staff, you can make one or more of the objects slowly spin or turn in place.\n   " + toUni("Secret Message") + ". As long as this staff is in the Hangout Quarter of the illithid's colony on planet cereillithid, the message ‘666666' will appear on the shaft.",
-		weight : 4,
-	},
-	"staff of adornment (sj-dc-tel-12)" : {
-		name : "Staff of Adornment (SJ-DC-TEL-12)",
-		source : [["AL","SJ-DC"]],
-		rarity : "common",
-		description : "If I put an object up to 1 pound above the tip of this staff while held, it floats 1 inch from the tip \u0026 stays until removed or out of my possession. The staff can have 3 objects floating at a time, which I can make spin or turn in place. The message, \"Leaves of three, leave it be,\" appears as an illusion floating among the adorned items whenever the staff is in woodlands.",
-		descriptionFull : "If you place a Tiny object weighing no more than 1 pound (such as a shard of crystal, an egg, or a stone) above the tip of this staff while holding it, the object floats an inch from the staff's tip and remains there until it is removed or until the staff is no longer in your possession. The staff can have up to three such objects floating over its tip at any given time. While holding the staff, you can make one or more of the objects slowly spin or turn in place.\n   " + toUni("Secret Message") + ". The message, \"Leaves of three, leave it be,\" appears as an illusion floating among the adorned items whenever the staff is in woodlands.",
-		weight : 4,
-	},
-	"staff of adornment (wbw-dc-nj-cou-2)" : {
-		name : "Staff of Adornment (WBW-DC-NJ-COU-2)",
-		source : [["AL","WBW-DC"]],
-		rarity : "common",
-		description : "This staff is made from Yarnspinner's webs. It's Archfey quality! If I put an object up to 1 pound above the tip, it floats 1 inch from the staff \u0026 stays until removed or out of my possession. The staff can have 3 objects floating. I can make them spin or turn in place.",
-		descriptionFull : "This staff is made by web produced by Yarnspinner. It's an Archfey quality staff!\n   If you place a Tiny object weighing no more than 1 pound (such as a shard of crystal, an egg, or a stone) above the tip of this staff while holding it, the object floats an inch from the staff's tip and remains there until it is removed or until the staff is no longer in your possession. The staff can have up to three such objects floating over its tip at any given time. While holding the staff, you can make one or more of the objects slowly spin or turn in place.",
-		weight : 4
-	},
-	"staff of birdcalls (fr-dc-tt-t201)" : {
-		name : "Staff of Birdcalls (FR-DC-TT-T201)",
-		source : [["AL","FR-DC"]],
-		rarity : "common",
-		description : "This is Don-Jon Raskin's hiking pole. As bonus action, it sheds 10-ft bright light & 10-ft more dim, or stops. The pole has 10 charges, 1d6+4 regained at dawn, 5% chance destroyed if last charge used. As Magic action, 1 charge creates a sound to 120 ft: a finch's chirp, raven's caw, duck's quack, chicken's cluck, goose's honk, loon's call, turkey's gobble, seagull's cry, owl's hoot, or eagle's shriek.",
-		descriptionFull : "This is Don-Jon Raskin's hiking pole with minor property beacon: You can take a Bonus Action to cause the item to shed Bright Light in a 10-foot radius and Dim Light for an additional 10 feet, or to extinguish the light.\n   This wooden staff is decorated with bird carvings. It has 10 charges. While holding it, you can take a Magic action to expend 1 charge from the staff and cause it to create one of the following sounds, which can be heard out to 120 feet: a finch's chirp, a raven's caw, a duck's quack, a chicken's cluck, a goose's honk, a loon's call, a turkey's gobble, a seagull's cry, an owl's hoot, or an eagle's shriek.\n   " + toUni("Regaining Charges") + ". The staff regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff explodes in a harmless cloud of bird feathers and is lost forever.",
-		weight : 4,
-		limfeaname : "Staff of Birdcalls",
-		usages : 10,
-		recovery : "dawn",
-		additional : "regains 1d6+4",
-		action : [["action", "Birdcalls (Sound)"],["bonus action", "Birdcalls (light/dim)"]],
-	},
-	"staff of birdcalls (wbw-dc-bire-1)" : {
-		name : "Staff of Birdcalls (WBW-DC-BIRE-1)",
-		source : [["AL","WBW-DC"]],
-		rarity : "common",
-		description : "This staff is decorated with bird carvings & has 10 charges, 1d6+4 regained at dawn, 5% chance it's destroyed when last charge used. As Magic action, I can use 1 charge to create a sound to 120 ft: a finch's chirp, raven's caw, duck's quack, chicken's cluck, goose's honk, loon's call, turkey's gobble, seagull's cry, owl's hoot, or eagle's shriek. I also feel fortunate and optimistic about the future. Rainbow butterflies with a variety of patterns flutter around me.",
-		descriptionFull : "While in possession of the staff, you feel fortunate and optimistic about what the future holds.\n   " + toUni("Blissful") + ". Butterflies, with wings of various patterns and colours encompassing the entire rainbow, flutter harmlessly around you.\n   This wooden staff is decorated with bird carvings. It has 10 charges. While holding it, you can take a Magic action to expend 1 charge from the staff and cause it to create one of the following sounds, which can be heard out to 120 feet: a finch's chirp, a raven's caw, a duck's quack, a chicken's cluck, a goose's honk, a loon's call, a turkey's gobble, a seagull's cry, an owl's hoot, or an eagle's shriek.\n   " + toUni("Regaining Charges") + ". The staff regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff explodes in a harmless cloud of bird feathers and is lost forever.",
-		weight : 4,
-		limfeaname : "Staff of Birdcalls",
-		usages : 10,
-		recovery : "dawn",
-		additional : "regains 1d6+4",
-		action : [["action", ""]]
-	},
-	"staff of birdcalls (wbw-dc-conmar-3)" : {
-		name : "Staff of Birdcalls (WBW-DC-CONMAR-3)",
-		source : [["AL","WBW-DC"]],
-		rarity : "common",
-		description : "This staff is decorated with bird carvings \u0026 has lily pads growing from it. If left out during a night's rest, 3 frogs will sit on the lily pads & croak a song in the morning. The staff has 10 charges, 1d6+4 regained at dawn, 5% chance it's destroyed when last charge used. As Magic action, I can use 1 charge to create a sound to 120 ft: a finch's chirp, raven's caw, duck's quack, chicken's cluck, goose's honk, loon's call, turkey's gobble, seagull's cry, owl's hoot, or eagle's shriek.",
-		descriptionFull : "The staff also has lily pads growing from it and if the character leaves it out during a night's rest, it would attract 3 frogs that would sit on the lily pads in the morning, croaking a song.\n   This wooden staff is decorated with bird carvings. It has 10 charges. While holding it, you can take a Magic action to expend 1 charge from the staff and cause it to create one of the following sounds, which can be heard out to 120 feet: a finch's chirp, a raven's caw, a duck's quack, a chicken's cluck, a goose's honk, a loon's call, a turkey's gobble, a seagull's cry, an owl's hoot, or an eagle's shriek.\n   " + toUni("Regaining Charges") + ". The staff regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff explodes in a harmless cloud of bird feathers and is lost forever.",
-		weight : 4,
-		limfeaname : "Staff of Birdcalls",
-		usages : 10,
-		recovery : "dawn",
-		additional : "regains 1d6+4",
-		action : [["action", ""]]
-	},
-	"staff of birdcalls (wbw-dc-death)" : {
-		name : "Staff of Birdcalls (WBW-DC-Death)",
-		source : [["AL","WBW-DC"]],
-		rarity : "common",
-		description : "This staff is decorated with bird carvings. I'm unharmed by extreme temps past 0\u00B0F \u0026 100\u00B0F. It has 10 charges, 1d6+4 regained at dawn, 5% chance destroyed if last charge used. As Magic action, 1 charge creates a sound to 120 ft: a finch's chirp, raven's caw, duck's quack, chicken's cluck, goose's honk, loon's call, turkey's gobble, seagull's cry, owl's hoot, or eagle's shriek.",
-		descriptionFull : "This wooden staff is decorated with bird carvings. It has 10 charges. While holding it, you can take a Magic action to expend 1 charge from the staff and cause it to create one of the following sounds, which can be heard out to 120 feet: a finch's chirp, a raven's caw, a duck's quack, a chicken's cluck, a goose's honk, a loon's call, a turkey's gobble, a seagull's cry, an owl's hoot, or an eagle's shriek.\n   " + toUni("Regaining Charges") + ". The staff regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff explodes in a harmless cloud of bird feathers and is lost forever.\n   " + toUni("Temperate") + ". You are unharmed by temperatures of 0 degrees Fahrenheit or lower, and 100 degrees Fahrenheit or higher.",
-		weight : 4,
-		savetxt : { immune : ["temps past 0\u00B0F/100\u00B0F"] },
-		limfeaname : "Staff of Birdcalls",
-		usages : 10,
-		recovery : "dawn",
-		additional : "regains 1d6+4",
-		action : [["action", ""]]
-	},
-	"staff of birdcalls (wbw-dc-fdc-3)" : {
-		name : "Staff of Birdcalls (WBW-DC-FDC-3)",
-		source : [["AL","WBW-DC"]],
-		rarity : "common",
-		description : "This staff is decorated with bird carvings \u0026 feathers attached on one end. It has 10 charges, 1d6+4 regained at dawn, 5% chance destroyed if last charge used. As Magic action, 1 charge creates a sound to 120 ft: a finch's chirp, raven's caw, duck's quack, chicken's cluck, goose's honk, loon's call, turkey's gobble, seagull's cry, owl's hoot, or eagle's shriek.",
-		descriptionFull : "The staff is also decorated with different bird feathers attached on one of its end.\n   This wooden staff is decorated with bird carvings. It has 10 charges. While holding it, you can take a Magic action to expend 1 charge from the staff and cause it to create one of the following sounds, which can be heard out to 120 feet: a finch's chirp, a raven's caw, a duck's quack, a chicken's cluck, a goose's honk, a loon's call, a turkey's gobble, a seagull's cry, an owl's hoot, or an eagle's shriek.\n   " + toUni("Regaining Charges") + ". The staff regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff explodes in a harmless cloud of bird feathers and is lost forever.",
-		weight : 4,
-		limfeaname : "Staff of Birdcalls",
-		usages : 10,
-		recovery : "dawn",
-		additional : "regains 1d6+4",
-		action : [["action", ""]]
-	},
-	"staff of birdcalls (wbw-dc-hbk-1)" : {
-		name : "Staff of Birdcalls (WBW-DC-HBK-1)",
-		source : [["AL","WBW-DC"]],
-		rarity : "common",
-		description : "This staff is decorated with bird carvings \u0026 whenever it's struck, I hear a few beats of a taiko drum. It has 10 charges, 1d6+4 regained at dawn, 5% chance destroyed if last charge used. As Magic action, 1 charge creates a sound to 120 ft: a finch's chirp, raven's caw, duck's quack, chicken's cluck, goose's honk, loon's call, turkey's gobble, seagull's cry, owl's hoot, or eagle's shriek.",
-		descriptionFull : "This wooden staff is decorated with bird carvings. It has 10 charges. While holding it, you can take a Magic action to expend 1 charge from the staff and cause it to create one of the following sounds, which can be heard out to 120 feet: a finch's chirp, a raven's caw, a duck's quack, a chicken's cluck, a goose's honk, a loon's call, a turkey's gobble, a seagull's cry, an owl's hoot, or an eagle's shriek.\n   " + toUni("Regaining Charges") + ". The staff regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff explodes in a harmless cloud of bird feathers and is lost forever.\n   " + toUni("Song Craft") + ". Whenever this item is struck or is used to strike a foe, its bearer hears a fragment of an ancient song: a few beats of a taiko drum.",
-		weight : 4,
-		limfeaname : "Staff of Birdcalls",
-		usages : 10,
-		recovery : "dawn",
-		additional : "regains 1d6+4",
-		action : [["action", ""]]
-	},
-	"staff of birdcalls (wbw-dc-robin-1-2)" : {
-		name : "Staff of Birdcalls (WBW-DC-ROBIN-1-2)",
-		source : [["AL","WBW-DC"]],
-		rarity : "common",
-		description : "This staff is decorated with bird carvings. I hear robins when in danger, giving +2 initiative unless Incapacitated. 10 charges, 1d6+4 regained at dawn, 5% chance destroyed if last charge used. As Magic action, 1 charge creates a sound to 120 ft: a finch's chirp, raven's caw, duck's quack, chicken's cluck, goose's honk, loon's call, turkey's gobble, seagull's cry, owl's hoot, or eagle's shriek.",
-		descriptionFull : "This wooden staff is decorated with bird carvings. It has 10 charges. While holding it, you can take a Magic action to expend 1 charge from the staff and cause it to create one of the following sounds, which can be heard out to 120 feet: a finch's chirp, a raven's caw, a duck's quack, a chicken's cluck, a goose's honk, a loon's call, a turkey's gobble, a seagull's cry, an owl's hoot, or an eagle's shriek.\n   " + toUni("Regaining Charges") + ". The staff regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff explodes in a harmless cloud of bird feathers and is lost forever.\n   " + toUni("Guardian") + ". While this staff is on your person, you can hear robins when danger is near. The item warns you, granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition.",
-		weight : 4,
-		limfeaname : "Staff of Birdcalls",
-		usages : 10,
-		recovery : "dawn",
-		additional : "regains 1d6+4",
-		action : [["action", ""]],
-		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on Initiative rolls." },
-	},
-	"staff of birdcalls (wbw-dc-rook-1-4)" : {
-		name : "Staff of Birdcalls (WBW-DC-ROOK-1-4)",
-		source : [["AL","WBW-DC"]],
-		rarity : "common",
-		description : "This bamboo staff is intricately carved with wondrous birds. It has 10 charges, 1d6+4 regained at dawn. 5% chance it's destroyed if the last charge is used. As Magic action, I can use 1 charge to create a sound to 120 ft: a finch's chirp, raven's caw, duck's quack, chicken's cluck, goose's honk, loon's call, turkey's gobble, seagull's cry, owl's hoot, or eagle's shriek. I can use another Magic action to make my voice carry clearly for 600 ft until my next turn ends.",
-		descriptionFull : "This bamboo staff is intricately carved with wondrous birds.\n   " + toUni("War Leader") + ". You can take a Magic action to cause your voice or signal to carry clearly for up to 600 feet until the end of your next turn.\n   This wooden staff is decorated with bird carvings. It has 10 charges. While holding it, you can take a Magic action to expend 1 charge from the staff and cause it to create one of the following sounds, which can be heard out to 120 feet: a finch's chirp, a raven's caw, a duck's quack, a chicken's cluck, a goose's honk, a loon's call, a turkey's gobble, a seagull's cry, an owl's hoot, or an eagle's shriek.\n   " + toUni("Regaining Charges") + ". The staff regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff explodes in a harmless cloud of bird feathers and is lost forever.",
-		weight : 4,
-		limfeaname : "Staff of Birdcalls",
-		usages : 10,
-		recovery : "dawn",
-		additional : "regains 1d6+4",
-		action : [["action", "Birdcalls/600ft Voice"]],
-	},
-	"staff of birdcalls: dark crystal (wbw-dc-zodiac-10)" : {
-		name : "Dark Crystal Staff of Birdcalls (ZODIAC-10)",
-		source : [["AL","WBW-DC"]],
-		rarity : "common",
-		description : "A dark staff with a skeletal bird skull. Two obsidian crystals are embedded in its eye sockets. The staff has 10 charges, 1d6+4 regained at dawn, 5% chance it's destroyed when last charge used. As Magic action, I can use 1 charge to create a sound to 120 ft: a finch's chirp, raven's caw, duck's quack, chicken's cluck, goose's honk, loon's call, turkey's gobble, seagull's cry, owl's hoot, or eagle's shriek. Another Magic action, make my voice carry clearly for 600 ft until my next turn ends.",
-		descriptionFull : "A dark staff with a skeletal bird skull. Embedded in its eye sockets are two obsidian crystals.\n   " + toUni("War Leader") + ". You can take a Magic action to cause your voice or signal to carry clearly for up to 600 feet until the end of your next turn.\n   This wooden staff is decorated with bird carvings. It has 10 charges. While holding it, you can take a Magic action to expend 1 charge from the staff and cause it to create one of the following sounds, which can be heard out to 120 feet: a finch's chirp, a raven's caw, a duck's quack, a chicken's cluck, a goose's honk, a loon's call, a turkey's gobble, a seagull's cry, an owl's hoot, or an eagle's shriek.\n   " + toUni("Regaining Charges") + ". The staff regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff explodes in a harmless cloud of bird feathers and is lost forever.",
-		weight : 4,
-		limfeaname : "Staff of Birdcalls",
-		usages : 10,
-		recovery : "dawn",
-		additional : "regains 1d6+4",
-		action : [["action", "Birdcalls/600ft Voice"]],
 	},
 	"staff of charming (ddex2-2)" : {
 		name : "Staff of Charming (DDEX2-2)",
@@ -1066,20 +1060,6 @@ MagicItemsList["al staffs"] = {
 			selectNow : true
 		}]
 	},
-	"staff of flowers (ccc-kumori-3-1)" : {
-		name : "Staff of Flowers (CCC-KUMORI-3-1)",
-		source : [["AL","CCC"]],
-		rarity : "common",
-		description : "This uncarved branch of a weir tree has silver-brown leaves with velvet-black undersides sprouting from the top. It glows faintly blue in magically-lit areas & for 10 min after leaving. The staff has 10 charges, 1d6+4 regained at dawn; 5% chance destroyed if use last charge. As Magic action, 1 charge makes a flower sprout from staff or soil in 5 ft. It's nonmagical & grows or withers normally. Daisy by default.",
-		descriptionLong : "This uncarved branch of a weir tree has silver-brown leaves with velvet-black undersides sprouting from the top. It glows faintly blue in magically-lit areas & continues for 10 min after leaving. The staff has 10 charges, 1d6+4 regained at dawn; 5% chance destroyed when last charge used. As Magic action, use 1 charge to make chosen flower sprout from staff or soil in 5 ft. The flower is nonmagical & grows or withers normally.",
-		descriptionFull : "The natural, uncarved branch of a weir tree makes up the entirety of this staff. New growth sprouts from the head of the staff, silver-brown leaves with velvet-black undersides. The staff glows faintly blue when inside a magically-lit area; after leaving the area, the staff's illumination continues for ten minutes but is not bright enough to light an area.\n   This wooden staff has 10 charges. While holding it, you can take a Magic action to expend 1 charge from the staff and cause a flower to sprout from a patch of earth or soil within 5 feet of yourself, or from the staff itself. Unless you choose a specific kind of flower, the staff creates a mild-scented daisy. The flower is harmless and nonmagical, and it grows or withers as a normal flower would." + toUni("Regaining Charges") + "The staff regains 1d6 + 4 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff turns into flower petals and is lost forever.",
-		weight : 4,
-		limfeaname : "Staff of Flowers",
-		usages : 10,
-		recovery : "dawn",
-		additional : "regains 1d6+4",
-		action : [["action", ""]]
-	},
 	"staff of frost (ddal0-11e)" : {
 		name : "Staff of Frost (DDAL0-11E)",
 		source : [["AL","S0"]],
@@ -1234,6 +1214,26 @@ MagicItemsList["al staffs"] = {
 		spellcastingBonus : staffHealingSpells.spellcastingBonus,
 		spellChanges : staffHealingSpells.spellChanges,
 	},
+	"staff of healing: zee's control (fr-dc-thay-4)" : {
+		name : "Zee's Control, Staff of Healing (THAY-4)",
+		source : [["AL","FR-DC"]],
+		rarity : "rare",
+		description : "A staff marked with the crest of eccentric wandmaker Zee, whose last words were famously, \"Wait, stop, undo, UNDO!\" The staff has 10 charges, 1d6+4 regained at dawn. Charges cast Cure Wounds (1 per lvl, max 4), Lesser Restoration (2 charges) and Mass Cure Wounds (5 charges) using my spell ability. If last charge used, 5% chance it vanishes. I suffer no harm in temps past 0\u00B0F & 100\u00B0F.",
+		descriptionFull : "A staff marked with the crest of eccentric wandmaker Zee, whose last words were famously, \"Wait, stop, undo, UNDO!\"\n   " + toUni("Temperate") + ". You are unharmed by temperatures of 0 degrees Fahrenheit or lower, and 100 degrees Fahrenheit or higher.\n   This staff has 10 charges. While holding the staff, you can cast one of the spells on the following table from it, using your spellcasting ability modifier. The table indicates how many charges you must expend to cast the spell: Cure Wounds (1 charge per spell level, up to 4th), Lesser Restoration (2 charges), or Mass Cure Wounds (5 charges).\n   " + toUni("Regaining Charges") + "The staff regains 1d6 + 4 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff vanishes in a flash of light, lost forever.",
+		attunement : true,
+		weight : 4,
+		prerequisite : "Requires attunement by a bard, cleric, or druid",
+		prereqeval : function(v) { return classes.known.bard || classes.known.cleric || classes.known.druid ? true : false; },
+		limfeaname : "Staff of Healing",
+		usages : 10,
+		recovery : "dawn",
+		additional : "regains 1d6+4",
+		spellcastingAbility : "class",
+		spellFirstColTitle : "Ch",
+		spellcastingBonus : staffHealingSpells.spellcastingBonus,
+		spellChanges : staffHealingSpells.spellChanges,
+		savetxt : { immune : ["temps past 0\u00B0F/100\u00B0F"] },
+	},
 	"staff of the magi (ddal7-17)" : { // contains contributions by Pengsloth
 		name : "Staff of the Magi (DDAL7-17)",
 		source : [["AL","S7"]],
@@ -1353,7 +1353,7 @@ MagicItemsList["al staffs"] = {
 		rarity : "very rare",
 		description : "This great ashen +2 quarterstaff is etched with swirling air & clouds & resizes to fit my hand. I gain +2 to saves, AC and spell attacks. It has 20 charges for spells, 2d8+4 regained at dawn. 5% chance becomes +2 staff if last charge used. 5% regains 1d8+2 charges. Magic action to break staff. I go to random plane or take 16\xD7charges Force (50%). All others in 30-ft take 4\xD7charges (DC 17 Dex for half).",
 		descriptionLong : "This great ashen staff is etched with designs of swirling air and clouds. It resizes to fit the hand of any who carry it and can be used as a +2 quarterstaff. While held, I gain a +2 bonus to saves, AC, and spell attacks. The staff has 20 charges, regaining 2d8+4 at dawn. If I use the last charge, roll a d20. On a 1, it converts to a +2 quarterstaff. On a 20, it regains 1d8+2 charges. Charges can be used to cast spells. As Magic action, I can break it for a 30-ft explosion. When I do, there's a 50% chance I teleport to a random plane. If not I take 16\xD7 the charges left in Force damage. All others in area take 4\xD7 charges; DC 17 Dex save halves the damage.",
-		descriptionFull : "This great ashen staff is etched with many designs of swirling air and clouds. The staff magically resizes to fit the hand of any who carry it.\n   This staff has 20 charges and can be wielded as a magic Quarterstaff that grants a +2 bonus to attack rolls and damage rolls made with it. While holding it, you gain a +2 bonus to Armor Class, saving throws, and spell attack rolls.\n " + toUni("Spells") + ". While holding the staff, you can cast one of the spells on the following table from it, using your spell save DC. The table indicates how many charges you must expend to cast the spell: Cone of Cold (5 charges), Fireball (5th-level version, 5 charges), Globe of Invulnerability (6 charges), Hold Monster (5 charges), Levitate (2 charges). Lightning Bolt (5th-level version, 5 charges), Magic Missile (1 charge), Ray of Enfeeblement (1 charge), or Wall of Force (5 charges).\n   " + toUni("Regaining Charges") + "The staff regains 2d8 + 4 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff retains its +2 bonus to attack rolls and damage rolls but loses all other properties. On a 20, the staff regains 1d8 + 2 charges.\n   " + toUni("Retributive Strike") + ". You can take a Magic action to break the staff over your knee or against a solid surface. The staff is destroyed and releases its magic in an explosion that fills a 30-foot Emanation originating from itself. You have a 50 percent chance to instantly travel to a random plane of existence, avoiding the explosion. If you fail to avoid the effect, you take Force damage equal to 16 times the number of charges in the staff. Each other creature in the area makes a DC 17 Dexterity saving throw. On a failed save, a creature takes Force damage equal to 4 times the number of charges in the staff. On a successful save, a creature takes half as much damage.",
+		descriptionFull : "This great ashen staff is etched with many designs of swirling air and clouds. The staff magically resizes to fit the hand of any who carry it." + staffPowerDescriptionTxt.unicode,
 		attunement : true,
 		weight : 4,
 		prerequisite : "Requires attunement by a sorcerer, warlock, or wizard",
@@ -1362,14 +1362,6 @@ MagicItemsList["al staffs"] = {
 		usages : 20,
 		recovery : "dawn",
 		additional : "regains 2d8+4",
-		weaponOptions : {
-			baseWeapon : "quarterstaff",
-			regExpSearch : /^(?=.*staff)(?=.*power).*$/i,
-			name : "Staff of Power",
-			description : "Versatile (1d8), topple",
-			modifiers : [2, 2],
-			selectNow : true,
-		},
 		calcChanges: staffOfPowerCalc.calcChanges,
 		addMod : [{ type : "save", field : "all", mod : 2, text : "While holding the Staff of Power, I gain a +2 bonus to all my saving throws." }],
 		extraAC : [{name : "Staff of Power", mod : 2, magic : true, text : "I gain a +2 bonus to AC while attuned."}],
@@ -1378,6 +1370,7 @@ MagicItemsList["al staffs"] = {
 		spellFirstColTitle : "Ch",
 		spellcastingBonus : staffOfPowerCalc.spellcastingBonus,
 		spellChanges : staffOfPowerCalc.spellChanges,
+		weaponsAdd : { select : ["Staff of Power"], options : ["Staff of Power"] },
 	},
 	"staff of power (ddep4)" : {
 		name : "Staff of Power (DDEP4)",
@@ -1385,7 +1378,7 @@ MagicItemsList["al staffs"] = {
 		rarity : "very rare",
 		description : "This +2 staff is a single piece of purple wood & topped with a clenched mithral claw. It holds a green dragon scale engraved with “Oblivion” in Elvish, which glows pale green & emits wisps of choking caustic mist. I learn Draconic & get +2 to saves, AC & spell atks. It has 20 charges for spells, 2d8+4 regained at dawn. 5% to become +2 staff if use last charge. 5% regain 1d8+2 charges. Magic action to break. 50% I go to random plane or take 16\xD7charges Force. Others in 30-ft take 4\xD7charges (DC 17 Dex to half).",
 		descriptionLong : "This +2 staff is carved from a single piece of purple wood & topped with a clenched mithral claw. It clutches a green dragon scale engraved with the elven word for “Oblivion”. The rune glows with a pale green light & emits wisps of choking, caustic mist. I'm fluent in Draconic. While held, I gain a +2 bonus to saves, AC, and spell attacks. The staff has 20 charges, regaining 2d8+4 at dawn. If I use the last charge, roll a d20. On a 1, it converts to a +2 quarterstaff. On a 20, it regains 1d8+2 charges. Charges can be used to cast spells. As Magic action, I can break it for a 30-ft explosion. When I do, there's a 50% chance I teleport to a random plane. If not I take 16\xD7 the charges left in Force damage. All others in area take 4\xD7; DC 17 Dex save halves.",
-		descriptionFull : "This staff is carved from a single piece of an unusual purple wood and topped with a clenched, mithral claw. The claw clutches a green dragon scale the size of a small plate that's engraved with the elven word for “Oblivion”. The rune glows with a pale green light and emits wisps of choking, caustic mist. Whoever is attuned to the staff is able to speak, read,and write Draconic.\n   This staff has 20 charges and can be wielded as a magic Quarterstaff that grants a +2 bonus to attack rolls and damage rolls made with it. While holding it, you gain a +2 bonus to Armor Class, saving throws, and spell attack rolls.\n " + toUni("Spells") + ". While holding the staff, you can cast one of the spells on the following table from it, using your spell save DC. The table indicates how many charges you must expend to cast the spell: Cone of Cold (5 charges), Fireball (5th-level version, 5 charges), Globe of Invulnerability (6 charges), Hold Monster (5 charges), Levitate (2 charges). Lightning Bolt (5th-level version, 5 charges), Magic Missile (1 charge), Ray of Enfeeblement (1 charge), or Wall of Force (5 charges).\n   " + toUni("Regaining Charges") + "The staff regains 2d8 + 4 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff retains its +2 bonus to attack rolls and damage rolls but loses all other properties. On a 20, the staff regains 1d8 + 2 charges.\n   " + toUni("Retributive Strike") + ". You can take a Magic action to break the staff over your knee or against a solid surface. The staff is destroyed and releases its magic in an explosion that fills a 30-foot Emanation originating from itself. You have a 50 percent chance to instantly travel to a random plane of existence, avoiding the explosion. If you fail to avoid the effect, you take Force damage equal to 16 times the number of charges in the staff. Each other creature in the area makes a DC 17 Dexterity saving throw. On a failed save, a creature takes Force damage equal to 4 times the number of charges in the staff. On a successful save, a creature takes half as much damage.",
+		descriptionFull : "This staff is carved from a single piece of an unusual purple wood and topped with a clenched, mithral claw. The claw clutches a green dragon scale the size of a small plate that's engraved with the elven word for “Oblivion”. The rune glows with a pale green light and emits wisps of choking, caustic mist. Whoever is attuned to the staff is able to speak, read,and write Draconic." + staffPowerDescriptionTxt.unicode,
 		attunement : true,
 		weight : 4,
 		prerequisite : "Requires attunement by a sorcerer, warlock, or wizard",
@@ -1395,14 +1388,32 @@ MagicItemsList["al staffs"] = {
 		recovery : "dawn",
 		additional : "regains 2d8+4",
 		languageProfs : ["Draconic"],
-		weaponOptions : {
-			baseWeapon : "quarterstaff",
-			regExpSearch : /^(?=.*staff)(?=.*power).*$/i,
-			name : "Staff of Power",
-			description : "Versatile (1d8), topple",
-			modifiers : [2, 2],
-			selectNow : true,
-		},
+		weaponsAdd : { select : ["Staff of Power"], options : ["Staff of Power"] },
+		calcChanges: staffOfPowerCalc.calcChanges,
+		addMod : [{ type : "save", field : "all", mod : 2, text : "While holding the Staff of Power, I gain a +2 bonus to all my saving throws." }],
+		extraAC : [{name : "Staff of Power", mod : 2, magic : true, text : "I gain a +2 bonus to AC while attuned."}],
+		action : [["action", " (Retributive Strike)"]],
+		spellcastingAbility : "class",
+		spellFirstColTitle : "Ch",
+		spellcastingBonus : staffOfPowerCalc.spellcastingBonus,
+		spellChanges : staffOfPowerCalc.spellChanges,
+	},
+	"staff of power (fr-dc-pandora-jwei-s2-4/6)" : {
+		name : "Staff of Power (PANDORA-JWEI-S2-4/6)",
+		source : [["AL","FR-DC"]],
+		rarity : "very rare",
+		description : "I can attune to this +2 staff in 1 minute to get +2 to saves, AC and spell attacks. It has 20 charges for spells, 2d8+4 regained at dawn. 5% to become basic +2 staff if use last charge. 5% regain 1d8+2 charges. Magic action to break. 50% I go to random plane or take 16\xD7charges Force. Others in 30-ft take 4\xD7charges (DC 17 Dex to half).",
+		descriptionLong : "I can attune to this +2 staff in 1 minute. While held, I gain a +2 bonus to saves, AC, and spell attacks. The staff has 20 charges, regaining 2d8+4 at dawn. If I use the last charge, roll a d20. On a 1, it converts to a +2 quarterstaff. On a 20, it regains 1d8+2 charges. Charges can be used to cast spells. As Magic action, I can break it for a 30-ft explosion. When I do, there's a 50% chance I teleport to a random plane. If not I take 16\xD7 the charges left in Force damage. All others in area take 4\xD7; DC 17 Dex save halves.",
+		descriptionFull : "This staff has the Harmonious minor property. I can attune to it in 1 minute." + staffPowerDescriptionTxt.unicode,
+		attunement : true,
+		weight : 4,
+		prerequisite : "Requires attunement by a sorcerer, warlock, or wizard",
+		prereqeval : function(v) { return classes.known.sorcerer || classes.known.warlock || classes.known.wizard ? true : false; },
+		limfeaname : "Staff of Power",
+		usages : 20,
+		recovery : "dawn",
+		additional : "regains 2d8+4",
+		weaponsAdd : { select : ["Staff of Power"], options : ["Staff of Power"] },
 		calcChanges: staffOfPowerCalc.calcChanges,
 		addMod : [{ type : "save", field : "all", mod : 2, text : "While holding the Staff of Power, I gain a +2 bonus to all my saving throws." }],
 		extraAC : [{name : "Staff of Power", mod : 2, magic : true, text : "I gain a +2 bonus to AC while attuned."}],
@@ -1418,7 +1429,7 @@ MagicItemsList["al staffs"] = {
 		rarity : "rare",
 		description : "This gnarled +2 meranti staff is longer than a normal walking stick & ends in a knot that fits my palm. I get +2 on saves, AC & spell atks. It has 20 charges for spells, 2d8+4 regained at dawn 5% chance to become normal +2 staff if last charge used. 5% to regain 1d8+2 charges. Magic action to break staff for 30-ft explosion. 50% I go to random plane or take 16\xD7 charges Force. Others take 4\xD7 charges (DC 17 Dex to half).",
 		descriptionLong : "This gnarled +2 meranti staff is slightly longer than a regular walking stick & ends in a knot that fits in the palm of my hand. It works as a +2 quarterstaff and while held, I gain a +2 bonus to saves, AC, and spell attacks. The staff has 20 charges, regaining 2d8+4 at dawn. If I use the last charge, roll a d20. On a 1, it converts to a +2 quarterstaff. On a 20, it regains 1d8+2 charges. Charges can be used to cast spells. As Magic action, I can break it for a 30-ft explosion. When I do, there's a 50% chance I teleport to a random plane. If not I take 16\xD7 the charges left in Force damage. All others in area take 4\xD7 charges; DC 17 Dex save halves the damage.",
-		descriptionFull : "This is a gnarled staff made of meranti. It is slightly longer than a regular walking stick and the top ends in a knot that fits nicely in the palm of one's hand. Whenever you wield the staff, you sense that ancient spirits are watching you. [GFP Item]\n   This staff has 20 charges and can be wielded as a magic Quarterstaff that grants a +2 bonus to attack rolls and damage rolls made with it. While holding it, you gain a +2 bonus to Armor Class, saving throws, and spell attack rolls.\n " + toUni("Spells") + ". While holding the staff, you can cast one of the spells on the following table from it, using your spell save DC. The table indicates how many charges you must expend to cast the spell: Cone of Cold (5 charges), Fireball (5th-level version, 5 charges), Globe of Invulnerability (6 charges), Hold Monster (5 charges), Levitate (2 charges). Lightning Bolt (5th-level version, 5 charges), Magic Missile (1 charge), Ray of Enfeeblement (1 charge), or Wall of Force (5 charges).\n   " + toUni("Regaining Charges") + "The staff regains 2d8 + 4 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff retains its +2 bonus to attack rolls and damage rolls but loses all other properties. On a 20, the staff regains 1d8 + 2 charges.\n   " + toUni("Retributive Strike") + ". You can take a Magic action to break the staff over your knee or against a solid surface. The staff is destroyed and releases its magic in an explosion that fills a 30-foot Emanation originating from itself. You have a 50 percent chance to instantly travel to a random plane of existence, avoiding the explosion. If you fail to avoid the effect, you take Force damage equal to 16 times the number of charges in the staff. Each other creature in the area makes a DC 17 Dexterity saving throw. On a failed save, a creature takes Force damage equal to 4 times the number of charges in the staff. On a successful save, a creature takes half as much damage.",
+		descriptionFull : "This is a gnarled staff made of meranti. It is slightly longer than a regular walking stick and the top ends in a knot that fits nicely in the palm of one's hand. Whenever you wield the staff, you sense that ancient spirits are watching you. [GFP Item]" + staffPowerDescriptionTxt.unicode,
 		attunement : true,
 		weight : 4,
 		prerequisite : "Requires attunement by a sorcerer, warlock, or wizard",
@@ -1427,14 +1438,7 @@ MagicItemsList["al staffs"] = {
 		usages : 20,
 		recovery : "dawn",
 		additional : "regains 2d8+4",
-		weaponOptions : {
-			baseWeapon : "quarterstaff",
-			regExpSearch : /^(?=.*staff)(?=.*power).*$/i,
-			name : "Staff of Power",
-			description : "Versatile (1d8), topple",
-			modifiers : [2, 2],
-			selectNow : true,
-		},
+		weaponsAdd : { select : ["Tongkat Nenek Kebayan, Staff of Power"], options : ["Tongkat Nenek Kebayan, Staff of Power"] },
 		calcChanges: staffOfPowerCalc.calcChanges,
 		addMod : [{ type : "save", field : "all", mod : 2, text : "While holding the Staff of Power, I gain a +2 bonus to all my saving throws." }],
 		extraAC : [{name : "Staff of Power", mod : 2, magic : true, text : "I gain a +2 bonus to AC while attuned."}],
@@ -1450,7 +1454,7 @@ MagicItemsList["al staffs"] = {
 		rarity : "very rare",
 		description : "This ominous +2 staff heightens my urge to act selfish & malevolently. Fraz Urb'loo used it to cause chaos in the domain of Fidestia. The archmage Fa'rah trusts me with the staff; he doesn't want it near his lands. I get +2 to saves, AC & spell atks. It has 20 charges, 2d8+4 regained at dawn. 5% to become +2 staff if use last charge. 5% regain 1d8+2 charges. Magic action to break for 30-ft explosion. 50% to random plane or take 16\xD7 charges Force. Others take 4\xD7 charges (DC 17 Dex to half).",
 		descriptionLong : "This +2 staff heightens my urge to act selfish and malevolent when given the chance. It was held by Fraz Urb'loo when he was causing chaos in the fey domain of Fidestia. The archmage Fa'rah trusts me to bear this ominous weapon as he doesn't want it near his domain. While held, I gain a +2 bonus to saves, AC, and spell attacks. The staff has 20 charges, regaining 2d8+4 at dawn. If I use the last charge, roll a d20. On a 1, it converts to a +2 quarterstaff. On a 20, it regains 1d8+2 charges. Charges can be used to cast spells. As Magic action, I can break it for a 30-ft explosion. When I do, there's a 50% chance I teleport to a random plane. If not I take 16\xD7 the charges left in Force damage. All others in area take 4\xD7; DC 17 Dex save halves.",
-		descriptionFull : "This item was held by fraz urb'loo when he was causing chaos in the fey domain called Fidestia. The archmage Fa'rah trusts you enough to hold on to this ominous weapon as he does not want it near his domain. [GFP Item]\n   " + toUni("Wicked") + ". It heightens my urge to act in selfish or malevolent ways when given the chance.\n   This staff has 20 charges and can be wielded as a magic Quarterstaff that grants a +2 bonus to attack rolls and damage rolls made with it. While holding it, you gain a +2 bonus to Armor Class, saving throws, and spell attack rolls.\n " + toUni("Spells") + ". While holding the staff, you can cast one of the spells on the following table from it, using your spell save DC. The table indicates how many charges you must expend to cast the spell: Cone of Cold (5 charges), Fireball (5th-level version, 5 charges), Globe of Invulnerability (6 charges), Hold Monster (5 charges), Levitate (2 charges). Lightning Bolt (5th-level version, 5 charges), Magic Missile (1 charge), Ray of Enfeeblement (1 charge), or Wall of Force (5 charges).\n   " + toUni("Regaining Charges") + "The staff regains 2d8 + 4 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff retains its +2 bonus to attack rolls and damage rolls but loses all other properties. On a 20, the staff regains 1d8 + 2 charges.\n   " + toUni("Retributive Strike") + ". You can take a Magic action to break the staff over your knee or against a solid surface. The staff is destroyed and releases its magic in an explosion that fills a 30-foot Emanation originating from itself. You have a 50 percent chance to instantly travel to a random plane of existence, avoiding the explosion. If you fail to avoid the effect, you take Force damage equal to 16 times the number of charges in the staff. Each other creature in the area makes a DC 17 Dexterity saving throw. On a failed save, a creature takes Force damage equal to 4 times the number of charges in the staff. On a successful save, a creature takes half as much damage.",
+		descriptionFull : "This item was held by fraz urb'loo when he was causing chaos in the fey domain called Fidestia. The archmage Fa'rah trusts you enough to hold on to this ominous weapon as he does not want it near his domain. [GFP Item]\n   " + toUni("Wicked") + ". It heightens my urge to act in selfish or malevolent ways when given the chance." + staffPowerDescriptionTxt.unicode,
 		attunement : true,
 		weight : 4,
 		prerequisite : "Requires attunement by a sorcerer, warlock, or wizard",
@@ -1459,14 +1463,7 @@ MagicItemsList["al staffs"] = {
 		usages : 20,
 		recovery : "dawn",
 		additional : "regains 2d8+4",
-		weaponOptions : {
-			baseWeapon : "quarterstaff",
-			regExpSearch : /^(?=.*staff)(?=.*power).*$/i,
-			name : "Staff of Power",
-			description : "Versatile (1d8), topple",
-			modifiers : [2, 2],
-			selectNow : true,
-		},
+		weaponsAdd : { select : ["Oblivia, Staff of Power"], options : ["Oblivia, Staff of Power"] },
 		calcChanges: staffOfPowerCalc.calcChanges,
 		addMod : [{ type : "save", field : "all", mod : 2, text : "While holding the Staff of Power, I gain a +2 bonus to all my saving throws." }],
 		extraAC : [{name : "Staff of Power", mod : 2, magic : true, text : "I gain a +2 bonus to AC while attuned."}],
@@ -1804,23 +1801,13 @@ MagicItemsList["al staffs"] = {
 		rarity : "very rare",
 		description : "This +2 aspen staff shines brightly in direct light. It's almost perfectly smooth & topped with a crown of silver lightning bolts cradling a gleaming sapphire. It has 5 options, each 1/dawn. On a hit, Lightning: +2d6 Lightning; Thunder: DC 17 Con or Stunned to my next turn end; Thunder & Lightning: bonus action for both. Magic Action, Lightning Strike: 5\xD7120 ft line, DC 17 Dex, 9d6 Lightning or 1/2; Thunderclap: all in 60ft, 2d6 Thunder & Deaf (1 min), DC 17 Con for 1/2 dmg only.",
 		descriptionLong : "This +2 aspen staff shines brightly in direct light. It's almost perfectly smooth & topped with a crown of silver lightning bolts cradling a gleaming sapphire. It has 5 special options, each 1 per dawn. On a hit: Lightning for +2d6 Lightning; Thunder for DC 17 Con or Stunned to my next turn end; Thunder & Lightning - use bonus action for both. Magic Action: Lightning Strike - 5\xD7120ft line, DC 17 Dex, 9d6 Lightning or 1/2 on save; Thunderclap - all in 60ft, 2d6 Thunder & Deaf (1 min), DC 17 Con for 1/2 dmg only.",
-		descriptionFull : "This aspen staff shines brightly in direct light. The staff is almost perfectly smooth with a crown of silver lightning bolts atop it which cradle a gleaming sapphire.\n    This staff can be wielded as a magic Quarterstaff that grants a +2 bonus to attack rolls and damage rolls made with it. It also has the following additional properties. Once one of these properties is used, it can't be used again until the next dawn.\n    " + toUni("Lightning") + ". When you hit with a melee attack using the staff, you can cause the target to take an extra 2d6 Lightning damage (no action required).\n    " + toUni("Thunder") + ". When you hit with a melee attack using the staff, you can cause the staff to emit a crack of thunder, audible out to 300 feet (no action required). The target you hit must succeed on a DC 17 Constitution saving throw or have the Stunned condition until the end of your next turn.\n    " + toUni("Lightning Strike") + ". You can take a Magic action to cause a bolt of lightning to leap from the staff's tip in a Line that is 5 feet wide and 120 feet long. Each creature in that Line must make a DC 17 Dexterity saving throw, taking 9d6 Lightning damage on a failed save, or half as much damage on a successful one.\n    " + toUni("Thunderclap") + ". You can take a Magic action to cause the staff to produce a thunderclap audible out to 600 feet. Every creature a within 60-foot Emanation origination from you must make a DC 17 Constitution saving throw. On a failed save, a creature takes 2d6 Thunder damage and has the Deafened condition for 1 minute. On a successful save, a creature takes half damage and isn't deafened.\n    " + toUni("Thunder and Lightning") + ". Thunder and Lightning. Immediately after you hit with a melee attack using the staff, you can take a Bonus Action to use the Lightning and Thunder properties (see above) at the same time. Doing so doesn't expend the daily use of those properties, only the use of this one.",
+		descriptionFull : "This aspen staff shines brightly in direct light. The staff is almost perfectly smooth with a crown of silver lightning bolts atop it which cradle a gleaming sapphire." + staffTLDescriptionTxt.unicode,
 		attunement : true,
 		weight : 4,
 		action: [["action", "Staff of T\u0026L: Lightning Strike, Thunderclap"], ["bonus action", "Staff of T\u0026L: Thunder \u0026 Lighting"]],
-		weaponOptions : {
-			baseWeapon : "quarterstaff",
-			regExpSearch : /^(?=.*staff)(?=.*thunder)(?=.*lightning).*$/i,
-			name : "Staff of Thunder and Lightning",
-			description : "Versatile (1d8), topple; Lightning: 1/dawn, +2d6 Lightning; Thunder: 1/dawn DC 17 Con or 1 rnd Stunned",
-			modifiers : [2, 2],
-			selectNow : true,
-		},
-		extraLimitedFeatures : [{
-			name : "Staff of T\u0026L [5 options, 1 use each]",
-			usages : 5,
-			recovery : "dawn"
-		}],
+		weaponsAdd : { select : ["Staff of Thunder and Lightning"], options : ["Staff of Thunder and Lightning"] },
+		calcChanges: staffThunderLightning.calcChanges,
+		extraLimitedFeatures : staffThunderLightning.extraLimitedFeatures,
 	},
 	"staff of thunder and lightning (ddep5-2)" : {
 		name : "Staff of Thunder and Lightning (DDEP5-2)",
@@ -1828,24 +1815,14 @@ MagicItemsList["al staffs"] = {
 		rarity : "very rare",
 		description : "This giant-sized +2 staff is shaped like a bolt of lightning, and automatically resizes to my hands. It has 5 options, each 1 per dawn. On a hit, Lightning: +2d6 Lightning dmg; Thunder: DC 17 Con or Stunned to my next turn end; Thunder & Lightning: bonus action for both effects. Magic Action, Lightning Strike: 5\xD7120 ft line, DC 17 Dex, 9d6 Lightning or 1/2; Thunderclap: all in 60ft, 2d6 Thunder and Deaf (1 min), DC 17 Con for 1/2 dmg only.",
 		descriptionLong : "This giant-sized +2 staff is shaped like a bolt of lightning, and automatically resizes to fit my hands. It has 5 special options, each 1 per dawn. On a hit: Lightning for +2d6 Lightning; Thunder for DC 17 Con or Stunned to my next turn end; Thunder & Lightning - use bonus action for both. Magic Action: Lightning Strike - 5\xD7120ft line, DC 17 Dex, 9d6 Lightning or 1/2 on save; Thunderclap - all in 60ft, 2d6 Thunder and Deaf (1 min), DC 17 Con for 1/2 dmg only.",
-		descriptionFull : "This giant-sized quarterstaff is shaped like a bolt of lightning, and automatically resizes to fit the hands of its wielder.\n    This staff can be wielded as a magic Quarterstaff that grants a +2 bonus to attack rolls and damage rolls made with it. It also has the following additional properties. Once one of these properties is used, it can't be used again until the next dawn.\n    " + toUni("Lightning") + ". When you hit with a melee attack using the staff, you can cause the target to take an extra 2d6 Lightning damage (no action required).\n    " + toUni("Thunder") + ". When you hit with a melee attack using the staff, you can cause the staff to emit a crack of thunder, audible out to 300 feet (no action required). The target you hit must succeed on a DC 17 Constitution saving throw or have the Stunned condition until the end of your next turn.\n    " + toUni("Lightning Strike") + ". You can take a Magic action to cause a bolt of lightning to leap from the staff's tip in a Line that is 5 feet wide and 120 feet long. Each creature in that Line must make a DC 17 Dexterity saving throw, taking 9d6 Lightning damage on a failed save, or half as much damage on a successful one.\n    " + toUni("Thunderclap") + ". You can take a Magic action to cause the staff to produce a thunderclap audible out to 600 feet. Every creature a within 60-foot Emanation origination from you must make a DC 17 Constitution saving throw. On a failed save, a creature takes 2d6 Thunder damage and has the Deafened condition for 1 minute. On a successful save, a creature takes half damage and isn't deafened.\n    " + toUni("Thunder and Lightning") + ". Thunder and Lightning. Immediately after you hit with a melee attack using the staff, you can take a Bonus Action to use the Lightning and Thunder properties (see above) at the same time. Doing so doesn't expend the daily use of those properties, only the use of this one.",
+		descriptionFull : "This giant-sized quarterstaff is shaped like a bolt of lightning, and automatically resizes to fit the hands of its wielder." + staffTLDescriptionTxt.unicode,
 		attunement : true,
 		allowDuplicates : true,
 		weight : 4,
 		action: [["action", "Staff of T\u0026L: Lightning Strike, Thunderclap"], ["bonus action", "Staff of T\u0026L: Thunder \u0026 Lighting"]],
-		weaponOptions : {
-			baseWeapon : "quarterstaff",
-			regExpSearch : /^(?=.*staff)(?=.*thunder)(?=.*lightning).*$/i,
-			name : "Staff of Thunder and Lightning",
-			description : "Versatile (1d8), topple; Lightning: 1/dawn, +2d6 Lightning; Thunder: 1/dawn DC 17 Con or 1 rnd Stunned",
-			modifiers : [2, 2],
-			selectNow : true,
-		},
-		extraLimitedFeatures : [{
-			name : "Staff of T\u0026L [5 options, 1 use each]",
-			usages : 5,
-			recovery : "dawn"
-		}],
+		weaponsAdd : { select : ["Staff of Thunder and Lightning"], options : ["Staff of Thunder and Lightning"] },
+		calcChanges: staffThunderLightning.calcChanges,
+		extraLimitedFeatures : staffThunderLightning.extraLimitedFeatures,
 	},
 	"staff of thunder and lightning (ps-dc-pkl-16)" : {
 		name : "Staff of Thunder and Lightning (PS-DC-PKL-16)",
@@ -1853,24 +1830,29 @@ MagicItemsList["al staffs"] = {
 		rarity : "very rare",
 		description : "In the presence of Despayr, this +2 quarterstaff bears the word \"Foe\" in Draconic. It has 5 options, each 1 per dawn. On a hit, Lightning: +2d6 Lightning dmg; Thunder: DC 17 Con or Stunned until my next turn ends; Thunder & Lightning: bonus action for both effects. Magic Action, Lightning Strike: 5\xD7120 ft line, DC 17 Dex, 9d6 Lightning or 1/2 dmg; Thunderclap: all in 60ft, 2d6 Thunder dmg and Deafened (1 min), DC 17 Con for 1/2 dmg only.",
 		descriptionLong : "This +2 quarterstaff has 5 special options, each usable 1 per dawn. On a hit: Lightning for +2d6 Lightning dmg; Thunder for DC 17 Con or Stunned till my next turn ends; Thunder & Lightning - use bonus action for both. Magic Action: Lightning Strike - 5\xD7120ft line, DC 17 Dex, 9d6 Lightning or 1/2 on save; Thunderclap - all in 60ft, 2d6 Thunder and Deaf (1 min), DC 17 Con for 1/2 dmg only. In the presence of Despayr, the staff has the word \"Foe\" in Draconic.",
-		descriptionFull : "This staff can be wielded as a magic Quarterstaff that grants a +2 bonus to attack rolls and damage rolls made with it. It also has the following additional properties. Once one of these properties is used, it can't be used again until the next dawn.\n    " + toUni("Lightning") + ". When you hit with a melee attack using the staff, you can cause the target to take an extra 2d6 Lightning damage (no action required).\n    " + toUni("Thunder") + ". When you hit with a melee attack using the staff, you can cause the staff to emit a crack of thunder, audible out to 300 feet (no action required). The target you hit must succeed on a DC 17 Constitution saving throw or have the Stunned condition until the end of your next turn.\n    " + toUni("Lightning Strike") + ". You can take a Magic action to cause a bolt of lightning to leap from the staff's tip in a Line that is 5 feet wide and 120 feet long. Each creature in that Line must make a DC 17 Dexterity saving throw, taking 9d6 Lightning damage on a failed save, or half as much damage on a successful one.\n    " + toUni("Thunderclap") + ". You can take a Magic action to cause the staff to produce a thunderclap audible out to 600 feet. Every creature a within 60-foot Emanation origination from you must make a DC 17 Constitution saving throw. On a failed save, a creature takes 2d6 Thunder damage and has the Deafened condition for 1 minute. On a successful save, a creature takes half damage and isn't deafened.\n    " + toUni("Thunder and Lightning") + ". Thunder and Lightning. Immediately after you hit with a melee attack using the staff, you can take a Bonus Action to use the Lightning and Thunder properties (see above) at the same time. Doing so doesn't expend the daily use of those properties, only the use of this one.\n   " + toUni("Hidden Message") + ".  In the presence of Despayr, the staff bears the word, “Foe” in draconic.",
+		descriptionFull : "In the presence of Despayr, this staff bears the word, “Foe” in draconic." + staffTLDescriptionTxt.unicode,
 		attunement : true,
 		allowDuplicates : true,
 		weight : 4,
 		action: [["action", "Staff of T\u0026L: Lightning Strike, Thunderclap"], ["bonus action", "Staff of T\u0026L: Thunder \u0026 Lighting"]],
-		weaponOptions : {
-			baseWeapon : "quarterstaff",
-			regExpSearch : /^(?=.*staff)(?=.*thunder)(?=.*lightning).*$/i,
-			name : "Staff of Thunder and Lightning",
-			description : "Versatile (1d8), topple; Lightning: 1/dawn, +2d6 Lightning; Thunder: 1/dawn DC 17 Con or 1 rnd Stunned",
-			modifiers : [2, 2],
-			selectNow : true,
-		},
-		extraLimitedFeatures : [{
-			name : "Staff of T\u0026L [5 options, 1 use each]",
-			usages : 5,
-			recovery : "dawn"
-		}],
+		weaponsAdd : { select : ["Staff of Thunder and Lightning"], options : ["Staff of Thunder and Lightning"] },
+		calcChanges: staffThunderLightning.calcChanges,
+		extraLimitedFeatures : staffThunderLightning.extraLimitedFeatures,
+	},
+	"staff of thunder and lightning: morwen's crone (ps-dc-sb-bish1)" : {
+		name : "Morwen's Crone Staff of Thunder & Lightning",
+		source : [["AL","PS-DC"]],
+		rarity : "very rare",
+		description : "This gnarled +2 staff of black wood is just over 5 ft, top 3rd with clawlike branches twisted in perpetual agony. Between the limbs, brilliant blue & white lightning writhes.. The wood is warm & hums faintly, like a distant thunderstorm. 5 options. On hit, L: +2d6 Lightning; T: DC 17 Con or Stunned to my next turn end; T & L: bonus action for both. Magic Action, LS: 5\xD7120 ft line, DC 17 Dex, 9d6 Lightning or 1/2; TC: all in 60ft, 2d6 Thunder & Deaf (1 min), DC 17 Con for 1/2 dmg only. With Magic action, my voice carries for 600 ft until my next turn ends.",
+		descriptionLong : "This gnarled staff of obsidian wood stands just over 5 ft tall, its upper 3rd splitting into clawlike branches twisted in perpetual agony. Between the limbs, brilliant blue and white lightning writhes and lashes like trapped spirits. The wood is warm to the touch and hums faintly, like a distant thunderstorm just beyond hearing. Occasionally, voices, fragmented and whispering, echo from the lightning if one listens too long. This +2 quarterstaff has 5 special options, each usable 1 per dawn. On a hit: Lightning for +2d6 Lightning dmg; Thunder for DC 17 Con or Stunned till my next turn ends; Thunder & Lightning - use bonus action for both. Magic Action: Lightning Strike - 5\xD7120ft line, DC 17 Dex, 9d6 Lightning or 1/2 on save; Thunderclap - all in 60ft, 2d6 Thunder and Deaf (1 min), DC 17 Con for 1/2 dmg only. With a Magic action, my voice carries for up to 600 ft until my next turn ends.",
+		descriptionFull : "This gnarled staff of obsidian-black wood stands just over five feet tall, its upper third splitting into clawlike branches twisted in perpetual agony. Between the limbs, veins of brilliant blue and white lightning writhe and lash like trapped spirits. The wood is warm to the touch and hums faintly, like a distant thunderstorm just beyond hearing. Occasionally, voices—fragmented and whispering—echo from the lightning if one listens too long.\n   " + toUni("War Leader") + ". You can take a Magic action to cause your voice or signal to carry clearly for up to 600 feet until the end of your next turn.\n   The staff once belonged to Morwen Bishop, the crone-matriarch of the Bishop Coven, before her descent into the death-swamps of Melas. Legend claims she crafted it from the heartwood of a Hangman’s Tree struck by lightning during the Night of Weeping Moons—a storm said to have been conjured by her own grief and rage. Into its core, she bound three souls of drowned diviners to grant her glimpses of fate, and the storm’s fury to strike down those who would deny her vision.\n   Though cracked and weathered by time, the staff pulses with a stubborn, necrotic vitality. Its lightning is not clean or divine—it’s twisted by sorrow and fueled by the pain of prophecy." + staffTLDescriptionTxt.unicode,
+		attunement : true,
+		allowDuplicates : true,
+		weight : 4,
+		action: [["action", "Staff of T\u0026L: Lightning Strike/Thunderclap/600ft Voice"], ["bonus action", "Staff of T\u0026L: Thunder \u0026 Lighting"]],
+		weaponsAdd : { select : ["Staff of Thunder and Lightning"], options : ["Staff of Thunder and Lightning"] },
+		calcChanges: staffThunderLightning.calcChanges,
+		extraLimitedFeatures : staffThunderLightning.extraLimitedFeatures,
 	},
 	"staff of withering (ddex2-13)" : {
 		name : "Staff of Withering (DDEX2-13)",
@@ -1885,13 +1867,8 @@ MagicItemsList["al staffs"] = {
 		usages : 3,
 		recovery : "dawn",
 		additional : "regains 1d3",
-		weaponOptions : {
-			baseWeapon : "quarterstaff",
-			regExpSearch : /^(?=.*staff)(?=.*withering).*$/i,
-			name : "Staff of Withering",
-			description : "Versatile (1d8), topple; 1 charge: +2d10 Necrotic & DC 15 Con or disadv 1 hr (Str/Con chks/saves)",
-			selectNow : true,
-			},
+		weaponsAdd : { select : ["Staff of Withering"], options : ["Staff of Withering"] },
+		calcChanges: staffWitheringCalc.calcChanges,
 		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on Initiative rolls." }
 		},
 	"staff of withering (ddal8-13)" : {
@@ -1907,13 +1884,8 @@ MagicItemsList["al staffs"] = {
 		usages : 3,
 		recovery : "dawn",
 		additional : "regains 1d3",
-		weaponOptions : {
-			baseWeapon : "quarterstaff",
-			regExpSearch : /^(?=.*staff)(?=.*withering).*$/i,
-			name : "Staff of Withering",
-			description : "Versatile (1d8), topple; 1 charge: +2d10 Necrotic & DC 15 Con or disadv 1 hr (Str/Con chks/saves)",
-			selectNow : true,
-			},
+		weaponsAdd : { select : ["Staff of Withering"], options : ["Staff of Withering"] },
+		calcChanges: staffWitheringCalc.calcChanges,
 		},
 	"staff of withering: the inoculum (sj-dc-ven-2)" : {
 		name : "The Inoculum, Staff of Withering (VEN-2)",
@@ -1929,13 +1901,8 @@ MagicItemsList["al staffs"] = {
 		usages : 3,
 		recovery : "dawn",
 		additional : "regains 1d3",
-		weaponOptions : {
-			baseWeapon : "quarterstaff",
-			regExpSearch : /^(?=.*staff)(?=.*withering).*$/i,
-			name : "Staff of Withering",
-			description : "Versatile (1d8), topple; 1 charge: +2d10 Necrotic & DC 15 Con or disadv 1 hr (Str/Con chks/saves)",
-			selectNow : true,
-			},
+		weaponsAdd : { select : ["Staff of Withering"], options : ["Staff of Withering"] },
+		calcChanges: staffWitheringCalc.calcChanges,
 		},
 	"staff of withering: positive prognosis (sj-dc-ven-2)" : {
 		name : "Positive Prognosis, Staff of Withering (VEN-2)",
@@ -1950,13 +1917,8 @@ MagicItemsList["al staffs"] = {
 		usages : 3,
 		recovery : "dawn",
 		additional : "regains 1d3",
-		weaponOptions : {
-			baseWeapon : "quarterstaff",
-			regExpSearch : /^(?=.*staff)(?=.*withering).*$/i,
-			name : "Staff of Withering",
-			description : "Versatile (1d8), topple; 1 charge: +2d10 Necrotic & DC 15 Con or disadv 1 hr (Str/Con chks/saves)",
-			selectNow : true,
-			},
+		weaponsAdd : { select : ["Staff of Withering"], options : ["Staff of Withering"] },
+		calcChanges: staffWitheringCalc.calcChanges,
 		},
 	"staff of the woodlands (ccc-bmg-moon12-1)" : {
 		name : "Staff of the Woodlands (BMG-MOON12-1)",
@@ -1964,7 +1926,7 @@ MagicItemsList["al staffs"] = {
 		rarity : "rare",
 		description : "This +2 staff adds +2 to spell atks. It's made from entwined snake-like branches, 1 brown and 1 bright green. Tiny leafed branches sprout from the top: half red & gold, half spring green. With each use, the autumn leaves fall to sprout fresh green bark and new leaves, and the spring side turns to autumn colors. The staff has 6 charges for spells, regaining 1d6 at dawn; 5% chance of losing magic if last charge used. As Magic action, plant into the earth and use 1 charge to grow it into a 60 ft tree. Repeat action to revert.",
 		descriptionLong : "Two entwined snake-like branches comprise this +2 staff. One is brown and the other is bright green. The top sprouts tiny leafed branches: one side has red and gold autumn leaves and the other spring green. When used, the autumn leaves fall, sprouting new green leaves and fresh bark, while the green side turns brown and its leaves gain autumn colors. I gain +2 to spell attack rolls. The staff has 6 charges, regaining 1d6 at dawn. If last charge used, 5% chance to turn nonmagical. I can use charges to cast spells with my DC: Animal Friendship (1), Awaken (5), Barkskin (2), Locate Animals or Plants (2), Pass Without Trace (2), Speak with Animals (1), Speak with Plants (3), or Wall of Thorns (6). I can also use 1 charge as Magic action to plant the staff in earth & turn it into a 60 ft tree. It has a 5-ft diameter trunk & a 20-ft radius of branches at the top. Repeat action while touching the tree to return it to a staff.",
-		descriptionFull : "Two snake-like branches entwined together comprise the stalk of the staff. One is brown and the other is bright green. The top of the staff sprouts tiny limbs with equally tiny leaves, one side has red and gold autumn leaves and the other spring green. With each power that is used, the autumn leaves fall and begin to sprout new green leaves and fresh green bark, while the green side turns brown and its green leaves turn to autumn colors.\n   This staff has 6 charges and can be wielded as a magic Quarterstaff that grants a +2 bonus to attack rolls and damage rolls made with it. While holding it, you have a +2 bonus to spell attack rolls.\n   " + toUni("Spells") + ". Using your spell save DC, you can to expend 1 or more of the staff's charges to cast one of the following spells from it: Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Pass Without Trace (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges).\n " + toUni("Tree Form") + ". You can take a Magic action to plant one end of the staff in earth in an unoccupied space and expend 1 charge to transform the staff into a healthy tree. The tree is 60 feet tall and has a 5-foot-diameter trunk, and its branches at the top spread out in a 20-foot radius. The tree appears ordinary but radiates a faint aura of Transmutation magic that can be discerned with the Detect Magic spell. While touching the tree and using a Magic action, you return the staff to its normal form. Any creature in the tree falls when the tree reverts to a staff.\n   " + toUni("Regaining Charges") + ". The staff regains 1d6 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff loses its properties and becomes a nonmagical Quarterstaff.",
+		descriptionFull : "Two snake-like branches entwined together comprise the stalk of the staff. One is brown and the other is bright green. The top of the staff sprouts tiny limbs with equally tiny leaves, one side has red and gold autumn leaves and the other spring green. With each power that is used, the autumn leaves fall and begin to sprout new green leaves and fresh green bark, while the green side turns brown and its green leaves turn to autumn colors." + staffWoodlandsDescriptionTxt.unicode,
 		attunement : true,
 		weight : 4,
 		prerequisite : "Requires attunement by a druid",
@@ -1974,13 +1936,7 @@ MagicItemsList["al staffs"] = {
 		usages : 6,
 		recovery : "dawn",
 		additional : "regains 1d6",
-		weaponOptions : {
-			baseWeapon : "quarterstaff",
-			regExpSearch : /^(?=.*staff)(?=.*woodlands).*$/i,
-			name : "Staff of the Woodlands",
-			modifiers : [2, 2],
-			selectNow : true,
-		},
+		weaponsAdd : { select : ["Staff of the Woodlands"], options : ["Staff of the Woodlands"] },
 		calcChanges: staffOfWoodlands.calcChanges,
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
@@ -1992,7 +1948,7 @@ MagicItemsList["al staffs"] = {
 		rarity : "rare",
 		description : "This +2 staff adds +2 to spell atks & is made from unblemished maple wood topped with three small white flowers in bloom. The staff has 6 charges for spells (see sheet), regaining 1d6 at dawn; 5% chance of losing magic when last charge used. As Magic action, plant it into the earth & use 1 charge to grow it into a 60 ft tree. Repeat action to revert.",
 		descriptionLong : "This +2 staff adds +2 to spell attack rolls. It's made from unblemished maple wood topped with three small white flowers in bloom & has 6 charges, regaining 1d6 at dawn. If the last charge is used, roll a d20. On a 1 it turns nonmagical. I can use charges to cast spells with my DC: Animal Friendship (1), Awaken (5), Barkskin (2), Locate Animals or Plants (2), Pass Without Trace (2), Speak with Animals (1), Speak with Plants (3), or Wall of Thorns (6). I can also use 1 charge as Magic action to plant the staff in earth & turn it into a 60 ft tree. It has a 5-ft diameter trunk & a 20-ft radius of branches at the top. Repeat action while touching the tree to return it to a staff.",
-		descriptionFull : "This staff is made from unblemished maple wood topped with three small white flowers in bloom. The staff can be wielded as a magic quarterstaff that grants a +2 bonus to attack and damage rolls made with it. While holding it, you have a +2 bonus to spell attack rolls.\n   The staff has 10 charges for the following properties. It regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff loses its properties and becomes a nonmagical quarterstaff.\n   " + toUni("Spells") + ". You can use an action to expend 1 or more of the staff's charges to cast one of the following spells from it, using your spell save DC: Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges).\n   You can also use an action to cast the Pass Without Trace spell from the staff without using any charges.\n   " + toUni("Tree Form") + ". You can use an action to plant one end of the staff in fertile earth and expend 1 charge to transform the staff into a healthy tree. The tree is 60 feet tall and has a 5-foot-diameter trunk, and its branches at the top spread out in a 20-foot radius. The tree appears ordinary but radiates a faint aura of transmutation magic if targeted by Detect Magic. While touching the tree and using another action to speak its command word, you return the staff to its normal form. Any creature in the tree falls when it reverts to a staff.",
+		descriptionFull : "This staff is made from unblemished maple wood topped with three small white flowers in bloom." + staffWoodlandsDescriptionTxt.unicode,
 		attunement : true,
 		weight : 4,
 		prerequisite : "Requires attunement by a druid",
@@ -2002,13 +1958,7 @@ MagicItemsList["al staffs"] = {
 		usages : 6,
 		recovery : "dawn",
 		additional : "regains 1d6",
-		weaponOptions : {
-			baseWeapon : "quarterstaff",
-			regExpSearch : /^(?=.*staff)(?=.*woodlands).*$/i,
-			name : "Staff of the Woodlands",
-			modifiers : [2, 2],
-			selectNow : true,
-		},
+		weaponsAdd : { select : ["Staff of the Woodlands"], options : ["Staff of the Woodlands"] },
 		calcChanges: staffOfWoodlands.calcChanges,
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
@@ -2020,7 +1970,7 @@ MagicItemsList["al staffs"] = {
 		rarity : "rare",
 		description : "This +2 staff adds +2 to spell atks. It's been trimmed into a small version of a Chultan jungle tree. There's a diorama of a village in the upper branches with tiny string bridges connecting tiny straw houses. It has 6 charges for spells, 1d6 regained at dawn; 5% it loses magic if last charge used. As Magic action, plant it into the earth & use 1 charge to grow it into a 60 ft tree. Repeat action to revert.",
 		descriptionLong : "This +2 staff adds +2 to spell attacks. It's been meticulously trimmed so it appears to be a smaller version of the immense jungle trees in Chult. There's even a small diorama of a tiny village in the upper reaches of the staff's branches — complete with tiny, string bridges connecting tiny, straw houses. It has 6 charges, regaining 1d6 at dawn. If the last charge is used, roll a d20. On a 1 it turns nonmagical. I can use charges to cast spells with my DC: Animal Friendship (1), Awaken (5), Barkskin (2), Locate Animals or Plants (2), Pass Without Trace (2), Speak with Animals (1), Speak with Plants (3), or Wall of Thorns (6). I can also use 1 charge as Magic action to plant the staff in earth & turn it into a 60 ft tree. It has a 5-ft diameter trunk & a 20-ft radius of branches at the top. Repeat action while touching the tree to return it to a staff.",
-		descriptionFull : "This item has been meticulously trimmed and tended to in such a way that it appears to be a smaller version of one of the immense jungle trees in Chult. The staff's creator even went so far as to create a small diorama of what looks like a tiny village in the upper reaches of the staff's branches—complete with tiny, string bridges connecting tiny, straw houses. This staff can be wielded as a magic quarterstaff that grants a +2 bonus to attack and damage rolls made with it. While holding it, you have a +2 bonus to spell attack rolls.\n   The staff has 10 charges for the following properties. It regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff loses its properties and becomes a nonmagical quarterstaff.\n   " + toUni("Spells") + ". You can use an action to expend 1 or more of the staff's charges to cast one of the following spells from it, using your spell save DC: Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges).\n   You can also use an action to cast the Pass Without Trace spell from the staff without using any charges.\n   " + toUni("Tree Form") + ". You can use an action to plant one end of the staff in fertile earth and expend 1 charge to transform the staff into a healthy tree. The tree is 60 feet tall and has a 5-foot-diameter trunk, and its branches at the top spread out in a 20-foot radius. The tree appears ordinary but radiates a faint aura of transmutation magic if targeted by Detect Magic. While touching the tree and using another action to speak its command word, you return the staff to its normal form. Any creature in the tree falls when it reverts to a staff.",
+		descriptionFull : "This item has been meticulously trimmed and tended to in such a way that it appears to be a smaller version of one of the immense jungle trees in Chult. The staff's creator even went so far as to create a small diorama of what looks like a tiny village in the upper reaches of the staff's branches—complete with tiny, string bridges connecting tiny, straw houses." + staffWoodlandsDescriptionTxt.unicode,
 		attunement : true,
 		weight : 4,
 		prerequisite : "Requires attunement by a druid",
@@ -2030,13 +1980,7 @@ MagicItemsList["al staffs"] = {
 		usages : 6,
 		recovery : "dawn",
 		additional : "regains 1d6",
-		weaponOptions : {
-			baseWeapon : "quarterstaff",
-			regExpSearch : /^(?=.*staff)(?=.*woodlands).*$/i,
-			name : "Staff of the Woodlands",
-			modifiers : [2, 2],
-			selectNow : true,
-		},
+		weaponsAdd : { select : ["Staff of the Woodlands"], options : ["Staff of the Woodlands"] },
 		calcChanges: staffOfWoodlands.calcChanges,
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
@@ -2048,7 +1992,7 @@ MagicItemsList["al staffs"] = {
 		rarity : "rare",
 		description : "Made from a garden plant by Alindaya as a symbol of gratitude, this +2 staff adds +2 to spell atks. The fireflies that guided me through Andelein illuminate it. As a bonus action, they shed 10-ft bright light & 10-ft more dim, or stop. I can't get lost in Andelein as the fireflies guide me. The staff has 6 charges for spells, regaining 1d6 at dawn; 5% chance of losing magic if last charge used. As Magic action, plant into the earth & use 1 charge to grow it into a 60 ft tree. Repeat action to revert.",
 		descriptionLong : "This +2 staff adds +2 to spell attack rolls. Alindaya created it from a garden plant as a symbol of gratitude for my heroic deeds. The fireflies that guided me through the Domain of Andelein illuminate this staff & can be called to guide me again. As a bonus action, I can make the staff shed bright light in a 10-ft radius & dim light for another 10 ft, or extinguish it. I can't get lost in Andelein as the fireflies will guide me wherever I wish to go. The staff has 6 charges, regaining 1d6 at dawn. If the last charge is used, roll a d20. On a 1 it turns nonmagical. I can use charges to cast spells using my DC: Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Pass Without Trace (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges). I can also use 1 charge & Magic action to plant the staff in earth & turn it into a 60 ft tree. It has a 5-ft-diameter trunk & a 20-ft radius of branches at the top. Repeat action while touching the tree to return it to a staff.",
-		descriptionFull : "This staff was created by Alindaya from one of the plants in their garden as a symbol of gratitude for your heroic deeds. The same fireflies that guided you through parts of the Domain of Andelein, and back home, illuminate this staff, and can be called to guide you once again. The wielder of this staff cannot get lost in Andelein as the fireflies will guide them to wherever they wish to go in that domain.\n   In addition, this staff has the Beacon minor property: You can take a Bonus Action to cause the item to shed Bright Light in a 10-foot radius and Dim Light for an additional 10 feet, or to extinguish the light.\n   This staff can be wielded as a magic quarterstaff that grants a +2 bonus to attack and damage rolls made with it. While holding it, you have a +2 bonus to spell attack rolls.\n   The staff has 10 charges for the following properties. It regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff loses its properties and becomes a nonmagical quarterstaff.\n   " + toUni("Spells") + ". You can use an action to expend 1 or more of the staff's charges to cast one of the following spells from it, using your spell save DC: Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges).\n   You can also use an action to cast the Pass Without Trace spell from the staff without using any charges.\n   " + toUni("Tree Form") + ". You can use an action to plant one end of the staff in fertile earth and expend 1 charge to transform the staff into a healthy tree. The tree is 60 feet tall and has a 5-foot-diameter trunk, and its branches at the top spread out in a 20-foot radius. The tree appears ordinary but radiates a faint aura of transmutation magic if targeted by Detect Magic. While touching the tree and using another action to speak its command word, you return the staff to its normal form. Any creature in the tree falls when it reverts to a staff.",
+		descriptionFull : "This staff was created by Alindaya from one of the plants in their garden as a symbol of gratitude for your heroic deeds. The same fireflies that guided you through parts of the Domain of Andelein, and back home, illuminate this staff, and can be called to guide you once again. The wielder of this staff cannot get lost in Andelein as the fireflies will guide them to wherever they wish to go in that domain.\n   In addition, this staff has the Beacon minor property: You can take a Bonus Action to cause the item to shed Bright Light in a 10-foot radius and Dim Light for an additional 10 feet, or to extinguish the light." + staffWoodlandsDescriptionTxt.unicode,
 		attunement : true,
 		weight : 4,
 		prerequisite : "Requires attunement by a druid",
@@ -2058,13 +2002,7 @@ MagicItemsList["al staffs"] = {
 		usages : 6,
 		recovery : "dawn",
 		additional : "regains 1d6",
-		weaponOptions : {
-			baseWeapon : "quarterstaff",
-			regExpSearch : /^(?=.*staff)(?=.*woodlands).*$/i,
-			name : "Staff of the Woodlands",
-			modifiers : [2, 2],
-			selectNow : true,
-		},
+		weaponsAdd : { select : ["Liwanag, Staff of the Woodlands"], options : ["Liwanag, Staff of the Woodlands"] },
 		calcChanges: staffOfWoodlands.calcChanges,
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
@@ -2076,7 +2014,7 @@ MagicItemsList["al staffs"] = {
 		rarity : "rare",
 		description : "This braid of bone ends in antlers growing from a nest of oak leaves \u0026 acorns. It's warm & smells of rich earth. (If I fought the Childe) The staff was infused with Turanok's love for his daughter, now gone after she used it against him. A shadow of its former self, it has a sliver of power. I'm unharmed by temps past 0\u00B0F \u0026 100\u00B0F. The +2 staff adds +2 to spell atks. It has 6 charges for spells, 1d6 regained at dawn; 5% chance of losing magic if last charge used. As Magic action, plant into earth & use 1 charge to make it a 60 ft tree. Repeat action to revert.",
 		descriptionLong : "This braid of bone ends with antlers emerging from a nest of oak leaves & acorns. It's warm to the touch & smells of rich earth. (If I fought the Childe) The staff was infused with the searing glow of Turanok's love for his daughter, now gone after she wielded it against him. A shadow of its former self, the staff still holds a sliver of nature's power.  I'm unharmed by extreme temps past 0\u00B0F \u0026 100\u00B0F. The +2 staff adds +2 to spell attack rolls. It has 6 charges, regaining 1d6 at dawn. If the last charge is used, 5% chance to turn nonmagical. Use charges to cast spells with my DC: Animal Friendship (1), Awaken (5), Barkskin (2), Locate Animals or Plants (2), Pass Without Trace (2), Speak with Animals (1), Speak with Plants (3), or Wall of Thorns (6). Spend 1 charge as Magic action to plant the staff in earth & turn it into a 60 ft tree. It has a 5-ft diameter trunk & 20-ft radius of branches. Repeat action while touching tree to revert.",
-		descriptionFull : "This staff is a braid of bone that ends with antlers emerging from a nest of oak leaves and acorns. It feels warm to the touch, and it smells of the rich earth of Lohringar. If the characters fought the Childe, add the following: This staff was once infused with the searing glow of Turanok's love for his daughter, now gone after she wielded it against him. Though it is now a shadow of its former self, the staff still holds a sliver of nature's power.\n   The staff feels warm to the touch, or cool, depending on the weather, as if it regulates the temperature around you. This staff has the temperate minor property from page 148 of the Dungeon Master's Guide. You are unharmed by temperatures of 0 degrees Fahrenheit or lower, and 100 degrees Fahrenheit or higher.\n   This staff can be wielded as a magic quarterstaff that grants a +2 bonus to attack and damage rolls made with it. While holding it, you have a +2 bonus to spell attack rolls.\n   The staff has 10 charges for the following properties. It regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff loses its properties and becomes a nonmagical quarterstaff.\n   " + toUni("Spells") + ". You can use an action to expend 1 or more of the staff's charges to cast one of the following spells from it, using your spell save DC: Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges).\n   You can also use an action to cast the Pass Without Trace spell from the staff without using any charges.\n   " + toUni("Tree Form") + ". You can use an action to plant one end of the staff in fertile earth and expend 1 charge to transform the staff into a healthy tree. The tree is 60 feet tall and has a 5-foot-diameter trunk, and its branches at the top spread out in a 20-foot radius. The tree appears ordinary but radiates a faint aura of transmutation magic if targeted by Detect Magic. While touching the tree and using another action to speak its command word, you return the staff to its normal form. Any creature in the tree falls when it reverts to a staff.",
+		descriptionFull : "This staff is a braid of bone that ends with antlers emerging from a nest of oak leaves and acorns. It feels warm to the touch, and it smells of the rich earth of Lohringar. If the characters fought the Childe, add the following: This staff was once infused with the searing glow of Turanok's love for his daughter, now gone after she wielded it against him. Though it is now a shadow of its former self, the staff still holds a sliver of nature's power.\n   The staff feels warm to the touch, or cool, depending on the weather, as if it regulates the temperature around you. This staff has the temperate minor property from page 148 of the Dungeon Master's Guide. You are unharmed by temperatures of 0 degrees Fahrenheit or lower, and 100 degrees Fahrenheit or higher." + staffWoodlandsDescriptionTxt.unicode,
 		attunement : true,
 		savetxt : { immune : ["temps past 0\u00B0F/100\u00B0F"] },
 		weight : 4,
@@ -2087,13 +2025,7 @@ MagicItemsList["al staffs"] = {
 		usages : 6,
 		recovery : "dawn",
 		additional : "regains 1d6",
-		weaponOptions : {
-			baseWeapon : "quarterstaff",
-			regExpSearch : /^(?=.*temperate)(?=.*staff)(?=.*woodlands).*$/i,
-			name : "Temperate Staff of the Woodlands",
-			modifiers : [2, 2],
-			selectNow : true,
-		},
+		weaponsAdd : { select : ["Temperate Staff of the Woodlands"], options : ["Temperate Staff of the Woodlands"] },
 		calcChanges: staffOfWoodlands.calcChanges,
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
@@ -2105,7 +2037,7 @@ MagicItemsList["al staffs"] = {
 		rarity : "rare",
 		description : "This staff, once gnarled and sickly, now sprouts bioluminescent flowers. As a bonus action, the flowers glow a beautiful blue that sheds 10-ft bright light and 10-ft more dim, or stop. The +2 staff adds +2 to spell attack rolls and has 6 charges for spells, regaining 1d6 at dawn; 5% chance of losing magic if last charge used. As Magic action, plant it into the earth and use 1 charge to grow it into a 60 ft tree. Repeat action while touching tree to revert.",
 		descriptionLong : "This staff, once gnarled and sickly, now sprouts with flowers after being dipped in the poison cure. The flowers are bioluminescent and can be made to glow with a beautiful blue light as a bonus action. When glowing, it sheds 10 ft bright light and 10 ft more dim. The +2 staff adds +2 to spell attack rolls and has 6 charges, regaining 1d6 at dawn. If the last charge is used, roll a d20. On a 1 it turns nonmagical. I can use charges to cast spells with my DC: Animal Friendship (1), Awaken (5), Barkskin (2), Locate Animals or Plants (2), Pass Without Trace (2), Speak with Animals (1), Speak with Plants (3), or Wall of Thorns (6). I can also spend 1 charge as a Magic action to plant the staff into the earth and turn it into a 60 ft tree. It has a 5-ft diameter trunk and a 20-ft radius of branches. Repeat action while touching tree to revert.",
-		descriptionFull : "This staff, once gnarled and sickly, now sprouts with flowers and growth after having been dipped in the poison cure. The flowers are bioluminescent and can be made to glow with a beautiful blue light.\n   " + toUni("Beacon") + ". You can take a Bonus Action to cause the item to shed Bright Light in a 10-foot radius and Dim Light for an additional 10 feet, or to extinguish the light.\n   This staff can be wielded as a magic quarterstaff that grants a +2 bonus to attack and damage rolls made with it. While holding it, you have a +2 bonus to spell attack rolls.\n   The staff has 10 charges for the following properties. It regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff loses its properties and becomes a nonmagical quarterstaff.\n   " + toUni("Spells") + ". You can use an action to expend 1 or more of the staff's charges to cast one of the following spells from it, using your spell save DC: Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges).\n   You can also use an action to cast the Pass Without Trace spell from the staff without using any charges.\n   " + toUni("Tree Form") + ". You can use an action to plant one end of the staff in fertile earth and expend 1 charge to transform the staff into a healthy tree. The tree is 60 feet tall and has a 5-foot-diameter trunk, and its branches at the top spread out in a 20-foot radius. The tree appears ordinary but radiates a faint aura of transmutation magic if targeted by Detect Magic. While touching the tree and using another action to speak its command word, you return the staff to its normal form. Any creature in the tree falls when it reverts to a staff.",
+		descriptionFull : "This staff, once gnarled and sickly, now sprouts with flowers and growth after having been dipped in the poison cure. The flowers are bioluminescent and can be made to glow with a beautiful blue light.\n   " + toUni("Beacon") + ". You can take a Bonus Action to cause the item to shed Bright Light in a 10-foot radius and Dim Light for an additional 10 feet, or to extinguish the light." + staffWoodlandsDescriptionTxt.unicode,
 		attunement : true,
 		weight : 4,
 		prerequisite : "Requires attunement by a druid",
@@ -2115,13 +2047,7 @@ MagicItemsList["al staffs"] = {
 		usages : 6,
 		recovery : "dawn",
 		additional : "regains 1d6",
-		weaponOptions : {
-			baseWeapon : "quarterstaff",
-			regExpSearch : /^(?=.*staff)(?=.*woodlands).*$/i,
-			name : "Staff of the Woodlands",
-			modifiers : [2, 2],
-			selectNow : true,
-		},
+		weaponsAdd : { select : ["Staff of the Woodlands"], options : ["Staff of the Woodlands"] },
 		calcChanges: staffOfWoodlands.calcChanges,
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
@@ -2133,7 +2059,7 @@ MagicItemsList["al staffs"] = {
 		rarity : "rare",
 		description : "This +2 staff adds +2 to spell atks and gives +2 to initiative unless I'm Incapacitated. Crafted by the Lady of The Lake herself from the oldest tree in Monster Timberland and imbued by the power of the forest, it's given to those who pass the Trial of Flower. The staff has 6 charges for spells, regaining 1d6 at dawn; 5% chance of losing magic when last charge used. As Magic action, plant it into the earth and use 1 charge to grow it into a 60 ft tree. Repeat action to revert.",
 		descriptionLong : "Crafted by the Lady of The Lake for those who passed the Trial of Flower, this staff is made from a branch of the oldest tree in Monster Timberland & imbued by the power of the forest. The +2 staff adds +2 to spell attack rolls & warns me, granting +2 initiative unless I'm Incapacitated. It has 6 charges, regaining 1d6 at dawn. If the last charge is used, 5% chance to turn nonmagical. I can use charges to cast spells with my DC: Animal Friendship (1), Awaken (5), Barkskin (2), Locate Animals or Plants (2), Pass Without Trace (2), Speak with Animals (1), Speak with Plants (3), or Wall of Thorns (6). I can also spend 1 charge as a Magic action to plant the staff into the earth & turn it into a 60 ft tree. It has a 5-ft diameter trunk & a 20-ft radius of branches at the top. Repeat action while touching the tree to revert.",
-		descriptionFull : "Crafted by the Lady of The Lake itself, this staff is made from the branch of the oldest tree in Monster Timberland and imbued by the power of the forest itself. Instruct by the Lady to the Guardian to hand the staff to those who passed the Trial of Flower.\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition.\n   This staff can be wielded as a magic quarterstaff that grants a +2 bonus to attack and damage rolls made with it. While holding it, you have a +2 bonus to spell attack rolls.\n   The staff has 10 charges for the following properties. It regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff loses its properties and becomes a nonmagical quarterstaff.\n   " + toUni("Spells") + ". You can use an action to expend 1 or more of the staff's charges to cast one of the following spells from it, using your spell save DC: Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges).\n   You can also use an action to cast the Pass Without Trace spell from the staff without using any charges.\n   " + toUni("Tree Form") + ". You can use an action to plant one end of the staff in fertile earth and expend 1 charge to transform the staff into a healthy tree. The tree is 60 feet tall and has a 5-foot-diameter trunk, and its branches at the top spread out in a 20-foot radius. The tree appears ordinary but radiates a faint aura of transmutation magic if targeted by Detect Magic. While touching the tree and using another action to speak its command word, you return the staff to its normal form. Any creature in the tree falls when it reverts to a staff.",
+		descriptionFull : "Crafted by the Lady of The Lake itself, this staff is made from the branch of the oldest tree in Monster Timberland and imbued by the power of the forest itself. Instruct by the Lady to the Guardian to hand the staff to those who passed the Trial of Flower.\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition." + staffWoodlandsDescriptionTxt.unicode,
 		attunement : true,
 		weight : 4,
 		prerequisite : "Requires attunement by a druid",
@@ -2144,13 +2070,7 @@ MagicItemsList["al staffs"] = {
 		usages : 6,
 		recovery : "dawn",
 		additional : "regains 1d6",
-		weaponOptions : {
-			baseWeapon : "quarterstaff",
-			regExpSearch : /^(?=.*staff)(?=.*guardian)(?=.*woodlands).*$/i,
-			name : "Guardian Staff of the Woodlands",
-			modifiers : [2, 2],
-			selectNow : true,
-		},
+		weaponsAdd : { select : ["Staff of the Woodlands"], options : ["Staff of the Woodlands"] },
 		calcChanges: staffOfWoodlands.calcChanges,
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
@@ -2172,7 +2092,7 @@ MagicItemsList["al staffs"] = {
 		"\n    \t \tThree For a Funeral, Four for Birth."+
 		"\n    \t \tFive for Heaven, Six for Hell."+
 		"\n    \t \tSeven for the Devil, His Own Self.”"+
-		"\n \n   The staff has the song craft minor property. Whenever this item is struck or is used to strike a foe, its bearer hears a fragment of an ancient song about birds. It can be wielded as a magic quarterstaff that grants a +2 bonus to attack and damage rolls made with it. While holding it, you also have a +2 bonus to spell attack rolls.\n   The staff has 10 charges for the following properties. It regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff loses its properties and becomes a nonmagical quarterstaff.\n   " + toUni("Spells") + ". You can use an action to expend 1 or more of the staff's charges to cast one of the following spells from it, using your spell save DC: Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges).\n   You can also use an action to cast the Pass Without Trace spell from the staff without using any charges.\n   " + toUni("Tree Form") + ". You can use an action to plant one end of the staff in fertile earth and expend 1 charge to transform the staff into a healthy tree. The tree is 60 feet tall and has a 5-foot-diameter trunk, and its branches at the top spread out in a 20-foot radius. The tree appears ordinary but radiates a faint aura of transmutation magic if targeted by Detect Magic. While touching the tree and using another action to speak its command word, you return the staff to its normal form. Any creature in the tree falls when it reverts to a staff.",
+		"\n \n   The staff has the song craft minor property. Whenever this item is struck or is used to strike a foe, its bearer hears a fragment of an ancient song about birds." + staffWoodlandsDescriptionTxt.unicode,
 		attunement : true,
 		weight : 4,
 		prerequisite : "Requires attunement by a druid",
@@ -2182,13 +2102,7 @@ MagicItemsList["al staffs"] = {
 		usages : 6,
 		recovery : "dawn",
 		additional : "regains 1d6",
-		weaponOptions : {
-			baseWeapon : "quarterstaff",
-			regExpSearch : /^(?=.*staff)(?=.*woodlands).*$/i,
-			name : "Staff of the Woodlands",
-			modifiers : [2, 2],
-			selectNow : true,
-		},
+		weaponsAdd : { select : ["Staff of the Woodlands"], options : ["Staff of the Woodlands"] },
 		calcChanges: staffOfWoodlands.calcChanges,
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
@@ -2200,7 +2114,7 @@ MagicItemsList["al staffs"] = {
 		rarity : "rare",
 		description : "This +2 oak staff adds +2 to spell atks and has a bouquet of golden lilies at its top. I can change the color of the lilies as an action, which lasts until dawn. The staff has 6 charges for spells, regaining 1d6 at dawn; 5% chance of losing magic if last charge used (1 on d20). As Magic action, plant the staff into the earth and use 1 charge to grow it into a 60 ft tree. Repeat action to revert. The tree has golden leaves and emits a pleasant floral scent.",
 		descriptionLong : "This +2 staff adds +2 to spell atks and is made of oak. At its top is a bouquet of golden lilies. I can change the color of the lilies as an action, which lasts to dawn. The staff has 6 charges, 1d6 regained at dawn. If the last charge is used, 5% chance it turns nonmagical. I can use charges to cast spells with my DC: Animal Friendship (1), Awaken (5), Barkskin (2), Locate Animals or Plants (2), Pass Without Trace (2), Speak with Animals (1), Speak with Plants (3), or Wall of Thorns (6). I can also use 1 charge and Magic action to plant the staff in earth and turn it into a 60 ft tree. It has a 5-ft-diameter trunk and a 20-ft radius of branches at the top. Repeat action while touching the tree to return it to a staff. In its tree form, the leaves are golden and emits a pleasant, floral scent.",
-		descriptionFull : "This staff is made of oak and on its top lies a bouquet of golden lilies. You can use an action to change the color of the lilies, but it reverts back to its original color at dawn. In its tree form, the leaves are golden and emits a pleasant, floral scent.\n   " + toUni("Language") + ". The bearer can speak and understand Sylvan while the item is on the bearer's person.\n   It can be wielded as a magic quarterstaff that grants a +2 bonus to attack and damage rolls made with it. While holding it, you also have a +2 bonus to spell attack rolls.\n   The staff has 10 charges for the following properties. It regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff loses its properties and becomes a nonmagical quarterstaff.\n   " + toUni("Spells") + ". You can use an action to expend 1 or more of the staff's charges to cast one of the following spells from it, using your spell save DC: Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges).\n   You can also use an action to cast the Pass Without Trace spell from the staff without using any charges.\n   " + toUni("Tree Form") + ". You can use an action to plant one end of the staff in fertile earth and expend 1 charge to transform the staff into a healthy tree. The tree is 60 feet tall and has a 5-foot-diameter trunk, and its branches at the top spread out in a 20-foot radius. The tree appears ordinary but radiates a faint aura of transmutation magic if targeted by Detect Magic. While touching the tree and using another action to speak its command word, you return the staff to its normal form. Any creature in the tree falls when it reverts to a staff.",
+		descriptionFull : "This staff is made of oak and on its top lies a bouquet of golden lilies. You can use an action to change the color of the lilies, but it reverts back to its original color at dawn. In its tree form, the leaves are golden and emits a pleasant, floral scent.\n   " + toUni("Language") + ". The bearer can speak and understand Sylvan while the item is on the bearer's person." + staffWoodlandsDescriptionTxt.unicode,
 		attunement : true,
 		weight : 4,
 		prerequisite : "Requires attunement by a druid",
@@ -2211,13 +2125,7 @@ MagicItemsList["al staffs"] = {
 		usages : 6,
 		recovery : "dawn",
 		additional : "regains 1d6",
-		weaponOptions : {
-			baseWeapon : "quarterstaff",
-			regExpSearch : /^(?=.*staff)(?=.*woodlands).*$/i,
-			name : "Staff of the Woodlands",
-			modifiers : [2, 2],
-			selectNow : true,
-		},
+		weaponsAdd : { select : ["Staff of the Woodlands"], options : ["Staff of the Woodlands"] },
 		calcChanges: staffOfWoodlands.calcChanges,
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
@@ -2229,7 +2137,7 @@ MagicItemsList["al staffs"] = {
 		rarity : "rare",
 		description : "This +2 white wood staff adds +2 to spell atks & once belonged to Valmoira Hopeblossom. It was loaned to the ruler of Cnocglen, who vowed to keep it safe until her return. The staff is carved with images of rare animals & plants, & unlocks employee doors in the Rookery. The staff has 6 charges for spells, regaining 1d6 at dawn; 5% chance of losing magic if last charge used. As Magic action, plant it into the earth & use 1 charge to grow it into a 60 ft tree. Repeat action to revert.",
 		descriptionLong : "This +2 white wood staff adds +2 to spell atks. It once belonged to Valmoira Hopeblossom & was loaned to the ruler of Cnocglen, who vowed to keep it safe until her return. The staff is carved top to bottom with images of rare animals & plants, & unlocks employee doors in the Rookery, including the Visitor's Center, the Observatory & the Engineworx. The staff has 6 charges, 1d6 regained at dawn. If the last charge is used, 5% chance it turns nonmagical. I can use charges to cast spells with my DC: Animal Friendship (1), Awaken (5), Barkskin (2), Locate Animals or Plants (2), Pass Without Trace (2), Speak with Animals (1), Speak with Plants (3), or Wall of Thorns (6). I can also use 1 charge & Magic action to plant the staff in earth & turn it into a 60 ft tree. It has a 5-ft-diameter trunk & a 20-ft radius of branches at the top. Repeat action while touching the tree to return it to a staff.",
-		descriptionFull : "This white wood staff once belonged to Valmoira Hopeblossom herself. It was loaned to the ruler of Cnocglen, who vowed to keep it safe until her return. It is carved, top to bottom, with images of rare animals and plants.\n   " + toUni("Key") + ". This staff unlocks employee doors within the Rookery. This includes original doors in the Visitor's Center, the Observatory, and within the Engineworx, far below the surface.\n   It can be wielded as a magic quarterstaff that grants a +2 bonus to attack and damage rolls made with it. While holding it, you also have a +2 bonus to spell attack rolls.\n   The staff has 10 charges for the following properties. It regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff loses its properties and becomes a nonmagical quarterstaff.\n   " + toUni("Spells") + ". You can use an action to expend 1 or more of the staff's charges to cast one of the following spells from it, using your spell save DC: Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges).\n   You can also use an action to cast the Pass Without Trace spell from the staff without using any charges.\n   " + toUni("Tree Form") + ". You can use an action to plant one end of the staff in fertile earth and expend 1 charge to transform the staff into a healthy tree. The tree is 60 feet tall and has a 5-foot-diameter trunk, and its branches at the top spread out in a 20-foot radius. The tree appears ordinary but radiates a faint aura of transmutation magic if targeted by Detect Magic. While touching the tree and using another action to speak its command word, you return the staff to its normal form. Any creature in the tree falls when it reverts to a staff.",
+		descriptionFull : "This white wood staff once belonged to Valmoira Hopeblossom herself. It was loaned to the ruler of Cnocglen, who vowed to keep it safe until her return. It is carved, top to bottom, with images of rare animals and plants.\n   " + toUni("Key") + ". This staff unlocks employee doors within the Rookery. This includes original doors in the Visitor's Center, the Observatory, and within the Engineworx, far below the surface." + staffWoodlandsDescriptionTxt.unicode,
 		attunement : true,
 		weight : 4,
 		prerequisite : "Requires attunement by a druid",
@@ -2239,13 +2147,7 @@ MagicItemsList["al staffs"] = {
 		usages : 6,
 		recovery : "dawn",
 		additional : "regains 1d6",
-		weaponOptions : {
-			baseWeapon : "quarterstaff",
-			regExpSearch : /^(?=.*hope|s)(?=.*emissary)(?=.*staff)(?=.*woodlands).*$/i,
-			name : "Hope's Emissary, Staff of the Woodlands",
-			modifiers : [2, 2],
-			selectNow : true,
-		},
+		weaponsAdd : { select : ["Hope's Emissary, Staff of the Woodlands"], options : ["Hope's Emissary, Staff of the Woodlands"] },
 		calcChanges: staffOfWoodlands.calcChanges,
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
@@ -2257,23 +2159,17 @@ MagicItemsList["al staffs"] = {
 		rarity : "rare",
 		description : "This +2 staff also adds +2 to spell atks & lets me use a Magic action to learn which way is north. The staff has 6 charges for spells (see sheet), regaining 1d6 at dawn; 5% chance of losing magic when last charge used. As Magic action, plant it into the earth & use 1 charge to grow it into a 60 ft tree. Repeat action to revert.",
 		descriptionLong : "This +2 staff adds +2 to spell attack rolls & I can use a Magic action to learn which way is north. It has 6 charges, regaining 1d6 at dawn. If the last charge is used, roll a d20. On a 1 it turns nonmagical. I can use charges to cast spells using my DC: Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Pass Without Trace (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges). I can also use 1 charge & Magic action to plant the staff in earth & turn it into a 60 ft tree. It has a 5-ft-diameter trunk & a 20-ft radius of branches at the top. Repeat action while touching the tree to return it to a staff.",
-		descriptionFull : "This staff can be wielded as a magic quarterstaff that grants a +2 bonus to attack and damage rolls made with it. While holding it, you have a +2 bonus to spell attack rolls.\n   The staff has 10 charges for the following properties. It regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff loses its properties and becomes a nonmagical quarterstaff.\n   " + toUni("Spells") + ". You can use an action to expend 1 or more of the staff's charges to cast one of the following spells from it, using your spell save DC: Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges).\n   You can also use an action to cast the Pass Without Trace spell from the staff without using any charges.\n   " + toUni("Tree Form") + ". You can use an action to plant one end of the staff in fertile earth and expend 1 charge to transform the staff into a healthy tree. The tree is 60 feet tall and has a 5-foot-diameter trunk, and its branches at the top spread out in a 20-foot radius. The tree appears ordinary but radiates a faint aura of transmutation magic if targeted by Detect Magic. While touching the tree and using another action to speak its command word, you return the staff to its normal form. Any creature in the tree falls when it reverts to a staff.\n   " + toUni("Compass") + ". You can take a Magic action to learn which way is magnetic north. Nothing happens if this property is used in a location that has no magnetic north.",
+		descriptionFull : "" + toUni("Compass") + ". You can take a Magic action to learn which way is magnetic north. Nothing happens if this property is used in a location that has no magnetic north." + staffWoodlandsDescriptionTxt.unicode,
 		attunement : true,
 		weight : 4,
 		prerequisite : "Requires attunement by a druid",
 		prereqeval : function(v) { return classes.known.druid ? true : false; },
 		limfeaname : "Staff of the Woodlands",
-		action : [["action", " (grow/revert)"],["action", " (Find North)"]],
+		action : [["action", " (grow/revert)"],["action", " (find north)"]],
 		usages : 6,
 		recovery : "dawn",
 		additional : "regains 1d6",
-		weaponOptions : {
-			baseWeapon : "quarterstaff",
-			regExpSearch : /^(?=.*staff)(?=.*sunlit)(?=.*woodlands).*$/i,
-			name : "Staff of the Sunlit Woodlands",
-			modifiers : [2, 2],
-			selectNow : true,
-		},
+		weaponsAdd : { select : ["Staff of the Woodlands"], options : ["Staff of the Woodlands"] },
 		calcChanges: staffOfWoodlands.calcChanges,
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
@@ -2285,7 +2181,7 @@ MagicItemsList["al staffs"] = {
 		rarity : "rare",
 		description : "This +2 staff adds +2 to spell atk rolls & while underground, I always know my depth & the direction to the nearest upward path. The staff has 6 charges for spells (see sheet), regaining 1d6 at dawn; 5% chance of losing magic when last charge used. As Magic action, plant it into the earth & use 1 charge to grow it into a 60 ft tree. Repeat action to revert.",
 		descriptionLong : "This +2 staff adds +2 to spell attack rolls & while underground, I always knows my depth below the surface and the direction to the nearest staircase, ramp, or other path leading upward. The staff has 6 charges, regaining 1d6 at dawn. If the last charge is used, roll a d20. On a 1 it turns nonmagical. I can use charges to cast spells with my DC: Animal Friendship (1), Awaken (5), Barkskin (2), Locate Animals or Plants (2), Pass Without Trace (2), Speak with Animals (1), Speak with Plants (3), or Wall of Thorns (6). I can also use 1 charge & Magic action to plant the staff in earth & turn it into a 60 ft tree. It has a 5-ft-diameter trunk & a 20-ft radius of branches at the top. Repeat action while touching the tree to return it to a staff.",
-		descriptionFull : "This staff can be wielded as a magic quarterstaff that grants a +2 bonus to attack and damage rolls made with it. While holding it, you have a +2 bonus to spell attack rolls.\n   " + toUni("Delver") + ". While underground, you always know the item's depth below the surface and the direction to the nearest staircase, ramp, or other path leading upward.\n   The staff has 10 charges for the following properties. It regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff loses its properties and becomes a nonmagical quarterstaff.\n   " + toUni("Spells") + ". You can use an action to expend 1 or more of the staff's charges to cast one of the following spells from it, using your spell save DC: Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges).\n   You can also use an action to cast the Pass Without Trace spell from the staff without using any charges.\n   " + toUni("Tree Form") + ". You can use an action to plant one end of the staff in fertile earth and expend 1 charge to transform the staff into a healthy tree. The tree is 60 feet tall and has a 5-foot-diameter trunk, and its branches at the top spread out in a 20-foot radius. The tree appears ordinary but radiates a faint aura of transmutation magic if targeted by Detect Magic. While touching the tree and using another action to speak its command word, you return the staff to its normal form. Any creature in the tree falls when it reverts to a staff.",
+		descriptionFull : "This staff can be wielded as a magic quarterstaff that grants a +2 bonus to attack and damage rolls made with it. While holding it, you have a +2 bonus to spell attack rolls.\n   " + toUni("Delver") + ". While underground, you always know the item's depth below the surface and the direction to the nearest staircase, ramp, or other path leading upward." + staffWoodlandsDescriptionTxt.unicode,
 		attunement : true,
 		weight : 4,
 		prerequisite : "Requires attunement by a druid",
@@ -2295,13 +2191,7 @@ MagicItemsList["al staffs"] = {
 		usages : 6,
 		recovery : "dawn",
 		additional : "regains 1d6",
-		weaponOptions : {
-			baseWeapon : "quarterstaff",
-			regExpSearch : /^(?=.*staff)(?=.*delver)(?=.*woodlands).*$/i,
-			name : "Delver's Staff of the Woodlands",
-			modifiers : [2, 2],
-			selectNow : true,
-		},
+		weaponsAdd : { select : ["Staff of the Woodlands"], options : ["Staff of the Woodlands"] },
 		calcChanges: staffOfWoodlands.calcChanges,
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
@@ -2313,7 +2203,7 @@ MagicItemsList["al staffs"] = {
 		rarity : "rare",
 		description : "This +2 staff is shaped & weaved from the scales of an amethyst dragon and encrusted with sea gemstones. It adds +2 to spell atks & +2 initiative unless I'm Incapacitated. The staff has 6 charges for spells, regaining 1d6 at dawn; 5% chance of losing magic when last charge used. As Magic action, plant it into the earth & use 1 charge to grow it into a 60 ft tree. Repeat action to revert.",
 		descriptionLong : "This +2 staff is shaped & weaved from the scales of an amethyst dragon & encrusted with sea gemstones. It adds +2 to spell attack rolls & warns me, granting +2 to initiative unless I'm Incapacitated. It has 6 charges, regaining 1d6 at dawn. If the last charge is used, roll a d20. On a 1 it turns nonmagical. I can use charges to cast spells with my DC: Animal Friendship (1), Awaken (5), Barkskin (2), Locate Animals or Plants (2), Pass Without Trace (2), Speak with Animals (1), Speak with Plants (3), or Wall of Thorns (6). I can also use 1 charge & Magic action to plant the staff in earth & turn it into a 60 ft tree. It has a 5-ft-diameter trunk & a 20-ft radius of branches at the top. Repeat action while touching the tree to return it to a staff.",
-		descriptionFull : "A staff shaped and weaved from the scales of an amethyst dragon and encrusted with sea gemstones.\n   " + toUni("Guardian") + ". The item roars a warnings to its bearer, granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition.\n   This staff can be wielded as a magic quarterstaff that grants a +2 bonus to attack and damage rolls made with it. While holding it, you have a +2 bonus to spell attack rolls.\n   The staff has 10 charges for the following properties. It regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff loses its properties and becomes a nonmagical quarterstaff.\n   " + toUni("Spells") + ". You can use an action to expend 1 or more of the staff's charges to cast one of the following spells from it, using your spell save DC: Animal Friendship (1 charge), Awaken (5 charges), Barkskin (2 charges), Locate Animals or Plants (2 charges), Speak with Animals (1 charge), Speak with Plants (3 charges), or Wall of Thorns (6 charges).\n   You can also use an action to cast the Pass Without Trace spell from the staff without using any charges.\n   " + toUni("Tree Form") + ". You can use an action to plant one end of the staff in fertile earth and expend 1 charge to transform the staff into a healthy tree. The tree is 60 feet tall and has a 5-foot-diameter trunk, and its branches at the top spread out in a 20-foot radius. The tree appears ordinary but radiates a faint aura of transmutation magic if targeted by Detect Magic. While touching the tree and using another action to speak its command word, you return the staff to its normal form. Any creature in the tree falls when it reverts to a staff.",
+		descriptionFull : "A staff shaped and weaved from the scales of an amethyst dragon and encrusted with sea gemstones.\n   " + toUni("Guardian") + ". The item roars a warnings to its bearer, granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition.\n   This staff can be wielded as a magic quarterstaff that grants a +2 bonus to attack and damage rolls made with it. While holding it, you have a +2 bonus to spell attack rolls." + staffWoodlandsDescriptionTxt.unicode,
 		attunement : true,
 		weight : 4,
 		prerequisite : "Requires attunement by a druid",
@@ -2324,13 +2214,7 @@ MagicItemsList["al staffs"] = {
 		usages : 6,
 		recovery : "dawn",
 		additional : "regains 1d6",
-		weaponOptions : {
-			baseWeapon : "quarterstaff",
-			regExpSearch : /^(?=.*dragon|s)(?=.*seed)(?=.*staff)(?=.*woodlands).*$/i,
-			name : "Dragon's Seed, Staff of the Woodlands",
-			modifiers : [2, 2],
-			selectNow : true,
-		},
+		weaponsAdd : { select : ["Dragon's Seed, Staff of the Woodlands"], options : ["Dragon's Seed, Staff of the Woodlands"] },
 		calcChanges: staffOfWoodlands.calcChanges,
 		spellcastingAbility : "class",
 		spellFirstColTitle : "Ch",
@@ -2344,7 +2228,7 @@ MagicItemsList["al swords"] = {
 		allowDuplicates : true,
 		choicesNotInMenu : true,
 		magicItemTable : "?",
-	choices : ["Adamantine Shortsword (FR-DC-UCON24)","Ascendant Amethyst Dragon's Wrath Longsword: The First Sword (PO-BK-3-11)","Crystal Rapier (BMG-DRW-OD-5)","Crystal Rapier (PO-BK-4-1)","Dancing Longsword: Antgaladion (WBW-DC-AA-ASHALON-1)","Dancing Rapier: Angel's Sting (CCC-GHC-BK1-10)","Dancing Rapier: Raptor (CCC-LINKS-2)","Defender Greatsword: Deathshield (DDAL9-20)","Dragon Slayer: Wyrmripper (DDEP5-1)","Flame Tongue Longsword (BMG-MOON-MD-6)","Flame Tongue Longsword: Velahr'kerym (DDAL0-2D)","Flame Tongue Longsword (DDAL-DRW13)","Flame Tongue Shortsword: Flare (CCC-WYC-1-2)","Frost Brand Greatsword (SJ-DC-NOS-4)","Frost Brand Greatsword: Immolator's Domain (SJ-DC-TBS-2)","Frost Brand Greatsword: Duty (SJ-DC-TRIDEN-TFC)","Frost Brand Greatsword: Quintessence's Edge (SJ-DC-WINE-1)","Frost Brand Longsword: Blade of Aaqa (SJ-DC-AUG-9)","Frost Brand Rapier: Bitter Wrath (DDAL7-9)","Frost Brand Rapier: Familiar's (SJ-DC-ZODIAC-14-3)","Frost Brand Scimitar (DDEP5-2)","Frost Brand Scimitar (SJ-DC-TEL-12)","Frost Brand Shortsword: Frostbite Cryo Katana (SJ-DC-DD-11)","Giant Slayer Greatsword (DDEP5-2)","Greatsword of Sharpness: Desolation (DDAL8-14)","Greatsword of Warning: Ever Vigilant (CCC-BMG-MOON3-3)","Greatsword of Wounding (DDEX2-15)","Longsword of Vengeance (CCC-BMG-MOON15-2)","Longsword of Vengeance (CCC-GARY-8)","Longsword of Vengeance (CCC-HATMS1-2)","Longsword of Vengeance (CCC-MACE1-3)","Moon-Touched Greatsword (DDAL-DRW17)","Moon-Touched Longsword (BMG-DRW-OD-1)","Moon-Touched Longsword (CCC-GHC-BK1-1)","Moon-Touched Longsword (CCC-TAROT2-6)","Moon-Touched Longsword (DDAL0-11D)","Moon-Touched Rapier (CCC-GAD2-1)","Moon-Touched Rapier (CCC-SAC-4)","Moon-Touched Rapier (CCC-UNITE-5)","Moon-Touched Rapier (FR-DC-Saerloon-3)","Moon-Touched Rapier: Pointy End (FR-DC-THAY-2)","Moon-Touched Scimitar (FR-DC-DUNG-1)","Moon-Touched Scimitar (FR-DC-GHG-4)","Moon-Touched Scimitar (FR-DC-PHP-PEST-1)","Moon-Touched Scimitar: Moonmaiden's Blade (FR-DC-STRAT-DRAGON-1)","Moon-Touched Shortsword (BMG-MOON-MD-6)","Moon-Touched Shortsword (DC-POA-CONMAR-9)","Moon-Touched Shortsword (DC-POA-DES-5B)","Moon-Touched Shortsword (DC-POA-GSP2-3H)","Moon-Touched Shortsword: Fang (DC-POA-GSP3-2)","Moon-Touched Shortsword (DC-POA-JCDC-1)","Moon-Touched Shortsword (DC-POA-MCWWS-2)","Moon-Touched Shortsword: Tsukuyomi (DC-POA-TDG1-3)","Moon-Touched Shortsword: Blade of the Black Tortoise (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: Green Dragon Gladius (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: Red Phoenix Falchion (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: White Tiger Tulwar (DC-POA-VAN-MT-1)","Moon-Touched Shortsword (FR-DC-DIGM-1-2)","Moon-Touched Shortsword: Platinum Fang (FR-DC-DMJA-1)","Moon-Touched Shortsword (FR-DC-UCON24)","Moon-Touched Sword (CCC-BMG-MOON6-2)","Moon-Touched Sword (CCC-BMG-MOON10-2)","Nine Lives Stealer Longsword: Love's Bite (DDAL7-11)","Nine Lives Stealer Scimitar (CCC-QCC2018-1)","Rapier of Life Stealing (CCC-PDXAGE-2-1)","Scimitar of Life Stealing: Night Cutter (CCC-RCC-1-4)","Scimitar of Life Stealing: Krakenfang (PO-BK-3-7)","Scimitar of Speed (SJ-DC-AMOT-3)","Scimitar of Speed: Deceiver (SJ-DC-DFA-3)","Scimitar of Speed: Radiance's Glare (SJ-DC-PHP-LRD-1)","Scimitar of Speed: Spirit's Edge (SJ-DC-TBS-1)","Scimitar of Speed (SJ-DC-TRIDEN-MYKE-2)","Scimitar of Speed: Beam (SJ-DC-VMT-1)","Scimitar of Speed: Manthor “Vow of the Forest” (WBW-DC-ANDL-3)","Scimitar of Speed: Bregrist (WBW-DC-TREY-1)","Scimitar of Speed: Dread Cutlass (SJ-DC-DWR-3)","Scimitar of Warning: Miir (CCC-BWM-4-1)","Steel: Amdraig (BMG-MOON-MD-9)","Sun Blade: The Seventh Sword (CCC-6SWORDS-1)","Sun Blade: Dawnfire (CCC-STORM-1)","Sun Blade (CCC-WYC-2-2)","Sun Blade: Starshard (RMH-12)","Sun Blade: Scintilmorn (WDotMM)","Sword of Vengeance (CCC-SAF2-2)","Sword of Wounding (DDAL-CGB)","Vicious Longsword (CCC-HATMS2-1)","Vicious Rapier: Hag's Clawblade (AL:SA-11A)","Vorpal Scimitar (DDAL7-16)","Vorpal Scimitar: Abi Teos's Machete (RMH-9/RMH-10)","Wakened White Dragon's Wrath Greatsword (BMG-MOON-MD-12)"],
+	choices : ["Adamantine Shortsword (FR-DC-UCON24)","Ascendant Amethyst Dragon's Wrath Longsword: The First Sword (PO-BK-3-11)","Crystal Rapier (BMG-DRW-OD-5)","Crystal Rapier (PO-BK-4-1)","Dancing Greatsword (PS-DC-PANDORA-JWEI-S2-5)","Dancing Longsword: Antgaladion (WBW-DC-AA-ASHALON-1)","Dancing Rapier: Angel's Sting (CCC-GHC-BK1-10)","Dancing Rapier: Raptor (CCC-LINKS-2)","Defender Greatsword: Deathshield (DDAL9-20)","Defender Scimitar: Right Chakram of Shar (FR-DC-PANDORA-JWEI-S2-7)","Dragon Slayer: Wyrmripper (DDEP5-1)","Flame Tongue Longsword (BMG-MOON-MD-6)","Flame Tongue Longsword: Velahr'kerym (DDAL0-2D)","Flame Tongue Longsword (DDAL-DRW13)","Flame Tongue Shortsword: Flare (CCC-WYC-1-2)","Frost Brand Greatsword (SJ-DC-NOS-4)","Frost Brand Greatsword: Immolator's Domain (SJ-DC-TBS-2)","Frost Brand Greatsword: Duty (SJ-DC-TRIDEN-TFC)","Frost Brand Greatsword: Quintessence's Edge (SJ-DC-WINE-1)","Frost Brand Longsword: Blade of Aaqa (SJ-DC-AUG-9)","Frost Brand Rapier: Bitter Wrath (DDAL7-9)","Frost Brand Rapier: Familiar's (SJ-DC-ZODIAC-14-3)","Frost Brand Scimitar (DDEP5-2)","Frost Brand Scimitar (SJ-DC-TEL-12)","Frost Brand Shortsword: Frostbite Cryo Katana (SJ-DC-DD-11)","Giant Slayer Greatsword (DDEP5-2)","Greatsword of Sharpness: Desolation (DDAL8-14)","Greatsword of Warning: Ever Vigilant (CCC-BMG-MOON3-3)","Greatsword of Wounding (DDEX2-15)","Longsword of Vengeance (CCC-BMG-MOON15-2)","Longsword of Vengeance (CCC-GARY-8)","Longsword of Vengeance (CCC-HATMS1-2)","Longsword of Vengeance (CCC-MACE1-3)","Moonblade Greatsword: Pandora's Greater Staff of Selune (FR-DC-PANDORA-JWEI-S2-6)","Moonblade Shortsword: Left Chakram of Shar (FR-DC-PANDORA-JWEI-S2-7)","Nine Lives Stealer Longsword: Love's Bite (DDAL7-11)","Nine Lives Stealer Scimitar (CCC-QCC2018-1)","Rapier of Life Stealing (CCC-PDXAGE-2-1)","Scimitar of Life Stealing: Night Cutter (CCC-RCC-1-4)","Scimitar of Life Stealing: Krakenfang (PO-BK-3-7)","Scimitar of Speed (SJ-DC-AMOT-3)","Scimitar of Speed: Deceiver (SJ-DC-DFA-3)","Scimitar of Speed: Radiance's Glare (SJ-DC-PHP-LRD-1)","Scimitar of Speed: Spirit's Edge (SJ-DC-TBS-1)","Scimitar of Speed (SJ-DC-TRIDEN-MYKE-2)","Scimitar of Speed: Beam (SJ-DC-VMT-1)","Scimitar of Speed: Manthor “Vow of the Forest” (WBW-DC-ANDL-3)","Scimitar of Speed: Bregrist (WBW-DC-TREY-1)","Scimitar of Speed: Dread Cutlass (SJ-DC-DWR-3)","Scimitar of Warning: Miir (CCC-BWM-4-1)","Steel: Amdraig (BMG-MOON-MD-9)","Sun Blade: The Seventh Sword (CCC-6SWORDS-1)","Sun Blade: Dawnfire (CCC-STORM-1)","Sun Blade (CCC-WYC-2-2)","Sun Blade: Starshard (RMH-12)","Sun Blade: Scintilmorn (WDotMM)","Sword of Vengeance (CCC-SAF2-2)","Sword of Wounding (DDAL-CGB)","Vicious Longsword (CCC-HATMS2-1)","Vicious Rapier: Hag's Clawblade (AL:SA-11A)","Vorpal Scimitar (DDAL7-16)","Vorpal Scimitar: Abi Teos's Machete (RMH-9/RMH-10)","Wakened White Dragon's Wrath Greatsword (BMG-MOON-MD-12)"],
 	"adamantine shortsword (fr-dc-ucon24)" : {
 		name : "Adamantine Shortsword (FR-DC-UCON24)",
 		source : [["AL","FR-DC"]],
@@ -2445,6 +2329,18 @@ MagicItemsList["al swords"] = {
 			selectNow : true,
 			},
 		},
+	"dancing greatsword (ps-dc-pandora-jwei-s2-5)" : {
+		name : "Dancing Greatsword (PANDORA-JWEI-S2-5)",
+		source : [["AL","PS-DC"]],
+		rarity : "very rare",
+		attunement : true,
+		description : "I can attune to this greatsword in 1 minute. With a bonus action, I can toss the sword to make it hover, fly up to 30 ft and attack a target (as if by me). I can command it to move and attack again as a bonus action while in 30 ft. After the 4th attack it moves up to 30 ft to return to my hand. If it can't reach more or my hands are full, it falls to the ground.",
+		descriptionLong : "I can attune to this greatsword in 1 minute. With a bonus action, I can toss it into the air to make it hover, fly up to 30 ft and attack a target. It uses my attack roll and ability mod for damage. While hovering, I can command the sword to move and attack again as a bonus action. After the 4th attack, it moves 30 ft to return to my hand. If it can't reach me or my hands are full, it falls to the ground after moving. It stops hovering if I grasp it or am more than 30 ft away.",
+		descriptionFull : "You can take a Bonus Action to toss this magic weapon into the air. When you do so, the weapon begins to hover, flies up to 30 feet, and attacks one creature of your choice within 5 feet of itself. The weapon uses your attack roll and adds your ability modifier to damage rolls.\n   While the weapon hovers, you can take a Bonus Action to cause it to fly up to 30 feet to another spot within 30 feet of you. As part of the same Bonus Action, you can cause the weapon to attack one creature within 5 feet of the weapon.\n   After the hovering weapon attacks for the fourth time, it flies back to you and tries to return to your hand. If you have no hand free, the weapon falls to the ground in your space. If the weapon has no unobstructed path to you, it moves as close to you as it can and then falls to the ground. It also ceases to hover if you grasp it or are more than 30 feet away from it.\n   " + toUni("Harmonious") + ". Attuning to this item takes only 1 minute.",
+		action : [["bonus action", "Dancing Sword"]],
+		weaponsAdd : { select : ["Dancing Greatsword"], options : ["Dancing Greatsword"] },
+		calcChanges: dancingSword.calcChanges,
+		},
 	"dancing longsword: antgaladion (wbw-dc-aa-ashalon-1)" : {
 		name : "Antgaladion, Dancing Sword (AA-ASHALON-1)",
 		source : [["AL","WBW-DC"]],
@@ -2454,13 +2350,8 @@ MagicItemsList["al swords"] = {
 		descriptionLong : "The blade of this elegantly curved elven longsword is made of the sharpest and coldest ice from the domain of Aesandoral the Ice Lord. As quick as the blizzard winds, it only takes 1 minute to attune. With a bonus action, I can toss the sword into the air to make it hover, fly up to 30 ft and attack a target. It uses my attack roll and ability mod for damage. While hovering, I can command the sword to move and attack again as a bonus action. After the 4th attack, it moves 30 ft to return to my hand. If it can't reach me or my hands are full, it falls to the ground after moving. It stops hovering if I grasp it or am more than 30 ft away.",
 		descriptionFull : "The blade of this elegantly curved elven longsword is made of the sharpest and coldest ice from the domain of Aesandoral the Ice Lord. As quick as the blizzard winds, it only takes one minute to attune. Its name is inscribed on its blade in Sylvan. Its command phrase is “Long may winter reign.” [GFP Item]\n   You can take a Bonus Action to toss this magic weapon into the air. When you do so, the weapon begins to hover, flies up to 30 feet, and attacks one creature of your choice within 5 feet of itself. The weapon uses your attack roll and adds your ability modifier to damage rolls.\n   While the weapon hovers, you can take a Bonus Action to cause it to fly up to 30 feet to another spot within 30 feet of you. As part of the same Bonus Action, you can cause the weapon to attack one creature within 5 feet of the weapon.\n   After the hovering weapon attacks for the fourth time, it flies back to you and tries to return to your hand. If you have no hand free, the weapon falls to the ground in your space. If the weapon has no unobstructed path to you, it moves as close to you as it can and then falls to the ground. It also ceases to hover if you grasp it or are more than 30 feet away from it.",
 		action : [["bonus action", "Dancing Sword"]],
-		weaponOptions : {
-			baseWeapon : "rapier",
-			regExpSearch : /^(?=.*antgaladion).*$/i,
-			name : "Antgaladion, Dancing Longsword",
-			description : "Versatile; Sap; Attacks on its own as a bonus action",
-			selectNow : true,
-			},
+		weaponsAdd : { select : ["Antgaladion, Dancing Longsword"], options : ["Antgaladion, Dancing Longsword"] },
+		calcChanges: dancingSword.calcChanges,
 		},
 	"dancing rapier: angel's sting (ccc-ghc-bk1-10)" : {
 		name : "Angel's Sting, Dancing Rapier (GHC-BK1-10)",
@@ -2471,13 +2362,8 @@ MagicItemsList["al swords"] = {
 		descriptionLong : "While in possession of this sword, I feel fortunate and optimistic about the future. Butterflies and other harmless creatures frolic in my presence. With a bonus action, I can toss the sword into the air to make it hover, fly up to 30 ft and atk a target. It uses my atk roll and ability mod for dmg. While hovering, I can command the sword to move and atk again as a bonus action. After the 4th atk, it moves 30 ft to return to my hand. If it can't reach me or my hands are full, it falls to the ground after moving. It stops hovering if I grasp it or am more than 30 ft away.",
 		descriptionFull : "You can take a Bonus Action to toss this magic weapon into the air. When you do so, the weapon begins to hover, flies up to 30 feet, and attacks one creature of your choice within 5 feet of itself. The weapon uses your attack roll and adds your ability modifier to damage rolls.\n   While the weapon hovers, you can take a Bonus Action to cause it to fly up to 30 feet to another spot within 30 feet of you. As part of the same Bonus Action, you can cause the weapon to attack one creature within 5 feet of the weapon.\n   After the hovering weapon attacks for the fourth time, it flies back to you and tries to return to your hand. If you have no hand free, the weapon falls to the ground in your space. If the weapon has no unobstructed path to you, it moves as close to you as it can and then falls to the ground. It also ceases to hover if you grasp it or are more than 30 feet away from it.\n   " + toUni("Blissful") + ". You feel fortunate and optimistic about what the future holds. Butterflies and other harmless creatures might frolic in the item's presence.",
 		action : [["bonus action", "Dancing Sword"]],
-		weaponOptions : {
-			baseWeapon : "rapier",
-			regExpSearch : /^(?=.*angel's)(?=.*sting).*$/i,
-			name : "Angel's Sting, Dancing Rapier",
-			description : "Finesse; Vex; Attacks on its own as a bonus action",
-			selectNow : true,
-			},
+		weaponsAdd : { select : ["Angel's Sting, Dancing Rapier"], options : ["Angel's Sting, Dancing Rapier"] },
+		calcChanges: dancingSword.calcChanges,
 		},
 	"dancing rapier: raptor (ccc-links-2)" : {
 		name : "Raptor, Dancing Rapier (LINKS-2)",
@@ -2488,13 +2374,8 @@ MagicItemsList["al swords"] = {
 		descriptionLong : "Fulton Stormweather enjoyed a successful career as a swashbuckling wizard before being trapped in the Feywild. His bonded rapier, “Raptor”, became the target of his enchantments & developed a hint of personality over time. It makes a keening cry like a hunting raptor when landing a killing blow & I feel more confident. With a bonus action, I can toss the sword into the air to make it hover, fly up to 30 ft & atk a target. It uses my atk roll & ability mod for dmg. While hovering, I can command the sword to move & atk again as a bonus action. After the 4th atk, it moves 30 ft to return to my hand. If it can't reach me or my hands are full, it falls to the ground after moving. It stops hovering if I grasp it or am more than 30 ft away.",
 		descriptionFull : "Fulton Stormweather enjoyed a successful career as a swashbuckling wizard for many years before becoming trapped in the Feywild. His bonded weapon, a rapier named “Raptor”, became the target of his enchantment effects. Over time, it seemingly developed a hint of a personality. Its attuned bearer feels more confident, and it makes a keening cry like that of a hunting raptor when landing a killing blow on an enemy.\n   You can take a Bonus Action to toss this magic weapon into the air. When you do so, the weapon begins to hover, flies up to 30 feet, and attacks one creature of your choice within 5 feet of itself. The weapon uses your attack roll and adds your ability modifier to damage rolls.\n   While the weapon hovers, you can take a Bonus Action to cause it to fly up to 30 feet to another spot within 30 feet of you. As part of the same Bonus Action, you can cause the weapon to attack one creature within 5 feet of the weapon.\n   After the hovering weapon attacks for the fourth time, it flies back to you and tries to return to your hand. If you have no hand free, the weapon falls to the ground in your space. If the weapon has no unobstructed path to you, it moves as close to you as it can and then falls to the ground. It also ceases to hover if you grasp it or are more than 30 feet away from it.",
 		action : [["bonus action", "Dancing Sword"]],
-		weaponOptions : {
-			baseWeapon : "rapier",
-			regExpSearch : /^(?=.*raptor).*$/i,
-			name : "Raptor, Dancing Rapier",
-			description : "Finesse; Vex; Attacks on its own as a bonus action",
-			selectNow : true,
-			},
+		weaponsAdd : { select : ["Raptor, Dancing Rapier"], options : ["Raptor, Dancing Rapier"] },
+		calcChanges: dancingSword.calcChanges,
 		},
 	"defender greatsword: deathshield (ddal9-20)" : {
 		name : "Deathshield, Defender Greatsword (DDAL9-20)",
@@ -2503,9 +2384,21 @@ MagicItemsList["al swords"] = {
 		rarity : "legendary",
 		attunement : true,
 		description : "This +3 magic greatsword is made from crude black iron. Inscribed upon the blade in Abyssal is the name \"Deathshield.\" The 1st time I attack with the sword on each of my turns, I can transfer any part of its +3 bonus to AC instead. This AC adjustment remains in affect until my next turn, although I must be holding the sword to gain it.",
-		descriptionLong : "This magic greatsword is made out of crude black iron. Inscribed upon the blade in Abyssal is the name \"Deathshield.\" I have a +3 bonus to attack and damage rolls made with the sword. The 1st time I attack with it on each of my turns, I can transfer any part of the bonus to Armor Class instead. This Armor Class adjustment remains in affect until my next turn, although I must be holding the sword to gain it.",
 		descriptionFull : "This defender is a greatsword and is made out of crude black iron. Inscribed upon the blade in Abyssal is the name “Deathshield.”\n   You gain a +3 bonus to attack rolls and damage rolls made with this magic weapon.\n   The first time you attack with the weapon on each of your turns, you can transfer some or all of the weapon's bonus to your Armor Class. For example, you could reduce the bonus to your attack rolls and damage rolls to +1 and gain a +2 bonus to Armor Class. The adjusted bonuses remain in effect until the start of your next turn, although you must hold the weapon to gain a bonus to AC from it.",
 		weaponsAdd : { select : ["Deathshield, Defender Greatsword"], options : ["Deathshield, Defender Greatsword"] },
+		calcChanges: defenderSword.calcChanges,
+		},
+	"defender scimitar: right chakram of shar (fr-dc-pandora-jwei-s2-7)" : {
+		name : "Right Chakram of Shar, Defender Scimitar (S2-7)",
+		source : [["AL","FR-DC"]],
+		type : "weapon (any melee weapon)",
+		rarity : "legendary",
+		attunement : true,
+		description : "This +3 chakram (scimitar) was forged in a pair with the malice, sorrow, hatred, and despair of Shar. It's coated with a layer of shadow weave folded and sharpened to an unimaginable extent. Every arc and swing, traces of stars appear in its trail. Only the Left Chakram of Shar knows what happened to her sister. The 1st time I attack with it on each of my turns, I can transfer any part of the +3 bonus to AC instead. This adjustment remains until my next turn, as long as I'm holding the sword. It also warns me, giving +2 initiative unless Incapacitated.",
+		descriptionLong : "This +3  chakram (scimitar) was forged in a pair with the malice, sorrow, hatred, and despair of Shar poured into the process. It's coated with a layer of shadow weave folded and sharpened to an unimaginable extent. Every arc and swing, traces of stars can be seen in its trail. This chakram is a non-sentient weapon. Only the Left Chakram of Shar knows what happened to her sister. The 1st time I attack with it on each of my turns, I can transfer any part of the bonus to Armor Class instead. This Armor Class adjustment remains in affect until my next turn, although I must be holding the sword to gain it. It also warns me, giving +2 initiative unless Incapacitated.",
+		descriptionFull : "This chakram is forged in pair with the malic, sorrow, hatred, and despair of Shar all poured into its forging process. It is coated with a layer of shadow weave then folded and sharpened to an unimaginable extent. Every arc it does, every swing it takes, traces of stars can be seen in its trail. This chakram appears to be a non-sentient weapon. Only the Left Chakram of Shar knew what had happened to her sister.\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don’t have the Incapacitated condition.\n   You gain a +3 bonus to attack rolls and damage rolls made with this magic weapon.\n   The first time you attack with the weapon on each of your turns, you can transfer some or all of the weapon's bonus to your Armor Class. For example, you could reduce the bonus to your attack rolls and damage rolls to +1 and gain a +2 bonus to Armor Class. The adjusted bonuses remain in effect until the start of your next turn, although you must hold the weapon to gain a bonus to AC from it.",
+		weaponsAdd : { select : ["Right Chakram of Shar, Defender Scimitar"], options : ["Right Chakram of Shar, Defender Scimitar"] },
+		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
 		calcChanges: defenderSword.calcChanges,
 		},
 	"dragon slayer: wyrmripper (ddep5-1)" : {
@@ -2839,348 +2732,44 @@ MagicItemsList["al swords"] = {
 		weaponsAdd : { select : ["Longsword of Vengeance"], options : ["Longsword of Vengeance"] },
 		calcChanges: swordOfVengeance.calcChanges,
 	},
-	"moon-touched greatsword (ddal-drw17)" : {
-		name : "Moon-Touched Greatsword (DDAL-DRW17)",
-		source : [["AL","DRW"]],
+	"moonblade greatsword: pandora's greater staff of selune (fr-dc-pandora-jwei-s2-6)" : {
+		name : "Greater Staff of Selune, Moonblade Greatsword",
+		source : [["AL","FR-DC"]],
 		type : "weapon (greatsword)",
-		rarity : "common",
-		description : "The flats of this blade act like windows onto a night sky with blinking stars \u0026 a large viridian sphere shifting slowly in different directions. 3 sluggish, green tentacles protrude from 1 end, acting as guard & grip. When unsheathed in darkness, it sheds green moonlight from the viridian sphere, creating 15-ft of bright light \u0026 15-ft more dim.",
-		descriptionFull : "The flats of the blade act like windows onto a night sky with blinking stars and a large viridian sphere shifting slowly in different directions. Three sluggish, green tentacles protrude from one end of the blade, acting as its guard and grip. The light the blade produces is green, and is emitted from the viridian sphere.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
-		weaponsAdd : { select : ["Moon-Touched Greatsword"], options : ["Moon-Touched Greatsword"] },
+		rarity : "legendary",
+		description : "This great staff has a crescent moon on 1 end & a sharpened tail. It's engraved with 7 stars for Pandora & her parents & \"Eleasis 25th, Happy Birthday, Pandora! From mama Selune.\" Attune in 1 min. The blade has a patient tone and will unattune after evil deeds (or no Story Award). It has 10 runes: +3 blade, +3d6 Force, acts as a Ring of Spell Storing, crits on a 19 or 20, Thrown property with 20/60 ft range & returns. As a bonus action once per rest, other creatures in 30 ft DC 15 Con or Blinded for 1 min. Repeat end of turn.",
+		descriptionLong : "This great staff has a crescent moon as the head and a sharpened tail. It's engraved with 7 stars for Pandora and her mamas/papas. It says \"Eleasis 25th, Happy Birthday, Pandora! From mama Selune.\" I can attune in 1 min. The Moonblade lets characters with the story award, An Oath of Hope, attune while waiting for Pandora to return. She has a patient tone and will unattune after evil deeds. It has 10 runes: +3 weapon, +3d6 Force per hit, acts as a Ring of Spell Storing (stores up to 5 lvls spells), crits on a 19 or 20, has Thrown property with range of 20/60 ft and returns to hand. As a bonus action once per rest, each other creature in 30 ft (no total cover) makes DC 15 Con save or Blinded for 1 min. Redo at end of turn.",
+		descriptionFull : "Pandora’s Greater Staff of Selune is a great staff with the head sculpted to look like a crescent moon and its tail sharpened to resemble that of a spear. Engraved onto the body are seven stars representing seven bonds shared between Pandora and her papas and mamas who went through thick and thin with her. If one looks closely, there is a line of words written on it, saying, \"Eleasis 25th, Happy Birthday, Pandora! From mama Selune.\"\n   Only characters with the story award, \"An Oath of Hope\" can attune to this Moonblade. As of now, the Moonblade acknowledges you as her current master because she knows that you are special to Pandora while she patiently awaits the return of her true master. She is also rather quiet and only speaks when asked questions but with a patient tone as if a perfect fit for Pandora’s curious nature. However, she despises evil acts and will immediately un-attune to you if you ever perform evil deeds.\n   " + toUni("Harmonious") + ". Attuning to this item takes only 1 minute.\n   This moonblade has ten runes in total: the bonus to attack rolls and damage roll is increased to +3. (Three runes); when the user hits with an attack roll using the moonblade, they deal +3d6 force damage. (Three runes); the Moonblade has the properties of a Ring of Spell Storing. When obtained, it contains Fount of Moonlight and Shield. (One rune); the Moonblade scores a Critical hit on a roll of 19 or 20 on the D20. (One rune); the Moonblade gains the Thrown property with a normal range of 20 feet and a long range of 60 feet. Each time you throw the weapon, it flies back to your hand after the attack. (One rune); you can take a Bonus Action to cause the Moonblade to flash brightly. Each other creature that is within 30 feet of you and not behind Total Cover must succeed on a DC 15 Constitution saving throw or have the Blinded condition for 1 minute. A creature repeats the save at the end of each of its turns, ending the effect on itself on a success. You can’t use this property again until you finish a Short or Long Rest. (One rune)\n   " + moonBladeDescriptionTxt.unicode,
+		attunement : true,
+		limfeaname : "Moonblade Flash",
+		usages : 1,
+		recovery : "short rest",
+		action : [["bonus action", ""]],
+		weaponOptions : {
+			baseWeapon : "greatsword",
+			name : "Greater Staff of Selune, Moonblade Greatsword +3",
+			regExpSearch : /^(?=.*greater)(?=.*staff)(?=.*selune)(?=.*moonblade).*$/i,
+			description : "Heavy, Two-handed, Graze; Thrown (20/60 ft); +3d6 Force; Crit on 19 or 20",
+			selectNow : true,
+			}
 	},
-	"moon-touched longsword (bmg-drw-od-1)" : {
-		name : "Moon-Touched Longsword (BMG-DRW-OD-1)",
-		source : [["AL","DRW"]],
-		type : "weapon (longsword)",
-		rarity : "common",
-		description : "The crossguard of this sword resembles a bull's head, with its horns curling to form the guards. Each of the bull's eyes is an inset moonstone. When unsheathed in darkness, it sheds moonlight, creating bright light in a 15-ft radius & dim light for another 15 ft.",
-		descriptionFull : "The crossguard of this sword is styled to resemble a bull's head, with each of its horns curling off to form one of the guards. Each of the bull's eyes is an inset moonstone.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
-		weaponsAdd : { select : ["Moon-Touched Longsword"], options : ["Moon-Touched Longsword"] },
-	},
-	"moon-touched longsword (ccc-ghc-bk1-1)" : {
-		name : "Moon-Touched Longsword (CCC-GHC-BK1-1)",
-		source : [["AL","CCC"]],
-		type : "weapon (longsword)",
-		rarity : "common",
-		description : "The blade of this magical longsword is etched with a hawk that has its wings spread and talons extended. When unsheathed in darkness, it sheds moonlight, creating a 15-ft radius of bright light and another 15 ft dim light.",
-		descriptionFull : "The blade of this longsword is etched with a hawk that has its wings spread and its talons extended.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
-		weaponsAdd : { select : ["Moon-Touched Longsword"], options : ["Moon-Touched Longsword"] },
-	},
-	"moon-touched longsword (ccc-tarot2-6)" : {
-		name : "Moon-Touched Longsword (CCC-TAROT2-6)",
-		source : [["AL","CCC"]],
-		type : "weapon (longsword)",
-		rarity : "common",
-		description : "Etched into this curved blade are the phases of Selûne with an upturned crescent, the emblem of the Swords of the Lady, inlaid with silver. The pommel holds a large moonstone. In darkness, the blade sheds moonlight, creating 15-ft of bright light and 15-ft dim.",
-		descriptionFull : "Etched into the curved blade of this longsword are the phases of Selûne with the upturned crescent, the emblem of the Swords of the Lady, inlaid with silver. The pommel includes a large moonstone.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
-		weaponsAdd : { select : ["Moon-Touched Longsword"], options : ["Moon-Touched Longsword"] },
-	},
-	"moon-touched longsword (ddal0-11d)" : {
-		name : "Moon-Touched Longsword (DDAL0-11D)",
-		source : [["AL","S0"]],
-		type : "weapon (longsword)",
-		rarity : "common",
-		description : "This elven-made longsword is decorated with intricate scrollwork featuring a full moon shining upon a glade of dancing elves. In darkness, the unsheathed blade sheds moonlight, creating bright light in a 15-ft radius and dim light for another 15 ft.",
-		descriptionFull : "This elven made longsword is decorated with intricate scrollwork featuring a full moon shining down upon a glade of dancing elves.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
-		weaponsAdd : { select : ["Moon-Touched Longsword"], options : ["Moon-Touched Longsword"] },
-	},
-	"moon-touched rapier (ccc-gad2-1)" : {
-		name : "Moon-Touched Rapier (CCC-GAD2-1)",
-		source : [["AL","CCC"]],
-		type : "weapon (rapier)",
-		rarity : "common",
-		description : "This silver rapier is forged to resemble a long tentacle that twists out to a sharp point. In darkness, the unsheathed blade sheds moonlight, creating bright light in a 15-ft radius and dim light for another 15 ft.",
-		descriptionFull : "This silver blade is forged to resemble a long tentacle that twists out to a sharp point.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
-		weaponsAdd : { select : ["Moon-Touched Rapier"], options : ["Moon-Touched Rapier"] },
-	},
-	"moon-touched rapier (ccc-sac-4)" : {
-		name : "Moon-Touched Rapier (CCC-SAC-4)",
-		source : [["AL","CCC"]],
-		type : "weapon (rapier)",
-		rarity : "common",
-		description : "Carved into the hilt of this rapier is the insignia of the Black Moon Pirate Company. In darkness, the unsheathed blade sheds moonlight, creating bright light in a 15-ft radius and dim light for another 15 ft.",
-		descriptionFull : "Carved into the hilt of the rapier is the insignia of the Black Moon Pirate Company.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
-		weaponsAdd : { select : ["Moon-Touched Rapier"], options : ["Moon-Touched Rapier"] },
-	},
-	"moon-touched rapier (ccc-unite-5)" : {
-		name : "Moon-Touched Rapier (CCC-UNITE-5)",
-		source : [["AL","CCC"]],
-		type : "weapon (rapier)",
-		rarity : "common",
-		description : "In darkness, the unsheathed blade of this rapier sheds moonlight, creating bright light in a 15-ft radius and dim light for another 15 ft. While on my person, I can speak Undercommon.",
-		descriptionFull : "The bearer of this weapon can speak and understand Undercommon.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
-		languageProfs : ["Undercommon"],
-		weaponsAdd : { select : ["Moon-Touched Rapier"], options : ["Moon-Touched Rapier"] },
-	},
-	"moon-touched rapier (fr-dc-saerloon-3)" : {
-		name : "Moon-Touched Rapier (FR-DC-Saerloon-3)",
+	"moonblade shortsword: left chakram of shar (fr-dc-pandora-jwei-s2-7)" : {
+		name : "Left Chakram of Shar, Moonblade Shortsword (S2-7)",
 		source : [["AL","FR-DC"]],
-		type : "weapon (rapier)",
-		rarity : "common",
-		description : "This rapier was made for the Knights of the Vine by Elven smiths in the Cormanthor Forest and never gets dirty. The blade is triangular and the basket hilt looks like a bunch of red grapes. In darkness, its unsheathed blade sheds moonlight, creating bright light in a 15-ft radius and dim light for another 15 ft.",
-		descriptionFull : "This rapier was made for the Knights of the Vine by Elven smiths in the Cormanthor. The blade is triangular, and the basket hilt appears like a bunch of red grapes.\n   " + toUni("Gleaming") + ". This item never gets dirty.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
-		weaponsAdd : { select : ["Moon-Touched Rapier"], options : ["Moon-Touched Rapier"] },
-	},
-	"moon-touched rapier: pointy end (fr-dc-thay-2)" : {
-		name : "Point End, Moon-Touched Rapier (THAY-2)",
-		source : [["AL","FR-DC"]],
-		type : "weapon (rapier)",
-		rarity : "common",
-		description : "The name of this sword is carved onto the blade in untidy Elvish: \"Pointy End\". Or are the words merely a reminder? The sword floats on water and other liquids, giving adv on Strength (Athletics) checks to swim. In darkness, its unsheathed blade sheds moonlight, creating bright light in a 15-ft radius and dim light for another 15 ft.",
-		descriptionFull : "The name of this sword is carved onto the blade in untidy Elvish: \"Pointy End\". Or are the words merely a reminder?\n   " + toUni("Waterborne") + ". This item floats on water and other liquids. You have advantage on Strength (Athletics) checks to swim.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
-		weaponsAdd : { select : ["Pointy End, Moon-Touched Rapier"], options : ["Pointy End, Moon-Touched Rapier"] },
-		savetxt : { text : ["Adv on Str (Athletic) chks to swim"] },
-	},
-	"moon-touched scimitar (fr-dc-dung-1)" : {
-		name : "Moon-Touched Scimitar (FR-DC-DUNG-1)",
-		source : [["AL","FR-DC"]],
-		type : "weapon (scimitar)",
-		rarity : "common",
-		description : "This katana is stored in an ornate mahogany case with a silver label that reads \"Legendary Sword of Selúne\". In darkness, the unsheathed blade sheds moonlight, with 15-ft bright light and 15-ft more dim light. While underground, I always know my depth below the surface and the direction to the nearest upward path toward Selúne.",
-		descriptionFull : "In the style of a katana (functionally a scimitar) stored in an ornate mahogany case with a silver label that reads \"Legendary Sword of Selúne\".\n   " + toUni("Delver") + ". While underground, the bearer of this item always knows the item's depth below the surface and the direction to the nearest staircase, ramp, or other path leading upward toward Selúne.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
-		weaponsAdd : { select : ["Moon-Touched Scimitar"], options : ["Moon-Touched Scimitar"] },
-	},
-	"moon-touched scimitar (fr-dc-ghg-4)" : {
-		name : "Moon-Touched Scimitar (FR-DC-GHG-4)",
-		source : [["AL","FR-DC"]],
-		type : "weapon (scimitar)",
-		rarity : "common",
-		description : "This scimitar has the holy symbol of Vecna, the Whispered One engraved in the pommel. It warns me, giving +2 initiative if I'm not Incapacitated. In darkness, the unsheathed blade sheds moonlight, with 15-ft bright light and 15-ft more dim light.",
-		descriptionFull : "This scimitar has the holy symbol of Vecna, the Whispered One engraved in the pommel.\n   " + toUni("Guardian") + ". The item whispers warnings to its bearer, granting a +2 bonus to initiative if the bearer isn't incapacitated.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
-		weaponsAdd : { select : ["Moon-Touched Scimitar"], options : ["Moon-Touched Scimitar"] },
-		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
-	},
-	"moon-touched scimitar (fr-dc-php-pest-1)" : {
-		name : "Moon-Touched Scimitar (FR-DC-PHP-PEST-1)",
-		source : [["AL","FR-DC"]],
-		type : "weapon (scimitar)",
-		rarity : "common",
-		description : "The guard of this scimitar is adorned with a silver spider, its abdomen encrusted with a large sapphire. In darkness, the unsheathed blade sheds moonlight, with 15-ft bright light and 15-ft more dim. While on my person, I can speak Undercommon.",
-		descriptionFull : "The guard of the blade is adorned with a silver spider, its abdomen is encrusted with a large sapphire.\n   " + toUni("Language") + ". The bearer can speak and understand Undercommon while the item is on the bearer’s person.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
-		weaponsAdd : { select : ["Moon-Touched Scimitar"], options : ["Moon-Touched Scimitar"] },
-		languageProfs : ["Undercommon"],
-	},
-	"moon-touched scimitar: moonmaiden's blade (fr-dc-strat-dragon-1)" : {
-		name : "Moonmaiden's Blade, Moon-Touched Scimitar",
-		source : [["AL","FR-DC"]],
-		type : "weapon (scimitar)",
-		rarity : "common",
-		description : "This scimitar is shaped like a waxing moon. Runes hold a prayer for those buried underground to always find the light. In darkness, the unsheathed blade sheds moonlight, with 15-ft bright light and 15-ft dim. While underground, I always know my depth below the surface and the direction to the nearest upward path.",
-		descriptionLong : "This scimitar is shaped like a waxing moon. Runes along the blade hold a prayer that those buried underground will always find the light. In darkness, the unsheathed blade sheds moonlight, creating a 15-ft radius of bright light and another 15-ft dim. While underground, I always know my depth below the surface and the direction to the nearest upward path.",
-		descriptionFull : "This scimitar's blade is shaped like a waxing moon. Runes along the blade have a prayer that those buried underground always find the light of the moon.\n   " + toUni("Delver") + ". While underground, the bearer of this item always knows the item's depth below the surface and the direction to the nearest staircase, ramp, or other path leading upward.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
-		weaponsAdd : { select : ["Moonmaiden's Blade, Moon-Touched Scimitar"], options : ["Moonmaiden's Blade, Moon-Touched Scimitar"] },
-	},
-	"moon-touched shortsword (bmg-moon-md-6)" : {
-		name : "Moon-Touched Shortsword (BMG-MOON-MD-6)",
-		source : [["AL","PO"]],
-		type : "weapon (shortsword)",
-		rarity : "common",
-		description : "This ornate falcata has a single forward-curving edge that's wider near the point, giving it a heavy cutting momentum that feels powerful. Its hooked grip is made into a silver-blue crescent whose arms reach upward in reverence for the moon. In darkness, the unsheathed blade sheds moonlight, creating 15-ft bright light and 15-ft more dim. The light gently grows as the moon nears its fullness.",
-		descriptionLong : "This ornate falcata has a single forward-curving edge that grows wider near the point, giving it a heavy cutting momentum that feels powerful in my hand. Its hooked grip is fashioned into a silver-blue crescent whose arms reach upward along the blade in reverence for the moon. In darkness, the unsheathed sword sheds moonlight, creating a 15-ft radius of bright light and 15-ft more dim light. The light gently grows as the moon nears its fullness.",
-		descriptionFull : "This ornate falcata has a single forward-curving edge that grows wider near the point, giving it a heavy cutting momentum that feels powerful in the hand. Its hooked grip is fashioned into a silver-blue crescent whose arms reach upward along the blade in reverence for the moon. The light it gives gently grows as the moon nears its fullness.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
-		weaponsAdd : { select : ["Moon-Touched Shortsword"], options : ["Moon-Touched Shortsword"] },
-	},
-	"moon-touched shortsword (dc-poa-conmar-9)" : {
-		name : "Moon-Touched Shortsword (CONMAR-9)",
-		source : [["AL","DC-POA"]],
-		type : "weapon (shortsword)",
-		rarity : "common",
-		description : "In darkness, the unsheathed blade of this shortsword sheds moonlight, creating bright light in a 15-ft radius and dim light for another 15 ft. This sword has a smaller than usual handle, making it harder to grip but easier to draw.",
-		descriptionFull : "This sword has a smaller than usual handle, making it harder to grip, but easier to draw.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
-		weaponsAdd : { select : ["Moon-Touched Shortsword"], options : ["Moon-Touched Shortsword"] },
-	},
-	"moon-touched shortsword (dc-poa-des-5b)" : {
-		name : "Moon-Touched Shortsword (DC-POA-DES-5B)",
-		source : [["AL","DC-POA"]],
-		type : "weapon (shortsword)",
-		rarity : "common",
-		description : "This fey-crafted sword was a gift from the Prince of Frost & is cold to the touch, lowering the temperature in 5-ft. Icicles continually form & fall from it when unsheathed. The sword is made from mithral, a blue metal half the normal weight. In darkness, the unsheathed blade sheds moonlight, creating 15-ft of bright light & 15-ft dim.",
-		descriptionLong : "This fey-crafted sword was a gift from the Prince of Frost and is cold to the touch, lowering the temperature in a 5-ft radius. Icicles continually form and fall from the blade when unsheathed. The sword is made from mithral, a blue metal that's half the normal weight. In darkness, the unsheathed blade sheds moonlight, creating a 15-ft radius of bright light and another 15-ft dim.",
-		descriptionFull : "This fey-crafted blade features mithral construction, a blue metal weighing half the normal weight. The moon-touched shortsword gifted by the Prince of Frost is cold to the touch, lowering the temperature around it in a 5-foot radius. Icicles are continually forming and falling off the blade whenever it is unsheathed.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
+		type : "weapon (greatsword)",
+		rarity : "legendary",
+		description : "This +3 chakram (shortsword) was forged in a pair with the malice, sorrow, hatred, and despair of Shar. It's coated with a layer of shadow weave folded and sharpened to an unimaginable extent. Every arc and swing, traces of stars appear in its trail. Only speaks to agree or say what sister might have. Must worship Shar and wield Right Chakram. It has 9 runes: +3 blade, +3d6 Force, acts as a Ring of Spell Storing, crits on a 19 or 20, Thrown property with 20/60 ft range and returns. I'm unharmed by temps past 0\u00B0F & 100\u00B0F.",
+		descriptionLong : "This chakram (shortsword) was forged in a pair with the malice, sorrow, hatred, and despair of Shar poured into the process. It's coated with a layer of shadow weave folded and sharpened to an unimaginable extent. Every arc and swing, traces of stars can be seen in its trail.  To wield it, I must worship Shar & be attuned to & holding the Right Chakram of Shar. The chakram rarely speaks. When it did, it just agrees and echoes what its sister, the other chakram, might have said. It has 9 runes: +3 weapon, +3d6 Force per hit, acts as a Ring of Spell Storing (stores up to 5 lvls spells), crits on a 19 or 20, has Thrown property with range of 20/60 ft and returns to my hand. I'm also unharmed by extreme temps past 0\u00B0F & 100\u00B0F.",
+		descriptionFull : "This chakram is forged in pair with the malice, sorrow, hatred, and despair of Shar all poured into its forging process. It is coated with a layer of shadow weave then folded and sharpened to an unimaginable extent. Every arc it does, every swing it takes, traces of stars can be seen in its trail. This chakram can only be wielded when her user is holding her sister, The Right Chakram of Shar. The character must also be attuned to both and worship Shar.\n   The chakram rarely speaks. If it did, it simply agrees and echoes what its sister, the other chakram, would have possibly said.\n   " + toUni("Temperate") + ". You are unharmed by temperatures of 0 degrees Fahrenheit or lower, and 100 degrees Fahrenheit or higher.\n   This moonblade has nine runes in total: the bonus to attack rolls and damage roll is increased to +3. (Three runes); when the user hits with an attack roll using the moonblade, they deal +3d6 force damage. (Three runes); the Moonblade has the properties of a Ring of Spell Storing. When obtained, it contains a 5th lvl Spirit Shroud (One rune); the Moonblade scores a Critical hit on a roll of 19 or 20 on the D20. (One rune); the Moonblade gains the Thrown property with a normal range of 20 feet and a long range of 60 feet. Each time you throw the weapon, it flies back to your hand after the attack. (One rune)\n   " + moonBladeDescriptionTxt.unicode,
+		attunement : true,
+		savetxt : { immune : ["temps past 0\u00B0F/100\u00B0F"] },
 		weaponOptions : {
 			baseWeapon : "shortsword",
-			regExpSearch : /^(?=.*mithral)(?=.*moon)(?=.*touched).*$/i,
-			name : "Moon-Touched Mithral Shortsword",
-			weight : 1,
-			description : "Finesse, light, vex; Counts as magical.",
+			name : "Left Chakram of Shar, Moonblade Shortsword +3",
+			regExpSearch : /^(?=.*left)(?=.*chakram)(?=.*shar)(?=.*moonblade).*$/i,
+			description : "Finesse, Light; Vex; Thrown (20/60 ft); +3d6 Force; Crit on 19 or 20",
 			selectNow : true,
-			},
-	},
-	"moon-touched shortsword (dc-poa-gsp2-3h)" : {
-		name : "Moon-Touched Shortsword (GSP2-3H)",
-		source : [["AL","DC-POA"]],
-		type : "weapon (shortsword)",
-		rarity : "common",
-		description : "This blade looks like a winged serpent. It has the curved body of a slithering snake, a guard shaped like feathered wings, and a snake head pommel with its tongue sticking out as if hissing. The unsheathed blade sheds moonlight in darkness, creating 15-ft of bright light and another 15-ft dim.",
-		descriptionFull : "The blade is curved, forming the body of a slithering snake, its guard is designed to look like feathered wings, and the pommel looks like the head of a snake with its tongue sticking out as if hissing. Altogether, it forms a winged serpent.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
-		weaponsAdd : { select : ["Moon-Touched Shortsword"], options : ["Moon-Touched Shortsword"] },
-	},
-	"moon-touched shortsword: fang (dc-poa-gsp3-2)" : {
-		name : "Fang, Moon-Touched Shortsword (GSP3-2)",
-		source : [["AL","DC-POA"]],
-		type : "weapon (shortsword)",
-		rarity : "common",
-		description : "Curved with a sharp tip, this bone sword is made from an Ancient White Dragon. The bone handle is wrapped with cloth that always stays dry. When unsheathed, it glows a light blue-green \u0026 sheds 15-ft bright moonlight \u0026 15-ft dim in darkness.",
-		descriptionLong : "Curved with a sharp tip, this shortsword was made with bone from an Ancient White Dragon. The handle is also bone and wrapped with cloth that always stays dry. The unsheathed blade glows a light blue-green color and sheds moonlight in darkness, creating a 15-ft radius of bright light and another 15-ft dim.",
-		descriptionFull : "The blade glows a light blue-green color. Curved with a sharp tip, the blade was made from bone from an Ancient White Dragon. The handle is also bone, wrapped with cloth that always stays dry.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
-		weaponsAdd : { select : ["Fang, Moon-Touched Shortsword"], options : ["Fang, Moon-Touched Shortsword"] },
-	},
-	"moon-touched shortsword (dc-poa-jcdc-1)" : {
-		name : "Moon-Touched Shortsword (JCDC-1)",
-		source : [["AL","DC-POA"]],
-		type : "weapon (shortsword)",
-		rarity : "common",
-		description : "In darkness, the unsheathed blade of this shortsword sheds moonlight, creating bright light in a 15-ft radius and dim light for another 15 ft. Its hilt is polished white ivory carved to resemble a fearsome white dragon.",
-		descriptionFull : "The hilt is polished white ivory carved to resemble a fearsome white dragon.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
-		weaponsAdd : { select : ["Moon-Touched Shortsword"], options : ["Moon-Touched Shortsword"] },
-	},
-	"moon-touched shortsword (dc-poa-mcwws-2)" : {
-		name : "Moon-Touched Shortsword (MCWWS-2)",
-		source : [["AL","DC-POA"]],
-		type : "weapon (shortsword)",
-		rarity : "common",
-		description : "In darkness, the unsheathed blade of this sword sheds moonlight, creating 15-ft of bright light & 15-ft dim. The pommel is a polished white & grey stone that resembles a full moon. Its hilt is decorated with symbols representing the phases of the moon.",
-		descriptionFull : "The pommel stone on the blade is a polished white and grey stone that resembles a full moon. The hilt is decorated with symbols representing the phases of the moon.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
-		weaponsAdd : { select : ["Moon-Touched Shortsword"], options : ["Moon-Touched Shortsword"] },
-	},
-	"moon-touched shortsword: tsukuyomi (dc-poa-tdg1-3)" : {
-		name : "Tsukuyomi, Moon-Touched Shortsword (TDG1-3)",
-		source : [["AL","DC-POA"]],
-		type : "weapon (shortsword)",
-		rarity : "common",
-		description : "This Wakizashi-style sword is made from star metal with a beautiful hilt of carved rowan & oak. The crossguard, blade & hilt are etched with a lunar motif & embedded with 3 moonstones, shaped in the phases of the moon: crescent, half & full. The blade emits silvery-blue moonlight when unsheathed in darkness, making 15-ft of bright light & 15-ft dim.",
-		descriptionLong : "This Wakizashi-style shortsword is crafted from star metals with a beautiful hilt of carved Rowan and Oak. The crossguard, blade and hilt are etched with a lunar motif and embedded with three moonstones. They're shaped in the phases of the moon: crescent, half and full. Silvery-blue moonlight radiates from the blade when unsheathed in darkness, creating a 15-ft radius of bright light and another 15-ft dim.",
-		descriptionFull : "This Wakizashi style shortsword is crafted from star metals with a beautiful hilt of carved Rowan-Oak. The crossguard, blade and hilt are etched with a lunar motif and embedded with three moonstones, shaped in the phases of the moon: crescent, half and full. Silvery blue light radiates from the blade whenever it is drawn from the scabbard.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
-		weaponsAdd : { select : ["Tsukuyomi, Moon-Touched Shortsword"], options : ["Tsukuyomi, Moon-Touched Shortsword"] },
-	},
-	"moon-touched shortsword: blade of the black tortoise (dc-poa-van-mt-1)" : {
-		name : "Blade of the Black Tortoise (Moon-Touched Shortsword)",
-		source : [["AL","DC-POA"]],
-		type : "weapon (shortsword)",
-		rarity : "common",
-		description : "A sturdy tortoise adorns the ebony sheath of this sword. Engraved roughly into the pommel in Chultan is the githzerai aphorism: \"Endure. In enduring, grow strong\". The unsheathed blade sheds moonlight in darkness, creating 15-ft of bright light & 15-ft dim.",
-		descriptionFull : "A sturdy tortoise adorns this sword's ebony sheath. Engraved roughly into the pommel in Chultan is the following githzerai aphorism: \"Endure. In enduring, grow strong\".\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
-		weaponsAdd : { select : ["Blade of the Black Tortoise, Moon-Touched Shortsword"], options : ["Blade of the Black Tortoise, Moon-Touched Shortsword"] },
-	},
-	"moon-touched shortsword: green dragon gladius (dc-poa-van-mt-1)" : {
-		name : "Green Dragon Gladius (Moon-Touched Shortsword)",
-		source : [["AL","DC-POA"]],
-		type : "weapon (shortsword)",
-		rarity : "common",
-		description : "A wise imperious dragon is entwined around the jade sheath of this sword. The Chultan word for \"Patience\" is carved into the pommel in a flowing script. The unsheathed blade sheds moonlight in darkness, creating 15-ft of bright light & 15-ft dim.",
-		descriptionFull : "A wise, imperious dragon is entwined around this sword's jade sheath. The Chultan word for \"Patience\" is carved into the sword's pommel in a flowing script.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
-		weaponsAdd : { select : ["Green Dragon Gladius, Moon-Touched Shortsword"], options : ["Green Dragon Gladius, Moon-Touched Shortsword"] },
-	},
-	"moon-touched shortsword: red phoenix falchion (dc-poa-van-mt-1)" : {
-		name : "Red Phoenix Falchion (Moon-Touched Shortsword)",
-		source : [["AL","DC-POA"]],
-		type : "weapon (shortsword)",
-		rarity : "common",
-		description : "A fiery phoenix bursting from ashes is engraved on the red lacquered sheath of this sword. A Chultan proverbial poem is carved around the pommel: \"The water is calm / but only a fool would cross / sharp teeth lurk below.\" The unsheathed blade sheds moonlight in darkness, creating 15-ft of bright light and 15-ft more dim.",
-		descriptionFull : "A fiery phoenix bursting from ashes is engraved on this sword's red lacquered sheath. A Chultan proverbial poem is carved around the pommel:"+
-		"\n    \t \t\"The water is calm"+
-		"\n    \t \tbut only a fool would cross"+
-		"\n    \t \tsharp teeth lurk below.\""+
-		"\n \n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
-		weaponsAdd : { select : ["Red Phoenix Falchion, Moon-Touched Shortsword"], options : ["Red Phoenix Falchion, Moon-Touched Shortsword"] },
-	},
-	"moon-touched shortsword: white tiger tulwar (dc-poa-van-mt-1)" : {
-		name : "White Tiger Tulwar (Moon-Touched Shortsword)",
-		source : [["AL","DC-POA"]],
-		type : "weapon (shortsword)",
-		rarity : "common",
-		description : "The mammoth ivory sheath of this sword bears a carving of a tiger, teeth bared & claws extended, captured forever in mid-pounce. The pommel is polished to a high sheen & bears a Chultan inscription: \"Swift, as a coursing river.\" The unsheathed blade sheds moonlight in darkness, creating 15-ft of bright light and 15-ft more dim.",
-		descriptionFull : "This sword's sheath is made of mammoth ivory, and bears a relief carving of mighty tiger, teeth bared and claws extended, captured forever in mid-pounce. The sword's pommel is polished to a high sheen, and bears the following inscription in Chultan: \"Swift, as a coursing river.\"\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
-		weaponsAdd : { select : ["White Tiger Tulwar, Moon-Touched Shortsword"], options : ["White Tiger Tulwar, Moon-Touched Shortsword"] },
-	},
-	"moon-touched shortsword (fr-dc-digm-1-2)" : {
-		name : "Moon-Touched Shortsword (DIGM-1-2)",
-		source : [["AL","FR-DC"]],
-		type : "weapon (shortsword)",
-		rarity : "common",
-		description : "This shortsword has a silver blade and a dark red hilt. In darkness, the unsheathed blade sheds moonlight, creating a 15-ft radius of bright light and another 15-ft radius of dim light. When glowing, images of flames flow up and down the blade as if dancing. I'm also unharmed by extreme temps past 0\u00B0F & 100\u00B0F.",
-		descriptionFull : "This sword has a silver blade and a dark red hilt. When the sword shines, images of flames flow up and down the blade, as if they’re dancing.\n   " + toUni("Temperate") + ". You are unharmed by temperatures of 0 degrees Fahrenheit or lower, and 100 degrees Fahrenheit or higher.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
-		weaponsAdd : { select : ["Moon-Touched Shortsword"], options : ["Moon-Touched Shortsword"] },
-		savetxt : { immune : ["temps past 0\u00B0F/100\u00B0F"] },
-	},
-	"moon-touched shortsword: platinum fang (fr-dc-dmja-1)" : {
-		name : "Platinum Fang, Moon-Touched Shortsword (DMJA-1)",
-		source : [["AL","FR-DC"]],
-		type : "weapon (shortsword)",
-		rarity : "common",
-		description : "This beautiful platinum blade resembles a dragon's fang. Runara, abbess of Dragon's Rest, says it was a gift from Bahamut himself to a brave hero long ago. In darkness, the unsheathed blade sheds moonlight, creating a 15-ft radius of bright light and another 15-ft dim light. The sword also enhances pangs of conscience if I contemplate or do a malevolent act.",
-		descriptionFull : "A beautiful, platinum blade that resembles a dragon's fang. Runara, abbess of Dragon's Rest, says that this magic sword was a gift from Bahamut himself to a brave hero from long ago.\n   " + toUni("Conscientious") + ". When the bearer of this item contemplates or undertakes a malevolent act, the item enhances pangs of conscience.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
-		weaponsAdd : { select : ["Platinum Fang, Moon-Touched Shortsword"], options : ["Platinum Fang, Moon-Touched Shortsword"] },
-	},
-	"moon-touched shortsword (fr-dc-ucon24)" : {
-		name : "Moon-Touched Shortsword (FR-DC-UCON24)",
-		source : [["AL","FR-DC"]],
-		type : "weapon (shortsword)",
-		rarity : "common",
-		description : "Forged in furnaces of Selûnarra prior to Karsus's Folly, this shortsword is made of an adamantine alloy etched with engravings of fey creatures. While on my person, I can speak Sylvan. In darkness, the unsheathed blade sheds moonlight, creating a 15-ft radius of bright light and another 15-ft dim light.",
-		descriptionFull : "Forged in furnaces of Selûnarra prior to Karsus's Folly, this shortsword is made of adamantine alloy etched with engravings of fey creatures, providing the language property. [Per 2024 AL adjustments, this item could be moon-touched or adamantine. Coding both since someone may take Adamantine here.]\n   " + toUni("Language") + ". The bearer can speak and understand Sylvan while the item is on the bearer's person.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
-		weaponsAdd : { select : ["Moon-Touched Shortsword"], options : ["Moon-Touched Shortsword"] },
-		languageProfs : ["Sylvan"],
-	},
-	"moon-touched sword (ccc-bmg-moon6-2)" : {
-		name : "Moon-Touched Sword (CCC-BMG-MOON6-2)",
-		nameTest : "/moon-touched.*(ccc-bmg-moon6-2)/i",
-		source : [["AL","CCC"]],
-		type: "weapon (Glaive, Greatsword, Longsword, Rapier, Scimitar, or Shortsword)",
-		rarity : "common",
-		description : "This sword is paper-thin. Geometric runes along its length contrast the sweeping elven make. The script is unknown, but purportedly reads: \"I am but a shard.\" In darkness, the unsheathed blade sheds moonlight, creating 15-ft of bright light \u0026 15-ft dim.",
-		descriptionFull : "The blade is thin to the point of being paper. Geometric runes run along its length, in stark contrast to the sweeping elven make. The script is unknown, but purportedly it reads: “I am but a shard.”\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
-	chooseGear : {
-		type : "weapon",
-		prefixOrSuffix : ["between", "Moon-Touched", "(BMG-MOON6-2)"],
-		itemName1stPage : ["suffix", "Moon-Touched"],
-		descriptionChange : ["replace", "sword"],
-		excludeCheck : function (inObjKey, inObj) {
-			var testRegex = /glaive|greatsword|longsword|rapier|scimitar|shortsword/i;
-			return !(testRegex).test(inObjKey) && (!inObj.baseWeapon || !(testRegex).test(inObj.baseWeapon));
-		}
-	},
-	calcChanges : {
-		atkAdd : [
-			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && /glaive|greatsword|longsword|rapier|scimitar|shortsword/i.test(v.baseWeaponName) && /moon.touched/i.test(v.WeaponTextName)) {
-					v.theWea.isMagicWeapon = true;
-					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
-				}
-			},
-			'If I include the words "Moon-Touched" in the name of a sword, it will be treated as the magic weapon Moon-Touched Sword.'
-			]
-		}
-	},
-	"moon-touched sword (ccc-bmg-moon10-2)" : {
-		name : "Moon-Touched Sword (CCC-BMG-MOON10-2)",
-		nameTest : "/moon-touched.*(ccc-bmg-moon10-2)/i",
-		source : [["AL","CCC"]],
-		type: "weapon (Glaive, Greatsword, Longsword, Rapier, Scimitar, or Shortsword)",
-		rarity : "common",
-		description : "A shard of pure moonlight, this magical sword has no guard & barely enough hilt for my grip. It always glows with a soft pale white radiance. In darkness, the unsheathed blade sheds moonlight, creating 15-ft of bright light & 15-ft dim.",
-		descriptionFull : "A shard of pure moonlight, this sword has no guard and barely enough hilt for the wielder's grip. It always glows with a soft, pale white radiance.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
-	chooseGear : {
-		type : "weapon",
-		prefixOrSuffix : ["between", "Moon-Touched", "(BMG-MOON10-2)"],
-		itemName1stPage : ["suffix", "Moon-Touched"],
-		descriptionChange : ["replace", "sword"],
-		excludeCheck : function (inObjKey, inObj) {
-			var testRegex = /glaive|greatsword|longsword|rapier|scimitar|shortsword/i;
-			return !(testRegex).test(inObjKey) && (!inObj.baseWeapon || !(testRegex).test(inObj.baseWeapon));
-		}
-	},
-	calcChanges : {
-		atkAdd : [
-			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && /glaive|greatsword|longsword|rapier|scimitar|shortsword/i.test(v.baseWeaponName) && /moon.touched/i.test(v.WeaponTextName)) {
-					v.theWea.isMagicWeapon = true;
-					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
-				}
-			},
-			'If I include the words "Moon-Touched" in the name of a sword, it will be treated as the magic weapon Moon-Touched Sword.'
-			]
-		}
+			}
 	},
 	"nine lives stealer longsword: love's bite (ddal7-11)" : {
 		name : "Love's Bite, Nine Lives Stealer (DDAL7-11)",
@@ -4073,7 +3662,7 @@ MagicItemsList["al weapons +2 or +3"] = {
 			allowDuplicates : true,
 			choicesNotInMenu : true,
 			magicItemTable : "?",
-		choices : ["+2 Bow (DDEX3-7)","+2 Club (PS-DC-GMM-1)","+2 Dagger (CCC-GHC-6)","+2 Dagger (SJ-DC-INAS-3)","+2 Dagger: EPA (Trading Post)","+2 Glaive: Azure Sky (SJ-DC-ANGKA-6)","+2 Greataxe: Whisper (DDHC-TOA-8)","+2 Greataxe: Statikax (SJ-DC-LLL-1)","+2 Greataxe: Gleaming (SJ-DC-NMB1-3)","+2 Greataxe: Gythka (SJ-DC-PAT-1)","+2 Greatsword: Tyr's Justice (CCC-GHC-8)","+2 Greatsword: Githyanki Greater Silver Sword (CCC-TRI-27 ROSE1-2)","+2 Greatsword (FR-DC-AEG-6)","+2 Greatsword: Elven Curve Blade (FR-DC-LAX-1-2)","+2 Greatsword (FR-DC-MELB-1-2)","+2 Greatsword: Agony (SJ-DC-ANGKA-1)","+2 Greatsword: Lesser (SJ-DC-FTC-2)","+2 Greatsword: Lux Machaera (SJ-DC-LIGA6)","+2 Greatsword (SJ-DC-RH-1)","+2 Hand Crossbow (SJ-DC-ECHO-4)","+2 Hand Crossbow (SJ-DC-ROCK-1)","+2 Heavy Crossbow: First Blood (SJ-DC-TBS-4)","+2 Longbow: Deep's Reach (CCC-BMG-MOON12-2)","+2 Longbow: Giant's Bane (CCC-GHC-9)","+2 Longbow (DDEP5-2)","+2 Longbow: Bloodthirst (SJ-DC-EPOCH-1)","+2 Longbow: Friendbow (SJ-DC-SCR-1)","+2 Longbow: Craygen's Bow (SJ-DC-SSM-UBCon-1)","+2 Longsword: Elven Blade of the Third Age (CCC-BWM-2)","+2 Longsword: Stout (CCC-GHC-BK1-5)","+2 Longsword: Pride (FR-DC-BTW-3)","+2 Longsword: Blazherserblane (FR-DC-LIGA-2)","+2 Longsword: Westdeck Sword (SJ-DC-CGG-2)","+2 Longsword (SJ-DC-END-1-4)","+2 Maul: Manyoshu's Kanabo (FR-DC-ONI-1)","+2 Maul: Coral Great Hammer (SJ-DC-DEN-H5)","+2 Maul: Space Clown Hammer (SJ-DC-FXC-JEFF-1)","+2 Morningstar: Mourning Star (SJ-DC-ANGKA-5)","+2 Pike: Horizon Caller (SJ-DC-CONMAR-1)","+2 Quarterstaff: Herfren's Marshaling Wand (SJ-DC-BST-2)","+2 Rapier: The Sixth Sword (CCC-HAL-3)","+2 Rapier (FR-DC-AEG-9)","+2 Rapier (SJ-DC-DRAGON-3)","+2 Scimitar (SJ-DC-DRA-1)","+2 Scimitar (SJ-DC-IGC-ECP-5)","+2 Shortsword: Smoke (CCC-SFBAY1-1)","+2 Shortsword (DDAL0-13)","+2 Shortsword (RV-DC-POE-1)","+2 Spear (PS-DC-DRAGON24-2)","+2 Trident (CCC-CIC-12)","+2 Trident: Deep Sashelas (PS-DC-PKL-9)","+2 War Pick (CCC-MYR1-1)","+2 Warhammer (FR-DC-BMK-1)","+2 Weapon (PotA)","+2 Weapon (SJ-DC-MAD-2)","+2 Whip: Flogger's Bouquet (SJ-DC-ENIGMA)","+2 Whip (SJ-DC-TEL-1)","+2 Yklwa: Naga's Warning (SJ-DC-PAT-2)","+3 Battleaxe: Skeggöx (DDAL5-9)","+3 Battleaxe: Pickleaxe (PS-DC-PKL-20B)","+3 Dagger (CCC-TRI-29 TIDE1-1)","+3 Glaive: Empyrean's Unbreaking Glaive (WBW-DC-Sunlit-6)","+3 Greatsword: Wyrmguard (PS-DC-STRAT-DRAGON-5)","+3 Greatsword (WBW-DC-PLS-1)","+3 Hand Crossbow: Belmore (WBW-DC-PHP-LCL-2)","+3 Lance: Dream Whirl (CCC-BMG-39 HULB3-3)","+3 Longbow (BMG-DRWEP-OD-2)","+3 Piercing Weapon: Midnight Phaeton's Horn (CCC-ODFC2-3)","+3 Pike: Krahharuan Fork (DDAL7-10)","+3 Scimitar (DDEP6-2)","+3 Shortsword: Harengon's Freedom (AL:SA-11A)","+3 Shortsword (PS-DC-NOS-4)","+3 Spear: Blood-Drinker's Backbone (RMH-5/RMH-6)"],
+		choices : ["+2 Bow (DDEX3-7)","+2 Club (PS-DC-GMM-1)","+2 Dagger (CCC-GHC-6)","+2 Dagger (SJ-DC-INAS-3)","+2 Dagger: EPA (Trading Post)","+2 Glaive: Grûmsh Bryndrak (FR-DC-FET-2)","+2 Glaive: Azure Sky (SJ-DC-ANGKA-6)","+2 Greataxe: Whisper (DDHC-TOA-8)","+2 Greataxe: Statikax (SJ-DC-LLL-1)","+2 Greataxe: Gleaming (SJ-DC-NMB1-3)","+2 Greataxe: Gythka (SJ-DC-PAT-1)","+2 Greatsword: Tyr's Justice (CCC-GHC-8)","+2 Greatsword: Githyanki Greater Silver Sword (CCC-TRI-27 ROSE1-2)","+2 Greatsword (FR-DC-AEG-6)","+2 Greatsword: Elven Curve Blade (FR-DC-LAX-1-2)","+2 Greatsword (FR-DC-MELB-1-2)","+2 Greatsword: Gleam Claymore (PS-DC-TT-202)","+2 Greatsword: Agony (SJ-DC-ANGKA-1)","+2 Greatsword: Lesser (SJ-DC-FTC-2)","+2 Greatsword: Lux Machaera (SJ-DC-LIGA6)","+2 Greatsword (SJ-DC-RH-1)","+2 Hand Crossbow (SJ-DC-ECHO-4)","+2 Hand Crossbow (SJ-DC-ROCK-1)","+2 Heavy Crossbow: First Blood (SJ-DC-TBS-4)","+2 Longbow: Deep's Reach (CCC-BMG-MOON12-2)","+2 Longbow: Giant's Bane (CCC-GHC-9)","+2 Longbow (DDEP5-2)","+2 Longbow: Bloodthirst (SJ-DC-EPOCH-1)","+2 Longbow: Friendbow (SJ-DC-SCR-1)","+2 Longbow: Craygen's Bow (SJ-DC-SSM-UBCon-1)","+2 Longsword: Elven Blade of the Third Age (CCC-BWM-2)","+2 Longsword: Stout (CCC-GHC-BK1-5)","+2 Longsword: Pride (FR-DC-BTW-3)","+2 Longsword: Blazherserblane (FR-DC-LIGA-2)","+2 Longsword: Westdeck Sword (SJ-DC-CGG-2)","+2 Longsword (SJ-DC-END-1-4)","+2 Maul: Manyoshu's Kanabo (FR-DC-ONI-1)","+2 Maul: Coral Great Hammer (SJ-DC-DEN-H5)","+2 Maul: Space Clown Hammer (SJ-DC-FXC-JEFF-1)","+2 Morningstar: Mourning Star (SJ-DC-ANGKA-5)","+2 Pike: Horizon Caller (SJ-DC-CONMAR-1)","+2 Quarterstaff: Herfren's Marshaling Wand (SJ-DC-BST-2)","+2 Rapier: The Sixth Sword (CCC-HAL-3)","+2 Rapier (FR-DC-AEG-9)","+2 Rapier (SJ-DC-DRAGON-3)","+2 Scimitar (SJ-DC-DRA-1)","+2 Scimitar (SJ-DC-IGC-ECP-5)","+2 Shortsword: Smoke (CCC-SFBAY1-1)","+2 Shortsword (DDAL0-13)","+2 Shortsword (RV-DC-POE-1)","+2 Spear (PS-DC-DRAGON24-2)","+2 Trident (CCC-CIC-12)","+2 Trident: Deep Sashelas (PS-DC-PKL-9)","+2 War Pick (CCC-MYR1-1)","+2 Warhammer (FR-DC-BMK-1)","+2 Weapon (PotA)","+2 Weapon (SJ-DC-MAD-2)","+2 Whip: Flogger's Bouquet (SJ-DC-ENIGMA)","+2 Whip (SJ-DC-TEL-1)","+2 Yklwa: Naga's Warning (SJ-DC-PAT-2)","+3 Battleaxe: Skeggöx (DDAL5-9)","+3 Battleaxe: Pickleaxe (PS-DC-PKL-20B)","+3 Dagger (CCC-TRI-29 TIDE1-1)","+3 Glaive: Empyrean's Unbreaking Glaive (WBW-DC-Sunlit-6)","+3 Greatsword: Wyrmguard (PS-DC-STRAT-DRAGON-5)","+3 Greatsword (WBW-DC-PLS-1)","+3 Hand Crossbow: Belmore (WBW-DC-PHP-LCL-2)","+3 Lance: Dream Whirl (CCC-BMG-39 HULB3-3)","+3 Longbow (BMG-DRWEP-OD-2)","+3 Piercing Weapon: Midnight Phaeton's Horn (CCC-ODFC2-3)","+3 Pike: Krahharuan Fork (DDAL7-10)","+3 Scimitar (DDEP6-2)","+3 Shortsword: Harengon's Freedom (AL:SA-11A)","+3 Shortsword (PS-DC-NOS-4)","+3 Spear: Blood-Drinker's Backbone (RMH-5/RMH-6)"],
 		"+2 bow (ddex3-7)" : {
 			name : "+2 (DDEX3-7)",
 			source : [["AL","S3"]],
@@ -4127,6 +3716,17 @@ MagicItemsList["al weapons +2 or +3"] = {
 			descriptionLong : "This dagger's blade is coated in a thin layer of an unknown chemical that can never be washed away. The chemical was thought to be completely destroyed by the Forgotten Realms environmental protection agency centuries ago, due to the extreme* (normal) damage it does when in contact with plants. Druids are sure to try to confiscate this fell blade should they see it. I have a +2 bonus to attack and damage rolls made with this magic weapon.",
 			descriptionFull : "The blade of this dagger is coated in a thin layer of unknown chemical that can never be washed away. This chemical was thought to be completely destroyed by the Forgotten Realms environmental protection agency centuries ago, due to the extreme* (normal) damage it does when in contact with plants. Druids are sure to try to confiscate this fell blade should they see it (Custom flavor from the 2023 DWB Trading Post).\n   You have a +2 bonus to attack and damage rolls made with this magic weapon.",
 			weaponsAdd : { select : ["Dagger +2"], options : ["Dagger +2"] },
+			},
+		"+2 glaive: grûmsh bryndrak (fr-dc-fet-2)" : {
+			name : "Grûmsh Bryndrak, +2 Glaive (FR-DC-FET-2)",
+			source : [["AL","FR-DC"]],
+			rarity : "rare",
+			allowDuplicates : true,
+			description : "This +2 glaive is named Grûmsh (the reaper or the reaper's blade) Bryndrak (the shining one). A weapon worthy of the reaper himself, it was wielded by the mighty death giant Clauthya. Sent by the Raven Queen to capture a powerful enemy's memories, she didn't anticipate facing a brave group of adventurers. The glaive is 5-ft long with a dark blade attached to the end. As a bonus action, the glaive sheds bright light in a 10-ft radius and 10-ft more dim, or stops.",
+			descriptionLong : "This glaive is named from Grûmsh (the reaper or the reaper's blade) and Bryndrak (the shining one). A weapon worthy of the reaper himself, it was wielded by the mighty death giant Clauthya. Sent by the Raven Queen to capture a powerful enemy's memories, she didn't anticipate facing a brave group of adventurers. The glaive is 5-ft long with a dark blade attached to the end. I have a +2 bonus to attack and damage rolls made with it. As a bonus action, the glaive sheds bright light in a 10-ft radius and 10-ft more dim, or stops.",
+			descriptionFull : "Grûmsh Bryndrak was the weapon of the mighty death giant \"Clauthya.\" Sent by the Raven Queen to capture the memories of a powerful enemy, she did not anticipate the intervention of a brave group of adventurers. Grûmsh Bryndrak is composed of the words Grûmsh (meaning the reaper or the reaper's blade) and Bryndrak (the shining one). It is a 5-foot-long weapon with a dark blade attached to its end. A weapon whose power would be worthy of the reaper himself.\n   " + toUni("Beacon") + ". You can take a Bonus Action to cause the item to shed Bright Light in a 10-foot radius and Dim Light for an additional 10 feet, or to extinguish the light.\n   You have a +2 bonus to attack and damage rolls made with this magic weapon.",
+			action : [["bonus action", "Glaive +2 (light/dim)"]],
+			weaponsAdd : { select : ["Grûmsh Bryndrak, Glaive +2"], options : ["Grûmsh Bryndrak, Glaive +2"] },
 			},
 		"+2 glaive: azure sky (sj-dc-angka-6)" : {
 			name : "Azure Sky, +2 Glaive (SJ-DC-ANGKA-6)",
@@ -4230,6 +3830,16 @@ MagicItemsList["al weapons +2 or +3"] = {
 			description : "This greatsword is made of a strange black metal. The blade is polished to a high sheen with a black opal inset into the pommel. I have a +2 bonus to attack and damage rolls made with this magic weapon.",
 			descriptionFull : "This greatsword is made of a strange black metal. The blade is polished to a high sheen with a black opal inset into the pommel.\n   You have a +2 bonus to attack and damage rolls made with this magic weapon.",
 			weaponsAdd : { select : ["Greatsword +2"], options : ["Greatsword +2"] },
+			},
+		"+2 greatsword: gleam claymore (ps-dc-tt-202)" : {
+		name : "Gleam Claymore, +2 Greatsword (TT-202)",
+			source : [["AL","PS-DC"]],
+			rarity : "rare",
+			allowDuplicates : true,
+			description : "Dolores would have given me a sunblade but who would dump a sunblade? This +2 greatsword is the next best thing. As a bonus action, it sheds bright light in a 10-ft radius and 10-ft more dim, or stops. The colour can be blue, green, or purple, never red.",
+			descriptionFull : "You have a +2 bonus to attack and damage rolls made with this magic weapon.\n   " + toUni("Beacon") + ". Dolores would give you a sunblade but who would dump a sunblade? The bearer of this next best thing can use a bonus action to cause the item to shed bright light in a 10-foot radius and dim light for an additional 10 feet, or to extinguish the light. The colour can be blue, green, or purple, never red.",
+			weaponsAdd : { select : ["Gleam Claymore, Greatsword +2"], options : ["Gleam Claymore, Greatsword +2"] },
+			action : [["bonus action", "Gleam Claymore (light/dim)"]],
 			},
 		"+2 greatsword: agony (sj-dc-angka-1)" : {
 		name : "Agony, +2 Greatsword (SJ-DC-ANGKA-1)",
@@ -4856,12 +4466,652 @@ MagicItemsList["al weapons +2 or +3"] = {
 }
 
 
+RunFunctionAtEnd(function () {//this code makes it so the AL variations of common items don't appear as an option for artificers to create
+//AL flavored Weapons
+MagicItemsList["al weapons (common)"] = {
+			name : "AL Weapons (Common)",
+			allowDuplicates : true,
+			choicesNotInMenu : true,
+			rarity : "common",
+			magicItemTable : "?",
+		choices : ["Green-Flame Mace: Face of Umberlee's Fury (CCC-AWE-1-2)","Moon-Touched Greatsword (DDAL-DRW17)","Moon-Touched Longsword (BMG-DRW-OD-1)","Moon-Touched Longsword (CCC-GHC-BK1-1)","Moon-Touched Longsword (CCC-TAROT2-6)","Moon-Touched Longsword (DDAL0-11D)","Moon-Touched Rapier (CCC-GAD2-1)","Moon-Touched Rapier (CCC-SAC-4)","Moon-Touched Rapier (CCC-UNITE-5)","Moon-Touched Rapier (FR-DC-Saerloon-3)","Moon-Touched Rapier: Pointy End (FR-DC-THAY-2)","Moon-Touched Scimitar (FR-DC-DUNG-1)","Moon-Touched Scimitar (FR-DC-GHG-4)","Moon-Touched Scimitar (FR-DC-PHP-PEST-1)","Moon-Touched Scimitar: Moonmaiden's Blade (FR-DC-STRAT-DRAGON-1)","Moon-Touched Shortsword (BMG-MOON-MD-6)","Moon-Touched Shortsword (DC-POA-CONMAR-9)","Moon-Touched Shortsword (DC-POA-DES-5B)","Moon-Touched Shortsword (DC-POA-GSP2-3H)","Moon-Touched Shortsword: Fang (DC-POA-GSP3-2)","Moon-Touched Shortsword (DC-POA-JCDC-1)","Moon-Touched Shortsword (DC-POA-MCWWS-2)","Moon-Touched Shortsword: Tsukuyomi (DC-POA-TDG1-3)","Moon-Touched Shortsword: Blade of the Black Tortoise (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: Green Dragon Gladius (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: Red Phoenix Falchion (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: White Tiger Tulwar (DC-POA-VAN-MT-1)","Moon-Touched Shortsword (FR-DC-DIGM-1-2)","Moon-Touched Shortsword: Platinum Fang (FR-DC-DMJA-1)","Moon-Touched Shortsword (FR-DC-UCON24)","Moon-Touched Sword (CCC-BMG-MOON6-2)","Moon-Touched Sword (CCC-BMG-MOON10-2)","Silvered Light Crossbow: Jackal Slayer (FR-DC-SCROG-3)","Silvered Mace: Divaine's Microphone (FR-DC-DIVA)","Staff of Adornment (CCC-3MAGS-ONE)","Staff of Adornment (PS-DC-PKL-10)","Staff of Adornment: K's Ashenwood Staff (SJ-DC-AMO-KURI-3)","Staff of Adornment (SJ-DC-ARQ-2)","Staff of Adornment: Ocharine (SJ-DC-DD-7)","Staff of Adornment (SJ-DC-DEN-H5)","Staff of Adornment (SJ-DC-IGC-ECP-5)","Staff of Adornment (SJ-DC-MONSTER-1)","Staff of Adornment: Shakujo (SJ-DC-MWG-1)","Staff of Adornment (SJ-DC-ROTU-5)","Staff of Adornment (SJ-DC-TEL-12)","Staff of Adornment (WBW-DC-NJ-COU-2)","Staff of Birdcalls (FR-DC-TT-T201)","Staff of Birdcalls (WBW-DC-BIRE-1)","Staff of Birdcalls (WBW-DC-CONMAR-3)","Staff of Birdcalls (WBW-DC-Death)","Staff of Birdcalls (WBW-DC-FDC-3)","Staff of Birdcalls (WBW-DC-HBK-1)","Staff of Birdcalls (WBW-DC-ROBIN-1-2)","Staff of Birdcalls (WBW-DC-ROOK-1-4)","Staff of Birdcalls: Dark Crystal (WBW-DC-ZODIAC-10)","Staff of Flowers (CCC-KUMORI-3-1)","Sylvan Talon: Zigfreed's Spear (FR-DC-SCROG-1)","Sylvan Talon: Grandpa Oak's Gift (WBW-DC-PUFF-1)"],
+	"green-flame mace: face of umberlee's fury (ccc-awe-1-2)" : {
+		name : "Face of Umberlee's Fury (Green-Flame Mace)",
+		source : [["AL","CCC"]],
+		type : "weapon (mace)",
+		attunement : true,
+		description : "I can use an action to ignite the head of this mace with green flame or extinguish it. When lit, the mace glows like a torch & deals 1 extra Fire dmg. Its head resembles the head of a merfolk woman & the green flame looks like her hair flowing gently in water. The command words are \"Fury\" (to light) and \"Rest\" (to extinguish) in Aquan.",
+		descriptionLong : "While attuned to this mace, I can use an action to make its head ignite with green flame or extinguish it. When lit, the mace glows as brightly as a torch and deals 1 extra Fire dmg on a hit. Its head resembles the head of a merfolk female and while active, the green flame looks like her hair flowing gently in water. The command words are \"Fury\" (to light) and \"Rest\" (to extinguish) in Aquan.",
+		descriptionFull : "The mace's head is shaped to resemble the head of a merfolk female. While \"lit,\" the green flame resembles the merfolk's hair flowing gently in water. The command words for the mace are the words \"Fury\" (to light) and \"Rest\" (to extinguish) in Aquan.\n   This mace is a common magic item. While attuned to the weapon, the wielder can use an action to make the head of the mace alight with green flame or use an action to extinguish the flame. While the mace is \"lit,\" it glows as brightly as a torch and deals an extra 1 fire damage on a hit.",
+		weight : 4,
+		action : [["action", "Green-Flame Mace (Light/Extinguish)"]],
+		weaponOptions : {
+			baseWeapon : "mace",
+			regExpSearch : /^(?=.*mace)(?=.*green)(?=.*flame)(?=.*umberlee|umberlee's)(?=.*fury).*$/i,
+			name : "Umberlee's Fury, Green-Flame Mace",
+			description : "Sap; +1 fire dmg while lit",
+			selectNow : true,
+		}
+	},
+
+	"moon-touched greatsword (ddal-drw17)" : {
+		name : "Moon-Touched Greatsword (DDAL-DRW17)",
+		source : [["AL","DRW"]],
+		type : "weapon (greatsword)",
+		description : "The flats of this blade act like windows onto a night sky with blinking stars \u0026 a large viridian sphere shifting slowly in different directions. 3 sluggish, green tentacles protrude from 1 end, acting as guard & grip. When unsheathed in darkness, it sheds green moonlight from the viridian sphere, creating 15-ft of bright light \u0026 15-ft more dim.",
+		descriptionFull : "The flats of the blade act like windows onto a night sky with blinking stars and a large viridian sphere shifting slowly in different directions. Three sluggish, green tentacles protrude from one end of the blade, acting as its guard and grip. The light the blade produces is green, and is emitted from the viridian sphere.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
+		weaponsAdd : { select : ["Moon-Touched Greatsword"], options : ["Moon-Touched Greatsword"] },
+	},
+	"moon-touched longsword (bmg-drw-od-1)" : {
+		name : "Moon-Touched Longsword (BMG-DRW-OD-1)",
+		source : [["AL","DRW"]],
+		type : "weapon (longsword)",
+		description : "The crossguard of this sword resembles a bull's head, with its horns curling to form the guards. Each of the bull's eyes is an inset moonstone. When unsheathed in darkness, it sheds moonlight, creating bright light in a 15-ft radius & dim light for another 15 ft.",
+		descriptionFull : "The crossguard of this sword is styled to resemble a bull's head, with each of its horns curling off to form one of the guards. Each of the bull's eyes is an inset moonstone.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
+		weaponsAdd : { select : ["Moon-Touched Longsword"], options : ["Moon-Touched Longsword"] },
+	},
+	"moon-touched longsword (ccc-ghc-bk1-1)" : {
+		name : "Moon-Touched Longsword (CCC-GHC-BK1-1)",
+		source : [["AL","CCC"]],
+		type : "weapon (longsword)",
+		description : "The blade of this magical longsword is etched with a hawk that has its wings spread and talons extended. When unsheathed in darkness, it sheds moonlight, creating a 15-ft radius of bright light and another 15 ft dim light.",
+		descriptionFull : "The blade of this longsword is etched with a hawk that has its wings spread and its talons extended.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
+		weaponsAdd : { select : ["Moon-Touched Longsword"], options : ["Moon-Touched Longsword"] },
+	},
+	"moon-touched longsword (ccc-tarot2-6)" : {
+		name : "Moon-Touched Longsword (CCC-TAROT2-6)",
+		source : [["AL","CCC"]],
+		type : "weapon (longsword)",
+		description : "Etched into this curved blade are the phases of Selûne with an upturned crescent, the emblem of the Swords of the Lady, inlaid with silver. The pommel holds a large moonstone. In darkness, the blade sheds moonlight, creating 15-ft of bright light and 15-ft dim.",
+		descriptionFull : "Etched into the curved blade of this longsword are the phases of Selûne with the upturned crescent, the emblem of the Swords of the Lady, inlaid with silver. The pommel includes a large moonstone.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
+		weaponsAdd : { select : ["Moon-Touched Longsword"], options : ["Moon-Touched Longsword"] },
+	},
+	"moon-touched longsword (ddal0-11d)" : {
+		name : "Moon-Touched Longsword (DDAL0-11D)",
+		source : [["AL","S0"]],
+		type : "weapon (longsword)",
+		description : "This elven-made longsword is decorated with intricate scrollwork featuring a full moon shining upon a glade of dancing elves. In darkness, the unsheathed blade sheds moonlight, creating bright light in a 15-ft radius and dim light for another 15 ft.",
+		descriptionFull : "This elven made longsword is decorated with intricate scrollwork featuring a full moon shining down upon a glade of dancing elves.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
+		weaponsAdd : { select : ["Moon-Touched Longsword"], options : ["Moon-Touched Longsword"] },
+	},
+	"moon-touched rapier (ccc-gad2-1)" : {
+		name : "Moon-Touched Rapier (CCC-GAD2-1)",
+		source : [["AL","CCC"]],
+		type : "weapon (rapier)",
+		description : "This silver rapier is forged to resemble a long tentacle that twists out to a sharp point. In darkness, the unsheathed blade sheds moonlight, creating bright light in a 15-ft radius and dim light for another 15 ft.",
+		descriptionFull : "This silver blade is forged to resemble a long tentacle that twists out to a sharp point.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
+		weaponsAdd : { select : ["Moon-Touched Rapier"], options : ["Moon-Touched Rapier"] },
+	},
+	"moon-touched rapier (ccc-sac-4)" : {
+		name : "Moon-Touched Rapier (CCC-SAC-4)",
+		source : [["AL","CCC"]],
+		type : "weapon (rapier)",
+		description : "Carved into the hilt of this rapier is the insignia of the Black Moon Pirate Company. In darkness, the unsheathed blade sheds moonlight, creating bright light in a 15-ft radius and dim light for another 15 ft.",
+		descriptionFull : "Carved into the hilt of the rapier is the insignia of the Black Moon Pirate Company.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
+		weaponsAdd : { select : ["Moon-Touched Rapier"], options : ["Moon-Touched Rapier"] },
+	},
+	"moon-touched rapier (ccc-unite-5)" : {
+		name : "Moon-Touched Rapier (CCC-UNITE-5)",
+		source : [["AL","CCC"]],
+		type : "weapon (rapier)",
+		description : "In darkness, the unsheathed blade of this rapier sheds moonlight, creating bright light in a 15-ft radius and dim light for another 15 ft. While on my person, I can speak Undercommon.",
+		descriptionFull : "The bearer of this weapon can speak and understand Undercommon.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
+		languageProfs : ["Undercommon"],
+		weaponsAdd : { select : ["Moon-Touched Rapier"], options : ["Moon-Touched Rapier"] },
+	},
+	"moon-touched rapier (fr-dc-saerloon-3)" : {
+		name : "Moon-Touched Rapier (FR-DC-Saerloon-3)",
+		source : [["AL","FR-DC"]],
+		type : "weapon (rapier)",
+		description : "This rapier was made for the Knights of the Vine by Elven smiths in the Cormanthor Forest and never gets dirty. The blade is triangular and the basket hilt looks like a bunch of red grapes. In darkness, its unsheathed blade sheds moonlight, creating bright light in a 15-ft radius and dim light for another 15 ft.",
+		descriptionFull : "This rapier was made for the Knights of the Vine by Elven smiths in the Cormanthor. The blade is triangular, and the basket hilt appears like a bunch of red grapes.\n   " + toUni("Gleaming") + ". This item never gets dirty.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
+		weaponsAdd : { select : ["Moon-Touched Rapier"], options : ["Moon-Touched Rapier"] },
+	},
+	"moon-touched rapier: pointy end (fr-dc-thay-2)" : {
+		name : "Point End, Moon-Touched Rapier (THAY-2)",
+		source : [["AL","FR-DC"]],
+		type : "weapon (rapier)",
+		description : "The name of this sword is carved onto the blade in untidy Elvish: \"Pointy End\". Or are the words merely a reminder? The sword floats on water and other liquids, giving adv on Strength (Athletics) checks to swim. In darkness, its unsheathed blade sheds moonlight, creating bright light in a 15-ft radius and dim light for another 15 ft.",
+		descriptionFull : "The name of this sword is carved onto the blade in untidy Elvish: \"Pointy End\". Or are the words merely a reminder?\n   " + toUni("Waterborne") + ". This item floats on water and other liquids. You have advantage on Strength (Athletics) checks to swim.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
+		weaponsAdd : { select : ["Pointy End, Moon-Touched Rapier"], options : ["Pointy End, Moon-Touched Rapier"] },
+		savetxt : { text : ["Adv on Str (Athletic) chks to swim"] },
+	},
+	"moon-touched scimitar (fr-dc-dung-1)" : {
+		name : "Moon-Touched Scimitar (FR-DC-DUNG-1)",
+		source : [["AL","FR-DC"]],
+		type : "weapon (scimitar)",
+		description : "This katana is stored in an ornate mahogany case with a silver label that reads \"Legendary Sword of Selúne\". In darkness, the unsheathed blade sheds moonlight, with 15-ft bright light and 15-ft more dim light. While underground, I always know my depth below the surface and the direction to the nearest upward path toward Selúne.",
+		descriptionFull : "In the style of a katana (functionally a scimitar) stored in an ornate mahogany case with a silver label that reads \"Legendary Sword of Selúne\".\n   " + toUni("Delver") + ". While underground, the bearer of this item always knows the item's depth below the surface and the direction to the nearest staircase, ramp, or other path leading upward toward Selúne.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
+		weaponsAdd : { select : ["Moon-Touched Scimitar"], options : ["Moon-Touched Scimitar"] },
+	},
+	"moon-touched scimitar (fr-dc-ghg-4)" : {
+		name : "Moon-Touched Scimitar (FR-DC-GHG-4)",
+		source : [["AL","FR-DC"]],
+		type : "weapon (scimitar)",
+		description : "This scimitar has the holy symbol of Vecna, the Whispered One engraved in the pommel. It warns me, giving +2 initiative if I'm not Incapacitated. In darkness, the unsheathed blade sheds moonlight, with 15-ft bright light and 15-ft more dim light.",
+		descriptionFull : "This scimitar has the holy symbol of Vecna, the Whispered One engraved in the pommel.\n   " + toUni("Guardian") + ". The item whispers warnings to its bearer, granting a +2 bonus to initiative if the bearer isn't incapacitated.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
+		weaponsAdd : { select : ["Moon-Touched Scimitar"], options : ["Moon-Touched Scimitar"] },
+		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
+	},
+	"moon-touched scimitar (fr-dc-php-pest-1)" : {
+		name : "Moon-Touched Scimitar (FR-DC-PHP-PEST-1)",
+		source : [["AL","FR-DC"]],
+		type : "weapon (scimitar)",
+		description : "The guard of this scimitar is adorned with a silver spider, its abdomen encrusted with a large sapphire. In darkness, the unsheathed blade sheds moonlight, with 15-ft bright light and 15-ft more dim. While on my person, I can speak Undercommon.",
+		descriptionFull : "The guard of the blade is adorned with a silver spider, its abdomen is encrusted with a large sapphire.\n   " + toUni("Language") + ". The bearer can speak and understand Undercommon while the item is on the bearer’s person.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
+		weaponsAdd : { select : ["Moon-Touched Scimitar"], options : ["Moon-Touched Scimitar"] },
+		languageProfs : ["Undercommon"],
+	},
+	"moon-touched scimitar: moonmaiden's blade (fr-dc-strat-dragon-1)" : {
+		name : "Moonmaiden's Blade, Moon-Touched Scimitar",
+		source : [["AL","FR-DC"]],
+		type : "weapon (scimitar)",
+		description : "This scimitar is shaped like a waxing moon. Runes hold a prayer for those buried underground to always find the light. In darkness, the unsheathed blade sheds moonlight, with 15-ft bright light and 15-ft dim. While underground, I always know my depth below the surface and the direction to the nearest upward path.",
+		descriptionLong : "This scimitar is shaped like a waxing moon. Runes along the blade hold a prayer that those buried underground will always find the light. In darkness, the unsheathed blade sheds moonlight, creating a 15-ft radius of bright light and another 15-ft dim. While underground, I always know my depth below the surface and the direction to the nearest upward path.",
+		descriptionFull : "This scimitar's blade is shaped like a waxing moon. Runes along the blade have a prayer that those buried underground always find the light of the moon.\n   " + toUni("Delver") + ". While underground, the bearer of this item always knows the item's depth below the surface and the direction to the nearest staircase, ramp, or other path leading upward.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
+		weaponsAdd : { select : ["Moonmaiden's Blade, Moon-Touched Scimitar"], options : ["Moonmaiden's Blade, Moon-Touched Scimitar"] },
+	},
+	"moon-touched shortsword (bmg-moon-md-6)" : {
+		name : "Moon-Touched Shortsword (BMG-MOON-MD-6)",
+		source : [["AL","PO"]],
+		type : "weapon (shortsword)",
+		description : "This ornate falcata has a single forward-curving edge that's wider near the point, giving it a heavy cutting momentum that feels powerful. Its hooked grip is made into a silver-blue crescent whose arms reach upward in reverence for the moon. In darkness, the unsheathed blade sheds moonlight, creating 15-ft bright light and 15-ft more dim. The light gently grows as the moon nears its fullness.",
+		descriptionLong : "This ornate falcata has a single forward-curving edge that grows wider near the point, giving it a heavy cutting momentum that feels powerful in my hand. Its hooked grip is fashioned into a silver-blue crescent whose arms reach upward along the blade in reverence for the moon. In darkness, the unsheathed sword sheds moonlight, creating a 15-ft radius of bright light and 15-ft more dim light. The light gently grows as the moon nears its fullness.",
+		descriptionFull : "This ornate falcata has a single forward-curving edge that grows wider near the point, giving it a heavy cutting momentum that feels powerful in the hand. Its hooked grip is fashioned into a silver-blue crescent whose arms reach upward along the blade in reverence for the moon. The light it gives gently grows as the moon nears its fullness.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
+		weaponsAdd : { select : ["Moon-Touched Shortsword"], options : ["Moon-Touched Shortsword"] },
+	},
+	"moon-touched shortsword (dc-poa-conmar-9)" : {
+		name : "Moon-Touched Shortsword (CONMAR-9)",
+		source : [["AL","DC-POA"]],
+		type : "weapon (shortsword)",
+		description : "In darkness, the unsheathed blade of this shortsword sheds moonlight, creating bright light in a 15-ft radius and dim light for another 15 ft. This sword has a smaller than usual handle, making it harder to grip but easier to draw.",
+		descriptionFull : "This sword has a smaller than usual handle, making it harder to grip, but easier to draw.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
+		weaponsAdd : { select : ["Moon-Touched Shortsword"], options : ["Moon-Touched Shortsword"] },
+	},
+	"moon-touched shortsword (dc-poa-des-5b)" : {
+		name : "Moon-Touched Shortsword (DC-POA-DES-5B)",
+		source : [["AL","DC-POA"]],
+		type : "weapon (shortsword)",
+		description : "This fey-crafted sword was a gift from the Prince of Frost & is cold to the touch, lowering the temperature in 5-ft. Icicles continually form & fall from it when unsheathed. The sword is made from mithral, a blue metal half the normal weight. In darkness, the unsheathed blade sheds moonlight, creating 15-ft of bright light & 15-ft dim.",
+		descriptionLong : "This fey-crafted sword was a gift from the Prince of Frost and is cold to the touch, lowering the temperature in a 5-ft radius. Icicles continually form and fall from the blade when unsheathed. The sword is made from mithral, a blue metal that's half the normal weight. In darkness, the unsheathed blade sheds moonlight, creating a 15-ft radius of bright light and another 15-ft dim.",
+		descriptionFull : "This fey-crafted blade features mithral construction, a blue metal weighing half the normal weight. The moon-touched shortsword gifted by the Prince of Frost is cold to the touch, lowering the temperature around it in a 5-foot radius. Icicles are continually forming and falling off the blade whenever it is unsheathed.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
+		weaponOptions : {
+			baseWeapon : "shortsword",
+			regExpSearch : /^(?=.*mithral)(?=.*moon)(?=.*touched).*$/i,
+			name : "Moon-Touched Mithral Shortsword",
+			weight : 1,
+			description : "Finesse, light, vex; Counts as magical.",
+			selectNow : true,
+			},
+	},
+	"moon-touched shortsword (dc-poa-gsp2-3h)" : {
+		name : "Moon-Touched Shortsword (GSP2-3H)",
+		source : [["AL","DC-POA"]],
+		type : "weapon (shortsword)",
+		description : "This blade looks like a winged serpent. It has the curved body of a slithering snake, a guard shaped like feathered wings, and a snake head pommel with its tongue sticking out as if hissing. The unsheathed blade sheds moonlight in darkness, creating 15-ft of bright light and another 15-ft dim.",
+		descriptionFull : "The blade is curved, forming the body of a slithering snake, its guard is designed to look like feathered wings, and the pommel looks like the head of a snake with its tongue sticking out as if hissing. Altogether, it forms a winged serpent.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
+		weaponsAdd : { select : ["Moon-Touched Shortsword"], options : ["Moon-Touched Shortsword"] },
+	},
+	"moon-touched shortsword: fang (dc-poa-gsp3-2)" : {
+		name : "Fang, Moon-Touched Shortsword (GSP3-2)",
+		source : [["AL","DC-POA"]],
+		type : "weapon (shortsword)",
+		description : "Curved with a sharp tip, this bone sword is made from an Ancient White Dragon. The bone handle is wrapped with cloth that always stays dry. When unsheathed, it glows a light blue-green \u0026 sheds 15-ft bright moonlight \u0026 15-ft dim in darkness.",
+		descriptionLong : "Curved with a sharp tip, this shortsword was made with bone from an Ancient White Dragon. The handle is also bone and wrapped with cloth that always stays dry. The unsheathed blade glows a light blue-green color and sheds moonlight in darkness, creating a 15-ft radius of bright light and another 15-ft dim.",
+		descriptionFull : "The blade glows a light blue-green color. Curved with a sharp tip, the blade was made from bone from an Ancient White Dragon. The handle is also bone, wrapped with cloth that always stays dry.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
+		weaponsAdd : { select : ["Fang, Moon-Touched Shortsword"], options : ["Fang, Moon-Touched Shortsword"] },
+	},
+	"moon-touched shortsword (dc-poa-jcdc-1)" : {
+		name : "Moon-Touched Shortsword (JCDC-1)",
+		source : [["AL","DC-POA"]],
+		type : "weapon (shortsword)",
+		description : "In darkness, the unsheathed blade of this shortsword sheds moonlight, creating bright light in a 15-ft radius and dim light for another 15 ft. Its hilt is polished white ivory carved to resemble a fearsome white dragon.",
+		descriptionFull : "The hilt is polished white ivory carved to resemble a fearsome white dragon.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
+		weaponsAdd : { select : ["Moon-Touched Shortsword"], options : ["Moon-Touched Shortsword"] },
+	},
+	"moon-touched shortsword (dc-poa-mcwws-2)" : {
+		name : "Moon-Touched Shortsword (MCWWS-2)",
+		source : [["AL","DC-POA"]],
+		type : "weapon (shortsword)",
+		description : "In darkness, the unsheathed blade of this sword sheds moonlight, creating 15-ft of bright light & 15-ft dim. The pommel is a polished white & grey stone that resembles a full moon. Its hilt is decorated with symbols representing the phases of the moon.",
+		descriptionFull : "The pommel stone on the blade is a polished white and grey stone that resembles a full moon. The hilt is decorated with symbols representing the phases of the moon.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
+		weaponsAdd : { select : ["Moon-Touched Shortsword"], options : ["Moon-Touched Shortsword"] },
+	},
+	"moon-touched shortsword: tsukuyomi (dc-poa-tdg1-3)" : {
+		name : "Tsukuyomi, Moon-Touched Shortsword (TDG1-3)",
+		source : [["AL","DC-POA"]],
+		type : "weapon (shortsword)",
+		description : "This Wakizashi-style sword is made from star metal with a beautiful hilt of carved rowan & oak. The crossguard, blade & hilt are etched with a lunar motif & embedded with 3 moonstones, shaped in the phases of the moon: crescent, half & full. The blade emits silvery-blue moonlight when unsheathed in darkness, making 15-ft of bright light & 15-ft dim.",
+		descriptionLong : "This Wakizashi-style shortsword is crafted from star metals with a beautiful hilt of carved Rowan and Oak. The crossguard, blade and hilt are etched with a lunar motif and embedded with three moonstones. They're shaped in the phases of the moon: crescent, half and full. Silvery-blue moonlight radiates from the blade when unsheathed in darkness, creating a 15-ft radius of bright light and another 15-ft dim.",
+		descriptionFull : "This Wakizashi style shortsword is crafted from star metals with a beautiful hilt of carved Rowan-Oak. The crossguard, blade and hilt are etched with a lunar motif and embedded with three moonstones, shaped in the phases of the moon: crescent, half and full. Silvery blue light radiates from the blade whenever it is drawn from the scabbard.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
+		weaponsAdd : { select : ["Tsukuyomi, Moon-Touched Shortsword"], options : ["Tsukuyomi, Moon-Touched Shortsword"] },
+	},
+	"moon-touched shortsword: blade of the black tortoise (dc-poa-van-mt-1)" : {
+		name : "Blade of the Black Tortoise (Moon-Touched Shortsword)",
+		source : [["AL","DC-POA"]],
+		type : "weapon (shortsword)",
+		description : "A sturdy tortoise adorns the ebony sheath of this sword. Engraved roughly into the pommel in Chultan is the githzerai aphorism: \"Endure. In enduring, grow strong\". The unsheathed blade sheds moonlight in darkness, creating 15-ft of bright light & 15-ft dim.",
+		descriptionFull : "A sturdy tortoise adorns this sword's ebony sheath. Engraved roughly into the pommel in Chultan is the following githzerai aphorism: \"Endure. In enduring, grow strong\".\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
+		weaponsAdd : { select : ["Blade of the Black Tortoise, Moon-Touched Shortsword"], options : ["Blade of the Black Tortoise, Moon-Touched Shortsword"] },
+	},
+	"moon-touched shortsword: green dragon gladius (dc-poa-van-mt-1)" : {
+		name : "Green Dragon Gladius (Moon-Touched Shortsword)",
+		source : [["AL","DC-POA"]],
+		type : "weapon (shortsword)",
+		description : "A wise imperious dragon is entwined around the jade sheath of this sword. The Chultan word for \"Patience\" is carved into the pommel in a flowing script. The unsheathed blade sheds moonlight in darkness, creating 15-ft of bright light & 15-ft dim.",
+		descriptionFull : "A wise, imperious dragon is entwined around this sword's jade sheath. The Chultan word for \"Patience\" is carved into the sword's pommel in a flowing script.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
+		weaponsAdd : { select : ["Green Dragon Gladius, Moon-Touched Shortsword"], options : ["Green Dragon Gladius, Moon-Touched Shortsword"] },
+	},
+	"moon-touched shortsword: red phoenix falchion (dc-poa-van-mt-1)" : {
+		name : "Red Phoenix Falchion (Moon-Touched Shortsword)",
+		source : [["AL","DC-POA"]],
+		type : "weapon (shortsword)",
+		description : "A fiery phoenix bursting from ashes is engraved on the red lacquered sheath of this sword. A Chultan proverbial poem is carved around the pommel: \"The water is calm / but only a fool would cross / sharp teeth lurk below.\" The unsheathed blade sheds moonlight in darkness, creating 15-ft of bright light and 15-ft more dim.",
+		descriptionFull : "A fiery phoenix bursting from ashes is engraved on this sword's red lacquered sheath. A Chultan proverbial poem is carved around the pommel:"+
+		"\n    \t \t\"The water is calm"+
+		"\n    \t \tbut only a fool would cross"+
+		"\n    \t \tsharp teeth lurk below.\""+
+		"\n \n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
+		weaponsAdd : { select : ["Red Phoenix Falchion, Moon-Touched Shortsword"], options : ["Red Phoenix Falchion, Moon-Touched Shortsword"] },
+	},
+	"moon-touched shortsword: white tiger tulwar (dc-poa-van-mt-1)" : {
+		name : "White Tiger Tulwar (Moon-Touched Shortsword)",
+		source : [["AL","DC-POA"]],
+		type : "weapon (shortsword)",
+		description : "The mammoth ivory sheath of this sword bears a carving of a tiger, teeth bared & claws extended, captured forever in mid-pounce. The pommel is polished to a high sheen & bears a Chultan inscription: \"Swift, as a coursing river.\" The unsheathed blade sheds moonlight in darkness, creating 15-ft of bright light and 15-ft more dim.",
+		descriptionFull : "This sword's sheath is made of mammoth ivory, and bears a relief carving of mighty tiger, teeth bared and claws extended, captured forever in mid-pounce. The sword's pommel is polished to a high sheen, and bears the following inscription in Chultan: \"Swift, as a coursing river.\"\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
+		weaponsAdd : { select : ["White Tiger Tulwar, Moon-Touched Shortsword"], options : ["White Tiger Tulwar, Moon-Touched Shortsword"] },
+	},
+	"moon-touched shortsword (fr-dc-digm-1-2)" : {
+		name : "Moon-Touched Shortsword (DIGM-1-2)",
+		source : [["AL","FR-DC"]],
+		type : "weapon (shortsword)",
+		description : "This shortsword has a silver blade and a dark red hilt. In darkness, the unsheathed blade sheds moonlight, creating a 15-ft radius of bright light and another 15-ft radius of dim light. When glowing, images of flames flow up and down the blade as if dancing. I'm also unharmed by extreme temps past 0\u00B0F & 100\u00B0F.",
+		descriptionFull : "This sword has a silver blade and a dark red hilt. When the sword shines, images of flames flow up and down the blade, as if they’re dancing.\n   " + toUni("Temperate") + ". You are unharmed by temperatures of 0 degrees Fahrenheit or lower, and 100 degrees Fahrenheit or higher.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
+		weaponsAdd : { select : ["Moon-Touched Shortsword"], options : ["Moon-Touched Shortsword"] },
+		savetxt : { immune : ["temps past 0\u00B0F/100\u00B0F"] },
+	},
+	"moon-touched shortsword: platinum fang (fr-dc-dmja-1)" : {
+		name : "Platinum Fang, Moon-Touched Shortsword (DMJA-1)",
+		source : [["AL","FR-DC"]],
+		type : "weapon (shortsword)",
+		description : "This beautiful platinum blade resembles a dragon's fang. Runara, abbess of Dragon's Rest, says it was a gift from Bahamut himself to a brave hero long ago. In darkness, the unsheathed blade sheds moonlight, creating a 15-ft radius of bright light and another 15-ft dim light. The sword also enhances pangs of conscience if I contemplate or do a malevolent act.",
+		descriptionFull : "A beautiful, platinum blade that resembles a dragon's fang. Runara, abbess of Dragon's Rest, says that this magic sword was a gift from Bahamut himself to a brave hero from long ago.\n   " + toUni("Conscientious") + ". When the bearer of this item contemplates or undertakes a malevolent act, the item enhances pangs of conscience.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
+		weaponsAdd : { select : ["Platinum Fang, Moon-Touched Shortsword"], options : ["Platinum Fang, Moon-Touched Shortsword"] },
+	},
+	"moon-touched shortsword (fr-dc-ucon24)" : {
+		name : "Moon-Touched Shortsword (FR-DC-UCON24)",
+		source : [["AL","FR-DC"]],
+		type : "weapon (shortsword)",
+		description : "Forged in furnaces of Selûnarra prior to Karsus's Folly, this shortsword is made of an adamantine alloy etched with engravings of fey creatures. While on my person, I can speak Sylvan. In darkness, the unsheathed blade sheds moonlight, creating a 15-ft radius of bright light and another 15-ft dim light.",
+		descriptionFull : "Forged in furnaces of Selûnarra prior to Karsus's Folly, this shortsword is made of adamantine alloy etched with engravings of fey creatures, providing the language property. [Per 2024 AL adjustments, this item could be moon-touched or adamantine. Coding both since someone may take Adamantine here.]\n   " + toUni("Language") + ". The bearer can speak and understand Sylvan while the item is on the bearer's person.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
+		weaponsAdd : { select : ["Moon-Touched Shortsword"], options : ["Moon-Touched Shortsword"] },
+		languageProfs : ["Sylvan"],
+	},
+	"moon-touched sword (ccc-bmg-moon6-2)" : {
+		name : "Moon-Touched Sword (CCC-BMG-MOON6-2)",
+		nameTest : "/moon-touched.*(ccc-bmg-moon6-2)/i",
+		source : [["AL","CCC"]],
+		type: "weapon (Glaive, Greatsword, Longsword, Rapier, Scimitar, or Shortsword)",
+		description : "This sword is paper-thin. Geometric runes along its length contrast the sweeping elven make. The script is unknown, but purportedly reads: \"I am but a shard.\" In darkness, the unsheathed blade sheds moonlight, creating 15-ft of bright light \u0026 15-ft dim.",
+		descriptionFull : "The blade is thin to the point of being paper. Geometric runes run along its length, in stark contrast to the sweeping elven make. The script is unknown, but purportedly it reads: “I am but a shard.”\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
+	chooseGear : {
+		type : "weapon",
+		prefixOrSuffix : ["between", "Moon-Touched", "(BMG-MOON6-2)"],
+		itemName1stPage : ["suffix", "Moon-Touched"],
+		descriptionChange : ["replace", "sword"],
+		excludeCheck : function (inObjKey, inObj) {
+			var testRegex = /glaive|greatsword|longsword|rapier|scimitar|shortsword/i;
+			return !(testRegex).test(inObjKey) && (!inObj.baseWeapon || !(testRegex).test(inObj.baseWeapon));
+		}
+	},
+	calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && /glaive|greatsword|longsword|rapier|scimitar|shortsword/i.test(v.baseWeaponName) && /moon.touched/i.test(v.WeaponTextName)) {
+					v.theWea.isMagicWeapon = true;
+					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+				}
+			},
+			'If I include the words "Moon-Touched" in the name of a sword, it will be treated as the magic weapon Moon-Touched Sword.'
+			]
+		}
+	},
+	"moon-touched sword (ccc-bmg-moon10-2)" : {
+		name : "Moon-Touched Sword (CCC-BMG-MOON10-2)",
+		nameTest : "/moon-touched.*(ccc-bmg-moon10-2)/i",
+		source : [["AL","CCC"]],
+		type: "weapon (Glaive, Greatsword, Longsword, Rapier, Scimitar, or Shortsword)",
+		description : "A shard of pure moonlight, this magical sword has no guard & barely enough hilt for my grip. It always glows with a soft pale white radiance. In darkness, the unsheathed blade sheds moonlight, creating 15-ft of bright light & 15-ft dim.",
+		descriptionFull : "A shard of pure moonlight, this sword has no guard and barely enough hilt for the wielder's grip. It always glows with a soft, pale white radiance.\n   In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.",
+	chooseGear : {
+		type : "weapon",
+		prefixOrSuffix : ["between", "Moon-Touched", "(BMG-MOON10-2)"],
+		itemName1stPage : ["suffix", "Moon-Touched"],
+		descriptionChange : ["replace", "sword"],
+		excludeCheck : function (inObjKey, inObj) {
+			var testRegex = /glaive|greatsword|longsword|rapier|scimitar|shortsword/i;
+			return !(testRegex).test(inObjKey) && (!inObj.baseWeapon || !(testRegex).test(inObj.baseWeapon));
+		}
+	},
+	calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && /glaive|greatsword|longsword|rapier|scimitar|shortsword/i.test(v.baseWeaponName) && /moon.touched/i.test(v.WeaponTextName)) {
+					v.theWea.isMagicWeapon = true;
+					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+				}
+			},
+			'If I include the words "Moon-Touched" in the name of a sword, it will be treated as the magic weapon Moon-Touched Sword.'
+			]
+		}
+	},
+	"silvered light crossbow: jackal slayer (fr-dc-scrog-3)" : {
+		name: "Jackal Slayer, Silvered Light Crossbow (SCROG-3)",
+		source : [["AL","FR-DC"]],
+		type: "Weapon (mace)",
+		description: "Crafted by the Harpell wizards, this finely silvered crossbow has the nickname \"Jackal Slayer\" etched into its stock in flowing script. It glows faintly when jackalweres are in 120 ft. If the crossbow scores a Critical Hit on a shape-shifted creature, I deal one extra die of damage.",
+		descriptionFull: "Crafted by the Harpell wizards, this finely made silvered light crossbow bears the nickname \"Jackal Slayer\" etched into the stock in flowing script.\n   " + toUni("Sentinel") + ". The DM chooses a kind of creature, such as mind flayers or trolls. This item glows faintly when such creatures are within 120 feet of it (jackalwere).\n   An alchemical process has bonded silver to this magic weapon. When you score a Critical Hit with it against a creature that is shape-shifted, the weapon deals one additional die of damage.",
+		calcChanges: silverWeaponCalc.calcChanges,
+		weaponsAdd : { select : ["Jackal Slayer, Silvered Light Crossbow"], options : ["Jackal Slayer, Silvered Light Crossbow"] },
+	},
+	"silvered mace: divaine's microphone (fr-dc-diva)" : {
+		name: "Divaine's Microphone (Silvered Mace, DIVA)",
+		source : [["AL","FR-DC"]],
+		type: "Weapon (mace)",
+		description: "This microphone is bejeweled to the gods. Owned by Divaine herself, it amplifies my voice when I perform. With a Magic action, my voice carries clearly for up to 600 ft until my next turn ends. Now the entire city is my stadium. It also doubles as a weapon, just in case a crazy fan comes my  way. When the mace scores a Critical Hit on a creature that is shape-shifted, I deal one extra die of damage.",
+		descriptionFull: "This microphone is bejeweled to the gods. Once owned by Divaine herself, it amplifies your voice when you perform. Now, the entire city is your stadium. Oh, and it also doubles as a weapon—just in case a crazy fan comes your way.\n   " + toUni("War Leader") + ". You can take a Magic action to cause your voice or signal to carry clearly for up to 600 feet until the end of your next turn.\n   An alchemical process has bonded silver to this magic weapon. When you score a Critical Hit with it against a creature that is shape-shifted, the weapon deals one additional die of damage.",
+		calcChanges: silverWeaponCalc.calcChanges,
+		weaponsAdd : { select : ["Silvered Mace"], options : ["Silvered Mace"] },
+		action : [["action", "Silvered Mace (600ft Voice)"]],
+	},
+	"staff of adornment (ccc-3mags-one)" : {
+		name : "Staff of Adornment (CCC-3MAGS-ONE)",
+		source : [["AL","CCC"]],
+		type: "Weapon (staff)",
+		description : "Flowering hop vines are entwined around this light, pale wooden staff. If I put an object up to 1 pound above the tip, it floats 1 inch from the staff & remains there until removed or out of my possession. The staff can have 3 objects floating at a time. I can make 1 or more of them turn in place. No matter what floats atop it, the object(s) smells like fresh hops.",
+		descriptionFull : "Flowering hop vines are entwined around the shaft of this light, pale wooden staff.\n   If you place a Tiny object weighing no more than 1 pound (such as a shard of crystal, an egg, or a stone) above the tip of this staff while holding it, the object floats an inch from the staff's tip and remains there until it is removed or until the staff is no longer in your possession. The staff can have up to three such objects floating over its tip at any given time. While holding the staff, you can make one or more of the objects slowly spin or turn in place.",
+		weight : 4
+	},
+	"staff of adornment (ps-dc-pkl-10)" : {
+		name : "Staff of Adornment (PS-DC-PKL-10)",
+		source : [["AL","PS-DC"]],
+		type: "Weapon (staff)",
+		description : "This staff is embossed with numerous eyes that seem to shift toward anyone looking at it. If I put an object up to 1 pound above the tip, it floats 1 inch from the staff and remains there until removed or out of my possession. The staff can have 3 objects floating at a time; I can make 1 or more spin or turn in place. I can also speak Deep Speech.",
+		descriptionFull : "This staff is embossed with numerous amounts of eyes that seem to shift in the direction of whomever is looking at it. It has the minor language property allowing the owner to understand deep speech.\n   If you place a Tiny object weighing no more than 1 pound (such as a shard of crystal, an egg, or a stone) above the tip of this staff while holding it, the object floats an inch from the staff's tip and remains there until it is removed or until the staff is no longer in your possession. The staff can have up to three such objects floating over its tip at any given time. While holding the staff, you can make one or more of the objects slowly spin or turn in place.",
+		weight : 4,
+		languageProfs : ["Deep Speech"],
+	},
+	"staff of adornment: k's ashenwood staff (sj-dc-amo-kuri-3)" : {
+		name : "K's Ashenwood Staff of Adornment (AMO-KURI-3)",
+		source : [["AL","SJ-DC"]],
+		type: "Weapon (staff)",
+		description : "This ashenwood staff has stood through time. There are visible bite marks in the middle and a secret message somewhere on the item. If I put an object up to 1 pound above the tip, it floats 1 inch from the staff & remains there until removed or out of my possession. The staff can have 3 objects floating at a time. I can make them spin or turn in place.",
+		descriptionFull : "This ashenwood staff has stood through time. You can see there's some visible bite marks in the middle of this staff.\n   " + toUni("Secret Message") + ". A message is hidden somewhere on the item. It might be visible only at a certain time, under the light of one phase of the moon, or in a specific location.\n   If you place a Tiny object weighing no more than 1 pound (such as a shard of crystal, an egg, or a stone) above the tip of this staff while holding it, the object floats an inch from the staff's tip and remains there until it is removed or until the staff is no longer in your possession. The staff can have up to three such objects floating over its tip at any given time. While holding the staff, you can make one or more of the objects slowly spin or turn in place.",
+		weight : 4,
+	},
+	"staff of adornment (sj-dc-arq-2)" : {
+		name : "Staff of Adornment (SJ-DC-ARQ-2)",
+		source : [["AL","SJ-DC"]],
+		type: "Weapon (staff)",
+		description : "This finely crafted wooden staff has symbols of air, earth, fire and water artfully carved into its surface. If I put an object up to 1 pound above the tip, it floats 1 inch from the staff and remains there until removed or out of my possession. The staff can have 3 objects floating at a time, which I can make spin or turn in place.",
+		descriptionFull : "It's a finely crafted wooden staff with symbols of air, erath, fire and water artfully carved into its surface.\n   " + toUni("Language") + ". The bearer can speak and understand Primordial while the item is on the bearer's person.\n   If you place a Tiny object weighing no more than 1 pound (such as a shard of crystal, an egg, or a stone) above the tip of this staff while holding it, the object floats an inch from the staff's tip and remains there until it is removed or until the staff is no longer in your possession. The staff can have up to three such objects floating over its tip at any given time. While holding the staff, you can make one or more of the objects slowly spin or turn in place.",
+		weight : 4,
+		languageProfs : ["Primordial"],
+	},
+	"staff of adornment: ocharine (sj-dc-dd-7)" : {
+		name : "Ocharine, Staff of Adornment (SJ-DC-DD-7)",
+		source : [["AL","SJ-DC"]],
+		type: "Weapon (staff)",
+		description : "This intricately-carved lightweight obsidian staff is used in the Harmonization process, focusing hot pressurized water to carve Azurite into Azure Crystals. It's captured a sequence of tones that it releases on a hit. If I put an object \u22641 pound over the tip, it floats 1 inch from the staff & stays until removed or out of my possession. The staff can have 3 floating objects, which I can make spin in place.",
+		descriptionFull : "This lightweight, intricately carved obsidian stone staff is the main tool in the Harmonization process. It is used to focus the heated and pressurized water that carves the Azurite into Azure Crystals. This process produces a sequence of tones that have been captured by the staff and released by it when it strikes something.\n   " + toUni("Songcraft") + ". Whenever this item is struck or is used to strike a foe, its bearer hears a fragment of an ancient song.\n   If you place a Tiny object weighing no more than 1 pound (such as a shard of crystal, an egg, or a stone) above the tip of this staff while holding it, the object floats an inch from the staff's tip and remains there until it is removed or until the staff is no longer in your possession. The staff can have up to three such objects floating over its tip at any given time. While holding the staff, you can make one or more of the objects slowly spin or turn in place.",
+		weight : 4,
+	},
+	"staff of adornment (sj-dc-den-h5)" : {
+		name : "Staff of Adornment (SJ-DC-DEN-H5)",
+		source : [["AL","SJ-DC"]],
+		type: "Weapon (staff)",
+		description : "This staff is made from polished driftwood. If I put an object \u22641 pound above the tip, it floats 1 inch from the staff & stays until removed or out of my possession. The staff can have 3 objects floating at a time. When used in any way, it loudly sings the haunting sahuagin song heard at the Reef of Living Memory when souls are ritually trapped in the coral. I can make the objects spin or turn in place.",
+		descriptionFull : "This staff is made from polished driftwood. When this staff is used to adorn an item to it, used as an arcane focus, or used as a weapon, the staff begins to loudly sing a few lines of the haunting song heard at the Reef of Living Memory when souls are ritually trapped in the coral. The words of the song are in sahuagin.\n   " + toUni("Loud") + ". The item makes a loud noise—such as a clang, a shout, or a resonating gong—when used. In this case, a few lines of a sahuagin ritual song.\n   If you place a Tiny object weighing no more than 1 pound (such as a shard of crystal, an egg, or a stone) above the tip of this staff while holding it, the object floats an inch from the staff's tip and remains there until it is removed or until the staff is no longer in your possession. The staff can have up to three such objects floating over its tip at any given time. While holding the staff, you can make one or more of the objects slowly spin or turn in place.",
+		weight : 4,
+	},
+	"staff of adornment (sj-dc-igc-ecp-5)" : {
+		name : "Staff of Adornment (SJ-DC-IGC-ECP-5)",
+		source : [["AL","SJ-DC"]],
+		type: "Weapon (staff)",
+		description : "This wooden staff is carved with the words \"PROPERTY OF THE HOUSE OF THE PATH AND THE WAY. PLEASE RETURN IF FOUND\". It warns me, giving +2 initiative unless Incapacitated. If I put an object \u22641 pound above the tip, it floats 1 inch from the staff \u0026 stays until removed or out of my possession. The staff can have 3 objects floating at a time, which I can make turn in place.",
+		descriptionFull : "This wooden staff has the words \"PROPERTY OF THE HOUSE OF THE PATH AND THE WAY. PLEASE RETURN IF FOUND.\" carved into it and the item warns you, granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition. (Guardian)\n   If you place a Tiny object weighing no more than 1 pound (such as a shard of crystal, an egg, or a stone) above the tip of this staff while holding it, the object floats an inch from the staff's tip and remains there until it is removed or until the staff is no longer in your possession. The staff can have up to three such objects floating over its tip at any given time. While holding the staff, you can make one or more of the objects slowly spin or turn in place.",
+		weight : 4,
+		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on Initiative rolls." },
+	},
+	"staff of adornment (sj-dc-monster-1)" : {
+		name : "Staff of Adornment (SJ-DC-MONSTER-1)",
+		source : [["AL","SJ-DC"]],
+		type: "Weapon (staff)",
+		description : "This staff is warm to the touch, crafted from plane-touched fire trees. Sigils of flames cover its surface in shades of red \u0026 orange. If I put an object \u22641 pound above the tip, it floats 1 inch from the staff \u0026 stays until removed or out of my possession. The staff can have 3 floating objects. I can make them spin or turn in place \u0026 I suffer no harm in extreme temps past 0\u00B0F \u0026 100\u00B0F.",
+		descriptionFull : "This item is warm to the touch, crafted from plane-touched fire trees. Sigils of flames cover its surface. Shades of red and orange are the prominent colors.\n   " + toUni("Temperate") + ". You are unharmed by temperatures of 0 degrees Fahrenheit or lower, and 100 degrees Fahrenheit or higher.\n   If you place a Tiny object weighing no more than 1 pound (such as a shard of crystal, an egg, or a stone) above the tip of this staff while holding it, the object floats an inch from the staff's tip and remains there until it is removed or until the staff is no longer in your possession. The staff can have up to three such objects floating over its tip at any given time. While holding the staff, you can make one or more of the objects slowly spin or turn in place.",
+		weight : 4,
+		savetxt : { immune : ["temps past 0\u00B0F/100\u00B0F"] },
+	},
+	"staff of adornment: shakujo (sj-dc-mwg-1)" : {
+		name : "Shakujo, Staff of Adornment (SJ-DC-MWG-1)",
+		source : [["AL","SJ-DC"]],
+		type: "Weapon (staff)",
+		description : "The shakujō is a wooden staff with a decorative metal head. 2 loops form the base of the headpiece, each with 3 gilded iron rings attached. The rings jangle softly to warn of danger, giving +2 initiative if not Incapacitated. If I put an object \u22641 pound over the tip, it floats 1 inch from the staff & stays until removed or off my person. The staff can have 3 floating objects, that I can make turn in place.",
+		descriptionFull : "The shakujō is a wooden staff with a decorative metal head. Two loops form the base of the headpiece, each from which three gilded iron rings are attached.\n   " + toUni("Guardian") + ". When the bearer rolls Initiative, the iron rings jangle softly, warning you and granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition.\n   If you place a Tiny object weighing no more than 1 pound (such as a shard of crystal, an egg, or a stone) above the tip of this staff while holding it, the object floats an inch from the staff's tip and remains there until it is removed or until the staff is no longer in your possession. The staff can have up to three such objects floating over its tip at any given time. While holding the staff, you can make one or more of the objects slowly spin or turn in place.",
+		weight : 4,
+		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on Initiative rolls." },
+	},
+	"staff of adornment (sj-dc-rotu-5)" : {
+		name : "Staff of Adornment (SJ-DC-ROTU-5)",
+		source : [["AL","SJ-DC"]],
+		type: "Weapon (staff)",
+		description : "As long as this staff is in the Hangout Quarter of the illithid's colony on Planet Cereillithid, 666666 appears on the shaft. If I put an object up to 1 pound above the tip, it floats 1 inch from the staff \u0026 stays until removed or out of my possession. The staff can have 3 objects floating at a time. I can make them spin or turn in place.",
+		descriptionFull : "If you place a Tiny object weighing no more than 1 pound (such as a shard of crystal, an egg, or a stone) above the tip of this staff while holding it, the object floats an inch from the staff's tip and remains there until it is removed or until the staff is no longer in your possession. The staff can have up to three such objects floating over its tip at any given time. While holding the staff, you can make one or more of the objects slowly spin or turn in place.\n   " + toUni("Secret Message") + ". As long as this staff is in the Hangout Quarter of the illithid's colony on planet cereillithid, the message ‘666666' will appear on the shaft.",
+		weight : 4,
+	},
+	"staff of adornment (sj-dc-tel-12)" : {
+		name : "Staff of Adornment (SJ-DC-TEL-12)",
+		source : [["AL","SJ-DC"]],
+		type: "Weapon (staff)",
+		description : "If I put an object up to 1 pound above the tip of this staff while held, it floats 1 inch from the tip \u0026 stays until removed or out of my possession. The staff can have 3 objects floating at a time, which I can make spin or turn in place. The message, \"Leaves of three, leave it be,\" appears as an illusion floating among the adorned items whenever the staff is in woodlands.",
+		descriptionFull : "If you place a Tiny object weighing no more than 1 pound (such as a shard of crystal, an egg, or a stone) above the tip of this staff while holding it, the object floats an inch from the staff's tip and remains there until it is removed or until the staff is no longer in your possession. The staff can have up to three such objects floating over its tip at any given time. While holding the staff, you can make one or more of the objects slowly spin or turn in place.\n   " + toUni("Secret Message") + ". The message, \"Leaves of three, leave it be,\" appears as an illusion floating among the adorned items whenever the staff is in woodlands.",
+		weight : 4,
+	},
+	"staff of adornment (wbw-dc-nj-cou-2)" : {
+		name : "Staff of Adornment (WBW-DC-NJ-COU-2)",
+		source : [["AL","WBW-DC"]],
+		type: "Weapon (staff)",
+		description : "This staff is made from Yarnspinner's webs. It's Archfey quality! If I put an object up to 1 pound above the tip, it floats 1 inch from the staff \u0026 stays until removed or out of my possession. The staff can have 3 objects floating. I can make them spin or turn in place.",
+		descriptionFull : "This staff is made by web produced by Yarnspinner. It's an Archfey quality staff!\n   If you place a Tiny object weighing no more than 1 pound (such as a shard of crystal, an egg, or a stone) above the tip of this staff while holding it, the object floats an inch from the staff's tip and remains there until it is removed or until the staff is no longer in your possession. The staff can have up to three such objects floating over its tip at any given time. While holding the staff, you can make one or more of the objects slowly spin or turn in place.",
+		weight : 4
+	},
+	"staff of birdcalls (fr-dc-tt-t201)" : {
+		name : "Staff of Birdcalls (FR-DC-TT-T201)",
+		source : [["AL","FR-DC"]],
+		type: "Weapon (staff)",
+		description : "This is Don-Jon Raskin's hiking pole. As bonus action, it sheds 10-ft bright light & 10-ft more dim, or stops. The pole has 10 charges, 1d6+4 regained at dawn, 5% chance destroyed if last charge used. As Magic action, 1 charge creates a sound to 120 ft: a finch's chirp, raven's caw, duck's quack, chicken's cluck, goose's honk, loon's call, turkey's gobble, seagull's cry, owl's hoot, or eagle's shriek.",
+		descriptionFull : "This is Don-Jon Raskin's hiking pole with minor property beacon: You can take a Bonus Action to cause the item to shed Bright Light in a 10-foot radius and Dim Light for an additional 10 feet, or to extinguish the light.\n   This wooden staff is decorated with bird carvings. It has 10 charges. While holding it, you can take a Magic action to expend 1 charge from the staff and cause it to create one of the following sounds, which can be heard out to 120 feet: a finch's chirp, a raven's caw, a duck's quack, a chicken's cluck, a goose's honk, a loon's call, a turkey's gobble, a seagull's cry, an owl's hoot, or an eagle's shriek.\n   " + toUni("Regaining Charges") + ". The staff regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff explodes in a harmless cloud of bird feathers and is lost forever.",
+		weight : 4,
+		limfeaname : "Staff of Birdcalls",
+		usages : 10,
+		recovery : "dawn",
+		additional : "regains 1d6+4",
+		action : [["action", "Birdcalls (Sound)"],["bonus action", "Birdcalls (light/dim)"]],
+	},
+	"staff of birdcalls (wbw-dc-bire-1)" : {
+		name : "Staff of Birdcalls (WBW-DC-BIRE-1)",
+		source : [["AL","WBW-DC"]],
+		type: "Weapon (staff)",
+		description : "This staff is decorated with bird carvings & has 10 charges, 1d6+4 regained at dawn, 5% chance it's destroyed when last charge used. As Magic action, I can use 1 charge to create a sound to 120 ft: a finch's chirp, raven's caw, duck's quack, chicken's cluck, goose's honk, loon's call, turkey's gobble, seagull's cry, owl's hoot, or eagle's shriek. I also feel fortunate and optimistic about the future. Rainbow butterflies with a variety of patterns flutter around me.",
+		descriptionFull : "While in possession of the staff, you feel fortunate and optimistic about what the future holds.\n   " + toUni("Blissful") + ". Butterflies, with wings of various patterns and colours encompassing the entire rainbow, flutter harmlessly around you.\n   This wooden staff is decorated with bird carvings. It has 10 charges. While holding it, you can take a Magic action to expend 1 charge from the staff and cause it to create one of the following sounds, which can be heard out to 120 feet: a finch's chirp, a raven's caw, a duck's quack, a chicken's cluck, a goose's honk, a loon's call, a turkey's gobble, a seagull's cry, an owl's hoot, or an eagle's shriek.\n   " + toUni("Regaining Charges") + ". The staff regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff explodes in a harmless cloud of bird feathers and is lost forever.",
+		weight : 4,
+		limfeaname : "Staff of Birdcalls",
+		usages : 10,
+		recovery : "dawn",
+		additional : "regains 1d6+4",
+		action : [["action", ""]]
+	},
+	"staff of birdcalls (wbw-dc-conmar-3)" : {
+		name : "Staff of Birdcalls (WBW-DC-CONMAR-3)",
+		source : [["AL","WBW-DC"]],
+		type: "Weapon (staff)",
+		description : "This staff is decorated with bird carvings \u0026 has lily pads growing from it. If left out during a night's rest, 3 frogs will sit on the lily pads & croak a song in the morning. The staff has 10 charges, 1d6+4 regained at dawn, 5% chance it's destroyed when last charge used. As Magic action, I can use 1 charge to create a sound to 120 ft: a finch's chirp, raven's caw, duck's quack, chicken's cluck, goose's honk, loon's call, turkey's gobble, seagull's cry, owl's hoot, or eagle's shriek.",
+		descriptionFull : "The staff also has lily pads growing from it and if the character leaves it out during a night's rest, it would attract 3 frogs that would sit on the lily pads in the morning, croaking a song.\n   This wooden staff is decorated with bird carvings. It has 10 charges. While holding it, you can take a Magic action to expend 1 charge from the staff and cause it to create one of the following sounds, which can be heard out to 120 feet: a finch's chirp, a raven's caw, a duck's quack, a chicken's cluck, a goose's honk, a loon's call, a turkey's gobble, a seagull's cry, an owl's hoot, or an eagle's shriek.\n   " + toUni("Regaining Charges") + ". The staff regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff explodes in a harmless cloud of bird feathers and is lost forever.",
+		weight : 4,
+		limfeaname : "Staff of Birdcalls",
+		usages : 10,
+		recovery : "dawn",
+		additional : "regains 1d6+4",
+		action : [["action", ""]]
+	},
+	"staff of birdcalls (wbw-dc-death)" : {
+		name : "Staff of Birdcalls (WBW-DC-Death)",
+		source : [["AL","WBW-DC"]],
+		type: "Weapon (staff)",
+		description : "This staff is decorated with bird carvings. I'm unharmed by extreme temps past 0\u00B0F \u0026 100\u00B0F. It has 10 charges, 1d6+4 regained at dawn, 5% chance destroyed if last charge used. As Magic action, 1 charge creates a sound to 120 ft: a finch's chirp, raven's caw, duck's quack, chicken's cluck, goose's honk, loon's call, turkey's gobble, seagull's cry, owl's hoot, or eagle's shriek.",
+		descriptionFull : "This wooden staff is decorated with bird carvings. It has 10 charges. While holding it, you can take a Magic action to expend 1 charge from the staff and cause it to create one of the following sounds, which can be heard out to 120 feet: a finch's chirp, a raven's caw, a duck's quack, a chicken's cluck, a goose's honk, a loon's call, a turkey's gobble, a seagull's cry, an owl's hoot, or an eagle's shriek.\n   " + toUni("Regaining Charges") + ". The staff regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff explodes in a harmless cloud of bird feathers and is lost forever.\n   " + toUni("Temperate") + ". You are unharmed by temperatures of 0 degrees Fahrenheit or lower, and 100 degrees Fahrenheit or higher.",
+		weight : 4,
+		savetxt : { immune : ["temps past 0\u00B0F/100\u00B0F"] },
+		limfeaname : "Staff of Birdcalls",
+		usages : 10,
+		recovery : "dawn",
+		additional : "regains 1d6+4",
+		action : [["action", ""]]
+	},
+	"staff of birdcalls (wbw-dc-fdc-3)" : {
+		name : "Staff of Birdcalls (WBW-DC-FDC-3)",
+		source : [["AL","WBW-DC"]],
+		type: "Weapon (staff)",
+		description : "This staff is decorated with bird carvings \u0026 feathers attached on one end. It has 10 charges, 1d6+4 regained at dawn, 5% chance destroyed if last charge used. As Magic action, 1 charge creates a sound to 120 ft: a finch's chirp, raven's caw, duck's quack, chicken's cluck, goose's honk, loon's call, turkey's gobble, seagull's cry, owl's hoot, or eagle's shriek.",
+		descriptionFull : "The staff is also decorated with different bird feathers attached on one of its end.\n   This wooden staff is decorated with bird carvings. It has 10 charges. While holding it, you can take a Magic action to expend 1 charge from the staff and cause it to create one of the following sounds, which can be heard out to 120 feet: a finch's chirp, a raven's caw, a duck's quack, a chicken's cluck, a goose's honk, a loon's call, a turkey's gobble, a seagull's cry, an owl's hoot, or an eagle's shriek.\n   " + toUni("Regaining Charges") + ". The staff regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff explodes in a harmless cloud of bird feathers and is lost forever.",
+		weight : 4,
+		limfeaname : "Staff of Birdcalls",
+		usages : 10,
+		recovery : "dawn",
+		additional : "regains 1d6+4",
+		action : [["action", ""]]
+	},
+	"staff of birdcalls (wbw-dc-hbk-1)" : {
+		name : "Staff of Birdcalls (WBW-DC-HBK-1)",
+		source : [["AL","WBW-DC"]],
+		type: "Weapon (staff)",
+		description : "This staff is decorated with bird carvings \u0026 whenever it's struck, I hear a few beats of a taiko drum. It has 10 charges, 1d6+4 regained at dawn, 5% chance destroyed if last charge used. As Magic action, 1 charge creates a sound to 120 ft: a finch's chirp, raven's caw, duck's quack, chicken's cluck, goose's honk, loon's call, turkey's gobble, seagull's cry, owl's hoot, or eagle's shriek.",
+		descriptionFull : "This wooden staff is decorated with bird carvings. It has 10 charges. While holding it, you can take a Magic action to expend 1 charge from the staff and cause it to create one of the following sounds, which can be heard out to 120 feet: a finch's chirp, a raven's caw, a duck's quack, a chicken's cluck, a goose's honk, a loon's call, a turkey's gobble, a seagull's cry, an owl's hoot, or an eagle's shriek.\n   " + toUni("Regaining Charges") + ". The staff regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff explodes in a harmless cloud of bird feathers and is lost forever.\n   " + toUni("Song Craft") + ". Whenever this item is struck or is used to strike a foe, its bearer hears a fragment of an ancient song: a few beats of a taiko drum.",
+		weight : 4,
+		limfeaname : "Staff of Birdcalls",
+		usages : 10,
+		recovery : "dawn",
+		additional : "regains 1d6+4",
+		action : [["action", ""]]
+	},
+	"staff of birdcalls (wbw-dc-robin-1-2)" : {
+		name : "Staff of Birdcalls (WBW-DC-ROBIN-1-2)",
+		source : [["AL","WBW-DC"]],
+		type: "Weapon (staff)",
+		description : "This staff is decorated with bird carvings. I hear robins when in danger, giving +2 initiative unless Incapacitated. 10 charges, 1d6+4 regained at dawn, 5% chance destroyed if last charge used. As Magic action, 1 charge creates a sound to 120 ft: a finch's chirp, raven's caw, duck's quack, chicken's cluck, goose's honk, loon's call, turkey's gobble, seagull's cry, owl's hoot, or eagle's shriek.",
+		descriptionFull : "This wooden staff is decorated with bird carvings. It has 10 charges. While holding it, you can take a Magic action to expend 1 charge from the staff and cause it to create one of the following sounds, which can be heard out to 120 feet: a finch's chirp, a raven's caw, a duck's quack, a chicken's cluck, a goose's honk, a loon's call, a turkey's gobble, a seagull's cry, an owl's hoot, or an eagle's shriek.\n   " + toUni("Regaining Charges") + ". The staff regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff explodes in a harmless cloud of bird feathers and is lost forever.\n   " + toUni("Guardian") + ". While this staff is on your person, you can hear robins when danger is near. The item warns you, granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition.",
+		weight : 4,
+		limfeaname : "Staff of Birdcalls",
+		usages : 10,
+		recovery : "dawn",
+		additional : "regains 1d6+4",
+		action : [["action", ""]],
+		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on Initiative rolls." },
+	},
+	"staff of birdcalls (wbw-dc-rook-1-4)" : {
+		name : "Staff of Birdcalls (WBW-DC-ROOK-1-4)",
+		source : [["AL","WBW-DC"]],
+		type: "Weapon (staff)",
+		description : "This bamboo staff is intricately carved with wondrous birds. It has 10 charges, 1d6+4 regained at dawn. 5% chance it's destroyed if the last charge is used. As Magic action, I can use 1 charge to create a sound to 120 ft: a finch's chirp, raven's caw, duck's quack, chicken's cluck, goose's honk, loon's call, turkey's gobble, seagull's cry, owl's hoot, or eagle's shriek. I can use another Magic action to make my voice carry clearly for 600 ft until my next turn ends.",
+		descriptionFull : "This bamboo staff is intricately carved with wondrous birds.\n   " + toUni("War Leader") + ". You can take a Magic action to cause your voice or signal to carry clearly for up to 600 feet until the end of your next turn.\n   This wooden staff is decorated with bird carvings. It has 10 charges. While holding it, you can take a Magic action to expend 1 charge from the staff and cause it to create one of the following sounds, which can be heard out to 120 feet: a finch's chirp, a raven's caw, a duck's quack, a chicken's cluck, a goose's honk, a loon's call, a turkey's gobble, a seagull's cry, an owl's hoot, or an eagle's shriek.\n   " + toUni("Regaining Charges") + ". The staff regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff explodes in a harmless cloud of bird feathers and is lost forever.",
+		weight : 4,
+		limfeaname : "Staff of Birdcalls",
+		usages : 10,
+		recovery : "dawn",
+		additional : "regains 1d6+4",
+		action : [["action", "Birdcalls/600ft Voice"]],
+	},
+	"staff of birdcalls: dark crystal (wbw-dc-zodiac-10)" : {
+		name : "Dark Crystal Staff of Birdcalls (ZODIAC-10)",
+		source : [["AL","WBW-DC"]],
+		type: "Weapon (staff)",
+		description : "A dark staff with a skeletal bird skull. Two obsidian crystals are embedded in its eye sockets. The staff has 10 charges, 1d6+4 regained at dawn, 5% chance it's destroyed when last charge used. As Magic action, I can use 1 charge to create a sound to 120 ft: a finch's chirp, raven's caw, duck's quack, chicken's cluck, goose's honk, loon's call, turkey's gobble, seagull's cry, owl's hoot, or eagle's shriek. Another Magic action, make my voice carry clearly for 600 ft until my next turn ends.",
+		descriptionFull : "A dark staff with a skeletal bird skull. Embedded in its eye sockets are two obsidian crystals.\n   " + toUni("War Leader") + ". You can take a Magic action to cause your voice or signal to carry clearly for up to 600 feet until the end of your next turn.\n   This wooden staff is decorated with bird carvings. It has 10 charges. While holding it, you can take a Magic action to expend 1 charge from the staff and cause it to create one of the following sounds, which can be heard out to 120 feet: a finch's chirp, a raven's caw, a duck's quack, a chicken's cluck, a goose's honk, a loon's call, a turkey's gobble, a seagull's cry, an owl's hoot, or an eagle's shriek.\n   " + toUni("Regaining Charges") + ". The staff regains 1d6+4 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff explodes in a harmless cloud of bird feathers and is lost forever.",
+		weight : 4,
+		limfeaname : "Staff of Birdcalls",
+		usages : 10,
+		recovery : "dawn",
+		additional : "regains 1d6+4",
+		action : [["action", "Birdcalls/600ft Voice"]],
+	},
+	"staff of flowers (ccc-kumori-3-1)" : {
+		name : "Staff of Flowers (CCC-KUMORI-3-1)",
+		source : [["AL","CCC"]],
+		type: "Weapon (staff)",
+		description : "This uncarved branch of a weir tree has silver-brown leaves with velvet-black undersides sprouting from the top. It glows faintly blue in magically-lit areas & for 10 min after leaving. The staff has 10 charges, 1d6+4 regained at dawn; 5% chance destroyed if use last charge. As Magic action, 1 charge makes a flower sprout from staff or soil in 5 ft. It's nonmagical & grows or withers normally. Daisy by default.",
+		descriptionLong : "This uncarved branch of a weir tree has silver-brown leaves with velvet-black undersides sprouting from the top. It glows faintly blue in magically-lit areas & continues for 10 min after leaving. The staff has 10 charges, 1d6+4 regained at dawn; 5% chance destroyed when last charge used. As Magic action, use 1 charge to make chosen flower sprout from staff or soil in 5 ft. The flower is nonmagical & grows or withers normally.",
+		descriptionFull : "The natural, uncarved branch of a weir tree makes up the entirety of this staff. New growth sprouts from the head of the staff, silver-brown leaves with velvet-black undersides. The staff glows faintly blue when inside a magically-lit area; after leaving the area, the staff's illumination continues for ten minutes but is not bright enough to light an area.\n   This wooden staff has 10 charges. While holding it, you can take a Magic action to expend 1 charge from the staff and cause a flower to sprout from a patch of earth or soil within 5 feet of yourself, or from the staff itself. Unless you choose a specific kind of flower, the staff creates a mild-scented daisy. The flower is harmless and nonmagical, and it grows or withers as a normal flower would." + toUni("Regaining Charges") + "The staff regains 1d6 + 4 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff turns into flower petals and is lost forever.",
+		weight : 4,
+		limfeaname : "Staff of Flowers",
+		usages : 10,
+		recovery : "dawn",
+		additional : "regains 1d6+4",
+		action : [["action", ""]]
+	},
+	"sylvan talon: zigfreed's spear (fr-dc-scrog-1)" : {
+		name: "Zigfreed's Spear (Sylvan Talon, SCROG-1)",
+		source : [["AL","FR-DC"]],
+		type: "weapon (dagger, rapier, scimitar, shortsword, sickle, or spear)",
+		rarity: "common",
+		attunement: true,
+		description: "This slender spear is carved from an ancient ash tree that's said to have grown in a faerie glade. When used to strike a foe, I hear a fragment of Wagner’s Ride of the Valkyries. While on my person, I understand the nonwritten communication of all Fey, and they understand me. I can also use this weapon to cast Message as a Magic action once per day.",
+		descriptionFull: "This slender spear is carved from an ancient ash tree said to have grown in a faerie glade. When used to strike a foe, you hear a fragment of Wagner’s Ride of the Valkyries.\n   " + toUni("Songcraft") + ". Whenever this item is struck or is used to strike a foe, you hear a fragment of an ancient song.\n   While this weapon is on your person, you understand the nonwritten communication of all Fey, and they understand yours.\n\n" +
+		toUni("Secret Message") + "\n\n  As a Magic action, you can use the weapon to cast Message. Once this property is used, it can't be used again until the next dawn.",
+		limfeaname : "Sylvan Talon",
+		usages: 1,
+		recovery: "dawn",
+		action: [["action", "Talon (Secret Msg)"]],
+		languageProfs: ["Fey - nonwritten"],
+		spellcastingBonus: [{
+			name: "Secret Msg",
+			spells: ["message"],
+			selection: ["message"],
+			firstCol: "oncelr"
+		}],
+		weaponsAdd : { select : ["Sylvan Talon Spear"], options : ["Sylvan Talon Spear"] },
+	},
+	"sylvan talon: grandpa oak's gift (wbw-dc-puff-1)" : {
+		name: "Grandpa Oak's Gift (Sylvan Talon, PUFF-1)",
+		source : [["AL","WBW-DC"]],
+		type: "weapon (dagger)",
+		rarity: "common",
+		attunement: true,
+		description: "This beautifully wrought dagger feels like it was designed to fit my hand. Soaked in myconid spores for over a year, it has taken on some of their telepathic properties. The elegant design lets me attune in 1 min. While on my person, I understand the nonwritten communication of all Fey, and they understand me. I can also cast Message as a Magic action once per day.",
+		descriptionFull: "This beautifully wrought dagger feels like it was designed to fit your hand. Soaked in myconid spores for over a year, it has taken on some of their telepathic properties. The elegant design provides the Harmonious minor property.\n   " + toUni("Harmonious") + ". Attuning to this item takes only 1 minute.\n   While this weapon is on your person, you understand the nonwritten communication of all Fey, and they understand yours.\n\n" +
+		toUni("Secret Message") + "\n\n  As a Magic action, you can use the weapon to cast Message. Once this property is used, it can't be used again until the next dawn.",
+		limfeaname : "Sylvan Talon",
+		usages: 1,
+		recovery: "dawn",
+		action: [["action", "Talon (Secret Msg)"]],
+		languageProfs: ["Fey - nonwritten"],
+		spellcastingBonus: [{
+			name: "Secret Msg",
+			spells: ["message"],
+			selection: ["message"],
+			firstCol: "oncelr"
+		}],
+		weaponsAdd : { select : ["Sylvan Talon Dagger"], options : ["Sylvan Talon Dagger"] },
+	},
+	}
+})
+
 MagicItemsList["al weapons (other)"] = {
 		name : "AL Weapons (Other)",
 		allowDuplicates : true,
 		choicesNotInMenu : true,
 		magicItemTable : "?",
-	choices : ["Berserker Flail (CCC-UCON-1)","Dagger of Blindsight: Panther's Claw (RMH-9)","Dagger of Venom: Fang of Sibyl (CCC-GARY-1)","Dagger of Venom (DDAL4-11)", "Dagger of Venom (DDAL5-17)","Devotee's Censer (BMG-DRW-OD-4)","Dragon Wing Bow: Radiant (BMG-DRWEP-OD-2)","Drow-made Dagger (WDotMM)","Dwarven Thrower: Skyfist (DDEP4)","Dwarven Thrower: Foehammer (WBW-DC-MOM-2)","Elven Thrower (FR-DC-DEATH)","Elven Thrower: Araelathila (FR-DC-LIGA-1)","Elven Thrower: Naginata (FR-DC-PANDORA-JWEI-8)","Elven Thrower (FR-DC-RWIE-3)","Flame Tongue (CCC-YLRA-2)","Forcebreaker Sling (PO-BMG-DRW-KS-6)","Glaive of Warning: The Harbinger (CCC-EPI1-2)","Glaive of Warning: Losspatan's War-scythe (CCC-GGC-2-1)","Greatclub of Warning: U'u War Club (WBW-DC-DEN-H2)","Greatclub of Warning: Clobber (WBW-DC-MIKE-1)","Green-Flame Mace: Face of Umberlee's Fury (CCC-AWE-1-2)","Hand Crossbow of Melodies: Leeley's (PS-DC-PKL-14)","Javelin of Lightning (CCC-BFG1-3)","Javelin of Lightning (CCC-BMG-MOON6-3)","Javelin of Lightning (CCC-BMG-MOON16-1)","Javelin of Lightning (CCC-GAD2-2)","Javelin of Lightning (CCC-SAC-4)","Javelin of Lightning (CCC-SFBAY-4-1)","Javelin of Lightning (DDAL8-5)","Javelin of Lightning (SJ-DC-AS-1)","Javelin of Lightning: Comet Spear (SJ-DC-CJK2-2)","Javelin of Lightning: Stormstrike (SJ-DC-DD-4)","Javelin of Lightning: Processional Baton (SJ-DC-DES5-1)","Javelin of Lightning: Rrakkma's Smite (SJ-DC-FLUMPH-1)","Javelin of Lightning: Jensen's Lure (SJ-DC-ISL-1)","Javelin of Lightning (SJ-DC-LIGA1)","Javelin of Lightning (SJ-DC-MB5-AH123)","Javelin of Lightning: Reigar's Rage (SJ-DC-MDW-1)","Javelin of Lightning (SJ-DC-TRIDEN-UPR)","Javelin of Lightning (SJ-DC-TTUC-1)","Javelin of Warning: Jeny's Hairpin (CCC-VOTE-1-1)","Lash of Immolation: Demonweb Punisher (FR-DC-PHP-PEST-2)","Lash of Immolation: Dragon's Tail (FR-DC-STRAT-DRAGON-2)","Lash of Immolation: Ebon Lash (FR-DC-THAY-1)","Longbow of Melodies: Airalinde (FR-DC-IMP-2)","Longbow of Melodies: Lavender's Scent (FR-DC-PANDORA-JWEI-10)","Mace of Disruption (CCC-CIC-3)","Mace of Disruption: Death's Head (CCC-GHC-BK1-2)","Mace of Smiting (DDAL7-6)","Mace of Smiting (DDAL8-7)","Mace of Smiting (DDAL10-7)","Mace of Terror: Durgeddin's Fist (DDEP6-1)","Moon Sickle +1 (DDAL-DRW10)","Moon Sickle +2 (BMG-DRWEP-OD-1)","Moon Sickle +2: Selune's Guidance (WBW-DC-NJ-COU-2)","Moon Sickle +2: Tsukikama (WBW-DC-PHP-1)","Moon Sickle +3 (FR-DC-UCON24)","Oathbow: Syranna's Folly (CCC-OCC-1)","Oathbow (DDAL-DRW8)","Oathbow: Shadowsong (DDEX3-7)","Oathbow: Selestria (WBW-DC-TMP-3)","Shortbow of Melodies (FR-DC-FALL-1)","Starshot Hand Crossbow (PO-BMG-DRW-KS-2)","Stone Greataxe (DDAL0-13)","Sylvan Talon: Zigfreed's Spear (FR-DC-SCROG-1)","Trident of Fish Command (CCC-BMG-MOON14-1)","Trident of Fish Command (CCC-TAROT2-8)","Trident of Fish Command (CCC-WWC-2)","Trident of Warning (CCC-TRI-34)","Trident of Warning (DDEX2-3)","Vicious Glaive: Ptahrek's Glaive (CCC-SVH1-2)","Vicious Mace (CCC-BMG-1 HULB1-1)","Vicious Spear (DDAL0-13)","Wakened Crystal Dragon's Wrath Glaive (PO-BMG-DRW-KS-5)","Weapon of Warning (CCC-ELF-3-1)","Weapon of Warning (DDAL0-7)","Whip of Warning (CCC-GHC-BK2-10)","Whip of Warning (DDAL4-2)"],
+	choices : ["Berserker Flail (CCC-UCON-1)","Dagger of Blindsight: Panther's Claw (RMH-9)","Dagger of Venom: Fang of Sibyl (CCC-GARY-1)","Dagger of Venom (DDAL4-11)", "Dagger of Venom (DDAL5-17)","Devotee's Censer (BMG-DRW-OD-4)","Dragon Wing Bow: Radiant (BMG-DRWEP-OD-2)","Drow-made Dagger (WDotMM)","Dwarven Thrower: Skyfist (DDEP4)","Dwarven Thrower (FR-DC-PANDORA-JWEI-S2-7)","Dwarven Thrower: Foehammer (WBW-DC-MOM-2)","Elven Thrower (FR-DC-DEATH)","Elven Thrower: Araelathila (FR-DC-LIGA-1)","Elven Thrower: Naginata (FR-DC-PANDORA-JWEI-8)","Elven Thrower (FR-DC-RWIE-3)","Flame Tongue (CCC-YLRA-2)","Forcebreaker Sling (PO-BMG-DRW-KS-6)","Glaive of Warning: The Harbinger (CCC-EPI1-2)","Glaive of Warning: Losspatan's War-scythe (CCC-GGC-2-1)","Greatclub of Warning: U'u War Club (WBW-DC-DEN-H2)","Greatclub of Warning: Clobber (WBW-DC-MIKE-1)","Hammer of Thunderbolts: Storm King's (FR-DC-PANDORA-JWEI-S2-4) [bonus]","Hammer of Thunderbolts: Storm King's (FR-DC-PANDORA-JWEI-S2-4) [no bonus]","Hand Crossbow of Melodies: Leeley's (PS-DC-PKL-14)","Holy Avenger: Glaive of the Night (FR-DC-PANDORA-JWEI-S2-6)","Javelin of Lightning (CCC-BFG1-3)","Javelin of Lightning (CCC-BMG-MOON6-3)","Javelin of Lightning (CCC-BMG-MOON16-1)","Javelin of Lightning (CCC-GAD2-2)","Javelin of Lightning (CCC-SAC-4)","Javelin of Lightning (CCC-SFBAY-4-1)","Javelin of Lightning (DDAL8-5)","Javelin of Lightning (SJ-DC-AS-1)","Javelin of Lightning: Comet Spear (SJ-DC-CJK2-2)","Javelin of Lightning: Stormstrike (SJ-DC-DD-4)","Javelin of Lightning: Processional Baton (SJ-DC-DES5-1)","Javelin of Lightning: Rrakkma's Smite (SJ-DC-FLUMPH-1)","Javelin of Lightning: Jensen's Lure (SJ-DC-ISL-1)","Javelin of Lightning (SJ-DC-LIGA1)","Javelin of Lightning (SJ-DC-MB5-AH123)","Javelin of Lightning: Reigar's Rage (SJ-DC-MDW-1)","Javelin of Lightning (SJ-DC-TRIDEN-UPR)","Javelin of Lightning (SJ-DC-TTUC-1)","Javelin of Warning: Jeny's Hairpin (CCC-VOTE-1-1)","Lash of Immolation: Demonweb Punisher (FR-DC-PHP-PEST-2)","Lash of Immolation: Dragon's Tail (FR-DC-STRAT-DRAGON-2)","Lash of Immolation: Ebon Lash (FR-DC-THAY-1)","Longbow of Melodies: Airalinde (FR-DC-IMP-2)","Longbow of Melodies: Lavender's Scent (FR-DC-PANDORA-JWEI-10)","Mace of Disruption (CCC-CIC-3)","Mace of Disruption: Death's Head (CCC-GHC-BK1-2)","Mace of Smiting (DDAL7-6)","Mace of Smiting (DDAL8-7)","Mace of Smiting (DDAL10-7)","Mace of Terror: Durgeddin's Fist (DDEP6-1)","Mace of Terror: Redrum (FR-DC-THAY-5)","Moon Sickle +1 (DDAL-DRW10)","Moon Sickle +2 (BMG-DRWEP-OD-1)","Moon Sickle +2: Selune's Guidance (WBW-DC-NJ-COU-2)","Moon Sickle +2: Tsukikama (WBW-DC-PHP-1)","Moon Sickle +3: Shard of Ibhar (FR-DC-PNKE-1)","Moon Sickle +3 (FR-DC-UCON24)","Oathbow: Syranna's Folly (CCC-OCC-1)","Oathbow (DDAL-DRW8)","Oathbow: Shadowsong (DDEX3-7)","Oathbow: Moon (FR-DC-PANDORA-JWEI-S2-6)","Oathbow: Selestria (WBW-DC-TMP-3)","Shortbow of Melodies (FR-DC-FALL-1)","Starshot Hand Crossbow (PO-BMG-DRW-KS-2)","Stone Greataxe (DDAL0-13)","Trident of Fish Command (CCC-BMG-MOON14-1)","Trident of Fish Command (CCC-TAROT2-8)","Trident of Fish Command (CCC-WWC-2)","Trident of Warning (CCC-TRI-34)","Trident of Warning (DDEX2-3)","Vicious Glaive: Ptahrek's Glaive (CCC-SVH1-2)","Vicious Heavy Crossbow (PS-DC-PUB-3)","Vicious Longbow: Wayfinder (FR-DC-MCG-CH2)","Vicious Mace (CCC-BMG-1 HULB1-1)","Vicious Maul: Prototype Weapon #31 (PS-DC-HRS-1)","Vicious Spear (DDAL0-13)","Vorpal Glaive: Moon (PS-DC-PANDORA-JWEI-S2-3)","Wakened Crystal Dragon's Wrath Glaive (PO-BMG-DRW-KS-5)","Weapon of Warning (CCC-ELF-3-1)","Weapon of Warning (DDAL0-7)","Whip of Warning (CCC-GHC-BK2-10)","Whip of Warning (DDAL4-2)"],
 	"berserker flail (ccc-ucon-1)" : {
 		name : "Berserker Flail (CCC-UCON-1)",//Based on the Berserker axe 
 		source : [["AL","CCC"]],
@@ -5053,15 +5303,45 @@ MagicItemsList["al weapons (other)"] = {
 		return false;
 		},
 		weight : 2,
-		description : "The head of this +3 warhammer is a gauntleted fist. The haft is a heavy black metal rod wrapped in spongy green leather. Affixed to the pommel is a strip of blood-stained parchment with a dwarven battle song. When used, the hammer reads the song aloud (audible in 30ft). It has the Thrown property 20/60 ft, deals +1d8 dmg (2d8 to Giants) when thrown & returns to my hand after each atk.",
-		descriptionLong : "The striking surface of this warhammer has been forged into a gauntleted fist. The haft is a rod of heavy, black metal wrapped in spongy green leather. Affixed to an iron ring on the pommel is a strip of tattered but indestructible blood-stained parchment inscribed with a dwarven battle canticle. When used, the hammer reads the song aloud in a deep resonating voice audible to 30ft. I gain a +3 bonus to attack and damage rolls made with the weapon. It has the Thrown property with a normal range of 20 ft and a long range of 60 ft. When I hit with a ranged attack using the weapon, it deals an extra 1d8 damage or 2d8 damage against Giants. After each attack, the hammer returns to my hand.",
+		description : "The head of this +3 warhammer is a gauntleted fist. The haft is a heavy black metal rod wrapped in spongy green leather. Affixed to the pommel is a strip of blood-stained parchment with a dwarven battle song. When used, the hammer reads the song aloud (audible in 30ft). It has the Thrown property 20/60 ft, deals +1d8 Force (2d8 to Giants) when thrown & returns to my hand after each atk.",
+		descriptionLong : "The striking surface of this warhammer has been forged into a gauntleted fist. The haft is a rod of heavy, black metal wrapped in spongy green leather. Affixed to an iron ring on the pommel is a strip of tattered but indestructible blood-stained parchment inscribed with a dwarven battle canticle. When used, the hammer reads the song aloud in a deep resonating voice audible to 30ft. I gain a +3 bonus to attack and damage rolls made with the weapon. It has the Thrown property with a normal range of 20 ft and a long range of 60 ft. When I hit with a ranged attack using the weapon, it deals an extra 1d8 Force damage or 2d8 against Giants. After each attack, the hammer returns to my hand.",
 		descriptionFull : "The striking surface of this hammer has been forged into the shape of a gauntleted fist. The haft is a rod of heavy, black adamantine and wrapped in what appears to be spongy, green leather. Affixed to an iron ring on the pommel is a strip of tattered (though indestructible), blood-stained parchment inscribed with a dwarven battle canticle. When used in battle, the hammer reads the canticle aloud in a deep resonating voice audible to anyone within 30 feet of the weapon.\n   You gain a +3 bonus to attack rolls and damage rolls made with this magic weapon. It has the Thrown property with a normal range of 20 feet and a long range of 60 feet. When you hit with a ranged attack using this weapon, it deals an extra 1d8 Force damage, or an extra 2d8 Force damage if the target is a Giant. Immediately after hitting or missing, the weapon flies back to your hand. [Per magic item changes for 2024 AL adjustment, adamantine is now flavor only.]",
 		weaponOptions : {
 			baseWeapon : "warhammer",
 			regExpSearch : /^(?=.*dwarven)(?=.*thrower)(?=.*skyfist).*$/i,
 			name : "Skyfist, Dwarven Thrower",
 			range : "Melee, 20/60 ft",
-			description : "Thrown, versatile (1d10), push; +1d8 when thrown (2d8 vs Giants) and returns immediately",
+			description : "Thrown, Versatile (1d10), Push; +1d8 Force when thrown (2d8 vs Giants) & returns immediately",
+			modifiers : [3, 3], // add 3 to each to hit and damage because of the magical bonus
+			selectNow : true,
+		}
+	},
+	"dwarven thrower (fr-dc-pandora-jwei-s2-7)" : {
+		name : "Dwarven Thrower (PANDORA-JWEI-S2-7)",
+		source : [["AL","FR-DC"]],
+		type : "weapon (warhammer)",
+		rarity : "very rare",
+		attunement : true,
+		prerequisite : "Requires Attunement by a Dwarf or a Creature Attuned to a Belt of Dwarvenkind",
+		prereqeval : function(v) {
+			if(CurrentRace.known.indexOf("dwarf") !== -1) return true;
+		for (var i = 0; i < CurrentMagicItems.known.length; i++) {
+			// if it's not null, attunement is checked, and if it's the belt of dwarven kind.
+			if (tDoc.getField(ReturnMagicItemFieldsArray(i+1)[4]) !== null && tDoc.getField(ReturnMagicItemFieldsArray(i+1)[4]).isBoxChecked(0) !== 0 && CurrentMagicItems.known[i].indexOf("belt of dwarvenkind") !== -1) {
+				return true;
+			}
+		}
+		return false;
+		},
+		weight : 2,
+		description : "This +3 warhammer glows faintly within 120 ft of Giants. It has the Thrown property with a range of 20/60 ft, deals +1d8 Force damage (2d8 to Giants) when thrown and magically returns to my hand after each attack.",
+		descriptionFull : "You gain a +3 bonus to attack rolls and damage rolls made with this magic weapon. It has the Thrown property with a normal range of 20 feet and a long range of 60 feet. When you hit with a ranged attack using this weapon, it deals an extra 1d8 Force damage, or an extra 2d8 Force damage if the target is a Giant. Immediately after hitting or missing, the weapon flies back to your hand.\n   " + toUni("Sentinel") + ". This item glows faintly when giants are within 120 feet of it.",
+		weaponOptions : {
+			baseWeapon : "warhammer",
+			regExpSearch : /^(?=.*dwarven)(?=.*thrower).*$/i,
+			name : "Foehammer, Dwarven Thrower",
+			range : "Melee, 20/60 ft",
+			description : "Thrown, Versatile (1d10), Push; +1d8 Force when thrown (2d8 vs Giants) & returns immediately",
 			modifiers : [3, 3], // add 3 to each to hit and damage because of the magical bonus
 			selectNow : true,
 		}
@@ -5084,15 +5364,15 @@ MagicItemsList["al weapons (other)"] = {
 		return false;
 		},
 		weight : 2,
-		description : "Made of fine steel inlaid with rare wood, this elegant +3 warhammer was fashioned after the sentient weapon, Whelm, and blooms with amber light in 120 ft of Giants. While carried, I'm obsessed with material wealth. It has the Thrown property 20/60 ft, deals +1d8 dmg (2d8 to Giants) when thrown & returns to my hand after each atk.",
-		descriptionLong : "Made of finely forged steel inlaid with rare wood, this elegantly crafted warhammer was clearly fashioned after the sentient weapon, Whelm. It blooms with pale amber light within 120ft of Giants, though I may be too preoccupied by my new obsession with precious gems to notice. I gain a +3 bonus to attack and damage rolls made with the weapon. It has the Thrown property with a normal range of 20 feet and a long range of 60 feet. When I hit with a ranged attack using the weapon, it deals an extra 1d8 damage or 2d8 damage against Giants. After each attack, the warhammer flies back to my hand.",
+		description : "Made of fine steel inlaid with rare wood, this elegant +3 warhammer was fashioned after the sentient weapon, Whelm, and blooms with amber light in 120 ft of Giants. While carried, I'm obsessed with material wealth. It has the Thrown property 20/60 ft, deals +1d8 Force (2d8 to Giants) when thrown & returns to my hand after each atk.",
+		descriptionLong : "Made of finely forged steel inlaid with rare wood, this elegantly crafted warhammer was clearly fashioned after the sentient weapon, Whelm. It blooms with pale amber light within 120ft of Giants, though I may be too preoccupied by my new obsession with precious gems to notice. I gain a +3 bonus to attack and damage rolls made with the weapon. It has the Thrown property with a normal range of 20 feet and a long range of 60 feet. When I hit with a ranged attack using the weapon, it deals an extra 1d8 Force damage or 2d8 against Giants. After each attack, the warhammer flies back to my hand.",
 		descriptionFull : "Made of finely forged steel inlaid with rare wood, the form of this elegantly crafted warhammer has clearly been fashioned after that of the sentient warhammer, Whelm. It blooms with pale amber light in the presence of giants, though a wielder of Foehammer might well be too preoccupied by their search for precious gems to notice. [GFP Item]\n   " + toUni("Sentinel") + ". This item glows faintly when giants are within 120 feet of it.\n   " + toUni("Quirk: Covetous") + ". The item's bearer becomes obsessed with material wealth.\n   You gain a +3 bonus to attack rolls and damage rolls made with this magic weapon. It has the Thrown property with a normal range of 20 feet and a long range of 60 feet. When you hit with a ranged attack using this weapon, it deals an extra 1d8 Force damage, or an extra 2d8 Force damage if the target is a Giant. Immediately after hitting or missing, the weapon flies back to your hand.",
 		weaponOptions : {
 			baseWeapon : "warhammer",
 			regExpSearch : /^(?=.*dwarven)(?=.*thrower)(?=.*foehammer).*$/i,
 			name : "Foehammer, Dwarven Thrower",
 			range : "Melee, 20/60 ft",
-			description : "Thrown, versatile (1d10), push; +1d8 when thrown (2d8 vs Giants) and returns immediately",
+			description : "Thrown, Versatile (1d10), Push; +1d8 Force when thrown (2d8 vs Giants) & returns immediately",
 			modifiers : [3, 3], // add 3 to each to hit and damage because of the magical bonus
 			selectNow : true,
 		}
@@ -5105,15 +5385,15 @@ MagicItemsList["al weapons (other)"] = {
 		attunement : true,
 		prerequisite : "Requires attunement by an Elf",
 		prereqeval : function(v) { return (/elf|eladrin|avariel|grugach|shadar-kai/i).test(CurrentRace.known); },
-		description : "This magic spear glows faintly in 120 ft of Aberrations and has a +3 bonus to attack and damage rolls. It deals an extra 1d8 damage (2d8 to Giants) when thrown and returns to my hand after each attack.",
-		descriptionFull : "You gain a +3 bonus to attack and damage rolls made with this magic weapon. It has the thrown property with a normal range of 20 feet and a long range of 60 feet. When you hit with a ranged attack using this weapon, it deals an extra 1d8 damage or, if the target is a giant, 2d8 damage. Immediately after the attack, the weapon flies back to your hand.\n   " + toUni("Sentinel") + ". This item glows faintly when aberrations are within 120 feet of it.",
+		description : "This magic spear glows faintly in 120 feet of Aberrations and has a +3 bonus to attack and damage rolls. It deals an extra 1d8 Force damage (2d8 to Giants) when thrown and returns to my hand after each attack.",
+		descriptionFull : "You gain a +3 bonus to attack and damage rolls made with this magic weapon. It has the thrown property with a normal range of 20 feet and a long range of 60 feet. When you hit with a ranged attack using this weapon, it deals an extra 1d8 Force damage or, if the target is a giant, 2d8 Force damage. Immediately after the attack, the weapon flies back to your hand.\n   " + toUni("Sentinel") + ". This item glows faintly when aberrations are within 120 feet of it. [Updated to Force per 2024 changes to Dwarven Thrower]",
 		weight : 3,
 		weaponOptions : {
 			baseWeapon : "spear",
 			regExpSearch : /^(?=.*elven)(?=.*thrower).*$/i,
 			name : "Elven Thrower",
 			range : "Melee, 20/60 ft",
-			description : "Thrown, versatile (1d8), sap; +1d8 when thrown (2d8 vs Giants) and returns immediately",
+			description : "Thrown, Versatile (1d8), Sap; +1d8 Force when thrown (2d8 vs Giants) & returns immediately",
 			modifiers : [3, 3],
 			selectNow : true,
 		}
@@ -5126,9 +5406,9 @@ MagicItemsList["al weapons (other)"] = {
 		attunement : true,
 		prerequisite : "Requires attunement by an Elf",
 		prereqeval : function(v) { return (/elf|eladrin|avariel|grugach|shadar-kai/i).test(CurrentRace.known); },
-		description : "Forged by the High Elves during the Crown Wars, this +3 spear is carved with vanes of green arrows. The spear says \"May I strike true my targets!\" as an ode to Solonor Thelandira, giving +2 initiative unless I'm Incapacitated. It deals +1d8 damage (2d8 to Giants) when thrown and returns to my hand after each attack.",
-		descriptionLong : "Forged by the High Elves during the Crown Wars, Araelathila has vanes of green arrows carved into it. The spear says \"May I strike true my targets!\", granting a +2 bonus to initiative if I'm not Incapacitated. It's an ode to Solonor Thelandira. I gain a +3 bonus to attack and damage rolls made with the spear. It has the Thrown property with a normal range of 20 feet and a long range of 60 feet. When I hit with a ranged attack using the spear, it deals an extra 1d8 damage or 2d8 damage against Giants. Immediately after the attack, the spear flies back to my hand.",
-		descriptionFull : "Forged by the High Elves during the Crown Wars, Araelathila has vanes of green arrows carved into it.\n   " + toUni("Guardian") + ". The item whispers \"May I strike true my targets!\", granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition. It is an ode to Solonor Thelandira.\n   You gain a +3 bonus to attack and damage rolls made with this magic weapon. It has the thrown property with a normal range of 20 feet and a long range of 60 feet. When you hit with a ranged attack using this weapon, it deals an extra 1d8 damage or, if the target is a giant, 2d8 damage. Immediately after the attack, the weapon flies back to your hand.",
+		description : "Forged by the High Elves during the Crown Wars, this +3 spear is carved with vanes of green arrows. The spear says \"May I strike true my targets!\" as an ode to Solonor Thelandira, giving +2 initiative unless I'm Incapacitated. It deals +1d8 Force (2d8 to Giants) when thrown and returns to my hand after each attack.",
+		descriptionLong : "Forged by the High Elves during the Crown Wars, Araelathila has vanes of green arrows carved into it. The spear says \"May I strike true my targets!\", granting a +2 bonus to initiative if I'm not Incapacitated. It's an ode to Solonor Thelandira. I gain a +3 bonus to attack and damage rolls made with the spear. It has the Thrown property with a normal range of 20 feet and a long range of 60 feet. When I hit with a ranged attack using the spear, it deals an extra 1d8 Force damage or 2d8 against Giants. Immediately after the attack, the spear flies back to my hand.",
+		descriptionFull : "Forged by the High Elves during the Crown Wars, Araelathila has vanes of green arrows carved into it.\n   " + toUni("Guardian") + ". The item whispers \"May I strike true my targets!\", granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition. It is an ode to Solonor Thelandira.\n   You gain a +3 bonus to attack and damage rolls made with this magic weapon. It has the thrown property with a normal range of 20 feet and a long range of 60 feet. When you hit with a ranged attack using this weapon, it deals an extra 1d8 Force damage or, if the target is a giant, 2d8 Force damage. Immediately after the attack, the weapon flies back to your hand. [Updated to Force per 2024 changes to Dwarven Thrower]",
 		weight : 3,
 		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on Initiative rolls." },
 		weaponOptions : {
@@ -5136,7 +5416,7 @@ MagicItemsList["al weapons (other)"] = {
 			regExpSearch : /araelathila, elven thrower/i,
 			name : "Araelathila, Elven Thrower",
 			range : "Melee, 20/60 ft",
-			description : "Thrown, versatile (1d8), sap; +1d8 when thrown (2d8 vs Giants) and returns immediately",
+			description : "Thrown, Versatile (1d8), Sap; +1d8 Force when thrown (2d8 vs Giants) & returns immediately",
 			modifiers : [3, 3],
 			selectNow : true,
 		}
@@ -5149,16 +5429,16 @@ MagicItemsList["al weapons (other)"] = {
 		attunement : true,
 		prerequisite : "Requires attunement by an Elf",
 		prereqeval : function(v) { return (/elf|eladrin|avariel|grugach|shadar-kai/i).test(CurrentRace.known); },
-		description : "This +3 naginata (spear) has a long shaft with \"Giant's bane\" carved in the Wa language. When a Giant is in 120 ft, the blade glows red. It deals +1d8 damage (2d8 to Giants) when thrown and returns to my hand after each attack.",
-		descriptionLong : "This bladed weapon has a long shaft with the word \"Giant's bane\" carved onto it in the Wa language. Whenever a Giant comes within 120 feet, the blade glows red. I gain a +3 bonus to attack and damage rolls made with this spear. It has the Thrown property with a normal range of 20 feet and a long range of 60 feet. When I hit with a ranged attack using this spear, it deals an extra 1d8 damage or 2d8 damage against Giants. Immediately after the attack, the spear flies back to my hand.",
-		descriptionFull : "This bladed weapon with a long shaft has the word “giant's bane” carved onto it in the Wa language.\n   " + toUni("Sentinel") + ". Whenever a giant comes within 120 feet of it, the blade glows red.\n   You gain a +3 bonus to attack and damage rolls made with this magic weapon. It has the thrown property with a normal range of 20 feet and a long range of 60 feet. When you hit with a ranged attack using this weapon, it deals an extra 1d8 damage or, if the target is a giant, 2d8 damage. Immediately after the attack, the weapon flies back to your hand.",
+		description : "This +3 naginata (spear) has a long shaft with \"Giant's bane\" carved in the Wa language. When a Giant is in 120 ft, the blade glows red. It deals +1d8 Force damage (2d8 to Giants) when thrown and returns to my hand after each attack.",
+		descriptionLong : "This bladed weapon has a long shaft with the word \"Giant's bane\" carved onto it in the Wa language. Whenever a Giant comes within 120 feet, the blade glows red. I gain a +3 bonus to attack and damage rolls made with this spear. It has the Thrown property with a normal range of 20 feet and a long range of 60 feet. When I hit with a ranged attack using this spear, it deals an extra 1d8 Force damage or 2d8 against Giants. Immediately after the attack, the spear flies back to my hand.",
+		descriptionFull : "This bladed weapon with a long shaft has the word “giant's bane” carved onto it in the Wa language.\n   " + toUni("Sentinel") + ". Whenever a giant comes within 120 feet of it, the blade glows red.\n   You gain a +3 bonus to attack and damage rolls made with this magic weapon. It has the thrown property with a normal range of 20 feet and a long range of 60 feet. When you hit with a ranged attack using this weapon, it deals an extra 1d8 Force damage or, if the target is a giant, 2d8 Force damage. Immediately after the attack, the weapon flies back to your hand. [Updated to Force per 2024 changes to Dwarven Thrower]",
 		weight : 3,
 		weaponOptions : {
 			baseWeapon : "spear",
 			regExpSearch : /naginata, elven thrower/i,
 			name : "Naginata, Elven Thrower",
 			range : "Melee, 20/60 ft",
-			description : "Thrown, versatile (1d8), sap; +1d8 when thrown (2d8 vs Giants) and returns immediately",
+			description : "Thrown, Versatile (1d8), Sap; +1d8 Force when thrown (2d8 vs Giants) & returns immediately",
 			modifiers : [3, 3],
 			selectNow : true,
 		}
@@ -5171,16 +5451,16 @@ MagicItemsList["al weapons (other)"] = {
 		attunement : true,
 		prerequisite : "Requires attunement by an Elf",
 		prereqeval : function(v) { return (/elf|eladrin|avariel|grugach|shadar-kai/i).test(CurrentRace.known); },
-		description : "This +3 spear is a single piece of enchanted wood with faintly glowing runes in Elvish and a sharp point at the end. It deals an extra 1d8 damage (2d8 to Giants) when thrown and returns to my hand after each attack. Whenever I hit score a Critical Hit, the spear also emits a loud scream of victory.",
-		descriptionLong : "This spear looks like a single piece of enchanted wood with faintly glowing runes in Elvish and a sharp point at the end. I gain a +3 bonus to attack and damage rolls made with it. The spear has the Thrown property with a normal range of 20 feet and a long range of 60 feet. When I hit with a ranged attack using this spear, it deals an extra 1d8 damage or 2d8 damage against Giants. Immediately after the attack, the spear flies back to my hand. Whenever I hit score a Critical Hit, it emits a loud scream of victory.",
-		descriptionFull : "This spear looks like a single piece of enchanted wood with faintly glowing runes in Elvish and a sharp point at the end.\n   " + toUni("Loud") + ". This weapon emits a loud scream of victory whenever its user scores a critical hit while wielding it.\n   You gain a +3 bonus to attack and damage rolls made with this magic weapon. It has the thrown property with a normal range of 20 feet and a long range of 60 feet. When you hit with a ranged attack using this weapon, it deals an extra 1d8 damage or, if the target is a giant, 2d8 damage. Immediately after the attack, the weapon flies back to your hand.",
+		description : "This +3 spear is a single piece of enchanted wood with faintly glowing runes in Elvish and a sharp point at the end. It deals an extra 1d8 Force (2d8 to Giants) when thrown and returns to my hand after each attack. Whenever I hit score a Critical Hit, the spear also emits a loud scream of victory.",
+		descriptionLong : "This spear looks like a single piece of enchanted wood with faintly glowing runes in Elvish and a sharp point at the end. I gain a +3 bonus to attack and damage rolls made with it. The spear has the Thrown property with a normal range of 20 feet and a long range of 60 feet. When I hit with a ranged attack using this spear, it deals an extra 1d8 Force damage or 2d8 against Giants. Immediately after the attack, the spear flies back to my hand. Whenever I hit score a Critical Hit, it emits a loud scream of victory.",
+		descriptionFull : "This spear looks like a single piece of enchanted wood with faintly glowing runes in Elvish and a sharp point at the end.\n   " + toUni("Loud") + ". This weapon emits a loud scream of victory whenever its user scores a critical hit while wielding it.\n   You gain a +3 bonus to attack and damage rolls made with this magic weapon. It has the thrown property with a normal range of 20 feet and a long range of 60 feet. When you hit with a ranged attack using this weapon, it deals an extra 1d8 Force damage or, if the target is a giant, 2d8 Force damage. Immediately after the attack, the weapon flies back to your hand. [Updated to Force per 2024 changes to Dwarven Thrower]",
 		weight : 3,
 		weaponOptions : {
 			baseWeapon : "spear",
 			regExpSearch : /^(?=.*elven)(?=.*thrower).*$/i,
 			name : "Elven Thrower",
 			range : "Melee, 20/60 ft",
-			description : "Thrown, versatile (1d8), sap; +1d8 when thrown (2d8 vs Giants) and returns immediately",
+			description : "Thrown, Versatile (1d8), Sap; +1d8 Force when thrown (2d8 vs Giants) & returns immediately",
 			modifiers : [3, 3],
 			selectNow : true,
 		}
@@ -5279,24 +5559,47 @@ MagicItemsList["al weapons (other)"] = {
 			"" + toUni("Supernatural Readiness") + ". Each subject has Advantage on its Initiative rolls.",
 			weaponsAdd : { select : ["Clobber, Greatclub of Warning"], options : ["Clobber, Greatclub of Warning"] },
 			},
-	"green-flame mace: face of umberlee's fury (ccc-awe-1-2)" : {
-		name : "Face of Umberlee's Fury (Green-Flame Mace)",
-		source : [["AL","CCC"]],
-		rarity : "common",
-		type : "weapon (mace)",
+	"hammer of thunderbolts: storm king's (fr-dc-pandora-jwei-s2-4) [bonus]" : {
+		name : "Storm King's Hammer (Thunderbolts+, JWEI-S2-4)",
+		source : [["AL","FR-DC"]],
+		type : "weapon (maul)",
+		rarity : "legendary",
+		magicItemTable : "?",
+		description : "This +1 maul’s head looks like King Hekaton. The wear and scars speak of brutal battles. If a giant is in range, the maul glows and gives electric sparks. The maul adds +4 to Strength (max 30). On a 20 to hit Giant, it dies on failed DC 17 Con save. 5 charges, 1d4+1 regained at dawn. Use 1 charge and make a ranged attack, as if maul had the Thrown property with a 20/60 ft range. On a hit, there's an audible thunderclap in a 300 ft radius. All but me in 30 ft of target make a DC 17 Con save or Stunned until my next turn ends.",
+		descriptionLong : "This +1 maul’s head resembles the first storm giant ruler, King Hekaton. The edge wear and scars marking the weapon speak about brutal battles with other giants. When a giant is in range, the maul glows and lets out electric sparks. The maul also adds a +4 bonus to Strength (max 30). On a nat 20 to hit a giant, it dies on a failed DC 17 Con save. The maul has 5 charges, 1d4+1 regained at dawn. I can use 1 charge and make a ranged attack with it, as if the maul had the thrown property with a range of 20/60 ft. On a hit, it releases an audible thunderclap in a 300 ft radius and all others in 30 ft of target must make a DC 17 Con save or be Stunned until the end of my next turn. It then returns to my hand.",
+		descriptionFull : "This maul’s head is sculpted to resemble the first storm giant’s ruler, King Hekaton. The edge wears and scars marking the weapon speaks about the brutal battle its previous owner has gone through with the other giants. Whenever a giant comes within range of its wielder, the maul glows and lets out sparks of electricity.\n   You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon.\n   The weapon has 5 charges. You can expend 1 charge and make a ranged attack with the weapon, hurling it as if it had the Thrown property with a normal range of 20 feet and a long range of 60 feet. If the attack hits, the weapon unleashes a thunderclap audible out to 300 feet. The target and every creature within 30 feet of it other than you must succeed on a DC 17 Constitution saving throw or have the Stunned condition until the end of your next turn. Immediately after hitting or missing, the weapon flies back to your hand. The weapon regains 1d4+1 expended charges daily at dawn.\n   While you are attuned to the weapon and wearing either a Belt of Giant Strength or Gauntlets of Ogre Power to which you are also attuned, you gain the following benefits:\n    " + toUni("Giant's Bane") + ". When you roll a 20 on the d20 for an attack roll made with this weapon against a Giant, the creature must succeed on a DC 17 Constitution saving throw or die.\n   " + toUni("Might of Giants") + ". The Strength score bestowed by your Belt of Giant Strength or Gauntlets of Ogre Power increases by 4, to a maximum of 30.",
+		limfeaname : "Hammer of Thunderbolts",
+		usages : 5,
+		recovery : "dawn",
+		additional : "regains 1d4+1",
+		weight : 10,
 		attunement : true,
-		description : "I can use an action to ignite the head of this mace with green flame or extinguish it. When lit, the mace glows like a torch & deals 1 extra Fire dmg. Its head resembles the head of a merfolk woman & the green flame looks like her hair flowing gently in water. The command words are \"Fury\" (to light) and \"Rest\" (to extinguish) in Aquan.",
-		descriptionLong : "While attuned to this mace, I can use an action to make its head ignite with green flame or extinguish it. When lit, the mace glows as brightly as a torch and deals 1 extra Fire dmg on a hit. Its head resembles the head of a merfolk female and while active, the green flame looks like her hair flowing gently in water. The command words are \"Fury\" (to light) and \"Rest\" (to extinguish) in Aquan.",
-		descriptionFull : "The mace's head is shaped to resemble the head of a merfolk female. While \"lit,\" the green flame resembles the merfolk's hair flowing gently in water. The command words for the mace are the words \"Fury\" (to light) and \"Rest\" (to extinguish) in Aquan.\n   This mace is a common magic item. While attuned to the weapon, the wielder can use an action to make the head of the mace alight with green flame or use an action to extinguish the flame. While the mace is \"lit,\" it glows as brightly as a torch and deals an extra 1 fire damage on a hit.",
-		weight : 4,
-		action : [["action", "Green-Flame Mace (Light/Extinguish)"]],
-		weaponOptions : {
-			baseWeapon : "mace",
-			regExpSearch : /^(?=.*mace)(?=.*green)(?=.*flame)(?=.*umberlee|umberlee's)(?=.*fury).*$/i,
-			name : "Umberlee's Fury, Green-Flame Mace",
-			description : "Sap; +1 fire dmg while lit",
-			selectNow : true,
-		}
+		prerequisite : "Must be attuned to a Belt of Giant Strength or Gauntlets of Ogre Power",
+		prereqeval : function () {
+			return CurrentMagicItems.known.indexOf("belt of giant strength") !== -1 | CurrentMagicItems.known.indexOf("gauntlets of ogre power") !== -1;
+		},
+		scores : [4, 0, 0, 0, 0, 0],
+		scoresMaximum : [30, 0, 0, 0, 0, 0],
+		calcChanges: hammerThunderboltsBonus.calcChanges,
+		weaponsAdd : { select : ["Maul of Thunderbolts"], options : ["Maul of Thunderbolts"] },
+	},
+	"hammer of thunderbolts: storm king's (fr-dc-pandora-jwei-s2-4) [no bonus]" : {
+		name : "Storm King's Hammer (Thunderbolts, JWEI-S2-4)",
+		source : [["AL","FR-DC"]],
+		type : "weapon (maul)",
+		rarity : "legendary",
+		magicItemTable : "?",
+		description : "This +1 maul’s head resembles King Hekaton. The edge wear and scars speak of brutal battles. When a giant is in range, the maul glows and gives electric sparks. It has 5 charges, 1d4+1 regained at dawn. Use 1 charge and make a ranged attack with the maul as if it had the Thrown property with a 20/60 ft range. On a hit, audible thunderclap in a 300 ft radius and all others in 30 ft of target make a DC 17 Con save or Stunned until my next turn ends. It then returns to my hand.",
+		descriptionLong : "This +1 maul’s head resembles the first storm giant ruler, King Hekaton. The edge wear and scars on the weapon speak about brutal battles with other giants. When a giant is in range, the maul glows and gives electric sparks. It has 5 charges, 1d4+1 regained at dawn. Use 1 charge and make a ranged attack with the maul as if it had the thrown property with a range of 20/60 ft. On a hit, it releases an audible thunderclap in a 300 ft radius and all others in 30 ft of target make a DC 17 Con save or Stunned until the end of my next turn. It then returns to my hand.",
+		descriptionFull : "This maul’s head is sculpted to resemble the first storm giant’s ruler, King Hekaton. The edge wears and scars marking the weapon speaks about the brutal battle its previous owner has gone through with the other giants. Whenever a giant comes within range of its wielder, the maul glows and lets out sparks of electricity.\n   You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon.\n   The weapon has 5 charges. You can expend 1 charge and make a ranged attack with the weapon, hurling it as if it had the Thrown property with a normal range of 20 feet and a long range of 60 feet. If the attack hits, the weapon unleashes a thunderclap audible out to 300 feet. The target and every creature within 30 feet of it other than you must succeed on a DC 17 Constitution saving throw or have the Stunned condition until the end of your next turn. Immediately after hitting or missing, the weapon flies back to your hand. The weapon regains 1d4 + 1 expended charges daily at dawn.",
+		weight : 10,
+		attunement : true,
+		limfeaname : "Hammer of Thunderbolts",
+		usages : 5,
+		recovery : "dawn",
+		additional : "regains 1d4+1",
+		calcChanges: hammerThunderboltsNoBonus.calcChanges,
+		weaponsAdd : { select : ["Maul of Thunderbolts"], options : ["Maul of Thunderbolts"] },
 	},
 	"hand crossbow of melodies: leeley's (ps-dc-pkl-14)" : {
 			name : "Leeley's Hand Crossbow of Melodies (PKL-14)",
@@ -5314,6 +5617,21 @@ MagicItemsList["al weapons (other)"] = {
 			weaponsAdd : { select : ["Hand Crossbow of Melodies"], options : ["Hand Crossbow of Melodies"] },
 			addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
 		calcChanges: bowOfMelodies.calcChanges,
+	},
+	"holy avenger: glaive of the night (fr-dc-pandora-jwei-s2-6)" : {
+		name : "Glaive of the Night, Holy Avenger (JWEI-S2-6)",
+		source : [["AL","FR-DC"]],
+		type : "weapon (glaive)",
+		rarity : "legendary",
+		attunement : true,
+		description : "The blade of this +3 glaive is forged with obsidian steel black as night. When Undead are in 120 ft, it glows night blue as if urging me to seek the creature, slay it, & offer its soul to Shar. The glaive does +2d10 Radiant vs Fiends & Undead. While holding the drawn glaive, a 10-ft radius emanation (30-ft if level 17 Paladin) gives me & allies adv. on saves vs spells & magical effects.",
+		descriptionLong : "The blade of this +3 glaive is forged with obsidian steel black as night. Whenever it senses Undead within 120 ft, it glows with night blue light as if urging me to seek out the creature, slay it, and offer its soul to Shar. The glaive does +2d10 Radiant damage against Fiends and Undead. While holding the drawn weapon, there's a 10-ft radius emanation (30-ft if level 17 Paladin) that grants me and my allies advantage on saves against spells and magical effects.",
+		descriptionFull : "The blade of this glaive is forged with obsidian steel black as night. Whenever it senses an undead, it glows a night blue light as if urging it's wielding to seek out such a creature, slay it, and offer its soul to Shar.\n   " + toUni("Sentinel") + ". This item glows faintly when Undead are within 120 feet of it.\n   You gain a +3 bonus to attack rolls and damage rolls made with this magic weapon. When you hit a Fiend or an Undead with it, that creature takes an extra 2d10 Radiant damage.\n   While you hold the drawn weapon, it creates a 10-foot Emanation originating from you. You and all creatures Friendly to you in the Emanation have Advantage on saving throws against spells and other magical effects. If you have 17 or more levels in the Paladin class, the size of the Emanation increases to 30 feet.",
+		prerequisite : "Requires attunement by a paladin",
+		prereqeval : function (v) { return classes.known.paladin ? true : false; },
+		calcChanges: holyAvengerCalcs.calcChanges,
+		savetxt : { adv_vs : ["spells", "magical effects"] },
+		weaponsAdd : { select : ["Holy Avenger Glaive of the Night"], options : ["Holy Avenger Glaive of the Night"] },
 	},
 	"javelin of lightning (ccc-bfg1-3)" : { // contains contributions by Larry Hoy
 		name : "Javelin of Lightning (CCC-BFG1-3)",
@@ -5916,6 +6234,24 @@ MagicItemsList["al weapons (other)"] = {
 		recovery : "dawn",
 		additional : "regains 1d3",
 		weaponsAdd : { select : ["Durgeddin's Fist, Mace of Terror"], options : ["Durgeddin's Fist, Mace of Terror"] },
+		action : [["action", ""]],
+	},
+	"mace of terror: redrum (fr-dc-thay-5)" : {
+		name : "Redrum, Mace of Terror (THAY-5)",
+		source : [["AL","FR-DC"]],
+		rarity : "rare",
+		type : "weapon (mace)",
+		description : "The words ‘All Work & No Play’ are crudely carved across the ruddy hilt of this notched mace. Bonus action to shed 10-ft bright light & 10-ft more dim, or stop. It has 3 charges, 1d3 regained at dawn. Magic action: 1 charge - all chosen in 30 ft make DC 15 Wis save or Frightened of me for 1 min, redo each turn end. While Frightened, can only Dash away (or free self), Dodge if can't move, no Opp Atks.",
+		descriptionLong : "The words ‘All Work & No Play’ are crudely carved across the ruddy hilt of this notched mace. It has 3 charges, 1d3 regained at dawn. As a Magic action, use 1 charge to have creatures of my choice in 30 ft make a DC 15 Wis save or become Frightened of me for 1 minute. While Frightened, a creature must move as far from me as it can, using its action only to Dash or escape restraints, & can't make Opportunity Attacks. If it can't move, the creature can Dodge instead. It repeats the save at the end of each turn, ending the effect on a success. As a bonus action, the mace sheds bright light in a 10-ft radius and 10-ft more dim, or stops.",
+		descriptionFull : "The words ‘All Work & No Play’ are crudely carved across the ruddy hilt of this notched mace.\n   " + toUni("Beacon") + ". You can take a Bonus Action to cause the item to shed Bright Light in a 10-foot radius and Dim Light for an additional 10 feet, or to extinguish the light.\n   This magic weapon has 3 charges and regains 1d3 expended charges daily at dawn. While holding the weapon, you can take a Magic action and expend 1 charge to release a wave of terror from it. Each creature of your choice within 30 feet of you must succeed on a DC 15 Wisdom saving throw or have the Frightened condition for 1 minute. While Frightened in this way, a creature must spend its turns trying to move as far away from you as it can, and it can't make Opportunity Attacks. For its action, it can use only the Dash action or try to escape from an effect that prevents it from moving. If it has nowhere it can move, the creature can take the Dodge action. At the end of each of its turns, a creature repeats the save, ending the effect on itself on a success.",
+		attunement : true,
+		weight : 4,
+		limfeaname : "Mace of Terror",
+		usages : 3,
+		recovery : "dawn",
+		additional : "regains 1d3",
+		weaponsAdd : { select : ["Redrum, Mace of Terror"], options : ["Redrum, Mace of Terror"] },
+		action : [["action", ""], ["bonus action", " (light/dim)"]],
 	},
 	"moon sickle +1 (ddal-drw10)" : {
 		name : "Moon Sickle +1 (DDAL-DRW10)",
@@ -5934,12 +6270,7 @@ MagicItemsList["al weapons (other)"] = {
 		"\n   When you cast a spell that restores hit points, you can roll a d4 and add the number rolled to the amount of hit points restored, provided you are holding the sickle.",
 		weight : 2,
 		calcChanges : {
-				spellCalc : [
-				function (type, spellcasters, ability) {
-					if (type !== "prepare" && (/druid|ranger/).test(spellcasters)) return 1;
-				},
-				"While holding the Moon Sickle, I gain a +1 bonus to the spell attack rolls and saving throw DCs of my Druid and Ranger spells."
-				],
+				spellCalc : moonSickle1.spellCalc,
 				spellAdd : moonSickleSpells.spellAdd
 		},
 		weaponsAdd : { select : ["Moon Sickle +1"], options : ["Moon Sickle +1"] },
@@ -5961,12 +6292,7 @@ MagicItemsList["al weapons (other)"] = {
 			"\n   When you cast a spell that restores hit points, you can roll a d4 and add the number rolled to the amount of hit points restored, provided you are holding the sickle.",
 			weight : 2,
 		calcChanges : {
-				spellCalc : [
-				function (type, spellcasters, ability) {
-					if (type !== "prepare" && (/druid|ranger/).test(spellcasters)) return 2;
-				},
-				"While holding the Moon Sickle, I gain a +2 bonus to the spell attack rolls and saving throw DCs of my Druid and Ranger spells."
-				],
+				spellCalc : moonSickle2.spellCalc,
 				spellAdd : moonSickleSpells.spellAdd
 		},
 		weaponsAdd : { select : ["Moon Sickle +2"], options : ["Moon Sickle +2"] },
@@ -5988,12 +6314,7 @@ MagicItemsList["al weapons (other)"] = {
 			"\n   When you cast a spell that restores hit points, you can roll a d4 and add the number rolled to the amount of hit points restored, provided you are holding the sickle.",
 			weight : 2,
 		calcChanges : {
-				spellCalc : [
-				function (type, spellcasters, ability) {
-					if (type !== "prepare" && (/druid|ranger/).test(spellcasters)) return 2;
-				},
-				"While holding the Moon Sickle, I gain a +2 bonus to the spell attack rolls and saving throw DCs of my Druid and Ranger spells."
-				],
+				spellCalc : moonSickle2.spellCalc,
 				spellAdd : moonSickleSpells.spellAdd
 		},
 		weaponsAdd : { select : ["Selune's Guidance, Moon Sickle +2"], options : ["Selune's Guidance, Moon Sickle +2"] },
@@ -6015,15 +6336,33 @@ MagicItemsList["al weapons (other)"] = {
 			"\n   When you cast a spell that restores hit points, you can roll a d4 and add the number rolled to the amount of hit points restored, provided you are holding the sickle.",
 			weight : 2,
 		calcChanges : {
-				spellCalc : [
-				function (type, spellcasters, ability) {
-					if (type !== "prepare" && (/druid|ranger/).test(spellcasters)) return 2;
-				},
-				"While holding the Moon Sickle, I gain a +2 bonus to the spell attack rolls and saving throw DCs of my Druid and Ranger spells."
-				],
+				spellCalc : moonSickle2.spellCalc,
 				spellAdd : moonSickleSpells.spellAdd
 		},
 		weaponsAdd : { select : ["Tsukikama, Moon Sickle +2"], options : ["Tsukikama, Moon Sickle +2"] },
+	},
+	"moon sickle +3: shard of ibhar (fr-dc-pnke-1)" : {
+			name : "Shard of Ibhar (Moon Sickle +3, PNKE-1)",
+			source : [["AL","FR-DC"]],
+			type : "weapon (sickle)",
+			attunement : true,
+			rarity : "rare",
+			prerequisite : "Requires attunement by a druid or ranger",
+			prereqeval : function(v) {
+				return classes.known.druid || classes.known.ranger || classes.known.rangerua ? true : false;
+				},
+			description : "While attuned to this +3 sickle, I'm inexplicably drawn to starless portions of the night sky, whether awake or in my dreams. The void whispers warnings, giving +2 initiative unless Incapacitated. While held, I gain +3 to spell attacks and save DCs of my Druid and Ranger spells. Spells I cast that restore HP also add 1d4 to the total healed.",
+			descriptionFull : "While attuned to this item, you find yourself inexplicably drawn to starless portions of the night sky, whether you’re awake, or in your dreams. The void whispers to you."+
+			"\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don’t have the Incapacitated condition."+
+			"\n   This silver-bladed sickle glimmers softly with moonlight. While holding this magic weapon, you gain a bonus to attack and damage rolls made with it, and you gain a bonus to spell attack rolls and the saving throw DCs of your Druid and Ranger spells. The bonus is determined by the weapon's rarity. In addition, you can use the sickle as a spellcasting focus for your Druid and Ranger spells."+
+			"\n   When you cast a spell that restores hit points, you can roll a d4 and add the number rolled to the amount of hit points restored, provided you are holding the sickle.",
+			weight : 2,
+		calcChanges : {
+				spellCalc : moonSickle3.spellCalc,
+				spellAdd : moonSickleSpells.spellAdd
+		},
+		weaponsAdd : { select : ["Moon Sickle +3"], options : ["Moon Sickle +3"] },
+		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
 	},
 	"moon sickle +3 (fr-dc-ucon24)" : {
 			name : "Moon Sickle +3 (FR-DC-UCON24)",
@@ -6042,12 +6381,7 @@ MagicItemsList["al weapons (other)"] = {
 			"\n   When you cast a spell that restores hit points, you can roll a d4 and add the number rolled to the amount of hit points restored, provided you are holding the sickle.",
 			weight : 2,
 		calcChanges : {
-				spellCalc : [
-				function (type, spellcasters, ability) {
-					if (type !== "prepare" && (/druid|ranger/).test(spellcasters)) return 3;
-				},
-				"While holding the Moon Sickle, I gain a +3 bonus to the spell attack rolls and saving throw DCs of my Druid and Ranger spells."
-				],
+				spellCalc : moonSickle3.spellCalc,
 				spellAdd : moonSickleSpells.spellAdd
 		},
 		weaponsAdd : { select : ["Moon Sickle +3"], options : ["Moon Sickle +3"] },
@@ -6121,6 +6455,19 @@ MagicItemsList["al weapons (other)"] = {
 			return !(testRegex).test(inObjKey) && (!inObj.baseWeapon || !(testRegex).test(inObj.baseWeapon));
 		}
 	},
+		calcChanges: oathbowChanges.calcChanges,
+	},
+	"oathbow: moon (fr-dc-pandora-jwei-s2-6)" : {
+		name : "Moon Bow (Oathbow, PANDORA-JWEI-S2-6)",
+		source : [["AL","FR-DC"]],
+		type : "weapon (longbow)",
+		rarity : "very rare",
+		description : "Trunks & branches from the Yggdrasil tree created this bow. Infused with the moon's power, trails of moonlight are left in each arrow's trajectory. I can attune in 1 min. If I atk with bow & say command, target is sworn enemy for 7 days or death (ability recharges next dawn). Bow atks vs it: adv, +3d6 dmg, ignore partial cover & no range disadv. While it lives, I have disadv. with other weapons.",
+		descriptionLong : "Trunks and branches from the Yggdrasil tree are used to forge this bow. Infused with the power of the moon, anytime an arrow is shot, trails of moonlight are left in its trajectory. I can attune in 1 minute. When I make a ranged atk with bow and say \"Swift death to you who have wronged me.\", target becomes my sworn enemy until death or dawn 7 days later. I can only have 1 sworn enemy. If it dies, I can choose a new one after the next dawn. Ranged attacks with bow against my sworn enemy have adv., do +3d6 Piercing, ignore all cover but full, and don't suffer disadv. at long range. While sworn enemy lives, I have disadv. on attacks with other weapons.",
+		descriptionFull : 'Trunks and branches from the yggdrasil tree are used to forge this bow. Infused with the power of the moon, anytime an arrow is shot, trails of moonlight are left in its trajectory.\n   " + toUni("Harmonious") + ". Attuning to this item takes only 1 minute.\n   When you nock an arrow on this bow, it whispers in Elvish, “Swift defeat to my enemies.” When you use this weapon to make a ranged attack, you can utter or sign the following command words: “Swift death to you who have wronged me.” The target of your attack becomes your sworn enemy until it dies or until dawn 7 days later. You can have only one such sworn enemy at a time. When your sworn enemy dies, you can choose a new one after the next dawn.\n   When you make a ranged attack roll with this weapon against your sworn enemy, you have Advantage on the roll. In addition, your target gains no benefit from Half Cover or Three-Quarters Cover, and you suffer no Disadvantage due to long range. If the attack hits, your sworn enemy takes an extra 3d6 Piercing damage.\n   While your sworn enemy lives, you have Disadvantage on attack rolls with all other weapons. [Newer DCs do specify item type, so no choice]',
+		attunement : true,
+		weight : 2,
+		weaponsAdd : { select : ["Moon Bow, Oathbow (Longbow)"], options : ["Moon Bow, Oathbow (Longbow)"] },
 		calcChanges: oathbowChanges.calcChanges,
 	},
 	"oathbow: selestria (wbw-dc-tmp-3)" : {
@@ -6199,28 +6546,6 @@ MagicItemsList["al weapons (other)"] = {
 		dmgres : ["Cold (If injured)"],
 		weaponsAdd : { select : ["Stone Greataxe"], options : ["Stone Greataxe"] },
 	},
-	"sylvan talon: zigfreed's spear (fr-dc-scrog-1)" : {
-		name: "Zigfreed's Spear (Sylvan Talon, SCROG-1)",
-		source : [["AL","FR-DC"]],
-		type: "weapon (dagger, rapier, scimitar, shortsword, sickle, or spear)",
-		rarity: "common",
-		attunement: true,
-		description: "This slender spear is carved from an ancient ash tree that's said to have grown in a faerie glade. When used to strike a foe, I hear a fragment of Wagner’s Ride of the Valkyries. While on my person, I understand the nonwritten communication of all Fey, and they understand me. I can also use this weapon to cast Message as a Magic action once per day.",
-		descriptionFull: "This slender spear is carved from an ancient ash tree said to have grown in a faerie glade. When used to strike a foe, you hear a fragment of Wagner’s Ride of the Valkyries.\n   " + toUni("Songcraft") + ". Whenever this item is struck or is used to strike a foe, you hear a fragment of an ancient song.\n   While this weapon is on your person, you understand the nonwritten communication of all Fey, and they understand yours.\n\n" +
-		toUni("Secret Message") + "\n\n  As a Magic action, you can use the weapon to cast Message. Once this property is used, it can't be used again until the next dawn.",
-		limfeaname : "Sylvan Talon",
-		usages: 1,
-		recovery: "dawn",
-		action: [["action", "Talon (Secret Msg)"]],
-		languageProfs: ["Fey - nonwritten"],
-		spellcastingBonus: [{
-			name: "Secret Msg",
-			spells: ["message"],
-			selection: ["message"],
-			firstCol: "oncelr"
-		}],
-		weaponsAdd : { select : ["Sylvan Talon Spear"], options : ["Sylvan Talon Spear"] },
-	},
 	"trident of fish command (ccc-bmg-moon14-1)" : {
 		name : "Trident of Fish Command (BMG-MOON14-1)",
 		source : [["AL","CCC"]],
@@ -6289,15 +6614,46 @@ MagicItemsList["al weapons (other)"] = {
 		weaponsAdd : { select : ["Ptahrek's Vicious Glaive"], options : ["Ptahrek's Vicious Glaive"] },
 		calcChanges: viciousWeaponCalc.calcChanges,
 	},
+	"vicious heavy crossbow (ps-dc-pub-3)" : {
+		name : "Vicious Heavy Crossbow (PS-DC-PUB-3)",
+		source : [["AL","FR-DC"]],
+		type : "weapon (heavy crossbow)",
+		rarity : "rare",
+		description : "This heavy crossbow was lovingly crafted and maintained. It has a rosewood stock, shining brass and steel mechanisms, and a spider silk string. Its previous owner called it ‘Bessie’ and the weapon seems to like the name. Bessie creaks or twangs its string before an enemy attacks, giving me a crucial warning and +2 initiative unless I'm Incapacitated. It does +2d6 damage per shot.",
+		descriptionFull : "This heavy crossbow has been lovingly crafted and maintained. Its stock is rosewood, its mechanisms shining brass and steel, and its string is made of spun spider silk. Its previous owner called it ‘Bessie’ and the weapon seems to like that name. Bessie sometimes creaks or its string twangs, just before an enemy attacks its wielder, giving them an often crucial moment’s warning.\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don’t have the Incapacitated condition.\n  warns me, giving +2 initiative unless Incapacitated.\n   This magic weapon deals an extra 2d6 damage to any creature it hits. This extra damage is of the same type as the weapon's normal damage.",
+		weaponsAdd : { select : ["Vicious Heavy Crossbow"], options : ["Vicious Heavy Crossbow"] },
+		calcChanges: viciousWeaponCalc.calcChanges,
+		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
+	},
+	"vicious longbow: wayfinder (fr-dc-mcg-ch2)" : {
+		name : "Wayfinder, Vicious Longbow (MCG-CH2)",
+		source : [["AL","FR-DC"]],
+		type : "weapon (longbow)",
+		rarity : "rare",
+		description : "Wayfinder is made from yew and does +2d6 damage per shot. The bow seems to increase its tension as the string is released, magnifying the force of each shot. If an arrow is nocked and readied, the arrowhead glows slightly when the bow is pointed towards magnetic north, which can be done as a Magic action.",
+		descriptionFull : "Wayfinder is made from yew wood and seems to increase the tension of the bow as the string is released, magnifying the force of the shot. If an arrow is nocked and readied, the arrowhead glows slightly when the bow is pointed towards magnetic north (as per the Compass minor property).\n   " + toUni("Compass") + ". You can take a Magic action to learn which way is magnetic north. Nothing happens if this property is used in a location that has no magnetic north.\n   This magic weapon deals an extra 2d6 damage to any creature it hits. This extra damage is of the same type as the weapon's normal damage.",
+		weaponsAdd : { select : ["Wayfinder, Vicious Longbow"], options : ["Wayfinder, Vicious Longbow"] },
+		calcChanges: viciousWeaponCalc.calcChanges,
+		action : [["action", "Wayfinder (find north)"]],
+	},
 	"vicious mace (ccc-bmg-1 hulb1-1)" : {
 		name : "Vicious Mace (CCC-BMG-1 HULB1-1)",
 		source : [["AL","CCC"]],
 		type : "weapon (mace)",
 		rarity : "rare",
-		description : "This mace is a clenched fist wearing spiked gauntlets. It does +2d6 damage and works as a holy symbol of Bane when wielded. A cleric or paladin of Bane has adv. on CHA (Intimidation) checks against followers of Bane.",
-		descriptionLong : "This mace is crafted into the image of a clenched fist wearing spiked gauntlets. It does +2d6 damage and functions as a holy symbol of Bane when wielded. A cleric or paladin of Bane has adv. on CHA (Intimidation) checks against followers of Bane.",
+		description : "This mace is crafted into the image of a clenched fist wearing spiked gauntlets. It does +2d6 damage and functions as a holy symbol of Bane when wielded. A cleric or paladin of Bane has adv. on CHA (Intimidation) checks against followers of Bane.",
 		descriptionFull : "This mace is crafted into the image of a clenched fist wearing spiked gauntlets. It functions as a holy symbol of Bane when wielded. A cleric or paladin of Bane has advantage on Charisma (Intimidation) checks against followers of Bane when openly displaying this mace.\n   This magic weapon deals an extra 2d6 damage to any creature it hits. This extra damage is of the same type as the weapon's normal damage.",
 		weaponsAdd : { select : ["Vicious Mace"], options : ["Vicious Mace"] },
+		calcChanges: viciousWeaponCalc.calcChanges,
+	},
+	"vicious maul: prototype weapon #31 (ps-dc-hrs-1)" : {
+		name : "Prototype Weapon #31, Vicious Maul (HRS-1)",
+		source : [["AL","PS-DC"]],
+		type : "weapon (maul)",
+		rarity : "rare",
+		description : "This heavy viridian maul is forged from dajavva, an alloy of arjale and iron, using a technique known only to the Nine Hells and its inhabitants. No one knows how Ortolanus came into possession of this alloy, nor how he uncovered the secret to using it as a source of energy, as demonstrated in his batteries. It does +2d6 damage per hit.",
+		descriptionFull : "This heavy viridian weapon is forged from dajavva—an alloy of arjale and iron—using a technique known only to the Nine Hells and its inhabitants. No one knows how Ortolanus came into possession of this alloy, nor how he uncovered the secret to using it as a source of energy, as demonstrated in his batteries.\n   " + toUni("Strange Material") + ". This maul is made from a rare alloy called dajavva, which can only be found in the Nine Hells.\n   This magic weapon deals an extra 2d6 damage to any creature it hits. This extra damage is of the same type as the weapon's normal damage.",
+		weaponsAdd : { select : ["Prototype Weapon #31, Vicious Maul"], options : ["Prototype Weapon #31, Vicious Maul"] },
 		calcChanges: viciousWeaponCalc.calcChanges,
 	},
 	"vicious spear (ddal0-13)" : {
@@ -6309,6 +6665,20 @@ MagicItemsList["al weapons (other)"] = {
 		descriptionFull : "This spear is made from a polished narwhal tusk, and it has been carved with symbols of slaughter and bloodshed. By wielding it publicly, you may get strange looks. It may also mark you as someone involved in the killing of one of the evil Wolf Tribe marauders.\n   This magic weapon deals an extra 2d6 damage to any creature it hits. This extra damage is of the same type as the weapon's normal damage.",
 		weaponsAdd : { select : ["Vicious Spear"], options : ["Vicious Spear"] },
 		calcChanges: viciousWeaponCalc.calcChanges,
+	},
+	"vorpal glaive: moon (ps-dc-pandora-jwei-s2-3)" : {
+		name : "Vorpal Glaive of the Moon (PANDORA-JWEI-S2-3)",
+		source : [["AL","PS-DC"]],
+		type : "weapon (glaive)",
+		rarity : "legendary",
+		attunement : true,
+		allowDuplicates : true,
+		description : "The +3 glaive was forged by Gond under the moon and infused with the energy of Selune. Its blade is shaped like a crescent moon but can be folded for carrying without trouble. Sculpted onto its body is the name Moonshire. When swung, traces of moonlight follow its trail. On a 20, the sword cuts off 1 head (possibly causing death). If target headless, immune to Slashing, too big (per DM) or uses 1 Legendary Resistance, +30 Slashing instead. It also warns me, giving +2 initiative unless I'm Incapacitated.",
+		descriptionLong : "The +3 glaive was forged by Gond under the moonlight and infused with the energy of Selune. Its blade is extended and curved into the shape of a crescent moon but can also be folded into itself which ensures that the glaive can be carried around without much trouble. Sculpted onto its body is the family name Moonshire. Every time it's swung, traces of moonlight can be seen in its trail. On a natural 20, the sword cuts off 1 head from the target (possibly causing death). If the target headless, immune to Slashing, too big (per DM) or uses 1 Legendary Resistance, it takes +30 Slashing damage instead. It also warns me, giving +2 initiative unless I'm Incapacitated.",
+		descriptionFull : "The glaive is forged under the moonlight by Gond and infused with the energy of Selune. Its blade is purposely extended and curved into the shape of a crescent moon. The blade can also be folded into itself which ensures that the weapon can be carried around without much trouble. Sculpted onto its body is the family name \"Moonshire\". Everytime it is swung, traces of moonlight can be seen in its trail.\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don’t have the Incapacitated condition.\n   You gain a +3 bonus to attack rolls and damage rolls made with this magic weapon. In addition, the weapon ignores Resistance to Slashing damage.\n   When you use this weapon to attack a creature that has at least one head and roll a 20 on the d20 for the attack roll, you cut off one of the creature's heads. The creature dies if it can't survive without the lost head. A creature is immune to this effect if it has Immunity to Slashing damage, if it doesn't have or need a head, or if the DM decides that the creature is too big for its head to be cut off with this weapon. Such a creature instead takes an extra 30 Slashing damage from the hit. If the creature has Legendary Resistance, it can expend one daily use of that trait to avoid losing its head, taking the extra damage instead.",
+		weaponsAdd : { select : ["Vorpal Glaive of the Moon"], options : ["Vorpal Glaive of the Moon"] },
+		calcChanges: vorpalSword.calcChanges,
+		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
 	},
 	"wakened crystal dragon's wrath glaive (po-bmg-drw-ks-5)" : {
 		name : "Wakened Crystal Dragon Wrath Glaive (DRW-KS-5)",
@@ -6444,4 +6814,3 @@ MagicItemsList["al weapons (other)"] = {
 			weaponsAdd : { select : ["Whip of Warning"], options : ["Whip of Warning"] },
 			},
 }
-})
