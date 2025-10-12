@@ -1,3 +1,14 @@
+After 8/21/25
+-Added some code to help me track Bastion Special Features and costs. It's a bit clunky due to sheet limitations, but you can comment it out before installing if you don't care about Bastions.
+-Minor corrections (added special means for THAY-4, corrected name in RPSG-9)
+-Added a few more new DC items
+-Also reorganized the Armor (Other) category so the same armor is together and then sub-sorted by type, instead of completely alphabetical
+-Accidentally made Flame Tongues non-attunement in the previous version so I fixed that.
+-Added Tavern Prizes from DDEP8-3 since they're confirmed as common magic items
+-Updated WBW-BEL-1 to have Common language property instead of DM choice per new version
+-Added more items from DCs, including some from Stratigicon, which I don't own yet
+-Fixed a typo in long description for the Clockwork Amulet
+
 After 5/25/25
 -Made some adjustments to reflect rules from ALPG 15.3 and new unobtainable item categories: 
    -noted the CR items that are no longer valid (once those adventures are updated with replacements, will update again)

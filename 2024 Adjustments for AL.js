@@ -15,7 +15,11 @@ RequiredSheetVersion("13.2.0");
 -Adds all nonreprinted invocations (from PHB and other sources) to the sheet with updated prereqs
 -Adds the Optional Class Features from Tasha's that still function with the new classes and weren't replaced/already built into 2024
 -Adds the Superior Technique fighting style from Tasha's
--Adds the 2 nonreprinted Battlemaster maneuvers from Tasha's.*/
+-Adds the 2 nonreprinted Battlemaster maneuvers from Tasha's.
+-Adds the SCAG racial options for half-elves, tieflings and halflings
+-Adds the SCAG totem options to Wild Heart barbarian
+-Adds the Season 9 Winged Aasimar option for new Aasimar
+-Includes some Bastion options as a class feature to help track their mechanics/cost in AL (only special facilities I might use are listed, but it would be easy enough to build on)*/
 
 
 // Add Warlock Invocations (Xanathar's)
@@ -335,8 +339,8 @@ AddWarlockInvocation("Undying Servitude (prereq: level 5 warlock)", {
 
 
 //Unreprinted PHB Invocations (most likely no longer allowed per ALPG 15.3)
- AddWarlockInvocation("Beast Speech <P14>", {
-					name : "Beast Speech <P14>",
+ AddWarlockInvocation("Beast Speech", {
+					name : "Beast Speech",
 					description : desc("I can cast Speak with Animals at will, without using a spell slots"),
 					source : [["SRD", 48], ["P", 110]],
 					spellcastingBonus : [{
@@ -346,14 +350,14 @@ AddWarlockInvocation("Undying Servitude (prereq: level 5 warlock)", {
 						firstCol : "atwill"
 					}]
 });
- AddWarlockInvocation("Beguiling Influence <P14>", {
-					name : "Beguiling Influence <P14>",
+ AddWarlockInvocation("Beguiling Influence", {
+					name : "Beguiling Influence",
 					description : desc("I gain proficiencies with the Deception and Persuasion skills"),
 					source : [["SRD", 48], ["P", 110]],
 					skills : ["Deception", "Persuasion"]
 });
- AddWarlockInvocation("Bewitching Whispers <P14> (prereq: level 7 warlock)", {
-					name : "Bewitching Whispers <P14>",
+ AddWarlockInvocation("Bewitching Whispers (prereq: level 7 warlock)", {
+					name : "Bewitching Whispers",
 					description : desc("Once per long rest, I can cast Compulsion using a warlock spell slot"),
 					source : [["SRD", 48], ["P", 110]],
 					submenu : "[Warlock Level 7+]",
@@ -367,8 +371,8 @@ AddWarlockInvocation("Undying Servitude (prereq: level 5 warlock)", {
 					}],
 					prereqeval : function(v) { return classes.known.warlock.level >= 7; }
 });
- AddWarlockInvocation("Book of Ancient Secrets <P14> (prereq: pact of the tome)", {
-					name : "Book of Ancient Secrets <P14>",
+ AddWarlockInvocation("Book of Ancient Secrets (prereq: pact of the tome)", {
+					name : "Book of Ancient Secrets",
 					description : desc([
 						"I can add any two 1st-level spells that have the ritual tag to my Book of Shadows",
 						"If I come across spells with the ritual tag, I can transcribe them into my book, as well",
@@ -418,8 +422,8 @@ AddWarlockInvocation("Undying Servitude (prereq: level 5 warlock)", {
 						]
 					}
 });
- AddWarlockInvocation("Chains of Carceri <P14> (prereq: level 15 warlock, Pact of the Chain)", {
-					name : "Chains of Carceri <P14>",
+ AddWarlockInvocation("Chains of Carceri (prereq: level 15 warlock, Pact of the Chain)", {
+					name : "Chains of Carceri",
 					description : desc([
 						"I can cast Hold Monster at will if the target is a celestial, fiend, or elemental",
 						"This uses no spell slots/material comp.; I can only target an individual once per long rest"
@@ -444,8 +448,8 @@ AddWarlockInvocation("Undying Servitude (prereq: level 5 warlock)", {
 						}
 					}
 });
- AddWarlockInvocation("Dreadful Word <P14> (prereq: level 7 warlock)", {
-					name : "Dreadful Word <P14>",
+ AddWarlockInvocation("Dreadful Word (prereq: level 7 warlock)", {
+					name : "Dreadful Word",
 					description : desc("Once per long rest, I can cast Confusion using a warlock spell slot"),
 					source : [["SRD", 49], ["P", 110]],
 					submenu : "[Warlock Level 7+]",
@@ -459,8 +463,8 @@ AddWarlockInvocation("Undying Servitude (prereq: level 5 warlock)", {
 					}],
 					prereqeval : function(v) { return classes.known.warlock.level >= 7; }
 });
- AddWarlockInvocation("Eldritch Sight <P14>", {
-					name : "Eldritch Sight <P14>",
+ AddWarlockInvocation("Eldritch Sight", {
+					name : "Eldritch Sight",
 					description : desc("I can cast Detect Magic at will, without using a spell slot"),
 					source : [["SRD", 49], ["P", 110]],
 					spellcastingBonus : [{
@@ -470,13 +474,13 @@ AddWarlockInvocation("Undying Servitude (prereq: level 5 warlock)", {
 						firstCol : "atwill"
 					}]
 });
- AddWarlockInvocation("Eyes of the Rune Keeper <P14>", {
-					name : "Eyes of the Rune Keeper <P14>",
+ AddWarlockInvocation("Eyes of the Rune Keeper", {
+					name : "Eyes of the Rune Keeper",
 					description : desc("I can read all writing"),
 					source : [["SRD", 49], ["P", 111]]
 });
- AddWarlockInvocation("Minions of Chaos <P14> (prereq: level 9 warlock)", {
-					name : "Minions of Chaos <P14>",
+ AddWarlockInvocation("Minions of Chaos (prereq: level 9 warlock)", {
+					name : "Minions of Chaos",
 					description : desc("Once per long rest, I can cast Conjure Elemental using a warlock spell slot"),
 					source : [["SRD", 49], ["P", 111]],
 					submenu : "[Warlock Level 9+]",
@@ -490,8 +494,8 @@ AddWarlockInvocation("Undying Servitude (prereq: level 5 warlock)", {
 					}],
 					prereqeval : function(v) { return classes.known.warlock.level >= 9; }
 });
- AddWarlockInvocation("Mire the Mind <P14> (prereq: level 5 warlock)", {
-					name : "Mire the Mind <P14>",
+ AddWarlockInvocation("Mire the Mind (prereq: level 5 warlock)", {
+					name : "Mire the Mind",
 					description : desc("Once per long rest, I can cast Slow using a warlock spell slot"),
 					source : [["SRD", 49], ["P", 111]],
 					submenu : "[Warlock Level 5+]",
@@ -505,8 +509,8 @@ AddWarlockInvocation("Undying Servitude (prereq: level 5 warlock)", {
 					}],
 					prereqeval : function(v) { return classes.known.warlock.level >= 5; }
 });
- AddWarlockInvocation("Sculptor of Flesh <P14> (prereq: level 7 warlock)", {
-					name : "Sculptor of Flesh <P14>",
+ AddWarlockInvocation("Sculptor of Flesh (prereq: level 7 warlock)", {
+					name : "Sculptor of Flesh",
 					description : desc("Once per long rest, I can cast Polymorph using a warlock spell slot"),
 					source : [["SRD", 50], ["P", 111]],
 					submenu : "[Warlock Level 7+]",
@@ -520,8 +524,8 @@ AddWarlockInvocation("Undying Servitude (prereq: level 5 warlock)", {
 					}],
 					prereqeval : function(v) { return classes.known.warlock.level >= 7; }
 });
- AddWarlockInvocation("Sign of Ill Omen <P14> (prereq: level 5 warlock)", {
-					name : "Sign of Ill Omen <P14>",
+ AddWarlockInvocation("Sign of Ill Omen (prereq: level 5 warlock)", {
+					name : "Sign of Ill Omen",
 					description : desc("Once per long rest, I can cast Bestow Curse using a warlock spell slot"),
 					source : [["SRD", 50], ["P", 111]],
 					submenu : "[Warlock Level 5+]",
@@ -535,8 +539,8 @@ AddWarlockInvocation("Undying Servitude (prereq: level 5 warlock)", {
 					}],
 					prereqeval : function(v) { return classes.known.warlock.level >= 5; }
 });
- AddWarlockInvocation("Thief of Five Fates <P14>", {
-					name : "Thief of Five Fates <P14>",
+ AddWarlockInvocation("Thief of Five Fates", {
+					name : "Thief of Five Fates",
 					description : desc("Once per long rest, I can cast Bane using a warlock spell slot"),
 					source : [["SRD", 50], ["P", 111]],
 					usages : 1,
@@ -548,8 +552,8 @@ AddWarlockInvocation("Undying Servitude (prereq: level 5 warlock)", {
 						firstCol : "oncelr"
 					}]
 });
- AddWarlockInvocation("Voice of the Chain Master <P14> (prereq: pact of the chain)", {
-					name : "Voice of the Chain Master <P14>",
+ AddWarlockInvocation("Voice of the Chain Master (prereq: pact of the chain)", {
+					name : "Voice of the Chain Master",
 					description : desc([
 						"While on the same plane as my familiar, I can communicate telepathically with it",
 						"Also, I can perceive through its senses and have it speak with my voice while doing so"
@@ -563,7 +567,7 @@ AddWarlockInvocation("Undying Servitude (prereq: level 5 warlock)", {
 
 
 //Optional Class Features - Ones that weren't reprinted and don't replace removed features, I'm assuming can still be taken
-FeatsList["fighting style feat: superior technique"] = {
+/*FeatsList["fighting style feat: superior technique"] = {
 		name : "Superior Technique",
 		source : [["T", 41], ["UA:CFV", 5]],
 		description : " [1 maneuver; d6, 1\xD7 per short rest]" + desc([
@@ -584,9 +588,31 @@ FeatsList["fighting style feat: superior technique"] = {
 			recovery : "short rest",
 			addToExisting : true
 		}]
-};
-	// New Maneuver options
+};*/
+	// New Maneuver options (moved fighting style back to fighting style list since Poke changed their code)
 if (ClassSubList["fighter-battle master"]) {
+	AddFightingStyle(["fighter"], "Superior Technique", {
+		name : "Superior Technique",
+		source : [["T", 41]],
+		description : " [1 maneuver; d6, 1\xD7 per short rest]" + desc([
+			"I gain one superiority die (d6) that I can expend to fuel a special Maneuver",
+			"I can only use one Maneuver per attack; DCs are 8 + Prof B. + Str/Dex mod, my choice",
+			'Use the "Choose Feature" button above to add a Maneuver to the third page'
+		]),
+		bonusClassExtrachoices : [{
+			"class" : "fighter",
+			"subclass" : "fighter-battle master",
+			"feature" : "subclassfeature3.1",
+			"bonus" : 1
+		}],
+		extraLimitedFeatures : [{
+			name : "Combat Superiority",
+			usages : 1,
+			additional : 'd6',
+			recovery : "short rest",
+			addToExisting : true
+		}]
+	});
 	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3"], true, "Grappling Strike", {
 		name : "Grappling Strike",
 		source : [["T", 42]],
@@ -1176,9 +1202,9 @@ FeatsList["charms (book of many things)"] = {
 	},
 };
 
-// Add Charm from Heroes’ Feast: Saving the Children’s Menu
+// Add Charm from Heroes' Feast: Saving the Children's Menu
 SourceList["HFStCM"] = {
-	name : "Heroes’ Feast: Saving the Children’s Menu",
+	name : "Heroes' Feast: Saving the Children's Menu",
 	abbreviation : "HFStCM",
 	group : "Adventure Books",
 	campaignSetting : "Forgotten Realms",
@@ -1833,4 +1859,221 @@ if (ClassSubList["barbarian-wild heart"]) {
 			]),
 	});
 }
+
+//Code for some measure of Bastion information so that I can remember the Special Facilities. This is not full information, more of a cheat sheet for AL with the facilities that I actually care about. Crafting options are not listed.
+//Due to issues with adding extra choices to other features and the fact that bastions are based on total level, not class level, this is being coded as a lvl 1 class feature for all classes. This means it will show up more than once for multiclasses.
+//There's no easy way to exclude this code by default (using a separate source doesn't work) so if you don't care about bastions at all, delete or mark it out before adding this file.
+
+var BastionWorkaround = {
+				name : "Bastion ",
+				source : [["D24", 337]],
+				minlevel : 1,
+				description : desc([
+					'At level 5, use "Choose Feature" to add Bastion special facilities to the 3rd page. If multiclassing, use total level.',
+					"When I gain a level, I can replace one special facility with another valid option."
+				]),
+				/*additional : levels.map(function (n) {
+					return n < 5 ? "" : (n < 9 ? 2 : n < 13 ? 4 : n < 17 ? 5 : 6) + " special facilities";
+				}),*/
+				additional :  "CL 5: 2, 9: 4, 13: 5, 17: 6 special facilities", 
+				extraname : "Bastion Special Facilities",
+				extrachoices : ["Arcane Study (prereq: can use Arcane Focus/Tool as Spell Focus)", "Demiplane (prereq: can use Arcane Focus/Tool as Spell Focus)", "Greenhouse", "Meditation Chamber", "Observatory (prereq: can use Spell Focus)", "Pub", "Reliquary (prereq: can use Holy Symbol/Druidic Spell Focus)", "Sanctuary (prereq: can use Holy Symbol/Druidic Spell Focus)", "Sanctum (prereq: can use Holy Symbol/Druidic Spell Focus)", "Storehouse", "Teleportation Circle", "Training Area", "Workshop"],
+				extraTimes : levels.map(function (n) {
+					return n < 5 ? 0 : n < 9 ? 2 : n < 13 ? 4 : n < 17 ? 5 : 6;
+				}),
+				"arcane study (prereq: can use arcane focus/tool as spell focus)" : {
+					name : "Arcane Study",
+					description : desc("Gain magical charm that lets me cast Identify once without spell slots or Material components. Lasts for 7 days or until used (LR, 1 DT)."),
+					source : [["D24", 336]],
+					submenu : "[Level 5+]",
+					prereqeval : function(v) { return (v.characterLevel >= 5) && (classes.known.artificer || classes.known.bard || classes.known.sorcerer || classes.known.warlock || classes.known.wizard || (classes.known.rogue && (/arcane trickster/).test(classes.known.rogue.subclass)) || (classes.known.fighter && (/eldritch knight/).test(classes.known.fighter.subclass))); },
+					limfeaname : "Arcane Study Charm",
+					additional : "7 days",
+					usages : 1,
+					recovery : "B. turn",
+					spellcastingBonus : [{
+						name : "Arcane Study Charm",
+						spells : ["identify"],
+						selection : ["identify"],
+						firstCol : 1
+					}]
+				},
+				"demiplane (prereq: can use arcane focus/tool as spell focus)" : {
+					name : "Demiplane",
+					description : desc("Empower: Gain Temporary Hit Points equal to 5 times my level (LR, 1 DT). Create 1 nonmagical object under 5 GP, no more than 5 ft sq."),
+					source : [["D24", 340]],
+					submenu : "[Level 17+]",
+					prereqeval : function(v) { return (v.characterLevel >= 17) && (classes.known.artificer || classes.known.bard || classes.known.sorcerer || classes.known.warlock || classes.known.wizard || (classes.known.rogue && (/arcane trickster/).test(classes.known.rogue.subclass)) || (classes.known.fighter && (/eldritch knight/).test(classes.known.fighter.subclass))); },
+				},
+				"greenhouse" : {
+					name : "Greenhouse",
+					description : desc([
+						"Gain 3 fruits that give benefits of Lesser Restoration spell (last 24 hours)",
+						"Harvest: 1 potion of Greater Healing or 1 poison from Assassin's Blood, Malice, Pale Tincture, Truth Serum (7 DT)"
+					]),
+					source : [["D24", 341]],
+					submenu : "[Level 9+]",
+					prereqeval: function (v) { return v.characterLevel >= 9; },
+					limfeaname : "Greenhouse Fruits",
+					additional : "24 hrs",
+					usages : 3,
+					recovery : "B. turn",
+					spellcastingBonus : [{
+						name : "Greenhouse Fruits",
+						spells : ["lesser restoration"],
+						selection : ["lesser restoration"],
+						firstCol : 1
+					}]
+				},
+				"meditation chamber" : {
+					name : "Meditation Chamber",
+					description : desc("Gain advantage on 2 types of saving throws for 7 days. Roll 1d6 to determine which (7 DT)."),
+					source : [["D24", 342]],
+					submenu : "[Level 13+]",
+					prereqeval: function (v) { return v.characterLevel >= 13; },
+					savetxt : { text : ["Adv on 2 types of saves (see bastion)"] },
+				},
+				"observatory (prereq: can use spell focus)" : {
+					name : "Observatory",
+					description : desc("Gain magical charm that lets me cast Contact Other Plane without spell slots. Lasts for 7 days or until used (LR, 1 DT). Empower: Roll die. If odd, gain Charm of Darkvision, Heroism or Vitality (7 DT)."),
+					source : [["D24", 343]],
+					submenu : "[Level 13+]",
+					prereqeval : function(v) { return (v.characterLevel >= 13) && (classes.known.cleric || classes.known.druid || classes.known.paladin || classes.known.ranger || classes.known.artificer || classes.known.bard || classes.known.sorcerer || classes.known.warlock || classes.known.wizard || (classes.known.rogue && (/arcane trickster/).test(classes.known.rogue.subclass)) || (classes.known.fighter && (/eldritch knight/).test(classes.known.fighter.subclass))); },
+					limfeaname : "Observatory Charm",
+					additional : "7 days",
+					usages : 1,
+					recovery : "B. turn",
+					spellcastingBonus : [{
+						name : "Observatory Charm",
+						spells : ["contact other plane"],
+						selection : ["contact other plane"],
+						firstCol : 1
+					}]
+				},
+				"pub" : {
+					name : "Pub",
+					description : desc([
+						"5 drink options. Pick 1 per bastion turn (2 if Vast). All durations 24 hours.",
+						"Bigby's Burden: Gain Enlarge effect of Enlarge/Reduce spell",
+						"Kiss of the Spider Queen: Gain effect of Spider Climb",
+						"Moonlight Serenade: Gain 60 ft Darkvision or increase existing range by 60 ft",
+						"Positive Reinforcement: Gain Resistance to Necrotic damage",
+						"Sterner Stuff: Automatically pass saves against the Frightened condition"
+					]),
+					source : [["D24", 343]],
+					submenu : "[Level 13+]",
+					prereqeval: function (v) { return v.characterLevel >= 13; },
+				},
+				"reliquary (prereq: can use holy symbol/druidic spell focus)" : {
+					name : "Reliquary",
+					description : desc("Gain magical charm that lets me cast Greater Restoration without spell slots or Material components (LR, 1 DT). Harvest: talisman that can replace a single spell component up to 1000 GP (7 DT)."),
+					source : [["D24", 344]],
+					submenu : "[Level 13+]",
+					prereqeval : function(v) { return (v.characterLevel >= 13) && (classes.known.cleric || classes.known.druid || classes.known.paladin || classes.known.ranger); },
+					//prereqeval: function (v) { return v.characterLevel >= 13; },
+					limfeaname : "Reliquary Charm",
+					additional : "7 days",
+					usages : 1,
+					recovery : "B. turn",
+					spellcastingBonus : [{
+						name : "Reliquary Charm",
+						spells : ["greater restoration"],
+						selection : ["greater restoration"],
+						firstCol : 1
+					}]
+				},
+				"sanctuary (prereq: can use holy symbol/druidic spell focus)" : {
+					name : "Sanctuary",
+					description : desc("Gain a magical charm that lets me cast Healing Word without a spell slot. Lasts for 7 days or until used (LR, 1 DT). Crafting options."),
+					source : [["D24", 345]],
+					submenu : "[Level 5+]",
+					prereqeval : function(v) { return (v.characterLevel >= 5) && (classes.known.cleric || classes.known.druid || classes.known.paladin || classes.known.ranger); },
+					//prereqeval: function (v) { return v.characterLevel >= 5; },
+					limfeaname : "Sanctuary Charm",
+					additional : "7 days",
+					usages : 1,
+					recovery : "B. turn",
+					spellcastingBonus : [{
+						name : "Sanctuary Charm",
+						spells : ["healing word"],
+						selection : ["healing word"],
+						firstCol : 1
+					}]
+				},
+				"sanctum (prereq: can use holy symbol/druidic spell focus)" : {
+					name : "Sanctum",
+					description : desc([
+						"Gain magical charm that lets me cast Heal without a spell slot. Lasts for 7 days or until used (LR, 1 DT).",
+						"Empower: Name beneficiary. Each time they finish a LR for 7 days, they gain temp HP equal to my level.",
+						"I always have Word of Recall prepared. When cast, I can return to my Sanctum and 1 creature gains the benefit of Heal on arrival."
+					]),
+					source : [["D24", 346]],
+					submenu : "[Level 17+]",
+					prereqeval : function(v) { return (v.characterLevel >= 17) && (classes.known.cleric || classes.known.druid || classes.known.paladin || classes.known.ranger); },
+					//prereqeval: function (v) { return v.characterLevel >= 17; },
+					limfeaname : "Sanctum Heal",
+					additional : "7 days",
+					usages : 1,
+					recovery : "B. turn",
+					spellcastingBonus: [{
+						name : "Sanctum Charm",
+						spells : ["heal"],
+						selection : ["heal"],
+						firstCol : 1
+					}, {
+						name: "Sanctum Recall",
+						spells: ["word of recall"],
+						selection: ["word of recall"],
+						firstCol: "markedbox"
+					}],
+				},
+				"storehouse" : {
+					name : "Storehouse",
+					description : desc([
+						"Trade: Procure goods worth 500 gp (2000 gp at lvl 9, 5000 gp at lvl 13) [7 DT].",
+						"Trade: Sell goods in Storehouse for 10 percent profit (20 at lvl 9, 50 at 13, 100 at 17) [7 DT]"
+					]),
+					source : [["D24", 347]],
+					submenu : "[Level 5+]",
+					prereqeval: function (v) { return v.characterLevel >= 5; },
+				},
+				"teleportation circle" : {
+					name : "Teleportation Circle",
+					description : desc("Recruit: 50% chance for NPC spellcaster to accept invitation (even roll). Stays for 14 days or until casts spell. Will cast up to 4th level spell (8th at level 17+)"),
+					source : [["D24", 347]],
+					submenu : "[Level 9+]",
+					prereqeval: function (v) { return v.characterLevel >= 9; },
+				},
+				"training area" : {
+					name : "Training Area",
+					description : desc([
+						"Empower: 5 training options. Pick 1 per bastion turn. All durations are 7 days (7 DT).",
+						"Battle Expert: When take damage from Unarmed Strike/weapon attack, Reaction to reduce by 1d4",
+						"Skills Expert: Gain proficiency in Acrobatics, Athletics, Performance, Sleight of Hand or Stealth",
+						"Tools Expert: Gain proficiency with 1 tool of my choice",
+						"Unarmed Combat Expert: My Unarmed Strikes deal +1d4 Bludgeoning damage",
+						"Weapon Expert: Gain proficiency in 1 Simple or Martial weapon. If already proficient, gain Weapon Mastery"
+					]),
+					source : [["D24", 348]],
+					submenu : "[Level 9+]",
+					prereqeval: function (v) { return v.characterLevel >= 9; },
+				},
+				"workshop" : {
+					name : "Workshop",
+					description : desc("After a short rest, gain Heroic Inspiration. Crafting options."),
+					source : [["D24", 348]],
+					submenu : "[Level 5+]",
+					prereqeval: function (v) { return v.characterLevel >= 5; },
+				},
+}
+
+RunFunctionAtEnd(function() {
+    // Iterate over the ClassList object
+    for(var key in ClassList) {
+        var theClass = ClassList[key];
+
+        if(!theClass.features) continue; // Skip if no features
+        if(!theClass.features["bastionworkaround"]) theClass.features["bastionworkaround"] = BastionWorkaround; // Add the feature if not present
+    }
+})
 

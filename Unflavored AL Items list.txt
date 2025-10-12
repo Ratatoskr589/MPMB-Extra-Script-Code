@@ -532,7 +532,7 @@ PS-DC-GMM-2 Pazuzu's Askew Kazoo
 -Clothes of Mending
 
 PS-DC-GMM-3 Frantic Frontier Fiasco
--Boomerang +2 (not actually a legal weapon)
+-Handaxe +2
 -Charlatan's Die
 
 PS-DC-HNL-1 Nowhere Fast

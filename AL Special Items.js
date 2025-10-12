@@ -72,8 +72,8 @@ SourceList["AL:R"] = {  //Ravenloft Alternate Campaign
 	defaultExcluded : true
 };
 
-SourceList["AL:GA"] = {  //DDHC-TOA-8 Return of the Lizard King (S7 Guild Adept)
-	name : "Guild Adept",
+SourceList["AL:GA"] = {  //DDHC-TOA-8 Return of the Lizard King (S7 Guild Adept) - for the restricted items
+	name : "Guild Adept: Return of the Lizard King",
 	abbreviation : "AL:GA",
 	group : "Adventurers League",
 	url : "https://www.dmsguild.com/product/220608/Return-of-the-Lizard-King",
@@ -1609,7 +1609,8 @@ changeeval : function () {
 }
 })
 
-//Neat custom trinkets from AL modules. Most have no real mechanical effect, but are cool enough that people might want the full description anyway.
+//Neat custom trinkets from AL modules. Most have no real mechanical effect, but are cool enough that people might want the full description anyway. 
+//I'm also addng in the trinkets from DDEP03 that are technically common items, but have similar level of effects.
 MagicItemsList["al trinkets"] = {
 		name : "AL Trinkets",
 		type : "Trinket",
@@ -1617,7 +1618,7 @@ MagicItemsList["al trinkets"] = {
 		magicItemTable : "",
 		allowDuplicates : true,
 		defaultExcluded : true,
-		choices : ["Arcane Curio: Belt (DDEX2-10)","Arcane Curio: Brush (DDEX2-10)","Arcane Curio: Cloak (DDEX2-10)","Arcane Curio: Inkpot (DDEX2-10)","Arcane Curio: Pipe (DDEX2-10)","Arcane Curio: Quill (DDEX2-10)","Arcane Curio: Wand (DDEX2-10)","Artor's Blood Mead: Six-pack (DC-POA-SNIPE-1)","Dinosaur Eggshell (WBW-DC-CONMAR-6)","Efreeti Crown of Wishes (CCC-ODFC2-2)","Feast Invite (WBW-DC-TMP-2)","Flamesoul Stone (CCC-YLRA1-3)","Heirloom Necklace (FM)","Leaf With Amber Veins (WBW-DC-CONMAR-6)","Lohringan Pink Opal (WBW-DC-CONMAR-6)","Magic Mirror (WBW-DC-VMT-1)","Piece of the Infernal Machine of Lum the Mad (IMR)","Sign of the Snail (DDIA05)","Snipe Feather Pillow (DC-POA-SNIPE-1)","Striking at the Bare Neck (DC-POA-SNIPE-1)"],
+		choices : ["Arcane Curio: Belt (DDEX2-10)","Arcane Curio: Brush (DDEX2-10)","Arcane Curio: Cloak (DDEX2-10)","Arcane Curio: Inkpot (DDEX2-10)","Arcane Curio: Pipe (DDEX2-10)","Arcane Curio: Quill (DDEX2-10)","Arcane Curio: Wand (DDEX2-10)","Artor's Blood Mead: Six-pack (DC-POA-SNIPE-1)","Dinosaur Eggshell (WBW-DC-CONMAR-6)","Efreeti Crown of Wishes (CCC-ODFC2-2)","Feast Invite (WBW-DC-TMP-2)","Flamesoul Stone (CCC-YLRA1-3)","Heirloom Necklace (FM)","Leaf With Amber Veins (WBW-DC-CONMAR-6)","Lohringan Pink Opal (WBW-DC-CONMAR-6)","Magic Mirror (WBW-DC-VMT-1)","Piece of the Infernal Machine of Lum the Mad (IMR)","Sign of the Snail (DDIA05)","Snipe Feather Pillow (DC-POA-SNIPE-1)","Striking at the Bare Neck (DC-POA-SNIPE-1)","Tavern Prize: Always Clean Table (DDEP8-3)","Tavern Prize: Best Seat in the House (DDEP8-3)","Tavern Prize: Endless Bar Tab (DDEP8-3)","Tavern Prize: Familiar Attention (DDEP8-3)","Tavern Prize: Front of the Line (DDEP8-3)","Tavern Prize: Hangover Shmangover (DDEP8-3)","Tavern Prize: Ideal Volume (DDEP8-3)","Tavern Prize: Instant Aerator (DDEP8-3)","Tavern Prize: Keep Your Cookies (DDEP8-3)","Tavern Prize: Mechanical Waiter (DDEP8-3)","Tavern Prize: Never-Spill Mug (DDEP8-3)","Tavern Prize: Personal Bartender (DDEP8-3)","Tavern Prize: Prime Eavesdropping (DDEP8-3)","Tavern Prize: Ready For a Fight (DDEP8-3)","Tavern Prize: Talking Tankard (DDEP8-3)","Tavern Prize: Taste Tester (DDEP8-3)","Tavern Prize: Top Shelf Only (DDEP8-3)","Tavern Prize: VIP Life (DDEP8-3)","Tavern Prize: Your Favorite Song (DDEP8-3)","Tavern Prize: Your Personal Menu (DDEP8-3)"],
 	"arcane curio: belt (ddex2-10)" : {
 		name: "Arcane Curio: Belt (DDEX2-10)",
 		nameAlt: "Arcane Curio: Belt",
@@ -1763,6 +1764,146 @@ MagicItemsList["al trinkets"] = {
 		defaultExcluded : true,
 		description : "This red-leather book is a disturbing collection of military and political strategy framed as poetry. While the insights are profound and the poetry skilled, musical, and high artistry, the underlying theme of mortals as prey makes reading more than a few poems in a sitting deeply unsettling to most humanoids.",
 		},
+	"tavern prize: always clean table (ddep8-3)" : {
+		name: "Always Clean Table (DDEP8-3)",
+		source : ["AL", "S8"],
+		defaultExcluded : true,
+		rarity : "common",
+		description: "When you put this napkin on your lap, your table always remains clean and unmarred by crumbs or spilled beverages.",
+	},
+	"tavern prize: best seat in the house (ddep8-3)" : {
+		name: "Best Seat in the House (DDEP8-3)",
+		source : ["AL", "S8"],
+		defaultExcluded : true,
+		rarity : "common",
+		description: "Whenever you enter a tavern, this table magically appears and is always yours to claim. In fact, your name is etched onto it.",
+	},
+	"tavern prize: endless bar tab (ddep8-3)" : {
+		name: "Endless Bar Tab (DDEP8-3)",
+		source : ["AL", "S8"],
+		defaultExcluded : true,
+		rarity : "common",
+		description: "This magic chalkboard lets you rack up an endless bar tab at any inn or tavern in the world, so you never have to pay for your drinks!",
+	},
+	"tavern prize: familiar attention (ddep8-3)" : {
+		name: "Familiar Attention (DDEP8-3)",
+		source : ["AL", "S8"],
+		defaultExcluded : true,
+		rarity : "common",
+		description: "If you fit this collar to your familiar or pet, they are given VIP treatment complete with treats and lots of good petting from the staff.",
+	},
+	"tavern prize: front of the line (ddep8-3)" : {
+		name: "Front of the Line (DDEP8-3)",
+		source : ["AL", "S8"],
+		defaultExcluded : true,
+		rarity : "common",
+		description: "This pendant on this necklace is shaped like a roll of toilet paper, and means you never have to wait in line for the restroom while wearing it.",
+	},
+	"tavern prize: hangover shmangover (ddep8-3)" : {
+		name: "Hangover Shmangover (DDEP8-3)",
+		source : ["AL", "S8"],
+		defaultExcluded : true,
+		rarity : "common",
+		description: "No matter how much you imbibe at an inn or tavern, a sprinkle of these magic salts on the tongue before bedtime means you'll never get a hangover.",
+	},
+	"tavern prize: ideal volume (ddep8-3)" : {
+		name: "Ideal Volume (DDEP8-3)",
+		source : ["AL", "S8"],
+		defaultExcluded : true,
+		rarity : "common",
+		description: "When you blow this silent whistle, the music in the tavern always adjusts to the ideal volume so you can converse and socialize without having to shout at your friends.",
+	},
+	"tavern prize: instant aerator (ddep8-3)" : {
+		name: "Instant Aerator (DDEP8-3)",
+		source : ["AL", "S8"],
+		defaultExcluded : true,
+		rarity : "common",
+		description: "This smartly designed glass instantly aerates your wine, making it immediately delectable.",
+	},
+	"tavern prize: keep your cookies (ddep8-3)" : {
+		name: "Keep Your Cookies (DDEP8-3)",
+		source : ["AL", "S8"],
+		defaultExcluded : true,
+		rarity : "common",
+		description: "Take a swing of this potion before you go out drinking, and you'll never barf it all up in a back alley.",
+	},
+	"tavern prize: mechanical waiter (ddep8-3)" : {
+		name: "Mechanical Waiter (DDEP8-3)",
+		source : ["AL", "S8"],
+		defaultExcluded : true,
+		rarity : "common",
+		description: "This tiny mechanical assistant always on hand to bring you drinks and food from the bar and will do whatever you ask of them within the confines of an inn or tavern (short of any task that would harm another person).",
+	},
+	"tavern prize: never-spill mug (ddep8-3)" : {
+		name: "Never-Spill Mug (DDEP8-3)",
+		source : ["AL", "S8"],
+		defaultExcluded : true,
+		rarity : "common",
+		description: "This mug — or glass — can never be tipped over and spilled, no matter how raucous you or your fellow patrons get.",
+	},
+	"tavern prize: personal bartender (ddep8-3)" : {
+		name: "Personal Bartender (DDEP8-3)",
+		source : ["AL", "S8"],
+		defaultExcluded : true,
+		rarity : "common",
+		description: "This fey staff member appears by magic in any inn or tavern you enter, and serves only you and your party. The other staff accept their presence without question.",
+	},
+	"tavern prize: prime eavesdropping (ddep8-3)" : {
+		name: "Prime Eavesdropping (DDEP8-3)",
+		source : ["AL", "S8"],
+		defaultExcluded : true,
+		rarity : "common",
+		description: "Whenever you put this trumpet to your ear inside an inn or tavern, you hear a juicy rumor about someone you know.",
+	},
+	"tavern prize: ready for a fight (ddep8-3)" : {
+		name: "Ready For a Fight (DDEP8-3)",
+		source : ["AL", "S8"],
+		defaultExcluded : true,
+		rarity : "common",
+		description: "When you ring this bell, a good natured and fair bar brawl is yours for the taking, whenever you're itching to fight.",
+	},
+	"tavern prize: talking tankard (ddep8-3)" : {
+		name: "Talking Tankard (DDEP8-3)",
+		source : ["AL", "S8"],
+		defaultExcluded : true,
+		rarity : "common",
+		description: "The talking tankard is a chatty fellow who will keep you company on your journey home after a long night of revelry, ensuring that you get home safely.",
+	},
+	"tavern prize: taste tester (ddep8-3)" : {
+		name: "Taste Tester (DDEP8-3)",
+		source : ["AL", "S8"],
+		defaultExcluded : true,
+		rarity : "common",
+		description: "While you wear this bow tie, any brewery or distillery in your vicinity sends you free samples of their new, and often exotic, acquisitions.",
+	},
+	"tavern prize: top shelf only (ddep8-3)" : {
+		name: "Top Shelf Only (DDEP8-3)",
+		source : ["AL", "S8"],
+		defaultExcluded : true,
+		rarity : "common",
+		description: "While wearing this floppy hat, you get the best liquor available in all of your cocktails – only the top shelf for you!",
+	},
+	"tavern prize: vip life (ddep8-3)" : {
+		name: "VIP Life (DDEP8-3)",
+		source : ["AL", "S8"],
+		defaultExcluded : true,
+		rarity : "common",
+		description: "A flash of this card means a private room is always made available for you to conduct your business in an inn or tavern — no questions asked.",
+	},
+	"tavern prize: your favorite song (ddep8-3)" : {
+		name: "Your Favorite Song (DDEP8-3)",
+		source : ["AL", "S8"],
+		defaultExcluded : true,
+		rarity : "common",
+		description: "When you tinkle this bell, any bard performing in an inn or tavern is obligated to perform your favorite song on your request.",
+	},
+	"tavern prize: your personal menu (ddep8-3)" : {
+		name: "Your Personal Menu (DDEP8-3)",
+		source : ["AL", "S8"],
+		defaultExcluded : true,
+		rarity : "common",
+		description: "When you look at a menu through these spectacles, it always has your favorite meal available, and magically supplies the cook with ingredients for preparing it.",
+	},
 }
 
 //Tree Spirit Item from DDHC-TOA-8. Only allowed with special campaign documentation. The PHB doesn't actually specify which weapons are made of wood, so the restrictions I've entered are largely just what seems right to me.
@@ -1784,6 +1925,7 @@ MagicItemsList["tree spirit weapon"] = {
 	"tier 1" : {
 		name : "T1 Tree Spirit",
 		description : "A tree spirit club is crafted from the wood of a sentient tree. The weapon contains that sentience and I feel the desires of the tree spirit. I also gain a +1 bonus to attack and damage rolls made with this magic weapon.",
+		defaultExcluded : true,
 		chooseGear : {
 			type : "weapon",
 			prefixOrSuffix : "suffix",
@@ -1797,7 +1939,8 @@ MagicItemsList["tree spirit weapon"] = {
 	},
 	"tier 2" : {
 		name : "T2 Tree Spirit",
-		description : "A tree spirit weapon is crafted from the wood of a sentient tree. I feel the desires of the tree and gain the flaw \"constantly hears the voice of the tree spirit\". I also gain a +2 bonus to attack and damage rolls made with this weapon.",
+		description : "A tree spirit weapon is crafted from the wood of a sentient tree. I feel the desires of the tree and gain the flaw \"constantly hears the voice of the tree spirit\". I also gain a +2 bonus to attack and damage rolls made with this magic weapon.",
+		defaultExcluded : true,
 		chooseGear : {
 			type : "weapon",
 			prefixOrSuffix : "suffix",
@@ -1814,6 +1957,7 @@ MagicItemsList["tree spirit weapon"] = {
 		description : "A tree spirit weapon is crafted from the wood of a sentient tree. I feel its desires and gain the flaw \"constantly hears the voice of the tree spirit\". I also have advantage on Constitution saves and my movement is reduced by 10 ft. I gain a +3 bonus to attack and damage rolls made with this magic weapon.",
 		savetxt : { text : ["Adv on Con saves"] },
 		speed : { allModes : "-10" },
+		defaultExcluded : true,
 		chooseGear : {
 			type : "weapon",
 			prefixOrSuffix : "suffix",
@@ -1831,6 +1975,7 @@ MagicItemsList["tree spirit weapon"] = {
 		dmgres : ["Bludgeoning"],
 		speed : { allModes : "-10" },
 		savetxt : { text : ["Adv on Con saves; Vulnerable to fire damage"] },
+		defaultExcluded : true,
 		chooseGear : {
 			type : "weapon",
 			prefixOrSuffix : "suffix",

@@ -421,7 +421,7 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		rarity : "rare",
 		allowDuplicates : true,
 		description : "This armor was forged by the dwarves of the Earthsunder Clan. They named it Thurûmkhar, a combination of Thurûm (\"thoughtfulness, wisdom\") and Khar (\"eye, gaze\"), which could mean \"wise gaze\" or \"mindful mind\". While worn, I gain +1 AC and it warns me, giving +2 initiative unless I'm Incapacitated.",
-		descriptionFull : "This Armor was once forged by the Dwarves of the Earthsunder Clan. They named it Thurûmkhar, a combination of Thurûm (\"thoughtfulness, wisdom\") and Khar (\"eye, gaze\"), which could mean \"wise gaze\" or \"mindful mind\".\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don’t have the Incapacitated condition.\n   You have a +1 bonus to Armor Class while wearing this armor.",
+		descriptionFull : "This Armor was once forged by the Dwarves of the Earthsunder Clan. They named it Thurûmkhar, a combination of Thurûm (\"thoughtfulness, wisdom\") and Khar (\"eye, gaze\"), which could mean \"wise gaze\" or \"mindful mind\".\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition.\n   You have a +1 bonus to Armor Class while wearing this armor.",
 		armorAdd : { select : "+1 Half Plate", options : ["+1 Half Plate"] },
 		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
 	},
@@ -646,7 +646,7 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		allowDuplicates : true,
 		description : "This +3 armor was forged by an avatar of Helm. It has a radiant shimmer and obsidian rivets. Etched on the chest is the symbol of Helm, a staring eye with a blue pupil on an upright gauntlet. If Zerah's ally, it reveals an inscription under moonlight: Your victories are seen and celebrated. In the shadows of defeat, you are not alone. If Ananias' ally, it reveals in darkness: True freedom is the knowledge that there is no moral law. Everything is permissible.",
 		description : "This +3 studded leather is forged by an avatar of Helm. The armor seems to have a radiant shimmer held together by obsidian rivets. Etched on the chest is the symbol of Helm, a staring eye with blue pupil on an upright gauntlet. If allied with Zerah, it reveals an inscription under moonlight: Your victories are seen and celebrated. In the shadows of defeat, you are not alone. If allied with Ananias, it reveals an inscription in complete darkness: True freedom is the knowledge that there is no moral law. Everything is permissible.",
-		descriptionFull : "This armor is forged by an avatar of Helm. The leather seem to have a radiant shimmer held together by obsidian rivets. Etched on the armor’s chest is the symbol of Helm, a staring eye with blue pupil on the upright left war gauntlet.\n   If allied with Zerah, it will reveal a hidden inscription under moonlight: Your victories are seen and celebrated. In the shadows of defeat, you are not alone.\n   If allied with Ananias, it will reveal a hidden inscription in complete darkness: True freedom is knowledge that there is no moral law. Everything is permissible.\n   The armor grants a +3 bonus to AC while worn.",
+		descriptionFull : "This armor is forged by an avatar of Helm. The leather seem to have a radiant shimmer held together by obsidian rivets. Etched on the armor's chest is the symbol of Helm, a staring eye with blue pupil on the upright left war gauntlet.\n   If allied with Zerah, it will reveal a hidden inscription under moonlight: Your victories are seen and celebrated. In the shadows of defeat, you are not alone.\n   If allied with Ananias, it will reveal a hidden inscription in complete darkness: True freedom is knowledge that there is no moral law. Everything is permissible.\n   The armor grants a +3 bonus to AC while worn.",
 		armorAdd : { select : "+3 Studded Leather", options : ["+3 Studded Leather"] },
 	},
 	"+3 hide: daphnaie armor (al:sa-11a)" : {
@@ -760,7 +760,7 @@ MagicItemsList["al armor (common)"] = {
 		choicesNotInMenu : true,
 		rarity : "common",
 		magicItemTable : "?",
-	choices : ["Cast-Off Studded Leather (FR-DC-Saerloon-5)","Cast-Off Breastplate (DC-POA-CONMAR-6)","Cast-Off Breastplate: Ooze (DC-POA-GaryXIII-4)","Cast-Off Breastplate (DC-POA-HAG-SF4)","Cast-Off Breastplate: Gilded Jeer (FR-DC-AKU-1)","Cast-Off Chain Mail: Scavenger's Shroud (CCC-DES-4-1)","Cast-Off Plate (BMG-DRW-OD-5)","Cast-Off Plate: Sorcerous Paladin of Love and Justice Costume (FR-DC-RPSG-10)","Cast-Off Plate: Bluesteel (FR-DC-THAY-4)","Shield of Expression (DC-POA-CONMAR-15)","Shield of Expression (DC-POA-SNIPE-1)","Shield of Expression: Do'Urden (FR-DC-SCROG-2)","Shield of Expression (WBW-DC-CONMAR-10)","Shield of Expression (WBW-DC-DCS-1)","Smoldering Armor: Flurried Furs (DDAL0-4)","Smoldering Studded Leather (DC-POA-CODEX-2)","Smoldering Studded Leather (DC-POA-CONMAR-8)","Smoldering Studded Leather (DC-POA-GSP2-2H)","Smoldering Studded Leather: Smokin' Hot Leather (DC-POA-LEGIT-SV-02)","Smoldering Studded Leather (DC-POA-OGG-1)","Smoldering Studded Leather: Armor of the Dark Knight (DC-POA-TDG1-4)","Smoldering Studded Leather (DDAL10-0)","Smoldering Scale Mail: Stygian Armor (CCC-GSP2-2)","Smoldering Breastplate: Jökulsbrynja (DC-POA-CONMAR-3)","Smoldering Breastplate: Wintergreen Guard (DC-POA-LEGIT-SV-01)","Breastplate of Gleaming: Heth's Dragon Scale Cuirass (PS-DC-HRS-0)","Breastplate of Gleaming: Froghemoth Hide (PS-DC-TT-202)","Spiked Armor of Gleaming: Axehead's Coat of Beaks (CCC-MTL-3)","Half Plate of Gleaming (PS-DC-ELEMENT-DEATH-1)","Half Plate of Gleaming: Plasma Armor (PS-DC-FOT-1)","Half Plate of Gleaming (PS-DC-NOS-4)","Half Plate of Gleaming: Misty's Jacket (PS-DC-PKL-14)"],
+	choices : ["Cast-Off Studded Leather (FR-DC-Saerloon-5)","Cast-Off Breastplate (DC-POA-CONMAR-6)","Cast-Off Breastplate: Ooze (DC-POA-GaryXIII-4)","Cast-Off Breastplate (DC-POA-HAG-SF4)","Cast-Off Breastplate: Gilded Jeer (FR-DC-AKU-1)","Cast-Off Chain Mail: Scavenger's Shroud (CCC-DES-4-1)","Cast-Off Plate (BMG-DRW-OD-5)","Cast-Off Plate: Sorcerous Paladin of Love and Justice Costume (FR-DC-RPSG-10)","Cast-Off Plate: Bluesteel (FR-DC-THAY-4)","Shield of Expression (DC-POA-CONMAR-15)","Shield of Expression (DC-POA-SNIPE-1)","Shield of Expression: Do'Urden (FR-DC-SCROG-2)","Shield of Expression (WBW-DC-CONMAR-10)","Shield of Expression (WBW-DC-DCS-1)","Smoldering Armor: Flurried Furs (DDAL0-4)","Smoldering Studded Leather (DC-POA-CODEX-2)","Smoldering Studded Leather (DC-POA-CONMAR-8)","Smoldering Studded Leather (DC-POA-GSP2-2H)","Smoldering Studded Leather: Smokin' Hot Leather (DC-POA-LEGIT-SV-02)","Smoldering Studded Leather (DC-POA-OGG-1)","Smoldering Studded Leather: Armor of the Dark Knight (DC-POA-TDG1-4)","Smoldering Studded Leather (DDAL10-0)","Smoldering Scale Mail: Stygian Armor (CCC-GSP2-2)","Smoldering Breastplate: Jökulsbrynja (DC-POA-CONMAR-3)","Smoldering Breastplate: Wintergreen Guard (DC-POA-LEGIT-SV-01)","Breastplate of Gleaming: Heth's Dragon Scale Cuirass (PS-DC-HRS-0)","Breastplate of Gleaming: Froghemoth Hide (PS-DC-TT-202)","Spiked Armor of Gleaming: Axehead's Coat of Beaks (CCC-MTL-3)","Half Plate of Gleaming (PS-DC-ELEMENT-DEATH-1)","Half Plate of Gleaming: Plasma Armor (PS-DC-FOT-1)","Half Plate of Gleaming (PS-DC-NOS-4)","Half Plate of Gleaming: Misty's Jacket (PS-DC-PKL-14)","Half Plate of Gleaming (SJ-DC-TKM-WGS)","Plate of Gleaming (SJ-DC-DWR-0-2)"],
 	"cast-off studded leather (fr-dc-saerloon-5)" : {
 		name : "Cast-Off Studded Leather (FR-DC-Saerloon-5)",
 		source : [["AL", "FR-DC"]],
@@ -840,8 +840,8 @@ MagicItemsList["al armor (common)"] = {
 		name : "Bluesteel, Cast-Off Plate (FR-DC-THAY-4)",
 		source : [["AL", "FR-DC"]],
 		type : "armor (heavy)",
-		description : "Custom-made in trendy Eltabbar, this sleek set of plate armor has the striking effect of causing my lips to seem poutier, even if I have naturally thin lips. It can be doffed as a Magic action. Special means must be used to destroy it.",
-		descriptionFull : "Custom-made in trendy Eltabbar, this sleek set of plate armor has the striking effect of causing one’s lips to seem poutier. This occurs even if the wearer has naturally thin lips.\n   " + toUni("Unbreakable") + ". The item can’t be broken. Special means must be used to destroy it.\n   You can doff this armor as a Magic action.",
+		description : "Custom-made in trendy Eltabbar, this sleek set of plate armor has the striking effect of causing my lips to seem poutier, even if I have naturally thin lips. It can be doffed as a Magic action. This armor can't be broken. If my looks are ever insulted, I must pass a DC 10 CHA save or lose this property.",
+		descriptionFull : "Custom-made in trendy Eltabbar, this sleek set of plate armor has the striking effect of causing one's lips to seem poutier. This occurs even if the wearer has naturally thin lips.\n   " + toUni("Unbreakable") + ". The item can't be broken. Special means must be used to destroy it: The wearer's confidence in their appearance must first be shattered; the wearer must succeed on a DC10 Charisma saving throw if their looks are ever insulted, or the plate loses its Unbreakable minor property.\n   You can doff this armor as a Magic action.",
 		armorAdd : { select : "Cast-Off Plate", options : ["Cast-Off Plate"] },
 		action : [["action", "Cast-Off Plate"]]
 	},
@@ -869,8 +869,8 @@ MagicItemsList["al armor (common)"] = {
 		name : "The Do'Urden Shield of Expression (SCROG-2)",
 		source : [["AL", "FR-DC"]],
 		type : "shield",
-		description : "The face on this shield is a sculpted likeness of the dark elf ranger, Drizzt Do’Urden. The Drizzt face periodically alters its appearance without warning, sprouting a little mustache, frowning for no clear reason, or growing dramatically arched eyebrows during a tense moment. It even winks when no one else is looking. As a bonus action while held, I can change the ranger's expression.",
-		descriptionFull : "The face on the shield is a sculpted likeness of the dark elf ranger, Drizzt Do’Urden. The Drizzt face might periodically alter its appearance without warning, sprouting a little mustache, frowning for no clear reason, or growing dramatically arched eyebrows during a tense moment. It might even wink at a viewer when no one else is looking.\n   " + toUni("Metamorphic") + ". The item periodically alters its appearance in slight ways. You have no control over these minor alterations, which have no effect on the item's use.\n   The front of this Shield is shaped in the likeness of a face. While bearing the Shield, you can take a Bonus Action to alter the face's expression.",
+		description : "The face on this shield is a sculpted likeness of the dark elf ranger, Drizzt Do'Urden. The Drizzt face periodically alters its appearance without warning, sprouting a little mustache, frowning for no clear reason, or growing dramatically arched eyebrows during a tense moment. It even winks when no one else is looking. As a bonus action while held, I can change the ranger's expression.",
+		descriptionFull : "The face on the shield is a sculpted likeness of the dark elf ranger, Drizzt Do'Urden. The Drizzt face might periodically alter its appearance without warning, sprouting a little mustache, frowning for no clear reason, or growing dramatically arched eyebrows during a tense moment. It might even wink at a viewer when no one else is looking.\n   " + toUni("Metamorphic") + ". The item periodically alters its appearance in slight ways. You have no control over these minor alterations, which have no effect on the item's use.\n   The front of this Shield is shaped in the likeness of a face. While bearing the Shield, you can take a Bonus Action to alter the face's expression.",
 		weight : 6,
 		shieldAdd : "Shield of Expression",
 		action : [["bonus action", "Shield of Expression"]]
@@ -1038,7 +1038,7 @@ MagicItemsList["al armor (common)"] = {
 		source : [["AL", "PS-DC"]],
 		type : "armor (medium)",
 		description : "This half plate is made of harmless glowing fire similar to plasma and never gets dirty. The color of the fire is chosen when the armor is created. Due to its fluid nature, it adjusts to fit any creature that wears it perfectly, regardless of size or shape. and never gets dirty.",
-		descriptionFull : "Half plate consists of shaped metal plates that cover most of the wearer's body. It does not include leg protection beyond simple greaves that are attached with leather straps.\n   " + toUni("Strange Material") + ". This immaculately clean half plate is made of harmless glowing fire reminiscent of plasma. The fire can be any bright color of the wearer’s choice, but this must be done when it is created. Due to its fluid nature, it adjusts itself to perfectly fit any creature that wears it, regardless of their size or shape.\n   This armor never gets dirty.",
+		descriptionFull : "Half plate consists of shaped metal plates that cover most of the wearer's body. It does not include leg protection beyond simple greaves that are attached with leather straps.\n   " + toUni("Strange Material") + ". This immaculately clean half plate is made of harmless glowing fire reminiscent of plasma. The fire can be any bright color of the wearer's choice, but this must be done when it is created. Due to its fluid nature, it adjusts itself to perfectly fit any creature that wears it, regardless of their size or shape.\n   This armor never gets dirty.",
 		armorAdd : { select : "Half Plate of Gleaming", options : ["Half Plate of Gleaming"] },
 	},
 	"half plate of gleaming (ps-dc-nos-4)" : {
@@ -1058,6 +1058,22 @@ MagicItemsList["al armor (common)"] = {
 		descriptionFull : "This item seems to be stitched together from clouds. It has a nice cottony and comfortable feel. (Strange Material)\n   This armor never gets dirty. This is especially amazing considering that it is white.",
 		armorAdd : { select : "Half Plate of Gleaming", options : ["Half Plate of Gleaming"] },
 	},
+	"half plate of gleaming (sj-dc-tkm-wgs)" : {
+		name : "Half Plate of Gleaming (TKM-WGS)",
+		source : [["AL", "SJ-DC"]],
+		type : "armor (medium)",
+		description : "This half-plate armor is made of hard wood that appears to be coiling around itself like a Balete tree. The armor never gets dirty.",
+		descriptionFull : "This half-plate is made of hard wood and looks like the wood are coiling around one another like a Balete tree. (Strange Material)\n   This armor never gets dirty.",
+		armorAdd : { select : "Half Plate of Gleaming", options : ["Half Plate of Gleaming"] },
+	},
+	"plate of gleaming (sj-dc-dwr-0-2)" : {
+		name : "Plate of Gleaming (SJ-DC-DWR-0-2)",
+		source : [["AL", "SJ-DC"]],
+		type : "armor (medium)",
+		description : "This plate armor was specially crafted for the Dohwar Protectors of the Silver Beak Cartel. Due to their wide variety of body shapes and sizes, the armor is designed to easily change to fit any wearer. While worn, I feel well protected and self-assured. The armor never gets dirty.",
+		descriptionFull : "This armor is specially crafted for the Dohwar Protectors of the Silver Beak Cartel. Due to their wide variety of body shapes and sizes the armor is designed to easily change to fit any wearer regardless of the species. A creature who wears this armor feels well protected and self-assured due to its Confident minor property.\n   This armor never gets dirty.",
+		armorAdd : { select : "Plate of Gleaming", options : ["Plate of Gleaming"] },
+	},
 }
 })
 
@@ -1066,8 +1082,8 @@ MagicItemsList["al armor (other)"] = {
 		allowDuplicates : true,
 		choicesNotInMenu : true,
 		magicItemTable : "?",
-	choices : ["Antimagic Breastplate (PO-BMG-DRW-KS-7)","Plate Armor of Etherealness (DDAL8-16)","Breastplate of Fungal Spores: Seagrow Shell (FR-DC-DMJA-1)","Breastplate of Fungal Spores (FR-DC-GHG-2)","Breastplate of Fungal Spores: Phase Spider's Carapace (FR-DC-PHP-PEST-1)","Breastplate of Fungal Spores: Cinnamon Bark (FR-DC-Saerloon-2)","Breastplate of Fungal Spores: Cheese Plate (FR-DC-WATERDEEP-CHZ)","Hide Armor of Fungal Spores (PO-BMG-INT-2)","Plate Armor of Invulnerability: Storm King's (FR-DC-PANDORA-JWEI-S2-4)","Breastplate of Necrotic Resistance: Chardalyn (DDAL10-5)","Half Plate of Fire Resistance (FR-DC-YLRA1-4)","Half Plate of Force Resistance: Pat's Ultimate Magic Armor of Awesome Adventuring (FR-DC-STRAT-UNDEAD-1)","Half Plate of Lightning Resistance (FR-DC-BMK-4)","Half Plate of Necrotic Resistance: Vehariel's Vestment (FR-DC-VECNA-3)","Half Plate of Necrotic Resistance: Winter's Warden (FR-DC-VECNA-3)","Half Plate of Poison Resistance: Mushroom (DDEX3-11)","Scale Mail of Psychic Resistance: Resin (CCC-TRI-21 YUL1-6)","Spiked Armor of Necrotic Resistance (WBW-DC-DEN-H1)","Studded Leather of Fire Resistance (DDAL0-11C)","Demon Armor (DDEX3-16)","Red Dragon Scale Mail (DDEP5-1)","Red Dragon Scale Mail (DDAL9-15)","Efreeti Chain (DDAL7-15)","Elven Chain (CCC-BMG-36 ELMW2-3)","Elven Chain (CCC-SQC-2-2)","Elven Chain: Storied (FR-DC-Saerloon-8)","Elven Chain: Armor of the First Frost (WBW-DC-AA-ASHALON-1)","Elven Chain (WBW-DC-AMQ-5)","Elven Chain: Astral (WBW-DC-CONMAR-12)","Elven Chain: Guardian (WBW-DC-GGS-1)","Elven Chain: Loud (WBW-DC-GGS-1)","Elven Chain (WBW-DC-PHP-SPAMMY-1)","Elven Chain (WBW-DC-Rook-2-1)","Elven Chain (WBW-DC-TAZ-1)","Elven Chain (WBW-DC-TEN-3)","Elven Chain: Tehettan's Protection (WBW-DC-TMP-2)","Elven Chain (WBW-DC-ZEP-T2S5)","Elven Chain: Sky's Armor (WBW-DC-ZODIAC-12)","Glamoured Studded Leather (DDAL4-9)","Glamoured Studded Leather (DDAL8-11)","Glamoured Studded Leather (DDAL9-6)","Glamoured Studded Leather: Phantom's Raiment (FR-DC-AKU-1)","Glamoured Studded Leather: Cinderella's Wedding Corset (WBW-DC-CONMAR-15)","Gloomwrought Studded Leather: Mistbound (FR-DC-THAY-3)","Mariner's Studded Leather (DDAL-DRW9)","Mariner's Breastplate (CCC-AETHER-1-2)","Mariner's Breastplate (CCC-MMT1-2)","Mariner's Scale Mail (AL:SA-11A)"],
-	"antimagic breastplate (po-bmg-drw-ks-7)" : {
+	choices : ["Antimagic Armor: Breastplate (PO-BMG-DRW-KS-7)","Armor of Fungal Spores: Seagrow Shell Breastplate (FR-DC-DMJA-1)","Armor of Fungal Spores: Breastplate (FR-DC-GHG-2)","Armor of Fungal Spores: Phase Spider's Carapace Breastplate (FR-DC-PHP-PEST-1)","Arrmor of Fungal Spores: Cinnamon Bark Breastplate (FR-DC-Saerloon-2)","Armor of Fungal Spores: Cheese Plate Breastplate (FR-DC-WATERDEEP-CHZ)","Armor of Fungal Spores: Hide (PO-BMG-INT-2)","Armor of Invulnerability: Storm King's Plate (FR-DC-PANDORA-JWEI-S2-4)","Breastplate of Necrotic Resistance: Chardalyn (DDAL10-5)","Half Plate of Fire Resistance (FR-DC-YLRA1-4)","Half Plate of Force Resistance: Pat's Ultimate Magic Armor of Awesome Adventuring (FR-DC-STRAT-UNDEAD-1)","Half Plate of Lightning Resistance (FR-DC-BMK-4)","Half Plate of Necrotic Resistance: Vehariel's Vestment (FR-DC-VECNA-3)","Half Plate of Necrotic Resistance: Winter's Warden (FR-DC-VECNA-3)","Half Plate of Poison Resistance: Mushroom (DDEX3-11)","Scale Mail of Psychic Resistance: Resin (CCC-TRI-21 YUL1-6)","Spiked Armor of Necrotic Resistance (WBW-DC-DEN-H1)","Studded Leather of Fire Resistance (DDAL0-11C)","Demon Armor (DDEX3-16)","Dragon Scale Mail: Red (DDEP5-1)","Dragon Scale Mail: Red (DDAL9-15)","Dwarven Half Plate (FR-DC-STRAT-WYRM-7)","Efreeti Chain (DDAL7-15)","Elven Chain (CCC-BMG-36 ELMW2-3)","Elven Chain (CCC-SQC-2-2)","Elven Chain: Storied (FR-DC-Saerloon-8)","Elven Chain: Armor of the First Frost (WBW-DC-AA-ASHALON-1)","Elven Chain (WBW-DC-AMQ-5)","Elven Chain: Astral (WBW-DC-CONMAR-12)","Elven Chain: Guardian (WBW-DC-GGS-1)","Elven Chain: Loud (WBW-DC-GGS-1)","Elven Chain (WBW-DC-PHP-SPAMMY-1)","Elven Chain (WBW-DC-Rook-2-1)","Elven Chain (WBW-DC-TAZ-1)","Elven Chain (WBW-DC-TEN-3)","Elven Chain: Tehettan's Protection (WBW-DC-TMP-2)","Elven Chain (WBW-DC-ZEP-T2S5)","Elven Chain: Sky's Armor (WBW-DC-ZODIAC-12)","Glamoured Studded Leather (DDAL4-9)","Glamoured Studded Leather (DDAL8-11)","Glamoured Studded Leather (DDAL9-6)","Glamoured Studded Leather: Phantom's Raiment (FR-DC-AKU-1)","Glamoured Studded Leather: Cinderella's Wedding Corset (WBW-DC-CONMAR-15)","Gloomwrought Studded Leather: Mistbound (FR-DC-THAY-3)","Mariner's Studded Leather (DDAL-DRW9)","Mariner's Breastplate (CCC-AETHER-1-2)","Mariner's Breastplate (CCC-MMT1-2)","Mariner's Scale Mail (AL:SA-11A)","Plate Armor of Etherealness (DDAL8-16)"],
+	"antimagic armor: breastplate (po-bmg-drw-ks-7)" : {
 		name : "Antimagic Breastplate (PO-BMG-DRW-KS-7)",
 		source : [["AL", "PO"]], // Chapter 9: Knight
 		type : "armor (breastplate)",
@@ -1103,46 +1119,21 @@ MagicItemsList["al armor (other)"] = {
 			}
 		}
 	},
-	"plate armor of etherealness (ddal8-16)" : {
-		name : "Armor of Etherealness (DDAL8-16)",
-        nameTest: "of Etherealness (DDAL8-16)",
-		source : [["AL", "S8"]],
-		type : "armor (plate)",
-		rarity : "legendary",
-		description : "This armor has a holy symbol of Shar forged into the breastplate & reflects light poorly. While worn, I can speak Qualith without rolling to avoid short-term madness. Once per dawn, I can say a command word as a Magic action to gain the effects of Etherealness, which lasts for 10 minutes, until I remove the armor or I repeat the action.",
-		descriptionFull : "This armor has a holy symbol of Shar forged into the breastplate. It also looks dim and reflects light poorly. While worn, you can speak and understand Qualith without having to roll any checks or saves to avoid short-term madness.\n   While you're wearing this armor, you can take a Magic action and use a command word to gain the effect of the Etherealness spell. The spell ends immediately if you remove the armor or take a Magic action to repeat the command word. This property of the armor can't be used again until the next dawn. (Added a choice of armor type with 2024 rules)",
-		attunement : true,
-		weight : 65,
-		limfeaname : "Armor of Etherealness",
+	"armor of fungal spores: seagrow shell breastplate (fr-dc-dmja-1)" : {
+		name : "Seagrow Shell, Breastplate of Fungal Spores (DMJA-1)",
+		source : [["AL", "FR-DC"]],
+		type : "armor (breastplate)",
+		rarity : "uncommon",
+		description : "This tiger-striped mushroom cap was molded & hardened to combat readiness. Sinensa, leader of the myconid colony at Seagrow Caves, infused it with magic. I always know my depth & the direction to the nearest upward path. As a bonus action once per dawn, it emits poisonous spores in a 10-ft radius around me. Each creature must pass DC 15 Con save or be Poisoned until my next turn ends.",
+		descriptionLong : "This breastplate was made from a large tiger-striped mushroom cap that was molded and hardened to combat-worthiness. Sinensa, leader of the myconid colony at Seagrow Caves, infused it with magic. If I get lost in a cave or underground, I always know my depth and the direction to the nearest upward path. As a bonus action once per dawn, the armor emits poisonous spores in a 10-ft radius around me. Each creature in that area must pass a DC 15 Con save or be Poisoned until my next turn ends.",
+		descriptionFull : "This piece of armor is made of a large, tiger-striped mushroom cap that has been molded and hardened to combat-worthiness. Sinensa, leader of the myconid colony at Seagrow Caves, infused the armor with magics that allow the wearer to always find their way to the surface should they get lost in a a cave.\n   " + toUni("Delver") + ". While underground, you always know the item's depth below the surface and the direction to the nearest staircase, ramp, or other path leading upward.\n   While wearing this armor, you can take a bonus action to make the armor emit poisonous spores, which fill a 10-foot-radius sphere centered on yourself. Each creature in that area must succeed on a DC 15 Constitution saving throw or have the poisoned condition until the end of your next turn. Once this property is used, it can't be used again until the next dawn.",
+		action : [["bonus action", ""]],
+		limfeaname : "Armor of Fungal Spores",
 		usages : 1,
 		recovery : "dawn",
-		action : [["action", " (start/stop)"]],
-		languageProfs : ["Qualith (no chks/saves)"],
-		chooseGear : {
-			type : "armor",
-			itemName1stPage : ["prefix", "of Etherealness"],
-			prefixOrSuffix : "prefix",
-			descriptionChange : ["replace", "armor"],
-			excludeCheck : function (inObjKey, inObj) {
-				return !(/plate/i).test(inObj.regExpSearch) || (/padded|chain|breastplate/i).test(inObj.name);
-			}
-		},
-		spellcastingBonus : {
-			name : "once per dawn",
-			spells : ["etherealness"],
-			selection : ["etherealness"],
-			firstCol : "oncelr"
-		},
-		spellChanges : {
-			"etherealness" : {
-				components : "V,M\u0192",
-				duration : "10 min",
-				description : "I go to Ethereal Plane; move there freely, but able to perceive 60 ft into the normal plane",
-				changes : "Using the Armor of Etherealness, I can cast Etherealness, but only on myself and it lasts only 10 minutes."
-			}
-		}
+		armorAdd : { select : "Breastplate of Fungal Spores", options : ["Breastplate of Fungal Spores"] },
 	},
-	"breastplate of fungal spores (fr-dc-ghg-2)" : {
+	"armor of fungal spores: breastplate (fr-dc-ghg-2)" : {
 		name : "Breastplate of Fungal Spores (FR-DC-GHG-2)",
 		source : [["AL", "FR-DC"]],
 		type : "armor (breastplate)",
@@ -1155,7 +1146,7 @@ MagicItemsList["al armor (other)"] = {
 		recovery : "dawn",
 		armorAdd : { select : "Shell Breastplate of Fungal Spores", options : ["Shell Breastplate of Fungal Spores"] },
 	},
-	"breastplate of fungal spores: phase spider's carapace (fr-dc-php-pest-1)" : {
+	"armor of fungal spores: phase spider's carapace breastplate (fr-dc-php-pest-1)" : {
 		name : "Phase Spider's Carapace (Fungal Spores, PHP-PEST-1)",
 		source : [["AL", "FR-DC"]],
 		type : "armor (breastplate)",
@@ -1168,7 +1159,7 @@ MagicItemsList["al armor (other)"] = {
 		recovery : "dawn",
 		armorAdd : { select : "Carapace Breastplate Fungal Spores", options : ["Carapace Breastplate Fungal Spores"] },
 	},
-	"breastplate of fungal spores: cinnamon bark (fr-dc-saerloon-2)" : {
+	"armor of fungal spores: cinnamon bark breastplate (fr-dc-saerloon-2)" : {
 		name : "Cinnamon Bark Breastplate of Fungal Spores (Saerloon-2)",
 		source : [["AL", "FR-DC"]],
 		type : "armor (breastplate)",
@@ -1181,7 +1172,7 @@ MagicItemsList["al armor (other)"] = {
 		recovery : "dawn",
 		armorAdd : { select : "Cheese Breastplate of Fungal Spores", options : ["Cheese Breastplate of Fungal Spores"] },
 	},
-	"breastplate of fungal spores: cheese plate (fr-dc-waterdeep-chz)" : {
+	"armor of fungal spores: cheese plate breastplate (fr-dc-waterdeep-chz)" : {
 		name : "Cheese Plate (Breastplate of Fungal Spores)",
 		source : [["AL", "FR-DC"]],
 		type : "armor (breastplate)",
@@ -1194,7 +1185,7 @@ MagicItemsList["al armor (other)"] = {
 		recovery : "dawn",
 		armorAdd : { select : "Cheese Breastplate of Fungal Spores", options : ["Cheese Breastplate of Fungal Spores"] },
 	},
-	"hide armor of fungal spores (po-bmg-int-2)" : {
+	"armor of fungal spores: hide (po-bmg-int-2)" : {
 		name : "Hide Armor of Fungal Spores (PO-BMG-INT-2)",
 		source : [["AL", "PO"]],
 		type : "armor (breastplate)",
@@ -1208,14 +1199,14 @@ MagicItemsList["al armor (other)"] = {
 		armorAdd : { select : "Hide Armor of Fungal Spores", options : ["Hide Armor of Fungal Spores"] },
 	},
 
-	"plate armor of invulnerability: storm king's (fr-dc-pandora-jwei-s2-4)" : {
+	"armor of invulnerability: storm king's plate (fr-dc-pandora-jwei-s2-4)" : {
 		name : "Storm King's Plate of Invulnerability (JWEI-S2-4)",
 		source : [["AL", "FR-DC"]],
 		type : "armor (plate)",
 		rarity : "legendary",
 		magicItemTable : "?",
 		description : "Engraved onto this plate armor are ferocious waves and raging thunder. It was worn by King Hekaton when he was young. While worn, I have Resistance to Bludgeoning, Piercing, and Slashing dmg. I also suffer no harm in extreme temps past 0\u00B0F and 100\u00B0F. As a Magic action once per dawn, I can make myself immune to Bludgeoning, Piercing, and Slashing dmg for 10 min or until I doff the armor.",
-		descriptionFull : "Engraved onto this armor are ferocious waves and raging thunder telling stories of the Storm Giants. This armor was once worn by King Hekaton when he was young.\n   " + toUni("Temperate") + ". You are unharmed by temperatures of 0 degrees Fahrenheit or lower, and 100 degrees Fahrenheit or higher.\n   You have Resistance to Bludgeoning, Piercing, and Slashing damage while you wear this armor. Metal Shell: You can take a Magic action to give yourself Immunity to Bludgeoning, Piercing, and Slashing damage for 10 minutes or until you are no longer wearing the armor. Once this property is used, it can’t be used again until the next dawn.",
+		descriptionFull : "Engraved onto this armor are ferocious waves and raging thunder telling stories of the Storm Giants. This armor was once worn by King Hekaton when he was young.\n   " + toUni("Temperate") + ". You are unharmed by temperatures of 0 degrees Fahrenheit or lower, and 100 degrees Fahrenheit or higher.\n   You have Resistance to Bludgeoning, Piercing, and Slashing damage while you wear this armor. Metal Shell: You can take a Magic action to give yourself Immunity to Bludgeoning, Piercing, and Slashing damage for 10 minutes or until you are no longer wearing the armor. Once this property is used, it can't be used again until the next dawn.",
 		attunement : true,
 		weight : 65,
 		limfeaname : "Armor of Invulnerability",
@@ -1225,20 +1216,6 @@ MagicItemsList["al armor (other)"] = {
 		dmgres : [["Bludgeoning", "Piercing", "Slashing"]],
 		armorAdd : { select : "Plate of Invulnerability", options : ["Plate of Invulnerability"] },
 		savetxt : { immune : ["temps past 0\u00B0F/100\u00B0F"] },
-	},
-	"breastplate of fungal spores: seagrow shell (fr-dc-dmja-1)" : {
-		name : "Seagrow Shell, Breastplate of Fungal Spores (DMJA-1)",
-		source : [["AL", "FR-DC"]],
-		type : "armor (breastplate)",
-		rarity : "uncommon",
-		description : "This tiger-striped mushroom cap was molded & hardened to combat readiness. Sinensa, leader of the myconid colony at Seagrow Caves, infused it with magic. I always know my depth & the direction to the nearest upward path. As a bonus action once per dawn, it emits poisonous spores in a 10-ft radius around me. Each creature must pass DC 15 Con save or be Poisoned until my next turn ends.",
-		descriptionLong : "This breastplate was made from a large tiger-striped mushroom cap that was molded and hardened to combat-worthiness. Sinensa, leader of the myconid colony at Seagrow Caves, infused it with magic. If I get lost in a cave or underground, I always know my depth and the direction to the nearest upward path. As a bonus action once per dawn, the armor emits poisonous spores in a 10-ft radius around me. Each creature in that area must pass a DC 15 Con save or be Poisoned until my next turn ends.",
-		descriptionFull : "This piece of armor is made of a large, tiger-striped mushroom cap that has been molded and hardened to combat-worthiness. Sinensa, leader of the myconid colony at Seagrow Caves, infused the armor with magics that allow the wearer to always find their way to the surface should they get lost in a a cave.\n   " + toUni("Delver") + ". While underground, you always know the item's depth below the surface and the direction to the nearest staircase, ramp, or other path leading upward.\n   While wearing this armor, you can take a bonus action to make the armor emit poisonous spores, which fill a 10-foot-radius sphere centered on yourself. Each creature in that area must succeed on a DC 15 Constitution saving throw or have the poisoned condition until the end of your next turn. Once this property is used, it can't be used again until the next dawn.",
-		action : [["bonus action", ""]],
-		limfeaname : "Armor of Fungal Spores",
-		usages : 1,
-		recovery : "dawn",
-		armorAdd : { select : "Breastplate of Fungal Spores", options : ["Breastplate of Fungal Spores"] },
 	},
 	"breastplate of necrotic resistance: chardalyn (ddal10-5)" : {
 		name : "Breastplate of Necrotic Resist. (DDAL10-5)",
@@ -1271,7 +1248,7 @@ MagicItemsList["al armor (other)"] = {
 		rarity : "rare",
 		attunement : true,
 		description : "Prior to his death, Pat spent his entire savings on this enchanted. Created by Svirfneblin, Pat's Ultimate Magic Armor of Awesome Adventuring is made entirely of clear quartz. The crystal armor is enchanted to be as hard as steel, changes shape to perfectly fit the wearer, heal any cracks, and makes me resistant to Force damage.",
-		descriptionFull : "Prior to his death, Pat spent his entire savings on an enchanted suit of half-plate armor. Created by Svirfneblin, it is made entirely of a clear, quartz that has been enchanted to be as hard as steel, change shape to perfectly fit its bearer, heal any cracks that may form during use, and make its wearer resistant to force damage.\n   " + toUni("Strange Material") + ". Pat's Ultimate Magic Armor of Awesome Adventuring is made of quartz.\n	You have Resistance to one type of damage while you wear this armor. The DM chooses the type or determines it randomly by rolling on the following table:\n\n" + toUni("d10\tType\t\td10\tType") + "\n 1\tAcid\t\t 6\tNecrotic\n 2\tCold\t\t 7\tPoison\n 3\tFire\t\t 8\tPsychic\n 4\tForce\t\t 9\tRadiant\n 5\tLightning   \t 10\tThunder",
+		descriptionFull : "Prior to his death, Pat spent his entire savings on an enchanted suit of half-plate armor. Created by Svirfneblin, it is made entirely of a clear, quartz that has been enchanted to be as hard as steel, change shape to perfectly fit its bearer, heal any cracks that may form during use, and make its wearer resistant to force damage.\n   " + toUni("Strange Material") + ". Pat's Ultimate Magic Armor of Awesome Adventuring is made of quartz.\n	You have Resistance to one type of damage while you wear this armor. The DM chooses the type or determines it randomly by rolling on the following table:\n\n" + toUni("d10\tType\t\td10\tType") + "\n 1\tAcid\t\t 6\tNecrotic\n 2\tCold\t\t 7\tPoison\n 3\tFire\t\t 8\tPsychic\n 4\tForce\t\t 9\tRadiant\n 5\tLightning \t 10\tThunder",
 		dmgres : ["Force"],
 		armorAdd : { select : "Quartz Half Plate of Force Resist", options : ["Quartz Half Plate of Force Resist"] },
 	},
@@ -1391,7 +1368,27 @@ MagicItemsList["al armor (other)"] = {
 			selectNow : true,
 		}]
 	},
-	"red dragon scale mail (ddep5-1)" : {
+	"dwarven half plate (fr-dc-strat-wyrm-7)" : {
+		name : "Dwarven Half Plate (STRAT-WYRM-7)",
+		source : [["AL", "FR-DC"]],
+		type : "armor (half plate)",
+		rarity : "very rare",
+		magicItemTable : "?",
+		description : "While wearing this dwarven half plate, I gain +2 AC. If an effect moves me against my will along the ground, I can reduce the distance moved by up to 10 ft as a reaction. When underground,  I always know my depth below the surface & the direction to the nearest upward path.",
+		descriptionFull : "While wearing this half plate armor, you gain a +2 bonus to Armor Class. In addition, if an effect moves you against your will along the ground, you can take a Reaction to reduce the distance you are moved by up to 10 feet.\n   " + toUni("Delver") + ". While underground, you always know the item's depth below the surface and the direction to the nearest staircase, ramp, or other path leading upward.",
+		action : [["reaction", "Dwarven Plate"]],
+		armorOptions : {
+			regExpSearch : /^(?=.*dwarven)(?=.*half)(?=.*plate).*$/i,
+			name : "Dwarven Half Plate",
+			source : [["AL", "FR-DC"]],
+			type : "medium",
+			ac : "15+2",
+			stealthdis : true,
+			weight : 40,
+			selectNow: true,
+		},
+	},
+	"dragon scale mail: red (ddep5-1)" : {
 		name : "Red Dragon Scale Mail (DDEP5-1)",
 		source : [["AL", "S5"]],
 		type : "armor (scale mail)",
@@ -1417,7 +1414,7 @@ MagicItemsList["al armor (other)"] = {
 			selectNow : true,
 		}]
 	},
-	"red dragon scale mail (ddal9-15)" : {
+	"dragon scale mail: red (ddal9-15)" : {
 		name : "Red Dragon Scale Mail (DDAL9-15)",
 		source : [["AL", "S9"]],
 		type : "armor (scale mail)",
@@ -1508,9 +1505,9 @@ MagicItemsList["al armor (other)"] = {
 		source : [["AL", "FR-DC"]],
 		type : "armor (chain mail)",
 		rarity : "rare",
-		description : "This armor shows Tyr’s death & the creation of the new Triad. Panel 1 has the demon invasion of the House of the Triad. The 2nd has Tyr & Torm calling for aid, & Bahamut’s reply. The 3rd has Tyr’s sacrifice. The 4th has the reformation of the Triad with Torm, Ilmater, & Bahamut. The holy symbols glow with dark red light if fiends (demons) are in 120 ft. I gain a +1 AC & count as proficient.",
-		descriptionLong : "Elven smiths in Silverymoon someetimes create armor with pictorial stories of momentous events. During the Spellplague, many world-impacting changes occurred and several storied armors were crafted. This chain mail depicts Tyr’s death and the formation of the new Triad. Panel one has the demon invasion of the House of the Triad. The 2nd shows Tyr and Torm calling for aid, and Bahamut’s response. The 3rd depicts Tyr’s sacrifice. The final panel displays the reformation of the Triad with Torm, Ilmater, and Bahamut. The holy symbols of Tyr, Torm, Ilmater, and Bahamut glow with dark red light when fiends (demons) are within 120 feet. While worn, I gain a +1 bonus to AC and I'm considered proficient even without training.",
-		descriptionFull : "Elven smiths in Silverymoon occasionally create suits of elven chain that contain pictorial stories of momentous events. During the time of the Spellplague, many world-impacting changes happened, and several storied armors were crafted. This is one of those.\n   This suit of chain mail depicts the events of Tyr’s death and the reformation of the new Triad. Panel one shows the demon invasion of the House of the Triad. The second shows Tyr and Torm call for aid, and Bahamut’s response. The third depicts Tyr’s sacrifice. The final panel displays the reformation of the Triad with Torm, Ilmater, and Bahamut.\n   " + toUni("Sentinel") + ". The holy symbols of Tyr, Torm, Ilmater, and Bahamut glow with a dark red light when fiends (demons) are within 120 feet of it.\n   You gain a +1 bonus to Armor Class while you wear this armor. You are considered trained with this armor even if you lack training with Medium or Heavy armor (Newer DCs do specify armor type, so no longer a choice).",
+		description : "This armor shows Tyr's death & the creation of the new Triad. Panel 1 has the demon invasion of the House of the Triad. The 2nd has Tyr & Torm calling for aid, & Bahamut's reply. The 3rd has Tyr's sacrifice. The 4th has the reformation of the Triad with Torm, Ilmater, & Bahamut. The holy symbols glow with dark red light if fiends (demons) are in 120 ft. I gain a +1 AC & count as proficient.",
+		descriptionLong : "Elven smiths in Silverymoon someetimes create armor with pictorial stories of momentous events. During the Spellplague, many world-impacting changes occurred and several storied armors were crafted. This chain mail depicts Tyr's death and the formation of the new Triad. Panel one has the demon invasion of the House of the Triad. The 2nd shows Tyr and Torm calling for aid, and Bahamut's response. The 3rd depicts Tyr's sacrifice. The final panel displays the reformation of the Triad with Torm, Ilmater, and Bahamut. The holy symbols of Tyr, Torm, Ilmater, and Bahamut glow with dark red light when fiends (demons) are within 120 feet. While worn, I gain a +1 bonus to AC and I'm considered proficient even without training.",
+		descriptionFull : "Elven smiths in Silverymoon occasionally create suits of elven chain that contain pictorial stories of momentous events. During the time of the Spellplague, many world-impacting changes happened, and several storied armors were crafted. This is one of those.\n   This suit of chain mail depicts the events of Tyr's death and the reformation of the new Triad. Panel one shows the demon invasion of the House of the Triad. The second shows Tyr and Torm call for aid, and Bahamut's response. The third depicts Tyr's sacrifice. The final panel displays the reformation of the Triad with Torm, Ilmater, and Bahamut.\n   " + toUni("Sentinel") + ". The holy symbols of Tyr, Torm, Ilmater, and Bahamut glow with a dark red light when fiends (demons) are within 120 feet of it.\n   You gain a +1 bonus to Armor Class while you wear this armor. You are considered trained with this armor even if you lack training with Medium or Heavy armor (Newer DCs do specify armor type, so no longer a choice).",
 		extraAC : [{name : "Elven Chain", mod : 1, misc : true, text : "I gain a +1 bonus to AC while attuned."}],
 		armorAdd : { select : "Elven Chain Mail", options : ["Elven Chain Mail"] },
 	},
@@ -1797,9 +1794,9 @@ MagicItemsList["al armor (other)"] = {
 		source : [["AL", "FR-DC"]],
 		type : "armor (studded leather)",
 		rarity : "rare",
-		description : "This armor is blackened by sorrow and trimmed with silver filigree of musical notation that shimmers in moonlight. Its shoulder guards show House Umbraevan’s emblem: a lone raven with unfurled wings. I feel optimistic and often hum a melody I don’t remember learning. A ghostly raven’s caw warns of danger, giving +2 initiative unless Incapacitated. I gain +1 AC and as a bonus action to change its appearance but not bulk. The illusion lasts until I use this property again or doff the armor.",
-		descriptionLong : "This armor is blackened by sorrow and trimmed with silver filigree of musical notation that shimmers in moonlight. Its shoulder guards show House Umbraevan’s emblem: a lone raven with unfurled wings. Though steeped in gloom, I feel optimistic and often hum a melody I don’t remember learning. A ghostly sound of a raven’s caws warns of nearby danger, giving +2 initiative unless Incapacitated. While worn, I gain +1 AC and can use a bonus action to make it look like normal clothing or another armor type. I decide the appearance, but the armor retains its bulk. The illusion lasts until I use this property again or doff the armor.",
-		descriptionFull : "In its natural state, this armor is blackened by sorrow and trimmed with silver filigree resembling musical notation that shimmers under moonlight. Its shoulder guards display House Umbraevan’s emblem: a lone raven with unfurled wings. Though steeped in gloom, its wearer feels oddly optimistic and often hums a melody they don’t remember learning. A ghostly sound of a raven’s caws warns its wearer of nearby danger.\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don’t have the Incapacitated condition.\n   While wearing this armor, you gain a +1 bonus to Armor Class. You can also take a Bonus Action to cause the armor to assume the appearance of a normal set of clothing or some other kind of armor. You decide what it looks like—including color, style, and accessories—but the armor retains its normal bulk and weight. The illusory appearance lasts until you use this property again or doff the armor.",
+		description : "This armor is blackened by sorrow and trimmed with silver filigree of musical notation that shimmers in moonlight. Its shoulder guards show House Umbraevan's emblem: a lone raven with unfurled wings. I feel optimistic and often hum a melody I don't remember learning. A ghostly raven's caw warns of danger, giving +2 initiative unless Incapacitated. I gain +1 AC and as a bonus action to change its appearance but not bulk. The illusion lasts until I use this property again or doff the armor.",
+		descriptionLong : "This armor is blackened by sorrow and trimmed with silver filigree of musical notation that shimmers in moonlight. Its shoulder guards show House Umbraevan's emblem: a lone raven with unfurled wings. Though steeped in gloom, I feel optimistic and often hum a melody I don't remember learning. A ghostly sound of a raven's caws warns of nearby danger, giving +2 initiative unless Incapacitated. While worn, I gain +1 AC and can use a bonus action to make it look like normal clothing or another armor type. I decide the appearance, but the armor retains its bulk. The illusion lasts until I use this property again or doff the armor.",
+		descriptionFull : "In its natural state, this armor is blackened by sorrow and trimmed with silver filigree resembling musical notation that shimmers under moonlight. Its shoulder guards display House Umbraevan's emblem: a lone raven with unfurled wings. Though steeped in gloom, its wearer feels oddly optimistic and often hums a melody they don't remember learning. A ghostly sound of a raven's caws warns its wearer of nearby danger.\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition.\n   While wearing this armor, you gain a +1 bonus to Armor Class. You can also take a Bonus Action to cause the armor to assume the appearance of a normal set of clothing or some other kind of armor. You decide what it looks like—including color, style, and accessories—but the armor retains its normal bulk and weight. The illusory appearance lasts until you use this property again or doff the armor.",
 		armorOptions : [{
 			regExpSearch : /^(?=.*glamou?r)(?=.*(studded|studs))(?=.*leather).*$/i,
 			name : "Glamoured Studded Leather",
@@ -1835,7 +1832,7 @@ MagicItemsList["al armor (other)"] = {
 		rarity : "rare",
 		attunement : true,
 		description : "Mist drifts lazily across the surface of this smoke-gray studded leather forged in the Shadowfell. While worn, I have advantage on saves against the Frightened condition. The armor has 3 charges, 1d3 regained at dawn. As an action, I can use 1 charge to cast Calm Emotions (save DC 15) from it. When underground, I always know my depth and the direction to the nearest upward path.",
-		descriptionFull : "Mist drifts lazily across the surface of this smoke-gray armor.\n   " + toUni("Delver") + ". While underground, you always know the item’s depth below the surface and the direction to the nearest staircase, ramp, or other path leading upward.\n   This intricate grayscale armor was forged in the Shadowfell and is infused with that plane's gloom."+
+		descriptionFull : "Mist drifts lazily across the surface of this smoke-gray armor.\n   " + toUni("Delver") + ". While underground, you always know the item's depth below the surface and the direction to the nearest staircase, ramp, or other path leading upward.\n   This intricate grayscale armor was forged in the Shadowfell and is infused with that plane's gloom."+
 		"\n   While you're wearing this armor, you have advantage on saving throws you make to avoid or end the frightened condition on yourself."+
 		"\n   This armor has 3 charges. You can expend a charge to cast the Calm Emotions spell (save DC 15) from the armor. This armor regains 1d3 expended charges daily at dawn.",
 		limfeaname : "Gloomwrought Armor",
@@ -1896,6 +1893,45 @@ MagicItemsList["al armor (other)"] = {
 		allowDuplicates : true,
 		armorAdd : { select : "Mariner's Scale Mail", options : ["Mariner's Scale Mail"] },
 		speed : { swim : { spd : "walk", enc : "walk" } }
+	},
+	"plate armor of etherealness (ddal8-16)" : {
+		name : "Armor of Etherealness (DDAL8-16)",
+        nameTest: "of Etherealness (DDAL8-16)",
+		source : [["AL", "S8"]],
+		type : "armor (plate)",
+		rarity : "legendary",
+		description : "This armor has a holy symbol of Shar forged into the breastplate & reflects light poorly. While worn, I can speak Qualith without rolling to avoid short-term madness. Once per dawn, I can say a command word as a Magic action to gain the effects of Etherealness, which lasts for 10 minutes, until I remove the armor or I repeat the action.",
+		descriptionFull : "This armor has a holy symbol of Shar forged into the breastplate. It also looks dim and reflects light poorly. While worn, you can speak and understand Qualith without having to roll any checks or saves to avoid short-term madness.\n   While you're wearing this armor, you can take a Magic action and use a command word to gain the effect of the Etherealness spell. The spell ends immediately if you remove the armor or take a Magic action to repeat the command word. This property of the armor can't be used again until the next dawn. (Added a choice of armor type with 2024 rules)",
+		attunement : true,
+		weight : 65,
+		limfeaname : "Armor of Etherealness",
+		usages : 1,
+		recovery : "dawn",
+		action : [["action", " (start/stop)"]],
+		languageProfs : ["Qualith (no chks/saves)"],
+		chooseGear : {
+			type : "armor",
+			itemName1stPage : ["prefix", "of Etherealness"],
+			prefixOrSuffix : "prefix",
+			descriptionChange : ["replace", "armor"],
+			excludeCheck : function (inObjKey, inObj) {
+				return !(/plate/i).test(inObj.regExpSearch) || (/padded|chain|breastplate/i).test(inObj.name);
+			}
+		},
+		spellcastingBonus : {
+			name : "once per dawn",
+			spells : ["etherealness"],
+			selection : ["etherealness"],
+			firstCol : "oncelr"
+		},
+		spellChanges : {
+			"etherealness" : {
+				components : "V,M\u0192",
+				duration : "10 min",
+				description : "I go to Ethereal Plane; move there freely, but able to perceive 60 ft into the normal plane",
+				changes : "Using the Armor of Etherealness, I can cast Etherealness, but only on myself and it lasts only 10 minutes."
+			}
+		}
 	},
 }
 
@@ -2310,8 +2346,8 @@ MagicItemsList["al shields"] = {
 		name : "Spellguard Shield (FR-DC-TT-301)",
 		source : [["AL", "FR-DC"]],
 		rarity : "very rare",
-		description : "Made from dragonnel egg shell, infused with nilbog blood, and reinforced by Neothelid’s tentacles, this shield can be attuned to in 1 minute. While held, I have advantage on saves against spells \u0026 other magical effects, \u0026 spell atks have disadvantage against me.",
-		descriptionFull : "Made with dragonnel egg shell, infused with nilbog blood, and reinforced by Neothelid’s tentacles, this shield has the minor property:\n   " + toUni("Harmonious") + ". Attuning to this item takes only 1 minute.\n   While holding this Shield, you have Advantage on saving throws against spells and other magical effects, and spell attacks have Disadvantage against you.",
+		description : "Made from dragonnel egg shell, infused with nilbog blood, and reinforced by Neothelid's tentacles, this shield can be attuned to in 1 minute. While held, I have advantage on saves against spells \u0026 other magical effects, \u0026 spell atks have disadvantage against me.",
+		descriptionFull : "Made with dragonnel egg shell, infused with nilbog blood, and reinforced by Neothelid's tentacles, this shield has the minor property:\n   " + toUni("Harmonious") + ". Attuning to this item takes only 1 minute.\n   While holding this Shield, you have Advantage on saving throws against spells and other magical effects, and spell attacks have Disadvantage against you.",
 		attunement : true,
 		weight : 6,
 		shieldAdd : "Spellguard Shield",
