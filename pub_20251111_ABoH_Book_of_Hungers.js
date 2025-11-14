@@ -8,6 +8,34 @@ SourceList.BoH = {
   url: "https://www.dndbeyond.com/sources/dnd/aboh",
   date: "2025/11/11",
 };
+SourceList.LEGACYRACE = {
+  name: "Races Deprecated by 2024 Player's Handbook",
+  abbreviation: "LEGACY",
+  abbreviationSpellsheet: "L",
+  group: "Core Sources",
+  url: "https://marketplace.dndbeyond.com/core-rules/3709000?pid=DB3709000",
+  date: "2014/01/01",
+  defaultExcluded : true,
+};
+//Functions
+function escapeRegExp(string) {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); // $& means the whole matched string
+}
+function legacyRaceRefactor(raceKey, newRace){
+  if(newRace.replaces){
+    for (var replaced of newRace.replaces){
+      if (replaced in RaceList){
+        var oldRace = RaceList[replaced];
+        RaceList[replaced + " (L)"] = oldRace;
+        delete RaceList[replaced];
+        oldRace.source = [["LEGACYRACE", 1]];
+        oldRace.name = oldRace.name + " (L)";
+        oldRace.shortname = oldRace.shortname + " (L)";        
+      }
+    }
+  }
+  RaceList[raceKey] = newRace;
+}
 
 
 //Backgrounds
@@ -740,13 +768,14 @@ FeatsList["boon of misty escape"] = {
 };
 
 //Species
-RaceList["dhampir"] = {
+legacyRaceRefactor("dhampir", {
 	regExpSearch : /dhampir/i,
 	name : "Dhampir",
 	sortname : "Dhampir",
 	plural : "Dhampirs",
 	source : [["BoH", ""]],
 	size : 3,
+	replaces: ["dhampir"]
 	dmgres : ["Necrotic"],
 	speed : {
 		walk : { spd : 35, enc : 25 },
@@ -778,5 +807,4 @@ RaceList["dhampir"] = {
 		usagescalc : "event.value = How('Proficiency Bonus')",
 		recovery : "long rest"
 	}],
-  replaces: ["dhampir"]
-};
+});		
