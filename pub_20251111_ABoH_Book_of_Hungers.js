@@ -672,7 +672,7 @@ FeatsList["boon of looming shadows"] = {
 	descriptionFull : [
 		"You gain the following benefits",
 		"***Ability Score Improvement***. Increase one ability score of your choice by 1, to a Maximum of 30.",
-		"***Beloved of the Sun***. When you take the Attack action, your reach for your Melee weapon attacks increases by 10 feet until the end of your turn.",
+		"***Shadowy Stretch***. When you take the Attack action, your reach for your Melee weapon attacks increases by 10 feet until the end of your turn.",
 		"***Dancing Silhouette***. You can take the Dodge action as a Bonus Action.",
 	],
 	choices : ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
@@ -807,4 +807,5 @@ legacyRaceRefactor("dhampir", {
 		recovery : "long rest"
 	}],
 });		
+
 
