@@ -722,7 +722,6 @@ FeatsList["boon of misty escape"] = {
 	name : "Boon of Misty Escape",
 	source : [["BoH", ""]],
 	type : "epic boon",
-	savetxt: {text: "Immune to Radiant damage"},
 	description : "Once per Long Rest when I drop to 0 HP but I'm not killed outright, I can drop to 1 HP instead and cast Gaseous Form on myself without a spell slot or action. My Fly Speed is 20 ft and I regain 10 HP per turn for the spell's duration. [+1 Int, Wis, or Cha]",
 	descriptionFull : [
 		"You gain the following benefits",
@@ -775,7 +774,7 @@ legacyRaceRefactor("dhampir", {
 	plural : "Dhampirs",
 	source : [["BoH", ""]],
 	size : 3,
-	replaces: ["dhampir"]
+	replaces: ["dhampir"],
 	dmgres : ["Necrotic"],
 	speed : {
 		walk : { spd : 35, enc : 25 },
@@ -808,3 +807,4 @@ legacyRaceRefactor("dhampir", {
 		recovery : "long rest"
 	}],
 });		
+
