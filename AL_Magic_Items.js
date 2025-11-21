@@ -5025,7 +5025,7 @@ MagicItemsList["al cloaks"] = {
 		choicesNotInMenu : true,
 		type : "wondrous item",
 		magicItemTable : "?",
-	choices : ["Cloak of Arachnida (DDAL9-12)","Cloak of the Bat (BMG-MOON-MD-2)","Cloak of the Bat (CCC-BMG-44 PHLAN4-2)","Cloak of the Bat (CCC-CNE-3)","Cloak of the Bat (DDEP7-1)","Cloak of the Bat (DDHC-MORD-1)","Cloak of the Bat: Gadabout (SJ-DC [BIRD])","Cloak of the Bat (SJ-DC-DD-6)","Cloak of the Bat: Bat Burglar (SJ-DC-DWR-1)","Cloak of the Bat (SJ-DC-END-1-1)","Cloak of the Bat: Doom (SJ-DC-LNS-1)","Cloak of the Bat: Yager's Reminder (SJ-DC-NMB1-2)","Cloak of Displacement (CCC-SFBAY-2-1)","Cloak of Displacement (DDAL5-5)","Cloak of Displacement: Familiar's (WBW-DC-ZODIAC-13)","Cloak of Elvenkind: Llyneth's Cloak of Mists (CCC-BMG-MOON2-3)","Cloak of Elvenkind: Piwafwi (CCC-GARY-7)","Cloak of Elvenkind (DDEX1-8)","Cloak of Invisibility (DDEP6-3)","Cloak of the Manta Ray: Nereid Shawl (AL:SA-11A)","Cloak of the Manta Ray (CCC-BMG-MOON4-2)","Cloak of the Manta Ray: Sekolah'Thriss, the Sharkskin Cloak (CCC-DES-2-3)","Cloak of the Manta Ray: Sea Hag's Cloak (CCC-GAD1-1)","Cloak of the Manta Ray (CCC-GARY-17)","Cloak of the Manta Ray (CCC-GHC-BK2-3)","Cloak of the Manta Ray: Darkest Depths (CCC-HAL-6)","Cloak of the Manta Ray (CCC-UK-4)","Cloak of the Manta Ray (DC-POA-CONMAR-12)","Cloak of the Manta Ray (DC-POA-PND-1)","Cloak of the Manta Ray: Lucius' Scientist Robe (DC-POA-TDG1-5)","Cloak of the Manta Ray (FR-DC-WCAG2-3)","Cloak of Protection: Fey (CCC-BMG-MOON6-1)","Cloak of Protection (CCC-BMG-MOON7-3)","Cloak of Protection (CCC-BWM-4-2)","Cloak of Protection: Underdark (CCC-HAL-5)","Cloak of Protection (CCC-WWC-4)","Cloak of Protection: Dryad's (DDAL0-2A)","Cloak of Protection (DDAL6-1)","Cloak of Protection (DDAL8-6)","Cloak of Protection (DDEP2)","Cloak of Protection (DDIA04 - Premiere)","Cloak of Protection (FR-DC-AEG-2)","Cloak of Protection (FR-DC-CFH-1)","Cloak of Protection: Cautious Whispers (FR-DC-CONMAR-1)","Cloak of Protection (FR-DC-DEATH-MASQUERADE)","Cloak of Protection: Thayan Lace (FR-DC-Saerloon-1)","Cloak of Protection (FR-DC-STRAT-WYRM-7)","Cloak of Protection (FR-DC-TGT-2)","Cloak of Protection: Healer's Mantle (FR-DC-WATERDEEP-PCZ)","Cloak of Protection: Lunar Champion (FR-DC-WCAG-2)","Cloak of Protection: Ogolai's Cloak (RotF)","Cloak of Protection: Vampire Overlord's (RV-DC-LAGIM-1)","Cloak of Protection (WBW-DC-AMQ-1)","Cloak of Protection (WBW-DC-CONMAR-3)","Cloak of Protection (WBW-DC-DCAF1)","Cloak of Protection (WBW-DC-GC14-4)","Cloak of Protection: Cheering (WBW-DC-HBK-2)","Cloak of Protection: Fur Coat (WBW-DC-PHP-POLAR-2)","Cloak of Protection: Pag-asa's (WBW-DC-PHP-TCOM3)","Cloak of Protection (WBW-DC-ROOK-1-3)","Cloak of Protection (WBW-DC-TLRMB-2)","Hell Hound Cloak (BMG-MOONEP-MD-1)","Hell Hound Cloak: Winter Wolf (DDAL0-13)"],
+	choices : ["Cloak of Arachnida (DDAL9-12)","Cloak of the Bat (BMG-MOON-MD-2)","Cloak of the Bat (CCC-BMG-44 PHLAN4-2)","Cloak of the Bat (CCC-CNE-3)","Cloak of the Bat (DDEP7-1)","Cloak of the Bat (DDHC-MORD-1)","Cloak of the Bat: Gadabout (SJ-DC [BIRD])","Cloak of the Bat (SJ-DC-DD-6)","Cloak of the Bat: Bat Burglar (SJ-DC-DWR-1)","Cloak of the Bat (SJ-DC-END-1-1)","Cloak of the Bat: Doom (SJ-DC-LNS-1)","Cloak of the Bat: Yager's Reminder (SJ-DC-NMB1-2)","Cloak of Displacement (CCC-SFBAY-2-1)","Cloak of Displacement (DDAL5-5)","Cloak of Displacement: Familiar's (WBW-DC-ZODIAC-13)","Cloak of Elvenkind: Llyneth's Cloak of Mists (CCC-BMG-MOON2-3)","Cloak of Elvenkind: Piwafwi (CCC-GARY-7)","Cloak of Elvenkind (DDEX1-8)","Cloak of Invisibility (DDEP6-3)","Cloak of the Manta Ray: Nereid Shawl (AL:SA-11A)","Cloak of the Manta Ray (CCC-BMG-MOON4-2)","Cloak of the Manta Ray: Sekolah'Thriss, the Sharkskin Cloak (CCC-DES-2-3)","Cloak of the Manta Ray: Sea Hag's Cloak (CCC-GAD1-1)","Cloak of the Manta Ray (CCC-GARY-17)","Cloak of the Manta Ray (CCC-GHC-BK2-3)","Cloak of the Manta Ray: Darkest Depths (CCC-HAL-6)","Cloak of the Manta Ray (CCC-UK-4)","Cloak of the Manta Ray (DC-POA-CONMAR-12)","Cloak of the Manta Ray (DC-POA-PND-1)","Cloak of the Manta Ray: Lucius' Scientist Robe (DC-POA-TDG1-5)","Cloak of the Manta Ray (FR-DC-WCAG2-3)","Cloak of Protection: Fey (CCC-BMG-MOON6-1)","Cloak of Protection (CCC-BMG-MOON7-3)","Cloak of Protection (CCC-BWM-4-2)","Cloak of Protection: Underdark (CCC-HAL-5)","Cloak of Protection (CCC-WWC-4)","Cloak of Protection: Dryad's (DDAL0-2A)","Cloak of Protection (DDAL6-1)","Cloak of Protection (DDAL8-6)","Cloak of Protection (DDEP2)","Cloak of Protection (DDIA04 - Premiere)","Cloak of Protection (FR-DC-AEG-2)","Cloak of Protection (FR-DC-CFH-1)","Cloak of Protection: Cautious Whispers (FR-DC-CONMAR-1)","Cloak of Protection (FR-DC-DEATH-MASQUERADE)","Cloak of Protection: Thayan Lace (FR-DC-Saerloon-1)","Cloak of Protection (FR-DC-STRAT-WYRM-2)","Cloak of Protection (FR-DC-TGT-2)","Cloak of Protection: Healer's Mantle (FR-DC-WATERDEEP-PCZ)","Cloak of Protection: Lunar Champion (FR-DC-WCAG-2)","Cloak of Protection: Ogolai's Cloak (RotF)","Cloak of Protection: Vampire Overlord's (RV-DC-LAGIM-1)","Cloak of Protection (WBW-DC-AMQ-1)","Cloak of Protection (WBW-DC-CONMAR-3)","Cloak of Protection (WBW-DC-DCAF1)","Cloak of Protection (WBW-DC-GC14-4)","Cloak of Protection: Cheering (WBW-DC-HBK-2)","Cloak of Protection: Fur Coat (WBW-DC-PHP-POLAR-2)","Cloak of Protection: Pag-asa's (WBW-DC-PHP-TCOM3)","Cloak of Protection (WBW-DC-ROOK-1-3)","Cloak of Protection (WBW-DC-TLRMB-2)","Hell Hound Cloak (BMG-MOONEP-MD-1)","Hell Hound Cloak: Winter Wolf (DDAL0-13)"],
 	"cloak of arachnida (ddal9-12)" : {
 		name : "Cloak of Arachnida (DDAL9-12)",
 		source : [["AL","S9"]],
@@ -5574,8 +5574,8 @@ MagicItemsList["al cloaks"] = {
 		extraAC : cloakofProtection.extraAC,
 		addMod : cloakofProtection.addMod,
 	},
-	"cloak of protection (fr-dc-strat-wyrm-7)" : { 
-		name : "Cloak of Protection (STRAT-WYRM-7)",
+	"cloak of protection (fr-dc-strat-wyrm-2)" : { 
+		name : "Cloak of Protection (STRAT-WYRM-2)",
 		source : [["AL","FR-DC"]],
 		rarity : "uncommon",
 		description : "This cloak is made of rough wool and dyed in a green and yellow tartan pattern, the spitting image of the cloak worn by Fizban the Fabulous. While worn, I gain +1 to AC and saving throws.",
@@ -8429,7 +8429,7 @@ MagicItemsList["al equipment"] = {
 		rarity : "uncommon",
 		limfeaname : "Deck of Illusions",
 		usages : 24,
-		recovery : "never",
+		recovery : "Never",
 		action : [["action", "Deck of Illusions (Draw/Move)"]],
 		description : "As a Magic action, I can draw a random card from this deck & throw it on the ground in 30 ft. Each card has the image of an old gnome, whose facial expression randomly changes. Sometimes it's quite rude! When using a card, I hear a sound matching the expression before an illusion, determined by the card's type, forms over it & remains until dispelled. While in 120 ft, another Magic action to move the illusion within 30 ft of the card. See Notes.",
 		descriptionFull : "This box contains a set of parchment cards. A full deck has 34 cards. A deck found as treasure is usually missing 1d20-1 cards. This deck is missing the following 10 cards: Ace of Hearts, Queen of Hearts, Jack of Hearts, Eight of Hearts, Two of Hearts, Nine of Diamonds, Two of Diamonds, Queen of Spades, Jack of Clubs and Ten of Clubs.\n    Each card of this deck bears the image of an old gnome, whose facial expression randomly changes each time a card is looked at. Sometimes these expressions can be quite rude! In fact, whenever a card is used, a sound matching the expression (audible only to the user) seems to emanate from the card prior to its effect.\n    The magic of the deck functions only if its cards are drawn at random." + deckIllusionsDescriptionTxt.unicode,
@@ -8441,7 +8441,7 @@ MagicItemsList["al equipment"] = {
 		rarity : "uncommon",
 		limfeaname : "Deck of Illusions",
 		usages : 20,
-		recovery : "never",
+		recovery : "Never",
 		action : [["action", "Deck of Illusions (Draw/Move)"]],
 		description : "This deck of illustrated playing cards comes in a shiny envelope. One rare foil card guaranteed in each pack! The cards are brightly colored, featuring creatures in dynamic poses. A Kozakuran signature on the lower left corner reads \"Sugimori K.\" As a Magic action, I can draw a random card & throw it on the ground in 30 ft. An illusion based on the card's type forms over it & remains until dispelled. While in 120 ft, another Magic action to move the illusion within 30 ft of the card. See Notes page.",
 		descriptionFull : "This box contains a set of parchment cards. A full deck has 34 cards. This deck has 20 cards.\n    This small deck of illustrated playing cards comes wrapped in a shiny envelope. One never knows which card they will receive! The cards inside are brightly colored, featuring a variety of creatures in dynamic poses. A small Kozakuran signature on the lower left-hand corner of the card reads \"Sugimori K.\" One rare foil card guaranteed in each pack!\n    The magic of the deck functions only if its cards are drawn at random." + deckIllusionsDescriptionTxt.unicode,
@@ -8453,7 +8453,7 @@ MagicItemsList["al equipment"] = {
 		rarity : "uncommon",
 		limfeaname : "Deck of Illusions",
 		usages : 34,
-		recovery : "never",
+		recovery : "Never",
 		action : [["action", "Deck of Illusions (Draw/Move)"]],
 		description : "As a Magic action, I can draw a random card from this deck & throw it on the ground in 30 ft. An illusion based on the card's type forms over it & remains until dispelled. These illusions appear particularly desirable, emphasizing the traits desired by other creatures of the same kind. While in 120 ft, another Magic action to move the illusion within 30 ft of the card. See Notes page.",
 		descriptionFull : "The illusions created by this deck appear as particularly desirable versions of the specified creatures. The desirability is in relation to other creatures of the same kind. For example, an Assassin would appear as particularly deadly – appealing to other assassins, while a Druid may appear as particularly in-tune with nature – as desired by other druids.\n    The magic of the deck functions only if its cards are drawn at random." + deckIllusionsDescriptionTxt.unicode,
@@ -8465,7 +8465,7 @@ MagicItemsList["al equipment"] = {
 		rarity : "uncommon",
 		limfeaname : "Deck of Illusions",
 		usages : "34-party",
-		recovery : "never",
+		recovery : "Never",
 		action : [["action", "Deck of Illusions (Draw/Move)"]],
 		description : "This deck of cards is wrapped in autumn leaves and bound with leather cord. It contains 34 cards, minus the number of party members. As a Magic action, I can draw a random card & throw it on the ground in 30 ft. An illusion based on the card's type forms over it & remains until dispelled. While I'm in 120 ft, Magic action to move the illusion within 30 ft of the card. See Notes page.",
 		descriptionFull : "Wrapped in autumn leaves and bound with leather cord is a deck of cards, missing the number cards equal to the number of party members.\n    The magic of the deck functions only if its cards are drawn at random." + deckIllusionsDescriptionTxt.unicode,
@@ -8477,7 +8477,7 @@ MagicItemsList["al equipment"] = {
 		rarity : "uncommon",
 		limfeaname : "Deck of Illusions",
 		usages : 4,
-		recovery : "never",
+		recovery : "Never",
 		action : [["action", "Deck of Illusions (Draw/Move)"]],
 		description : "This deck belongs to The Tall Man. If I have it in Joquiet, I owe The Tall Man a favor & he has the right to curse me if I don't comply. As a Magic action, I can draw a random card & throw it on the ground in 30 ft. An illusion based on the card's type forms over it & remains until dispelled. While I'm in 120 ft, Magic action to move the illusion within 30 ft of the card. See Notes page.",
 		descriptionLong : "This deck belongs to The Tall Man. If I possess it while in Joquiet, I owe The Tall Man a favor. He has the right to curse me if I don't comply. As an action, I can draw a random card from the deck & throw it on the ground within 30 ft. An illusion forms over it & remains until dispelled. There are only 4 cards: 1. Druid (Resembles Max the gardener), 2. Ettin (Resembles Eduardo or Fernando. Flip a coin), 3. Night Hag (Resembles Madame Zem), 4. Me. While within 120 ft, I can use an action to move the illusion within 30 ft of the card. See Notes page for details.",
@@ -12785,7 +12785,7 @@ MagicItemsList["al headwear (common)"] = {
 		allowDuplicates : true,
 		choicesNotInMenu : true,
 		magicItemTable : "?",
-	choices : ["Dread Helm (BMG-MOON-MD-12)","Dread Helm (CCC-AETHER-1-2)","Dread Helm (CCC-GAD1-2)","Dread Helm: Klicklikak Control Helm (CCC-NUKE-1-5)","Dread Helm (CCC-OCC-2)","Dread Helm (Generic DC-POA)","Dread Helm (DC-POA-DUCKS-OS-02)","Dread Helm (DC-POA-HARM-1-1)","Dread Helm (DC-POA-LEGIT-CIPH-1)","Dread Helm: Ko's Visage (DC-POA-TDG1-2)","Dread Helm (FR-DC-DDG-1)","Dread Helm: Yesen's Mask (FR-DC-FRI-13)","Dread Helm (FR-DC-LGBTQ-1)","Dread Helm (FR-DC-PHP-CKA1)","Dread Helm: Spyder-Fiend Head (FR-DC-PHP-PEST-2)","Dread Helm (FR-DC-RWIE-3)","Dread Helm (FR-DC-SCROG-1)","Dread Helm (FR-DC-STRAT-WYRM-7)","Dread Helm: Resting Lich Face (FR-DC-THAY-3)","Dread Helm (FR-DC-TT-301)","Dread Helm: Green (Liar's Night)","Dread Helm: Pumpkin (Liar's Night)","Dread Helm (PO-BK-2-3)","Dread Helm (PS-DC-DRAGON24-4)","Dread Helm (PS-DC-MAR-2)","Dread Helm (PS-DC-PKL-11)","Dread Helm (WBW-DC-DEN-H1)","Hat of Vermin: Bulaga Wizard Hat (CCC-GSP2-1)","Hat of Vermin (CCC-TAROT1-5)","Hat of Vermin (WBW-DC-BIRE-2)","Hat of Vermin: Sylvan Sock (WBW-DC-CONMAR-6)","Hat of Vermin (WBW-DC-LSN-1)","Hat of Vermin (WBW-DC-NJ-HOPE-1)","Hat of Vermin: Hag's Party Hat (WBW-DC-PUFF-1)","Hat of Vermin: Bella's Tricorn Hat (WBW-DC-Rook-2-1)","Hat of Vermin (WBW-DC-TIC-1)","Hat of Vermin: Talon's Hood (WBW-DC-VMT-2)","Hat of Vermin: Piper's Hat (WBW-DC-ZODIAC-1)","Hat of Wizardry (BMG-MOON-MD-4)","Hat of Wizardry (FR-DC-BTW-1)","Hat of Wizardry (FR-DC-GHG-3)","Hat of Wizardry: Elminster's (FR-DC-LIGA-3)","Hat of Wizardry (FR-DC-RWIE-1)","Hat of Wizardry (FR-DC-Saerloon-2)","Hat of Wizardry: Thayan Headband (FR-DC-THAY-1)","Hat of Wizardry (PO-BMG-DRW-KS-7)","Hat of Wizardry (SJ-DC-BST-6)","Hat of Wizardry: Lucent Iris Hairpin (SJ-DC-DD-9)","Hat of Wizardry: Periwinkle's Hat of Piracy (SJ-DC-DWR-3)","Hat of Wizardry: Quor'hin's (SJ-DC-ECHO-1)","Hat of Wizardry: FauxCon Employee Hat (SJ-DC-FAUX-1)","Hat of Wizardry (SJ-DC-MB5-AH123)","Hat of Wizardry (SJ-DC-RFJK-2-2)","Hat of Wizardry: Old Sleeping Cap (SJ-DC-SCR-1)","Hat of Wizardry (SJ-DC-TEL-6)","Hat of Wizardry (SJ-DC-VMT-1)"],
+	choices : ["Dread Helm (BMG-MOON-MD-12)","Dread Helm (CCC-AETHER-1-2)","Dread Helm (CCC-GAD1-2)","Dread Helm: Klicklikak Control Helm (CCC-NUKE-1-5)","Dread Helm (CCC-OCC-2)","Dread Helm (Generic DC-POA)","Dread Helm (DC-POA-DUCKS-OS-02)","Dread Helm (DC-POA-HARM-1-1)","Dread Helm (DC-POA-LEGIT-CIPH-1)","Dread Helm: Ko's Visage (DC-POA-TDG1-2)","Dread Helm (FR-DC-DDG-1)","Dread Helm: Yesen's Mask (FR-DC-FRI-13)","Dread Helm (FR-DC-LGBTQ-1)","Dread Helm (FR-DC-PHP-CKA1)","Dread Helm: Spyder-Fiend Head (FR-DC-PHP-PEST-2)","Dread Helm (FR-DC-RWIE-3)","Dread Helm (FR-DC-SCROG-1)","Dread Helm (FR-DC-STRAT-WYRM-2)","Dread Helm: Resting Lich Face (FR-DC-THAY-3)","Dread Helm (FR-DC-TT-301)","Dread Helm: Green (Liar's Night)","Dread Helm: Pumpkin (Liar's Night)","Dread Helm (PO-BK-2-3)","Dread Helm (PS-DC-DRAGON24-4)","Dread Helm (PS-DC-MAR-2)","Dread Helm (PS-DC-PKL-11)","Dread Helm (WBW-DC-DEN-H1)","Hat of Vermin: Bulaga Wizard Hat (CCC-GSP2-1)","Hat of Vermin (CCC-TAROT1-5)","Hat of Vermin (WBW-DC-BIRE-2)","Hat of Vermin: Sylvan Sock (WBW-DC-CONMAR-6)","Hat of Vermin (WBW-DC-LSN-1)","Hat of Vermin (WBW-DC-NJ-HOPE-1)","Hat of Vermin: Hag's Party Hat (WBW-DC-PUFF-1)","Hat of Vermin: Bella's Tricorn Hat (WBW-DC-Rook-2-1)","Hat of Vermin (WBW-DC-TIC-1)","Hat of Vermin: Talon's Hood (WBW-DC-VMT-2)","Hat of Vermin: Piper's Hat (WBW-DC-ZODIAC-1)","Hat of Wizardry (BMG-MOON-MD-4)","Hat of Wizardry (FR-DC-BTW-1)","Hat of Wizardry (FR-DC-GHG-3)","Hat of Wizardry: Elminster's (FR-DC-LIGA-3)","Hat of Wizardry (FR-DC-RWIE-1)","Hat of Wizardry (FR-DC-Saerloon-2)","Hat of Wizardry: Thayan Headband (FR-DC-THAY-1)","Hat of Wizardry (PO-BMG-DRW-KS-7)","Hat of Wizardry (SJ-DC-BST-6)","Hat of Wizardry: Lucent Iris Hairpin (SJ-DC-DD-9)","Hat of Wizardry: Periwinkle's Hat of Piracy (SJ-DC-DWR-3)","Hat of Wizardry: Quor'hin's (SJ-DC-ECHO-1)","Hat of Wizardry: FauxCon Employee Hat (SJ-DC-FAUX-1)","Hat of Wizardry (SJ-DC-MB5-AH123)","Hat of Wizardry (SJ-DC-RFJK-2-2)","Hat of Wizardry: Old Sleeping Cap (SJ-DC-SCR-1)","Hat of Wizardry (SJ-DC-TEL-6)","Hat of Wizardry (SJ-DC-VMT-1)"],
 	"dread helm (bmg-moon-md-12)" : {
 		name : "Dread Helm (BMG-MOON-MD-12)",
 		source : [["AL","PO"]],
@@ -12911,8 +12911,8 @@ MagicItemsList["al headwear (common)"] = {
 		descriptionFull : "The dread helm resembles a steel helm with a polished bronze hue, crowned with curving bull horns.\n   " + toUni("Beacon") + ". You can take a Bonus Action to cause the item to shed Bright Light in a 10-foot radius and Dim Light for an additional 10 feet, or to extinguish the light.\n   While you're wearing this fearsome steel helm, your eyes glow red and the rest of your face is hidden in shadow.",
 		action : [["bonus action", "Dread Helm (light/dim)"]],
 		},
-	"dread helm (fr-dc-strat-wyrm-7)" : {
-		name : "Dread Helm (FR-DC-STRAT-WYRM-7)",
+	"dread helm (fr-dc-strat-wyrm-2)" : {
+		name : "Dread Helm (FR-DC-STRAT-WYRM-2)",
 		source : [["AL","FR-DC"]],
 		rarity : "common",
 		description : "This helm resembles a roaring dragon, with the opening in the dragon's gaping jaws. When I first put on the helm, it shifts to the type of dragon I'm most similar to and my eyes glow colors based on that dragon's breath (i.e. a red dragon blazes like fire, a silver dragon shows two chips of glowing ice). While worn I'm unharmed by extreme temps past 0\u00B0F & 100\u00B0F.",
@@ -16922,7 +16922,7 @@ MagicItemsList["al jewelry"] = {
 		weight : 1,
 		limfeaname : "Talisman of Ultimate Evil",
 		usages : 6,
-		recovery : "never",
+		recovery : "Never",
 		action : [["action", ""]],
 		calcChanges : {
 		spellCalc: [

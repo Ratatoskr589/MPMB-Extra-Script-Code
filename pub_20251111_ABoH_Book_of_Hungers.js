@@ -8,34 +8,6 @@ SourceList.BoH = {
   url: "https://www.dndbeyond.com/sources/dnd/aboh",
   date: "2025/11/11",
 };
-SourceList.LEGACYRACE = {
-  name: "Races Deprecated by 2024 Player's Handbook",
-  abbreviation: "LEGACY",
-  abbreviationSpellsheet: "L",
-  group: "Core Sources",
-  url: "https://marketplace.dndbeyond.com/core-rules/3709000?pid=DB3709000",
-  date: "2014/01/01",
-  defaultExcluded : true,
-};
-//Functions
-function escapeRegExp(string) {
-  return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); // $& means the whole matched string
-}
-function legacyRaceRefactor(raceKey, newRace){
-  if(newRace.replaces){
-    for (var replaced of newRace.replaces){
-      if (replaced in RaceList){
-        var oldRace = RaceList[replaced];
-        RaceList[replaced + " (L)"] = oldRace;
-        delete RaceList[replaced];
-        oldRace.source = [["LEGACYRACE", 1]];
-        oldRace.name = oldRace.name + " (L)";
-        oldRace.shortname = oldRace.shortname + " (L)";        
-      }
-    }
-  }
-  RaceList[raceKey] = newRace;
-}
 
 
 //Backgrounds
@@ -767,14 +739,13 @@ FeatsList["boon of misty escape"] = {
 };
 
 //Species
-legacyRaceRefactor("dhampir", {
-	regExpSearch : /dhampir/i,
-	name : "Dhampir",
-	sortname : "Dhampir",
-	plural : "Dhampirs",
+RaceList["dhampir {boh}"] = {
+	regExpSearch : /dhampir {boh}/i,
+	name : "Dhampir {BoH}",
+	sortname : "Dhampir {BoH}",
+	plural : "Dhampirs {BoH}",
 	source : [["BoH", ""]],
 	size : 3,
-	replaces: ["dhampir"],
 	dmgres : ["Necrotic"],
 	speed : {
 		walk : { spd : 35, enc : 25 },
@@ -782,8 +753,8 @@ legacyRaceRefactor("dhampir", {
 	},
 	trait : "Dhampir (BoH)" + (typePF ? "\n " : "\t") +
 	"\u2022 Trace of Undeath: I have Resistance to Necrotic damage." +
-	"\n \u2022 Spider Climb: I have a Climb Speed equal to my Speed. When I reach level 3, I can also move up, down, and across vertical surfaces and on ceilings with my hands free." +
-	"\n \u2022 Vampiric Bite: When I hit with the dmg option of an Unarmed Strike, I can bite with my fangs. My Proficiency Bonus per long rest, if the creature wasn't a Construct or Undead, I can also empower myself. I either regain HP or get a bonus to my next ability check or attack roll. Both equal the Piercing damage dealt.",
+	"\n \u2022 Spider Climb: I have a Climb Speed equal to my Speed. When I reach level 3, I can also move up, down, and across vertical surfaces and on ceilings while leaving my hands free." +
+	"\n \u2022 Vampiric Bite: When I hit with the dmg option of an Unarmed Strike, I can bite with my fangs. My Proficiency Bonus per long rest, if the creature wasn't a Construct or Undead, I can also empower myself. I either regain HP or get a bonus to my next ability check or attack roll within 1 minute. Both equal the Piercing damage dealt.",
 	vision : [["Darkvision", 60]],
 	weaponOptions : [{
 		regExpSearch : /^(?=.*vampiric)(?=.*bite).*$/i,
@@ -806,6 +777,4 @@ legacyRaceRefactor("dhampir", {
 		usagescalc : "event.value = How('Proficiency Bonus')",
 		recovery : "long rest"
 	}],
-});		
-
-
+};

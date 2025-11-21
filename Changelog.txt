@@ -1,13 +1,18 @@
+After 10/12/25
+- Wrote script for AL legal Book of Hungers options (feats, species, backgrounds)
+- Wrote script for items from Netheril's Fall and non-artifact items from Adventures in Faerun, including the summon statblocks as companions
+- Minor capitalization changes in AL Magic Items file
+
 After 8/21/25
--Added some code to help me track Bastion Special Features and costs. It's a bit clunky due to sheet limitations, but you can comment it out before installing if you don't care about Bastions.
--Minor corrections (added special means for THAY-4, corrected name in RPSG-9)
--Added a few more new DC items
--Also reorganized the Armor (Other) category so the same armor is together and then sub-sorted by type, instead of completely alphabetical
--Accidentally made Flame Tongues non-attunement in the previous version so I fixed that.
--Added Tavern Prizes from DDEP8-3 since they're confirmed as common magic items
--Updated WBW-BEL-1 to have Common language property instead of DM choice per new version
--Added more items from DCs, including some from Stratigicon, which I don't own yet
--Fixed a typo in long description for the Clockwork Amulet
+- Added some code to help me track Bastion Special Features and costs. It's a bit clunky due to sheet limitations, but you can comment it out before installing if you don't care about Bastions.
+- Added a few more new DC items, including some from the latest Stratigicon
+- Added Tavern Prizes from DDEP8-3 since they're confirmed as common magic items
+- Reorganized the Armor (Other) category so the same armor is together and then sub-sorted by type, instead of completely alphabetical
+- Also grouped together the Rings of Resistance
+- Minor corrections (added special means for THAY-4, corrected name in RPSG-9)
+- Accidentally made Flame Tongues non-attunement in the previous version so I fixed that.
+- Updated WBW-BEL-1 to have Common language property instead of DM choice per new version
+- Fixed a typo in long description for the Clockwork Amulet
 
 After 5/25/25
 -Made some adjustments to reflect rules from ALPG 15.3 and new unobtainable item categories: 
