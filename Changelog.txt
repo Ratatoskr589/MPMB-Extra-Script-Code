@@ -1,3 +1,13 @@
+After 12/5/25
+-Created variable code for Staff of the Magi. Also corrected leftover spells that were using old rules.
+-Created generic variable code for the Guardian property
+-Added more items from DC modules
+-Fixed an error with the code for All Purpose Tools+1
+-Swapped a couple more items to variables to condense my code since I now have more copies of those items
+-Fixed a typo on Rod of Alertness spell bonuses
+-Fixed some Dragon Scale Mail still saying it gives adv vs Frightful Presence
+-Fixed some incorrect flavor/minor properties
+
 After 11/24/25
 -Fixed undefined senses for Terran Magen
 -Bastion turns are now a flat 7 DT, so I removed the downtime costs from my Workaround. I left in the LR and other time requirements, since that determines what you can actually do in a single turn.

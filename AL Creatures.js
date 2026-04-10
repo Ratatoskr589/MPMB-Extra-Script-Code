@@ -14,7 +14,7 @@ Effect: This file adds new creatures that are specially made for AL into the she
 //WIP: Fai Chen's/Certs, CCCs, DC-POA, DRW
 
 var iFileName = "AL Creatures.js";
-RequiredSheetVersion("13.1.0");
+RequiredSheetVersion("13.1.0", 15);
 
 //As far as I'm aware, the only thing that doesn't currently function in older versions of the sheet is the companions that can be summoned by both Find Steed and Find Greater Steed. They won't appear under the Companion Option selections, though you can choose them and then adjust to a steed manually.
 

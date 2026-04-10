@@ -15,7 +15,7 @@ This is not a complete list since I do not have every published adventure, but i
 	//In progress: SJ-DCs, POs, RV-DC, FR-DC, PS-DC, WBW-DC
 
 var iFileName = "AL Flavored Magic Armor.js";
-RequiredSheetVersion("13.2.3");
+RequiredSheetVersion("13.2.3", 15);
 
 // Define the source
 SourceList["AL"] = {
@@ -60,6 +60,10 @@ if (!SourceList.WDotMM) {
 	};
 }
 
+//Variables to help condense code:
+var genericGuardianArmor = {
+		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
+ }
 
 //AL Flavored Armor
 MagicItemsList["al adamantine/mithral armor"] = {
@@ -259,7 +263,7 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		allowDuplicates : true,
 		choicesNotInMenu : true,
 		magicItemTable : "?",
-	choices : ["+1 Leather (DDEP7-1)","+1 Leather: Mummy Wraps (RV-DC-GC15-4)","+1 Studded Leather (CCC-BMG-21 HULB2-3)","+1 Studded Leather (FR-DC-AEG-7)","+1 Studded Leather: Star Lancer Corps Armor (SJ-DC-BAD-3)","+1 Scale Mail: Shroud of the Mourning Warrior (DDAL5-13)","+1 Breastplate: Glass (DDEP0-1)","+1 Breastplate (SJ-DC-ASI-3)","+1 Breastplate (SJ-DC-DRA-4)","+1 Breastplate: Chitin (SJ-DC-EPOCH-3)","+1 Breastplate: Bulletproof Vest (SJ-DC-LEGIT-SB-2)","+1 Breastplate: Sha'sal Khou (SJ-DC-RFJK-2-1)","+1 Breastplate: Chameleon (SJ-DC-TKM-3)","+1 Half Plate: Bone (CCC-TRI-6 NIGHT1-2)","+1 Half Plate (DDEP4)","+1 Half Plate (FR-DC-AEG-8)","+1 Half Plate: Thurûmkhar (FR-DC-FET-1)","+1 Half Plate: Valkur's Raiment (FR-DC-NUKE-2)","+1 Half Plate: Asano's Do-Maru (FR-DC-ONI-2)","+1 Half Plate: Jasper (PS-DC-PKL-6)","+1 Half Plate: Warforged Chest Piece (RV-DC-PHP-1313-1)","+1 Half Plate: Qumado's Gift (SJ-DC-DEN-H6)","+1 Half Plate (SJ-DC-DRAGON-2)","+1 Half Plate (SJ-DC-END-1-5)","+1 Half Plate: Legion's Peregrine Cuirass (SJ-DC-ROCK-2)","+1 Half Plate: Mazatil's Remorse (SJ-DC-STRATCON-1)","+1 Splint (DDEX1-12)","+1 Splint (DDAL5-4)","+1 Splint: Remorhaz (DDEP10-2)","+2 Studded Leather (CCC-TRI-23 STORM1-2)","+2 Studded Leather (PO-BK-1-5)","+2 Half Plate: Stone (DDEP7-2)","+2 Half Plate: Mythos (WBW-DC-PHP-PHAN-2)","+2 Splint: Remorhaz (DDEP10-2)","+2 Plate: Stone (CCC-JGD-1)","+2 Plate (BMG-DRWEP-OD-2)","+2 Plate (Trading Post)","+3 Studded Leather (PS-DC-ELEMENT-DEATH-2)","+3 Studded Leather (PS-DC-SS)","+3 Studded Leather (PS-DC-STRAT-DRAGON-7)","+3 Studded Leather (PS-DC-TST-1)","+3 Hide: Daphnaie Armor (AL:SA-11A)","+3 Breastplate: Champion's Badge (PS-DC-STRAT-UNDEAD-3)","+3 Half Plate: Record Keeper (PS-DC-MECH-1)","+3 Half Plate (PS-DC-NOS-2)","+3 Plate (PS-DC-AUG-1)","+3 Plate (PS-DC-ELEMENT-DEATH-1)","+3 Plate (PS-DC-MIKE-1)","+3 Plate: Deep (PS-DC-PANDORA-JWEI-S2-1)","+3 Plate: Pickle's (PS-DC-PKL-20A)","+3 Plate: Wyrmguard Armor (PS-DC-STRAT-DRAGON-4)"],
+	choices : ["+1 Leather (DDEP7-1)","+1 Leather: Mummy Wraps (RV-DC-GC15-4)","+1 Studded Leather (CCC-BMG-21 HULB2-3)","+1 Studded Leather (FR-DC-AEG-7)","+1 Studded Leather: Star Lancer Corps Armor (SJ-DC-BAD-3)","+1 Scale Mail: Shroud of the Mourning Warrior (DDAL5-13)","+1 Breastplate: Glass (DDEP0-1)","+1 Breastplate (FR-DC-STRAT-TALES-1)","+1 Breastplate (SJ-DC-ASI-3)","+1 Breastplate (SJ-DC-DRA-4)","+1 Breastplate: Chitin (SJ-DC-EPOCH-3)","+1 Breastplate: Bulletproof Vest (SJ-DC-LEGIT-SB-2)","+1 Breastplate: Sha'sal Khou (SJ-DC-RFJK-2-1)","+1 Breastplate: Chameleon (SJ-DC-TKM-3)","+1 Half Plate: Bone (CCC-TRI-6 NIGHT1-2)","+1 Half Plate (DDEP4)","+1 Half Plate (FR-DC-AEG-8)","+1 Half Plate: Thurûmkhar (FR-DC-FET-1)","+1 Half Plate: Valkur's Raiment (FR-DC-NUKE-2)","+1 Half Plate: Asano's Do-Maru (FR-DC-ONI-2)","+1 Half Plate: Jasper (PS-DC-PKL-6)","+1 Half Plate: Warforged Chest Piece (RV-DC-PHP-1313-1)","+1 Half Plate: Qumado's Gift (SJ-DC-DEN-H6)","+1 Half Plate (SJ-DC-DRAGON-2)","+1 Half Plate (SJ-DC-END-1-5)","+1 Half Plate: Legion's Peregrine Cuirass (SJ-DC-ROCK-2)","+1 Half Plate: Mazatil's Remorse (SJ-DC-STRATCON-1)","+1 Splint (DDEX1-12)","+1 Splint (DDAL5-4)","+1 Splint: Remorhaz (DDEP10-2)","+1 Plate: Slaad (PS-DC-PUB-9)","+2 Studded Leather (CCC-TRI-23 STORM1-2)","+2 Studded Leather (PO-BK-1-5)","+2 Half Plate: Stone (DDEP7-2)","+2 Half Plate: Shogun's Armor (FR-DC-ONI-5)","+2 Half Plate (FR-DC-WE-2)","+2 Half Plate: Mythos (WBW-DC-PHP-PHAN-2)","+2 Splint: Remorhaz (DDEP10-2)","+2 Plate: Stone (CCC-JGD-1)","+2 Plate (BMG-DRWEP-OD-2)","+2 Plate (PS-DC-STRAT-WYRM-9)","+2 Plate (Trading Post)","+3 Studded Leather (PS-DC-ELEMENT-DEATH-2)","+3 Studded Leather (PS-DC-SS)","+3 Studded Leather (PS-DC-STRAT-DRAGON-7)","+3 Studded Leather (PS-DC-STRAT-WYRM-8)","+3 Studded Leather (PS-DC-TST-1)","+3 Hide: Daphnaie Armor (AL:SA-11A)","+3 Breastplate: Champion's Badge (PS-DC-STRAT-UNDEAD-3)","+3 Half Plate: Record Keeper (PS-DC-MECH-1)","+3 Half Plate (PS-DC-NOS-2)","+3 Half Plate (PS-DC-STRAT-WYRM-10)","+3 Plate (PS-DC-AUG-1)","+3 Plate (PS-DC-ELEMENT-DEATH-1)","+3 Plate (PS-DC-MIKE-1)","+3 Plate: Deep (PS-DC-PANDORA-JWEI-S2-1)","+3 Plate: Pickle's (PS-DC-PKL-20A)","+3 Plate: Wyrmguard Armor (PS-DC-STRAT-DRAGON-4)"],
 	"+1 leather (ddep7-1)" : {
 		name : "+1 Leather (DDEP7-1)",
 		source : [["AL", "S7"]],
@@ -295,7 +299,7 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		allowDuplicates : true,
 		description : "This armor grants a +1 bonus to Armor Class while worn. It also whispers warning, giving me +2 to initiative if I'm not Incapacitated.",
 		descriptionFull : "You have a +1 bonus to AC while wearing this armor.\n   The armor has the guardian minor property.\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition.",
-		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on Initiative rolls." },
+		addMod : genericGuardianArmor.addMod,
 		armorAdd : { select : "+1 Studded Leather", options : ["+1 Studded Leather"]  },
 	},
 	"+1 studded leather: star lancer corps armor (sj-dc-bad-3)" : {
@@ -305,7 +309,7 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		allowDuplicates : true,
 		description : "The Star Lancer Corps armor is made of scavver leather with meteorite shard studs that hum when danger is near, giving +2 to initiative when I'm not Incapacitated. The armor also grants a +1 bonus to AC while worn.",
 		descriptionFull : "The Star Lancer Corps armor is made of scavver leather with meteorite shard studs that hum when danger is near, providing the guardian property.\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition.\n   You have a +1 bonus to AC while wearing this armor.",
-		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on Initiative rolls." },
+		addMod : genericGuardianArmor.addMod,
 		armorAdd : { select : "+1 Studded Leather (Star)", options : ["+1 Studded Leather (Star)"]  },
 	},
 	"+1 scale mail: shroud of the mourning warrior (ddal5-13)" : {
@@ -333,6 +337,16 @@ MagicItemsList["al armor +1, +2, +3"] = {
 			selectNow : true,
 		}]
 	},
+	"+1 breastplate (fr-dc-strat-tales-1)" : {
+		name : "+1 Breastplate (STRAT-TALES-1)",
+		source : [["AL", "FR-DC"]],
+		rarity : "rare",
+		allowDuplicates : true,
+		description : "This silver-trimmed breastplate is masterfully made and resembles the open mouth of a wolf. This piece once belonged to Lady Mazan's late husband and former lord of Brokenstone Vale. While worn, I have +1 AC and can use a Magic action to make my voice carry clearly for up to 600 ft until my next turn ends.",
+		descriptionFull : "This silver-trimmed breastplate is masterfully made and fashioned to resemble the open mouth of a wolf. This piece once belonged to Lady Mazan's late husband and former lord of Brokenstone Vale.\n   You have a +1 bonus to AC while wearing this armor.\n   " + toUni("War Leader") + ". You can take a Magic action to cause your voice or signal to carry clearly for up to 600 feet until the end of your next turn.",
+		armorAdd : { select : "+1 Breastplate", options : ["+1 Breastplate"]  },
+		action : [["action", "Breastplate (600ft Voice)"]],
+	},
 	"+1 breastplate (sj-dc-asi-3)" : {
 		name : "+1 Breastplate (SJ-DC-ASI-3)",
 		source : [["AL", "SJ-DC"]],
@@ -340,7 +354,7 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		allowDuplicates : true,
 		description : "This armor was recovered from the fallen githyanki Vaa'len. The intricately forged dark metal accentuates my musculature and bands of inlayed silver highlight the magical patterns. It grants +1 to AC and warns me, giving +2 initiative if I'm not Incapacitated.",
 		descriptionFull : "This armor was recovered from the fallen Githyanki Vaa'len. The intricately forged dark metal accentuates the musculature of the wearer. Bands of inlayed silver highlight the magical patterns.\n   You have a +1 bonus to AC while wearing this armor.\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition.",
-		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on Initiative rolls." },
+		addMod : genericGuardianArmor.addMod,
 		armorAdd : { select : "+1 Breastplate", options : ["+1 Breastplate"]  },
 	},
 	"+1 breastplate (sj-dc-dra-4)" : {
@@ -425,7 +439,7 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		description : "This armor was forged by the dwarves of the Earthsunder Clan. They named it Thurûmkhar, a combination of Thurûm (\"thoughtfulness, wisdom\") and Khar (\"eye, gaze\"), which could mean \"wise gaze\" or \"mindful mind\". While worn, I gain +1 AC and it warns me, giving +2 initiative unless I'm Incapacitated.",
 		descriptionFull : "This Armor was once forged by the Dwarves of the Earthsunder Clan. They named it Thurûmkhar, a combination of Thurûm (\"thoughtfulness, wisdom\") and Khar (\"eye, gaze\"), which could mean \"wise gaze\" or \"mindful mind\".\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition.\n   You have a +1 bonus to Armor Class while wearing this armor.",
 		armorAdd : { select : "+1 Half Plate", options : ["+1 Half Plate"] },
-		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
+		addMod : genericGuardianArmor.addMod,
 	},
 	"+1 half plate: valkur's raiment (fr-dc-nuke-2)" : {
 		name : "Valkur's Raiment, +1 Half Plate (NUKE-2)",
@@ -462,7 +476,7 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		allowDuplicates : true,
 		description : "This half plate fell off the warforged peace corps protecting Metrol City. The upper left bears the symbol of an iron bull with cogs and gears that glows near danger. While worn, it grants +1 to AC and +2 to initiative as long as I'm not Incapacitated.",
 		descriptionFull : "This half plate fell off from one of the warforged peace corps protecting Metrol city. It bears the symbol of an iron bull with cogs and gears located at the upper left of the armor. You have a +1 bonus to AC while wearing this armor.\n   " + toUni("Guardian") + ". The symbols etched on the armor glows, granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition.",
-		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on Initiative rolls." },
+		addMod : genericGuardianArmor.addMod,
 		armorAdd : { select : "+1 Warforged Half Plate", options : ["+1 Warforged Half Plate"] },
 	},
 	"+1 half plate: qumado's gift (sj-dc-den-h6)" : {
@@ -500,7 +514,7 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		allowDuplicates : true,
 		description : "The peregrine falcon sculpted on this cuirass represents the Valkan's Legion's unmatched swiftness and precision. The falcon pierces delicate lines with arcane runes that bestow magical alertness. Whoever dons it carries the weight of the Legion's reputation. While worn, I have +1 AC and +2 initiative unless Incapacitated.",
 		descriptionFull : "The peregrine falcon sculpted on this cuirass represents Valkan's Legion's unmatched swiftness and precision. The falcon pierces delicate windy lines with arcane runes that bestow magical alertness. Whoever dons it, however, carries the weight of the Legion's reputation.\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition.\n   You have a +1 bonus to AC while wearing this armor.",
-		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on Initiative rolls." },
+		addMod : genericGuardianArmor.addMod,
 		armorAdd : { select : "+1 Half Plate", options : ["+1 Half Plate"] },
 	},
 	"+1 half plate: mazatil's remorse (sj-dc-stratcon-1)" : {
@@ -539,6 +553,15 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		descriptionFull : "This armor is made of magically treated remorhaz hide and is trimmed with black fur and decorated with feathers and beads. You have a +1 bonus to AC while wearing this armor.",
 		armorAdd : { select : "+1 Remorhaz Splint", options : ["+1 Remorhaz Splint"] },
 	},
+	"+1 plate: slaad (ps-dc-pub-9)" : {
+		name : "+1 Slaad Plate (PS-DC-PUB-9)",
+		source : [["AL", "PS-DC"]],
+		rarity : "legendary",
+		allowDuplicates : true,
+		description : "This plate armor was fashioned from the hide of a green slaad. It includes a helm made from the head of the slaad, which sits loosely on my own head. I gain +1 to my Armor Class while worn.",
+		descriptionFull : "You have a +1 bonus to AC while wearing this armor.\n   " + toUni("Strange Material") + ". This armour has been fashioned from the hide of a green slaad. Its durability is unaffected. The armour includes a helm made from the head of the slaad, which sits loosely on your own head.",
+		armorAdd : { select : "+1 Slaad Plate", options : ["+1 Slaad Plate"] },
+	},
 	"+2 studded leather (ccc-tri-23 storm1-2)" : {
 		name : "+2 Studded Leather (TRI-23 STORM1-2)",
 		source : [["AL", "CCC"]],
@@ -567,6 +590,26 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		languageProfs : ["Dwarvish"],
 		armorAdd : { select : "+2 Stone Half Plate", options : ["+2 Stone Half Plate"] },
 	},
+	"+2 half plate: shogun's armor (fr-dc-oni-5)" : {
+		name : "Shogun's Armor, +2 Half Plate (FR-DC-ONI-5)",
+		source : [["AL", "FR-DC"]],
+		rarity : "very rare",
+		allowDuplicates : true,
+		description : "This +2 half-plate consists of black lacquered lamellar plates and hardened leather straps, a kabuto helmet with a \"V\" formed of lightning bolts, and a snarling half-mask of a thunder demon. As a Magic action, it can project commands that sound like booming peals of thunder, my voice carrying for up to 600 ft until my next turn ends.",
+		descriptionFull : "This armor consists of black lacquered lamellar plates and hardened leather straps, a kabuto helmet with a \"V\" formed of lightning bolts, and a snarling half-mask of a thunder demon. It can project commands that sound like the booming peals of thunder.\n   " + toUni("War Leader") + ". You can take a Magic action to cause your voice or signal to carry clearly for up to 600 feet until the end of your next turn.This armor grants a +2 bonus to AC while worn.",
+		armorAdd : { select : "+2 Half Plate", options : ["+2 Half Plate"] },
+		action : [["action", "Shogun's Armor (600ft Voice)"]],
+	},
+	"+2 half plate (fr-dc-we-2)" : {
+		name : "+2 Half Plate (FR-DC-WE-2)",
+		source : [["AL", "FR-DC"]],
+		rarity : "very rare",
+		allowDuplicates : true,
+		description : "While wearing this half plate, I gain a +2 bonus to AC. The armor also floats on water and other liquids, giving me adv on Str (Athletics) checks to swim.",
+		descriptionFull : "This armor grants a +2 bonus to AC while worn.\n   " + toUni("Waterborne") + ". This item floats on water and other liquids. You have advantage on Strength (Athletics) checks to swim.",
+		armorAdd : { select : "+2 Half Plate", options : ["+2 Half Plate"] },
+		savetxt : { text : ["Adv on Str (Athletic) chks to swim"] },
+	},
 	"+2 half plate: mythos (wbw-dc-php-phan-2)" : {
 		name : "Mythos, +2 Half Plate (PHP-PHAN-2)",
 		source : [["AL", "WBW-DC"]],
@@ -592,6 +635,15 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		allowDuplicates : true,
 		description : "This plate is made of obsidian so black it almost seems to draw in the light from its surroundings. It grants a +2 bonus to AC while worn.",
 		descriptionFull : "This plate is made of obsidian so black it almost seems to draw in the light from its surroundings. This armor grants a +2 bonus to AC while worn.",
+		armorAdd : { select : "+2 Plate", options : ["+2 Plate"] },
+	},
+	"+2 plate (ps-dc-strat-wyrm-9)" : {
+		name : "+2 Plate (PS-DC-STRAT-WYRM-9)",
+		source : [["AL", "PS-DC"]],
+		rarity : "very rare",
+		allowDuplicates : true,
+		description : "This plate grants a +2 bonus to AC while worn. It also floats on water and other liquids, giving me adv on Str (Athletics) checks to swim.",
+		descriptionFull : "This plate armor grants a +2 bonus to AC while worn.\n   " + toUni("Waterborne") + ". This item floats on water and other liquids. You have advantage on Strength (Athletics) checks to swim.",
 		armorAdd : { select : "+2 Plate", options : ["+2 Plate"] },
 	},
 	"+2 plate: stone (ccc-jgd-1)" : {
@@ -641,6 +693,15 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		armorAdd : { select : "+3 Studded Leather", options : ["+3 Studded Leather"] },
 		savetxt : { immune : ["temps past 0\u00B0F/100\u00B0F"] },
 	},
+	"+3 studded leather (ps-dc-strat-wyrm-8)" : {
+		name : "+3 Studded Leather (STRAT-WYRM-8)",
+		source : [["AL", "PS-DC"]],
+		rarity : "legendary",
+		allowDuplicates : true,
+		description : "This studded leather crumbles, frays, chips or cracks slightly when worn. It grants a +3 bonus to AC.",
+		descriptionFull : "You have a +3 bonus to AC while wearing this armor.\n   " + toUni("Fragile") + ". The item crumbles, frays, chips, or cracks slightly when wielded, worn, or activated. This quirk has no effect on its properties.",
+		armorAdd : { select : "+3 Studded Leather", options : ["+3 Studded Leather"] },
+	},
 	"+3 studded leather (ps-dc-tst-1)" : {
 		name : "+3 Studded Leather (PS-DC-TST-1)",
 		source : [["AL", "PS-DC"]],
@@ -687,6 +748,16 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		descriptionFull : "You have a +3 bonus to AC while wearing this armor.\n   " + toUni("Strange Material - Dragon Scale") + ". This armor is made from the scales of the dead Leviathan of the Broken God. While the armor appears black indoors or in dim light, it is actually a very deep amethyst color and sparkles in direct sunlight.",
 		armorAdd : { select : "+3 Scale Half Plate", options : ["+3 Scale Half Plate"] },
 	},
+	"+3 half plate (ps-dc-strat-wyrm-10)" : {
+		name : "+3 Half Plate (PS-DC-STRAT-WYRM-10)",
+		source : [["AL", "PS-DC"]],
+		rarity : "legendary",
+		allowDuplicates : true,
+		description : "This half plate gives +3 to AC when worn. It also floats on water and other liquids, giving adv on Str (Athletics) checks to swim.",
+		descriptionFull : "You have a +3 bonus to AC while wearing this armor.\n   " + toUni("Waterborne") + ". This item floats on water and other liquids. You have advantage on Strength (Athletics) checks to swim.",
+		armorAdd : { select : "+3 Half Plate", options : ["+3 Half Plate"] },
+		savetxt : { text : ["Adv on Str (Athletic) chks to swim"] },
+	},
 	"+3 plate (ps-dc-aug-1)" : {
 		name : "+3 Plate (PS-DC-AUG-1)",
 		source : [["AL", "PS-DC"]],
@@ -694,7 +765,7 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		allowDuplicates : true,
 		description : "This plate armor was recovered from the ursine archons that guard the gate to Mount Celestia and still smells of bear. While worn, it grants +3 to AC and warns me, giving +2 initiative when I'm not Incapacitated.",
 		descriptionFull : "This plate armor was recovered from the ursine archons that guard the gate to Mount Celestia. It still smells of bear.\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition. The armor resizes to fit its wearer.\n   You have a +3 bonus to AC while wearing this armor.",
-		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on Initiative rolls." },
+		addMod : genericGuardianArmor.addMod,
 		armorAdd : { select : "+3 Plate", options : ["+3 Plate"] },
 	},
 	"+3 plate (ps-dc-element-death-1)" : {
@@ -814,8 +885,8 @@ MagicItemsList["al armor (common)"] = {
 		name : "Cast-Iron Cast-Off Breastplate (SCROG-LGD-1)",
 		source : [["AL", "FR-DC"]],
 		type : "armor (medium)",
-		description : "This breastplate is made from two cast-iron skillets held together with twine, magic and prayers. It’ll keep your insides on the insides and cook yer eggs in the morning. I can doff the armor as a Magic action.",
-		descriptionFull : "It might look like two cast-iron skillets held together by twine and prayers, but it’ll keep your insides on the insides, and cook yer eggs in the morning.\n   " + toUni("Strange Material") + ". This armor is made from two cast-iron skillets held together by twine and magic.\n   You can doff this armor as a Magic action.",
+		description : "This breastplate is made from two cast-iron skillets held together with twine, magic and prayers. It'll keep your insides on the insides and cook yer eggs in the morning. I can doff the armor as a Magic action.",
+		descriptionFull : "It might look like two cast-iron skillets held together by twine and prayers, but it'll keep your insides on the insides, and cook yer eggs in the morning.\n   " + toUni("Strange Material") + ". This armor is made from two cast-iron skillets held together by twine and magic.\n   You can doff this armor as a Magic action.",
 		armorAdd : { select : "Cast-Off Breastplate", options : ["Cast-Off Breastplate"] },
 		action : [["action", "Cast-Off Breastplate"]]
 	},
@@ -1102,10 +1173,10 @@ MagicItemsList["al armor (other)"] = {
 		allowDuplicates : true,
 		choicesNotInMenu : true,
 		magicItemTable : "?",
-	choices : ["Antimagic Armor: Breastplate (PO-BMG-DRW-KS-7)","Armor of Fungal Spores: Seagrow Shell Breastplate (FR-DC-DMJA-1)","Armor of Fungal Spores: Breastplate (FR-DC-GHG-2)","Armor of Fungal Spores: Phase Spider's Carapace Breastplate (FR-DC-PHP-PEST-1)","Armor of Fungal Spores: Cinnamon Bark Breastplate (FR-DC-Saerloon-2)","Armor of Fungal Spores: Cheese Plate Breastplate (FR-DC-WATERDEEP-CHZ)","Armor of Fungal Spores: Hide (PO-BMG-INT-2)","Armor of Invulnerability: Storm King's Plate (FR-DC-PANDORA-JWEI-S2-4)","Breastplate of Necrotic Resistance: Chardalyn (DDAL10-5)","Half Plate of Fire Resistance (FR-DC-YLRA1-4)","Half Plate of Force Resistance: Pat's Ultimate Magic Armor of Awesome Adventuring (FR-DC-STRAT-UNDEAD-1)","Half Plate of Lightning Resistance (FR-DC-BMK-4)","Half Plate of Necrotic Resistance: Vehariel's Vestment (FR-DC-VECNA-3)","Half Plate of Necrotic Resistance: Winter's Warden (FR-DC-VECNA-3)","Half Plate of Poison Resistance: Mushroom (DDEX3-11)","Scale Mail of Psychic Resistance: Resin (CCC-TRI-21 YUL1-6)","Spiked Armor of Necrotic Resistance (WBW-DC-DEN-H1)","Studded Leather of Fire Resistance (DDAL0-11C)","Demon Armor (DDEX3-16)","Dragon Scale Mail: Red (DDEP5-1)","Dragon Scale Mail: Red (DDAL9-15)","Dwarven Half Plate (FR-DC-STRAT-WYRM-7)","Efreeti Chain (DDAL7-15)","Elven Chain (CCC-BMG-36 ELMW2-3)","Elven Chain (CCC-SQC-2-2)","Elven Chain: Storied (FR-DC-Saerloon-8)","Elven Chain: Armor of the First Frost (WBW-DC-AA-ASHALON-1)","Elven Chain (WBW-DC-AMQ-5)","Elven Chain: Astral (WBW-DC-CONMAR-12)","Elven Chain: Guardian (WBW-DC-GGS-1)","Elven Chain: Loud (WBW-DC-GGS-1)","Elven Chain (WBW-DC-PHP-SPAMMY-1)","Elven Chain (WBW-DC-Rook-2-1)","Elven Chain (WBW-DC-TAZ-1)","Elven Chain (WBW-DC-TEN-3)","Elven Chain: Tehettan's Protection (WBW-DC-TMP-2)","Elven Chain (WBW-DC-ZEP-T2S5)","Elven Chain: Sky's Armor (WBW-DC-ZODIAC-12)","Glamoured Studded Leather (DDAL4-9)","Glamoured Studded Leather (DDAL8-11)","Glamoured Studded Leather (DDAL9-6)","Glamoured Studded Leather: Phantom's Raiment (FR-DC-AKU-1)","Glamoured Studded Leather: Cinderella's Wedding Corset (WBW-DC-CONMAR-15)","Gloomwrought Studded Leather: Mistbound (FR-DC-THAY-3)","Mariner's Studded Leather (DDAL-DRW9)","Mariner's Breastplate (CCC-AETHER-1-2)","Mariner's Breastplate (CCC-MMT1-2)","Mariner's Scale Mail (AL:SA-11A)","Plate Armor of Etherealness (DDAL8-16)"],
+	choices : ["Antimagic Armor: Breastplate (PO-BMG-DRW-KS-7)","Armor of Fungal Spores: Seagrow Shell Breastplate (FR-DC-DMJA-1)","Armor of Fungal Spores: Breastplate (FR-DC-GHG-2)","Armor of Fungal Spores: Phase Spider's Carapace Breastplate (FR-DC-PHP-PEST-1)","Armor of Fungal Spores: Cinnamon Bark Breastplate (FR-DC-Saerloon-2)","Armor of Fungal Spores: Cheese Plate Breastplate (FR-DC-WATERDEEP-CHZ)","Armor of Fungal Spores: Hide (PO-BMG-INT-2)","Armor of Invulnerability: Storm King's Plate (FR-DC-PANDORA-JWEI-S2-4)","Armor of Invulnerability: Exposed Ribcage (PS-DC-ELEMENT-DEATH-4)","Breastplate of Necrotic Resistance: Chardalyn (DDAL10-5)","Half Plate of Fire Resistance (FR-DC-YLRA1-4)","Half Plate of Force Resistance: Pat's Ultimate Magic Armor of Awesome Adventuring (FR-DC-STRAT-UNDEAD-1)","Half Plate of Lightning Resistance (FR-DC-BMK-4)","Half Plate of Necrotic Resistance: Vehariel's Vestment (FR-DC-VECNA-3)","Half Plate of Necrotic Resistance: Winter's Warden (FR-DC-VECNA-3)","Half Plate of Poison Resistance: Mushroom (DDEX3-11)","Scale Mail of Psychic Resistance: Resin (CCC-TRI-21 YUL1-6)","Spiked Armor of Necrotic Resistance (WBW-DC-DEN-H1)","Studded Leather of Fire Resistance (DDAL0-11C)","Demon Armor (DDEX3-16)","Demon Armor: Toothy Plate (FR-DC-STRAT-TALES-3)","Dragon Scale Mail: Red (DDEP5-1)","Dragon Scale Mail: Red (DDAL9-15)","Dragon Scale Mail: Silver (PS-DC-STRAT-WYRM-10)","Dwarven Half Plate (FR-DC-STRAT-WYRM-7)","Efreeti Chain (DDAL7-15)","Elven Chain (CCC-BMG-36 ELMW2-3)","Elven Chain (CCC-SQC-2-2)","Elven Chain: Storied (FR-DC-Saerloon-8)","Elven Chain: Armor of the First Frost (WBW-DC-AA-ASHALON-1)","Elven Chain (WBW-DC-AMQ-5)","Elven Chain: Astral (WBW-DC-CONMAR-12)","Elven Chain: Guardian (WBW-DC-GGS-1)","Elven Chain: Loud (WBW-DC-GGS-1)","Elven Chain (WBW-DC-PHP-SPAMMY-1)","Elven Chain (WBW-DC-Rook-2-1)","Elven Chain (WBW-DC-TAZ-1)","Elven Chain (WBW-DC-TEN-3)","Elven Chain: Tehettan's Protection (WBW-DC-TMP-2)","Elven Chain (WBW-DC-ZEP-T2S5)","Elven Chain: Sky's Armor (WBW-DC-ZODIAC-12)","Glamoured Studded Leather (DDAL4-9)","Glamoured Studded Leather (DDAL8-11)","Glamoured Studded Leather (DDAL9-6)","Glamoured Studded Leather: Phantom's Raiment (FR-DC-AKU-1)","Glamoured Studded Leather (PO-BK-5-3)","Glamoured Studded Leather: Cinderella's Wedding Corset (WBW-DC-CONMAR-15)","Gloomwrought Studded Leather: Mistbound (FR-DC-THAY-3)","Mariner's Studded Leather (DDAL-DRW9)","Mariner's Breastplate (CCC-AETHER-1-2)","Mariner's Breastplate (CCC-MMT1-2)","Mariner's Scale Mail (AL:SA-11A)","Plate Armor of Etherealness (DDAL8-16)"],
 	"antimagic armor: breastplate (po-bmg-drw-ks-7)" : {
 		name : "Antimagic Breastplate (PO-BMG-DRW-KS-7)",
-		source : [["AL", "PO"]], // Chapter 9: Knight
+		source : [["AL", "DRW"]], // Chapter 9: Knight
 		type : "armor (breastplate)",
 		rarity : "very rare",
 		attunement : true,
@@ -1236,6 +1307,23 @@ MagicItemsList["al armor (other)"] = {
 		dmgres : [["Bludgeoning", "Piercing", "Slashing"]],
 		armorAdd : { select : "Plate of Invulnerability", options : ["Plate of Invulnerability"] },
 		savetxt : { immune : ["temps past 0\u00B0F/100\u00B0F"] },
+	},
+	"armor of invulnerability: exposed ribcage (ps-dc-element-death-4)" : {
+		name : "Exposed Ribcage (Invulnerability, ELEMENT-DEATH-4)",
+		source : [["AL", "PS-DC"]],
+		type : "armor (plate)",
+		rarity : "legendary",
+		magicItemTable : "?",
+		description : "Ali's desiccated expanded ribcage makes up this plate armor. It's large enough to wear over my clothes and gives me Resistance to Bludgeoning, Piercing, and Slashing dmg. As a Magic action once per dawn, I can make myself immune to Bludgeoning, Piercing, and Slashing for 10 min or until I doff the armor.",
+		descriptionFull : "You have Resistance to Bludgeoning, Piercing, and Slashing damage while you wear this armor. Metal Shell: You can take a Magic action to give yourself Immunity to Bludgeoning, Piercing, and Slashing damage for 10 minutes or until you are no longer wearing the armor. Once this property is used, it can't be used again until the next dawn.\n   " + toUni("Strange Material") + ". This plate armor is Ali's desiccated, expanded ribcage. It is large enough to be worn over your clothes.",
+		attunement : true,
+		weight : 65,
+		limfeaname : "Armor of Invulnerability",
+		usages: 1,
+		recovery: "dawn",
+		action : [["action", " (immunity)"]],
+		dmgres : [["Bludgeoning", "Piercing", "Slashing"]],
+		armorAdd : { select : "Plate of Invulnerability", options : ["Plate of Invulnerability"] },
 	},
 	"breastplate of necrotic resistance: chardalyn (ddal10-5)" : {
 		name : "Breastplate of Necrotic Resist. (DDAL10-5)",
@@ -1388,6 +1476,39 @@ MagicItemsList["al armor (other)"] = {
 			selectNow : true,
 		}]
 	},
+	"demon armor: toothy plate (fr-dc-strat-tales-3)" : {
+		name : "Toothy Plate (Demon Armor, STRAT-TALES-3)",
+		source : [["AL", "FR-DC"]],
+		type : "armor (plate)",
+		rarity : "very rare",
+		description : "Made of leather and massive jagged teeth, the padding and support of this armor resemble shark skin. The plates are triangular teeth, akin to clenched jaws with fierce smiles. When worn I know Abyssal, gain +1 AC, have clawed gauntlets for atks, plus disadv. on atks \u0026 saves vs demons. Remove Curse or similar magic to doff.",
+		descriptionLong : "Made of leather and massive jagged teeth, the padding and support layers of this armor resemble shark skin, while the plates appear as interlocking triangular teeth akin to clenched jaws bearing fierce smiles. While worn, I have +1 AC, know Abyssal, and can attack with the clawed gauntlets. I also have disadvantage on attacks and saves vs demons and can't doff armor without Remove Curse or similar magic.",
+		descriptionFull : "Comprised of leather and massive jagged teeth, the padding and support layers of this suit of armor resemble shark skin, while the plates themselves appear as interlocking triangular teeth akin to clenched jaws bearing fierce smiles.\n   While wearing this armor, you gain a +1 bonus to Armor Class, and you know Abyssal. In addition, the armor's clawed gauntlets allow your Unarmed Strikes to deal 1d8 Slashing damage instead of the usual Bludgeoning damage, and you gain a +1 bonus to the attack and damage rolls of your Unarmed Strikes.\n   " + toUni("Curse") + ". Once you don this cursed armor, you can't doff it unless you are targeted by a Remove Curse spell or similar magic. While wearing the armor, you have Disadvantage on attack rolls against demons and on saving throws against their spells and special abilities. (Added a choice of armor type with 2024 rules)",
+		attunement : true,
+		cursed : true,
+		languageProfs : ["Abyssal"],
+		savetxt : { text : ["Disadv. on saves vs. demons"] },
+		armorOptions : [{
+			regExpSearch : /^(?=.*toothy)(?=.*demon).*$/i,
+			name : "Toothy Demon Plate",
+			source : [["AL", "FR-DC"]],
+			type : "heavy",
+			ac : "18+1",
+			stealthdis : true,
+			weight : 65,
+			strReq : 15,
+			selectNow : true
+		}],
+		weaponsAdd: ["Demon Armor Claws"],
+		weaponOptions: [{
+			baseWeapon : "unarmed strike",
+			regExpSearch : /^(?=.*demon)(?=.*armor)(?=.*claws).*$/i,
+			name : "Demon Armor Claws",
+			damage : [1, 8, "slashing"],
+			modifiers : [1, 1],
+			selectNow : true,
+		}]
+	},
 	"dwarven half plate (fr-dc-strat-wyrm-7)" : {
 		name : "Dwarven Half Plate (STRAT-WYRM-7)",
 		source : [["AL", "FR-DC"]],
@@ -1446,10 +1567,36 @@ MagicItemsList["al armor (other)"] = {
 		usages : 1,
 		recovery : "dawn",
 		savetxt : {
-			adv_vs : ["Dragon Frightful Presence", "Dragon Breath Weapons"],
+			adv_vs : ["Dragon Breath Weapons"],
 		},
 		description : "This was once the armor of Carmine, an orcish paladin of the Bloody Hooves. She didn't survive into the final caverns to have her soul entombed for Zariel's return. The armor gives +1 AC, adv. on saves against dragon breath weapons and resistance to Fire. As a Magic action once per dawn, I can discern the distance and direction to closest red dragon in 30 miles.",
 		descriptionFull : "This red dragon scale was once the armor of Carmine, an orc paladin of the Bloody Hooves. She didn't survive into the final set of caverns to have her soul entombed to wait for Zariel's return.\n   Dragon Scale Mail is made of the scales of one kind of dragon. Sometimes dragons collect their cast-off scales and gift them. Other times, hunters carefully preserve the hide of a dead dragon. In either case, Dragon Scale Mail is highly valued.\n   While wearing this armor, you gain a +1 bonus to Armor Class, you have Advantage on saving throws against the breath weapons of Dragons, and you have Resistance to one damage type determined by the kind of dragon that provided the scales (see the accompanying table).\n   Additionally, you can focus your senses as a Magic action to discern the distance and direction to the closest dragon within 30 miles of yourself that is of the same type as the armor. This action can't be used again until the next dawn.\n\n" + toUni("Dragon\tResistance") + "\nBlack\tAcid\nBlue\tLightning\nBrass\tFire\nBronze\tLightning\nCopper\tAcid\nGold\tFire\nGreen\tPoison\nRed\tFire\nSilver\tCold\nWhite\tCold",
+		armorOptions : [{
+			regExpSearch : /^(?=.*dragon)(?=.*scale)(?=.*mail).*$/i,
+			name : "Red Dragon Scale Mail",
+			type : "medium",
+			ac : 15,
+			stealthdis : true,
+			weight : 45,
+			selectNow : true,
+		}]
+	},
+	"dragon scale mail: silver (ps-dc-strat-wyrm-10)" : {
+		name : "Silver Dragon Scale Mail (STRAT-WYRM-10)",
+		source : [["AL", "PS-DC"]],
+		type : "armor (scale mail)",
+		rarity : "very rare",
+		attunement : true,
+		dmgres: ["Cold"],
+		limfeaname : "Detect Silver Dragon",
+		action : [["action", "Detect Silver Dragon"]],
+		usages : 1,
+		recovery : "dawn",
+		savetxt : {
+			adv_vs : ["Dragon Breath Weapons"],
+		},
+		description : "This silver armor gives +1 AC, adv. on saves against dragon breath weapons and resistance to Cold. As a Magic action once per dawn, I can discern the distance and direction to closest silver dragon in 30 miles. While underground, I always know my depth & the direction to the nearest upward path.",
+		descriptionFull : "This scale mail is made from silver dragon scales.\n   " + toUni("Delver") + ". While underground, you always know the item's depth below the surface and the direction to the nearest staircase, ramp, or other path leading upward.\n   Dragon Scale Mail is made of the scales of one kind of dragon. Sometimes dragons collect their cast-off scales and gift them. Other times, hunters carefully preserve the hide of a dead dragon. In either case, Dragon Scale Mail is highly valued.\n   While wearing this armor, you gain a +1 bonus to Armor Class, you have Advantage on saving throws against the breath weapons of Dragons, and you have Resistance to one damage type determined by the kind of dragon that provided the scales (see the accompanying table).\n   Additionally, you can focus your senses as a Magic action to discern the distance and direction to the closest dragon within 30 miles of yourself that is of the same type as the armor. This action can't be used again until the next dawn.\n\n" + toUni("Dragon\tResistance") + "\nBlack\tAcid\nBlue\tLightning\nBrass\tFire\nBronze\tLightning\nCopper\tAcid\nGold\tFire\nGreen\tPoison\nRed\tFire\nSilver\tCold\nWhite\tCold",
 		armorOptions : [{
 			regExpSearch : /^(?=.*dragon)(?=.*scale)(?=.*mail).*$/i,
 			name : "Red Dragon Scale Mail",
@@ -1594,7 +1741,7 @@ MagicItemsList["al armor (other)"] = {
 		rarity : "rare",
 		description : "The interlocking rings of this armor form a delicate black and white spider web. Fine script stenciled around the neck repeats the phrase \"Granny has little patience for rudeness\" in Elvish. When danger is imminent, it whispers \"Mind your manners and be polite\". I feel like dozens of tiny spiders are crawling across my body and gain +2 to initiative unless Incapacitated. While worn, I gain a +1 bonus to AC and count as proficient even if I lack training.",
 		descriptionFull : "The interlocking rings of this chain shirt are formed in a delicate black and white spider web pattern. Fine Elvish script is stenciled around the neck border that repeats the phrase \"Granny has little patience for rudeness,\" in Elvish.\n   When danger is imminent, this armor whispers to the wearer \"mind your manners and be polite\" and it feels like dozens of tiny spiders are crawling through the spider web pattern across the wearer's body. The item warns you, granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition.\n   You gain a +1 bonus to Armor Class while you wear this armor. You are considered trained with this armor even if you lack training with Medium or Heavy armor (Added a choice of armor type with 2024 rules).",
-		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on Initiative rolls." },
+		addMod : genericGuardianArmor.addMod,
 		chooseGear : {
 			type : "armor",
 			prefixOrSuffix : ["between", "Guardian Elven", "(WBW-DC-GGS-1)"],
@@ -1745,7 +1892,7 @@ MagicItemsList["al armor (other)"] = {
 		rarity : "rare",
 		description : "Crafted by a master of the Summer Court, this metal armor glimmers gold and sky blue. Etched in Elvish and Orcish is: \"It's a victory when the weapons fall silent and people speak up.\" While worn, I gain +1 to AC and count as proficient even without training. It also squeals warnings, giving +2 initiative unless Incapacitated.",
 		descriptionFull : "Crafted by a master of the Summer Court, this metal armor glimmers in golden yellow and sky blue. Etched into the armor in elvish and orcish: \"It's a victory when the weapons fall silent and people speak up.\"\n   " + toUni("Guardian") + ". The item squeals a warning to its bearer, granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition..\n   You gain a +1 bonus to Armor Class while you wear this armor. You are considered trained with this armor even if you lack training with Medium or Heavy armor (Added a choice of armor type with 2024 rules).",
-		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on Initiative rolls." },
+		addMod : genericGuardianArmor.addMod,
 		chooseGear : {
 			type : "armor",
 			prefixOrSuffix : ["between", "Sky's Armor, Elven", "(ZODIAC-12)"],
@@ -1826,7 +1973,24 @@ MagicItemsList["al armor (other)"] = {
 			selectNow : true,
 		}],
 		action : [["bonus action", "Glamoured Studded Lthr (change)"]],
-		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
+		addMod : genericGuardianArmor.addMod,
+	},
+	"glamoured studded leather (po-bk-5-3)" : {
+		name : "Glamoured Studded Leather (PO-BK-5-3)",
+		source : [["AL", "PO"]],
+		type : "armor (studded leather)",
+		rarity : "rare",
+		description : "Made from flexible leather, this studded leather is reinforced with rivets shaped like musical notes and gives +1 AC. As a bonus action, I can make the armor look like normal clothing or another armor type. I decide its appearance, but the armor retains its bulk. The illusion lasts until I use this property again or doff the armor. Stringblade Quickfoot made it look like debonair clothing: a crushed velvet vest and ivory silk shirt, both matching his eyes. ",
+		descriptionFull : "Stringblade Quickfoot caused this armor to look like debonair bard's clothing: A crushed velvet vest and ivory silk shirt- both of which matched his eyes. Made from flexible leather, the studded leather is reinforced with rivets cleverly shaped into musical notes.\n   You can also take a Bonus Action to cause the armor to assume the appearance of a normal set of clothing or some other kind of armor. You decide what it looks like—including color, style, and accessories—but the armor retains its normal bulk and weight. The illusory appearance lasts until you use this property again or doff the armor.",
+		armorOptions : [{
+			regExpSearch : /^(?=.*glamou?r)(?=.*(studded|studs))(?=.*leather).*$/i,
+			name : "Glamoured Studded Leather",
+			type : "light",
+			ac : 13,
+			weight : 13,
+			selectNow : true,
+		}],
+		action : [["bonus action", "Glamoured Studded Lthr (change)"]]
 	},
 	"glamoured studded leather: cinderella's wedding corset (wbw-dc-conmar-15)" : {
 		name : "Cinderella's Wedding Corset (Glamoured Studded Leather)",
@@ -1962,7 +2126,7 @@ MagicItemsList["al shields"] = {
 		type : "shield",
 		weight : 6,
 		magicItemTable : "?",
-	choices : ["+1 Shield (DDEX3-5)","+1 Shield of the Moon (CCC-TAROT1-2)","+1 Shield of the Salty Griffon (CCC-TRI-19 DEAD1-1)","+2 Shield: Wall of Teeth (DDEX2-14)","+2 Shield: Yata Mirror (CCC-ANIME1-2)","+3 Shield: Miltiades' Shield (CCC-BMG-13 PHLAN1-1)","+3 Shield: Aegis of the Raven Queen (CCC-BWM-3)","+3 Shield (BMG-DRW-OD-7)","Animated Shield (DDEP5-2)","Animated Shield (DDEP8-3)","Arrow-Catching Shield (CCC-BMG-MOON13-3)","Arrow-Catching Shield (CCC-GLIP-2-1)","Arrow-Catching Shield (DDAL9-8)","Arrow-Catching Shield (DDAL-DRWEP3)","Battering Shield (BMG-DRW-OD-2)","Sapphire Buckler (DDAL-DRW19)","Sapphire Buckler (SJ-DC-COD)","Sapphire Buckler: Soulflare (SJ-DC-DFA-6)","Sapphire Buckler: Riddick's Titan Shield (SJ-DC-FLUMPH-4)","Sapphire Buckler (SJ-DC-INAS-5)","Sapphire Buckler (SJ-DC-MIST-2)","Sapphire Buckler (SJ-DC-TEL-7)","Sapphire Buckler: Bee's Knees (SJ-DC-TRIDEN-BZ)","Sentinel Shield (CCC-BMG-MOON11-1)","Sentinel Shield (CCC-WWC-7)","Sentinel Shield (DDAL-CGB)","Sentinel Shield (DDEX2-12)","Shield of the Uven Rune (BMG-MOON-MD-11)","Shield of Missile Attraction: Ward of Chimali (RMH-10)","Spellguard Shield: Warden (CCC-ODFC1-3)","Spellguard Shield (CCC-ROZK1-3)","Spellguard Shield (DDEP7-2)","Spellguard Shield (DDAL-DRWEP2)","Spellguard Shield (FR-DC-TT-301)"],
+	choices : ["+1 Shield (DDEX3-5)","+1 Shield of the Moon (CCC-TAROT1-2)","+1 Shield of the Salty Griffon (CCC-TRI-19 DEAD1-1)","+2 Shield: Wall of Teeth (DDEX2-14)","+2 Shield: Yata Mirror (CCC-ANIME1-2)","+2 Shield (FR-DC-Saerloon-10)","+2 Shield (PS-DC-PUB-11)","+3 Shield: Miltiades' Shield (CCC-BMG-13 PHLAN1-1)","+3 Shield: Aegis of the Raven Queen (CCC-BWM-3)","+3 Shield (BMG-DRW-OD-7)","+3 Shield (FR-DC-F&ADDM-LES3)","+3 Shield (PS-DC-STRAT-WYRM-10)","Animated Shield (DDEP5-2)","Animated Shield (DDEP8-3)","Animated Shield (PS-DC-STRAT-WYRM-9)","Arrow-Catching Shield (CCC-BMG-MOON13-3)","Arrow-Catching Shield (CCC-GLIP-2-1)","Arrow-Catching Shield (DDAL9-8)","Arrow-Catching Shield (DDAL-DRWEP3)","Battering Shield (BMG-DRW-OD-2)","Sapphire Buckler (DDAL-DRW19)","Sapphire Buckler (SJ-DC-COD)","Sapphire Buckler: Soulflare (SJ-DC-DFA-6)","Sapphire Buckler: Riddick's Titan Shield (SJ-DC-FLUMPH-4)","Sapphire Buckler (SJ-DC-INAS-5)","Sapphire Buckler (SJ-DC-MIST-2)","Sapphire Buckler (SJ-DC-TEL-7)","Sapphire Buckler: Bee's Knees (SJ-DC-TRIDEN-BZ)","Sentinel Shield (CCC-BMG-MOON11-1)","Sentinel Shield (CCC-WWC-7)","Sentinel Shield (DDAL-CGB)","Sentinel Shield (DDEX2-12)","Shield of the Cavalier (PO-BK-5-4)","Shield of the Cavalier (PS-DC-STRAT-TALES-6)","Shield of Missile Attraction: Ward of Chimali (RMH-10)","Shield of the Uven Rune (BMG-MOON-MD-11)","Spellguard Shield: Warden (CCC-ODFC1-3)","Spellguard Shield (CCC-ROZK1-3)","Spellguard Shield (DDEP7-2)","Spellguard Shield (DDAL-DRWEP2)","Spellguard Shield (FR-DC-TT-301)"],
 	"+1 shield (ddex3-5)" : {
 		name : "Shield +1 (DDEX3-5)",
 		source : [["AL", "S3"]],
@@ -2009,6 +2173,25 @@ MagicItemsList["al shields"] = {
 		allowDuplicates : true,
 		shieldAdd : "+2 Shield (Yata Mirror)"
 	},
+	"+2 shield (fr-dc-saerloon-10)" : {
+		name : "Shield +2 (FR-DC-Saerloon-10)",
+		source : [["AL", "FR-DC"]],
+		rarity : "rare",
+		description : "This shield is made from over-dried black locust wood. When struck, it cracks noticeably but the cracks seal within seconds. While held, I get an extra +2 to AC.",
+		descriptionFull : "This shield is made from over-dried black locust wood. When it is struck, it cracks noticeably. However, the cracks seem to seal within seconds.\n   " + toUni("Sentinel") + ". The item crumbles, frays, chips, or cracks slightly when wielded, worn, or activated. This quirk has no effect on its properties.\n   While holding this Shield, you have a bonus to Armor Class determined by the Shield's rarity, in addition to the Shield's normal bonus to AC. The bonus is determined by the rarity of the Shield: Uncommon (+1), Rare (+2), or Very Rare (+3).",
+		allowDuplicates : true,
+		shieldAdd : "+2 Shield",
+	},
+	"+2 shield (ps-dc-pub-11)" : {
+		name : "Shield +2 (PS-DC-PUB-11)",
+		source : [["AL", "PS-DC"]],
+		rarity : "rare",
+		description : "This shield bears the rising sun symbol of Lathander, the Morninglord. If I speak or mutter a prayer to Lathander, the symbol lights with the rosy glow of dawn. Bonus action to shed 10-ft bright light and 10-ft more dim, or stop. To reconsecrate the shield to another god and replace the symbol, a temple requires a tenday of prayer and 500 gp. While held, I get an extra +2 to AC.",
+		descriptionFull : "This shield bears the rising sun symbol of Lathander: the Morninglord. If the shield's bearer speaks, or mutters, a prayer to Lathander, they can cause the symbol to glow with the rosy glow of dawn.\n   Any large temple, such as might be found in a city, has the ability to reconsecrate the shield to any other god, and replace the symbol. However, to do so requires a ritual that takes place over at least a tenday of prayer and requires 500 gp worth of incense and other materials.\n   " + toUni("Beacon") + ". You can take a Bonus Action to cause the item to shed Bright Light in a 10-foot radius and Dim Light for an additional 10 feet, or to extinguish the light.\n   While holding this Shield, you have a bonus to Armor Class determined by the Shield's rarity, in addition to the Shield's normal bonus to AC. The bonus is determined by the rarity of the Shield: Uncommon (+1), Rare (+2), or Very Rare (+3).",
+		allowDuplicates : true,
+		shieldAdd : "+2 Shield",
+		action : [["bonus action", "Shield (light/dim)"]],
+	},
 	"+3 shield: miltiades' shield (ccc-bmg-13 phlan1-1)" : {
 		name : "Miltiades' Shield +3 (BMG-13 PHLAN1-1)",
 		rarity : "very rare",
@@ -2037,7 +2220,27 @@ MagicItemsList["al shields"] = {
 		shieldAdd : "+3 Shield",
 		languageProfs : ["Old Iskirthos"],
 	},
-	"animated shield (ddep5-2)" : {  // contains contributions by Larry Hoy
+	"+3 shield (fr-dc-f&addm-les3)" : {
+		name : "Shield +3 (F&DDAM-LES3)",
+		rarity : "very rare",
+		source : [["AL", "FR-DC"]],
+		description : "A hieroglyphic black jackal is emblazoned on the front of this shield. While held, I gain a +3 bonus to my AC in addition to the normal shield bonus. It also warns me, giving +2 initiative unless Incapacitated.",
+		descriptionFull : "A hieroglyphic black jackal is emblazoned on the front of the Shield.\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don’t have the Incapacitated condition. (Playtest item, may changed)\n   While holding this shield, you gain a +3 bonus to AC.\n   While holding this Shield, you have a bonus to Armor Class determined by the Shield's rarity, in addition to the Shield's normal bonus to AC. The bonus is determined by the rarity of the Shield: Uncommon (+1), Rare (+2), or Very Rare (+3).",
+		allowDuplicates : true,
+		shieldAdd : "+3 Shield",
+		addMod : genericGuardianArmor.addMod,
+	},
+	"+3 shield (ps-dc-strat-wyrm-10)" : {
+		name : "Shield +3 (STRAT-WYRM-10)",
+		rarity : "very rare",
+		source : [["AL", "PS-DC"]],
+		description : "While holding this shield, I gain a +3 bonus to my AC in addition to the normal shield bonus. I also suffer no harm in extreme temperatures past 0\u00B0F and 100\u00B0F.",
+		descriptionFull : "While holding this shield, you gain a +3 bonus to AC.\n   While holding this Shield, you have a bonus to Armor Class determined by the Shield's rarity, in addition to the Shield's normal bonus to AC. The bonus is determined by the rarity of the Shield: Uncommon (+1), Rare (+2), or Very Rare (+3).\n   " + toUni("Temperate") + ". You are unharmed by temperatures of 0 degrees Fahrenheit or lower, and 100 degrees Fahrenheit or higher.",
+		allowDuplicates : true,
+		shieldAdd : "+3 Shield",
+		savetxt : { immune : ["temps past 0\u00B0F/100\u00B0F"] },
+	},
+	"animated shield (ddep5-2)" : { 
 		name : "Animated Shield (DDEP5-2)",
 		source : [["AL", "S5"]],
 		rarity : "very rare",
@@ -2047,7 +2250,7 @@ MagicItemsList["al shields"] = {
 		action : [["bonus action", "Animated Shield"]],
 		shieldAdd : "Animated Shield"
 	},
-	"animated shield (ddep8-3)" : {  // contains contributions by Larry Hoy
+	"animated shield (ddep8-3)" : {  
 		name : "Animated Shield (DDEP8-3)",
 		source : [["AL", "S8"]],
 		rarity : "very rare",
@@ -2055,6 +2258,16 @@ MagicItemsList["al shields"] = {
 		descriptionFull : "This shield appears as the head of a large beer keg, ringed by a rusty iron band. Whenever the shield is struck by a blow, a chorus of cheering dwarven voices are heard.\n   While holding this Shield, you can take a Bonus Action to cause it to animate. The Shield leaps into the air and hovers in your space to protect you as if you were wielding it, leaving your hands free. The Shield remains animate for 1 minute, until you take a Bonus Action to end this effect, or until you die or have the Incapacitated condition, at which point the Shield falls to the ground or into your hand if you have one free.",
 		attunement : true,
 		action : [["bonus action", "Animated Shield"]],
+		shieldAdd : "Animated Shield"
+	},
+	"animated shield (ps-dc-strat-wyrm-9)" : {  
+		name : "Animated Shield (STRAT-WYRM-9)",
+		source : [["AL", "PS-DC"]],
+		rarity : "very rare",
+		description : "As a bonus action, I can animate this shield for 1 min. It leaps into the air, hovering in my space to protect me as if wielded until I use another bonus action (returns to hand), or I'm Incapacitated/die (falls to ground). I can also use a Magic action to find magnetic north, if it exists.",
+		descriptionFull : "While holding this Shield, you can take a Bonus Action to cause it to animate. The Shield leaps into the air and hovers in your space to protect you as if you were wielding it, leaving your hands free. The Shield remains animate for 1 minute, until you take a Bonus Action to end this effect, or until you die or have the Incapacitated condition, at which point the Shield falls to the ground or into your hand if you have one free.\n   " + toUni("Compass") + ". You can take a Magic action to learn which way is magnetic north. Nothing happens if this property is used in a location that has no magnetic north.",
+		attunement : true,
+		action : [["bonus action", "Animated Shield (animate)"], ["action", "Animated Shield (find north)"]],
 		shieldAdd : "Animated Shield"
 	},
 	"arrow-catching shield (ccc-bmg-moon13-3)" : { // contains contributions by Larry Hoy
@@ -2170,7 +2383,7 @@ MagicItemsList["al shields"] = {
 		shieldAdd : "Sapphire Buckler",
 		dmgres : ["Psychic", "Thunder"],
 		action : [["reaction", " (damaged in 5ft)"], ["action", " (locate Aberrations"]],
-		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
+		addMod : genericGuardianArmor.addMod,
 	},
 	"sapphire buckler (sj-dc-inas-5)" : {
 		name : "Sapphire Buckler (SJ-DC-INAS-5)",
@@ -2279,6 +2492,82 @@ MagicItemsList["al shields"] = {
 		vision : [["Adv. on Perception checks", 0]],
 		weight: 6,
 	},
+	"shield of the cavalier (po-bk-5-4)" : {
+		name : "Shield of the Cavalier (PO-BK-5-4)",
+		source : [["AL", "PO"]],
+		rarity : "very rare",
+		magicItemTable : "?",
+		description : "An oak tree & full moon adorn this shield, calling to mind Elven gods of nature & dreams. It belonged to Sir Pipparot & his steed Idemas. The shield adds extra +2 AC & glows in 120 ft of Undead. It can be used for 1 atk of Attack action vs target in 5 ft. As Reaction once per dawn, if me or ally in 5 ft targeted by atk or AOE, form immobile 5-ft sphere from me. Creatures or objects not fully inside pushed to empty space. Nothing passes in or out, including trigger effect. Lasts 1 min with Conc.",
+		descriptionLong : "Symbols of a spreading oak tree and a full moon decorate this shield, calling to mind Elven gods of nature and dreams. It belonged to a brave knight named Pipparot and his noble steed Idemas. While held, I gain an extra +2 AC. When I take the Attack action, I can make 1 of the attacks with the shield against a target in 5 ft. It does 2d6 + 2 + Str Force dmg and can Push creature 10 ft. Can also knock Prone if my size or smaller. As a Reaction once per dawn, if me or ally in 5 ft is targeted by attack or saves vs an AOE, I can create an immobile 5-ft Emanation from me. Any creature or object not fully in sphere is pushed to nearest empty space. Nothing can pass in or out, including triggering effect. It lasts for up to 1 min and takes Concentration. The shield glows faintly within 120 ft of Undead.",
+		descriptionFull : "Symbols of a spreading oak tree and a full moon decorate the surface of this Shield and call to mind Elven deities of nature and dreams. It once belonged to a brave knight named Pipparot and his noble steed Idemas.\n   " + toUni("Sentinel") + ". This shield glows faintly when Undead are within 120 feet of it.\n   While holding this Shield, you have a +2 bonus to AC. This bonus is in addition to the Shields normal bonus to AC. The Shield has additional properties that you can use while holding it." +
+		"\n   " + toUni("Forceful Bash") + ". When you take the Attack action, you can make one of the attack rolls using the Shield against a target within 5 feet of yourself. Apply your Proficiency Bonus and Strength modifier to the attack roll. On a hit, the Shield deals Force damage to the target equal to 2d6 + 2 + your Strength modifier, and if the target is a creature, you can push it up to 10 feet directly away from yourself. If the creature is your size or smaller, you can also knock it down, giving it the Prone condition.'" +
+		"\n   " + toUni("Protective Field") + ". As a Reaction, when you or an ally you can see within 5 feet of you is targeted by an attack or makes a saving throw against an area of effect, you can use the Shield to create an immobile 5-foot Emanation originating from you. When the Emanation appears, any creatures or objects not fully contained within it are pushed into the nearest unoccupied spaces outside it. The attack or area of effect that triggered the Reaction has no effect on creatures and objects inside the Emanation, which lasts as long as you maintain Concentration, up to 1 minute. Nothing can pass into or out of the Emanation. A creature or object inside the Emanation can't be damaged by attacks or effects originating from outside, nor can a creature inside the Emanation damage anything outside it. Once this property is used, it can't be used again until the next dawn.",
+		attunement : true,
+		weight : 6,
+		limfeaname : "Shield of the Cavalier",
+		usages : 1,
+		recovery : "dawn",
+		additional : "Protective Field",
+		shieldAdd : ["Shield of the Cavalier", 4, 6],
+		weaponOptions: [{
+			regExpSearch: /^(?=.*cavalier)(?=.*shield).*$/i,
+			name: "Shield of the Cavalier Bash",
+			source: [["D24", 304]],
+			ability: 1,
+			type: 'AlwaysProf',
+			damage: ['2d6 + 2' + What('Str Mod'), '', 'force'],
+			range: "Melee",
+			description: "If target crea push 10ft; if crea <= my size, knock Prone; Replace one attack of Attack action only",
+			isNotWeapon: true,
+			modifiers: [What('Str Mod') + Number(How('Proficiency Bonus')),],
+			selectNow: true
+			}],
+		action : ["reaction", " Protective Field"],
+	},
+	"shield of the cavalier (ps-dc-strat-tales-6)" : {
+		name : "Shield of the Cavalier (STRAT-TALES-6)",
+		source : [["AL", "PS-DC"]],
+		rarity : "very rare",
+		magicItemTable : "?",
+		description : "This shield gives extra +2 AC & glows faintly in 120 ft of dragons. Shield can be used for 1 atk of Attack action vs target in 5 ft. As Reaction once per dawn, if me or ally in 5 ft targeted by atk or AOE, form immobile 5-ft Emanation from me. Creatures or objects not fully inside pushed to closest empty space. Nothing passes in or out, including trigger effect. Lasts for 1 min with Conc.",
+		descriptionLong : "While holding this shield, I gain an extra +2 bonus to AC. When I take the Attack action, I can make 1 of the attacks with the shield against a target in 5 ft. It does 2d6 + 2 + Str Force dmg and can Push creature 10 ft. Can also knock Prone if my size or smaller. As a Reaction once per dawn, if me or ally in 5 ft is targeted by attack or saves vs an AOE, I can create an immobile 5-ft Emanation from me. Any creature or object not fully in sphere is pushed to nearest empty space. Nothing can pass in or out, including triggering effect. It lasts for up to 1 min and takes Concentration. The shield glows faintly within 120 ft of dragons.",
+		descriptionFull : "While holding this Shield, you have a +2 bonus to AC. This bonus is in addition to the Shields normal bonus to AC. The Shield has additional properties that you can use while holding it." +
+		"\n   " + toUni("Forceful Bash") + ". When you take the Attack action, you can make one of the attack rolls using the Shield against a target within 5 feet of yourself. Apply your Proficiency Bonus and Strength modifier to the attack roll. On a hit, the Shield deals Force damage to the target equal to 2d6 + 2 + your Strength modifier, and if the target is a creature, you can push it up to 10 feet directly away from yourself. If the creature is your size or smaller, you can also knock it down, giving it the Prone condition.'" +
+		"\n   " + toUni("Protective Field") + ". As a Reaction, when you or an ally you can see within 5 feet of you is targeted by an attack or makes a saving throw against an area of effect, you can use the Shield to create an immobile 5-foot Emanation originating from you. When the Emanation appears, any creatures or objects not fully contained within it are pushed into the nearest unoccupied spaces outside it. The attack or area of effect that triggered the Reaction has no effect on creatures and objects inside the Emanation, which lasts as long as you maintain Concentration, up to 1 minute. Nothing can pass into or out of the Emanation. A creature or object inside the Emanation can't be damaged by attacks or effects originating from outside, nor can a creature inside the Emanation damage anything outside it. Once this property is used, it can't be used again until the next dawn.\n   " + toUni("Sentinel") + ". This shield glows faintly when Dragons are within 120 feet of it.",
+		attunement : true,
+		weight : 6,
+		limfeaname : "Shield of the Cavalier",
+		usages : 1,
+		recovery : "dawn",
+		additional : "Protective Field",
+		shieldAdd : ["Shield of the Cavalier", 4, 6],
+		weaponOptions: [{
+			regExpSearch: /^(?=.*cavalier)(?=.*shield).*$/i,
+			name: "Shield of the Cavalier Bash",
+			source: [["D24", 304]],
+			ability: 1,
+			type: 'AlwaysProf',
+			damage: ['2d6 + 2' + What('Str Mod'), '', 'force'],
+			range: "Melee",
+			description: "If target crea push 10ft; if crea <= my size, knock Prone; Replace one attack of Attack action only",
+			isNotWeapon: true,
+			modifiers: [What('Str Mod') + Number(How('Proficiency Bonus')),],
+			selectNow: true
+			}],
+		action : ["reaction", " Protective Field"],
+	},
+	"shield of missile attraction: ward of chimali (rmh-10)" : {
+		name : "Ward of Chimali (Shield of Missile Attraction)",
+		source : [["AL:R",10]],
+		rarity : "rare",
+		description : "This shield is made from a sheet of magically hardened gold set with unpolished chunks of amber and a fist-sized ruby. While held, I resist dmg from ranged weapons. Once attuned, I'm cursed. When a ranged weapon atk targets someone in 10 ft, it targets me instead.",
+		descriptionFull : "The Ward of Chimali is fashioned from a sheet of magically hardened gold set with unpolished chunks of amber and a fist-sized ruby.\n   While holding this Shield, you have Resistance to damage from Ranged weapons.\n   " + toUni("Curse") + ". This Shield is cursed. Attuning to it curses you until you are targeted by the Remove Curse spell or similar magic. Removing the Shield fails to end the curse on you. Whenever an attack with a Ranged weapon targets a creature within 10 feet of you, the curse causes you to become the target instead.",
+		attunement : true,
+		weight : 6,
+		shieldAdd : "Shield of Missile Attraction",
+		cursed : true,
+		dmgres : ["Ranged Weapons"]
+	},
 	"shield of the uven rune (bmg-moon-md-11)" : {
 		name : "Shield of the Uven Rune (BMG-MOON-MD-11)",
 		source : [["AL","PO"]],
@@ -2305,18 +2594,6 @@ MagicItemsList["al shields"] = {
 				changes : "The spell does not require concentration."
 			}
 		}
-	},
-	"shield of missile attraction: ward of chimali (rmh-10)" : {
-		name : "Ward of Chimali (Shield of Missile Attraction)",
-		source : [["AL:R",10]],
-		rarity : "rare",
-		description : "This shield is made from a sheet of magically hardened gold set with unpolished chunks of amber and a fist-sized ruby. While held, I resist dmg from ranged weapons. Once attuned, I'm cursed. When a ranged weapon atk targets someone in 10 ft, it targets me instead.",
-		descriptionFull : "The Ward of Chimali is fashioned from a sheet of magically hardened gold set with unpolished chunks of amber and a fist-sized ruby.\n   While holding this Shield, you have Resistance to damage from Ranged weapons.\n   " + toUni("Curse") + ". This Shield is cursed. Attuning to it curses you until you are targeted by the Remove Curse spell or similar magic. Removing the Shield fails to end the curse on you. Whenever an attack with a Ranged weapon targets a creature within 10 feet of you, the curse causes you to become the target instead.",
-		attunement : true,
-		weight : 6,
-		shieldAdd : "Shield of Missile Attraction",
-		cursed : true,
-		dmgres : ["Ranged Weapons"]
 	},
 	"spellguard shield: warden (ccc-odfc1-3)" : {
 		name : "Warden, Spellguard Shield (ODFC1-3)",

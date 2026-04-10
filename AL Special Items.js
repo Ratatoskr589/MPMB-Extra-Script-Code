@@ -12,7 +12,7 @@ It is recommended to enter the code in a fresh sheet before adding any other inf
 	//In progress: SJ-DCs, POs, RV-DC, FR-DC, PS-DC, 
 	
 var iFileName = "AL Special Items.js";
-RequiredSheetVersion("13.2.3");
+RequiredSheetVersion("13.2.3", 15);
 
 // Define the source
 
@@ -99,11 +99,11 @@ SourceList["QftIS"] = {   //This script adds the new items from the Infinite Sta
 
 
 //AL Special Rewards & Story Awards (with major mechanical effects)(Adjusted to feats to better match Nod Hero's code)
-FeatsList["al story awards"] = {
-		name : "AL Story Awards",
-		description : "Special AL rewards available from conventions, epics and adventure modules. This only includes a small slice of the total awards available, primarily flavored boons and blessings, and story awards with major mechanical effects. This selection also assumes that you have spent any Downtime or other cost required to receive the reward.",
+FeatsList["al special awards"] = {
+		name : "AL Special Awards",
+		description : "Special AL rewards available from conventions, epics and adventure modules. This only includes a small slice of the total awards available, primarily flavored boons and blessings, and story awards with major mechanical effects. This selection also assumes that you have spent any Downtime or other cost required to receive the reward. It also includes charms because I didn't feel like splitting them off.",
 		allowDuplicates : true,
-	choices : ["Annabelle's Gratitude (CCC-PRIORY-3)","Angry Alley Cat (FC)","Black Pudding Cup: Cuddly (Trading Post)","Blessing of Magic Resistance: Annointed by the Darkwater (FR-DC-IMP-2)","Blessing of Magic Resistance: Aether's Blessing (FR-DC-MONSTER-4)","Blessing of Magic Resistance: Ilsensine Touched (PS-DC-PANDORA-JWEI-S2-1)","Blessing of Magic Resistance: Favor of Primus (PS-DC-PHP-CKA2)","Blessing of Magic Resistance: Flaw's Gift (SJ-DC-FLUMPH-4)","Blessing of Protection (AL WPM)","Blessing of Protection (DDEP6-3)","Blessing of Protection: Selune's (FR-DC-PANDORA-JWEI-6)","Blessing of Protection: Flux's (SJ-DC-FLUMPH-3)","Blessing of Protection: Ilmater's (SJ-DC-TRIDEN-TFC)","Blessing of Valhalla: Illithids (FR-DC-DEATH)","Blessing of Valhalla: The Friends You Made Along the Way (SJ-DC-DD-11)","Blessing of Wound Closure (SJ-DC-MIST-1)","Boon of Fate: Crowd Favorite (PS-DC-STRAT-UNDEAD-3)","Boon of Quick Casting (PS-DC-CEG-2)","Boon of Recovery (PS-DC-STRAT-DRAGON-4)","Boon of Skill Proficiency: Star Power (PS-DC-RAVENGARD)","Boon of Speed: Dance of the Liberated (PS-DC-TYM-PHP-DIV-1)","Boon of the Unfettered (PS-DC-POP-1)","Chardalyn Poisoning (DDAL10-9)","Charm of the Comet: Enchanted Amulet (FR-DC-PANDORA-JWEI-7)","Charm of the Sage: High Heralds (FR-DC-Saerloon-0)","Charm of the Sun: Gift of Shine (FR-DC-DIVA)","Dreamwalker (DDAL5-11)","Favor of Candlekeep - Language (DDAL0-3)","Flying Snake (DDEP7-1)","Gratitude of Brightstar Moonsilver (CCC-BMG-37 HULB3-1)","Gratitude of Hartkiller (DDAL5-17)","Hall of Honor (DDAL6-3)","Hall of Mirth (DDAL6-3)","Hall of Omens (DDAL6-3)(Diviner)","Hall of Omens (DDAL6-3)(Non-Diviner)","Lich Slayer (DDEP7-2)","Lord of the Gorge (DDAL0-11F)","Luna Lightbearers (WBW-DC-ZODIAC-0)","Nature of the Weave (CCC-ROZK-1-2) (Arcana Prof)","Nature of the Weave (CCC-ROZK-1-2) (Arcana Expert)","Plague Buster (DDEP7-2)","The Qualith Experience (DDIA-VOLO)","Quasit's Essence (DDAL5-8)","Student of Stone (DDAL5-11)","Szass Tam's Arcane Essence (DDEP0-1)","Szass Tam's Planar Essence (DDEP0-1)","Thanks of Ilmater - Immortality","Thanks of Ilmater - Planar Travel","Uku the Spider Boy (DDEP7-1)"],
+	choices : ["Annabelle's Gratitude (CCC-PRIORY-3)","Angry Alley Cat (FC)","Black Pudding Cup: Cuddly (Trading Post)","Blessing of Magic Resistance: Annointed by the Darkwater (FR-DC-IMP-2)","Blessing of Magic Resistance: Aether's Blessing (FR-DC-MONSTER-4)","Blessing of Magic Resistance: Mystra's Kiss (FR-DC-STRAT-WYRM-5)","Blessing of Magic Resistance: Ilsensine Touched (PS-DC-PANDORA-JWEI-S2-1)","Blessing of Magic Resistance: Favor of Primus (PS-DC-PHP-CKA2)","Blessing of Magic Resistance: Flaw's Gift (SJ-DC-FLUMPH-4)","Blessing of Protection (AL WPM)","Blessing of Protection (DDEP6-3)","Blessing of Protection: Selune's (FR-DC-PANDORA-JWEI-6)","Blessing of Protection: Flux's (SJ-DC-FLUMPH-3)","Blessing of Protection: Ilmater's (SJ-DC-TRIDEN-TFC)","Blessing of Valhalla: Illithids (FR-DC-DEATH)","Blessing of Valhalla: The Friends You Made Along the Way (SJ-DC-DD-11)","Blessing of Wound Closure (SJ-DC-MIST-1)","Boon of Fate: Crowd Favorite (PS-DC-STRAT-UNDEAD-3)","Boon of Quick Casting (PS-DC-CEG-2)","Boon of Recovery (PS-DC-STRAT-DRAGON-4)","Boon of Skill Proficiency: Star Power (PS-DC-RAVENGARD)","Boon of Speed: Dance of the Liberated (PS-DC-TYM-PHP-DIV-1)","Boon of the Unfettered (PS-DC-POP-1)","Chardalyn Poisoning (DDAL10-9)","Charm of Animal Conjuring (FR-DC-RDP-2)","Charm of the Comet: Enchanted Amulet (FR-DC-PANDORA-JWEI-7)","Charm of the Moon (FR-DC-STRAT-TALES-4)","Charm of the Sage: High Heralds (FR-DC-Saerloon-0)","Charm of the Sun: Gift of Shine (FR-DC-DIVA)","Dreamwalker (DDAL5-11)","Favor of Candlekeep - Language (DDAL0-3)","Flying Snake (DDEP7-1)","Gratitude of Brightstar Moonsilver (CCC-BMG-37 HULB3-1)","Gratitude of Hartkiller (DDAL5-17)","Hall of Honor (DDAL6-3)","Hall of Mirth (DDAL6-3)","Hall of Omens (DDAL6-3)(Diviner)","Hall of Omens (DDAL6-3)(Non-Diviner)","Lich Slayer (DDEP7-2)","Lord of the Gorge (DDAL0-11F)","Luna Lightbearers (WBW-DC-ZODIAC-0)","Nature of the Weave (CCC-ROZK-1-2) (Arcana Prof)","Nature of the Weave (CCC-ROZK-1-2) (Arcana Expert)","Plague Buster (DDEP7-2)","The Qualith Experience (DDIA-VOLO)","Quasit's Essence (DDAL5-8)","Student of Stone (DDAL5-11)","Szass Tam's Arcane Essence (DDEP0-1)","Szass Tam's Planar Essence (DDEP0-1)","Thanks of Ilmater - Immortality","Thanks of Ilmater - Planar Travel","Uku the Spider Boy (DDEP7-1)"],
 	"annabelle's gratitude (ccc-priory-3)" : {
 		name : "Annabelle's Gratitude (CCC-PRIORY-3)",
 		source : [["AL","2018"]],
@@ -125,6 +125,15 @@ FeatsList["al story awards"] = {
 		descriptionFull : "This special ooze has undergone magical experimentation, which resulted in its body being the perfect, huggable consistency. When hugged, the creature whispers words of self affirmation like \"You are enough.\" and \"All you need is within you right now.\" The creature can be returned via Find Familiar if killed. If its cup was also destroyed, a new cup needs to be purchased (1gp). [Custom flavor from the November 2024 VDDW Trading Post v13.1]",
 		creaturesAdd : [["Black Pudding Cup"]],
 		},
+	"blessing of magic resistance: annointed by the darkwater (fr-dc-imp-2)" : {
+		name : "Annointed by the Darkwater (Magic Resistance)",
+		source : [["AL","FR-DC-IMP-2"]],
+		description : "I've been annointed by Darkwater's Abyssal sea spray. I have advantage on saving throws against spells and other magical effects.",
+		descriptionFull : "You have been anointed with Darkwater's Abyssal sea spray. You have advantage on saving throws against spells and other magical effects.",
+        savetxt : {
+            adv_vs : ["magic"]
+        },
+	},
 	"blessing of magic resistance: aether's blessing (fr-dc-monster-4)" : {
 		name : "Aether's Blessing of Magic Resistance",
 		source : [["AL","FR-DC-MONSTER-4"]],
@@ -134,11 +143,11 @@ FeatsList["al story awards"] = {
             adv_vs : ["magic"]
         },
 	},
-	"blessing of magic resistance: annointed by the darkwater (fr-dc-imp-2)" : {
-		name : "Annointed by the Darkwater (Magic Resistance)",
-		source : [["AL","FR-DC-IMP-2"]],
-		description : "I've been annointed by Darkwater's Abyssal sea spray. I have advantage on saving throws against spells and other magical effects.",
-		descriptionFull : "You have been anointed with Darkwater's Abyssal sea spray. You have advantage on saving throws against spells and other magical effects.",
+	"blessing of magic resistance: mystra's kiss (fr-dc-strat-wyrm-5)" : {
+		name : "Blessing of Mystra's Kiss (Magic Resistance)",
+		source : [["AL","FR-DC-STRAT-WYRM-5"]],
+		description : "Herald Geldroon Cultspiir called upon Mystra's favor for my success in defeating Immersea's enemies. I have advantage on saving throws against spells and other magical effects.",
+		descriptionFull : "Herald Geldroon Cultspiir has called upon Mystra's favor for your success in fulfilling your duty to defeat Immersea's enemies. You have advantage on saving throws against spells and other magical effects.",
         savetxt : {
             adv_vs : ["magic"]
         },
@@ -331,7 +340,7 @@ FeatsList["al story awards"] = {
 		},
     },
     "boon of the unfettered (ps-dc-pop-1)": {
-		name : "Boon of the Unfettered (PS-DC-POP-1)",
+		name : "Boon of the Unfettered (POP-1)",
 		source : [["AL","PS-DC"]],
         description: "You have dealt with the ultimate restraints, anything less is child's play. You have advantage on ability checks made to resist being Grappled. You can also use an action to automatically escape a grapple or free yourself from restraints.",
         descriptionFull: "You have dealt with the ultimate restraints, anything less is child's-play.\n   You have advantage on ability checks made to resist being grappled. In addition, you can use an action to automatically escape a grapple or free yourself of restraints of any kind.",
@@ -350,6 +359,22 @@ FeatsList["al story awards"] = {
 		descriptionFull : "Characters who keep any of the chardalyn find the substance's affinity for magic affecting them in inopportune ways. So long as the character retains the chardalyn (no matter the amount), they have disadvantage on saving throws against spells, and spell attacks against them have advantage.",
 		savetxt : { text : ["Disadv. on saves vs spells. Spell atks against you have adv."] }
 	},
+	"charm of animal conjuring (fr-dc-rdp-2)" : {
+		name : "Charm of Animal Conjuring (RDP-2)",
+		source : [["AL","FR-DC-RDP-2"]],
+		description : "As an action, I can cast the Conjure Animals spell (3rd-level only). When I do, the conjured spirits always look like spiders. This charm disappears after 3 uses.",
+		limfeaname : "Charm of Animal Conjuring",
+		usages : 3,
+		recovery : "never",
+		spellFirstColTitle : "Ch",
+		spellcastingBonus : [{
+			name : "1 charge",
+			spells : ["conjure animals"],
+			selection : ["conjure animals"],
+			firstCol : "1",
+		}],
+		action : [["action", ""]]
+	},
 	"charm of the comet: enchanted amulet (fr-dc-pandora-jwei-7)" : {
 		name : "Enchanted Amulet (Charm of the Comet)",
 		source : [["AL","FR-DC-PANDORA-JWEI-7"]],
@@ -359,6 +384,16 @@ FeatsList["al story awards"] = {
 		usages : 3,
 		recovery : "never",
 		action : [["action", ""]],
+	},
+	"charm of the moon (fr-dc-strat-tales-4)" : {
+		name : "Charm of the Moon (STRAT-TALES-4)",
+		source : [["AL","FR-DC-STRAT-TALES-4"]],
+		description : "This small piece of igneous rock is from Selune, the moon of Toril. It's wrapped in silver wire, hanging on a silver chain. As an action, I can create the effects of a spell up to 5th lvl without components. My Intelligence, Wisdom, or Charisma is the ability for this spell (my choice). Once I use this charm, the rock crumbles into dust. ",
+		descriptionFull : "This charm takes the form of a small piece of igneous rock (a mineral sample from Selune, the moon of Toril) wrapped in a silver wire, hanging on a silver chain. Once the charm is used, the rock crumbles into dust.\n   As an action, you make a minor wish. When I do, you create the effects of a spell of 5th level or lower. The spell takes effect as part of this action and requires no spell components. Your Intelligence, Wisdom, or Charisma is the spellcasting ability for this spell (your choice). Once you use this charm, it vanishes from you.",
+		limfeaname : "Charm of the Moon",
+		usages : 1,
+		recovery : "never",
+		action : [["action", " (up to 5th lvl spell)"]],
 	},
 	"charm of the sage: high heralds (fr-dc-saerloon-0)" : {
 		name : "Charm of the High Heralds (Sage)",

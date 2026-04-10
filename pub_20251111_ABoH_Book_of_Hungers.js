@@ -1,5 +1,5 @@
 var iFileName = "pub_20251111_ABoH_Book_of_Hungers.js";
-RequiredSheetVersion("13.2.3");
+RequiredSheetVersion("13.2.3", 15);
 SourceList.BoH = {
   name: "Astarion's Book of Hungers",
   abbreviation: "BoH",

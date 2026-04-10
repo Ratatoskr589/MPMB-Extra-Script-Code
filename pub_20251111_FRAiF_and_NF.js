@@ -1,5 +1,5 @@
 var iFileName = "pub_20251111_FRAiF_and_NF.js";
-RequiredSheetVersion("13.2.3");
+RequiredSheetVersion("13.2.3", 15);
 
 //Netheril's Fall
 SourceList.NF = {

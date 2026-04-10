@@ -90,6 +90,10 @@ DC-POA-Sunlit-3 A Solstice Tradition
 -Shield of Expression
 -Ring of Truth Telling
 
+WBW-DC-SUNLIT-6 Township
+-Manual of Quickness of Action (Pact)
+-Wand of Pyrotechnics
+
 DC-POA-Z-T1S3
 -Psi Crystal
 
@@ -219,6 +223,10 @@ FR-DC-BTW-03 Father's Mistake
 FR-DC-BTW-04 Father's Decision
 -Wand of Binding
 
+FR-DC-CGB-01 Brewhouse Hunters
+-Masquerade Tattoo
+-Alchemy Jug
+
 FR-DC-DILL-01 Labor Day
 -Chest of Preserving, Blue Elemental Gem
 
@@ -238,6 +246,9 @@ FR-DC-F&ADDM-GW3 Leapin' Lizards
 
 FR-DC-F&ADDM-GW5 A Terminal Ambition
 -Ring of Protection
+
+FR-DC-F&ADDM-LES1 The Breath of Hapi
+-Ioun Stone of Fortitude
 
 FR-DC-GHG-1 Griffons of Longsaddle
 -Staff of Birdcalls
@@ -288,11 +299,18 @@ FR-DC-LIGA-9 A Chromatic Crescendo
 FR-DC-MELB-1-4 Monsters
 -Wand of Binding
 
+FR-DC-NBDD-1 Taggin's Temple of Terror
+-Spirit Board
+-Blessing of Protection
+
 FR-DC-NEW-TIER1-1 Damsel in Distress
 -Adamantine Plate
 
 FR-DC-NEW-TIER2-1 The Bluebloods
 -Mantle of Spell Resistance
+
+FR-DC-NSO-BALANCE A New Order Rises
+-Mace +1
 
 FR-DC-NUKE-3 Sapphire Hoard
 -Potion of Superior Healing
@@ -300,6 +318,9 @@ FR-DC-NUKE-3 Sapphire Hoard
 
 FR-DC-ONI-1 Oni of the Thousand Gates
 -Orb of Direction
+
+FR-DC-ONI-4 Oni of the Thousand Gates
+-My Brother's Enemy
 
 FR-DC-PANDORA-JWEI-8 Minerva
 -Blessing of Weapon Enhancement
@@ -340,6 +361,9 @@ FR-DC-RWIE-3 Circus Berserkus
 FR-DC-Saerloon-5 That's a Lot of Flambe
 -Dust of Corrosion
 
+FR-DC-Saerloon-9 Dowager's by Lantern Light 
+-Pot of Awakening
+
 FR-DC-SCROG-LGD-01 Legend of the Hellish Hay Bale
 -Keoghtom's Ointment
 
@@ -348,6 +372,10 @@ FR-DC-SCROOGE-1 Funny Bunny Business
 -Pipes of the Sewers
 -Tankard of Plenty (ToD)
 -Staff of Flowers
+
+FR-DC-SSG-FAI-02 The Communion of Laughter
+-Flying Wonder
+-Cloak of Billowing
 
 FR-DC-SSM-FAI-1 The Secret in Sanctuary
 -Rust Bag of Tricks
@@ -382,6 +410,21 @@ FR-DC-STRAT-FIEND-6 Cold Blooded Bandit
 FR-DC-STRAT-FIEND-7 Go There and Kill More Things
 -Mystery Key
 
+FR-DC-STRAT-TALES-01 What Big Teeth
+-Chest of Preserving (Unbreakable)
+
+FR-DC-STRAT-TALES-02 On Fey Tides
+-Scimitar +2
+
+FR-DC-STRAT-TALES-03 The Beast Within
+-Candle of the Deep
+
+FR-DC-STRAT-WYRM-01 Day of the Dragon
+-Bag of Holding
+
+FR-DC-STRAT-WYRM-02 The Wayward Wyrmling
+-Ring of Fire Resistance
+
 FR-DC-TGT-2 Those Who Plant
 -Gem of Brightness
 
@@ -409,6 +452,34 @@ FR-DC-VECNA-1 Three Body Problem
 
 FR-DC-WATERDEEP-GSZ Sweet Dreams... Geese
 -Deck of Miscellany
+
+FR-DC-WE-01 Enter the Arena
+-Deck of Miscellany
+-Clockwork Amulet
+
+FR-DC-WE-2 Wyrmwood and Wavecrest
+-Staff of Thunder and Lightning
+-Wand of the War Mage +3
+-Ioun Stone of Insight
+-Cape of the Mountebank
+
+FR-DC-WE-3 Veins and Veils
+-Candle of Invocation
+-Staff of Striking
+-Rod of Alertness
+-Bronze Horn of Valhalla
+-Charm of the Sun
+
+FR-DC-WE-4 Tempest and Tectonics
+-Energy Bow
+-Quarterstaff of the Acrobat
+-Belt of the Fire Giant Strength
+-Shield of the Cavalier
+-Charm of the Star
+
+FR-DC-WE-05 The Bonebind Curse
+-Blessing of Magic Resistance
+-Rope of Mending (Key)
 
 PO-BK-1-02 Trust No One
 -Heward's Handy Spice Pouch
@@ -478,6 +549,11 @@ PO-BK-3-8 Weeding Out Trouble
 PO-BK-3-9 The Isle of Death
 -Amethyst Dragon Wing Longbow
 
+PO-BK-3-12 Rule or Ruin
+-Blast Scepter
+-Charlatan's Die
+-Arrow of Fiend Slaying
+
 PO-BK-3-13 A Ship on Silent Seas
 -Dagger of Blindsight
 
@@ -490,6 +566,16 @@ PO-BK-4-2 Shadow Kingdom (Premier)
 
 PO-BK-4-3 One Bard's Trash (Premier)
 -Clockwork Amulet
+
+PO-BK-05-02 The Anchorite
+-Wraps of Unarmed Power +2
+-Cloak of Billowing
+
+PO-BK-05-05 Descent into Dragonmount
+-Bronze Dragon Scale Mail
+
+PO-BK-05-06 Deaths Door
+-Staff of Frost
 
 PO-BMG-DRW-KS-1 The Thief of Thay
 -Dust of Disappearance
@@ -614,6 +700,13 @@ PS-DC-PKL-18B The Glory
 -Charm of the Gem
 -Keoghtom's Ointment
 
+PS-DC-PUB-10 Absent Without Leave
+-Dust of Sneezing and Choking
+
+PS-DC-RDP-03 The Upper Demonweb
+-Rod of Security
+-Charm of the Fates
+
 PS-DC-SS Soul and Shadow
 -Boon of Truesight
 
@@ -622,6 +715,11 @@ PS-DC-STRAT-DRAGON-6 Our Shattered Ambitions
 
 PS-DC-STRAT-DRAGON-7 The War of Dragons
 -Boon of Immortality
+
+PS-DC-STRAT-TALES-6 Dungeon and a Dragon
+-Blessing of Protection
+-Enduring Spellbook (generic key)
+-Staff of Power
 
 PS-DC-STRAT-UNDEAD-5 Return of the Dragon
 -Boon of Spell Recall

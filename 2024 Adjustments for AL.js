@@ -8,7 +8,7 @@ This script may work fine on older versions of the sheet, but I copied the code 
 */
 
 var iFileName = "AL Adjustments for 2024 Rules.js";
-RequiredSheetVersion("13.2.0");
+RequiredSheetVersion("13.2.0", 15);
  
 /*This file currently does the following: 
 -Turns the Talisman Pact from Tasha's into an invocation so it can be selected
@@ -2096,11 +2096,11 @@ var BastionWorkaround = {
 					name : "Pub",
 					description : desc([
 						"5 drink options. Pick 1 per bastion turn (2 if Vast). All durations 24 hours.",
-						"Bigby's Burden: Gain Enlarge effect of Enlarge/Reduce spell",
-						"Kiss of the Spider Queen: Gain effect of Spider Climb",
-						"Moonlight Serenade: Gain 60 ft Darkvision or increase existing range by 60 ft",
-						"Positive Reinforcement: Gain Resistance to Necrotic damage",
-						"Sterner Stuff: Automatically pass saves against the Frightened condition"
+						"-Bigby's Burden: Gain Enlarge effect of Enlarge/Reduce spell",
+						"-Kiss of the Spider Queen: Gain effect of Spider Climb",
+						"-Moonlight Serenade: Gain 60 ft Darkvision or increase existing range by 60 ft",
+						"-Positive Reinforcement: Gain Resistance to Necrotic damage",
+						"-Sterner Stuff: Automatically pass saves against the Frightened condition"
 					]),
 					source : [["D24", 343]],
 					submenu : "[Level 13+]",
@@ -2172,8 +2172,8 @@ var BastionWorkaround = {
 				"storehouse" : {
 					name : "Storehouse",
 					description : desc([
-						"Trade: Procure goods worth 500 gp (2000 gp at lvl 9, 5000 gp at lvl 13).",
-						"Trade: Sell goods in Storehouse for 10 percent profit (20 at lvl 9, 50 at 13, 100 at 17)."
+						"Trade: Procure goods worth 500 gp (2000 gp at lvl 9, 5000 gp at lvl 13) [Turn]",
+						"Trade: Sell goods in Storehouse for 10 percent profit (20 at lvl 9, 50 at 13, 100 at 17) [Turn]"
 					]),
 					source : [["D24", 347]],
 					submenu : "[Level 5+]",
