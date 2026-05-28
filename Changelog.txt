@@ -1,3 +1,11 @@
+After 04/10/26
+-Fixed WeaponAdd name for Holy Avenger Longsword
+-Reorganized common Armor, AL weapons and AL swords to better group like items despite name differences (ie Armor of Gleaming is all together even though that isn't alphabetical by name)
+-Added more items from DC adventures
+-Split rings into two groups A-P/R-Z because there were more than 100 options and it was messing up the choices
+-Fixed issue with Mithral armor not removing stealth disadvantage
+
+
 After 12/5/25
 -Created variable code for Staff of the Magi. Also corrected leftover spells that were using old rules.
 -Created generic variable code for the Guardian property

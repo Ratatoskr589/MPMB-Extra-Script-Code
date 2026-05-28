@@ -250,6 +250,10 @@ FR-DC-F&ADDM-GW5 A Terminal Ambition
 FR-DC-F&ADDM-LES1 The Breath of Hapi
 -Ioun Stone of Fortitude
 
+FR-DC-F&ADDM-LES3 The Hunger of Duamutef
+-Bead of Nourishment
+-Elemental Gem (Yellow Diamond)
+
 FR-DC-GHG-1 Griffons of Longsaddle
 -Staff of Birdcalls
 
@@ -295,6 +299,12 @@ FR-DC-LIGA-8 A Song of Closure
 
 FR-DC-LIGA-9 A Chromatic Crescendo
 -Wand of the War Mage +3
+
+FR-DC-LOOSE-001 Spells on the Loose
+-Alchemy Jug
+
+FR-DC-MCG-CH3 The Final Touch
+-Rope of Mending
 
 FR-DC-MELB-1-4 Monsters
 -Wand of Binding
@@ -456,6 +466,10 @@ FR-DC-WATERDEEP-GSZ Sweet Dreams... Geese
 FR-DC-WE-01 Enter the Arena
 -Deck of Miscellany
 -Clockwork Amulet
+
+FR-DC-WE-01A Enter the Arena (T3)
+-Clockwork Amulet
+-Deck of Miscellany
 
 FR-DC-WE-2 Wyrmwood and Wavecrest
 -Staff of Thunder and Lightning

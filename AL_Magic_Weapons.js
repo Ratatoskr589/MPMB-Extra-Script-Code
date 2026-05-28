@@ -2556,7 +2556,7 @@ MagicItemsList["al swords"] = {
 		allowDuplicates : true,
 		choicesNotInMenu : true,
 		magicItemTable : "?",
-	choices : ["Adamantine Shortsword (FR-DC-UCON24)","Ascendant Amethyst Dragon's Wrath Longsword: The First Sword (PO-BK-3-11)","Crystal Rapier (BMG-DRW-OD-5)","Crystal Rapier (PO-BK-4-1)","Dancing Greatsword (PS-DC-PANDORA-JWEI-S2-5)","Dancing Longsword: Antgaladion (WBW-DC-AA-ASHALON-1)","Dancing Rapier: Angel's Sting (CCC-GHC-BK1-10)","Dancing Rapier: Raptor (CCC-LINKS-2)","Dancing Rapier (FR-DC-WE-5)","Dancing Rapier: Left Arm (PS-DC-ELEMENT-DEATH-4)","Defender Greatsword: Deathshield (DDAL9-20)","Defender Scimitar: Right Chakram of Shar (FR-DC-PANDORA-JWEI-S2-7)","Dragon Slayer: Wyrmripper (DDEP5-1)","Flame Tongue Longsword (BMG-MOON-MD-6)","Flame Tongue Longsword: Velahr'kerym (DDAL0-2D)","Flame Tongue Longsword (DDAL-DRW13)","Flame Tongue Shortsword: Flare (CCC-WYC-1-2)","Frost Brand Greatsword (SJ-DC-NOS-4)","Frost Brand Greatsword: Immolator's Domain (SJ-DC-TBS-2)","Frost Brand Greatsword: Duty (SJ-DC-TRIDEN-TFC)","Frost Brand Greatsword: Quintessence's Edge (SJ-DC-WINE-1)","Frost Brand Longsword: Blade of Aaqa (SJ-DC-AUG-9)","Frost Brand Rapier: Bitter Wrath (DDAL7-9)","Frost Brand Rapier: Familiar's (SJ-DC-ZODIAC-14-3)","Frost Brand Scimitar (DDEP5-2)","Frost Brand Scimitar (SJ-DC-TEL-12)","Frost Brand Shortsword: Frostbite Cryo Katana (SJ-DC-DD-11)","Giant Slayer Greatsword (DDEP5-2)","Greatsword of Sharpness: Desolation (DDAL8-14)","Greatsword of Warning: Ever Vigilant (CCC-BMG-MOON3-3)","Greatsword of Wounding (DDEX2-15)","Holy Avenger Longsword (PS-DC-STRAT-WYRM-9)","Longsword of Vengeance (CCC-BMG-MOON15-2)","Longsword of Vengeance (CCC-GARY-8)","Longsword of Vengeance (CCC-HATMS1-2)","Longsword of Vengeance (CCC-MACE1-3)","Moonblade Greatsword: Pandora's Greater Staff of Selune (FR-DC-PANDORA-JWEI-S2-6)","Moonblade Rapier: Severed Spine (PS-DC-ELEMENT-DEATH-4)","Moonblade Shortsword: Left Chakram of Shar (FR-DC-PANDORA-JWEI-S2-7)","Nine Lives Stealer Greatsword (PS-DC-STRAT-WYRM-10)","Nine Lives Stealer Longsword: Love's Bite (DDAL7-11)","Nine Lives Stealer Scimitar (CCC-QCC2018-1)","Rapier of Life Stealing (CCC-PDXAGE-2-1)","Scimitar of Life Stealing: Night Cutter (CCC-RCC-1-4)","Scimitar of Life Stealing: Krakenfang (PO-BK-3-7)","Scimitar of Speed (SJ-DC-AMOT-3)","Scimitar of Speed: Deceiver (SJ-DC-DFA-3)","Scimitar of Speed: Radiance's Glare (SJ-DC-PHP-LRD-1)","Scimitar of Speed: Spirit's Edge (SJ-DC-TBS-1)","Scimitar of Speed (SJ-DC-TRIDEN-MYKE-2)","Scimitar of Speed: Beam (SJ-DC-VMT-1)","Scimitar of Speed: Manthor “Vow of the Forest” (WBW-DC-ANDL-3)","Scimitar of Speed: Bregrist (WBW-DC-TREY-1)","Scimitar of Speed: Dread Cutlass (SJ-DC-DWR-3)","Scimitar of Warning: Miir (CCC-BWM-4-1)","Steel: Amdraig (BMG-MOON-MD-9)","Sun Blade: The Seventh Sword (CCC-6SWORDS-1)","Sun Blade: Dawnfire (CCC-STORM-1)","Sun Blade (CCC-WYC-2-2)","Sun Blade: Starshard (RMH-12)","Sun Blade: Scintilmorn (WDotMM)","Sword of Answering: Warsong (PS-DC-STRAT-TALES-5)","Sword of Vengeance (CCC-SAF2-2)","Sword of Wounding (DDAL-CGB)","Vicious Longsword (CCC-HATMS2-1)","Vicious Scimitar: The Gemini (FR-DC-REIN-VR-1)","Vicious Rapier: Hag's Clawblade (AL:SA-11A)","Vorpal Scimitar (DDAL7-16)","Vorpal Scimitar: Abi Teos's Machete (RMH-9/RMH-10)","Wakened White Dragon's Wrath Greatsword (BMG-MOON-MD-12)"],
+	choices : ["Adamantine Shortsword (FR-DC-UCON24)","Crystal Rapier (BMG-DRW-OD-5)","Crystal Rapier (PO-BK-4-1)","Dancing Greatsword (PS-DC-PANDORA-JWEI-S2-5)","Dancing Longsword: Antgaladion (WBW-DC-AA-ASHALON-1)","Dancing Rapier: Angel's Sting (CCC-GHC-BK1-10)","Dancing Rapier: Raptor (CCC-LINKS-2)","Dancing Rapier (FR-DC-WE-5)","Dancing Rapier: Left Arm (PS-DC-ELEMENT-DEATH-4)","Defender Greatsword: Deathshield (DDAL9-20)","Defender Scimitar: Right Chakram of Shar (FR-DC-PANDORA-JWEI-S2-7)","Dragon Slayer: Wyrmripper (DDEP5-1)","Dragon's Wrath Ascendant Amethyst Longsword: The First Sword (PO-BK-3-11)","Dragon's Wrath Wakened White Greatsword (BMG-MOON-MD-12)","Flame Tongue Longsword (BMG-MOON-MD-6)","Flame Tongue Longsword: Velahr'kerym (DDAL0-2D)","Flame Tongue Longsword (DDAL-DRW13)","Flame Tongue Shortsword: Flare (CCC-WYC-1-2)","Frost Brand Greatsword (SJ-DC-NOS-4)","Frost Brand Greatsword: Immolator's Domain (SJ-DC-TBS-2)","Frost Brand Greatsword: Duty (SJ-DC-TRIDEN-TFC)","Frost Brand Greatsword: Quintessence's Edge (SJ-DC-WINE-1)","Frost Brand Longsword: Blade of Aaqa (SJ-DC-AUG-9)","Frost Brand Rapier: Bitter Wrath (DDAL7-9)","Frost Brand Rapier: Familiar's (SJ-DC-ZODIAC-14-3)","Frost Brand Scimitar (DDEP5-2)","Frost Brand Scimitar (SJ-DC-TEL-12)","Frost Brand Shortsword: Frostbite Cryo Katana (SJ-DC-DD-11)","Giant Slayer Greatsword (DDEP5-2)","Holy Avenger Longsword (PS-DC-STRAT-WYRM-9)","Holy Avenger Rapier (FR-DC-NBDD-2)","Moonblade Greatsword: Pandora's Greater Staff of Selune (FR-DC-PANDORA-JWEI-S2-6)","Moonblade Rapier: Severed Spine (PS-DC-ELEMENT-DEATH-4)","Moonblade Shortsword: Left Chakram of Shar (FR-DC-PANDORA-JWEI-S2-7)","Nine Lives Stealer Greatsword (PS-DC-STRAT-WYRM-10)","Nine Lives Stealer Longsword: Love's Bite (DDAL7-11)","Nine Lives Stealer Scimitar (CCC-QCC2018-1)","Rapier of Life Stealing (CCC-PDXAGE-2-1)","Scimitar of Life Stealing: Night Cutter (CCC-RCC-1-4)","Scimitar of Life Stealing: Krakenfang (PO-BK-3-7)","Scimitar of Speed (SJ-DC-AMOT-3)","Scimitar of Speed: Deceiver (SJ-DC-DFA-3)","Scimitar of Speed: Radiance's Glare (SJ-DC-PHP-LRD-1)","Scimitar of Speed: Spirit's Edge (SJ-DC-TBS-1)","Scimitar of Speed (SJ-DC-TRIDEN-MYKE-2)","Scimitar of Speed: Beam (SJ-DC-VMT-1)","Scimitar of Speed: Manthor “Vow of the Forest” (WBW-DC-ANDL-3)","Scimitar of Speed: Bregrist (WBW-DC-TREY-1)","Scimitar of Speed: Dread Cutlass (SJ-DC-DWR-3)","Steel: Amdraig (BMG-MOON-MD-9)","Sun Blade: The Seventh Sword (CCC-6SWORDS-1)","Sun Blade: Dawnfire (CCC-STORM-1)","Sun Blade (CCC-WYC-2-2)","Sun Blade: Starshard (RMH-12)","Sun Blade: Scintilmorn (WDotMM)","Sword of Answering: Warsong (PS-DC-STRAT-TALES-5)","Greatsword of Sharpness: Desolation (DDAL8-14)","Longsword of Vengeance (CCC-BMG-MOON15-2)","Longsword of Vengeance (CCC-GARY-8)","Longsword of Vengeance (CCC-HATMS1-2)","Longsword of Vengeance (CCC-MACE1-3)","Sword of Vengeance (CCC-SAF2-2)","Greatsword of Warning: Ever Vigilant (CCC-BMG-MOON3-3)","Scimitar of Warning: Miir (CCC-BWM-4-1)","Greatsword of Wounding (DDEX2-15)","Sword of Wounding (DDAL-CGB)","Vicious Longsword (CCC-HATMS2-1)","Vicious Scimitar: Timefrost (FR-DC-GLACIER-1)","Vicious Scimitar: The Gemini (FR-DC-REIN-VR-1)","Vicious Rapier: Hag's Clawblade (AL:SA-11A)","Vorpal Scimitar (DDAL7-16)","Vorpal Scimitar: Abi Teos's Machete (RMH-9/RMH-10)"],
 	"adamantine shortsword (fr-dc-ucon24)" : {
 		name : "Adamantine Shortsword (FR-DC-UCON24)",
 		source : [["AL","FR-DC"]],
@@ -2567,49 +2567,6 @@ MagicItemsList["al swords"] = {
 		weaponsAdd : { select : ["Adamantine Shortsword"], options : ["Adamantine Shortsword"] },
 		languageProfs : ["Sylvan"],
 	},
-	"ascendant amethyst dragon's wrath longsword: the first sword (po-bk-3-11)" : {
-		name : "The First Sword, Ascendant DW Longsword",
-		source : [["AL","PO"]],
-		rarity : "rare",
-		attunement : true,
-		description : "The blade of this +3 longsword is inlaid with amethyst draconic runes. The grip is a coiled snake with the pommel as its head. Recovered by mariliths after centuries in an amethyst dragon's hoard, it became the first blade of champions such as Shaktari. It deals +3d6 Force. On a 20, any creature in 5 ft of target take 5 Force. As action once/dawn, 60-ft cone: 12d6 Force, DC 18 Dex half.",
-		descriptionLong : "The wide blade of this exquisite longsword is inlaid with amethyst draconic runes. Its grip is shaped like a coiled snake, with the pommel as its head. The sword was created by yuan-ti smiths on the plane of Vudra and lost during a failed conquest of a dragon-ruled realm. It gained magic over centuries languishing in an amethyst dragon's hoard, before being recovered by a raid of conquering mariliths. They returned it to Vudra, where it was used as the first blade of champions, including — legends say — Shaktari herself. It adds +3 to atk and dmg and deals +3d6 Force. On a 20, each chosen creature in 5 ft of the target takes 5 Force. As an action once per dawn, I can create a 60-ft cone: Dex DC 18 for half, 12d6 Force damage.",
-		descriptionFull : "The wide blade of this exquisite weapon is inlaid with draconic runes of violet amethyst. Its grip is fashioned in the shape of a coiled snake, with the pommel as its head."+
-		"\n   The sword was initially created by yuan-ti smiths on the plane of Vudra. As a mundane blade, it was then lost by its wielder during a failed conquest of a dragon-ruled realm. It gained its magic over centuries of languishing in an amethyst dragon's hoard, before being recovered by a raid of conquering mariliths. The mariliths returned it to their home plane of Vudra, where it was often used as the first blade of its greatest champions, including — legends say — Shaktari herself."+
-		"\n   This weapon is decorated with dragon heads, claws, wings, scales, or Draconic letters. When it steeps in a dragon's hoard, it absorbs the energy of the dragon's breath weapon and deals damage of that type with its special properties. This weapon cannot change rarity."+
-		"\n   >>Slumbering (Uncommon)<<. Whenever you roll a 20 on your attack roll with this weapon, each creature of your choice within 5 feet of the target takes 5 damage of the type dealt by the dragon's breath weapon."+
-		"\n   >>Stirring (Rare)<<. The Stirring weapon has the Slumbering property. In addition, you gain a +1 bonus to attack and damage rolls made using the weapon. On a hit, the weapon deals an extra 1d6 damage of the type dealt by the dragon's breath weapon."+
-		"\n   >>Wakened (Very Rare)<<. The Wakened weapon has the Slumbering property, and it improves on the Stirring property. The bonus to attack and damage rolls increases to +2, and the extra damage dealt by the weapon increases to 2d6."+
-		"\n   As an action, you can unleash a 30-foot cone of destructive energy from the weapon. Each creature in that area must make a DC 16 Dexterity saving throw, taking 8d6 damage of the type dealt by the dragon's breath weapon on a failed save, or half as much damage on a successful one. Once this action is used, it can't be used again until the next dawn."+
-		"\n   >>Ascendant (Legendary)<<. The Ascendant weapon has the Slumbering property, and it improves on the Stirring and Wakened properties. The bonus to attack and damage rolls increases to +3, and the extra damage dealt by the weapon increases to 3d6."+
-		"\n   The cone of destructive energy the weapon creates increases to a 60-foot cone, the save DC increases to 18, and the damage increases to 12d6.",
-		limfeaname : "First Sword Breath",
-		usages : 1,
-		recovery : "dawn",
-		action : [["action", "First Sword Breath"]],
-		weaponOptions : [{
-			baseWeapon : "longsword",
-				name : "The First Sword, Amethyst Wrath Longsword",
-				regExpSearch : /the first sword, amethyst wrath longsword/i,
-				source : [["AL","PO"]],
-				description : "Versatile (1d10); Sap; +3d6 Force; On a 20, 5 Force to any creature in 5ft",
-				modifiers : [3,3],
-				selectNow : true
-			},{			
-			name : "The First Sword, Amethyst Wrath Cone",
-				regExpSearch : /the first sword, amethyst wrath cone/i,
-				source : [["AL","PO"]],
-				ability : 0,
-				type : "Magic Item",
-				damage : [12, 6, "Force"],
-				range : "60-ft cone",
-				description : "Hits all in area; Dex save, success - half damage; Usable once per dawn",
-				abilitytodamage : false,
-				dc : true,
-				modifiers : [10, ""],
-				selectNow : true
-			}],
-		},
 	"crystal rapier (bmg-drw-od-5)" : {
 		name : "Crystal Rapier (BMG-DRW-OD-5)",
 		source : [["AL","DRW"]],
@@ -2760,6 +2717,91 @@ MagicItemsList["al swords"] = {
 		descriptionFull : "Made of what appears to be roughly crafted pig iron with a crude leather haft, this enormous greatsword possesses a bold Davek rune at the base of both sides of the blade which reads \"Wyrmripper\". You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon.\n   The weapon deals an extra 3d6 damage of the weapon's type if the target is a Dragon.",
 		weaponsAdd : { select : ["Wyrmripper, Dragon Slayer Greatsword"], options : ["Wyrmripper, Dragon Slayer Greatsword"] },
 		calcChanges: dragonSlayerWeapon.calcChanges,
+		},
+	"dragon's wrath ascendant amethyst longsword: the first sword (po-bk-3-11)" : {
+		name : "The First Sword, Ascendant DW Longsword",
+		source : [["AL","PO"]],
+		rarity : "rare",
+		attunement : true,
+		description : "The blade of this +3 longsword is inlaid with amethyst draconic runes. The grip is a coiled snake with the pommel as its head. Recovered by mariliths after centuries in an amethyst dragon's hoard, it became the first blade of champions such as Shaktari. It deals +3d6 Force. On a 20, any creature in 5 ft of target take 5 Force. As action once/dawn, 60-ft cone: 12d6 Force, DC 18 Dex half.",
+		descriptionLong : "The wide blade of this exquisite longsword is inlaid with amethyst draconic runes. Its grip is shaped like a coiled snake, with the pommel as its head. The sword was created by yuan-ti smiths on the plane of Vudra and lost during a failed conquest of a dragon-ruled realm. It gained magic over centuries languishing in an amethyst dragon's hoard, before being recovered by a raid of conquering mariliths. They returned it to Vudra, where it was used as the first blade of champions, including — legends say — Shaktari herself. It adds +3 to atk and dmg and deals +3d6 Force. On a 20, each chosen creature in 5 ft of the target takes 5 Force. As an action once per dawn, I can create a 60-ft cone: Dex DC 18 for half, 12d6 Force damage.",
+		descriptionFull : "The wide blade of this exquisite weapon is inlaid with draconic runes of violet amethyst. Its grip is fashioned in the shape of a coiled snake, with the pommel as its head."+
+		"\n   The sword was initially created by yuan-ti smiths on the plane of Vudra. As a mundane blade, it was then lost by its wielder during a failed conquest of a dragon-ruled realm. It gained its magic over centuries of languishing in an amethyst dragon's hoard, before being recovered by a raid of conquering mariliths. The mariliths returned it to their home plane of Vudra, where it was often used as the first blade of its greatest champions, including — legends say — Shaktari herself."+
+		"\n   This weapon is decorated with dragon heads, claws, wings, scales, or Draconic letters. When it steeps in a dragon's hoard, it absorbs the energy of the dragon's breath weapon and deals damage of that type with its special properties. This weapon cannot change rarity."+
+		"\n   >>Slumbering (Uncommon)<<. Whenever you roll a 20 on your attack roll with this weapon, each creature of your choice within 5 feet of the target takes 5 damage of the type dealt by the dragon's breath weapon."+
+		"\n   >>Stirring (Rare)<<. The Stirring weapon has the Slumbering property. In addition, you gain a +1 bonus to attack and damage rolls made using the weapon. On a hit, the weapon deals an extra 1d6 damage of the type dealt by the dragon's breath weapon."+
+		"\n   >>Wakened (Very Rare)<<. The Wakened weapon has the Slumbering property, and it improves on the Stirring property. The bonus to attack and damage rolls increases to +2, and the extra damage dealt by the weapon increases to 2d6."+
+		"\n   As an action, you can unleash a 30-foot cone of destructive energy from the weapon. Each creature in that area must make a DC 16 Dexterity saving throw, taking 8d6 damage of the type dealt by the dragon's breath weapon on a failed save, or half as much damage on a successful one. Once this action is used, it can't be used again until the next dawn."+
+		"\n   >>Ascendant (Legendary)<<. The Ascendant weapon has the Slumbering property, and it improves on the Stirring and Wakened properties. The bonus to attack and damage rolls increases to +3, and the extra damage dealt by the weapon increases to 3d6."+
+		"\n   The cone of destructive energy the weapon creates increases to a 60-foot cone, the save DC increases to 18, and the damage increases to 12d6.",
+		limfeaname : "First Sword Breath",
+		usages : 1,
+		recovery : "dawn",
+		action : [["action", "First Sword Breath"]],
+		weaponOptions : [{
+			baseWeapon : "longsword",
+				name : "The First Sword, Amethyst Wrath Longsword",
+				regExpSearch : /the first sword, amethyst wrath longsword/i,
+				source : [["AL","PO"]],
+				description : "Versatile (1d10); Sap; +3d6 Force; On a 20, 5 Force to any creature in 5ft",
+				modifiers : [3,3],
+				selectNow : true
+			},{			
+			name : "The First Sword, Amethyst Wrath Cone",
+				regExpSearch : /the first sword, amethyst wrath cone/i,
+				source : [["AL","PO"]],
+				ability : 0,
+				type : "Magic Item",
+				damage : [12, 6, "Force"],
+				range : "60-ft cone",
+				description : "Hits all in area; Dex save, success - half damage; Usable once per dawn",
+				abilitytodamage : false,
+				dc : true,
+				modifiers : [10, ""],
+				selectNow : true
+			}],
+		},
+	"dragon's wrath wakened white greatsword (bmg-moon-md-12)" : {
+		name : "Wakened White Dragon Wrath Greatsword (MOON)",
+		source : [["AL","PO"]],
+		rarity : "rare",
+		attunement : true,
+		description : "Pulled from the freezing lair of an adult white dragon, this greatsword is still cold to the touch and a glove is needed to wield it without pain. Along the ice that rimes its length are runes in Thorass that read \"Cold hands, cold heart.\" On a 20, chosen creatures in 5 ft of target take 5 Cold. As action once per dawn, 30-ft cone: 8d6 Cold DC 16 Dex for half.",
+		descriptionLong : "Pulled from the freezing lair of an adult white dragon, this greatsword is still cold to the touch and a glove is needed to wield it without pain. Along the ice that rimes its length are runes in Thorass that read \"Cold hands, cold heart.\" The blade adds +2 to attack and damage and deals +2d6 Cold damage on a hit. On a 20, each chosen creature in 5 ft of the target takes 5 Cold damage. As an action once per dawn, I can create a 30-ft cone: 8d6 Cold damage, Dex DC 16 for half.",
+		descriptionFull : "Pulled from the freezing lair of an adult white dragon, this blade is still cold to the touch and a glove is needed to wield it without pain. Along the ice that rimes its length are runes in Thorass that read \"Cold hands, cold heart.\""+
+		"\n   This weapon is decorated with dragon heads, claws, wings, scales, or Draconic letters. When it steeps in a dragon's hoard, it absorbs the energy of the dragon's breath weapon and deals damage of that type with its special properties. This weapon cannot change rarity or power level."+
+		"\n   >>Slumbering (Uncommon)<<. Whenever you roll a 20 on your attack roll with this weapon, each creature of your choice within 5 feet of the target takes 5 damage of the type dealt by the dragon's breath weapon."+
+		"\n   >>Stirring (Rare)<<. The Stirring weapon has the Slumbering property. In addition, you gain a +1 bonus to attack and damage rolls made using the weapon. On a hit, the weapon deals an extra 1d6 damage of the type dealt by the dragon's breath weapon."+
+		"\n   >>Wakened (Very Rare)<<. The Wakened weapon has the Slumbering property, and it improves on the Stirring property. The bonus to attack and damage rolls increases to +2, and the extra damage dealt by the weapon increases to 2d6."+
+		"\n   As an action, you can unleash a 30-foot cone of destructive energy from the weapon. Each creature in that area must make a DC 16 Dexterity saving throw, taking 8d6 damage of the type dealt by the dragon's breath weapon on a failed save, or half as much damage on a successful one. Once this action is used, it can't be used again until the next dawn."+
+		"\n   >>Ascendant (Legendary)<<. The Ascendant weapon has the Slumbering property, and it improves on the Stirring and Wakened properties. The bonus to attack and damage rolls increases to +3, and the extra damage dealt by the weapon increases to 3d6."+
+		"\n   The cone of destructive energy the weapon creates increases to a 60-foot cone, the save DC increases to 18, and the damage increases to 12d6.",
+		limfeaname : "White Wrath Breath",
+		usages : 1,
+		recovery : "dawn",
+		action : [["action", "White Wrath Breath"]],
+		weaponOptions : [{
+			baseWeapon : "greatsword",
+				name : "Wakened White Wrath Greatsword",
+				regExpSearch : /wakened white wrath greatsword/i,
+				source : [["AL","PO"]],
+				description : "Heavy, Two-handed; Graze; +2d6 Cold; On a 20, 5 Cold to any creature in 5ft",
+				modifiers : [2,2],
+				selectNow : true
+			},{			
+			name : "Wakened White Wrath Cone",
+				regExpSearch : /wakened white wrath cone/i,
+				source : [["AL","PO"]],
+				ability : 0,
+				type : "Magic Item",
+				damage : [8, 6, "Cold"],
+				range : "30-ft cone",
+				description : "Hits all in area; Dex save, success - half damage; Usable once per dawn",
+				abilitytodamage : false,
+				dc : true,
+				modifiers : [8, ""],
+				selectNow : true
+			}],
 		},
 	"flame tongue longsword (bmg-moon-md-6)" : {
 		name : "Flame Tongue Longsword (BMG-MOON-MD-6)",
@@ -2994,55 +3036,6 @@ MagicItemsList["al swords"] = {
 		weaponsAdd : { select : ["Giant Slayer Greatsword"], options : ["Giant Slayer Greatsword"] },
 		calcChanges: giantSlayerWeapon.calcChanges,
 		},
-	"greatsword of sharpness: desolation (ddal8-14)" : {
-		name : "Desolation, Sword of Sharpness (DDAL8-14)",
-		source : [["AL","S8"]],
-		type : "weapon (any sword that deals slashing damage)",
-		rarity : "rare",
-		attunement : true,
-		allowDuplicates : true,
-		description : "This greatsword is made from a strange black material that feels like frigid steel. When I roll a 20 against a creature, it takes +14 Slashing and gains 1 lvl of Exhaustion. The sword does max damage vs objects. With command word, it sheds bright light in a 10-ft radius and 10-ft more dim. Only I can see the light. Repeat command or stow to stop.",
-		descriptionLong : "This Greatsword of Sharpness is made from a strange black material that feels like frigid steel. When I attack a creature and roll a 20 on the attack, that target takes an extra 14 Slashing and gains 1 level of Exhaustion. When used against an object, the damage is maximized. In addition, I can speak a command word to make the blade shed bright light in a 10-foot radius and dim light for an additional 10 feet. Only I can see the light. Speaking the command word again or sheathing the sword puts out the light.",
-		descriptionFull : "This greatsword of sharpness is made from a strange black material that feels like frigid steel. If commanded to shed light, only you can see it. When you attack an object with this magic sword and hit, maximize your weapon damage dice against the target.\n   In addition, you can speak the sword's command word to cause the blade to shed bright light in a 10-foot radius and dim light for an additional 10 feet. Speaking the command word again or sheathing the sword puts out the light.\n   When you attack an object with this magic weapon and hit, maximize your weapon damage dice against the target.\n   When you attack a creature with this weapon and roll a 20 on the d20 for the attack roll, that target takes an extra 14 Slashing damage and gains 1 Exhaustion level.",
-		weaponOptions : {
-			baseWeapon : "greatsword",
-			name : "Desolation, Greatsword of Sharpness",
-			regExpSearch : /^(?=.*desolation).*$/i,
-			description : "Heavy, two-handed, graze; max damage vs. objects; On 20: +14 dmg & 1 lvl Exhaustion",
-			selectNow : true,
-			},
-		},
-	"greatsword of warning: ever vigilant (ccc-bmg-moon3-3)" : {
-			name : "Ever Vigilant, Sword of Warning (BMG-MOON3-3)",
-			source : [["AL","CCC"]],
-			type : "weapon (greatsword)",
-			rarity : "uncommon",
-			attunement : true,
-			advantages : [["Initiative", true]],
-			description : "This silvered greatsword has a pommel shaped like a unicorn's head & its blade is inscribed with prayers to the Earthmother. Some say it's Cymrych Hugh's legendary sword. Others say it's a reflection & the original rests with the Earthmother, awaiting a true hero. Allies in 30 ft & I have adv on initiative. The sword also magically awakens us from nonmagical sleep if combat starts.",
-			descriptionLong : "This silvered greatsword has a pommel shaped like a unicorn's head and its blade is inscribed with prayers to the Earthmother. Some say it's Cymrych Hugh's legendary sword. Others say it's only a reflection and the original rests with the Earthmother, awaiting a worthy hero. Allies in 30 ft and I have advantage on initiative rolls. The sword also magically awakens us from nonmagical sleep when combat starts.",
-			descriptionFull : "This silvered greatsword has a pommel shaped like a unicorn's head, and its blade is inscribed with inscriptions that are prayers to the Earthmother. Some say this is Cymrych Hugh's legendary sword, while others say it's a reflection and that the original rests with the Earthmother, awaiting a hero truly worthy of wielding it.\n   As long as this weapon is within your reach and you are attuned to it, you and allies within 30 feet of you gain the following benefits.\n\n" +
-			"" + toUni("Alarm") + ". The weapon magically awakens each subject who is sleeping naturally when combat begins. This benefit doesn't wake a subject from magically induced sleep.\n" +
-			"" + toUni("Supernatural Readiness") + ". Each subject has Advantage on its Initiative rolls.",
-			weaponsAdd : { select : ["Ever Vigilant, Greatsword of Warning"], options : ["Ever Vigilant, Greatsword of Warning"] },
-			},
-	"greatsword of wounding (ddex2-15)" : {
-		name : "Greatsword of Wounding (DDEX2-15)",
-		source : [["AL","S2"]],
-		rarity : "rare",
-		attunement : true,
-		allowDuplicates : true,
-		description : "This sword is serrated along the back edge with a single deep fuller running its length, bifurcating the point. The sharkskin hilt has a large unfinished gem pommel. Anyone familiar with Aleyd Burral & her fall from grace treats me suspicously. It deals +2d6 Necrotic and target makes a DC 15 Con save or can't regain HP for 1 hr. Repeat save at each turn end to stop the effect.",
-		descriptionLong : "This greatsword is serrated along the back edge with a single deep fuller running its length, bifurcating the point. The sharkskin-wrapped hilt ends in a pommel made from a large unfinished gem. The sword has a tragic history. Anyone familiar with Aleyd Burral and her fall from grace recognizes the weapon and treats me suspicously. It deals +2d6 Necrotic and the target must make a DC 15 Con save or they can't regain HP for 1 hour. They can repeat the save at the end of each turn to stop the effect.",
-		descriptionFull : "This sword's blade is serrated along the back edge with a single, deep fuller running the length of its blade, bifurcating the point. The sharkskin-wrapped hilt ends in a pommel fashioned of a large, unfinished gemstone. This sword, however, has a tragic history. Anyone familiar with Aleyd Burral and her fall from grace recognizes the weapon and treat the wielder with suspicion.\n   When you hit a creature with an attack using this magic weapon, the target takes an extra 2d6 Necrotic damage and must succeed on a DC 15 Constitution saving throw or be unable to regain Hit Points for 1 hour. The target repeats the save at the end of each of its turns, ending the effect on itself on a success.",
-		weaponOptions : {
-			baseWeapon : "greatsword",
-			regExpSearch : /greatsword of wounding/i,
-			name : "Greatsword of Wounding",
-			description : "Heavy, two-handed, graze; +2d6 Necrotic; DC 15 Con save or can't regain HP 1 hr",
-			selectNow : true,
-		},
-	},
 	"holy avenger longsword (ps-dc-strat-wyrm-9)" : {
 		name : "Holy Avenger Longsword (STRAT-WYRM-9)",
 		source : [["AL","PS-DC"]],
@@ -3055,50 +3048,21 @@ MagicItemsList["al swords"] = {
 		prereqeval : function (v) { return classes.known.paladin ? true : false; },
 		calcChanges: holyAvengerCalcs.calcChanges,
 		savetxt : { adv_vs : ["spells", "magical effects"] },
-		weaponsAdd : { select : ["Holy Avenger Glaive of the Night"], options : ["Holy Avenger Glaive of the Night"] },
+		weaponsAdd : { select : ["Holy Avenger Longsword"], options : ["Holy Avenger Longsword"] },
 	},
-	"longsword of vengeance (ccc-bmg-moon15-2)" : {
-		name : "Longsword of Vengeance (BMG-MOON15-2)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
+	"holy avenger rapier (fr-dc-nbdd-2)" : {
+		name : "Holy Avenger Rapier (NBDD-2)",
+		source : [["AL","FR-DC"]],
+		type : "weapon (rapier)",
+		rarity : "legendary",
 		attunement : true,
-		description : "This clear crystal +1 longsword is no longer tainted by Malar's corruption. It's loyal to me, a dull blade for others, & leaves a blue-white trail when hitting a target. I'm unwilling to let it go & have disadv on atks with other weapons. If I take dmg in combat, DC 15 Wis save or I must atk my attacker until they drop to 0 or I can't reach in melee. Banishment turns it into a normal +1 longsword.",
-		descriptionLong : "This clear crystal +1 longsword is no longer tainted by Malar's corruption. It's only loyal to me, appearing as a dull blade to everyone else, and leaves a blue-white trail in its wake when striking a target. I'm unwilling to let it go and have disadvantage on attacks with other weapons. If I take damage in combat, I must pass a DC 15 Wis save or attack my attacker until they drop to 0 or I can't reach them in melee. Banishment turns it into a normal +1 longsword.",
-		descriptionFull : "The sword, no longer tainted by Malar's corruption, is now a clear crystal. The sword is only loyal to the wielder, becoming a dull blade to anyone else. When the sword strikes a target, a blue-white trail is left briefly in its wake.\n   You gain a +1 bonus to attack and damage rolls made with this magic weapon.\n   " + toUni("Curse") + ". This weapon is cursed and possessed by a vengeful spirit. Becoming attuned to it extends the curse to you. As long as you remain cursed, you are unwilling to part with the weapon, keeping it on your person at all times. While attuned to this weapon, you have Disadvantage on attack rolls made with weapons other than this one.\n   In addition, while the weapon is on your person, you must succeed on a DC 15 Wisdom saving throw whenever you take damage from another creature in combat. On a failed save, you must attack the creature that damaged you until you drop to 0 hit points or it does, or until you can't reach the creature to make a melee attack against it.\n   You can break the curse in the usual ways. Alternatively, casting Banishment on the weapon forces the vengeful spirit to leave it. The sword then becomes a +1 Weapon with no other properties.",
-		weaponsAdd : { select : ["Longsword of Vengeance"], options : ["Longsword of Vengeance"] },
-		calcChanges: swordOfVengeance.calcChanges,
-	},
-	"longsword of vengeance (ccc-gary-8)" : {
-		name : "Longsword of Vengeance (CCC-GARY-8)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		attunement : true,
-		description : "This beautiful +1 longsword has a gold-trimmed hilt and is cursed. I'm unwilling to give it up and have disadvantage on atks with other weapons. If I take damage in combat, I must pass a DC 15 Wis save or attack my attacker until they drop to 0 or I can't reach them in melee. Banishment turns it into a normal +1 longsword.",
-		descriptionFull : "This beautiful longsword has a gold-trimmed hilt.\n   You gain a +1 bonus to attack and damage rolls made with this magic weapon.\n   " + toUni("Curse") + ". This weapon is cursed and possessed by a vengeful spirit. Becoming attuned to it extends the curse to you. As long as you remain cursed, you are unwilling to part with the weapon, keeping it on your person at all times. While attuned to this weapon, you have Disadvantage on attack rolls made with weapons other than this one.\n   In addition, while the weapon is on your person, you must succeed on a DC 15 Wisdom saving throw whenever you take damage from another creature in combat. On a failed save, you must attack the creature that damaged you until you drop to 0 hit points or it does, or until you can't reach the creature to make a melee attack against it.\n   You can break the curse in the usual ways. Alternatively, casting Banishment on the weapon forces the vengeful spirit to leave it. The sword then becomes a +1 Weapon with no other properties.",
-		weaponsAdd : { select : ["Longsword of Vengeance"], options : ["Longsword of Vengeance"] },
-		calcChanges: swordOfVengeance.calcChanges,
-	},
-	"longsword of vengeance (ccc-hatms1-2)" : {
-		name : "Longsword of Vengeance (HATMS1-2)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		attunement : true,
-		description : "This cursed +1 black metal longsword has a sheen of red. The black leather-wrapped hilt ends in a pommel shaped like a human skull. It's possessed by the spirit of the orc warchief K'tagh Redeye, who urges me to violence against humans. I won't part with it & have disadv on atks with other weapons. If I take dmg in combat, I must pass a DC 15 Wis save or attack my attacker until they drop to 0 or I can't reach them in melee. Banishment turns it into a normal +1 longsword.",
-		descriptionLong : "This +1 black metal longsword has a sheen of red and is cursed. The black leather-wrapped hilt ends in a pommel shaped like a human skull. It's possessed by the spirit of the orc warchief K'tagh Redeye, who urges me to violence against humans. I won't part with it and have disadvantage on attacks with other weapons. If I take damage in combat, I must pass a DC 15 Wis save or attack my attacker until they drop to 0 or I can't reach them in melee. Banishment turns it into a normal +1 longsword.",
-		descriptionFull : "The blackened metal of this longsword has a sheen of red. The black leather-wrapped hilt ends in a pommel shaped like a human skull.\n  The longsword is inhabited by an orc warchief, K'tagh Redeye, a berserker who has a terrible loathing of humans. If K'tagh is banished or otherwise removed from the sword, the blade loses its red sheen.\n  While holding the sword, the voice of K'tagh Redeye echoes in the wielder's mind, cursing and nudging the owner to greater violence, especially toward humans. If the person wielding the sword is a human, K'tagh constantly casts insults and threats. The spirit cannot withhold the benefits of the sword from a wielder, however.\n   You gain a +1 bonus to attack and damage rolls made with this magic weapon.\n   " + toUni("Curse") + ". This weapon is cursed and possessed by a vengeful spirit. Becoming attuned to it extends the curse to you. As long as you remain cursed, you are unwilling to part with the weapon, keeping it on your person at all times. While attuned to this weapon, you have Disadvantage on attack rolls made with weapons other than this one.\n   In addition, while the weapon is on your person, you must succeed on a DC 15 Wisdom saving throw whenever you take damage from another creature in combat. On a failed save, you must attack the creature that damaged you until you drop to 0 hit points or it does, or until you can't reach the creature to make a melee attack against it.\n   You can break the curse in the usual ways. Alternatively, casting Banishment on the weapon forces the vengeful spirit to leave it. The sword then becomes a +1 Weapon with no other properties.",
-		weaponsAdd : { select : ["Longsword of Vengeance"], options : ["Longsword of Vengeance"] },
-		calcChanges: swordOfVengeance.calcChanges,
-	},
-	"longsword of vengeance (ccc-mace1-3)" : {
-		name : "Longsword of Vengeance (MACE1-3)",
-		source : [["AL","CCC"]],
-		rarity : "uncommon",
-		attunement : true,
-		description : "The pommel of this cursed +1 longsword is a skull wreathed in purple flames. It carries a secret message I can't find \u0026 I often hear faint mumbling voices. I won't part with it \u0026 have disadv on atks with other weapons. If I take dmg in combat, I make DC 15 Wis save or atk my attacker until they drop to 0 or I can't reach in melee. Banishment turns it into a normal +1 longsword.",
-		descriptionLong : "The pommel of this cursed +1 longsword is carved into a skull wreathed in purple flames. It carries a secret message I don't know how to find and while attuned, I hear faint mumbling voices. I won't part with the sword and have disadvantage on attacks with other weapons. If I take damage in combat, I must pass a DC 15 Wis save or attack my attacker until they drop to 0 or I can't reach them in melee. Banishment turns it into a normal +1 longsword.",
-		descriptionFull : "The pommel of this sword is carved to look like a skull wreathed in purple flames. You hear faint, mumbling voices when you are attuned to the sword. The sword carries a secret message but you have no idea how to find it.\n   You gain a +1 bonus to attack and damage rolls made with this magic weapon.\n   " + toUni("Curse") + ". This weapon is cursed and possessed by a vengeful spirit. Becoming attuned to it extends the curse to you. As long as you remain cursed, you are unwilling to part with the weapon, keeping it on your person at all times. While attuned to this weapon, you have Disadvantage on attack rolls made with weapons other than this one.\n   In addition, while the weapon is on your person, you must succeed on a DC 15 Wisdom saving throw whenever you take damage from another creature in combat. On a failed save, you must attack the creature that damaged you until you drop to 0 hit points or it does, or until you can't reach the creature to make a melee attack against it.\n   You can break the curse in the usual ways. Alternatively, casting Banishment on the weapon forces the vengeful spirit to leave it. The sword then becomes a +1 Weapon with no other properties.",
-		weaponsAdd : { select : ["Longsword of Vengeance"], options : ["Longsword of Vengeance"] },
-		calcChanges: swordOfVengeance.calcChanges,
+		description : "This +3 rapier does +2d10 Radiant damage to Fiends and Undead. When struck, I hear a fragment of ancient song, adding dramatic battle music to any fight. While holding the drawn sword, a 10-ft radius Emanation (30-ft if level 17 Paladin) gives me and my allies advantage on saves vs spells and magical effects. The rapier has a perfectly balanced blade and a gold handguard decorated with gems. The handle is slightly longer than average, as if made for an extra digit.",
+		descriptionFull : "This rapier features a perfectly balanced blade and a gold handguard decorated with gems. The handle is just slightly longer than average, as if it were made for someone with an extra digit.\n   " + toUni("Songcraft") + ". Whenever this item is struck or is used to strike a foe, you hear a fragment of an ancient song.\n   You gain a +3 bonus to attack rolls and damage rolls made with this magic weapon. When you hit a Fiend or an Undead with it, that creature takes an extra 2d10 Radiant damage.\n   While you hold the drawn weapon, it creates a 10-foot Emanation originating from you. You and all creatures Friendly to you in the Emanation have Advantage on saving throws against spells and other magical effects. If you have 17 or more levels in the Paladin class, the size of the Emanation increases to 30 feet.",
+		prerequisite : "Requires attunement by a paladin",
+		prereqeval : function (v) { return classes.known.paladin ? true : false; },
+		calcChanges: holyAvengerCalcs.calcChanges,
+		savetxt : { adv_vs : ["spells", "magical effects"] },
+		weaponsAdd : { select : ["Holy Avenger Rapier"], options : ["Holy Avenger Rapier"] },
 	},
 	"moonblade greatsword: pandora's greater staff of selune (fr-dc-pandora-jwei-s2-6)" : {
 		name : "Greater Staff of Selune, Moonblade Greatsword",
@@ -3192,7 +3156,7 @@ MagicItemsList["al swords"] = {
 		rarity : "legendary",
 		description : "This +3 shortsword was forged in a pair with the malice, sorrow, hatred, and despair of Shar. It's coated with a layer of folded & sharpened shadow weave. Every swing leaves a trail of stars. Only speaks to agree or say what sister might have. Must worship Shar & wield Right Chakram. It has 9 runes: +3 blade, +3d6 Force, is Ring of Spell Storing, crits on a 19 or 20, Thrown property (20/60 ft) and returns. I'm unharmed by temps past 0\u00B0F & 100\u00B0F.",
 		descriptionLong : "This chakram (shortsword) was forged in a pair with the malice, sorrow, hatred, and despair of Shar poured into the process. It's coated with a layer of shadow weave folded and sharpened to an unimaginable extent. Every arc and swing, traces of stars can be seen in its trail.  To wield it, I must worship Shar & be attuned to & holding the Right Chakram of Shar. The chakram rarely speaks. When it did, it just agrees and echoes what its sister, the other chakram, might have said. It has 9 runes: +3 weapon, +3d6 Force per hit, acts as a Ring of Spell Storing (stores up to 5 lvls spells), crits on a 19 or 20, has Thrown property with range of 20/60 ft and returns to my hand. I'm also unharmed by extreme temps past 0\u00B0F & 100\u00B0F.",
-		descriptionFull : "This chakram is forged in pair with the malice, sorrow, hatred, and despair of Shar all poured into its forging process. It is coated with a layer of shadow weave then folded and sharpened to an unimaginable extent. Every arc it does, every swing it takes, traces of stars can be seen in its trail. This chakram can only be wielded when her user is holding her sister, The Right Chakram of Shar. The character must also be attuned to both and worship Shar.\n   The chakram rarely speaks. If it did, it simply agrees and echoes what its sister, the other chakram, would have possibly said.\n   " + toUni("Temperate") + ". You are unharmed by temperatures of 0 degrees Fahrenheit or lower, and 100 degrees Fahrenheit or higher.\n   This moonblade has nine runes in total: the bonus to attack rolls and damage roll is increased to +3. (Three runes); when the user hits with an attack roll using the moonblade, they deal +3d6 force damage. (Three runes); the Moonblade has the properties of a Ring of Spell Storing. When obtained, it contains a 5th lvl Spirit Shroud (One rune); the Moonblade scores a Critical hit on a roll of 19 or 20 on the D20. (One rune); the Moonblade gains the Thrown property with a normal range of 20 feet and a long range of 60 feet. Each time you throw the weapon, it flies back to your hand after the attack. (One rune)\n   " + moonBladeDescriptionTxt.unicode,
+		descriptionFull : "This chakram is forged in pair with the malice, sorrow, hatred, and despair of Shar all poured into its forging process. It is coated with a layer of shadow weave then folded and sharpened to an unimaginable extent. Every arc it does, every swing it takes, traces of stars can be seen in its trail. This chakram can only be wielded when her user is holding her sister, The Right Chakram of Shar. The character must also be attuned to both and worship only Shar.\n   The chakram rarely speaks. If it did, it simply agrees and echoes what its sister, the other chakram, would have possibly said.\n   " + toUni("Temperate") + ". You are unharmed by temperatures of 0 degrees Fahrenheit or lower, and 100 degrees Fahrenheit or higher.\n   This moonblade has nine runes in total: the bonus to attack rolls and damage roll is increased to +3. (Three runes); when the user hits with an attack roll using the moonblade, they deal +3d6 force damage. (Three runes); the Moonblade has the properties of a Ring of Spell Storing. When obtained, it contains a 5th lvl Spirit Shroud (One rune); the Moonblade scores a Critical hit on a roll of 19 or 20 on the D20. (One rune); the Moonblade gains the Thrown property with a normal range of 20 feet and a long range of 60 feet. Each time you throw the weapon, it flies back to your hand after the attack. (One rune)\n   " + moonBladeDescriptionTxt.unicode,
 		attunement : true,
 		savetxt : { immune : ["temps past 0\u00B0F/100\u00B0F"] },
 		weaponOptions : {
@@ -3407,19 +3371,6 @@ MagicItemsList["al swords"] = {
 		weaponsAdd : { select : ["Dread Cutlass, Scimitar of Speed"], options : ["Dread Cutlass, Scimitar of Speed"] },
 		calcChanges: scimitarOfSpeedCalc.calcChanges,
 	},
-	"scimitar of warning: miir (ccc-bwm-4-1)" : {
-		name : "Miir, Scimitar of Warning (BWM-4-1)",
-		source : [["AL","CCC"]],
-		type : "weapon (scimitar)",
-		rarity : "uncommon",
-		attunement : true,
-		advantages : [["Initiative", true]],
-		description : "This mithral blade is exquisitely crafted from the finest materials and never becomes dirty. Miir means priceless in Elvish. While on my person, allies in 30 ft and I have adv. on initiative rolls. It also magically awakens us from nonmagical sleep when combat starts.",
-		descriptionFull : "This mithral blade is exquisitely crafted from the finest materials, and never becomes dirty. \"Miir\" means “priceless” in Elvish.\n   As long as this weapon is within your reach and you are attuned to it, you and allies within 30 feet of you gain the following benefits.\n\n" +
-		"" + toUni("Alarm") + ". The weapon magically awakens each subject who is sleeping naturally when combat begins. This benefit doesn't wake a subject from magically induced sleep.\n" +
-		"" + toUni("Supernatural Readiness") + ". Each subject has Advantage on its Initiative rolls.",
-		weaponsAdd : { select : ["Miir, Scimitar of Warning"], options : ["Miir, Scimitar of Warning"] },
-	},
 	"steel: amdraig (bmg-moon-md-9)" : {
 		name : "Amdraig ('Steel', BMG-MOON-MD-9)",
 		source : [["AL","PO"]],
@@ -3578,12 +3529,73 @@ MagicItemsList["al swords"] = {
 	weaponOptions: [{
 		baseWeapon: "longsword",
 		regExpSearch: /^(?=.*sword)(?=.*answering).*$/i,
-		name: "Warsong, Sword of Answering",
+		name: "Warsong, Longsword of Answering",
 		source: [["AL", "PS-DC"]],
 		modifiers: [3, 3],
 		selectNow: true,
 		description: "Versatile (1d10), Sap; Adv on Reaction attack & Ignore Immune/Resist."
 	}],
+	},
+	"greatsword of sharpness: desolation (ddal8-14)" : {
+		name : "Desolation, Sword of Sharpness (DDAL8-14)",
+		source : [["AL","S8"]],
+		type : "weapon (any sword that deals slashing damage)",
+		rarity : "rare",
+		attunement : true,
+		allowDuplicates : true,
+		description : "This greatsword is made from a strange black material that feels like frigid steel. When I roll a 20 against a creature, it takes +14 Slashing and gains 1 lvl of Exhaustion. The sword does max damage vs objects. With command word, it sheds bright light in a 10-ft radius and 10-ft more dim. Only I can see the light. Repeat command or stow to stop.",
+		descriptionLong : "This Greatsword of Sharpness is made from a strange black material that feels like frigid steel. When I attack a creature and roll a 20 on the attack, that target takes an extra 14 Slashing and gains 1 level of Exhaustion. When used against an object, the damage is maximized. In addition, I can speak a command word to make the blade shed bright light in a 10-foot radius and dim light for an additional 10 feet. Only I can see the light. Speaking the command word again or sheathing the sword puts out the light.",
+		descriptionFull : "This greatsword of sharpness is made from a strange black material that feels like frigid steel. If commanded to shed light, only you can see it. When you attack an object with this magic sword and hit, maximize your weapon damage dice against the target.\n   In addition, you can speak the sword's command word to cause the blade to shed bright light in a 10-foot radius and dim light for an additional 10 feet. Speaking the command word again or sheathing the sword puts out the light.\n   When you attack an object with this magic weapon and hit, maximize your weapon damage dice against the target.\n   When you attack a creature with this weapon and roll a 20 on the d20 for the attack roll, that target takes an extra 14 Slashing damage and gains 1 Exhaustion level.",
+		weaponOptions : {
+			baseWeapon : "greatsword",
+			name : "Desolation, Greatsword of Sharpness",
+			regExpSearch : /^(?=.*desolation).*$/i,
+			description : "Heavy, two-handed, graze; max damage vs. objects; On 20: +14 dmg & 1 lvl Exhaustion",
+			selectNow : true,
+			},
+		},
+	"longsword of vengeance (ccc-bmg-moon15-2)" : {
+		name : "Longsword of Vengeance (BMG-MOON15-2)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		attunement : true,
+		description : "This clear crystal +1 longsword is no longer tainted by Malar's corruption. It's loyal to me, a dull blade for others, & leaves a blue-white trail when hitting a target. I'm unwilling to let it go & have disadv on atks with other weapons. If I take dmg in combat, DC 15 Wis save or I must atk my attacker until they drop to 0 or I can't reach in melee. Banishment turns it into a normal +1 longsword.",
+		descriptionLong : "This clear crystal +1 longsword is no longer tainted by Malar's corruption. It's only loyal to me, appearing as a dull blade to everyone else, and leaves a blue-white trail in its wake when striking a target. I'm unwilling to let it go and have disadvantage on attacks with other weapons. If I take damage in combat, I must pass a DC 15 Wis save or attack my attacker until they drop to 0 or I can't reach them in melee. Banishment turns it into a normal +1 longsword.",
+		descriptionFull : "The sword, no longer tainted by Malar's corruption, is now a clear crystal. The sword is only loyal to the wielder, becoming a dull blade to anyone else. When the sword strikes a target, a blue-white trail is left briefly in its wake.\n   You gain a +1 bonus to attack and damage rolls made with this magic weapon.\n   " + toUni("Curse") + ". This weapon is cursed and possessed by a vengeful spirit. Becoming attuned to it extends the curse to you. As long as you remain cursed, you are unwilling to part with the weapon, keeping it on your person at all times. While attuned to this weapon, you have Disadvantage on attack rolls made with weapons other than this one.\n   In addition, while the weapon is on your person, you must succeed on a DC 15 Wisdom saving throw whenever you take damage from another creature in combat. On a failed save, you must attack the creature that damaged you until you drop to 0 hit points or it does, or until you can't reach the creature to make a melee attack against it.\n   You can break the curse in the usual ways. Alternatively, casting Banishment on the weapon forces the vengeful spirit to leave it. The sword then becomes a +1 Weapon with no other properties.",
+		weaponsAdd : { select : ["Longsword of Vengeance"], options : ["Longsword of Vengeance"] },
+		calcChanges: swordOfVengeance.calcChanges,
+	},
+	"longsword of vengeance (ccc-gary-8)" : {
+		name : "Longsword of Vengeance (CCC-GARY-8)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		attunement : true,
+		description : "This beautiful +1 longsword has a gold-trimmed hilt and is cursed. I'm unwilling to give it up and have disadvantage on atks with other weapons. If I take damage in combat, I must pass a DC 15 Wis save or attack my attacker until they drop to 0 or I can't reach them in melee. Banishment turns it into a normal +1 longsword.",
+		descriptionFull : "This beautiful longsword has a gold-trimmed hilt.\n   You gain a +1 bonus to attack and damage rolls made with this magic weapon.\n   " + toUni("Curse") + ". This weapon is cursed and possessed by a vengeful spirit. Becoming attuned to it extends the curse to you. As long as you remain cursed, you are unwilling to part with the weapon, keeping it on your person at all times. While attuned to this weapon, you have Disadvantage on attack rolls made with weapons other than this one.\n   In addition, while the weapon is on your person, you must succeed on a DC 15 Wisdom saving throw whenever you take damage from another creature in combat. On a failed save, you must attack the creature that damaged you until you drop to 0 hit points or it does, or until you can't reach the creature to make a melee attack against it.\n   You can break the curse in the usual ways. Alternatively, casting Banishment on the weapon forces the vengeful spirit to leave it. The sword then becomes a +1 Weapon with no other properties.",
+		weaponsAdd : { select : ["Longsword of Vengeance"], options : ["Longsword of Vengeance"] },
+		calcChanges: swordOfVengeance.calcChanges,
+	},
+	"longsword of vengeance (ccc-hatms1-2)" : {
+		name : "Longsword of Vengeance (HATMS1-2)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		attunement : true,
+		description : "This cursed +1 black metal longsword has a sheen of red. The black leather-wrapped hilt ends in a pommel shaped like a human skull. It's possessed by the spirit of the orc warchief K'tagh Redeye, who urges me to violence against humans. I won't part with it & have disadv on atks with other weapons. If I take dmg in combat, I must pass a DC 15 Wis save or attack my attacker until they drop to 0 or I can't reach them in melee. Banishment turns it into a normal +1 longsword.",
+		descriptionLong : "This +1 black metal longsword has a sheen of red and is cursed. The black leather-wrapped hilt ends in a pommel shaped like a human skull. It's possessed by the spirit of the orc warchief K'tagh Redeye, who urges me to violence against humans. I won't part with it and have disadvantage on attacks with other weapons. If I take damage in combat, I must pass a DC 15 Wis save or attack my attacker until they drop to 0 or I can't reach them in melee. Banishment turns it into a normal +1 longsword.",
+		descriptionFull : "The blackened metal of this longsword has a sheen of red. The black leather-wrapped hilt ends in a pommel shaped like a human skull.\n  The longsword is inhabited by an orc warchief, K'tagh Redeye, a berserker who has a terrible loathing of humans. If K'tagh is banished or otherwise removed from the sword, the blade loses its red sheen.\n  While holding the sword, the voice of K'tagh Redeye echoes in the wielder's mind, cursing and nudging the owner to greater violence, especially toward humans. If the person wielding the sword is a human, K'tagh constantly casts insults and threats. The spirit cannot withhold the benefits of the sword from a wielder, however.\n   You gain a +1 bonus to attack and damage rolls made with this magic weapon.\n   " + toUni("Curse") + ". This weapon is cursed and possessed by a vengeful spirit. Becoming attuned to it extends the curse to you. As long as you remain cursed, you are unwilling to part with the weapon, keeping it on your person at all times. While attuned to this weapon, you have Disadvantage on attack rolls made with weapons other than this one.\n   In addition, while the weapon is on your person, you must succeed on a DC 15 Wisdom saving throw whenever you take damage from another creature in combat. On a failed save, you must attack the creature that damaged you until you drop to 0 hit points or it does, or until you can't reach the creature to make a melee attack against it.\n   You can break the curse in the usual ways. Alternatively, casting Banishment on the weapon forces the vengeful spirit to leave it. The sword then becomes a +1 Weapon with no other properties.",
+		weaponsAdd : { select : ["Longsword of Vengeance"], options : ["Longsword of Vengeance"] },
+		calcChanges: swordOfVengeance.calcChanges,
+	},
+	"longsword of vengeance (ccc-mace1-3)" : {
+		name : "Longsword of Vengeance (MACE1-3)",
+		source : [["AL","CCC"]],
+		rarity : "uncommon",
+		attunement : true,
+		description : "The pommel of this cursed +1 longsword is a skull wreathed in purple flames. It carries a secret message I can't find \u0026 I often hear faint mumbling voices. I won't part with it \u0026 have disadv on atks with other weapons. If I take dmg in combat, I make DC 15 Wis save or atk my attacker until they drop to 0 or I can't reach in melee. Banishment turns it into a normal +1 longsword.",
+		descriptionLong : "The pommel of this cursed +1 longsword is carved into a skull wreathed in purple flames. It carries a secret message I don't know how to find and while attuned, I hear faint mumbling voices. I won't part with the sword and have disadvantage on attacks with other weapons. If I take damage in combat, I must pass a DC 15 Wis save or attack my attacker until they drop to 0 or I can't reach them in melee. Banishment turns it into a normal +1 longsword.",
+		descriptionFull : "The pommel of this sword is carved to look like a skull wreathed in purple flames. You hear faint, mumbling voices when you are attuned to the sword. The sword carries a secret message but you have no idea how to find it.\n   You gain a +1 bonus to attack and damage rolls made with this magic weapon.\n   " + toUni("Curse") + ". This weapon is cursed and possessed by a vengeful spirit. Becoming attuned to it extends the curse to you. As long as you remain cursed, you are unwilling to part with the weapon, keeping it on your person at all times. While attuned to this weapon, you have Disadvantage on attack rolls made with weapons other than this one.\n   In addition, while the weapon is on your person, you must succeed on a DC 15 Wisdom saving throw whenever you take damage from another creature in combat. On a failed save, you must attack the creature that damaged you until you drop to 0 hit points or it does, or until you can't reach the creature to make a melee attack against it.\n   You can break the curse in the usual ways. Alternatively, casting Banishment on the weapon forces the vengeful spirit to leave it. The sword then becomes a +1 Weapon with no other properties.",
+		weaponsAdd : { select : ["Longsword of Vengeance"], options : ["Longsword of Vengeance"] },
+		calcChanges: swordOfVengeance.calcChanges,
 	},
 	"sword of vengeance (ccc-saf2-2)" : {
 		name : "of Vengeance (CCC-SAF2-2)",
@@ -3603,6 +3615,50 @@ MagicItemsList["al swords"] = {
 			}
 		},
 		calcChanges: swordOfVengeance.calcChanges,
+	},
+	"greatsword of warning: ever vigilant (ccc-bmg-moon3-3)" : {
+			name : "Ever Vigilant, Sword of Warning (BMG-MOON3-3)",
+			source : [["AL","CCC"]],
+			type : "weapon (greatsword)",
+			rarity : "uncommon",
+			attunement : true,
+			advantages : [["Initiative", true]],
+			description : "This silvered greatsword has a pommel shaped like a unicorn's head & its blade is inscribed with prayers to the Earthmother. Some say it's Cymrych Hugh's legendary sword. Others say it's a reflection & the original rests with the Earthmother, awaiting a true hero. Allies in 30 ft & I have adv on initiative. The sword also magically awakens us from nonmagical sleep if combat starts.",
+			descriptionLong : "This silvered greatsword has a pommel shaped like a unicorn's head and its blade is inscribed with prayers to the Earthmother. Some say it's Cymrych Hugh's legendary sword. Others say it's only a reflection and the original rests with the Earthmother, awaiting a worthy hero. Allies in 30 ft and I have advantage on initiative rolls. The sword also magically awakens us from nonmagical sleep when combat starts.",
+			descriptionFull : "This silvered greatsword has a pommel shaped like a unicorn's head, and its blade is inscribed with inscriptions that are prayers to the Earthmother. Some say this is Cymrych Hugh's legendary sword, while others say it's a reflection and that the original rests with the Earthmother, awaiting a hero truly worthy of wielding it.\n   As long as this weapon is within your reach and you are attuned to it, you and allies within 30 feet of you gain the following benefits.\n\n" +
+			"" + toUni("Alarm") + ". The weapon magically awakens each subject who is sleeping naturally when combat begins. This benefit doesn't wake a subject from magically induced sleep.\n" +
+			"" + toUni("Supernatural Readiness") + ". Each subject has Advantage on its Initiative rolls.",
+			weaponsAdd : { select : ["Ever Vigilant, Greatsword of Warning"], options : ["Ever Vigilant, Greatsword of Warning"] },
+			},
+	"scimitar of warning: miir (ccc-bwm-4-1)" : {
+		name : "Miir, Scimitar of Warning (BWM-4-1)",
+		source : [["AL","CCC"]],
+		type : "weapon (scimitar)",
+		rarity : "uncommon",
+		attunement : true,
+		advantages : [["Initiative", true]],
+		description : "This mithral blade is exquisitely crafted from the finest materials and never becomes dirty. Miir means priceless in Elvish. While on my person, allies in 30 ft and I have adv. on initiative rolls. It also magically awakens us from nonmagical sleep when combat starts.",
+		descriptionFull : "This mithral blade is exquisitely crafted from the finest materials, and never becomes dirty. \"Miir\" means “priceless” in Elvish.\n   As long as this weapon is within your reach and you are attuned to it, you and allies within 30 feet of you gain the following benefits.\n\n" +
+		"" + toUni("Alarm") + ". The weapon magically awakens each subject who is sleeping naturally when combat begins. This benefit doesn't wake a subject from magically induced sleep.\n" +
+		"" + toUni("Supernatural Readiness") + ". Each subject has Advantage on its Initiative rolls.",
+		weaponsAdd : { select : ["Miir, Scimitar of Warning"], options : ["Miir, Scimitar of Warning"] },
+	},
+	"greatsword of wounding (ddex2-15)" : {
+		name : "Greatsword of Wounding (DDEX2-15)",
+		source : [["AL","S2"]],
+		rarity : "rare",
+		attunement : true,
+		allowDuplicates : true,
+		description : "This sword is serrated along the back edge with a single deep fuller running its length, bifurcating the point. The sharkskin hilt has a large unfinished gem pommel. Anyone familiar with Aleyd Burral & her fall from grace treats me suspicously. It deals +2d6 Necrotic and target makes a DC 15 Con save or can't regain HP for 1 hr. Repeat save at each turn end to stop the effect.",
+		descriptionLong : "This greatsword is serrated along the back edge with a single deep fuller running its length, bifurcating the point. The sharkskin-wrapped hilt ends in a pommel made from a large unfinished gem. The sword has a tragic history. Anyone familiar with Aleyd Burral and her fall from grace recognizes the weapon and treats me suspicously. It deals +2d6 Necrotic and the target must make a DC 15 Con save or they can't regain HP for 1 hour. They can repeat the save at the end of each turn to stop the effect.",
+		descriptionFull : "This sword's blade is serrated along the back edge with a single, deep fuller running the length of its blade, bifurcating the point. The sharkskin-wrapped hilt ends in a pommel fashioned of a large, unfinished gemstone. This sword, however, has a tragic history. Anyone familiar with Aleyd Burral and her fall from grace recognizes the weapon and treat the wielder with suspicion.\n   When you hit a creature with an attack using this magic weapon, the target takes an extra 2d6 Necrotic damage and must succeed on a DC 15 Constitution saving throw or be unable to regain Hit Points for 1 hour. The target repeats the save at the end of each of its turns, ending the effect on itself on a success.",
+		weaponOptions : {
+			baseWeapon : "greatsword",
+			regExpSearch : /greatsword of wounding/i,
+			name : "Greatsword of Wounding",
+			description : "Heavy, two-handed, graze; +2d6 Necrotic; DC 15 Con save or can't regain HP 1 hr",
+			selectNow : true,
+		},
 	},
 	"sword of wounding (ddal-cgb)" : {
 		name : "Sword of Wounding (DDAL-CGB)",
@@ -3634,6 +3690,17 @@ MagicItemsList["al swords"] = {
 		descriptionFull : "The scabbard of this weapon is jet black with gold embellishments with the initials ‘ST' at the top of it. The hilt of the weapon appears to be made from gold and mithral. The top of the hilt has a skull with red ruby eyes set in it. The hilt is wrapped with bone white cord which provides exceptional grip. When a critical hit is scored the wielder hears unnerving sinister laughter.\n   This magic weapon deals an extra 2d6 damage to any creature it hits. This extra damage is of the same type as the weapon's normal damage.",
 		weaponsAdd : { select : ["Vicious Longsword"], options : ["Vicious Longsword"] },
 		calcChanges: viciousWeaponCalc.calcChanges,
+	},
+	"vicious scimitar: timefrost (fr-dc-glacier-1)" : {
+		name : "Timefrost, Vicious Scimitar (GLACIER-1)",
+		source : [["AL","FR-DC"]],
+		type : "weapon (sword)",
+		rarity : "rare",
+		description : "This frostbitten scimitar boasts a wicked edge and does +2d6 damage per hit. I also suffer no harm in extreme temperatures of 0\u00B0F or lower and 100\u00B0F or higher.",
+		descriptionFull : "This frostbitten scimitar boasts a wicked edge.\n   " + toUni("Temperate") + ". You are unharmed by temperatures of 0 degrees Fahrenheit or lower, and 100 degrees Fahrenheit or higher.\n   This magic weapon deals an extra 2d6 damage to any creature it hits. This extra damage is of the same type as the weapon's normal damage.",
+		weaponsAdd : { select : ["Timefrost, Vicious Scimitar"], options : ["Timefrost, Vicious Scimitar"] },
+		calcChanges: viciousWeaponCalc.calcChanges,
+		savetxt : { immune : ["temps past 0\u00B0F/100\u00B0F"] },
 	},
 	"vicious scimitar: the gemini (fr-dc-rein-vr-1)" : {
 		name : "The Gemini, Vicious Scimitar (REIN-VR-1)",
@@ -3684,48 +3751,6 @@ MagicItemsList["al swords"] = {
 		weaponsAdd : { select : ["Abi Teos's Machete, Vorpal Scimitar"], options : ["Abi Teos's Machete, Vorpal Scimitar"] },
 		calcChanges: vorpalSword.calcChanges,
 	},
-	"wakened white dragon's wrath greatsword (bmg-moon-md-12)" : {
-		name : "Wakened White Dragon Wrath Greatsword (MOON)",
-		source : [["AL","PO"]],
-		rarity : "rare",
-		attunement : true,
-		description : "Pulled from the freezing lair of an adult white dragon, this greatsword is still cold to the touch and a glove is needed to wield it without pain. Along the ice that rimes its length are runes in Thorass that read \"Cold hands, cold heart.\" On a 20, chosen creatures in 5 ft of target take 5 Cold. As action once per dawn, 30-ft cone: 8d6 Cold DC 16 Dex for half.",
-		descriptionLong : "Pulled from the freezing lair of an adult white dragon, this greatsword is still cold to the touch and a glove is needed to wield it without pain. Along the ice that rimes its length are runes in Thorass that read \"Cold hands, cold heart.\" The blade adds +2 to attack and damage and deals +2d6 Cold damage on a hit. On a 20, each chosen creature in 5 ft of the target takes 5 Cold damage. As an action once per dawn, I can create a 30-ft cone: 8d6 Cold damage, Dex DC 16 for half.",
-		descriptionFull : "Pulled from the freezing lair of an adult white dragon, this blade is still cold to the touch and a glove is needed to wield it without pain. Along the ice that rimes its length are runes in Thorass that read \"Cold hands, cold heart.\""+
-		"\n   This weapon is decorated with dragon heads, claws, wings, scales, or Draconic letters. When it steeps in a dragon's hoard, it absorbs the energy of the dragon's breath weapon and deals damage of that type with its special properties. This weapon cannot change rarity or power level."+
-		"\n   >>Slumbering (Uncommon)<<. Whenever you roll a 20 on your attack roll with this weapon, each creature of your choice within 5 feet of the target takes 5 damage of the type dealt by the dragon's breath weapon."+
-		"\n   >>Stirring (Rare)<<. The Stirring weapon has the Slumbering property. In addition, you gain a +1 bonus to attack and damage rolls made using the weapon. On a hit, the weapon deals an extra 1d6 damage of the type dealt by the dragon's breath weapon."+
-		"\n   >>Wakened (Very Rare)<<. The Wakened weapon has the Slumbering property, and it improves on the Stirring property. The bonus to attack and damage rolls increases to +2, and the extra damage dealt by the weapon increases to 2d6."+
-		"\n   As an action, you can unleash a 30-foot cone of destructive energy from the weapon. Each creature in that area must make a DC 16 Dexterity saving throw, taking 8d6 damage of the type dealt by the dragon's breath weapon on a failed save, or half as much damage on a successful one. Once this action is used, it can't be used again until the next dawn."+
-		"\n   >>Ascendant (Legendary)<<. The Ascendant weapon has the Slumbering property, and it improves on the Stirring and Wakened properties. The bonus to attack and damage rolls increases to +3, and the extra damage dealt by the weapon increases to 3d6."+
-		"\n   The cone of destructive energy the weapon creates increases to a 60-foot cone, the save DC increases to 18, and the damage increases to 12d6.",
-		limfeaname : "White Wrath Breath",
-		usages : 1,
-		recovery : "dawn",
-		action : [["action", "White Wrath Breath"]],
-		weaponOptions : [{
-			baseWeapon : "greatsword",
-				name : "Wakened White Wrath Greatsword",
-				regExpSearch : /wakened white wrath greatsword/i,
-				source : [["AL","PO"]],
-				description : "Heavy, Two-handed; Graze; +2d6 Cold; On a 20, 5 Cold to any creature in 5ft",
-				modifiers : [2,2],
-				selectNow : true
-			},{			
-			name : "Wakened White Wrath Cone",
-				regExpSearch : /wakened white wrath cone/i,
-				source : [["AL","PO"]],
-				ability : 0,
-				type : "Magic Item",
-				damage : [8, 6, "Cold"],
-				range : "30-ft cone",
-				description : "Hits all in area; Dex save, success - half damage; Usable once per dawn",
-				abilitytodamage : false,
-				dc : true,
-				modifiers : [8, ""],
-				selectNow : true
-			}],
-		},
 }
 	
 MagicItemsList["al weapons +1"] = {
@@ -4085,7 +4110,7 @@ MagicItemsList["al weapons +2 or +3"] = {
 			allowDuplicates : true,
 			choicesNotInMenu : true,
 			magicItemTable : "?",
-		choices : ["+2 Bow (DDEX3-7)","+2 Club (PS-DC-GMM-1)","+2 Dagger (CCC-GHC-6)","+2 Dagger (SJ-DC-INAS-3)","+2 Dagger: EPA (Trading Post)","+2 Glaive: Grûmsh Bryndrak (FR-DC-FET-2)","+2 Glaive: Azure Sky (SJ-DC-ANGKA-6)","+2 Greataxe: Whisper (DDHC-TOA-8)","+2 Greataxe: Statikax (SJ-DC-LLL-1)","+2 Greataxe: Gleaming (SJ-DC-NMB1-3)","+2 Greataxe: Gythka (SJ-DC-PAT-1)","+2 Greatsword: Tyr's Justice (CCC-GHC-8)","+2 Greatsword: Githyanki Greater Silver Sword (CCC-TRI-27 ROSE1-2)","+2 Greatsword (FR-DC-AEG-6)","+2 Greatsword: Elven Curve Blade (FR-DC-LAX-1-2)","+2 Greatsword (FR-DC-MELB-1-2)","+2 Greatsword: Gleam Claymore (PS-DC-TT-202)","+2 Greatsword: Agony (SJ-DC-ANGKA-1)","+2 Greatsword: Lesser (SJ-DC-FTC-2)","+2 Greatsword: Lux Machaera (SJ-DC-LIGA6)","+2 Greatsword (SJ-DC-RH-1)","+2 Hand Crossbow (SJ-DC-ECHO-4)","+2 Hand Crossbow (SJ-DC-ROCK-1)","+2 Heavy Crossbow: First Blood (SJ-DC-TBS-4)","+2 Longbow: Deep's Reach (CCC-BMG-MOON12-2)","+2 Longbow: Giant's Bane (CCC-GHC-9)","+2 Longbow (DDEP5-2)","+2 Longbow: Bloodthirst (SJ-DC-EPOCH-1)","+2 Longbow: Friendbow (SJ-DC-SCR-1)","+2 Longbow: Craygen's Bow (SJ-DC-SSM-UBCon-1)","+2 Longsword: Elven Blade of the Third Age (CCC-BWM-2)","+2 Longsword: Stout (CCC-GHC-BK1-5)","+2 Longsword: Pride (FR-DC-BTW-3)","+2 Longsword: Blazherserblane (FR-DC-LIGA-2)","+2 Longsword: Westdeck Sword (SJ-DC-CGG-2)","+2 Longsword (SJ-DC-END-1-4)","+2 Maul: Manyoshu's Kanabo (FR-DC-ONI-1)","+2 Maul: Coral Great Hammer (SJ-DC-DEN-H5)","+2 Maul: Space Clown Hammer (SJ-DC-FXC-JEFF-1)","+2 Morningstar: Mourning Star (SJ-DC-ANGKA-5)","+2 Pike: Horizon Caller (SJ-DC-CONMAR-1)","+2 Quarterstaff: Herfren's Marshaling Wand (SJ-DC-BST-2)","+2 Rapier: The Sixth Sword (CCC-HAL-3)","+2 Rapier (FR-DC-AEG-9)","+2 Rapier (SJ-DC-DRAGON-3)","+2 Scimitar (SJ-DC-DRA-1)","+2 Scimitar (SJ-DC-IGC-ECP-5)","+2 Shortsword: Smoke (CCC-SFBAY1-1)","+2 Shortsword (DDAL0-13)","+2 Shortsword (RV-DC-POE-1)","+2 Spear (PS-DC-DRAGON24-2)","+2 Trident (CCC-CIC-12)","+2 Trident: Deep Sashelas (PS-DC-PKL-9)","+2 War Pick (CCC-MYR1-1)","+2 Warhammer (FR-DC-BMK-1)","+2 Weapon (PotA)","+2 Weapon (SJ-DC-MAD-2)","+2 Whip: Flogger's Bouquet (SJ-DC-ENIGMA)","+2 Whip (SJ-DC-TEL-1)","+2 Yklwa: Naga's Warning (SJ-DC-PAT-2)","+3 Battleaxe: Skeggöx (DDAL5-9)","+3 Battleaxe: Pickleaxe (PS-DC-PKL-20B)","+3 Dagger (CCC-TRI-29 TIDE1-1)","+3 Glaive: Empyrean's Unbreaking Glaive (WBW-DC-Sunlit-6)","+3 Greatsword: Wyrmguard (PS-DC-STRAT-DRAGON-5)","+3 Greatsword (WBW-DC-PLS-1)","+3 Hand Crossbow: Belmore (WBW-DC-PHP-LCL-2)","+3 Lance: Dream Whirl (CCC-BMG-39 HULB3-3)","+3 Longbow (BMG-DRWEP-OD-2)","+3 Piercing Weapon: Midnight Phaeton's Horn (CCC-ODFC2-3)","+3 Pike: Krahharuan Fork (DDAL7-10)","+3 Scimitar (DDEP6-2)","+3 Shortsword: Harengon's Freedom (AL:SA-11A)","+3 Shortsword (PS-DC-NOS-4)","+3 Spear: Blood-Drinker's Backbone (RMH-5/RMH-6)"],
+		choices : ["+2 Bow (DDEX3-7)","+2 Club (PS-DC-GMM-1)","+2 Dagger (CCC-GHC-6)","+2 Dagger (SJ-DC-INAS-3)","+2 Dagger: EPA (Trading Post)","+2 Glaive: Grûmsh Bryndrak (FR-DC-FET-2)","+2 Glaive: Azure Sky (SJ-DC-ANGKA-6)","+2 Greataxe: Whisper (DDHC-TOA-8)","+2 Greataxe: Statikax (SJ-DC-LLL-1)","+2 Greataxe: Gleaming (SJ-DC-NMB1-3)","+2 Greataxe: Gythka (SJ-DC-PAT-1)","+2 Greatsword: Tyr's Justice (CCC-GHC-8)","+2 Greatsword: Githyanki Greater Silver Sword (CCC-TRI-27 ROSE1-2)","+2 Greatsword (FR-DC-AEG-6)","+2 Greatsword: Elven Curve Blade (FR-DC-LAX-1-2)","+2 Greatsword (FR-DC-MELB-1-2)","+2 Greatsword: Gleam Claymore (PS-DC-TT-202)","+2 Greatsword: Agony (SJ-DC-ANGKA-1)","+2 Greatsword: Lesser (SJ-DC-FTC-2)","+2 Greatsword: Lux Machaera (SJ-DC-LIGA6)","+2 Greatsword (SJ-DC-RH-1)","+2 Hand Crossbow (SJ-DC-ECHO-4)","+2 Hand Crossbow (SJ-DC-ROCK-1)","+2 Heavy Crossbow: First Blood (SJ-DC-TBS-4)","+2 Longbow: Deep's Reach (CCC-BMG-MOON12-2)","+2 Longbow: Giant's Bane (CCC-GHC-9)","+2 Longbow (DDEP5-2)","+2 Longbow: Bloodthirst (SJ-DC-EPOCH-1)","+2 Longbow: Friendbow (SJ-DC-SCR-1)","+2 Longbow: Craygen's Bow (SJ-DC-SSM-UBCon-1)","+2 Longsword: Elven Blade of the Third Age (CCC-BWM-2)","+2 Longsword: Stout (CCC-GHC-BK1-5)","+2 Longsword: Pride (FR-DC-BTW-3)","+2 Longsword: Blazherserblane (FR-DC-LIGA-2)","+2 Longsword: Westdeck Sword (SJ-DC-CGG-2)","+2 Longsword (SJ-DC-END-1-4)","+2 Maul: Manyoshu's Kanabo (FR-DC-ONI-1)","+2 Maul: Coral Great Hammer (SJ-DC-DEN-H5)","+2 Maul: Space Clown Hammer (SJ-DC-FXC-JEFF-1)","+2 Morningstar: Mourning Star (SJ-DC-ANGKA-5)","+2 Pike: Horizon Caller (SJ-DC-CONMAR-1)","+2 Quarterstaff: Herfren's Marshaling Wand (SJ-DC-BST-2)","+2 Rapier: The Sixth Sword (CCC-HAL-3)","+2 Rapier (FR-DC-AEG-9)","+2 Rapier (SJ-DC-DRAGON-3)","+2 Scimitar (SJ-DC-DRA-1)","+2 Scimitar (SJ-DC-IGC-ECP-5)","+2 Shortsword: Smoke (CCC-SFBAY1-1)","+2 Shortsword (DDAL0-13)","+2 Shortsword (RV-DC-POE-1)","+2 Spear (PS-DC-DRAGON24-2)","+2 Trident (CCC-CIC-12)","+2 Trident: Deep Sashelas (PS-DC-PKL-9)","+2 War Pick (CCC-MYR1-1)","+2 Warhammer (FR-DC-BMK-1)","+2 Weapon (PotA)","+2 Weapon (SJ-DC-MAD-2)","+2 Whip: Flogger's Bouquet (SJ-DC-ENIGMA)","+2 Whip (SJ-DC-TEL-1)","+2 Yklwa: Naga's Warning (SJ-DC-PAT-2)","+3 Battleaxe: Skeggöx (DDAL5-9)","+3 Battleaxe: Pickleaxe (PS-DC-PKL-20B)","+3 Dagger (CCC-TRI-29 TIDE1-1)","+3 Glaive: Empyrean's Unbreaking Glaive (WBW-DC-Sunlit-6)","+3 Greatsword: Wyrmguard (PS-DC-STRAT-DRAGON-5)","+3 Greatsword (WBW-DC-PLS-1)","+3 Hand Crossbow: Belmore (WBW-DC-PHP-LCL-2)","+3 Lance: Dream Whirl (CCC-BMG-39 HULB3-3)","+3 Longbow (BMG-DRWEP-OD-2)","+3 Piercing Weapon: Midnight Phaeton's Horn (CCC-ODFC2-3)","+3 Pike: Krahharuan Fork (DDAL7-10)","+3 Scimitar (DDEP6-2)","+3 Scimitar (FR-DC-F&ADDM-LES4)","+3 Shortsword: Harengon's Freedom (AL:SA-11A)","+3 Shortsword (PS-DC-NOS-4)","+3 Spear: Blood-Drinker's Backbone (RMH-5/RMH-6)"],
 		"+2 bow (ddex3-7)" : {
 			name : "+2 (DDEX3-7)",
 			source : [["AL","S3"]],
@@ -4855,6 +4880,15 @@ MagicItemsList["al weapons +2 or +3"] = {
 			descriptionFull : "Formerly owned by an efreeti, this sword glows with a dull red if a marid is within 60 feet.\n   You have a +3 bonus to attack and damage rolls made with this magic weapon.",
 			weaponsAdd : { select : ["Scimitar +3"], options : ["Scimitar +3"] },
 			},
+		"+3 scimitar (fr-dc-f&addm-les4)" : {
+		name : "+3 Scimitar (DDEP6-2)",
+			source : [["AL","S6"]],
+			rarity : "very rare",
+			allowDuplicates : true,
+			description : "This khopesh (scimitar) only breaks if I attack one of the Gods of Mulhorand. I have a +3 bonus to attack and damage rolls made with this magic weapon.",
+			descriptionFull : "Flavored as a khopesh, this has no mechanical change to the weapon.\n   " + toUni("Unbreakable") + ". The item can't be broken. Special means must be used to destroy it: The item breaks if the bearer attempts to attack one of the Gods of Mulhorand.\n   You have a +3 bonus to attack and damage rolls made with this magic weapon.",
+			weaponsAdd : { select : ["Scimitar +3"], options : ["Scimitar +3"] },
+			},
 		"+3 shortsword: harengon's freedom (al:sa-11a)" : {
 		name : "Harengon's Freedom, +3 Shortsword",
 			source : [["AL:SA","11A"]],
@@ -4897,7 +4931,7 @@ MagicItemsList["al weapons (common)"] = {
 			choicesNotInMenu : true,
 			rarity : "common",
 			magicItemTable : "?",
-		choices : ["Green-Flame Mace: Face of Umberlee's Fury (CCC-AWE-1-2)","Moon-Touched Greatsword (DDAL-DRW17)","Moon-Touched Longsword (BMG-DRW-OD-1)","Moon-Touched Longsword (CCC-GHC-BK1-1)","Moon-Touched Longsword (CCC-TAROT2-6)","Moon-Touched Longsword (DDAL0-11D)","Moon-Touched Longsword (PO-BMG-DRW-KS-4)","Moon-Touched Rapier (CCC-GAD2-1)","Moon-Touched Rapier (CCC-SAC-4)","Moon-Touched Rapier (CCC-UNITE-5)","Moon-Touched Rapier (FR-DC-Saerloon-3)","Moon-Touched Rapier: Pointy End (FR-DC-THAY-2)","Moon-Touched Scimitar (FR-DC-DUNG-1)","Moon-Touched Scimitar (FR-DC-GHG-4)","Moon-Touched Scimitar (FR-DC-PHP-PEST-1)","Moon-Touched Scimitar: Moonmaiden's Blade (FR-DC-STRAT-DRAGON-1)","Moon-Touched Shortsword (BMG-MOON-MD-6)","Moon-Touched Shortsword (DC-POA-CONMAR-9)","Moon-Touched Shortsword (DC-POA-DES-5B)","Moon-Touched Shortsword (DC-POA-GSP2-3H)","Moon-Touched Shortsword: Fang (DC-POA-GSP3-2)","Moon-Touched Shortsword (DC-POA-JCDC-1)","Moon-Touched Shortsword (DC-POA-MCWWS-2)","Moon-Touched Shortsword: Tsukuyomi (DC-POA-TDG1-3)","Moon-Touched Shortsword: Blade of the Black Tortoise (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: Green Dragon Gladius (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: Red Phoenix Falchion (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: White Tiger Tulwar (DC-POA-VAN-MT-1)","Moon-Touched Shortsword (FR-DC-DIGM-1-2)","Moon-Touched Shortsword: Platinum Fang (FR-DC-DMJA-1)","Moon-Touched Shortsword (FR-DC-UCON24)","Moon-Touched Sword (CCC-BMG-MOON6-2)","Moon-Touched Sword (CCC-BMG-MOON10-2)","Silvered Axe: Clearcut (FR-DC-CGB-3)","Silvered Light Crossbow: Jackal Slayer (FR-DC-SCROG-3)","Silvered Mace: Divaine's Microphone (FR-DC-DIVA)","Staff of Adornment (CCC-3MAGS-ONE)","Staff of Adornment (PS-DC-PKL-10)","Staff of Adornment: K's Ashenwood Staff (SJ-DC-AMO-KURI-3)","Staff of Adornment (SJ-DC-ARQ-2)","Staff of Adornment: Ocharine (SJ-DC-DD-7)","Staff of Adornment (SJ-DC-DEN-H5)","Staff of Adornment (SJ-DC-IGC-ECP-5)","Staff of Adornment (SJ-DC-MONSTER-1)","Staff of Adornment: Shakujo (SJ-DC-MWG-1)","Staff of Adornment (SJ-DC-ROTU-5)","Staff of Adornment (SJ-DC-TEL-12)","Staff of Adornment (WBW-DC-NJ-COU-2)","Staff of Birdcalls (FR-DC-TT-T201)","Staff of Birdcalls (WBW-DC-BIRE-1)","Staff of Birdcalls (WBW-DC-CONMAR-3)","Staff of Birdcalls (WBW-DC-Death)","Staff of Birdcalls (WBW-DC-FDC-3)","Staff of Birdcalls (WBW-DC-HBK-1)","Staff of Birdcalls (WBW-DC-ROBIN-1-2)","Staff of Birdcalls (WBW-DC-ROOK-1-4)","Staff of Birdcalls: Dark Crystal (WBW-DC-ZODIAC-10)","Staff of Flowers (CCC-KUMORI-3-1)","Sylvan Talon: Zigfreed's Spear (FR-DC-SCROG-1)","Sylvan Talon: Goblin's Attraction (FR-DC-UCON25-2)","Sylvan Talon: Dragon (PO-BK-5-5)","Sylvan Talon: Silver Beak Weega (SJ-DC-DWR-0-5)","Sylvan Talon: Grandpa Oak's Gift (WBW-DC-PUFF-1)"],
+		choices : ["Green-Flame Mace: Face of Umberlee's Fury (CCC-AWE-1-2)","Moon-Touched Greatsword (DDAL-DRW17)","Moon-Touched Longsword (BMG-DRW-OD-1)","Moon-Touched Longsword (CCC-GHC-BK1-1)","Moon-Touched Longsword (CCC-TAROT2-6)","Moon-Touched Longsword (DDAL0-11D)","Moon-Touched Longsword (PO-BMG-DRW-KS-4)","Moon-Touched Rapier (CCC-GAD2-1)","Moon-Touched Rapier (CCC-SAC-4)","Moon-Touched Rapier (CCC-UNITE-5)","Moon-Touched Rapier (FR-DC-Saerloon-3)","Moon-Touched Rapier: Pointy End (FR-DC-THAY-2)","Moon-Touched Scimitar (FR-DC-DUNG-1)","Moon-Touched Scimitar (FR-DC-GHG-4)","Moon-Touched Scimitar (FR-DC-PHP-PEST-1)","Moon-Touched Scimitar: Moonmaiden's Blade (FR-DC-STRAT-DRAGON-1)","Moon-Touched Shortsword (BMG-MOON-MD-6)","Moon-Touched Shortsword (DC-POA-CONMAR-9)","Moon-Touched Shortsword (DC-POA-DES-5B)","Moon-Touched Shortsword (DC-POA-GSP2-3H)","Moon-Touched Shortsword: Fang (DC-POA-GSP3-2)","Moon-Touched Shortsword (DC-POA-JCDC-1)","Moon-Touched Shortsword (DC-POA-MCWWS-2)","Moon-Touched Shortsword: Tsukuyomi (DC-POA-TDG1-3)","Moon-Touched Shortsword: Blade of the Black Tortoise (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: Green Dragon Gladius (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: Red Phoenix Falchion (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: White Tiger Tulwar (DC-POA-VAN-MT-1)","Moon-Touched Shortsword (FR-DC-DIGM-1-2)","Moon-Touched Shortsword: Platinum Fang (FR-DC-DMJA-1)","Moon-Touched Shortsword (FR-DC-UCON24)","Moon-Touched Sword (CCC-BMG-MOON6-2)","Moon-Touched Sword (CCC-BMG-MOON10-2)","Silvered Axe: Clearcut (FR-DC-CGB-3)","Silvered Light Crossbow: Jackal Slayer (FR-DC-SCROG-3)","Silvered Mace: Divaine's Microphone (FR-DC-DIVA)","Silvered Shortsword (FR-DC-NBDD-2)","Staff of Adornment (CCC-3MAGS-ONE)","Staff of Adornment (PS-DC-PKL-10)","Staff of Adornment: K's Ashenwood Staff (SJ-DC-AMO-KURI-3)","Staff of Adornment (SJ-DC-ARQ-2)","Staff of Adornment: Ocharine (SJ-DC-DD-7)","Staff of Adornment (SJ-DC-DEN-H5)","Staff of Adornment (SJ-DC-IGC-ECP-5)","Staff of Adornment (SJ-DC-MONSTER-1)","Staff of Adornment: Shakujo (SJ-DC-MWG-1)","Staff of Adornment (SJ-DC-ROTU-5)","Staff of Adornment (SJ-DC-TEL-12)","Staff of Adornment (WBW-DC-NJ-COU-2)","Staff of Birdcalls (FR-DC-TT-T201)","Staff of Birdcalls (WBW-DC-BIRE-1)","Staff of Birdcalls (WBW-DC-CONMAR-3)","Staff of Birdcalls (WBW-DC-Death)","Staff of Birdcalls (WBW-DC-FDC-3)","Staff of Birdcalls (WBW-DC-HBK-1)","Staff of Birdcalls (WBW-DC-ROBIN-1-2)","Staff of Birdcalls (WBW-DC-ROOK-1-4)","Staff of Birdcalls: Dark Crystal (WBW-DC-ZODIAC-10)","Staff of Flowers (CCC-KUMORI-3-1)","Sylvan Talon: Zigfreed's Spear (FR-DC-SCROG-1)","Sylvan Talon: Goblin's Attraction (FR-DC-UCON25-2)","Sylvan Talon: Dragon (PO-BK-5-5)","Sylvan Talon: Silver Beak Weega (SJ-DC-DWR-0-5)","Sylvan Talon: Grandpa Oak's Gift (WBW-DC-PUFF-1)"],
 	"green-flame mace: face of umberlee's fury (ccc-awe-1-2)" : {
 		name : "Face of Umberlee's Fury (Green-Flame Mace)",
 		source : [["AL","CCC"]],
@@ -5271,11 +5305,20 @@ MagicItemsList["al weapons (common)"] = {
 		name: "Divaine's Microphone (Silvered Mace, DIVA)",
 		source : [["AL","FR-DC"]],
 		type: "Weapon (mace)",
-		description: "This microphone is bejeweled to the gods. Owned by Divaine herself, it amplifies my voice when I perform. With a Magic action, my voice carries clearly for up to 600 ft until my next turn ends. Now the entire city is my stadium. It also doubles as a weapon, just in case a crazy fan comes my  way. When the mace scores a Critical Hit on a creature that is shape-shifted, I deal one extra die of damage.",
+		description: "This microphone is bejeweled to the gods. Owned by Divaine herself, it amplifies my voice when I perform. With a Magic action, my voice carries clearly for up to 600 ft until my next turn ends. Now the entire city is my stadium. It also doubles as a weapon, just in case a crazy fan comes my way. When the mace scores a Critical Hit on a creature that is shape-shifted, I deal one extra die of damage.",
 		descriptionFull: "This microphone is bejeweled to the gods. Once owned by Divaine herself, it amplifies your voice when you perform. Now, the entire city is your stadium. Oh, and it also doubles as a weapon—just in case a crazy fan comes your way.\n   " + toUni("War Leader") + ". You can take a Magic action to cause your voice or signal to carry clearly for up to 600 feet until the end of your next turn.\n   An alchemical process has bonded silver to this magic weapon. When you score a Critical Hit with it against a creature that is shape-shifted, the weapon deals one additional die of damage.",
 		calcChanges: silverWeaponCalc.calcChanges,
 		weaponsAdd : { select : ["Silvered Mace"], options : ["Silvered Mace"] },
 		action : [["action", "Silvered Mace (600ft Voice)"]],
+	},
+	"silvered shortsword (fr-dc-nbdd-2)" : {
+		name: "Silvered Shortsword (FR-DC-NBDD-2)",
+		source : [["AL","FR-DC"]],
+		type: "Weapon (mace)",
+		description: "An alchemical process has bonded silver to this magic shortsword. When it scores a Critical Hit on a shape-shifted creature, I deal 1 extra die of damage. The shortsword glows in 120 ft of Goblinoids.",
+		descriptionFull: "An alchemical process has bonded silver to this magic weapon. When you score a Critical Hit with it against a creature that is shape-shifted, the weapon deals one additional die of damage.\n   " + toUni("Sentinel") + ". This item glows faintly when Goblinoids are within 120 feet of it.",
+		calcChanges: silverWeaponCalc.calcChanges,
+		weaponsAdd : { select : ["Silvered Shortsword"], options : ["Silvered Shortsword"] },
 	},
 	"staff of adornment (ccc-3mags-one)" : {
 		name : "Staff of Adornment (CCC-3MAGS-ONE)",
@@ -5606,7 +5649,7 @@ MagicItemsList["al weapons (other)"] = {
 		allowDuplicates : true,
 		choicesNotInMenu : true,
 		magicItemTable : "?",
-	choices : ["Berserker Flail (CCC-UCON-1)","Dagger of Blindsight: Panther's Claw (RMH-9)","Dagger of Venom: Fang of Sibyl (CCC-GARY-1)","Dagger of Venom (DDAL4-11)", "Dagger of Venom (DDAL5-17)","Devotee's Censer (BMG-DRW-OD-4)","Dragon Wing Bow: Radiant (BMG-DRWEP-OD-2)","Drow-made Dagger (WDotMM)","Dwarven Thrower: Skyfist (DDEP4)","Dwarven Thrower (FR-DC-PANDORA-JWEI-S2-7)","Dwarven Thrower: Foehammer (WBW-DC-MOM-2)","Elven Thrower (FR-DC-DEATH)","Elven Thrower: Araelathila (FR-DC-LIGA-1)","Elven Thrower: Naginata (FR-DC-PANDORA-JWEI-8)","Elven Thrower (FR-DC-RWIE-3)","Energy Shortbow: Tametomo's (FR-DC-ONI-4)","Executioner's Halberd: Shitenno's Naginata (FR-DC-ONI-5)","Executioner's Halberd (PS-DC-RDP-4)","Flame Tongue (CCC-YLRA-2)","Flame Tongue Whip (PS-DC-PUB-10)","Forcebreaker Sling (PO-BMG-DRW-KS-6)","Giant Slayer Flail (FR-DC-Saerloon-10)","Glaive of Warning: The Harbinger (CCC-EPI1-2)","Glaive of Warning: Losspatan's War-scythe (CCC-GGC-2-1)","Glimmering Moonbow: Starlight Shortbow (PO-BMG-DRWEP-KS-1)","Greatclub of Warning: U'u War Club (WBW-DC-DEN-H2)","Greatclub of Warning: Clobber (WBW-DC-MIKE-1)","Hammer of Thunderbolts: Storm King's (FR-DC-PANDORA-JWEI-S2-4) [bonus]","Hammer of Thunderbolts: Storm King's (FR-DC-PANDORA-JWEI-S2-4) [no bonus]","Hand Crossbow of Melodies: Leeley's (PS-DC-PKL-14)","Holy Avenger: Glaive of the Night (FR-DC-PANDORA-JWEI-S2-6)","Javelin of Lightning (CCC-BFG1-3)","Javelin of Lightning (CCC-BMG-MOON6-3)","Javelin of Lightning (CCC-BMG-MOON16-1)","Javelin of Lightning (CCC-GAD2-2)","Javelin of Lightning (CCC-SAC-4)","Javelin of Lightning (CCC-SFBAY-4-1)","Javelin of Lightning (DDAL8-5)","Javelin of Lightning (SJ-DC-AS-1)","Javelin of Lightning: Comet Spear (SJ-DC-CJK2-2)","Javelin of Lightning: Stormstrike (SJ-DC-DD-4)","Javelin of Lightning: Processional Baton (SJ-DC-DES5-1)","Javelin of Lightning: Rrakkma's Smite (SJ-DC-FLUMPH-1)","Javelin of Lightning: Jensen's Lure (SJ-DC-ISL-1)","Javelin of Lightning (SJ-DC-LIGA1)","Javelin of Lightning (SJ-DC-MB5-AH123)","Javelin of Lightning: Reigar's Rage (SJ-DC-MDW-1)","Javelin of Lightning (SJ-DC-TRIDEN-UPR)","Javelin of Lightning (SJ-DC-TTUC-1)","Javelin of Warning: Jeny's Hairpin (CCC-VOTE-1-1)","Lash of Immolation: Demonweb Punisher (FR-DC-PHP-PEST-2)","Lash of Immolation: Dragon's Tail (FR-DC-STRAT-DRAGON-2)","Lash of Immolation: Ebon Lash (FR-DC-THAY-1)","Lash of Immolation (PO-BMG-DRW-KS-3)","Longbow of Melodies: Airalinde (FR-DC-IMP-2)","Longbow of Melodies: Lavender's Scent (FR-DC-PANDORA-JWEI-10)","Lute of Thunderous Thumping: Beatdown Biwa (FR-DC-ONI-5)","Mace of Disruption (CCC-CIC-3)","Mace of Disruption: Death's Head (CCC-GHC-BK1-2)","Mace of Disruption: The Beligrost Disruptor (PO-BK-5-1)","Mace of Smiting (DDAL7-6)","Mace of Smiting (DDAL8-7)","Mace of Smiting (DDAL10-7)","Mace of Terror: Durgeddin's Fist (DDEP6-1)","Mace of Terror: Redrum (FR-DC-THAY-5)","Moon Sickle +1 (DDAL-DRW10)","Moon Sickle +2 (BMG-DRWEP-OD-1)","Moon Sickle +2: Selune's Guidance (WBW-DC-NJ-COU-2)","Moon Sickle +2: Tsukikama (WBW-DC-PHP-1)","Moon Sickle +3: Shard of Ibhar (FR-DC-PNKE-1)","Moon Sickle +3 (FR-DC-UCON24)","Oathbow: Syranna's Folly (CCC-OCC-1)","Oathbow (DDAL-DRW8)","Oathbow: Shadowsong (DDEX3-7)","Oathbow: Moon (FR-DC-PANDORA-JWEI-S2-6)","Oathbow: Selestria (WBW-DC-TMP-3)","Shortbow of Melodies (FR-DC-FALL-1)","Spear of Warning: Spirit (PO-BMG-DRWEP-KS-1)","Starshot Hand Crossbow (PO-BMG-DRW-KS-2)","Stone Greataxe (DDAL0-13)","Trident of Fish Command (CCC-BMG-MOON14-1)","Trident of Fish Command (CCC-TAROT2-8)","Trident of Fish Command (CCC-WWC-2)","Trident of Warning (CCC-TRI-34)","Trident of Warning (DDEX2-3)","Vicious Glaive: Ptahrek's Glaive (CCC-SVH1-2)","Vicious Heavy Crossbow (PS-DC-PUB-3)","Vicious Longbow: Wayfinder (FR-DC-MCG-CH2)","Vicious Mace (CCC-BMG-1 HULB1-1)","Vicious Maul: Prototype Weapon #31 (PS-DC-HRS-1)","Vicious Spear (DDAL0-13)","Vicious Trident: Pitchfork (FR-DC-SCROG-LGD-1)","Vorpal Glaive: Moon (PS-DC-PANDORA-JWEI-S2-3)","Wakened Crystal Dragon's Wrath Glaive (PO-BMG-DRW-KS-5)","Weapon of Warning (CCC-ELF-3-1)","Weapon of Warning (DDAL0-7)","Whip of Warning (CCC-GHC-BK2-10)","Whip of Warning (DDAL4-2)"],
+	choices : ["Berserker Flail (CCC-UCON-1)","Hand Crossbow of Melodies: Leeley's (PS-DC-PKL-14)","Longbow of Melodies: Airalinde (FR-DC-IMP-2)","Longbow of Melodies: Lavender's Scent (FR-DC-PANDORA-JWEI-10)","Shortbow of Melodies (FR-DC-FALL-1)","Dagger of Blindsight: Panther's Claw (RMH-9)","Dagger of Venom: Fang of Sibyl (CCC-GARY-1)","Dagger of Venom (DDAL4-11)", "Dagger of Venom (DDAL5-17)","Devotee's Censer (BMG-DRW-OD-4)","Dragon Wing Bow: Radiant (BMG-DRWEP-OD-2)","Drow-made Dagger (WDotMM)","Dwarven Thrower: Skyfist (DDEP4)","Dwarven Thrower (FR-DC-PANDORA-JWEI-S2-7)","Dwarven Thrower: Foehammer (WBW-DC-MOM-2)","Elven Thrower (FR-DC-DEATH)","Elven Thrower: Araelathila (FR-DC-LIGA-1)","Elven Thrower: Naginata (FR-DC-PANDORA-JWEI-8)","Elven Thrower (FR-DC-RWIE-3)","Energy Shortbow: Tametomo's (FR-DC-ONI-4)","Executioner's Halberd: Shitenno's Naginata (FR-DC-ONI-5)","Executioner's Halberd (PS-DC-RDP-4)","Flame Tongue (CCC-YLRA-2)","Flame Tongue Whip (PS-DC-PUB-10)","Forcebreaker Sling (PO-BMG-DRW-KS-6)","Giant Slayer Flail (FR-DC-Saerloon-10)","Glimmering Moonbow: Starlight Shortbow (PO-BMG-DRWEP-KS-1)","Hammer of Thunderbolts: Storm King's (FR-DC-PANDORA-JWEI-S2-4) [bonus]","Hammer of Thunderbolts: Storm King's (FR-DC-PANDORA-JWEI-S2-4) [no bonus]","Holy Avenger: Glaive of the Night (FR-DC-PANDORA-JWEI-S2-6)","Javelin of Lightning (CCC-BFG1-3)","Javelin of Lightning (CCC-BMG-MOON6-3)","Javelin of Lightning (CCC-BMG-MOON16-1)","Javelin of Lightning (CCC-GAD2-2)","Javelin of Lightning (CCC-SAC-4)","Javelin of Lightning (CCC-SFBAY-4-1)","Javelin of Lightning (DDAL8-5)","Javelin of Lightning: Thunderbolt (FR-DC-NASKGV-1)","Javelin of Lightning (SJ-DC-AS-1)","Javelin of Lightning: Comet Spear (SJ-DC-CJK2-2)","Javelin of Lightning: Stormstrike (SJ-DC-DD-4)","Javelin of Lightning: Processional Baton (SJ-DC-DES5-1)","Javelin of Lightning: Rrakkma's Smite (SJ-DC-FLUMPH-1)","Javelin of Lightning: Jensen's Lure (SJ-DC-ISL-1)","Javelin of Lightning (SJ-DC-LIGA1)","Javelin of Lightning (SJ-DC-MB5-AH123)","Javelin of Lightning: Reigar's Rage (SJ-DC-MDW-1)","Javelin of Lightning (SJ-DC-TRIDEN-UPR)","Javelin of Lightning (SJ-DC-TTUC-1)","Lash of Immolation: Demonweb Punisher (FR-DC-PHP-PEST-2)","Lash of Immolation: Dragon's Tail (FR-DC-STRAT-DRAGON-2)","Lash of Immolation: Ebon Lash (FR-DC-THAY-1)","Lash of Immolation (PO-BMG-DRW-KS-3)","Lute of Thunderous Thumping: Beatdown Biwa (FR-DC-ONI-5)","Mace of Disruption (CCC-CIC-3)","Mace of Disruption: Death's Head (CCC-GHC-BK1-2)","Mace of Disruption: The Beligrost Disruptor (PO-BK-5-1)","Mace of Smiting (DDAL7-6)","Mace of Smiting (DDAL8-7)","Mace of Smiting (DDAL10-7)","Mace of Terror: Durgeddin's Fist (DDEP6-1)","Mace of Terror: Redrum (FR-DC-THAY-5)","Moon Sickle +1 (DDAL-DRW10)","Moon Sickle +2 (BMG-DRWEP-OD-1)","Moon Sickle +2: Selune's Guidance (WBW-DC-NJ-COU-2)","Moon Sickle +2: Tsukikama (WBW-DC-PHP-1)","Moon Sickle +3: Shard of Ibhar (FR-DC-PNKE-1)","Moon Sickle +3 (FR-DC-UCON24)","Oathbow: Syranna's Folly (CCC-OCC-1)","Oathbow (DDAL-DRW8)","Oathbow: Shadowsong (DDEX3-7)","Oathbow: Moon (FR-DC-PANDORA-JWEI-S2-6)","Oathbow: Selestria (WBW-DC-TMP-3)","Starshot Hand Crossbow (PO-BMG-DRW-KS-2)","Stone Greataxe (DDAL0-13)","Trident of Fish Command (CCC-BMG-MOON14-1)","Trident of Fish Command (CCC-TAROT2-8)","Trident of Fish Command (CCC-WWC-2)","Vicious Glaive: Ptahrek's Glaive (CCC-SVH1-2)","Vicious Heavy Crossbow (PS-DC-PUB-3)","Vicious Longbow: Wayfinder (FR-DC-MCG-CH2)","Vicious Mace (CCC-BMG-1 HULB1-1)","Vicious Maul: Prototype Weapon #31 (PS-DC-HRS-1)","Vicious Spear (DDAL0-13)","Vicious Trident: Pitchfork (FR-DC-SCROG-LGD-1)","Vorpal Glaive: Moon (PS-DC-PANDORA-JWEI-S2-3)","Wakened Crystal Dragon's Wrath Glaive (PO-BMG-DRW-KS-5)","Glaive of Warning: The Harbinger (CCC-EPI1-2)","Glaive of Warning: Losspatan's War-scythe (CCC-GGC-2-1)","Greatclub of Warning: U'u War Club (WBW-DC-DEN-H2)","Greatclub of Warning: Clobber (WBW-DC-MIKE-1)","Javelin of Warning: Jeny's Hairpin (CCC-VOTE-1-1)","Spear of Warning: Spirit (PO-BMG-DRWEP-KS-1)","Trident of Warning (CCC-TRI-34)","Trident of Warning (DDEX2-3)","Weapon of Warning (CCC-ELF-3-1)","Weapon of Warning (DDAL0-7)","Whip of Warning (CCC-GHC-BK2-10)","Whip of Warning (DDAL4-2)"],
 	"berserker flail (ccc-ucon-1)" : {
 		name : "Berserker Flail (CCC-UCON-1)",//Based on the Berserker axe 
 		source : [["AL","CCC"]],
@@ -5627,6 +5670,76 @@ MagicItemsList["al weapons (other)"] = {
 			calcChanges : {
 			hp : function (totalHD) { return [totalHD]; },
 		}
+	},
+	"hand crossbow of melodies: leeley's (ps-dc-pkl-14)" : {
+			name : "Leeley's Hand Crossbow of Melodies (PKL-14)",
+			source : [["AL","PS-DC"]],
+			type : "weapon (hand crossbow)",
+			rarity : "very rare",
+			attunement : true,
+			description : "This hand crossbow is shaped like a harp & whispers warning, giving +2 initiative if not Incapacitated. When I atk with it, I can play 1 melody on each atk. Precision: If proficient with Performance, add +1 (+2 if expertise) to atk roll. Reverberation: add Cha mod Thunder dmg to atk.",
+			descriptionLong : "This hand crossbow resembles a lyre with multiple strings. I can use the strings to play 1 melody on each attack. Melody of Precision: If I'm proficient with Performance, add +1 (+2 if expertise) to the attack roll. Melody of Reverberation: add Charisma modifier in Thunder damage to the attack. The crossbow also whispers warnings, giving me +2 initiative unless Incapacitated.",
+			descriptionFull : "This bow has multiple strings and resembles a lyre or small harp. By strumming the strings while setting an arrow to the bow, you imbue the arrow with magic."+
+			"\n   You can play one of the following melodies when you use the bow to make a ranged weapon attack. You must choose to do so before you make the attack roll, and you can play only one melody per attack."+
+			"\n   " + toUni("Melody of Precision") + ". If you're proficient in Performance, you gain a +1 bonus to the attack roll. If you have expertise in Performance, you gain a +2 bonus instead."+
+			"\n   " + toUni("Melody of Reverberation") + ". The melody you strum echoes loudly. On a hit, the target takes extra thunder damage equal to your Charisma modifier."+
+			"\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition.",
+			weaponsAdd : { select : ["Hand Crossbow of Melodies"], options : ["Hand Crossbow of Melodies"] },
+			addMod : genericGuardianWeapon.addMod,
+		calcChanges: bowOfMelodies.calcChanges,
+	},
+	"longbow of melodies: airalinde (fr-dc-imp-2)" : {
+			name : "Airalinde, Longbow of Melodies (IMP-2)",
+			source : [["AL","FR-DC"]],
+			type : "weapon (longbow)",
+			rarity : "very rare",
+			attunement : true,
+			description : "This elven longbow is shaped like a harp cleverly reinforced with mithral and moonstones. It enhances pangs of conscience if I consider or do malevolent acts. When I atk with the bow, I can play 1 melody on each atk. Precision: If proficient with Performance, add +1 (+2 if expertise) to atk roll. Reverberation: add Cha mod Thunder dmg to atk.",
+			descriptionLong : "Airalinde (Hymn) is a wonder of elven craftsmanship. The longbow resembles a lyre with multiple strings. It's cleverly reinforced with mithral and inlaid with moonstones. The bow enhances pangs of conscience around malevolent acts. I can use the strings to play 1 melody on each attack. Melody of Precision: If proficient with Performance, add +1 (+2 if expertise) to the attack roll. Melody of Reverberation: add Charisma modifier in Thunder damage to the attack.",
+			descriptionFull : "A wonder of elven craftsmanship, Airalindë (“Hymn”) is a wooden bow cleverly reinforced with mithral and inlaid with enchanted moonstones."+
+			"\n   " + toUni("Conscientious") + ". When the bearer of this item contemplates or undertakes a malevolent act, the item enhances pangs of conscience."+
+			"\n   This bow has multiple strings and resembles a lyre or small harp. By strumming the strings while setting an arrow to the bow, you imbue the arrow with magic."+
+			"\n   You can play one of the following melodies when you use the bow to make a ranged weapon attack. You must choose to do so before you make the attack roll, and you can play only one melody per attack."+
+			"\n   " + toUni("Melody of Precision") + ". If you're proficient in Performance, you gain a +1 bonus to the attack roll. If you have expertise in Performance, you gain a +2 bonus instead."+
+			"\n   " + toUni("Melody of Reverberation") + ". The melody you strum echoes loudly. On a hit, the target takes extra thunder damage equal to your Charisma modifier.",
+			weaponsAdd : { select : ["Airalinde, Longbow of Melodies"], options : ["Airalinde, Longbow of Melodies"] },
+		calcChanges: bowOfMelodies.calcChanges,
+	},
+	"longbow of melodies: lavender's scent (fr-dc-pandora-jwei-10)" : {
+			name : "Lavender's Scent, Bow of Melodies (PANDORA-JWEI-10)",
+			source : [["AL","FR-DC"]],
+			type : "weapon (longbow)",
+			rarity : "very rare",
+			attunement : true,
+			description : "This longbow is shaped like a harp. When strummed, it emits an aroma of lavender and any who fall asleep to its melodies have tranquil dreams. The bow warns me, giving +2 initiative if not Incapacitated. I can play 1 melody on each atk. Precision: If proficient with Performance, add +1 (+2 if expertise) to atk roll. Reverberation: add Cha mod Thunder dmg to atk.",
+			descriptionLong : "This longbow is shaped like a harp with multiple strings. When strummed, it emits an aroma of lavender and those who fall asleep while enchanted by its melodies are blessed with tranquil dreams. The bow also warns me, giving +2 initiative if not Incapacitated. I can use the strings to play 1 melody on each atk. Melody of Precision: If proficient with Performance, add +1 (+2 if expertise) to the attack roll. Melody of Reverberation: add Charisma modifier in Thunder dmg to attack.",
+			descriptionFull : "This longbow, fashioned in the likeness of a harp, emanates a soothing aroma of lavender when its strings are strummed. It is said that those who fall asleep while enchanted by its melodies are blessed with tranquil dreams, free from the burdens of the waking world."+
+			"\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition."+
+			"\n   This bow has multiple strings and resembles a lyre or small harp. By strumming the strings while setting an arrow to the bow, you imbue the arrow with magic."+
+			"\n   You can play one of the following melodies when you use the bow to make a ranged weapon attack. You must choose to do so before you make the attack roll, and you can play only one melody per attack."+
+			"\n   " + toUni("Melody of Precision") + ". If you're proficient in Performance, you gain a +1 bonus to the attack roll. If you have expertise in Performance, you gain a +2 bonus instead."+
+			"\n   " + toUni("Melody of Reverberation") + ". The melody you strum echoes loudly. On a hit, the target takes extra thunder damage equal to your Charisma modifier.",
+			addMod : genericGuardianWeapon.addMod,
+			weaponsAdd : { select : ["Lavender's Scent, Longbow of Melodies"], options : ["Lavender's Scent, Longbow of Melodies"] },
+		calcChanges: bowOfMelodies.calcChanges,
+	},
+	"shortbow of melodies (fr-dc-fall-1)" : {
+		name : "Shortbow of Melodies (FR-DC-FALL-1)",
+		source : [["AL","FR-DC"]],
+		type : "weapon (any bow)",
+		rarity : "very rare",
+		attunement : true,
+		description : "This shortbow is shaped like a harp with multiple strings. It's the color of Auril's rime and always cool to the touch. I suffer no harm in extreme temps past 0\u00B0F & 100\u00B0F. I can use the strings to play 1 melody per atk. Precision: If proficient with Performance, add +1 (+2 if expertise) to atk roll. Reverberation: add Charisma mod Thunder dmg.",
+		descriptionLong : "This shortbow is shaped like a harp with multiple strings. It's the color of Auril's rime and always cool to the touch. While on my person, I suffer no harm in extreme temperatures past 0\u00B0F and 100\u00B0F. I can use the strings to play 1 of 2 melodies on each attack. Melody of Precision: if I'm proficient with Performance, add +1 (+2 if expertise) to the attack roll. Melody of Reverberation: add my Charisma modifier in Thunder damage to the attack.",
+		descriptionFull : "This bow is the color of Auril's rime and is always cool to the touch."+
+		"\n   " + toUni("Temperate") + ". You are unharmed by temperatures of 0 degrees Fahrenheit or lower, and 100 degrees Fahrenheit or higher."+
+		"\n   This bow has multiple strings and resembles a lyre or small harp. By strumming the strings while setting an arrow to the bow, you imbue the arrow with magic."+
+		"\n   You can play one of the following melodies when you use the bow to make a ranged weapon attack. You must choose to do so before you make the attack roll, and you can play only one melody per attack."+
+		"\n   " + toUni("Melody of Precision") + ". If you're proficient in Performance, you gain a +1 bonus to the attack roll. If you have expertise in Performance, you gain a +2 bonus instead."+
+		"\n   " + toUni("Melody of Reverberation") + ". The melody you strum echoes loudly. On a hit, the target takes extra thunder damage equal to your Charisma modifier.",
+		savetxt : { immune : ["temps past 0\u00B0F/100\u00B0F"] },
+		weaponsAdd : { select : ["Shortbow of Melodies"], options : ["Shortbow of Melodies"] },
+		calcChanges: bowOfMelodies.calcChanges,
 	},
 	"dagger of blindsight: panther's claw (rmh-9)" : {
 		name : "Panther's Claw (Dagger of Blindsight)",
@@ -6066,33 +6179,6 @@ MagicItemsList["al weapons (other)"] = {
 		weaponsAdd : { select : ["Giant Slayer Flail"], options : ["Giant Slayer Flail"] },
 		calcChanges: giantSlayerWeapon.calcChanges,
 		},
-	"glaive of warning: the harbinger (ccc-epi1-2)" : {
-			name : "The Harbinger, Glaive of Warning (EPI1-2)",
-			source : [["AL","CCC"]],
-			type : "weapon (glaive)",
-			rarity : "uncommon",
-			attunement : true,
-			advantages : [["Initiative", true]],
-			description : "This massive scythe was forged from the darkest shadows of the plane of Gehenna, home of the Orcish god Shaargas. It's light and doesn't cast a shadow, though shadows warn me of impending danger. While carried, allies in 30 ft and I have advantage on initiative. It also magically awakens us from nonmagical sleep when combat starts.",
-			descriptionFull : "The Harbinger is a massive scythe was forged from the darkest shadows from the plane of Gehenna, home of the orcish god Shaargas. The material is light, and does not cast its own shadow. However, the item gives its user an uncanny ability for shadows to warn the user of impending danger.\n   As long as this weapon is within your reach and you are attuned to it, you and allies within 30 feet of you gain the following benefits.\n\n" +
-			"" + toUni("Alarm") + ". The weapon magically awakens each subject who is sleeping naturally when combat begins. This benefit doesn't wake a subject from magically induced sleep.\n" +
-			"" + toUni("Supernatural Readiness") + ". Each subject has Advantage on its Initiative rolls.",
-			weaponsAdd : { select : ["Harbinger, Glaive of Warning"], options : ["Harbinger, Glaive of Warning"] },
-			},
-	"glaive of warning: losspatan's war-scythe (ccc-ggc-2-1)" : {
-			name : "Losspatan's War-scythe of Warning (GGC-2-1)",
-			source : [["AL","CCC"]],
-			type : "weapon (glaive)",
-			rarity : "uncommon",
-			attunement : true,
-			advantages : [["Initiative", true]],
-			description : "This war-scythe is a reddish 10-ft wooden pole with a curved scythe-like blade etched with infernal runes. Along the base of the pole is the preserved tail of a fiendish creature, which emanates a foul odor of rot. When trouble is near, the tail whips & thrashes to warn me. Allies in 30 ft and I have adv. on initiative. It also magically awakens us from nonmagical sleep when combat starts.",
-			descriptionLong : "This war-scythe (glaive) consists of a reddish 10-ft wooden pole with a curved scythe-like blade at the top that's etched with infernal runes. Along the base of the pole is the preserved tail of a fiendish creature, which emanates a foul odor of rot. When trouble is nearby, the tail whips and thrashes to warn me of impending danger. Allies in 30 ft and I have advantage on initiative rolls. The scythe also magically awakens us from nonmagical sleep when combat starts.",
-			descriptionFull : "This war-scythe consists of a long reddish wooden pole about 10 feet in length with an attached curved scythe-like blade on the top end. The blade is etched with infernal runes. Along the base of the pole is the preserved tail of some fiendish creature. When trouble is nearby the tail whips and thrashes about warnings of the impending situation. Although preserved, the tail emanates a foul odor of rot.\n   As long as this weapon is within your reach and you are attuned to it, you and allies within 30 feet of you gain the following benefits.\n\n" +
-			"" + toUni("Alarm") + ". The weapon magically awakens each subject who is sleeping naturally when combat begins. This benefit doesn't wake a subject from magically induced sleep.\n" +
-			"" + toUni("Supernatural Readiness") + ". Each subject has Advantage on its Initiative rolls.",
-			weaponsAdd : { select : ["Losspatan's War-scythe, Glaive of Warning"], options : ["Losspatan's War-scythe, Glaive of Warning"] },
-			},
 	"glimmering moonbow: starlight shortbow (po-bmg-drwep-ks-1)" : {
 			name : "Starlight Moonbow (Glimmering, PO-BMG-DRWEP-KS-1)",
 			source : [["AL","DRW"]],
@@ -6113,34 +6199,6 @@ MagicItemsList["al weapons (other)"] = {
 			weaponsAdd : { select : ["Starlight Shortbow, Glimmering Moonbow"], options : ["Starlight Shortbow, Glimmering Moonbow"] },
 			calcChanges: glimmeringMoonbowCalcs.calcChanges,
 		},
-	"greatclub of warning: u'u war club (wbw-dc-den-h2)" : {
-			name : "U'u War Club of Warning (DEN-H2)",
-			source : [["AL","WBW-DC"]],
-			type : "weapon (greatclub)",
-			rarity : "uncommon",
-			attunement : true,
-			advantages : [["Initiative", true]],
-			description : "From a distant land called the Marquesas Islands, this club is carved from sennit, ironwood & human hair. A warrior or chief carried it as a sign of status. Carvings of faces & eyes keep watch in all directions & symbolize the ancestors, endowing spiritual power & protection. Allies in 30 ft & I have adv. on initiative. It magically awakens us from nonmagical sleep if combat starts.",
-			descriptionLong : "From a distant prime material land called the Marquesas Islands, this club is carved from ironwood, sennit and human hair. A Marquesan warrior or chief carried it as a sign of status. The carvings of faces and eyes keep watch in all directions and symbolize the ancestors, endowing a warrior with spiritual power and protection. Allies in 30 ft and I have adv. on initiative. It also magically awakens us from nonmagical sleep when combat starts.",
-			descriptionFull : "From a distant prime material land known as the Marquesas Islands, the U'u War Club is carved from ironwood, sennit, and human hair. A Marquesan warrior or chief carried this club as a sign of status. The carvings of multiple faces and eyes keep watch in all directions and are symbolic representations of warrior's ancestors – endowing the wielder with spiritual power and protection.\n   As long as this weapon is within your reach and you are attuned to it, you and allies within 30 feet of you gain the following benefits.\n\n" +
-			"" + toUni("Alarm") + ". The weapon magically awakens each subject who is sleeping naturally when combat begins. This benefit doesn't wake a subject from magically induced sleep.\n" +
-			"" + toUni("Supernatural Readiness") + ". Each subject has Advantage on its Initiative rolls.",
-			weaponsAdd : { select : ["U'u War Club, Greatclub of Warning"], options : ["U'u War Club, Greatclub of Warning"] },
-		},
-	"greatclub of warning: clobber (wbw-dc-mike-1)" : {
-			name : "Clobber, Greatclub of Warning (MIKE-1)",
-			source : [["AL","WBW-DC"]],
-			type : "weapon (greatclub)",
-			rarity : "uncommon",
-			attunement : true,
-			advantages : [["Initiative", true]],
-			description : "To ensure that his ogre bodyguard, Clobber, couldn't be caught unawares, Scrimshaw enchanted his greatclub with magical wards. Elaborate carved curlicues wend their way around the gnarled oaken shaft and glow a dull crimson when danger is near. Allies in 30 ft and I have adv. on initiative. It also magically awakens us from nonmagical sleep when combat starts.",
-			descriptionLong : "To ensure that his dim-witted ogre bodyguard, Clobber, couldn't be caught unawares, Scrimshaw enchanted his greatclub with magical wards. Elaborate carved curlicues wend their way around its gnarled oaken shaft and glow a dull crimson when danger is near. While on my person, allies in 30 ft and I have advantage on initiative rolls. The greatclub also magically awakens us from nonmagical sleep when combat starts.",
-			descriptionFull : "To ensure that the dim-witted ogre couldn't be caught unawares, Scrimshaw enchanted the weapon of his bodyguard, Clobber with magical wards. The elaborate curlicues carved into this greatclub twist and wend their way around its gnarled oaken shaft. They emit a dull crimson glow when danger is near.\n   As long as this weapon is within your reach and you are attuned to it, you and allies within 30 feet of you gain the following benefits.\n\n" +
-			"" + toUni("Alarm") + ". The weapon magically awakens each subject who is sleeping naturally when combat begins. This benefit doesn't wake a subject from magically induced sleep.\n" +
-			"" + toUni("Supernatural Readiness") + ". Each subject has Advantage on its Initiative rolls.",
-			weaponsAdd : { select : ["Clobber, Greatclub of Warning"], options : ["Clobber, Greatclub of Warning"] },
-			},
 	"hammer of thunderbolts: storm king's (fr-dc-pandora-jwei-s2-4) [bonus]" : {
 		name : "Storm King's Hammer (Thunderbolts+, JWEI-S2-4)",
 		source : [["AL","FR-DC"]],
@@ -6182,23 +6240,6 @@ MagicItemsList["al weapons (other)"] = {
 		additional : "regains 1d4+1",
 		calcChanges: hammerThunderboltsNoBonus.calcChanges,
 		weaponsAdd : { select : ["Maul of Thunderbolts"], options : ["Maul of Thunderbolts"] },
-	},
-	"hand crossbow of melodies: leeley's (ps-dc-pkl-14)" : {
-			name : "Leeley's Hand Crossbow of Melodies (PKL-14)",
-			source : [["AL","PS-DC"]],
-			type : "weapon (hand crossbow)",
-			rarity : "very rare",
-			attunement : true,
-			description : "This hand crossbow is shaped like a harp & whispers warning, giving +2 initiative if not Incapacitated. When I atk with it, I can play 1 melody on each atk. Precision: If proficient with Performance, add +1 (+2 if expertise) to atk roll. Reverberation: add Cha mod Thunder dmg to atk.",
-			descriptionLong : "This hand crossbow resembles a lyre with multiple strings. I can use the strings to play 1 melody on each attack. Melody of Precision: If I'm proficient with Performance, add +1 (+2 if expertise) to the attack roll. Melody of Reverberation: add Charisma modifier in Thunder damage to the attack. The crossbow also whispers warnings, giving me +2 initiative unless Incapacitated.",
-			descriptionFull : "This bow has multiple strings and resembles a lyre or small harp. By strumming the strings while setting an arrow to the bow, you imbue the arrow with magic."+
-			"\n   You can play one of the following melodies when you use the bow to make a ranged weapon attack. You must choose to do so before you make the attack roll, and you can play only one melody per attack."+
-			"\n   " + toUni("Melody of Precision") + ". If you're proficient in Performance, you gain a +1 bonus to the attack roll. If you have expertise in Performance, you gain a +2 bonus instead."+
-			"\n   " + toUni("Melody of Reverberation") + ". The melody you strum echoes loudly. On a hit, the target takes extra thunder damage equal to your Charisma modifier."+
-			"\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition.",
-			weaponsAdd : { select : ["Hand Crossbow of Melodies"], options : ["Hand Crossbow of Melodies"] },
-			addMod : genericGuardianWeapon.addMod,
-		calcChanges: bowOfMelodies.calcChanges,
 	},
 	"holy avenger: glaive of the night (fr-dc-pandora-jwei-s2-6)" : {
 		name : "Glaive of the Night, Holy Avenger (JWEI-S2-6)",
@@ -6352,6 +6393,27 @@ MagicItemsList["al weapons (other)"] = {
 			description : "Thrown, slow; Lightning or Piercing; Once per dawn special attack",
 			selectNow : true,
 		}
+	},
+	"javelin of lightning: thunderbolt (fr-dc-naskgv-1)" : { 
+		name : "Thunderbolt, Javelin of Lightning (NASKGV-1)",
+		source : [["AL","FR-DC"]],
+		type : "weapon (javelin)",
+		rarity : "uncommon",
+		description : "This ornate javelin is shaped like a lightning bolt. Its wild design is surprisingly easy to wield and carry. When I wind up to throw it, I feel an urge to shout \"Jah. Veh. LIN!\" The javelin does Lightning or Piercing dmg and floats on liquids, giving advantage on Str (Athletics) checks to swim. Once per dawn, I can replace attack at a target in 120 ft with lightning bolt. The target and any between us in a line take 4d6 Lightning dmg, DC 13 Dex save for half. The javelin then reappears in my hand.",
+		descriptionLong : "This ornate javelin looks like a lightning bolt from the Witch Bolt spell. Its wild design is surprisingly easy to wield and carry. When I wind up to throw it, I feel a compelling urge to shout \"Jah. Veh. LIN!\" The javelin does Lightning or Piercing damage on a hit. Once per dawn, I can replace a javelin attack at a target in 120 ft with a lightning bolt. The target and anyone between us in a 5-ft wide line takes 4d6 Lightning, DC 13 Dex save for half. The javelin then reappears in my hand. It also floats on water and other liquids, giving me advantage on Strength (Athletics) checks to swim.",
+		descriptionFull : "This ornate javelin looks like a lightning bolt, the kind of which you would see from a casting of the Witch Bolt spell. Its wild design is surprisingly easy to wield and carry. When you wind up to throw it, you feel a compelling urge to shout \"Jah. Veh. LIN!\"\n   " + toUni("Waterborne") + ". This item floats on water and other liquids. You have advantage on Strength (Athletics) checks to swim.\n   Each time you make an attack roll with this magic weapon and hit, you can have it deal Lightning damage instead of Piercing damage.\n   " + toUni("Lightning Bolt") + ". When you throw this weapon at a target no farther than 120 feet from you, you can forgo making a ranged attack roll and instead turn the weapon into a bolt of lightning. This bolt forms a 5-foot-wide Line between you and the target. The target and each other creature in the Line (excluding you) makes a DC 13 Dexterity saving throw, taking 4d6 Lightning damage on a failed save or half as much damage on a successful one. Immediately after dealing this damage, the weapon reappears in your hand. This property can't be used again until the next dawn.",
+		weight : 2,
+		limfeaname : "Javelin of Lightning",
+		usages : 1,
+		recovery : "dawn",
+		weaponOptions : {
+			baseWeapon : "javelin",
+			regExpSearch : /^(?=.*javelin)(?=.*lightning).*$/i,
+			name : "Javelin of Lightning",
+			description : "Thrown, slow; Lightning or Piercing; Once per dawn special attack",
+			selectNow : true,
+		},
+		savetxt : { text : ["Adv on Str (Athletic) chks to swim"] },
 	},
 	"javelin of lightning (sj-dc-as-1)" : { 
 		name : "Javelin of Lightning (SJ-DC-AS-1)",
@@ -6575,20 +6637,6 @@ MagicItemsList["al weapons (other)"] = {
 			selectNow : true,
 		}
 	},
-	"javelin of warning: jeny's hairpin (ccc-vote-1-1)" : {
-			name : "Jeny's Hairpin, Javelin of Warning (VOTE-1-1)",
-			source : [["AL","CCC"]],
-			type : "weapon (javelin)",
-			rarity : "uncommon",
-			attunement : true,
-			advantages : [["Initiative", true]],
-			description : "This javelin resembles a giant hairpin of purple wood, with a fist-sized jet at its head. Warnings of danger in Jeny's voice shout to prepare for battle; I can't say whether it's the javelin or Jeny herself. I feel discomfort and distaste but allies in 30 ft and I have adv. on initiative. The javelin also magically awakens us from nonmagical sleep when combat starts.",
-			descriptionLong : "This magical javelin resembles a giant hairpin made of purple wood, with a fist-sized jet at its head. Similar hairpins are used by Jeny Greenteeth. Warnings of danger in Jeny's voice shout that I should prepare for battle, though I can't tell whether it's the weapon or Jeny herself. While on my person, I feel discomfort and distaste but allies in 30 ft and I have advantage on initiative rolls. The javelin also magically awakens us from nonmagical sleep when combat starts.",
-			descriptionFull : "This magical javelin resembles a giant hairpin made of purple wood, with a fist-sized jet at its head. Players who have experienced “DDEX-01-08 Tales Trees Tell” recognize it as the same sort of item that pinned a villager to the town post, and may even recall it acts as a scrying sensor for Jeny Greenteeth. Warnings of danger come in Jeny's voice, shouting that they should prepare for battle. Whether it is the weapon shouting or Jeny herself, it is hard to divine.\n   You feel a sense of distaste when in contact with the item, and continue to experience discomfort while bearing it.\n   As long as this weapon is within your reach and you are attuned to it, you and allies within 30 feet of you gain the following benefits.\n\n" +
-			"" + toUni("Alarm") + ". The weapon magically awakens each subject who is sleeping naturally when combat begins. This benefit doesn't wake a subject from magically induced sleep.\n" +
-			"" + toUni("Supernatural Readiness") + ". Each subject has Advantage on its Initiative rolls.",
-			weaponsAdd : { select : ["Jeny's Hairpin, Javelin of Warning"], options : ["Jeny's Hairpin, Javelin of Warning"] 	},
-			},
 	"lash of immolation: demonweb punisher (fr-dc-php-pest-2)" : {
 		name : "Demonweb Punisher, Lash of Immolation (PHP-PEST-2)",
 		source : [["AL", "FR-DC"]],
@@ -6700,41 +6748,6 @@ MagicItemsList["al weapons (other)"] = {
 		usages : 1,
 		recovery : "dawn",
 		additional : "invoke rune",
-	},
-	"longbow of melodies: airalinde (fr-dc-imp-2)" : {
-			name : "Airalinde, Longbow of Melodies (IMP-2)",
-			source : [["AL","FR-DC"]],
-			type : "weapon (longbow)",
-			rarity : "very rare",
-			attunement : true,
-			description : "This elven longbow is shaped like a harp cleverly reinforced with mithral and moonstones. It enhances pangs of conscience if I consider or do malevolent acts. When I atk with the bow, I can play 1 melody on each atk. Precision: If proficient with Performance, add +1 (+2 if expertise) to atk roll. Reverberation: add Cha mod Thunder dmg to atk.",
-			descriptionLong : "Airalinde (Hymn) is a wonder of elven craftsmanship. The longbow resembles a lyre with multiple strings. It's cleverly reinforced with mithral and inlaid with moonstones. The bow enhances pangs of conscience around malevolent acts. I can use the strings to play 1 melody on each attack. Melody of Precision: If proficient with Performance, add +1 (+2 if expertise) to the attack roll. Melody of Reverberation: add Charisma modifier in Thunder damage to the attack.",
-			descriptionFull : "A wonder of elven craftsmanship, Airalindë (“Hymn”) is a wooden bow cleverly reinforced with mithral and inlaid with enchanted moonstones."+
-			"\n   " + toUni("Conscientious") + ". When the bearer of this item contemplates or undertakes a malevolent act, the item enhances pangs of conscience."+
-			"\n   This bow has multiple strings and resembles a lyre or small harp. By strumming the strings while setting an arrow to the bow, you imbue the arrow with magic."+
-			"\n   You can play one of the following melodies when you use the bow to make a ranged weapon attack. You must choose to do so before you make the attack roll, and you can play only one melody per attack."+
-			"\n   " + toUni("Melody of Precision") + ". If you're proficient in Performance, you gain a +1 bonus to the attack roll. If you have expertise in Performance, you gain a +2 bonus instead."+
-			"\n   " + toUni("Melody of Reverberation") + ". The melody you strum echoes loudly. On a hit, the target takes extra thunder damage equal to your Charisma modifier.",
-			weaponsAdd : { select : ["Airalinde, Longbow of Melodies"], options : ["Airalinde, Longbow of Melodies"] },
-		calcChanges: bowOfMelodies.calcChanges,
-	},
-	"longbow of melodies: lavender's scent (fr-dc-pandora-jwei-10)" : {
-			name : "Lavender's Scent, Bow of Melodies (PANDORA-JWEI-10)",
-			source : [["AL","FR-DC"]],
-			type : "weapon (longbow)",
-			rarity : "very rare",
-			attunement : true,
-			description : "This longbow is shaped like a harp. When strummed, it emits an aroma of lavender and any who fall asleep to its melodies have tranquil dreams. The bow warns me, giving +2 initiative if not Incapacitated. I can play 1 melody on each atk. Precision: If proficient with Performance, add +1 (+2 if expertise) to atk roll. Reverberation: add Cha mod Thunder dmg to atk.",
-			descriptionLong : "This longbow is shaped like a harp with multiple strings. When strummed, it emits an aroma of lavender and those who fall asleep while enchanted by its melodies are blessed with tranquil dreams. The bow also warns me, giving +2 initiative if not Incapacitated. I can use the strings to play 1 melody on each atk. Melody of Precision: If proficient with Performance, add +1 (+2 if expertise) to the attack roll. Melody of Reverberation: add Charisma modifier in Thunder dmg to attack.",
-			descriptionFull : "This longbow, fashioned in the likeness of a harp, emanates a soothing aroma of lavender when its strings are strummed. It is said that those who fall asleep while enchanted by its melodies are blessed with tranquil dreams, free from the burdens of the waking world."+
-			"\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition."+
-			"\n   This bow has multiple strings and resembles a lyre or small harp. By strumming the strings while setting an arrow to the bow, you imbue the arrow with magic."+
-			"\n   You can play one of the following melodies when you use the bow to make a ranged weapon attack. You must choose to do so before you make the attack roll, and you can play only one melody per attack."+
-			"\n   " + toUni("Melody of Precision") + ". If you're proficient in Performance, you gain a +1 bonus to the attack roll. If you have expertise in Performance, you gain a +2 bonus instead."+
-			"\n   " + toUni("Melody of Reverberation") + ". The melody you strum echoes loudly. On a hit, the target takes extra thunder damage equal to your Charisma modifier.",
-			addMod : genericGuardianWeapon.addMod,
-			weaponsAdd : { select : ["Lavender's Scent, Longbow of Melodies"], options : ["Lavender's Scent, Longbow of Melodies"] },
-		calcChanges: bowOfMelodies.calcChanges,
 	},
 	"lute of thunderous thumping: beatdown biwa (fr-dc-oni-5)" : {
 		name: "Beatdown Biwa, Lute of Thunderous Thumping (ONI-5)",
@@ -7138,37 +7151,6 @@ MagicItemsList["al weapons (other)"] = {
 	},
 		calcChanges: oathbowChanges.calcChanges,
 	},
-	"shortbow of melodies (fr-dc-fall-1)" : {
-		name : "Shortbow of Melodies (FR-DC-FALL-1)",
-		source : [["AL","FR-DC"]],
-		type : "weapon (any bow)",
-		rarity : "very rare",
-		attunement : true,
-		description : "This shortbow is shaped like a harp with multiple strings. It's the color of Auril's rime and always cool to the touch. I suffer no harm in extreme temps past 0\u00B0F & 100\u00B0F. I can use the strings to play 1 melody per atk. Precision: If proficient with Performance, add +1 (+2 if expertise) to atk roll. Reverberation: add Charisma mod Thunder dmg.",
-		descriptionLong : "This shortbow is shaped like a harp with multiple strings. It's the color of Auril's rime and always cool to the touch. While on my person, I suffer no harm in extreme temperatures past 0\u00B0F and 100\u00B0F. I can use the strings to play 1 of 2 melodies on each attack. Melody of Precision: if I'm proficient with Performance, add +1 (+2 if expertise) to the attack roll. Melody of Reverberation: add my Charisma modifier in Thunder damage to the attack.",
-		descriptionFull : "This bow is the color of Auril's rime and is always cool to the touch."+
-		"\n   " + toUni("Temperate") + ". You are unharmed by temperatures of 0 degrees Fahrenheit or lower, and 100 degrees Fahrenheit or higher."+
-		"\n   This bow has multiple strings and resembles a lyre or small harp. By strumming the strings while setting an arrow to the bow, you imbue the arrow with magic."+
-		"\n   You can play one of the following melodies when you use the bow to make a ranged weapon attack. You must choose to do so before you make the attack roll, and you can play only one melody per attack."+
-		"\n   " + toUni("Melody of Precision") + ". If you're proficient in Performance, you gain a +1 bonus to the attack roll. If you have expertise in Performance, you gain a +2 bonus instead."+
-		"\n   " + toUni("Melody of Reverberation") + ". The melody you strum echoes loudly. On a hit, the target takes extra thunder damage equal to your Charisma modifier.",
-		savetxt : { immune : ["temps past 0\u00B0F/100\u00B0F"] },
-		weaponsAdd : { select : ["Shortbow of Melodies"], options : ["Shortbow of Melodies"] },
-		calcChanges: bowOfMelodies.calcChanges,
-	},
-	"spear of warning: spirit (po-bmg-drwep-ks-1)" : {
-			name : "Spirit Spear of Warning (PO-BMG-DRWEP-KS-1)",
-			source : [["AL","CCC"]],
-			type : "weapon (whip)",
-			rarity : "uncommon",
-			attunement : true,
-			advantages : [["Initiative", true]],
-			description : "This spear's blade is the long claw of an ice troll. Its shaft is Rashemi ash. The spirits of Rashemen warn its wielder when danger is near. While borne, allies in 30 ft and I have adv. on initiative. It also magically awakens us from nonmagical sleep if combat starts.",
-			descriptionFull : "The blade of this spear is made from the long claw of an ice troll. Its shaft is made of Rashemi ash. It is believed that the spirits of Rashemen themselves warn the wielder of this weapon when danger is near.\n   As long as this weapon is within your reach and you are attuned to it, you and allies within 30 feet of you gain the following benefits.\n\n" +
-			"" + toUni("Alarm") + ". The weapon magically awakens each subject who is sleeping naturally when combat begins. This benefit doesn't wake a subject from magically induced sleep.\n" +
-			"" + toUni("Supernatural Readiness") + ". Each subject has Advantage on its Initiative rolls.",
-			weaponsAdd : { select : ["Spirit Spear of Warning"], options : ["Spirit Spear of Warning"] },
-			},
 	"starshot hand crossbow (po-bmg-drw-ks-2)" : {
 		name : "Starshot Hand Crossbow (PO-BMG-DRW-KS-2)",
 		source : [["AL", "DRW"]], // Chapter 5: Gem
@@ -7392,6 +7374,88 @@ MagicItemsList["al weapons (other)"] = {
 				selectNow : true
 			}],
 		},
+	"glaive of warning: the harbinger (ccc-epi1-2)" : {
+			name : "The Harbinger, Glaive of Warning (EPI1-2)",
+			source : [["AL","CCC"]],
+			type : "weapon (glaive)",
+			rarity : "uncommon",
+			attunement : true,
+			advantages : [["Initiative", true]],
+			description : "This massive scythe was forged from the darkest shadows of the plane of Gehenna, home of the Orcish god Shaargas. It's light and doesn't cast a shadow, though shadows warn me of impending danger. While carried, allies in 30 ft and I have advantage on initiative. It also magically awakens us from nonmagical sleep when combat starts.",
+			descriptionFull : "The Harbinger is a massive scythe was forged from the darkest shadows from the plane of Gehenna, home of the orcish god Shaargas. The material is light, and does not cast its own shadow. However, the item gives its user an uncanny ability for shadows to warn the user of impending danger.\n   As long as this weapon is within your reach and you are attuned to it, you and allies within 30 feet of you gain the following benefits.\n\n" +
+			"" + toUni("Alarm") + ". The weapon magically awakens each subject who is sleeping naturally when combat begins. This benefit doesn't wake a subject from magically induced sleep.\n" +
+			"" + toUni("Supernatural Readiness") + ". Each subject has Advantage on its Initiative rolls.",
+			weaponsAdd : { select : ["Harbinger, Glaive of Warning"], options : ["Harbinger, Glaive of Warning"] },
+			},
+	"glaive of warning: losspatan's war-scythe (ccc-ggc-2-1)" : {
+			name : "Losspatan's War-scythe of Warning (GGC-2-1)",
+			source : [["AL","CCC"]],
+			type : "weapon (glaive)",
+			rarity : "uncommon",
+			attunement : true,
+			advantages : [["Initiative", true]],
+			description : "This war-scythe is a reddish 10-ft wooden pole with a curved scythe-like blade etched with infernal runes. Along the base of the pole is the preserved tail of a fiendish creature, which emanates a foul odor of rot. When trouble is near, the tail whips & thrashes to warn me. Allies in 30 ft and I have adv. on initiative. It also magically awakens us from nonmagical sleep when combat starts.",
+			descriptionLong : "This war-scythe (glaive) consists of a reddish 10-ft wooden pole with a curved scythe-like blade at the top that's etched with infernal runes. Along the base of the pole is the preserved tail of a fiendish creature, which emanates a foul odor of rot. When trouble is nearby, the tail whips and thrashes to warn me of impending danger. Allies in 30 ft and I have advantage on initiative rolls. The scythe also magically awakens us from nonmagical sleep when combat starts.",
+			descriptionFull : "This war-scythe consists of a long reddish wooden pole about 10 feet in length with an attached curved scythe-like blade on the top end. The blade is etched with infernal runes. Along the base of the pole is the preserved tail of some fiendish creature. When trouble is nearby the tail whips and thrashes about warnings of the impending situation. Although preserved, the tail emanates a foul odor of rot.\n   As long as this weapon is within your reach and you are attuned to it, you and allies within 30 feet of you gain the following benefits.\n\n" +
+			"" + toUni("Alarm") + ". The weapon magically awakens each subject who is sleeping naturally when combat begins. This benefit doesn't wake a subject from magically induced sleep.\n" +
+			"" + toUni("Supernatural Readiness") + ". Each subject has Advantage on its Initiative rolls.",
+			weaponsAdd : { select : ["Losspatan's War-scythe, Glaive of Warning"], options : ["Losspatan's War-scythe, Glaive of Warning"] },
+			},
+	"greatclub of warning: u'u war club (wbw-dc-den-h2)" : {
+			name : "U'u War Club of Warning (DEN-H2)",
+			source : [["AL","WBW-DC"]],
+			type : "weapon (greatclub)",
+			rarity : "uncommon",
+			attunement : true,
+			advantages : [["Initiative", true]],
+			description : "From a distant land called the Marquesas Islands, this club is carved from sennit, ironwood & human hair. A warrior or chief carried it as a sign of status. Carvings of faces & eyes keep watch in all directions & symbolize the ancestors, endowing spiritual power & protection. Allies in 30 ft & I have adv. on initiative. It magically awakens us from nonmagical sleep if combat starts.",
+			descriptionLong : "From a distant prime material land called the Marquesas Islands, this club is carved from ironwood, sennit and human hair. A Marquesan warrior or chief carried it as a sign of status. The carvings of faces and eyes keep watch in all directions and symbolize the ancestors, endowing a warrior with spiritual power and protection. Allies in 30 ft and I have adv. on initiative. It also magically awakens us from nonmagical sleep when combat starts.",
+			descriptionFull : "From a distant prime material land known as the Marquesas Islands, the U'u War Club is carved from ironwood, sennit, and human hair. A Marquesan warrior or chief carried this club as a sign of status. The carvings of multiple faces and eyes keep watch in all directions and are symbolic representations of warrior's ancestors – endowing the wielder with spiritual power and protection.\n   As long as this weapon is within your reach and you are attuned to it, you and allies within 30 feet of you gain the following benefits.\n\n" +
+			"" + toUni("Alarm") + ". The weapon magically awakens each subject who is sleeping naturally when combat begins. This benefit doesn't wake a subject from magically induced sleep.\n" +
+			"" + toUni("Supernatural Readiness") + ". Each subject has Advantage on its Initiative rolls.",
+			weaponsAdd : { select : ["U'u War Club, Greatclub of Warning"], options : ["U'u War Club, Greatclub of Warning"] },
+		},
+	"greatclub of warning: clobber (wbw-dc-mike-1)" : {
+			name : "Clobber, Greatclub of Warning (MIKE-1)",
+			source : [["AL","WBW-DC"]],
+			type : "weapon (greatclub)",
+			rarity : "uncommon",
+			attunement : true,
+			advantages : [["Initiative", true]],
+			description : "To ensure that his ogre bodyguard, Clobber, couldn't be caught unawares, Scrimshaw enchanted his greatclub with magical wards. Elaborate carved curlicues wend their way around the gnarled oaken shaft and glow a dull crimson when danger is near. Allies in 30 ft and I have adv. on initiative. It also magically awakens us from nonmagical sleep when combat starts.",
+			descriptionLong : "To ensure that his dim-witted ogre bodyguard, Clobber, couldn't be caught unawares, Scrimshaw enchanted his greatclub with magical wards. Elaborate carved curlicues wend their way around its gnarled oaken shaft and glow a dull crimson when danger is near. While on my person, allies in 30 ft and I have advantage on initiative rolls. The greatclub also magically awakens us from nonmagical sleep when combat starts.",
+			descriptionFull : "To ensure that the dim-witted ogre couldn't be caught unawares, Scrimshaw enchanted the weapon of his bodyguard, Clobber with magical wards. The elaborate curlicues carved into this greatclub twist and wend their way around its gnarled oaken shaft. They emit a dull crimson glow when danger is near.\n   As long as this weapon is within your reach and you are attuned to it, you and allies within 30 feet of you gain the following benefits.\n\n" +
+			"" + toUni("Alarm") + ". The weapon magically awakens each subject who is sleeping naturally when combat begins. This benefit doesn't wake a subject from magically induced sleep.\n" +
+			"" + toUni("Supernatural Readiness") + ". Each subject has Advantage on its Initiative rolls.",
+			weaponsAdd : { select : ["Clobber, Greatclub of Warning"], options : ["Clobber, Greatclub of Warning"] },
+			},
+	"javelin of warning: jeny's hairpin (ccc-vote-1-1)" : {
+			name : "Jeny's Hairpin, Javelin of Warning (VOTE-1-1)",
+			source : [["AL","CCC"]],
+			type : "weapon (javelin)",
+			rarity : "uncommon",
+			attunement : true,
+			advantages : [["Initiative", true]],
+			description : "This javelin resembles a giant hairpin of purple wood, with a fist-sized jet at its head. Warnings of danger in Jeny's voice shout to prepare for battle; I can't say whether it's the javelin or Jeny herself. I feel discomfort and distaste but allies in 30 ft and I have adv. on initiative. The javelin also magically awakens us from nonmagical sleep when combat starts.",
+			descriptionLong : "This magical javelin resembles a giant hairpin made of purple wood, with a fist-sized jet at its head. Similar hairpins are used by Jeny Greenteeth. Warnings of danger in Jeny's voice shout that I should prepare for battle, though I can't tell whether it's the weapon or Jeny herself. While on my person, I feel discomfort and distaste but allies in 30 ft and I have advantage on initiative rolls. The javelin also magically awakens us from nonmagical sleep when combat starts.",
+			descriptionFull : "This magical javelin resembles a giant hairpin made of purple wood, with a fist-sized jet at its head. Players who have experienced “DDEX-01-08 Tales Trees Tell” recognize it as the same sort of item that pinned a villager to the town post, and may even recall it acts as a scrying sensor for Jeny Greenteeth. Warnings of danger come in Jeny's voice, shouting that they should prepare for battle. Whether it is the weapon shouting or Jeny herself, it is hard to divine.\n   You feel a sense of distaste when in contact with the item, and continue to experience discomfort while bearing it.\n   As long as this weapon is within your reach and you are attuned to it, you and allies within 30 feet of you gain the following benefits.\n\n" +
+			"" + toUni("Alarm") + ". The weapon magically awakens each subject who is sleeping naturally when combat begins. This benefit doesn't wake a subject from magically induced sleep.\n" +
+			"" + toUni("Supernatural Readiness") + ". Each subject has Advantage on its Initiative rolls.",
+			weaponsAdd : { select : ["Jeny's Hairpin, Javelin of Warning"], options : ["Jeny's Hairpin, Javelin of Warning"] 	},
+			},
+	"spear of warning: spirit (po-bmg-drwep-ks-1)" : {
+			name : "Spirit Spear of Warning (PO-BMG-DRWEP-KS-1)",
+			source : [["AL","CCC"]],
+			type : "weapon (whip)",
+			rarity : "uncommon",
+			attunement : true,
+			advantages : [["Initiative", true]],
+			description : "This spear's blade is the long claw of an ice troll. Its shaft is Rashemi ash. The spirits of Rashemen warn its wielder when danger is near. While borne, allies in 30 ft and I have adv. on initiative. It also magically awakens us from nonmagical sleep if combat starts.",
+			descriptionFull : "The blade of this spear is made from the long claw of an ice troll. Its shaft is made of Rashemi ash. It is believed that the spirits of Rashemen themselves warn the wielder of this weapon when danger is near.\n   As long as this weapon is within your reach and you are attuned to it, you and allies within 30 feet of you gain the following benefits.\n\n" +
+			"" + toUni("Alarm") + ". The weapon magically awakens each subject who is sleeping naturally when combat begins. This benefit doesn't wake a subject from magically induced sleep.\n" +
+			"" + toUni("Supernatural Readiness") + ". Each subject has Advantage on its Initiative rolls.",
+			weaponsAdd : { select : ["Spirit Spear of Warning"], options : ["Spirit Spear of Warning"] },
+			},
 	"trident of warning (ccc-tri-34)" : {
 			name : "Trident of Warning (CCC-TRI-34)",
 			source : [["AL","CCC"]],
