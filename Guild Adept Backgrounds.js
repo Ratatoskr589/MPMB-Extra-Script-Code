@@ -2483,9 +2483,9 @@ BackgroundList["inheritor"] = {
 	languageProfs : [1],
 	lifestyle : "wealthy"
 };
-AddBackgroundVariant("city watch", "investigator", {
-	regExpSearch : /investigator/i,
-	name : "Investigator",
+AddBackgroundVariant("city watch", "investigator {scag}", {
+	regExpSearch : /investigator {scag}/i,
+	name : "Investigator {SCAG}",
 	source : [["S", 145], ["ALbackground", 0]],
 	skills : ["Insight", "Investigation"],
 	gold : 10,

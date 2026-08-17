@@ -20,6 +20,30 @@ RequiredSheetVersion("13.1.0", 15);
 
 
 // Define the source
+SourceList["GoS"] = {
+	name : "Ghosts of Saltmarsh [backgrounds, beasts, items]",
+	abbreviation : "GoS",
+	group : "Adventure Books",
+	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/ghosts-saltmarsh",
+	date : "2019/05/21"
+};
+
+SourceList["AL"] = {
+	name : "AL Modules",
+	abbreviation : "AL",
+	group : "Adventurers League",
+	url : "https://www.dmsguild.com/browse.php?filters=45470_0_0_0_0_0_0_0&src=fid45470",
+	date : "Various",
+};
+
+SourceList["DDCE"] = { //Only creatures from this category count as Event Awards under the new rules
+    name : "D&D Celebration",
+    abbreviation : "DDCE",
+    group : "Adventurers League",
+    date : "2020/09/19",
+	defaultExcluded : true
+};
+
 SourceList["AL:FC"] = {   //Fai Chen 
     name : "Fai Chen Certs",
     abbreviation : "AL:FC",
@@ -44,29 +68,6 @@ SourceList["AL:R"] = {  //Ravenloft Alternate Campaign
 	date : "Various",
 	defaultExcluded : true
 };
- 
-SourceList["DDCE"] = { //Only creatures from this category count as Event Awards under the new rules
-    name : "D&D Celebration",
-    abbreviation : "DDCE",
-    group : "Adventurers League",
-    date : "2020/09/19"
-};
-
-SourceList["GoS"] = {
-	name : "Ghosts of Saltmarsh [backgrounds, beasts, items]",
-	abbreviation : "GoS",
-	group : "Adventure Books",
-	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/ghosts-saltmarsh",
-	date : "2019/05/21"
-};
-
-SourceList["AL"] = {
-	name : "AL Modules",
-	abbreviation : "AL",
-	group : "Adventurers League",
-	url : "https://www.dmsguild.com/browse.php?filters=45470_0_0_0_0_0_0_0&src=fid45470",
-	date : "Various",
-};
 
 SourceList["AL:LN"] = {  //Liar's Night and Wandering Monsters
     name : "AL Holiday Events - Liar's Night",
@@ -80,7 +81,8 @@ SourceList["AL:FM"] = {  //Feast of the Moon events
     name : "AL Holiday Events - Feast of the Moon",
     abbreviation : "AL:FM",
     group : "Adventurers League",
-    date : "Various"
+    date : "Various",
+	defaultExcluded : true
 };
 
 SourceList["ALDMs9"] = {  //Season 9 DM Rewards (Several of these are from BG:DiA, but cannot normally be used by players)
@@ -114,6 +116,14 @@ SourceList["BoJR"] = {
 	group : "Adventure Books",
 	url : "https://www.dmsguild.com/product/220567/Beasts-of-the-Jungle-Rot",
 	date : "2017/09/01",
+};
+
+SourceList["AL:SR"] = {  //AL Service Rewards. Started in 2021 but have multiple sets each year.
+    name : "AL Service Rewards",
+    abbreviation : "AL:SR",
+    group : "Adventurers League",
+    date : "2021/11/02",
+	defaultExcluded : true
 };
 
 
@@ -1078,7 +1088,7 @@ CreatureList["infernal pseudodragon"] = {
 	}],
 		traits : [{
 			name : "Infernal Nature",
-			description : "An experiment gone wrong somewhere deep inside Arkhan’s Tower, this creature resembles a tiny abishai (color chosen when summoned) and is lawful evil rather than neutral good."
+			description : "An experiment gone wrong somewhere deep inside Arkhan's Tower, this creature resembles a tiny abishai (color chosen when summoned) and is lawful evil rather than neutral good."
 		}, {
 			name : "Magic Resistance",
 			description : "The pseudodragon has Advantage on saving throws against spells and other magical effects."
@@ -1157,7 +1167,7 @@ CreatureList["hellwasp"] = {
 		}],
 		traits : [{
 			name : "Magic Weapons",
-			description : "The hellwasp’s weapon attacks are magical."
+			description : "The hellwasp's weapon attacks are magical."
 		}, {
 			name : "Multiattack",
 			description : "The hellwasp makes two attacks: one with its sting and one with its sword talons."
@@ -1281,7 +1291,7 @@ removeeval : function(prefix) {
 			ability : 2,
 			damage : [1, 8, "piercing"],
 			range : "Melee (5 ft)",
-			description : "For your own safety, Fritter’s poison glands have been removed."
+			description : "For your own safety, Fritter's poison glands have been removed."
 		}, {
 			name : "Web (Recharge 5-6)",
 			ability : 2,
@@ -1349,7 +1359,7 @@ removeeval : function(prefix) {
 		}],
 		traits : [{
 			name : "Description",
-			description : "This mount is all bloodstained bone speckled with sundried bits of flesh. The Kernel can neither confirm nor deny this horse is linked to the recent graverobbery of Lord Hultmark’s beloved warhorse Marzipan. If killed, she can be summoned via find steed, find greater steed, or animate dead."
+			description : "This mount is all bloodstained bone speckled with sundried bits of flesh. The Kernel can neither confirm nor deny this horse is linked to the recent graverobbery of Lord Hultmark's beloved warhorse Marzipan. If killed, she can be summoned via find steed, find greater steed, or animate dead."
 		}, {
 			name : "Trampling Charge",
 			description : "If the horse moves at least 20 ft straight toward a creature and then hits it with a hooves attack on the same turn, that target takes an extra 5 (2d4) Bludgeoning damage. If Huge or smaller, it's also knocked Prone."
@@ -1936,7 +1946,7 @@ CreatureList["titanosaurus"] = {
 	}],
 	actions : [{
 		name : "Legendary Actions",
-		description : "The titanosaurus can take 3 legendary actions, choosing from the options below. Only one option can be used at a time and only at the end of another creature’s turn. The titanosaurus regains all legendary actions at the start of its turn."
+		description : "The titanosaurus can take 3 legendary actions, choosing from the options below. Only one option can be used at a time and only at the end of another creature's turn. The titanosaurus regains all legendary actions at the start of its turn."
 		}, {
 		name : "Momentum:",
 		description : "The titanosaurus moves half its speed without provoking opportunity attacks.\n\u25C6 Tough Defense (2 Actions): The titanosaurus is resistant to one of hte following damage types until the start of its next turn: Bludgeoning, Piercing, or Slashing.\n\u25C6 Tail Thunder (3 Actions): The titanosaurus makes a tail attack with disadvantage against each creature in a 20-foot cone."
@@ -1984,9 +1994,146 @@ CreatureList["giganotosaurus"] = {
 	}],
 	features : [{
 		name : "Legendary Actions",
-		description : "The giganotosaurus can take 3 legendary actions, choosing from the options below. Only one option can be used at a time and only at the end of another creature’s turn. It regains all legendary actions at the start of its turn."
+		description : "The giganotosaurus can take 3 legendary actions, choosing from the options below. Only one option can be used at a time and only at the end of another creature's turn. It regains all legendary actions at the start of its turn."
 		}, {
 		name : "Momentum",
 		description : "The giganotosaurus moves half its speed without provoking opportunity attacks.\n\u25C6 Tail Sweep (2 Actions): The giganotosaurus sweeps its tail in a 20-ft cone. Each creature in the cone must pass a DC 17 Strength save or be knocked Prone.\n\u25C6 Roar (3 Actions): Creatures within 20 ft of the giganotosaurus that can hear it must pass a DC 17 Wisdom save or be Frightened of it until the end of its next turn."
 		}],
 }
+
+//Special Creature Options from the DDAL Service rewards
+CreatureList["giant fennec fox"] = {
+    name: "Giant Fennec Fox",
+    regExpSearch: /giant fennec fox/i,
+    source: [["AL:SR", 2026.1]],
+    size: 3,
+    type: "Beast",
+    alignment: "Unaligned",
+    ac: 12,
+    hp: 11,
+    hd: [2, 8],
+    speed: "40 ft",
+    scores: [14, 15, 12, 3, 12, 6],
+    saves: ["", "", "", "", "", ""],
+    skills: {
+        "perception": 5,
+        "stealth": 4,
+    },
+    senses: "Darkvision 60 ft",
+    languages: "",
+    challengeRating: "1/4",
+    proficiencyBonus: 2,
+    attacksAction: 1,
+    attacks: [{
+        name: "Bite",
+        ability: 1,
+        damage: [1, 6, "Piercing"],
+        range: "Melee (5 ft)",
+        description: "If the target is Medium or smaller, it has the Prone condition.",
+    }],
+    features: [{
+        name: "Pack Tactics",
+        description: "The fox has Advantage on attack rolls against a creature if at least one of the fox's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition."			
+		}, {
+		name : "Find Water",
+		description : "This desert fox is adept at staving off the hazard of dehydration. Once per dawn, it can gain Advantage on ability checks to find water within 30 ft. On a success, the fox finds 1d12 gallons of clean, fresh water.",
+	}],
+		traits : [{
+		name : "Fox Companion",
+		description : "This creature uses the Wolf stat block and may be your familiar, mount, companion, or other Friend (ALPG)."
+	}],
+};
+
+CreatureList["miniature mammoth"] = {
+    name: "Miniature Mammoth",
+    regExpSearch: /miniature mammoth/i,
+    source: [["AL:SR", 2026.1]],
+    size: 2,
+    type: "Beast",
+    alignment: "Unaligned",
+    ac: 10,
+    hp: 11,
+    hd: [2, 10],
+    speed: "50 ft",
+    scores: [16, 10, 11, 2, 10, 6],
+    saves: ["", "", "", "", "", ""],
+    skills: {
+        "perception": 2,
+    },
+    senses: "Darkvision 60 ft",
+    languages: "",
+    challengeRating: "1/4",
+    proficiencyBonus: 2,
+    attacksAction: 1,
+    attacks: [{
+        name: "Ram",
+        ability: 1,
+        damage: [1, 6, "Bludgeoning"],
+        range: "Melee (5 ft)",
+        description: "If moved 20 ft straight toward target before hit, +3 (1d6) Bludgeoning. If Huge or smaller, target falls Prone.",
+    }],
+    features: [{
+		name : "Long Fur",
+		description : "Their long fur obscures my tracks, but being in the back can be scary. When the mammoth is behind me, creatures have Disadvantage on Search Check for tracking me. On each of the trackers' Search rolls, I must succeed on a DC 13 Wisdom (Animal Handling) Check or the mammoth is too scared to remain behind me. This passes in 1 hour.",
+	}],
+		traits : [{
+		name : "Mammoth Companion",
+		description : "This Unique creature uses the Elk stat block and may be your familiar, mount, companion, or other Friend (ALPG)."
+	}],
+};
+
+CreatureList["glitter mephit"] = {
+		name : "Glitter Mephit",
+		source : [["AL:SR", 2026.1]],
+		size : 4, //Small
+		type : "Elemental",
+		alignment : "Neutral Evil",
+		ac : 11,
+		hp : 21,
+		hd : [6, 6],
+		speed : "30 ft, fly 30 ft",
+		scores : [7, 13, 10, 9, 11, 12],
+		skills : {
+			"perception" : 2,
+			"stealth" : 3
+		},
+		senses : "Darkvision 60 ft",
+		passivePerception : 12,
+		languages : "Primordial",
+		challengeRating : "1/2",
+		proficiencyBonus : 2,
+		attacksAction : 1,
+		damage_vulnerabilities : "fire",
+		damage_immunities : "cold, poison",
+		condition_immunities : "exhaustion, poisoned",
+		attacks : [{
+			name : "Claws",
+			ability : 5,
+			damage : [2, 4, "slashing"],
+			range : "Melee (5 ft)",
+			description : ""
+		}, {
+			name : "Glitter Breath (Recharge 6)",
+			ability : 3,
+			damage : [4, 10, "Slashing"],
+			range : "15-ft cone",
+			description : "Target also Blinded to next turn end; Save for half dmg, no Blinded.",
+			dc : true,
+			abilitytodamage : false,
+			tooltip : "The glitter mephit exhales a 15-ft cone. Each creature in that area must succeed on a DC 10 Constitution saving throw or take 7(3d4) Slashing damage and Blinded 1 turn. Half damage on a success."
+		}],
+		features : [{
+			name : "Fog Cloud (1/Day)",
+			description : "The mephit casts Fog Cloud, requiring no spell components and using Charisma as the spellcasting ability."
+		}, {
+			name : "Glitter Breath (Recharge 6)",
+			description : "The glitter mephit exhales a 15-ft cone. Each creature in that area must succeed on a DC 10 Constitution saving throw or take 7(3d4) Slashing damage and have the Blinded condition until the end of their next turn. Half damage only on a success."
+		}],
+		traits : [{
+			name : "Death Burst",
+			description : "The mephit explodes when it dies. Constitution Saving Throw: DC 10, each creature in a 5-foot Emanation originating from the mephit. Failure: 5 (2d4) Slashing damage. Success: Half damage."
+		}, {
+			name : "Glitter Companion",
+			description : "This Unique creature uses the Ice Mephit stat block with Slashing instead of Cold damage. They may be your familiar, companion, or other Friend (ALPG)."
+		}]
+	}

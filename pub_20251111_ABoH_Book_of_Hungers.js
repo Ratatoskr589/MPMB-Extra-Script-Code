@@ -738,7 +738,9 @@ FeatsList["boon of misty escape"] = {
 	},
 };
 
-//Species
+// This Dhampir is the same as the one in the new Ravenloft book, so I've commented it out. If you aren't using the new Ravenloft Script and want this species, delete the /**/ symbols around the code below.
+/*
+//Species 
 RaceList["dhampir {boh}"] = {
 	regExpSearch : /dhampir {boh}/i,
 	name : "Dhampir {BoH}",
@@ -778,3 +780,4 @@ RaceList["dhampir {boh}"] = {
 		recovery : "long rest"
 	}],
 };
+*/

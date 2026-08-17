@@ -26,11 +26,12 @@ SourceList["AL"] = {
 	date : "Various"
 };
 
-SourceList["AL:SA"] = {  //AL Service Awards. Started in 2021 but have multiple sets each year.
-    name : "AL Service Awards",
-    abbreviation : "AL:SA",
+SourceList["AL:SR"] = {  //AL Service Rewards. Started in 2021 but have multiple sets each year.
+    name : "AL Service Rewards",
+    abbreviation : "AL:SR",
     group : "Adventurers League",
-    date : "2021/11/02"
+    date : "2021/11/02",
+	defaultExcluded : true
 };
 
 SourceList["AL:R"] = {  //Ravenloft Alternate Campaign
@@ -65,6 +66,8 @@ var genericGuardianArmor = {
 		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
  }
 
+RunFunctionAtEnd(function () {   //this code should make it so the AL variations of items don't appear as an option for artificers to create
+
 //AL Flavored Armor
 MagicItemsList["al adamantine/mithral armor"] = {
 		name : "AL Adamantine/Mithral Armor",
@@ -73,7 +76,7 @@ MagicItemsList["al adamantine/mithral armor"] = {
 		allowDuplicates : true,
 		choicesNotInMenu : true,
 		magicItemTable : "?",
-	choices : ["Adamantine Armor (DDAL0-1)","Adamantine Armor: Starflow (FR-DC-MELB-0-3)","Adamantine Chain (CCC-SALT1-1)","Adamantine Chain Shirt (CCC-BMG-MOON3-2)","Adamantine Chain Shirt (CCC-PDXAGE-1-1)","Adamantine Chain Shirt (DDEP5-2)","Adamantine Chain Mail (CCC-BMG-MOON5-1)","Adamantine Plate: Durgeddin's Unbreakable Auspice (DDEP6-1)","Mithral Scale Barding (DC-POA-CONMAR-18)","Mithral Scale Barding (DC-POA-DRAGON-2)","Mithral Scale Barding (DC-POA-GaryXIII-2)","Mithral Scale Barding: G.O.A.T. Barding (DC-POA-TDG1-8)","Mithral Chain Shirt (WDotMM)","Mithral Scale Mail (CCC-ODFC2-1)","Mithral Scale Mail: Hulk-Buster Armor (DC-POA-TDG1-7)","Mithral Breastplate (CCC-BMG-MOON16-2)","Mithral Half Plate (CCC-GLIP-1-3)","Mithral Chain Mail (CCC-SAF2-1)","Mithral Splint (CCC-DES-2-2)","Mithral Splint: Armor of Insults (CCC-GSP-OOZE1-1)","Mithral Splint (DDAL5-4)","Mithral Plate (DDHC-MORD-1)"],
+	choices : ["Adamantine Armor (DDAL0-1)","Adamantine Armor (FR-DC-TT-102)","Adamantine Armor: Starflow (FR-DC-MELB-0-3)","Adamantine Chain (CCC-SALT1-1)","Adamantine Chain Shirt (CCC-BMG-MOON3-2)","Adamantine Chain Shirt (CCC-PDXAGE-1-1)","Adamantine Chain Shirt (DDEP5-2)","Adamantine Chain Mail (CCC-BMG-MOON5-1)","Adamantine Plate: Durgeddin's Unbreakable Auspice (DDEP6-1)","Mithral Chain Shirt (WDotMM)","Mithral Scale Barding (DC-POA-CONMAR-18)","Mithral Scale Barding (DC-POA-DRAGON-2)","Mithral Scale Barding (DC-POA-GaryXIII-2)","Mithral Scale Barding: G.O.A.T. Barding (DC-POA-TDG1-8)","Mithral Scale Mail (CCC-ODFC2-1)","Mithral Scale Mail: Hulk-Buster Armor (DC-POA-TDG1-7)","Mithral Breastplate (CCC-BMG-MOON16-2)","Mithral Half Plate (CCC-GLIP-1-3)","Mithral Chain Mail (CCC-SAF2-1)","Mithral Splint (CCC-DES-2-2)","Mithral Splint: Armor of Insults (CCC-GSP-OOZE1-1)","Mithral Splint (DDAL5-4)","Mithral Plate (DDHC-MORD-1)"],
 	"adamantine armor (ddal0-1)" : {
 		name: "Adamantine (DDAL0-1)",
 		nameTest : "/adamantine.*(ddal0-1)/i",
@@ -89,6 +92,23 @@ MagicItemsList["al adamantine/mithral armor"] = {
 				return !(/medium|heavy/i).test(inObj.type) || (/hide/i).test(inObj.name);
 			},
 		}
+	},
+	"adamantine armor (fr-dc-tt-102)" : {
+		name: "Adamantine (FR-DC-TT-102)",
+		nameTest : "/adamantine.*(fr-dc-tt-102)/i",
+		source : [["AL", "FR-DC"]],
+		description : "Forged in High House of Wonders by Theo, this armor lets me remain unharmed by extreme temps beyond 0\u00B0F and 100\u00B0F. While I'm wearing it, any Critical Hit against me becomes a normal hit.",
+		descriptionFull : "Forged in High House of Wonders by Theo, this armor has a minor property.\n   " + toUni("Temperate") + ". You are unharmed by temperatures of 0 degrees Fahrenheit or lower, and 100 degrees Fahrenheit or higher.\n   This suit of armor is reinforced with adamantine, one of the hardest substances in existence. While you're wearing it, any Critical Hit against you becomes a normal hit.\n\nThere are several magic item tables in the Dungeon Masters Guide where this item appears on. It varies per type of armor and not all types are listed. See below for the table:\n\n" + toUni("Armor Type\tTable") + "\nChain Mail\t  F\nChain Shirt\t  F\nScale Mail  \t  F\nBreastplate\t  G\nSplint Armor\t  G\nHalf Plate Armor\t  H\nPlate Armor\t  H",
+		chooseGear : {
+			type : "armor",
+			prefixOrSuffix : ["between", "Adamantine", "(FR-DC-TT-102)"],
+			itemName1stPage : ["suffix", "Adamantine"],
+			descriptionChange : ["prefix", "armor"],
+			excludeCheck: function (inObjKey, inObj) {
+				return inObjKey !== "half plate" && inObjKey !== "plate";
+			}
+		},
+		savetxt : { immune : ["temps past 0\u00B0F/100\u00B0F"] },
 	},
 	"adamantine armor: starflow (fr-dc-melb-0-3)" : {
 		name: "Starflow Adamantine (FR-DC-MELB-0-3)",
@@ -157,38 +177,42 @@ MagicItemsList["al adamantine/mithral armor"] = {
 		descriptionFull : "A masterwork of dwarven craftsmanship forged of pure adamantine and lovingly adorned with all the holy symbols of the Dwarven Pantheon etched in platinum about the breastplate. The wearer of this armor has advantage on all social interactions with dwarves. This suit of armor is reinforced with adamantine, one of the hardest substances in existence. While you're wearing it, any Critical Hit against you becomes a normal hit.",
 		armorAdd : { select : "Durgeddin's Adamantine Plate", options : ["Durgeddin's Adamantine Plate"] },
 	},
-	"mithral scale barding (dc-poa-conmar-18)" : {
-		name : "Mithral Scale Barding (DC-POA-CONMAR-18)",
-		source : [["AL", "DC-POA"]],
-		description : "This blue mithral barding has an inscription in Elvish: \"To Xyrrie. May you get what you deserve.\" Mithral is a light flexible metal and this scale mail barding doesn't impose disadvantage on stealth checks.",
-		descriptionFull : "This blue barding has the inscription in Elvish \"To Xyrrie. May you get what you deserve.\"\n   Mithral is a light, flexible metal. Armor made of this substance can be worn under normal clothes. If the armor normally imposes Disadvantage on Dexterity (Stealth) checks or has a Strength requirement, the mithral version of the armor doesn't. Barding is armor designed to protect an animal's head, neck, chest, and body.",
-	},
-	"mithral scale barding (dc-poa-dragon-2)" : {
-		name : "Mithral Scale Barding (DC-POA-DRAGON-2)",
-		source : [["AL", "DC-POA"]],
-		description : "This black scale mail barding is made of mithral. Mithral is a light flexible metal and this barding doesn't impose disadvantage on stealth checks.",
-		descriptionFull : "This black scale mail barding is made of mithral.\n   Mithral is a light, flexible metal. Armor made of this substance can be worn under normal clothes. If the armor normally imposes Disadvantage on Dexterity (Stealth) checks or has a Strength requirement, the mithral version of the armor doesn't. Barding is armor designed to protect an animal's head, neck, chest, and body.",
-	},
-	"mithral scale barding (dc-poa-garyxiii-2)" : {
-		name : "Mithral Scale Barding (DC-POA-GaryXIII-2)",
-		source : [["AL", "DC-POA"]],
-		description : "This brown mithral barding has metal antlers like those of a moose, protruding from the helm. Mithral is a light flexible metal and this scale mail barding doesn't impose disadvantage on stealth checks.",
-		descriptionFull : "This brown colored scale armor has protruding metal antlers like that of an actual moose at the armor's helm.\n   Mithral is a light, flexible metal. Armor made of this substance can be worn under normal clothes. If the armor normally imposes Disadvantage on Dexterity (Stealth) checks or has a Strength requirement, the mithral version of the armor doesn't. Barding is armor designed to protect an animal's head, neck, chest, and body.",
-	},
-	"mithral scale barding: g.o.a.t. barding (dc-poa-tdg1-8)" : {
-		name : "G.O.A.T. Mithral Scale Barding (TDG1-8)",
-		source : [["AL", "DC-POA"]],
-		description : "This barding has an intricate design with a motif of winter flora and fauna. Mithral is a light, flexible metal and this scale mail barding doesn't impose disadvantage on stealth checks.",
-		descriptionFull : "Light and flexible armor of an intricate design with a motif of winter flora and fauna.\n   Mithral is a light, flexible metal. Armor made of this substance can be worn under normal clothes. If the armor normally imposes Disadvantage on Dexterity (Stealth) checks or has a Strength requirement, the mithral version of the armor doesn't. Barding is armor designed to protect an animal's head, neck, chest, and body.",
-	},
 	"mithral chain shirt (wdotmm)" : {
 		name : "Mithral Chain Shirt (WDotMM)",
 		source : [["WDotMM", 237]],
 		rarity : "unique",
 		magicItemTable : "",
-		description : "This light flexible chain shirt belonged to Vanrak Moonstar and grants me 60 ft of Darkvision. It also doesn't impose disadvantage on stealth checks and can be worn under normal clothes.",
-		descriptionFull : "This armor belonged to Vanrak Moonstar and has the additional property of granting its wearer Darkvision out to a range of 60 feet.\n   Mithral is a light, flexible metal. Armor made of this substance can be worn under normal clothes. If the armor normally imposes Disadvantage on Dexterity (Stealth) checks or has a Strength requirement, the mithral version of the armor doesn't.",
+		description : "This light flexible chain shirt belonged to Vanrak Moonstar. It also doesn't impose disadvantage on stealth checks and can be worn under normal clothes.",
+		descriptionFull : "This armor belonged to Vanrak Moonstar and has the additional property of granting its wearer Darkvision out to a range of 60 feet. [Latter part is added abilities and would go away per current rules].\n   Mithral is a light, flexible metal. Armor made of this substance can be worn under normal clothes. If the armor normally imposes Disadvantage on Dexterity (Stealth) checks or has a Strength requirement, the mithral version of the armor doesn't.",
 		armorAdd : { select : "Mithral Chain Shirt", options : ["Mithral Chain Shirt"] },
+	},
+	"mithral scale barding (dc-poa-conmar-18)" : {
+		name : "Mithral Scale Barding (DC-POA-CONMAR-18)",
+		source : [["AL", "DC-POA"]],
+		description : "This blue mithral barding has an inscription in Elvish: \"To Xyrrie. May you get what you deserve.\" Mithral is a light flexible metal and this scale mail barding doesn't impose disadvantage on stealth checks.",
+		descriptionFull : "This blue barding has the inscription in Elvish \"To Xyrrie. May you get what you deserve.\"\n   Mithral is a light, flexible metal. Armor made of this substance can be worn under normal clothes. If the armor normally imposes Disadvantage on Dexterity (Stealth) checks or has a Strength requirement, the mithral version of the armor doesn't. Barding is armor designed to protect an animal's head, neck, chest, and body. [Per AL admin ruling, magical armor can be worn as barding and vice versa.]",
+		armorAdd : { select : "Mithral Scale Barding", options : ["Mithral Scale Barding"], noStealthDis : /mithral/i},
+	},
+	"mithral scale barding (dc-poa-dragon-2)" : {
+		name : "Mithral Scale Barding (DC-POA-DRAGON-2)",
+		source : [["AL", "DC-POA"]],
+		description : "This black scale mail barding is made of mithral. Mithral is a light flexible metal and this barding doesn't impose disadvantage on stealth checks.",
+		descriptionFull : "This black scale mail barding is made of mithral.\n   Mithral is a light, flexible metal. Armor made of this substance can be worn under normal clothes. If the armor normally imposes Disadvantage on Dexterity (Stealth) checks or has a Strength requirement, the mithral version of the armor doesn't. Barding is armor designed to protect an animal's head, neck, chest, and body. [Per AL admin ruling, magical armor can be worn as barding and vice versa.]",
+		armorAdd : { select : "Mithral Scale Barding", options : ["Mithral Scale Barding"], noStealthDis : /mithral/i},
+	},
+	"mithral scale barding (dc-poa-garyxiii-2)" : {
+		name : "Mithral Scale Barding (DC-POA-GaryXIII-2)",
+		source : [["AL", "DC-POA"]],
+		description : "This brown mithral barding has metal antlers like those of a moose, protruding from the helm. Mithral is a light flexible metal and this scale mail barding doesn't impose disadvantage on stealth checks.",
+		descriptionFull : "This brown colored scale armor has protruding metal antlers like that of an actual moose at the armor's helm.\n   Mithral is a light, flexible metal. Armor made of this substance can be worn under normal clothes. If the armor normally imposes Disadvantage on Dexterity (Stealth) checks or has a Strength requirement, the mithral version of the armor doesn't. Barding is armor designed to protect an animal's head, neck, chest, and body. [Per AL admin ruling, magical armor can be worn as barding and vice versa.]",
+		armorAdd : { select : "Mithral Scale Barding", options : ["Mithral Scale Barding"], noStealthDis : /mithral/i},
+	},
+	"mithral scale barding: g.o.a.t. barding (dc-poa-tdg1-8)" : {
+		name : "G.O.A.T. Mithral Scale Barding (TDG1-8)",
+		source : [["AL", "DC-POA"]],
+		description : "This barding has an intricate design with a motif of winter flora and fauna. Mithral is a light, flexible metal and this scale mail barding doesn't impose disadvantage on stealth checks.",
+		descriptionFull : "Light and flexible armor of an intricate design with a motif of winter flora and fauna.\n   Mithral is a light, flexible metal. Armor made of this substance can be worn under normal clothes. If the armor normally imposes Disadvantage on Dexterity (Stealth) checks or has a Strength requirement, the mithral version of the armor doesn't. Barding is armor designed to protect an animal's head, neck, chest, and body. [Per AL admin ruling, magical armor can be worn as barding and vice versa.]",
+		armorAdd : { select : "Mithral Scale Barding", options : ["Mithral Scale Barding"], noStealthDis : /mithral/i},
 	},
 	"mithral scale mail (ccc-odfc2-1)" : {
 		name : "Mithral Scale Mail (CCC-ODFC2-1)",
@@ -263,7 +287,7 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		allowDuplicates : true,
 		choicesNotInMenu : true,
 		magicItemTable : "?",
-	choices : ["+1 Leather (DDEP7-1)","+1 Leather: Mummy Wraps (RV-DC-GC15-4)","+1 Studded Leather (CCC-BMG-21 HULB2-3)","+1 Studded Leather (FR-DC-AEG-7)","+1 Studded Leather: Star Lancer Corps Armor (SJ-DC-BAD-3)","+1 Scale Mail: Shroud of the Mourning Warrior (DDAL5-13)","+1 Breastplate: Glass (DDEP0-1)","+1 Breastplate (FR-DC-STRAT-TALES-1)","+1 Breastplate (SJ-DC-ASI-3)","+1 Breastplate (SJ-DC-DRA-4)","+1 Breastplate: Chitin (SJ-DC-EPOCH-3)","+1 Breastplate: Bulletproof Vest (SJ-DC-LEGIT-SB-2)","+1 Breastplate: Sha'sal Khou (SJ-DC-RFJK-2-1)","+1 Breastplate: Chameleon (SJ-DC-TKM-3)","+1 Half Plate: Bone (CCC-TRI-6 NIGHT1-2)","+1 Half Plate (DDEP4)","+1 Half Plate (FR-DC-AEG-8)","+1 Half Plate: Thurûmkhar (FR-DC-FET-1)","+1 Half Plate: Valkur's Raiment (FR-DC-NUKE-2)","+1 Half Plate: Asano's Do-Maru (FR-DC-ONI-2)","+1 Half Plate: Jasper (PS-DC-PKL-6)","+1 Half Plate: Warforged Chest Piece (RV-DC-PHP-1313-1)","+1 Half Plate: Qumado's Gift (SJ-DC-DEN-H6)","+1 Half Plate (SJ-DC-DRAGON-2)","+1 Half Plate (SJ-DC-END-1-5)","+1 Half Plate: Legion's Peregrine Cuirass (SJ-DC-ROCK-2)","+1 Half Plate: Mazatil's Remorse (SJ-DC-STRATCON-1)","+1 Splint (DDEX1-12)","+1 Splint (DDAL5-4)","+1 Splint: Remorhaz (DDEP10-2)","+1 Plate: Slaad (PS-DC-PUB-9)","+2 Studded Leather (CCC-TRI-23 STORM1-2)","+2 Studded Leather (PO-BK-1-5)","+2 Half Plate: Stone (DDEP7-2)","+2 Half Plate: Shogun's Armor (FR-DC-ONI-5)","+2 Half Plate (FR-DC-WE-2)","+2 Half Plate: Mythos (WBW-DC-PHP-PHAN-2)","+2 Splint: Remorhaz (DDEP10-2)","+2 Plate: Stone (CCC-JGD-1)","+2 Plate (BMG-DRWEP-OD-2)","+2 Plate (PS-DC-STRAT-WYRM-9)","+2 Plate (Trading Post)","+3 Studded Leather (PS-DC-ELEMENT-DEATH-2)","+3 Studded Leather (PS-DC-SS)","+3 Studded Leather (PS-DC-STRAT-DRAGON-7)","+3 Studded Leather (PS-DC-STRAT-WYRM-8)","+3 Studded Leather (PS-DC-TST-1)","+3 Hide: Daphnaie Armor (AL:SA-11A)","+3 Breastplate: Champion's Badge (PS-DC-STRAT-UNDEAD-3)","+3 Half Plate: Record Keeper (PS-DC-MECH-1)","+3 Half Plate (PS-DC-NOS-2)","+3 Half Plate (PS-DC-STRAT-WYRM-10)","+3 Plate (PS-DC-AUG-1)","+3 Plate (PS-DC-ELEMENT-DEATH-1)","+3 Plate (PS-DC-MIKE-1)","+3 Plate: Deep (PS-DC-PANDORA-JWEI-S2-1)","+3 Plate: Pickle's (PS-DC-PKL-20A)","+3 Plate: Wyrmguard Armor (PS-DC-STRAT-DRAGON-4)"],
+	choices : ["+1 Leather (DDEP7-1)","+1 Leather: Mummy Wraps (RV-DC-GC15-4)","+1 Studded Leather (CCC-BMG-21 HULB2-3)","+1 Studded Leather (FR-DC-AEG-7)","+1 Studded Leather: Star Lancer Corps Armor (SJ-DC-BAD-3)","+1 Scale Mail: Shroud of the Mourning Warrior (DDAL5-13)","+1 Breastplate: Glass (DDEP0-1)","+1 Breastplate (FR-DC-STRAT-TALES-1)","+1 Breastplate (SJ-DC-ASI-3)","+1 Breastplate (SJ-DC-DRA-4)","+1 Breastplate: Chitin (SJ-DC-EPOCH-3)","+1 Breastplate: Bulletproof Vest (SJ-DC-LEGIT-SB-2)","+1 Breastplate: Sha'sal Khou (SJ-DC-RFJK-2-1)","+1 Breastplate: Chameleon (SJ-DC-TKM-3)","+1 Half Plate: Bone (CCC-TRI-6 NIGHT1-2)","+1 Half Plate (DDEP4)","+1 Half Plate (FR-DC-AEG-8)","+1 Half Plate: Thurûmkhar (FR-DC-FET-1)","+1 Half Plate: Valkur's Raiment (FR-DC-NUKE-2)","+1 Half Plate: Asano's Do-Maru (FR-DC-ONI-2)","+1 Half Plate: Jasper (PS-DC-PKL-6)","+1 Half Plate: Warforged Chest Piece (RV-DC-PHP-1313-1)","+1 Half Plate: Qumado's Gift (SJ-DC-DEN-H6)","+1 Half Plate (SJ-DC-DRAGON-2)","+1 Half Plate (SJ-DC-END-1-5)","+1 Half Plate: Legion's Peregrine Cuirass (SJ-DC-ROCK-2)","+1 Half Plate: Mazatil's Remorse (SJ-DC-STRATCON-1)","+1 Splint (DDEX1-12)","+1 Splint (DDAL5-4)","+1 Splint: Remorhaz (DDEP10-2)","+1 Plate: Slaad (PS-DC-PUB-9)","+2 Studded Leather (CCC-TRI-23 STORM1-2)","+2 Studded Leather (PO-BK-1-5)","+2 Half Plate: Stone (DDEP7-2)","+2 Half Plate: Shogun's Armor (FR-DC-ONI-5)","+2 Half Plate (FR-DC-WE-2)","+2 Half Plate: Mythos (WBW-DC-PHP-PHAN-2)","+2 Splint: Remorhaz (DDEP10-2)","+2 Plate: Stone (CCC-JGD-1)","+2 Plate (BMG-DRWEP-OD-2)","+2 Plate (PS-DC-STRAT-WYRM-9)","+2 Plate (Trading Post)","+3 Studded Leather (PS-DC-ELEMENT-DEATH-2)","+3 Studded Leather (PS-DC-SS)","+3 Studded Leather (PS-DC-STRAT-DRAGON-7)","+3 Studded Leather (PS-DC-STRAT-WYRM-8)","+3 Studded Leather (PS-DC-TST-1)","+3 Hide: Daphnaie Armor (AL:SR-11A)","+3 Breastplate: Champion's Badge (PS-DC-STRAT-UNDEAD-3)","+3 Half Plate: Record Keeper (PS-DC-MECH-1)","+3 Half Plate (PS-DC-NOS-2)","+3 Half Plate (PS-DC-STRAT-WYRM-10)","+3 Plate (PS-DC-AUG-1)","+3 Plate (PS-DC-ELEMENT-DEATH-1)","+3 Plate (PS-DC-MIKE-1)","+3 Plate: Deep (PS-DC-PANDORA-JWEI-S2-1)","+3 Plate: Pickle's (PS-DC-PKL-20A)","+3 Plate: Wyrmguard Armor (PS-DC-STRAT-DRAGON-4)"],
 	"+1 leather (ddep7-1)" : {
 		name : "+1 Leather (DDEP7-1)",
 		source : [["AL", "S7"]],
@@ -401,7 +425,7 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		rarity : "rare",
 		allowDuplicates : true,
 		description : "This magic breastplate was handcrafted in the swamps of Lepo Gors. It's made from tree bark, moss and leaves reinforced with leather straps. The armor grants a +1 bonus to Armor Class while worn.",
-		descriptionFull : "You have a +1 bonus to AC while wearing this armor.\n   " + toUni("Strange Material") + ". The item was created from a material that is bizarre given its purpose. Its durability is unaffected. This breastplate was handcrafted in the swamps of Lepo Gors. It was made from tree bark, moss and leaves reinforced with leather straps.",
+		descriptionFull : "This breastplate was handcrafted in the swamps of Lepo Gors. It was made from tree bark, moss and leaves reinforced with leather straps.\n   " + toUni("Strange Material") + ". The item was created from a material that is bizarre given its purpose. Its durability is unaffected.\n   You have a +1 bonus to AC while wearing this armor.",
 		armorAdd : { select : "+1 Breastplate (Plant)", options : ["+1 Breastplate (Plant)"] },
 	},
 	"+1 half plate: bone (ccc-tri-6 night1-2)" : {
@@ -670,7 +694,7 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		rarity : "legendary",
 		allowDuplicates : true,
 		description : "These leathers still have embers on them from the fire plane and grant +3 AC while worn. As a bonus action, the armor sheds bright light in a 10-ft radius and 10-ft more dim light, or stops.",
-		descriptionFull : "These leather still have embers on them from the fire plane.\n   " + toUni("Beacon") + ". You are unharmed by temperatures of 0 degrees Fahrenheit or lower, and 100 degrees Fahrenheit or higher.\n   The armor grants a +3 bonus to AC while worn.",
+		descriptionFull : "These leather still have embers on them from the fire plane.\n   " + toUni("Beacon") + ". You can take a Bonus Action to cause the item to shed Bright Light in a 10-foot radius and Dim Light for an additional 10 feet, or to extinguish the light.\n   The armor grants a +3 bonus to AC while worn.",
 		armorAdd : { select : "+3 Studded Leather", options : ["+3 Studded Leather"] },
 		action : [["bonus action", "Studded Leather (light/dim)"]],
 	},
@@ -712,10 +736,10 @@ MagicItemsList["al armor +1, +2, +3"] = {
 		descriptionFull : "This armor is forged by an avatar of Helm. The leather seem to have a radiant shimmer held together by obsidian rivets. Etched on the armor's chest is the symbol of Helm, a staring eye with blue pupil on the upright left war gauntlet.\n   If allied with Zerah, it will reveal a hidden inscription under moonlight: Your victories are seen and celebrated. In the shadows of defeat, you are not alone.\n   If allied with Ananias, it will reveal a hidden inscription in complete darkness: True freedom is knowledge that there is no moral law. Everything is permissible.\n   The armor grants a +3 bonus to AC while worn.",
 		armorAdd : { select : "+3 Studded Leather", options : ["+3 Studded Leather"] },
 	},
-	"+3 hide: daphnaie armor (al:sa-11a)" : {
+	"+3 hide: daphnaie armor (al:sr-11a)" : {
 		name : "Daphnaie Armor (+3 Hide)",
 		rarity : "legendary",
-		source : [["AL:SA","11A"]],
+		source : [["AL:SR","11A"]],
 		description : "This armor is made of pliant laurel tree bark with stylized carvings of dancing dryads burnt into it. Small bits of green moss accentuate the wood, giving me advantage on Dexterity (Stealth) checks while in a forest. The armor grants +3 to AC when worn.",
 		descriptionFull : "This armor is made of pliant material from worn, laurel tree bark with stylized carvings of dancing dryads burnt into it. Small bits of green moss accentuate the wood, allowing the wearer to gain advantage on Dexterity (Stealth) checks when in a forest. The armor resizes to fit its wearer. This armor grants a +3 bonus to AC while worn.",
 		allowDuplicates : true,
@@ -826,14 +850,22 @@ MagicItemsList["al armor +1, +2, +3"] = {
 	},
 }
 
-RunFunctionAtEnd(function () {   //this code makes it so the AL variations of common items don't appear as an option for artificers to create
 MagicItemsList["al armor (common)"] = {
 		name : "AL Armor (Common)",
 		allowDuplicates : true,
 		choicesNotInMenu : true,
 		rarity : "common",
 		magicItemTable : "?",
-	choices : ["Breastplate of Gleaming: Heth's Dragon Scale Cuirass (PS-DC-HRS-0)","Breastplate of Gleaming: Froghemoth Hide (PS-DC-TT-202)","Spiked Armor of Gleaming: Axehead's Coat of Beaks (CCC-MTL-3)","Half Plate of Gleaming (PS-DC-ELEMENT-DEATH-1)","Half Plate of Gleaming: Plasma Armor (PS-DC-FOT-1)","Half Plate of Gleaming (PS-DC-NOS-4)","Half Plate of Gleaming: Misty's Jacket (PS-DC-PKL-14)","Half Plate of Gleaming (SJ-DC-TKM-WGS)","Plate of Gleaming (SJ-DC-DWR-0-2)","Cast-Off Studded Leather (FR-DC-Saerloon-5)","Cast-Off Breastplate (DC-POA-CONMAR-6)","Cast-Off Breastplate: Ooze (DC-POA-GaryXIII-4)","Cast-Off Breastplate (DC-POA-HAG-SF4)","Cast-Off Breastplate: Gilded Jeer (FR-DC-AKU-1)","Cast-Off Breastplate: Cast-Iron (FR-DC-SCROG-LGD-1)","Cast-Off Chain Mail: Scavenger's Shroud (CCC-DES-4-1)","Cast-Off Half Plate: Burlwood (FR-DC-UCON25-1)","Cast-Off Plate (BMG-DRW-OD-5)","Cast-Off Plate: Sorcerous Paladin of Love and Justice Costume (FR-DC-RPSG-10)","Cast-Off Plate (FR-DC-SCROG-GHH)","Cast-Off Plate: Bluesteel (FR-DC-THAY-4)","Cast-Off Plate: Hyperion's Shell (SJ-DC-PHP-FLN3-EOS)","Shield of Expression (DC-POA-CONMAR-15)","Shield of Expression (DC-POA-SNIPE-1)","Shield of Expression: Do'Urden (FR-DC-SCROG-2)","Shield of Expression (WBW-DC-CONMAR-10)","Shield of Expression (WBW-DC-DCS-1)","Smoldering Armor: Flurried Furs (DDAL0-4)","Smoldering Studded Leather (DC-POA-CODEX-2)","Smoldering Studded Leather (DC-POA-CONMAR-8)","Smoldering Studded Leather (DC-POA-GSP2-2H)","Smoldering Studded Leather: Smokin' Hot Leather (DC-POA-LEGIT-SV-02)","Smoldering Studded Leather (DC-POA-OGG-1)","Smoldering Studded Leather: Armor of the Dark Knight (DC-POA-TDG1-4)","Smoldering Studded Leather (DDAL10-0)","Smoldering Scale Mail: Stygian Armor (CCC-GSP2-2)","Smoldering Breastplate: Jökulsbrynja (DC-POA-CONMAR-3)","Smoldering Breastplate: Wintergreen Guard (DC-POA-LEGIT-SV-01)","Smoldering Plate (FR-DC-ULCASTER-1)"],
+	choices : ["Breastplate of Gleaming (PS-DC-BINGO-3)","Breastplate of Gleaming: Heth's Dragon Scale Cuirass (PS-DC-HRS-0)","Breastplate of Gleaming: Froghemoth Hide (PS-DC-TT-202)","Spiked Armor of Gleaming: Axehead's Coat of Beaks (CCC-MTL-3)","Half Plate of Gleaming (PS-DC-ELEMENT-DEATH-1)","Half Plate of Gleaming: Plasma Armor (PS-DC-FOT-1)","Half Plate of Gleaming (PS-DC-NOS-4)","Half Plate of Gleaming: Misty's Jacket (PS-DC-PKL-14)","Half Plate of Gleaming (SJ-DC-TKM-WGS)","Plate of Gleaming (SJ-DC-DWR-0-2)","Cast-Off Studded Leather (FR-DC-Saerloon-5)","Cast-Off Breastplate (DC-POA-CONMAR-6)","Cast-Off Breastplate: Ooze (DC-POA-GaryXIII-4)","Cast-Off Breastplate (DC-POA-HAG-SF4)","Cast-Off Breastplate: Gilded Jeer (FR-DC-AKU-1)","Cast-Off Breastplate: Cast-Iron (FR-DC-SCROG-LGD-1)","Cast-Off Chain Mail: Scavenger's Shroud (CCC-DES-4-1)","Cast-Off Half Plate: Burlwood (FR-DC-UCON25-1)","Cast-Off Plate (BMG-DRW-OD-5)","Cast-Off Plate: Sorcerous Paladin of Love and Justice Costume (FR-DC-RPSG-10)","Cast-Off Plate (FR-DC-SCROG-GHH)","Cast-Off Plate: Bluesteel (FR-DC-THAY-4)","Cast-Off Plate: Hyperion's Shell (SJ-DC-PHP-FLN3-EOS)","Shield of Expression (DC-POA-CONMAR-15)","Shield of Expression (DC-POA-SNIPE-1)","Shield of Expression: Do'Urden (FR-DC-SCROG-2)","Shield of Expression (WBW-DC-CONMAR-10)","Shield of Expression (WBW-DC-DCS-1)","Smoldering Armor: Flurried Furs (DDAL0-4)","Smoldering Studded Leather (DC-POA-CODEX-2)","Smoldering Studded Leather (DC-POA-CONMAR-8)","Smoldering Studded Leather (DC-POA-GSP2-2H)","Smoldering Studded Leather: Smokin' Hot Leather (DC-POA-LEGIT-SV-02)","Smoldering Studded Leather (DC-POA-OGG-1)","Smoldering Studded Leather: Armor of the Dark Knight (DC-POA-TDG1-4)","Smoldering Studded Leather (DDAL10-0)","Smoldering Scale Mail: Stygian Armor (CCC-GSP2-2)","Smoldering Breastplate: Jökulsbrynja (DC-POA-CONMAR-3)","Smoldering Breastplate: Wintergreen Guard (DC-POA-LEGIT-SV-01)","Smoldering Plate (FR-DC-ULCASTER-1)"],
+	"breastplate of gleaming (ps-dc-bingo-3)" : {
+		name : "Breastplate of Gleaming (PS-DC-BINGO-3)",
+		source : [["AL", "PS-DC"]],
+		type : "armor (medium)",
+		description : "This distinctive red breastplate from a Harmonium suit of armor never gets dirty. With a Magic action, my voice carries for up to 600 ft until my next turn ends.",
+		descriptionFull : "A distinctive red breastplate from a Harmonium suit of armor.\n   " + toUni("War Leader") + ". You can take a Magic action to cause your voice or signal to carry clearly for up to 600 feet until the end of your next turn.\n   This armor never gets dirty.",
+		armorAdd : { select : "Breastplate of Gleaming", options : ["Breastplate of Gleaming"] },
+		action : [["action", "Gleaming Breastplate (600ft Voice)"]],
+	},
 	"breastplate of gleaming: heth's dragon scale cuirass (ps-dc-hrs-0)" : {
 		name : "Heth's Dragon Scale Cuirass (Gleaming Breastplate, HRS-0)",
 		source : [["AL", "PS-DC"]],
@@ -1096,7 +1128,7 @@ MagicItemsList["al armor (common)"] = {
 		chooseGear : {
 			type : "armor",
 			prefixOrSuffix : "suffix",
-			descriptionChange : ["replace", "armor"],
+			descriptionChange : ["prefix", "armor"],
 			itemName1stPage : ["suffix", "Flurried"],
 			excludeCheck : function (inObjKey, inObj) {
 				return !(/medium|light/i).test(inObj.type);
@@ -1193,14 +1225,13 @@ MagicItemsList["al armor (common)"] = {
 		savetxt : { immune : ["temps past 0\u00B0F/100\u00B0F"] },
 	},
 }
-})
 
 MagicItemsList["al armor (other)"] = {
 		name : "AL Armor (Other)",
 		allowDuplicates : true,
 		choicesNotInMenu : true,
 		magicItemTable : "?",
-	choices : ["Antimagic Armor: Breastplate (PO-BMG-DRW-KS-7)","Armor of Fungal Spores: Seagrow Shell Breastplate (FR-DC-DMJA-1)","Armor of Fungal Spores: Breastplate (FR-DC-GHG-2)","Armor of Fungal Spores: Phase Spider's Carapace Breastplate (FR-DC-PHP-PEST-1)","Armor of Fungal Spores: Cinnamon Bark Breastplate (FR-DC-Saerloon-2)","Armor of Fungal Spores: Cheese Plate Breastplate (FR-DC-WATERDEEP-CHZ)","Armor of Fungal Spores: Hide (PO-BMG-INT-2)","Armor of Invulnerability: Storm King's Plate (FR-DC-PANDORA-JWEI-S2-4)","Armor of Invulnerability: Exposed Ribcage (PS-DC-ELEMENT-DEATH-4)","Breastplate of Necrotic Resistance: Chardalyn (DDAL10-5)","Half Plate of Fire Resistance (FR-DC-YLRA1-4)","Half Plate of Force Resistance: Pat's Ultimate Magic Armor of Awesome Adventuring (FR-DC-STRAT-UNDEAD-1)","Half Plate of Lightning Resistance (FR-DC-BMK-4)","Half Plate of Necrotic Resistance: Vehariel's Vestment (FR-DC-VECNA-3)","Half Plate of Necrotic Resistance: Winter's Warden (FR-DC-VECNA-3)","Half Plate of Poison Resistance: Mushroom (DDEX3-11)","Scale Mail of Psychic Resistance: Resin (CCC-TRI-21 YUL1-6)","Spiked Armor of Necrotic Resistance (WBW-DC-DEN-H1)","Studded Leather of Fire Resistance (DDAL0-11C)","Demon Armor (DDEX3-16)","Demon Armor: Toothy Plate (FR-DC-STRAT-TALES-3)","Dragon Scale Mail: Red (DDEP5-1)","Dragon Scale Mail: Red (DDAL9-15)","Dragon Scale Mail: Silver (PS-DC-STRAT-WYRM-10)","Dwarven Half Plate (FR-DC-MCG-INN1)","Dwarven Half Plate (FR-DC-STRAT-WYRM-7)","Efreeti Chain (DDAL7-15)","Elven Chain (CCC-BMG-36 ELMW2-3)","Elven Chain (CCC-SQC-2-2)","Elven Chain: Storied (FR-DC-Saerloon-8)","Elven Chain: Armor of the First Frost (WBW-DC-AA-ASHALON-1)","Elven Chain (WBW-DC-AMQ-5)","Elven Chain: Astral (WBW-DC-CONMAR-12)","Elven Chain: Guardian (WBW-DC-GGS-1)","Elven Chain: Loud (WBW-DC-GGS-1)","Elven Chain (WBW-DC-PHP-SPAMMY-1)","Elven Chain (WBW-DC-Rook-2-1)","Elven Chain (WBW-DC-TAZ-1)","Elven Chain (WBW-DC-TEN-3)","Elven Chain: Tehettan's Protection (WBW-DC-TMP-2)","Elven Chain (WBW-DC-ZEP-T2S5)","Elven Chain: Sky's Armor (WBW-DC-ZODIAC-12)","Glamoured Studded Leather (DDAL4-9)","Glamoured Studded Leather (DDAL8-11)","Glamoured Studded Leather (DDAL9-6)","Glamoured Studded Leather: Phantom's Raiment (FR-DC-AKU-1)","Glamoured Studded Leather (PO-BK-5-3)","Glamoured Studded Leather: Cinderella's Wedding Corset (WBW-DC-CONMAR-15)","Gloomwrought Studded Leather: Mistbound (FR-DC-THAY-3)","Mariner's Studded Leather (DDAL-DRW9)","Mariner's Breastplate (CCC-AETHER-1-2)","Mariner's Breastplate (CCC-MMT1-2)","Mariner's Scale Mail (AL:SA-11A)","Plate Armor of Etherealness (DDAL8-16)"],
+	choices : ["Antimagic Armor: Breastplate (PO-BMG-DRW-KS-7)","Armor of Fungal Spores: Seagrow Shell Breastplate (FR-DC-DMJA-1)","Armor of Fungal Spores: Breastplate (FR-DC-GHG-2)","Armor of Fungal Spores: Phase Spider's Carapace Breastplate (FR-DC-PHP-PEST-1)","Armor of Fungal Spores: Cinnamon Bark Breastplate (FR-DC-Saerloon-2)","Armor of Fungal Spores: Cheese Plate Breastplate (FR-DC-WATERDEEP-CHZ)","Armor of Fungal Spores: Hide (PO-BMG-INT-2)","Armor of Invulnerability: Storm King's Plate (FR-DC-PANDORA-JWEI-S2-4)","Armor of Invulnerability: Exposed Ribcage (PS-DC-ELEMENT-DEATH-4)","Armor of Invulnerability: Tarrasque (PS-DC-MONSTER-5)","Breastplate of Necrotic Resistance: Chardalyn (DDAL10-5)","Half Plate of Fire Resistance (FR-DC-YLRA1-4)","Half Plate of Force Resistance: Pat's Ultimate Magic Armor of Awesome Adventuring (FR-DC-STRAT-UNDEAD-1)","Half Plate of Lightning Resistance (FR-DC-BMK-4)","Half Plate of Necrotic Resistance: Vehariel's Vestment (FR-DC-VECNA-3)","Half Plate of Necrotic Resistance: Winter's Warden (FR-DC-VECNA-3)","Half Plate of Poison Resistance: Mushroom (DDEX3-11)","Scale Mail of Psychic Resistance: Resin (CCC-TRI-21 YUL1-6)","Spiked Armor of Necrotic Resistance (WBW-DC-DEN-H1)","Studded Leather of Fire Resistance (DDAL0-11C)","Demon Armor (DDEX3-16)","Demon Armor: Toothy Plate (FR-DC-STRAT-TALES-3)","Dragon Scale Mail: Red (DDEP5-1)","Dragon Scale Mail: Red (DDAL9-15)","Dragon Scale Mail: Silver (PS-DC-STRAT-WYRM-10)","Dwarven Half Plate (FR-DC-MCG-INN1)","Dwarven Half Plate (FR-DC-STRAT-WYRM-7)","Efreeti Chain (DDAL7-15)","Elven Chain (CCC-BMG-36 ELMW2-3)","Elven Chain (CCC-SQC-2-2)","Elven Chain (FR-DC-CONMAR-4)","Elven Chain: Storied (FR-DC-Saerloon-8)","Elven Chain: Armor of the First Frost (WBW-DC-AA-ASHALON-1)","Elven Chain (WBW-DC-AMQ-5)","Elven Chain: Astral (WBW-DC-CONMAR-12)","Elven Chain: Guardian (WBW-DC-GGS-1)","Elven Chain: Loud (WBW-DC-GGS-1)","Elven Chain (WBW-DC-PHP-SPAMMY-1)","Elven Chain (WBW-DC-Rook-2-1)","Elven Chain (WBW-DC-TAZ-1)","Elven Chain (WBW-DC-TEN-3)","Elven Chain: Tehettan's Protection (WBW-DC-TMP-2)","Elven Chain (WBW-DC-ZEP-T2S5)","Elven Chain: Sky's Armor (WBW-DC-ZODIAC-12)","Glamoured Studded Leather (DDAL4-9)","Glamoured Studded Leather (DDAL8-11)","Glamoured Studded Leather (DDAL9-6)","Glamoured Studded Leather: Phantom's Raiment (FR-DC-AKU-1)","Glamoured Studded Leather (PO-BK-5-3)","Glamoured Studded Leather: Cinderella's Wedding Corset (WBW-DC-CONMAR-15)","Gloomwrought Studded Leather: Mistbound (FR-DC-THAY-3)","Mariner's Studded Leather (DDAL-DRW9)","Mariner's Breastplate (CCC-AETHER-1-2)","Mariner's Breastplate (CCC-MMT1-2)","Mariner's Scale Mail (AL:SR-11A)","Plate Armor of Etherealness (DDAL8-16)"],
 	"antimagic armor: breastplate (po-bmg-drw-ks-7)" : {
 		name : "Antimagic Breastplate (PO-BMG-DRW-KS-7)",
 		source : [["AL", "DRW"]], // Chapter 9: Knight
@@ -1323,7 +1354,7 @@ MagicItemsList["al armor (other)"] = {
 		type : "armor (plate)",
 		rarity : "legendary",
 		magicItemTable : "?",
-		description : "Engraved onto this plate armor are ferocious waves and raging thunder. It was worn by King Hekaton when he was young. While worn, I have Resistance to Bludgeoning, Piercing, and Slashing dmg. I also suffer no harm in extreme temps past 0\u00B0F and 100\u00B0F. As a Magic action once per dawn, I can make myself immune to Bludgeoning, Piercing, and Slashing dmg for 10 min or until I doff the armor.",
+		description : "Engraved onto this plate armor are ferocious waves and raging thunder. It was worn by King Hekaton when he was young. While worn, I have Resistance to Bludgeoning, Piercing, and Slashing. I also suffer no harm in extreme temps past 0\u00B0F and 100\u00B0F. As a Magic action once per dawn, I become immune to Bludgeoning, Piercing, and Slashing for 10 min or until armor doffed.",
 		descriptionFull : "Engraved onto this armor are ferocious waves and raging thunder telling stories of the Storm Giants. This armor was once worn by King Hekaton when he was young.\n   " + toUni("Temperate") + ". You are unharmed by temperatures of 0 degrees Fahrenheit or lower, and 100 degrees Fahrenheit or higher.\n   You have Resistance to Bludgeoning, Piercing, and Slashing damage while you wear this armor. Metal Shell: You can take a Magic action to give yourself Immunity to Bludgeoning, Piercing, and Slashing damage for 10 minutes or until you are no longer wearing the armor. Once this property is used, it can't be used again until the next dawn.",
 		attunement : true,
 		weight : 65,
@@ -1341,8 +1372,25 @@ MagicItemsList["al armor (other)"] = {
 		type : "armor (plate)",
 		rarity : "legendary",
 		magicItemTable : "?",
-		description : "Ali's desiccated expanded ribcage makes up this plate armor. It's large enough to wear over my clothes and gives me Resistance to Bludgeoning, Piercing, and Slashing dmg. As a Magic action once per dawn, I can make myself immune to Bludgeoning, Piercing, and Slashing for 10 min or until I doff the armor.",
+		description : "Ali's desiccated expanded ribcage makes up this plate armor. It's large enough to wear over my clothes and gives me Resistance to Bludgeoning, Piercing, and Slashing. As a Magic action once per dawn, I become immune to Bludgeoning, Piercing, and Slashing for 10 min or until armor doffed.",
 		descriptionFull : "You have Resistance to Bludgeoning, Piercing, and Slashing damage while you wear this armor. Metal Shell: You can take a Magic action to give yourself Immunity to Bludgeoning, Piercing, and Slashing damage for 10 minutes or until you are no longer wearing the armor. Once this property is used, it can't be used again until the next dawn.\n   " + toUni("Strange Material") + ". This plate armor is Ali's desiccated, expanded ribcage. It is large enough to be worn over your clothes.",
+		attunement : true,
+		weight : 65,
+		limfeaname : "Armor of Invulnerability",
+		usages: 1,
+		recovery: "dawn",
+		action : [["action", " (immunity)"]],
+		dmgres : [["Bludgeoning", "Piercing", "Slashing"]],
+		armorAdd : { select : "Plate of Invulnerability", options : ["Plate of Invulnerability"] },
+	},
+	"armor of invulnerability: tarrasque (ps-dc-monster-5)" : {
+		name : "Tarrasque Armor of Invulnerability (MONSTER-5)",
+		source : [["AL", "PS-DC"]],
+		type : "armor (plate)",
+		rarity : "legendary",
+		magicItemTable : "?",
+		description : "Forged from the Aether Tyrant Tarrasque's hide, dark spikes and scales shine on this hard carapace. It glistens with shadow energy if struck and can only be broken by another Tarrasque. While worn, I resist Bludgeoning, Piercing, and Slashing. As a Magic action once per dawn, I'm immune to Bludgeoning, Piercing, and Slashing for 10 min or until armor doffed.",
+		descriptionFull : "Forged from the hide of the Aether Tyrant Tarrasque, various dark spikes and scales glisten on the hard carapace. The armor glistens with shadow energy when struck.\n   " + toUni("Unbreakable") + ". The item can't be broken. Special means must be used to destroy it.\n   You have Resistance to Bludgeoning, Piercing, and Slashing damage while you wear this armor. Metal Shell: You can take a Magic action to give yourself Immunity to Bludgeoning, Piercing, and Slashing damage for 10 minutes or until you are no longer wearing the armor. Once this property is used, it can't be used again until the next dawn.",
 		attunement : true,
 		weight : 65,
 		limfeaname : "Armor of Invulnerability",
@@ -1490,7 +1538,7 @@ MagicItemsList["al armor (other)"] = {
 			type : "armor",
 			prefixOrSuffix : ["between", "Demon", "Armor (DDEX3-16)"],
 			itemName1stPage : ["brackets", "Demon Armor"],
-			descriptionChange : ["replace", "armor"],
+			descriptionChange : ["prefix", "armor"],
 		},
 		extraAC : [{name : "Demon Armor", mod : 1, misc : true, text : "I gain a +1 bonus to AC while attuned."}],
 		weaponsAdd: ["Demon Armor Claws"],
@@ -1713,6 +1761,16 @@ MagicItemsList["al armor (other)"] = {
 			},
 		},
 		extraAC : [{name : "Elven Chain", mod : 1, misc : true, text : "I gain a +1 bonus to AC while attuned."}],
+	},
+	"elven chain (fr-dc-conmar-4)" : {
+		name : "Elven Chain Mail (FR-DC-CONMAR-4)",
+		source : [["AL", "FR-DC"]],
+		type : "armor (chain mail)",
+		rarity : "rare",
+		description : "This magnificent elven armor was handcrafted a long time ago. While worn, I gain a +1 AC and count as proficient but it has a hint of sulfur smell that I can't get rid of. While underground, I always know my depth and the direction to the nearest upward path.",
+		descriptionFull : "This armor is magnificent elven handcraft from a long time ago, but it has gotten a hint of sulfur smell that you cannot get rid of.\n   " + toUni("Delver") + ". While underground, you always know the item's depth below the surface and the direction to the nearest staircase, ramp, or other path leading upward.\n   You gain a +1 bonus to Armor Class while you wear this armor. You are considered trained with this armor even if you lack training with Medium or Heavy armor (Newer DCs do specify armor type, so no longer a choice).",
+		extraAC : [{name : "Elven Chain", mod : 1, misc : true, text : "I gain a +1 bonus to AC while attuned."}],
+		armorAdd : { select : "Elven Chain Mail", options : ["Elven Chain Mail"] },
 	},
 	"elven chain: storied (fr-dc-saerloon-8)" : {
 		name : "Storied Elven Chain (FR-DC-Saerloon-8)",
@@ -2114,9 +2172,9 @@ MagicItemsList["al armor (other)"] = {
 		armorAdd : { select : "Mariner's Breastplate", options : ["Mariner's Breastplate"] },
 		speed : { swim : { spd : "walk", enc : "walk" } }
 	},
-	"mariner's scale mail (al:sa-11a)" : {
-		name : "Mariner's Scale Mail (AL:SA-11A)",
-		source : [["AL:SA","11A"]],
+	"mariner's scale mail (al:sr-11a)" : {
+		name : "Mariner's Scale Mail (AL:SR-11A)",
+		source : [["AL:SR","11A"]],
 		type : "armor (scale mail)",
 		rarity : "uncommon",
 		description : "Constructed of flat smooth river stones, this armor is surprisingly light and mobile. While worn, I need half the normal water to stave off Exhaustion and have a Swim Speed equal to my Speed. Once per dawn, when I start my turn underwater with 0 HP, I gain 1d4 HP.",
@@ -2173,7 +2231,7 @@ MagicItemsList["al shields"] = {
 		type : "shield",
 		weight : 6,
 		magicItemTable : "?",
-	choices : ["+1 Shield (DDEX3-5)","+1 Shield of the Moon (CCC-TAROT1-2)","+1 Shield of the Salty Griffon (CCC-TRI-19 DEAD1-1)","+2 Shield: Wall of Teeth (DDEX2-14)","+2 Shield: Yata Mirror (CCC-ANIME1-2)","+2 Shield (FR-DC-Saerloon-10)","+2 Shield (PS-DC-PUB-11)","+3 Shield: Miltiades' Shield (CCC-BMG-13 PHLAN1-1)","+3 Shield: Aegis of the Raven Queen (CCC-BWM-3)","+3 Shield (BMG-DRW-OD-7)","+3 Shield (FR-DC-F&ADDM-LES3)","+3 Shield (PS-DC-STRAT-WYRM-10)","Animated Shield (DDEP5-2)","Animated Shield (DDEP8-3)","Animated Shield (PS-DC-STRAT-WYRM-9)","Arrow-Catching Shield (CCC-BMG-MOON13-3)","Arrow-Catching Shield (CCC-GLIP-2-1)","Arrow-Catching Shield (DDAL9-8)","Arrow-Catching Shield (DDAL-DRWEP3)","Battering Shield (BMG-DRW-OD-2)","Sapphire Buckler (DDAL-DRW19)","Sapphire Buckler (SJ-DC-COD)","Sapphire Buckler: Soulflare (SJ-DC-DFA-6)","Sapphire Buckler: Riddick's Titan Shield (SJ-DC-FLUMPH-4)","Sapphire Buckler (SJ-DC-INAS-5)","Sapphire Buckler (SJ-DC-MIST-2)","Sapphire Buckler (SJ-DC-TEL-7)","Sapphire Buckler: Bee's Knees (SJ-DC-TRIDEN-BZ)","Sentinel Shield (CCC-BMG-MOON11-1)","Sentinel Shield (CCC-WWC-7)","Sentinel Shield (DDAL-CGB)","Sentinel Shield (DDEX2-12)","Shield of the Cavalier (FR-DC-MCG-INN1)","Shield of the Cavalier (FR-DC-NBDD-2)","Shield of the Cavalier (PO-BK-5-4)","Shield of the Cavalier (PS-DC-STRAT-TALES-6)","Shield of Missile Attraction: Ward of Chimali (RMH-10)","Shield of the Uven Rune (BMG-MOON-MD-11)","Spellguard Shield: Warden (CCC-ODFC1-3)","Spellguard Shield (CCC-ROZK1-3)","Spellguard Shield (DDEP7-2)","Spellguard Shield (DDAL-DRWEP2)","Spellguard Shield (FR-DC-TT-301)"],
+	choices : ["+1 Shield (DDEX3-5)","+1 Shield of the Moon (CCC-TAROT1-2)","+1 Shield of the Salty Griffon (CCC-TRI-19 DEAD1-1)","+1 Shield: Sarah's (FR-DC-HEARTHOME-3)","+2 Shield: Wall of Teeth (DDEX2-14)","+2 Shield: Yata Mirror (CCC-ANIME1-2)","+2 Shield (FR-DC-Saerloon-10)","+2 Shield (PS-DC-PUB-11)","+3 Shield: Miltiades' Shield (CCC-BMG-13 PHLAN1-1)","+3 Shield: Aegis of the Raven Queen (CCC-BWM-3)","+3 Shield (BMG-DRW-OD-7)","+3 Shield (FR-DC-F&ADDM-LES3)","+3 Shield (PS-DC-STRAT-WYRM-10)","Animated Shield (DDEP5-2)","Animated Shield (DDEP8-3)","Animated Shield (PS-DC-STRAT-WYRM-9)","Arrow-Catching Shield (CCC-BMG-MOON13-3)","Arrow-Catching Shield (CCC-GLIP-2-1)","Arrow-Catching Shield (DDAL9-8)","Arrow-Catching Shield (DDAL-DRWEP3)","Battering Shield (BMG-DRW-OD-2)","Sapphire Buckler (DDAL-DRW19)","Sapphire Buckler (SJ-DC-COD)","Sapphire Buckler: Soulflare (SJ-DC-DFA-6)","Sapphire Buckler: Riddick's Titan Shield (SJ-DC-FLUMPH-4)","Sapphire Buckler (SJ-DC-INAS-5)","Sapphire Buckler (SJ-DC-MIST-2)","Sapphire Buckler (SJ-DC-TEL-7)","Sapphire Buckler: Bee's Knees (SJ-DC-TRIDEN-BZ)","Sentinel Shield (CCC-BMG-MOON11-1)","Sentinel Shield (CCC-WWC-7)","Sentinel Shield (DDAL-CGB)","Sentinel Shield (DDEX2-12)","Sentinel Shield: Crier's Buckler (FR-DC-RPSG-11)","Shield of the Cavalier (FR-DC-MCG-INN1)","Shield of the Cavalier (FR-DC-NBDD-2)","Shield of the Cavalier (FR-DC-TB-1)","Shield of the Cavalier (PO-BK-5-4)","Shield of the Cavalier: Judgment (PS-DC-JUDGE)","Shield of the Cavalier (PS-DC-STRAT-TALES-6)","Shield of Missile Attraction: Ward of Chimali (RMH-10)","Shield of the Uven Rune (BMG-MOON-MD-11)","Spellguard Shield: Warden (CCC-ODFC1-3)","Spellguard Shield (CCC-ROZK1-3)","Spellguard Shield (DDEP7-2)","Spellguard Shield (DDAL-DRWEP2)","Spellguard Shield (FR-DC-TT-301)"],
 	"+1 shield (ddex3-5)" : {
 		name : "Shield +1 (DDEX3-5)",
 		source : [["AL", "S3"]],
@@ -2201,6 +2259,15 @@ MagicItemsList["al shields"] = {
 		descriptionFull : "This shield is crafted from a giant, polished oyster shell. While holding this shield, you have a +1 bonus to AC.\n   While holding this Shield, you have a bonus to Armor Class determined by the Shield's rarity, in addition to the Shield's normal bonus to AC. The bonus is determined by the rarity of the Shield: Uncommon (+1), Rare (+2), or Very Rare (+3).",
 		allowDuplicates : true,
 		shieldAdd : "+1 Shield (Griffon)"
+	},
+	"+1 shield: sarah's (fr-dc-hearthome-3)" : {
+		name : "Sarah's Shield +1 (FR-DC-HEARTHOME-3)",
+		source : [["AL", "FR-DC"]],
+		rarity : "uncommon",
+		description : "This shield is heavier and longer than the average, with faint arcane etchings that are only visible when I focus my eyes on the shield's surface. While held, I have a +1 bonus to AC in addition to the shield's normal bonus. It also warns me, giving +2 initiative unless Incapacitated.",
+		descriptionFull : "This shield is heavier and longer than the average shield, with faint arcane etchings across it that are only visible when you focus your eyes on the shield's surface.\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition.n   While holding this shield, you have a +1 bonus to AC.\n   While holding this Shield, you have a bonus to Armor Class determined by the Shield's rarity, in addition to the Shield's normal bonus to AC. The bonus is determined by the rarity of the Shield: Uncommon (+1), Rare (+2), or Very Rare (+3).",
+		allowDuplicates : true,
+		shieldAdd : "+1 Shield (Sarah's)"
 	},
 	"+2 shield: wall of teeth (ddex2-14)" : {
 		name : "Wall of Teeth, Shield +2 (DDEX2-14)",
@@ -2272,7 +2339,7 @@ MagicItemsList["al shields"] = {
 		rarity : "very rare",
 		source : [["AL", "FR-DC"]],
 		description : "A hieroglyphic black jackal is emblazoned on the front of this shield. While held, I gain a +3 bonus to my AC in addition to the normal shield bonus. It also warns me, giving +2 initiative unless Incapacitated.",
-		descriptionFull : "A hieroglyphic black jackal is emblazoned on the front of the Shield.\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don’t have the Incapacitated condition. (Playtest item, may changed)\n   While holding this shield, you gain a +3 bonus to AC.\n   While holding this Shield, you have a bonus to Armor Class determined by the Shield's rarity, in addition to the Shield's normal bonus to AC. The bonus is determined by the rarity of the Shield: Uncommon (+1), Rare (+2), or Very Rare (+3).",
+		descriptionFull : "A hieroglyphic black jackal is emblazoned on the front of the Shield.\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition. (Playtest item, may changed)\n   While holding this shield, you gain a +3 bonus to AC.\n   While holding this Shield, you have a bonus to Armor Class determined by the Shield's rarity, in addition to the Shield's normal bonus to AC. The bonus is determined by the rarity of the Shield: Uncommon (+1), Rare (+2), or Very Rare (+3).",
 		allowDuplicates : true,
 		shieldAdd : "+3 Shield",
 		addMod : genericGuardianArmor.addMod,
@@ -2539,6 +2606,17 @@ MagicItemsList["al shields"] = {
 		vision : [["Adv. on Perception checks", 0]],
 		weight: 6,
 	},
+	"sentinel shield: crier's buckler (fr-dc-rpsg-11)" : {
+		name : "The Crier's Buckler (Sentinel Shield, RPSG-11)",
+		source : [["AL", "FR-DC"]],
+		rarity : "uncommon",
+		description: "Made from the remnants of a cracked bell and watchtower, this tarnished buckler is deceptively strong.  When struck or used to strike a foe, the shield tolls loudly with a sonorous gong. While held, I have advantage on initiative and Wisdom (Perception) checks.",
+		descriptionFull: "Fashioned from the remnants of a cracked bell and watchtower, this tarnished buckler is deceptively strong and tolls loudly when enemies are near.\n   " + toUni("Songcraft") + ". Whenever this item is struck or is used to strike a foe, you hear a fragment of an ancient song (in this case, a loud and sonorous gong).\n   While holding this shield, you have Advantage on Initiative rolls and Wisdom (Perception) checks. The Shield is emblazoned with a symbol of an eye.",
+		shieldAdd : "Sentinel Shield",
+		advantages : [["Initiative", true], ["Perception", true]],
+		vision : [["Adv. on Perception checks", 0]],
+		weight: 6,
+	},
 	"shield of the cavalier (fr-dc-mcg-inn1)" : {
 		name : "Shield of the Cavalier (MCG-INN1)",
 		source : [["AL", "FR-DC"]],
@@ -2580,7 +2658,7 @@ MagicItemsList["al shields"] = {
 		descriptionLong : "This shield warns me, giving +2 initiative unless Incapacitated. Unfortunately, it sounds like a whiny teenage boy. While held, I gain an extra +2 AC. When I take the Attack action, I can make 1 of the attacks with the shield against a target in 5 ft. It does 2d6 + 2 + Str Force dmg and can Push creature 10 ft. Can also knock Prone if my size or smaller. As a Reaction once per dawn, if me or ally in 5 ft is targeted by attack or saves vs an Area of Effect, I can create an immobile 5-ft Emanation radiating from me. Any creature or object not fully in sphere is pushed to nearest empty space. Nothing can pass in or out, including the triggering effect. This sphere lasts for up to 1 minute and takes Concentration.",
 		descriptionFull : "While holding this Shield, you have a +2 bonus to AC. This bonus is in addition to the Shields normal bonus to AC. The Shield has additional properties that you can use while holding it." +
 		"\n   " + toUni("Forceful Bash") + ". When you take the Attack action, you can make one of the attack rolls using the Shield against a target within 5 feet of yourself. Apply your Proficiency Bonus and Strength modifier to the attack roll. On a hit, the Shield deals Force damage to the target equal to 2d6 + 2 + your Strength modifier, and if the target is a creature, you can push it up to 10 feet directly away from yourself. If the creature is your size or smaller, you can also knock it down, giving it the Prone condition.'" +
-		"\n   " + toUni("Protective Field") + ". As a Reaction, when you or an ally you can see within 5 feet of you is targeted by an attack or makes a saving throw against an area of effect, you can use the Shield to create an immobile 5-foot Emanation originating from you. When the Emanation appears, any creatures or objects not fully contained within it are pushed into the nearest unoccupied spaces outside it. The attack or area of effect that triggered the Reaction has no effect on creatures and objects inside the Emanation, which lasts as long as you maintain Concentration, up to 1 minute. Nothing can pass into or out of the Emanation. A creature or object inside the Emanation can't be damaged by attacks or effects originating from outside, nor can a creature inside the Emanation damage anything outside it. Once this property is used, it can't be used again until the next dawn.\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don’t have the Incapacitated condition. Unfortunately, the warning sounds like a whiny teenage boy.",
+		"\n   " + toUni("Protective Field") + ". As a Reaction, when you or an ally you can see within 5 feet of you is targeted by an attack or makes a saving throw against an area of effect, you can use the Shield to create an immobile 5-foot Emanation originating from you. When the Emanation appears, any creatures or objects not fully contained within it are pushed into the nearest unoccupied spaces outside it. The attack or area of effect that triggered the Reaction has no effect on creatures and objects inside the Emanation, which lasts as long as you maintain Concentration, up to 1 minute. Nothing can pass into or out of the Emanation. A creature or object inside the Emanation can't be damaged by attacks or effects originating from outside, nor can a creature inside the Emanation damage anything outside it. Once this property is used, it can't be used again until the next dawn.\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition. Unfortunately, the warning sounds like a whiny teenage boy.",
 		attunement : true,
 		weight : 6,
 		limfeaname : "Shield of the Cavalier",
@@ -2603,6 +2681,39 @@ MagicItemsList["al shields"] = {
 			}],
 		action : ["reaction", " Protective Field"],
 		addMod : genericGuardianArmor.addMod,
+	},
+	"shield of the cavalier (fr-dc-tb-1)" : {
+		name : "Shield of the Cavalier (TB-1)",
+		source : [["AL", "FR-DC"]],
+		rarity : "very rare",
+		magicItemTable : "?",
+		description : "This gold shield is emblazoned with a white eagle's head on a black crest. It gives an extra +2 AC and glows faintly in 120 ft of Undead. Shield can be used for 1 attack of the Attack action vs target in 5 ft. As Reaction once per dawn, if me or ally in 5 ft targeted by attack or AOE, I can form immobile 5-ft Emanation from me. Creatures or objects not fully inside are pushed to closest empty space. Nothing passes in or out, including triggering effect. Lasts for 1 min with Concentration.",
+		descriptionLong : "This gold shield is emblazoned with a white eagle's head on a black crest. While held, I gain an extra +2 bonus to AC. When I take the Attack action, I can make 1 of the attacks with the shield against a target in 5 ft. It does 2d6 + 2 + Str Force dmg and can Push creature 10 ft. Can also knock Prone if my size or smaller. As a Reaction once per dawn, if me or ally in 5 ft is targeted by attack or saves vs an AOE, I can create an immobile 5-ft Emanation from me. Any creature or object not fully in sphere is pushed to nearest empty space. Nothing can pass in or out, including triggering effect. It lasts for up to 1 min and takes Concentration. The shield glows faintly within 120 ft of Undead.",
+		descriptionFull : "This gold heater shield is emblazoned with a white eagle's head on a black crest.\n   " + toUni("Sentinel") + ". This shield glows faintly when Undead are within 120 feet of it." +
+		"While holding this Shield, you have a +2 bonus to AC. This bonus is in addition to the Shields normal bonus to AC. The Shield has additional properties that you can use while holding it." +
+		"\n   " + toUni("Forceful Bash") + ". When you take the Attack action, you can make one of the attack rolls using the Shield against a target within 5 feet of yourself. Apply your Proficiency Bonus and Strength modifier to the attack roll. On a hit, the Shield deals Force damage to the target equal to 2d6 + 2 + your Strength modifier, and if the target is a creature, you can push it up to 10 feet directly away from yourself. If the creature is your size or smaller, you can also knock it down, giving it the Prone condition.'" +
+		"\n   " + toUni("Protective Field") + ". As a Reaction, when you or an ally you can see within 5 feet of you is targeted by an attack or makes a saving throw against an area of effect, you can use the Shield to create an immobile 5-foot Emanation originating from you. When the Emanation appears, any creatures or objects not fully contained within it are pushed into the nearest unoccupied spaces outside it. The attack or area of effect that triggered the Reaction has no effect on creatures and objects inside the Emanation, which lasts as long as you maintain Concentration, up to 1 minute. Nothing can pass into or out of the Emanation. A creature or object inside the Emanation can't be damaged by attacks or effects originating from outside, nor can a creature inside the Emanation damage anything outside it. Once this property is used, it can't be used again until the next dawn.",
+		attunement : true,
+		weight : 6,
+		limfeaname : "Shield of the Cavalier",
+		usages : 1,
+		recovery : "dawn",
+		additional : "Protective Field",
+		shieldAdd : ["Shield of the Cavalier", 4, 6],
+		weaponOptions: [{
+			regExpSearch: /^(?=.*cavalier)(?=.*shield).*$/i,
+			name: "Shield of the Cavalier Bash",
+			source: [["D24", 304]],
+			ability: 1,
+			type: 'AlwaysProf',
+			damage: ['2d6 + 2' + What('Str Mod'), '', 'force'],
+			range: "Melee",
+			description: "If target crea push 10ft; if crea <= my size, knock Prone; Replace one attack of Attack action only",
+			isNotWeapon: true,
+			modifiers: [What('Str Mod') + Number(How('Proficiency Bonus')),],
+			selectNow: true
+			}],
+		action : ["reaction", " Protective Field"],
 	},
 	"shield of the cavalier (po-bk-5-4)" : {
 		name : "Shield of the Cavalier (PO-BK-5-4)",
@@ -2635,6 +2746,39 @@ MagicItemsList["al shields"] = {
 			selectNow: true
 			}],
 		action : ["reaction", " Protective Field"],
+	},
+	"shield of the cavalier: judgment (ps-dc-judge)" : {
+		name : "Shield of Judgment (the Cavalier, JUDGE)",
+		source : [["AL", "PS-DC"]],
+		rarity : "very rare",
+		magicItemTable : "?",
+		description : "This +2 shield is Bestowed on the highest ranked rilmani when society-wide balance is at risk. I'm satisfied that every decision I make must be weighed carefully but is correct. Shield can be used for 1 atk of Attack action vs target in 5 ft. As Reaction once per dawn, if me or ally in 5 ft targeted by atk or AOE, form immobile 5-ft Emanation from me. Creatures or objects not fully inside pushed to closest empty space. Nothing passes in or out, including trigger effect. Lasts for 1 min with Conc.",
+		descriptionLong : "Bestowed on the highest ranked rilmani, this +2 shield is wielded when society-wide balance is at risk. While held, I'm satisfied that every decision I make must be weighed carefully but is ultimately right. When I take the Attack action, I can make 1 of the attacks with the shield against a target in 5 ft. It does 2d6 + 2 + Str Force dmg and can Push creature 10 ft. Can also knock Prone if my size or smaller. As a Reaction once per dawn, if me or ally in 5 ft is targeted by attack or saves vs an AOE, I can create an immobile 5-ft Emanation from me. Any creature or object not fully in sphere is pushed to nearest empty space. Nothing can pass in or out, including triggering effect. It lasts for up to 1 min and takes Concentration.",
+		descriptionFull : "Bestowed upon the highest ranked among the rilmani, the Shield of Judgment is wielded when society-wide balance is at risk. The wielder is satisfied that every decision they make must be weighed carefully but, ultimately, it is the right decision.\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition.\n   While holding this Shield, you have a +2 bonus to AC. This bonus is in addition to the Shields normal bonus to AC. The Shield has additional properties that you can use while holding it." +
+		"\n   " + toUni("Forceful Bash") + ". When you take the Attack action, you can make one of the attack rolls using the Shield against a target within 5 feet of yourself. Apply your Proficiency Bonus and Strength modifier to the attack roll. On a hit, the Shield deals Force damage to the target equal to 2d6 + 2 + your Strength modifier, and if the target is a creature, you can push it up to 10 feet directly away from yourself. If the creature is your size or smaller, you can also knock it down, giving it the Prone condition.'" +
+		"\n   " + toUni("Protective Field") + ". As a Reaction, when you or an ally you can see within 5 feet of you is targeted by an attack or makes a saving throw against an area of effect, you can use the Shield to create an immobile 5-foot Emanation originating from you. When the Emanation appears, any creatures or objects not fully contained within it are pushed into the nearest unoccupied spaces outside it. The attack or area of effect that triggered the Reaction has no effect on creatures and objects inside the Emanation, which lasts as long as you maintain Concentration, up to 1 minute. Nothing can pass into or out of the Emanation. A creature or object inside the Emanation can't be damaged by attacks or effects originating from outside, nor can a creature inside the Emanation damage anything outside it. Once this property is used, it can't be used again until the next dawn.",
+		attunement : true,
+		weight : 6,
+		limfeaname : "Shield of the Cavalier",
+		usages : 1,
+		recovery : "dawn",
+		additional : "Protective Field",
+		shieldAdd : ["Shield of the Cavalier", 4, 6],
+		weaponOptions: [{
+			regExpSearch: /^(?=.*cavalier)(?=.*shield).*$/i,
+			name: "Shield of the Cavalier Bash",
+			source: [["D24", 304]],
+			ability: 1,
+			type: 'AlwaysProf',
+			damage: ['2d6 + 2' + What('Str Mod'), '', 'force'],
+			range: "Melee",
+			description: "If target crea push 10ft; if crea <= my size, knock Prone; Replace one attack of Attack action only",
+			isNotWeapon: true,
+			modifiers: [What('Str Mod') + Number(How('Proficiency Bonus')),],
+			selectNow: true
+			}],
+		action : ["reaction", " Protective Field"],
+		addMod : genericGuardianArmor.addMod,
 	},
 	"shield of the cavalier (ps-dc-strat-tales-6)" : {
 		name : "Shield of the Cavalier (STRAT-TALES-6)",
@@ -2763,3 +2907,5 @@ MagicItemsList["al shields"] = {
 		savetxt : { adv_vs : ["spells", "magical effects"], text : ["Spell attack rolls Disadvantage against me"] },
 	},
 }
+
+}) //other half of artificer function code

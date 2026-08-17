@@ -47,11 +47,12 @@ if (!SourceList.KOSC) {
 	};
 }
 
-SourceList["AL:SA"] = {  //AL Service Awards. Started in 2021 but have multiple sets each year.
-    name : "AL Service Awards",
-    abbreviation : "AL:SA",
+SourceList["AL:SR"] = {  //AL Service Rewards. Started in 2021 but have multiple sets each year.
+    name : "AL Service Rewards",
+    abbreviation : "AL:SR",
     group : "Adventurers League",
-    date : "2021/11/02"
+    date : "2021/11/02",
+	defaultExcluded : true
 };
 
 SourceList["AL:R"] = {  //Ravenloft Alternate Campaign
@@ -86,6 +87,19 @@ if (!SourceList.CM) {
 //Variables to help condense code and reduce unnecessary duplication:
 var genericGuardianWeapon = {
 		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
+ }
+
+var adamantineWeaponGeneric = {
+    calcChanges: {
+        atkAdd: [
+            function(fields, v) {
+                if (v.theWea.list == "melee" && /adamantine/i.test(v.WeaponTextName)) {
+                    fields.Description += (fields.Description ? '; ' : '') + 'Always critical hits on objects';
+                }
+            },
+            'If I include the word "Adamantine" in the name of a melee weapon, it will be treated as the magic item Adamantine Weapon. Whenever it hits an object, it automatically scores a critical hit.'
+        ]
+    },
  }
  
 var bowOfMelodies = {
@@ -167,6 +181,29 @@ var dragonSlayerWeapon = {
 			atkCalc : [
 				function (fields, v, output) {
 					if (v.isMeleeWeapon && (/sword|scimitar|rapier/i).test(v.baseWeaponName) && (/^(?=.*dragon)(?=.*slayer).*$/i).test(v.WeaponText)) {
+						output.magic = v.thisWeapon[1] + 1;
+						}
+					}, ''
+				]
+			},
+ }
+ 
+var energyBowChange = {
+		calcChanges : { //For Energy Bows
+		atkAdd : [
+			function (fields, v) {
+				if (!v.theWea.isMagicWeapon && v.isRangedWeapon && (/shortbow|longbow/i).test(v.baseWeaponName) && (/energy/i).test(v.WeaponTextName)) {
+					v.theWea.isMagicWeapon = true;
+					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+					fields.Description += (fields.Description ? '; ' : '') + 'Can restrain with DC 15 Str Save instead of dmg';
+					fields.Damage_Type = 'force';
+				}
+			},
+			"If I include the words Energy in a the name of a bow, it will be treated as the magic weapon Energy Bow, doing Force damage and with the restrain ability."
+		],
+			atkCalc : [
+				function (fields, v, output) {
+					if (!v.theWea.isMagicWeapon && v.isRangedWeapon && (/shortbow|longbow/i).test(v.baseWeaponName) && (/energy/i).test(v.WeaponTextName)) {
 						output.magic = v.thisWeapon[1] + 1;
 						}
 					}, ''
@@ -866,13 +903,17 @@ var sunBladeCalc = {
 		calcChanges : {
 			atkAdd : [
 				function (fields, v) {
-					if (v.theWea.name == "Sun Blade" && !fields.Proficiency) {
+					if ((/^(?=.*sun)(?=.*blade).*$/i).test(v.WeaponTextName) && !fields.Proficiency) {
 						fields.Proficiency = CurrentProfs.weapon.otherWea && CurrentProfs.weapon.otherWea.finalProfs.indexOf("shortsword") !== -1;
 					}
-				}, ''
-			]
-		},
- }
+					/*if ((/^(?=.*sun)(?=.*blade).*$/i).test(v.WeaponTextName)) {
+					v.theWea.isMagicWeapon = true;
+					fields.Description += (fields.Description ? '; ' : '') + 'Finesse; +1d8 Radiant to Undead';
+					fields.Damage_Type = 'radiant';
+					}*/
+				}, 'I am proficient with Sun Blades if proficient with shortswords or longswords.'
+		],
+ }}
 
 var swordOfLifeStealing = {
 	calcChanges: {
@@ -918,7 +959,7 @@ var swordOfWounding = {
 				if (!v.theWea.isMagicWeapon && v.isMeleeWeapon && (/Glaive|Greatsword|Longsword|Rapier|Scimitar|Shortsword/i).test(v.baseWeaponName) && (/of wounding/i).test(v.WeaponTextName)) {
 					v.theWea.isMagicWeapon = true;
 					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
-					fields.Description += (fields.Description ? '; ' : '') + 'target: +2d6 Necrotic dmg; DC 15 CON Save or no HP 1 hour';
+					fields.Description += (fields.Description ? '; ' : '') + 'target: +2d6 Necrotic dmg; DC 15 CON Save or no regain HP 1 hr';
 				}
 			},
 			'If you include the words "of Wounding" in the name of a weapon, it will be treated as the magic weapon Sword of Wounding.'
@@ -987,6 +1028,7 @@ var viciousWeaponCalc = {
 		},
  }
 
+RunFunctionAtEnd(function () {//this code should make it so the AL variations of all items don't appear as an option for artificers to create
 
 MagicItemsList["al staffs"] = {
 			name : "AL Staffs",
@@ -994,7 +1036,7 @@ MagicItemsList["al staffs"] = {
 			choicesNotInMenu : true,
 			type : "staff",
 			magicItemTable : "?",
-		choices : ["Eldritch Staff (PS-DC-PESCH)","Eldritch Staff (PS-DC-PKL-15)","Staff of the Adder (CCC-SRCC1-3)","Staff of Charming (DDEX2-2)","Staff of Charming (PS-DC-PUB-14)","Staff of Defense (SJ-DC-BST-6)","Staff of Defense: Xuanwu Jade Shuttle (SJ-DC-DD-9)","Staff of Defense (SJ-DC-ETO-2)","Staff of Defense: Black Root of Clathrus Archeri (SJ-DC-PANDORA-JWEI-3A)","Staff of Defense (SJ-DC-RFJK-2-2)","Staff of Defense (SJ-DC-TEL-2)","Staff of Fate (BMG-MOON-MD-10)","Staff of Fire (FR-DC-STRAT-WYRM-6)","Staff of Frost (DDAL0-11E)","Staff of Frost (DDAL-DRW5)","Staff of Frost (PS-DC-STRAT-WYRM-9)","Staff of Frost (WBW-DC-AEG-2)","Staff of Healing: Driftwood Staff (CCC-DES-1-2)","Staff of Healing (CCC-GHC-BK2-8)","Staff of Healing (CCC-QCC2019-3)","Staff of Healing (CCC-WYC-2-1)","Staff of Healing (DDEP4)","Staff of Healing: Zee's Control (FR-DC-THAY-4)","Staff of the Magi (DDAL7-17)","Staff of the Magi (FR-DC-WE-5)","Staff of Power (DDAL5-19)","Staff of Power (DDEP4)","Staff of Power (FR-DC-PANDORA-JWEI-S2-4/6)","Staff of Power (FR-DC-NBDD-1)","Staff of Power (FR-DC-STRAT-WYRM-5)","Staff of Power: Right Arm (PS-DC-ELEMENT-DEATH-4)","Staff of Power: Tongkat Nenek Kebayan (WBW-DC-DMMC-1)","Staff of Power: Oblivia (WBW-DC-PHP-ORNG-2)","Staff of the Python (CCC-BMG-MOON7-1)","Staff of the Python: Earth Tender's Branch (CCC-BMG-MOON8-2)","Staff of the Python: Bulkawa's Benevolence (CCC-GSP2-2)","Staff of the Python (FR-DC-GHG-4)","Staff of the Python: Blackztaff (FR-DC-WATERDEEP-KYZ)","Staff of the Python (FR-DC-WCAG3-4)","Staff of Striking (CCC-TRI-14 YUL1-3)","Staff of Striking (DDAL7-12)","Staff of Striking (DDAL10-10)","Staff of Striking: Moon Dance (SJ-DC-PANDORA-JWEI-1)","Staff of Striking: Dragon's Glory (SJ-DC-ROTU-5)","Staff of Striking: Orcus Wand Splinter (SJ-DC-TRIDEN-MW3)","Staff of Swarming Insects (DDEX3-3)","Staff of Swarming Insects: Mildy's (WBW-DC-DES-1-7)","Staff of Swarming Insects: Scorpion Staff (WBW-DC-DGE-2)","Staff of Swarming Insects: Drone Control Rod (WBW-DC-LEGIT-SV-6)","Staff of Swarming Insects: Mariposa (WBW-DC-PHP-ORNG-2)","Staff of Swarming Insects: Ygorl's Crook (WBW-DC-Rook-3-3)","Staff of Thunder and Lightning (DDAL5-8)","Staff of Thunder and Lightning (DDEP5-2)","Staff of Thunder and Lightning (PS-DC-PKL-16)","Staff of Thunder and Lightning: Morwen's Crone (PS-DC-SB-BISH1)","Staff of Withering (DDEX2-13)","Staff of Withering (DDAL8-13)","Staff of Withering: The Inoculum (SJ-DC-VEN-2)","Staff of Withering: Positive Prognosis (SJ-DC-VEN-2)","Staff of the Woodlands (CCC-BMG-MOON12-1)","Staff of the Woodlands (CCC-GARY-9)","Staff of the Woodlands (DDAL7-8/DDEP7-1)","Staff of the Woodlands: Liwanag (WBW-DC-ANDL-3)","Staff of the Woodlands: Temperate (WBW-DC-CONMAR-6)","Staff of the Woodlands (WBW-DC-HAVN-1)","Staff of the Woodlands: Guardian (WBW-DC-HH-2)","Staff of the Woodlands (WBW-DC-IDL1)","Staff of the Woodlands (WBW-DC-PHP-LCL-1)","Staff of the Woodlands: Hope's Emissary (WBW-DC-Rook-3-2)","Staff of the Woodlands: Sunlit (WBW-DC-Sunlit-6)","Staff of the Woodlands: Delver's (WBW-DC-ZEP-T2S2)","Staff of the Woodlands: Dragon's Seed (WBW-DC-ZODIAC-5)","Sun Staff: Solbane (PO-BMG-DRW-KS-4)"],
+		choices : ["Eldritch Staff (PS-DC-PESCH)","Eldritch Staff (PS-DC-PKL-15)","Staff of the Adder (CCC-SRCC1-3)","Staff of Charming (DDEX2-2)","Staff of Charming (PS-DC-PUB-14)","Staff of Defense (SJ-DC-BST-6)","Staff of Defense: Xuanwu Jade Shuttle (SJ-DC-DD-9)","Staff of Defense (SJ-DC-ETO-2)","Staff of Defense: Black Root of Clathrus Archeri (SJ-DC-PANDORA-JWEI-3A)","Staff of Defense (SJ-DC-RFJK-2-2)","Staff of Defense (SJ-DC-TEL-2)","Staff of Fate (BMG-MOON-MD-10)","Staff of Fire (FR-DC-STRAT-WYRM-6)","Staff of Frost (DDAL0-11E)","Staff of Frost (DDAL-DRW5)","Staff of Frost (PS-DC-STRAT-WYRM-9)","Staff of Frost (WBW-DC-AEG-2)","Staff of Healing: Driftwood Staff (CCC-DES-1-2)","Staff of Healing (CCC-GHC-BK2-8)","Staff of Healing (CCC-QCC2019-3)","Staff of Healing (CCC-WYC-2-1)","Staff of Healing (DDEP4)","Staff of Healing: Zee's Control (FR-DC-THAY-4)","Staff of the Magi (DDAL7-17)","Staff of the Magi (FR-DC-WE-5)","Staff of Power (DDAL5-19)","Staff of Power (DDEP4)","Staff of Power (FR-DC-MCG-INN2)","Staff of Power (FR-DC-NBDD-1)","Staff of Power (FR-DC-PANDORA-JWEI-S2-4/6)","Staff of Power (FR-DC-STRAT-WYRM-5)","Staff of Power: Right Arm (PS-DC-ELEMENT-DEATH-4)","Staff of Power: Tongkat Nenek Kebayan (WBW-DC-DMMC-1)","Staff of Power: Oblivia (WBW-DC-PHP-ORNG-2)","Staff of the Python (CCC-BMG-MOON7-1)","Staff of the Python: Earth Tender's Branch (CCC-BMG-MOON8-2)","Staff of the Python: Bulkawa's Benevolence (CCC-GSP2-2)","Staff of the Python (FR-DC-GHG-4)","Staff of the Python: Blackztaff (FR-DC-WATERDEEP-KYZ)","Staff of the Python (FR-DC-WCAG3-4)","Staff of Striking (CCC-TRI-14 YUL1-3)","Staff of Striking (DDAL7-12)","Staff of Striking (DDAL10-10)","Staff of Striking: Moon Dance (SJ-DC-PANDORA-JWEI-1)","Staff of Striking: Dragon's Glory (SJ-DC-ROTU-5)","Staff of Striking: Orcus Wand Splinter (SJ-DC-TRIDEN-MW3)","Staff of Swarming Insects (DDEX3-3)","Staff of Swarming Insects: Mildy's (WBW-DC-DES-1-7)","Staff of Swarming Insects: Scorpion Staff (WBW-DC-DGE-2)","Staff of Swarming Insects: Drone Control Rod (WBW-DC-LEGIT-SV-6)","Staff of Swarming Insects: Mariposa (WBW-DC-PHP-ORNG-2)","Staff of Swarming Insects: Ygorl's Crook (WBW-DC-Rook-3-3)","Staff of Thunder and Lightning (DDAL5-8)","Staff of Thunder and Lightning (DDEP5-2)","Staff of Thunder and Lightning (PS-DC-PKL-16)","Staff of Thunder and Lightning: Morwen's Crone (PS-DC-SB-BISH1)","Staff of Withering (DDEX2-13)","Staff of Withering (DDAL8-13)","Staff of Withering: The Inoculum (SJ-DC-VEN-2)","Staff of Withering: Positive Prognosis (SJ-DC-VEN-2)","Staff of the Woodlands (CCC-BMG-MOON12-1)","Staff of the Woodlands (CCC-GARY-9)","Staff of the Woodlands (DDAL7-8/DDEP7-1)","Staff of the Woodlands: Liwanag (WBW-DC-ANDL-3)","Staff of the Woodlands: Temperate (WBW-DC-CONMAR-6)","Staff of the Woodlands (WBW-DC-HAVN-1)","Staff of the Woodlands: Guardian (WBW-DC-HH-2)","Staff of the Woodlands (WBW-DC-IDL1)","Staff of the Woodlands (WBW-DC-PHP-LCL-1)","Staff of the Woodlands: Hope's Emissary (WBW-DC-Rook-3-2)","Staff of the Woodlands: Sunlit (WBW-DC-Sunlit-6)","Staff of the Woodlands: Delver's (WBW-DC-ZEP-T2S2)","Staff of the Woodlands: Dragon's Seed (WBW-DC-ZODIAC-5)","Sun Staff: Solbane (PO-BMG-DRW-KS-4)"],
 	"eldritch staff (ps-dc-pesch)" : {
 		name : "Eldritch Staff (PS-DC-PESCH)",
 		source : [["AL", "PS-DC"]],
@@ -1621,6 +1663,32 @@ MagicItemsList["al staffs"] = {
 		spellFirstColTitle : "Ch",
 		spellcastingBonus : staffOfPowerCalc.spellcastingBonus,
 		spellChanges : staffOfPowerCalc.spellChanges,
+	},
+	"staff of power (fr-dc-mcg-inn2)" : {
+		name : "Staff of Power (MCG-INN-2)",
+		source : [["AL","FR-DC"]],
+		rarity : "very rare",
+		description : "This +2 staff gives me +2 to saves, AC and spell attacks, and keeps me unharmed by extreme temps past 0\u00B0F & 100\u00B0F. It has 20 charges for spells, 2d8+4 regained at dawn. 5% to become basic +2 staff if use last charge. 5% regain 1d8+2 charges. Magic action to break. 50% I go to random plane or take 16\xD7charges Force. Others in 30-ft take 4\xD7charges (DC 17 Dex to half).",
+		descriptionLong : "This staff lets me suffer no harm in extreme temperatures past 0\u00B0F and 100\u00B0F. While held, I gain a +2 bonus to saves, AC, and spell attacks. The staff has 20 charges, regaining 2d8+4 at dawn. If I use the last charge, roll a d20. On a 1, it converts to a +2 quarterstaff. On a 20, it regains 1d8+2 charges. Charges can be used to cast spells. As Magic action, I can break it for a 30-ft explosion. When I do, there's a 50% chance I teleport to a random plane. If not I take 16\xD7 the charges left in Force damage. All others in area take 4\xD7; DC 17 Dex save halves.",
+		descriptionFull : "The item has the Temperate property, protecting the wielder from temperatures of 0 degrees Fahrenheit or lower, and 100 degrees Fahrenheit or higher." + staffPowerDescriptionTxt.unicode,
+		attunement : true,
+		weight : 4,
+		prerequisite : "Requires attunement by a sorcerer, warlock, or wizard",
+		prereqeval : function(v) { return classes.known.sorcerer || classes.known.warlock || classes.known.wizard ? true : false; },
+		limfeaname : "Staff of Power",
+		usages : 20,
+		recovery : "dawn",
+		additional : "regains 2d8+4",
+		weaponsAdd : { select : ["Staff of Power"], options : ["Staff of Power"] },
+		calcChanges: staffOfPowerCalc.calcChanges,
+		addMod : [{ type : "save", field : "all", mod : 2, text : "While holding the Staff of Power, I gain a +2 bonus to all my saving throws." }],
+		extraAC : [{name : "Staff of Power", mod : 2, magic : true, text : "I gain a +2 bonus to AC while attuned."}],
+		action : [["action", " (Retributive Strike)"]],
+		spellcastingAbility : "class",
+		spellFirstColTitle : "Ch",
+		spellcastingBonus : staffOfPowerCalc.spellcastingBonus,
+		spellChanges : staffOfPowerCalc.spellChanges,
+		savetxt : { immune : ["temps past 0\u00B0F/100\u00B0F"] },
 	},
 	"staff of power (fr-dc-nbdd-1)" : {
 		name : "Staff of Power (NBDD-1)",
@@ -2556,7 +2624,7 @@ MagicItemsList["al swords"] = {
 		allowDuplicates : true,
 		choicesNotInMenu : true,
 		magicItemTable : "?",
-	choices : ["Adamantine Shortsword (FR-DC-UCON24)","Crystal Rapier (BMG-DRW-OD-5)","Crystal Rapier (PO-BK-4-1)","Dancing Greatsword (PS-DC-PANDORA-JWEI-S2-5)","Dancing Longsword: Antgaladion (WBW-DC-AA-ASHALON-1)","Dancing Rapier: Angel's Sting (CCC-GHC-BK1-10)","Dancing Rapier: Raptor (CCC-LINKS-2)","Dancing Rapier (FR-DC-WE-5)","Dancing Rapier: Left Arm (PS-DC-ELEMENT-DEATH-4)","Defender Greatsword: Deathshield (DDAL9-20)","Defender Scimitar: Right Chakram of Shar (FR-DC-PANDORA-JWEI-S2-7)","Dragon Slayer: Wyrmripper (DDEP5-1)","Dragon's Wrath Ascendant Amethyst Longsword: The First Sword (PO-BK-3-11)","Dragon's Wrath Wakened White Greatsword (BMG-MOON-MD-12)","Flame Tongue Longsword (BMG-MOON-MD-6)","Flame Tongue Longsword: Velahr'kerym (DDAL0-2D)","Flame Tongue Longsword (DDAL-DRW13)","Flame Tongue Shortsword: Flare (CCC-WYC-1-2)","Frost Brand Greatsword (SJ-DC-NOS-4)","Frost Brand Greatsword: Immolator's Domain (SJ-DC-TBS-2)","Frost Brand Greatsword: Duty (SJ-DC-TRIDEN-TFC)","Frost Brand Greatsword: Quintessence's Edge (SJ-DC-WINE-1)","Frost Brand Longsword: Blade of Aaqa (SJ-DC-AUG-9)","Frost Brand Rapier: Bitter Wrath (DDAL7-9)","Frost Brand Rapier: Familiar's (SJ-DC-ZODIAC-14-3)","Frost Brand Scimitar (DDEP5-2)","Frost Brand Scimitar (SJ-DC-TEL-12)","Frost Brand Shortsword: Frostbite Cryo Katana (SJ-DC-DD-11)","Giant Slayer Greatsword (DDEP5-2)","Holy Avenger Longsword (PS-DC-STRAT-WYRM-9)","Holy Avenger Rapier (FR-DC-NBDD-2)","Moonblade Greatsword: Pandora's Greater Staff of Selune (FR-DC-PANDORA-JWEI-S2-6)","Moonblade Rapier: Severed Spine (PS-DC-ELEMENT-DEATH-4)","Moonblade Shortsword: Left Chakram of Shar (FR-DC-PANDORA-JWEI-S2-7)","Nine Lives Stealer Greatsword (PS-DC-STRAT-WYRM-10)","Nine Lives Stealer Longsword: Love's Bite (DDAL7-11)","Nine Lives Stealer Scimitar (CCC-QCC2018-1)","Rapier of Life Stealing (CCC-PDXAGE-2-1)","Scimitar of Life Stealing: Night Cutter (CCC-RCC-1-4)","Scimitar of Life Stealing: Krakenfang (PO-BK-3-7)","Scimitar of Speed (SJ-DC-AMOT-3)","Scimitar of Speed: Deceiver (SJ-DC-DFA-3)","Scimitar of Speed: Radiance's Glare (SJ-DC-PHP-LRD-1)","Scimitar of Speed: Spirit's Edge (SJ-DC-TBS-1)","Scimitar of Speed (SJ-DC-TRIDEN-MYKE-2)","Scimitar of Speed: Beam (SJ-DC-VMT-1)","Scimitar of Speed: Manthor “Vow of the Forest” (WBW-DC-ANDL-3)","Scimitar of Speed: Bregrist (WBW-DC-TREY-1)","Scimitar of Speed: Dread Cutlass (SJ-DC-DWR-3)","Steel: Amdraig (BMG-MOON-MD-9)","Sun Blade: The Seventh Sword (CCC-6SWORDS-1)","Sun Blade: Dawnfire (CCC-STORM-1)","Sun Blade (CCC-WYC-2-2)","Sun Blade: Starshard (RMH-12)","Sun Blade: Scintilmorn (WDotMM)","Sword of Answering: Warsong (PS-DC-STRAT-TALES-5)","Greatsword of Sharpness: Desolation (DDAL8-14)","Longsword of Vengeance (CCC-BMG-MOON15-2)","Longsword of Vengeance (CCC-GARY-8)","Longsword of Vengeance (CCC-HATMS1-2)","Longsword of Vengeance (CCC-MACE1-3)","Sword of Vengeance (CCC-SAF2-2)","Greatsword of Warning: Ever Vigilant (CCC-BMG-MOON3-3)","Scimitar of Warning: Miir (CCC-BWM-4-1)","Greatsword of Wounding (DDEX2-15)","Sword of Wounding (DDAL-CGB)","Vicious Longsword (CCC-HATMS2-1)","Vicious Scimitar: Timefrost (FR-DC-GLACIER-1)","Vicious Scimitar: The Gemini (FR-DC-REIN-VR-1)","Vicious Rapier: Hag's Clawblade (AL:SA-11A)","Vorpal Scimitar (DDAL7-16)","Vorpal Scimitar: Abi Teos's Machete (RMH-9/RMH-10)"],
+	choices : ["Adamantine Shortsword (FR-DC-UCON24)","Crystal Rapier (BMG-DRW-OD-5)","Crystal Rapier (PO-BK-4-1)","Dancing Greatsword (PS-DC-PANDORA-JWEI-S2-5)","Dancing Longsword: Antgaladion (WBW-DC-AA-ASHALON-1)","Dancing Rapier: Angel's Sting (CCC-GHC-BK1-10)","Dancing Rapier: Raptor (CCC-LINKS-2)","Dancing Rapier (FR-DC-WE-5)","Dancing Rapier: Left Arm (PS-DC-ELEMENT-DEATH-4)","Defender Greatsword: Deathshield (DDAL9-20)","Defender Scimitar: Right Chakram of Shar (FR-DC-PANDORA-JWEI-S2-7)","Dragon Slayer: Wyrmripper (DDEP5-1)","Dragon's Wrath Ascendant Amethyst Longsword: The First Sword (PO-BK-3-11)","Dragon's Wrath Wakened White Greatsword (BMG-MOON-MD-12)","Flame Tongue Longsword (BMG-MOON-MD-6)","Flame Tongue Longsword: Velahr'kerym (DDAL0-2D)","Flame Tongue Longsword (DDAL-DRW13)","Flame Tongue Shortsword: Flare (CCC-WYC-1-2)","Frost Brand Greatsword (SJ-DC-NOS-4)","Frost Brand Greatsword: Immolator's Domain (SJ-DC-TBS-2)","Frost Brand Greatsword: Duty (SJ-DC-TRIDEN-TFC)","Frost Brand Greatsword: Quintessence's Edge (SJ-DC-WINE-1)","Frost Brand Longsword: Blade of Aaqa (SJ-DC-AUG-9)","Frost Brand Rapier: Bitter Wrath (DDAL7-9)","Frost Brand Rapier: Familiar's (SJ-DC-ZODIAC-14-3)","Frost Brand Scimitar (DDEP5-2)","Frost Brand Scimitar (SJ-DC-TEL-12)","Frost Brand Shortsword: Frostbite Cryo Katana (SJ-DC-DD-11)","Giant Slayer Greatsword (DDEP5-2)","Holy Avenger Longsword (PS-DC-STRAT-WYRM-9)","Holy Avenger Rapier (FR-DC-NBDD-2)","Moonblade Greatsword: Pandora's Greater Staff of Selune (FR-DC-PANDORA-JWEI-S2-6)","Moonblade Rapier: Severed Spine (PS-DC-ELEMENT-DEATH-4)","Moonblade Scimitar: Sindarin (PS-DC-RDP-5)","Moonblade Shortsword: Left Chakram of Shar (FR-DC-PANDORA-JWEI-S2-7)","Nine Lives Stealer Greatsword (PS-DC-STRAT-WYRM-10)","Nine Lives Stealer Longsword: Love's Bite (DDAL7-11)","Nine Lives Stealer Scimitar (CCC-QCC2018-1)","Rapier of Life Stealing (CCC-PDXAGE-2-1)","Scimitar of Life Stealing: Night Cutter (CCC-RCC-1-4)","Scimitar of Life Stealing: Krakenfang (PO-BK-3-7)","Scimitar of Speed (SJ-DC-AMOT-3)","Scimitar of Speed: Deceiver (SJ-DC-DFA-3)","Scimitar of Speed: Radiance's Glare (SJ-DC-PHP-LRD-1)","Scimitar of Speed: Spirit's Edge (SJ-DC-TBS-1)","Scimitar of Speed (SJ-DC-TRIDEN-MYKE-2)","Scimitar of Speed: Beam (SJ-DC-VMT-1)","Scimitar of Speed: Manthor “Vow of the Forest” (WBW-DC-ANDL-3)","Scimitar of Speed: Bregrist (WBW-DC-TREY-1)","Scimitar of Speed: Dread Cutlass (SJ-DC-DWR-3)","Steel: Amdraig (BMG-MOON-MD-9)","Sun Blade: The Seventh Sword (CCC-6SWORDS-1)","Sun Blade: Dawnfire (CCC-STORM-1)","Sun Blade (CCC-WYC-2-2)","Sun Blade: Shadowbane (FR-DC-TB-1)","Sun Blade: Starshard (RMH-12)","Sun Blade: Scintilmorn (WDotMM)","Sword of Answering: Warsong (PS-DC-STRAT-TALES-5)","Greatsword of Sharpness: Desolation (DDAL8-14)","Longsword of Vengeance (CCC-BMG-MOON15-2)","Longsword of Vengeance (CCC-GARY-8)","Longsword of Vengeance (CCC-HATMS1-2)","Longsword of Vengeance (CCC-MACE1-3)","Sword of Vengeance (CCC-SAF2-2)","Greatsword of Warning: Ever Vigilant (CCC-BMG-MOON3-3)","Scimitar of Warning: Miir (CCC-BWM-4-1)","Greatsword of Wounding (DDEX2-15)","Shortsword of Wounding: Hiss-tory (FR-DC-GLACIER-2)","Sword of Wounding (DDAL-CGB)","Vicious Longsword (CCC-HATMS2-1)","Vicious Scimitar: Timefrost (FR-DC-GLACIER-1)","Vicious Scimitar: The Gemini (FR-DC-REIN-VR-1)","Vicious Rapier: Hag's Clawblade (AL:SR-11A)","Vorpal Scimitar (DDAL7-16)","Vorpal Scimitar: Abi Teos's Machete (RMH-9/RMH-10)"],
 	"adamantine shortsword (fr-dc-ucon24)" : {
 		name : "Adamantine Shortsword (FR-DC-UCON24)",
 		source : [["AL","FR-DC"]],
@@ -2566,6 +2634,7 @@ MagicItemsList["al swords"] = {
 		descriptionFull : "Forged in furnaces of Selûnarra prior to Karsus's Folly, this shortsword is made of adamantine alloy etched with engravings of fey creatures, providing the language property. [Per 2024 AL adjustments, this item could be moon-touched or adamantine. Coding both since someone may take Adamantine here.]\n   " + toUni("Language") + ". The bearer can speak and understand Sylvan while the item is on the bearer's person.\n   Whenever ammunition made or coated with adamantine hits an object, the hit is a Critical Hit.",
 		weaponsAdd : { select : ["Adamantine Shortsword"], options : ["Adamantine Shortsword"] },
 		languageProfs : ["Sylvan"],
+		calcChanges: adamantineWeaponGeneric.calcChanges,
 	},
 	"crystal rapier (bmg-drw-od-5)" : {
 		name : "Crystal Rapier (BMG-DRW-OD-5)",
@@ -3091,7 +3160,7 @@ MagicItemsList["al swords"] = {
 		type : "weapon (rapier)",
 		rarity : "legendary",
 		description : "This rapier is the severed spine of Scorch Zealot Ali Saladin, held by the pelvis. Requires all Evil Cradles to attune and it's main personality is Dr. Andre Rathiman, who opposes multiversal evil. It has 10 runes: +3 blade, +3d6 Force, acts as Ring of Spell Storing, crits on 19 or 20, Thrown property with 20/60 ft range & returns. As Magic action, summon shadow Dr. Rathiman in 120 ft. I control until 0 HP or dismiss.",
-		descriptionLong : "This blade is forged from the spine of Scorch Zealot Ali Saladin, Steam Tender at Memnonnar. It's grasped by the pelvis. I must have all 4 Cradle of Evil Story Awards to attune and it's main personality is Dr. Andre Rathiman who opposes evil across the multiverse. It has 10 runes: +3 weapon, +3d6 Force per hit, acts as a Ring of Spell Storing (), crits on a 19 or 20, has Thrown property with range of 20/60 ft and returns to hand. Magic action to conjure shadowy Dr. Rathiman in empty space in 120 ft if none serving (Shadow: Fey, Neutral, no new shadows). I control the shadow, which disappears at 0 HP or with Magic action.",
+		descriptionLong : "This blade is forged from the spine of Scorch Zealot Ali Saladin, Steam Tender at Memnonnar. It's grasped by the pelvis. I must have all 4 Cradle of Evil Story Awards to attune and it's main personality is Dr. Andre Rathiman who opposes evil across the multiverse. It has 10 runes: +3 weapon, +3d6 Force per hit, acts as a Ring of Spell Storing (5th lvl CME), crits on a 19 or 20, has Thrown property with range of 20/60 ft and returns to hand. Magic action to conjure shadowy Dr. Rathiman in empty space in 120 ft if none serving (Shadow: Fey, Neutral, no new shadows). I control the shadow, which disappears at 0 HP or with Magic action.",
 		descriptionFull : "This Moonblade has the following Attunement Requirement: A creature with the following story awards: Cradle of Evil Earth, Cradle of Evil Fire, Cradle of Evil Water and Cradle of Evil Air.\n   " + toUni("Sentience") + ". The blade is sentient, housing the amalgamation of all the souls Ali consumed. Its dominant personality is Doctor Andre Rathiman, Licensed Osteopath, Naturopath & Mystical Analyst. Rathiman's goals are to oppose evil in every corner of the multiverse.\n   " + toUni("Strange Material") + ". This moonblade is forged from the spine of Scorch Zealot Ali Saladin, Steam Tender at Memnonnar. To grasp the sword, one must hold the pelvis bone.\n   This moonblade has ten runes in total: +3 bonus to attack rolls and damage rolls (3 runes); On a hit deals +3d6 force damage (3 runes); Thrown property with a normal range of 20 feet and a long range of 60 feet. Each time you throw the weapon, it flies back to your hand after the attack (1 rune); the Moonblade scores a Critical hit on a roll of 19 or 20 on the D20 (1 rune); the Moonblade functions as a Ring of Spell Storing. When found it contains Conjure Minor Elementals at 5th lvl (1 rune); you can take a Magic action to conjure a shadowy elf with the personality and appearance of Doctor Andre Rathiman (1 rune).\n   " + moonBladeDescriptionTxt.unicode,
 		attunement : true,
 		weaponOptions : {
@@ -3148,6 +3217,23 @@ MagicItemsList["al swords"] = {
 				}],
 				header : "Spectral Entity",
 			}]
+	},
+	"moonblade scimitar: sindarin (ps-dc-rdp-5)" : {
+		name : "Sindarin, Moonblade Scimitar (RDP-5)",
+		source : [["AL","PS-DC"]],
+		type : "weapon (scimitar)",
+		rarity : "legendary",
+		description : "This Chaotic Good scimitar transmits emotions, sending tingling through my hand to communicate. It can also use visions or dreams when I'm in a trance or asleep. It has 4 runes: +1 weapon, +1d6 Force per hit, is as a Ring of Spell Storing, has Thrown property with range of 20/60 ft and returns to hand. Only breaks if plunged into Lolth as she hits 0 HP.",
+		descriptionLong : "This Chaotic Good Moonblade scimitar can transmit emotions to me, sending a tingling sensation through my hand when it wants to communicate. It can use visions or dreams when I'm in a trance or asleep. It has 4 runes: +1 weapon, +1d6 Force per hit, acts as a Ring of Spell Storing (Pass Without Trace, Meld into Stone), has Thrown property with range of 20/60 ft and returns to hand. Sindarin only breaks if plunged into Lolth's body as she reaches 0 Hit Points.",
+		descriptionFull : "This weapon communicates by transmitting emotions, sending a tingling sensation through the wielder's hand when it wants to communicate something it has sensed. It can communicate through visions or dreams when the wielder is either in a trance or asleep.\n   " + toUni("Unbreakable") + ". The item can't be broken. Special means must be used to destroy it. Sindarin can only be broken by plunging it into Lolth's body as she reaches 0 hit points.\n   " + toUni("Sentience") + ". This Moonblade is Chaotic Good.\n   The Moonblade has 4 runes: +1 bonus to attack and damage rolls; On a hit deals +1d6 force damage; Thrown property with a normal range of 20 feet and a long range of 60 feet. Each time you throw the weapon, it flies back to your hand after the attack; the Moonblade functions as a Ring of Spell Storing. When found it contains Pass without Trace and Meld into Stone.\n   " + moonBladeDescriptionTxt.unicode,
+		attunement : true,
+		weaponOptions : {
+			baseWeapon : "scimitar",
+			name : "Sindarin, Moonblade Scimitar +1",
+			regExpSearch : /^(?=.*sindarin)(?=.*scimitar)(?=.*moonblade).*$/i,
+			description : "Finesse; Light; Nick; Thrown (20/60 ft); +1d6 Force",
+			selectNow : true,
+			},
 	},
 	"moonblade shortsword: left chakram of shar (fr-dc-pandora-jwei-s2-7)" : {
 		name : "Left Chakram of Shar, Moonblade Shortsword (S2-7)",
@@ -3449,6 +3535,28 @@ MagicItemsList["al swords"] = {
 		},
 		calcChanges: sunBladeCalc.calcChanges,
 	},
+	"sun blade: shadowbane (fr-dc-tb-1)" : {
+		name : "Shadowbane, Sun Blade (TB-1)",
+		source : [["AL","FR-DC"]],
+		type : "weapon (longsword)",
+		rarity : "rare",
+		attunement : true,
+		description : "This sword hilt has a gold-plated sunburst above the grip with extended rays as cross guards. When held, I can make or dismiss a radiant blade from it as a bonus action. The blade acts as a +2 finesse longsword that deals Radiant dmg (+1d8 to Undead), and emits 15-ft bright sunlight and 15-ft dim. Magic action to change glow by 5 ft/type (min 10/max 30). Requires short or longsword proficiency. When the sword is struck or strikes a foe, I hear an ancient choral chant glorifying Lathander.",
+		descriptionLong : "This sword hilt has a gold-plated sunburst at the top of the grip with rays extending out as the cross guards. When held, I can create or dismiss a blade of pure radiance from it with a bonus action. While the blade exists, it acts as a finesse +2 longsword that does Radiant dmg, adds +1d8 to Undead, and emits sunlight: a 15-ft radius of bright light and 15-ft dim. As a Magic action, I can expand or reduce the bright & dim light by 5 ft each, to a max of 30 ft or minimum of 10 ft each. Requires short or longsword proficiency. Whenever the sword is struck or used to strike a foe, I hear a fragment of an ancient choral chant glorifying Lathander.",
+		descriptionFull : "At the top of the grip is a gold-plated sunburst with rays extending out as the cross guards.\n   " + toUni("Songcraft") + ". Whenever this item is struck or is used to strike a foe, you hear a fragment of an ancient song. Whenever this item is struck or is used to strike a foe, you hear a fragment of an ancient choral chant glorifying Lathander.\n   This item appears to be a sword hilt.\n" + toUni("Blade of Radiance") + ". While grasping the hilt, you can take a Bonus Action to cause a blade of pure radiance to spring into existence or make the blade disappear. While the blade exists, this magic weapon functions as a Longsword with the Finesse property. If you are proficient with Longswords or Shortswords, you are proficient with the Sun Blade.\n   You gain a +2 bonus to attack rolls and damage rolls made with this weapon, which deals Radiant damage instead of Slashing damage. When you hit an Undead with it, that target takes an extra 1d8 Radiant damage.\n" + toUni("Sunlight") + ". The sword's luminous blade emits Bright Light in a 15-foot radius and Dim Light for an additional 15 feet. The light is sunlight. While the blade persists, you can take a Magic action to expand or reduce its radius of Bright Light and Dim Light by 5 feet each, to a maximum of 30 feet each or a minimum of 10 feet each.",
+		weight : 3,
+		action : [["bonus action", "Sun Blade (start/stop)"], ["action", "Sun Blade (change light)"]],
+		weaponOptions : {
+			baseWeapon : "longsword",
+			regExpSearch : /^(?=.*shadowbane).*$/i,
+			name : "Shadowbane, Sun Blade",
+			damage : [1, 8, "radiant"],
+			description : "Finesse, Versatile (1d10); Sap; +1d8 Radiant to Undead",
+			modifiers : [2, 2],
+			selectNow : true,
+		},
+		calcChanges: sunBladeCalc.calcChanges,
+	},
 	"sun blade (ccc-wyc-2-2)" : {
 		name : "Sun Blade (CCC-WYC-2-2)",
 		source : [["AL","CCC"]],
@@ -3652,13 +3760,20 @@ MagicItemsList["al swords"] = {
 		description : "This sword is serrated along the back edge with a single deep fuller running its length, bifurcating the point. The sharkskin hilt has a large unfinished gem pommel. Anyone familiar with Aleyd Burral & her fall from grace treats me suspicously. It deals +2d6 Necrotic and target makes a DC 15 Con save or can't regain HP for 1 hr. Repeat save at each turn end to stop the effect.",
 		descriptionLong : "This greatsword is serrated along the back edge with a single deep fuller running its length, bifurcating the point. The sharkskin-wrapped hilt ends in a pommel made from a large unfinished gem. The sword has a tragic history. Anyone familiar with Aleyd Burral and her fall from grace recognizes the weapon and treats me suspicously. It deals +2d6 Necrotic and the target must make a DC 15 Con save or they can't regain HP for 1 hour. They can repeat the save at the end of each turn to stop the effect.",
 		descriptionFull : "This sword's blade is serrated along the back edge with a single, deep fuller running the length of its blade, bifurcating the point. The sharkskin-wrapped hilt ends in a pommel fashioned of a large, unfinished gemstone. This sword, however, has a tragic history. Anyone familiar with Aleyd Burral and her fall from grace recognizes the weapon and treat the wielder with suspicion.\n   When you hit a creature with an attack using this magic weapon, the target takes an extra 2d6 Necrotic damage and must succeed on a DC 15 Constitution saving throw or be unable to regain Hit Points for 1 hour. The target repeats the save at the end of each of its turns, ending the effect on itself on a success.",
-		weaponOptions : {
-			baseWeapon : "greatsword",
-			regExpSearch : /greatsword of wounding/i,
-			name : "Greatsword of Wounding",
-			description : "Heavy, two-handed, graze; +2d6 Necrotic; DC 15 Con save or can't regain HP 1 hr",
-			selectNow : true,
-		},
+		weaponsAdd : { select : ["Greatsword of Wounding"], options : ["Greatsword of Wounding"] },
+		calcChanges: swordOfWounding.calcChanges,
+	},
+	"shortsword of wounding: hiss-tory (fr-dc-glacier-2)" : {
+		name : "Hiss-tory, Shortsword of Wounding (GLACIER-2)",
+		source : [["AL","FR-DC"]],
+		rarity : "rare",
+		attunement : true,
+		allowDuplicates : true,
+		description : "Fashioned for reptilefolk yet oddly reassuring in my grip, I hear a sibilant susurrus when I wield this sword. It deals +2d6 Necrotic and target makes a DC 15 Con save or can't regain HP for 1 hr. Repeat save at each turn end to stop effect. It also warns me, giving +2 initiative unless Incapacitated.",
+		descriptionFull : "Fashioned for reptilefolk yet oddly reassuring in your grip, you hear a sibilant susurrus whenever you wield this sword.\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition.\n   When you hit a creature with an attack using this magic weapon, the target takes an extra 2d6 Necrotic damage and must succeed on a DC 15 Constitution saving throw or be unable to regain Hit Points for 1 hour. The target repeats the save at the end of each of its turns, ending the effect on itself on a success.",
+		weaponsAdd : { select : ["Greatsword of Wounding"], options : ["Greatsword of Wounding"] },
+		calcChanges: swordOfWounding.calcChanges,
+		addMod : genericGuardianWeapon.addMod,
 	},
 	"sword of wounding (ddal-cgb)" : {
 		name : "Sword of Wounding (DDAL-CGB)",
@@ -3712,9 +3827,9 @@ MagicItemsList["al swords"] = {
 		weaponsAdd : { select : ["The Gemini, Vicious Scimitar"], options : ["The Gemini, Vicious Scimitar"] },
 		calcChanges: viciousWeaponCalc.calcChanges,
 	},
-	"vicious rapier: hag's clawblade (al:sa-11a)" : {
-		name : "Hag's Clawblade, Vicious Rapier (AL:SA-11A)",
-		source : [["AL:SA","11A"]],
+	"vicious rapier: hag's clawblade (al:sr-11a)" : {
+		name : "Hag's Clawblade, Vicious Rapier (AL:SR-11A)",
+		source : [["AL:SR","11A"]],
 		type : "weapon (sword)",
 		rarity : "rare",
 		description : "This magic rapier does +2d6 damage. It has a malachite blade and bears jagged claw-like protrusions along its length. The hilt changes appearance each dusk, which has no effect on its other properties.",
@@ -3761,7 +3876,7 @@ MagicItemsList["al weapons +1"] = {
 			allowDuplicates : true,
 			choicesNotInMenu : true,
 			magicItemTable : "?",
-		choices : ["+1 Battleaxe: Rebel's Yell (CCC-RPR-1)","+1 Battleaxe (DDEX2-11)","+1 Dagger: The Wolves' Claw (CCC-BMG-MOON2-1)","+1 Dagger: Arthyn Dagger (CCC-GHC-BK3-1)","+1 Dagger: Ornate (CCC-SCAR1-1)","+1 Flail: Book (CM)","+1 Glaive: Bone-Pommeled (CCC-BMG-33 PHLAN3-3)","+1 Glaive (CCC-TRI-17 ALLY1-2)","+1 Greatsword: Arrk's Sword (CCC-GLIP-1-1)","+1 Halberd (DDEP5-2)","+1 Hand Crossbow: Widowmaker (CCC-BMG-29 HILL2-2)","+1 Lance: Duergar Drill Bit (CCC-APL1-1)","+1 Longbow (CCC-BMG-MOON2-2)","+1 Longbow: Gwa'thern Faln (DDHC-MORD-1)","+1 Longsword (DDEP1)","+1 Longsword: Goblin Render (DDIA05)","+1 Mace: Mace of the Tranquil Oasis (CCC-SALT1-2)","+1 Maul: The Smasher (PotA)","+1 Quarterstaff (CCC-TRI-11 OLMA1-1)","+1 Quarterstaff (DDAL7-3)","+1 Quarterstaff (DDEX3-16)", "+1 Rapier (DDEX3-2)","+1 Scimitar: Ripper's Claw (CCC-ODFC2-1)","+1 Scimitar (CCC-PRIORY-2)","+1 Shortbow (CCC-ANIME1-1)","+1 Shortbow: Moon Strike (CCC-TAROT1-6)","+1 Shortbow (DDEX3-16)","+1 Shortsword (CCC-CIC-6)","+1 Shortsword: Icicle (CCC-GHC-5)","+1 Shortsword: Foxblade (CCC-SRCC1-2)","+1 Shortsword (DDEP7-1)","+1 Trident (DDEP7-1)","+1 War Pick (CCC-TRI-9 BHC1-0)","+1 Warhammer: Torag's Hammer (CCC-TAROT1-4)","+1 Weapon (DDHC-TOA-8)"],
+		choices : ["+1 Battleaxe: Rebel's Yell (CCC-RPR-1)","+1 Battleaxe (DDEX2-11)","+1 Dagger: The Wolves' Claw (CCC-BMG-MOON2-1)","+1 Dagger: Arthyn Dagger (CCC-GHC-BK3-1)","+1 Dagger: Ornate (CCC-SCAR1-1)","+1 Flail: Book (CM)","+1 Glaive: Bone-Pommeled (CCC-BMG-33 PHLAN3-3)","+1 Glaive (CCC-TRI-17 ALLY1-2)","+1 Greatsword: Arrk's Sword (CCC-GLIP-1-1)","+1 Halberd (DDEP5-2)","+1 Hand Crossbow: Widowmaker (CCC-BMG-29 HILL2-2)","+1 Lance: Duergar Drill Bit (CCC-APL1-1)","+1 Longbow (CCC-BMG-MOON2-2)","+1 Longbow: Gwa'thern Faln (DDHC-MORD-1)","+1 Longsword (DDEP1)","+1 Longsword: Goblin Render (DDIA05)","+1 Longsword: Lyran's Justice (FR-DC-TCP-1-1)","+1 Mace: Mace of the Tranquil Oasis (CCC-SALT1-2)","+1 Maul: The Smasher (PotA)","+1 Quarterstaff (CCC-TRI-11 OLMA1-1)","+1 Quarterstaff (DDAL7-3)","+1 Quarterstaff (DDEX3-16)", "+1 Rapier (DDEX3-2)","+1 Scimitar: Ripper's Claw (CCC-ODFC2-1)","+1 Scimitar (CCC-PRIORY-2)","+1 Shortbow (CCC-ANIME1-1)","+1 Shortbow: Moon Strike (CCC-TAROT1-6)","+1 Shortbow (DDEX3-16)","+1 Shortsword (CCC-CIC-6)","+1 Shortsword: Icicle (CCC-GHC-5)","+1 Shortsword: Foxblade (CCC-SRCC1-2)","+1 Shortsword (DDEP7-1)","+1 Trident (DDEP7-1)","+1 War Pick (CCC-TRI-9 BHC1-0)","+1 Warhammer: Torag's Hammer (CCC-TAROT1-4)","+1 Weapon (DDHC-TOA-8)"],
 		"+1 battleaxe: rebel's yell (ccc-rpr-1)" : {
 			name : "Rebel's Yell, +1 Battleaxe (CCC-RPR-1)",
 			source : [["AL","CCC"]],
@@ -3924,6 +4039,14 @@ MagicItemsList["al weapons +1"] = {
 			descriptionLong : "This oddly-shaped longsword is covered in Giant runes that read “Small death”. Within 20 feet of a goblin, the sword glows deep blue and the runes flare with yellow light. An Intelligence (History) check of 15 or more reveals that this blade is a Giant heritage item that's rumored to have slain many goblins. I have +1 to attack and damage rolls made with it.",
 			descriptionFull : "This +1 long sword is oddly shaped and covered in Giant runes that read “Small death”. When the bearer of this blade is within 20 ft of a goblin, the weapon emits a deep blue glow and the runic script flares with a yellow light. An Intelligence (History) check of 15 or more reveals that this blade is a giant heritage item and rumored to have slain many goblins.\n   You have a +1 bonus to attack and damage rolls made with this magic weapon.",
 			weaponsAdd : { select : ["Goblin Render, Longsword +1"], options : ["Goblin Render, Longsword +1"] },
+			},
+		"+1 longsword: lyran's justice (fr-dc-tcp-1-1)" : {
+			name : "Lyran's Justice, +1 Longsword (TCP-1-1)",
+			source : [["AL","FR-DC"]],
+			allowDuplicates : true,
+			description : "The elaborate longsword was used by the head of Lyran's personal guard. After restoring it's power, I have have a +1 bonus to attack and damage rolls made with this magic weapon.",
+			descriptionFull : "The longsword is Lyran's Justice, a longsword +1, which was used by the head of Lyran's personal guard. The sword currently presents itself as a mundane but elaborate longsword.\n   You have a +1 bonus to attack and damage rolls made with this magic weapon.",
+			weaponsAdd : { select : ["Lyran's Justice, Longsword +1"], options : ["Lyran's Justice, Longsword +1"] },
 			},
 		"+1 mace: mace of the tranquil oasis (ccc-salt1-2)" : {
 			name : "Mace of the Tranquil Oasis +1 (SALT1-2)",
@@ -4098,7 +4221,10 @@ MagicItemsList["al weapons +1"] = {
 			type : "weapon",
 			prefixOrSuffix : "prefix",
 			descriptionChange : ["replace", "weapon"],
-			itemName1stPage : ["prefix", "+1"]
+			itemName1stPage : ["prefix", "+1"],
+			excludeCheck : function (inObjKey, inObj) {
+				return (/bomb|dynamite|gun|grenade|rifle|pistol|musket|revolver|fire|water|net|oil|oversized|torch|vial/i).test(inObj.name);
+					},
 				},
 			},
 }
@@ -4110,7 +4236,7 @@ MagicItemsList["al weapons +2 or +3"] = {
 			allowDuplicates : true,
 			choicesNotInMenu : true,
 			magicItemTable : "?",
-		choices : ["+2 Bow (DDEX3-7)","+2 Club (PS-DC-GMM-1)","+2 Dagger (CCC-GHC-6)","+2 Dagger (SJ-DC-INAS-3)","+2 Dagger: EPA (Trading Post)","+2 Glaive: Grûmsh Bryndrak (FR-DC-FET-2)","+2 Glaive: Azure Sky (SJ-DC-ANGKA-6)","+2 Greataxe: Whisper (DDHC-TOA-8)","+2 Greataxe: Statikax (SJ-DC-LLL-1)","+2 Greataxe: Gleaming (SJ-DC-NMB1-3)","+2 Greataxe: Gythka (SJ-DC-PAT-1)","+2 Greatsword: Tyr's Justice (CCC-GHC-8)","+2 Greatsword: Githyanki Greater Silver Sword (CCC-TRI-27 ROSE1-2)","+2 Greatsword (FR-DC-AEG-6)","+2 Greatsword: Elven Curve Blade (FR-DC-LAX-1-2)","+2 Greatsword (FR-DC-MELB-1-2)","+2 Greatsword: Gleam Claymore (PS-DC-TT-202)","+2 Greatsword: Agony (SJ-DC-ANGKA-1)","+2 Greatsword: Lesser (SJ-DC-FTC-2)","+2 Greatsword: Lux Machaera (SJ-DC-LIGA6)","+2 Greatsword (SJ-DC-RH-1)","+2 Hand Crossbow (SJ-DC-ECHO-4)","+2 Hand Crossbow (SJ-DC-ROCK-1)","+2 Heavy Crossbow: First Blood (SJ-DC-TBS-4)","+2 Longbow: Deep's Reach (CCC-BMG-MOON12-2)","+2 Longbow: Giant's Bane (CCC-GHC-9)","+2 Longbow (DDEP5-2)","+2 Longbow: Bloodthirst (SJ-DC-EPOCH-1)","+2 Longbow: Friendbow (SJ-DC-SCR-1)","+2 Longbow: Craygen's Bow (SJ-DC-SSM-UBCon-1)","+2 Longsword: Elven Blade of the Third Age (CCC-BWM-2)","+2 Longsword: Stout (CCC-GHC-BK1-5)","+2 Longsword: Pride (FR-DC-BTW-3)","+2 Longsword: Blazherserblane (FR-DC-LIGA-2)","+2 Longsword: Westdeck Sword (SJ-DC-CGG-2)","+2 Longsword (SJ-DC-END-1-4)","+2 Maul: Manyoshu's Kanabo (FR-DC-ONI-1)","+2 Maul: Coral Great Hammer (SJ-DC-DEN-H5)","+2 Maul: Space Clown Hammer (SJ-DC-FXC-JEFF-1)","+2 Morningstar: Mourning Star (SJ-DC-ANGKA-5)","+2 Pike: Horizon Caller (SJ-DC-CONMAR-1)","+2 Quarterstaff: Herfren's Marshaling Wand (SJ-DC-BST-2)","+2 Rapier: The Sixth Sword (CCC-HAL-3)","+2 Rapier (FR-DC-AEG-9)","+2 Rapier (SJ-DC-DRAGON-3)","+2 Scimitar (SJ-DC-DRA-1)","+2 Scimitar (SJ-DC-IGC-ECP-5)","+2 Shortsword: Smoke (CCC-SFBAY1-1)","+2 Shortsword (DDAL0-13)","+2 Shortsword (RV-DC-POE-1)","+2 Spear (PS-DC-DRAGON24-2)","+2 Trident (CCC-CIC-12)","+2 Trident: Deep Sashelas (PS-DC-PKL-9)","+2 War Pick (CCC-MYR1-1)","+2 Warhammer (FR-DC-BMK-1)","+2 Weapon (PotA)","+2 Weapon (SJ-DC-MAD-2)","+2 Whip: Flogger's Bouquet (SJ-DC-ENIGMA)","+2 Whip (SJ-DC-TEL-1)","+2 Yklwa: Naga's Warning (SJ-DC-PAT-2)","+3 Battleaxe: Skeggöx (DDAL5-9)","+3 Battleaxe: Pickleaxe (PS-DC-PKL-20B)","+3 Dagger (CCC-TRI-29 TIDE1-1)","+3 Glaive: Empyrean's Unbreaking Glaive (WBW-DC-Sunlit-6)","+3 Greatsword: Wyrmguard (PS-DC-STRAT-DRAGON-5)","+3 Greatsword (WBW-DC-PLS-1)","+3 Hand Crossbow: Belmore (WBW-DC-PHP-LCL-2)","+3 Lance: Dream Whirl (CCC-BMG-39 HULB3-3)","+3 Longbow (BMG-DRWEP-OD-2)","+3 Piercing Weapon: Midnight Phaeton's Horn (CCC-ODFC2-3)","+3 Pike: Krahharuan Fork (DDAL7-10)","+3 Scimitar (DDEP6-2)","+3 Scimitar (FR-DC-F&ADDM-LES4)","+3 Shortsword: Harengon's Freedom (AL:SA-11A)","+3 Shortsword (PS-DC-NOS-4)","+3 Spear: Blood-Drinker's Backbone (RMH-5/RMH-6)"],
+		choices : ["+2 Bow (DDEX3-7)","+2 Club (PS-DC-GMM-1)","+2 Dagger (CCC-GHC-6)","+2 Dagger (SJ-DC-INAS-3)","+2 Dagger: EPA (Trading Post)","+2 Glaive: Grûmsh Bryndrak (FR-DC-FET-2)","+2 Glaive: Azure Sky (SJ-DC-ANGKA-6)","+2 Greataxe: Whisper (DDHC-TOA-8)","+2 Greataxe: Statikax (SJ-DC-LLL-1)","+2 Greataxe: Gleaming (SJ-DC-NMB1-3)","+2 Greataxe: Gythka (SJ-DC-PAT-1)","+2 Greatsword: Tyr's Justice (CCC-GHC-8)","+2 Greatsword: Githyanki Greater Silver Sword (CCC-TRI-27 ROSE1-2)","+2 Greatsword (FR-DC-AEG-6)","+2 Greatsword: Elven Curve Blade (FR-DC-LAX-1-2)","+2 Greatsword (FR-DC-MELB-1-2)","+2 Greatsword: Gleam Claymore (PS-DC-TT-202)","+2 Greatsword: Agony (SJ-DC-ANGKA-1)","+2 Greatsword: Lesser (SJ-DC-FTC-2)","+2 Greatsword: Lux Machaera (SJ-DC-LIGA6)","+2 Greatsword (SJ-DC-RH-1)","+2 Hand Crossbow (SJ-DC-ECHO-4)","+2 Hand Crossbow (SJ-DC-ROCK-1)","+2 Heavy Crossbow: First Blood (SJ-DC-TBS-4)","+2 Longbow: Deep's Reach (CCC-BMG-MOON12-2)","+2 Longbow: Giant's Bane (CCC-GHC-9)","+2 Longbow (DDEP5-2)","+2 Longbow: Bloodthirst (SJ-DC-EPOCH-1)","+2 Longbow: Friendbow (SJ-DC-SCR-1)","+2 Longbow: Craygen's Bow (SJ-DC-SSM-UBCon-1)","+2 Longsword: Elven Blade of the Third Age (CCC-BWM-2)","+2 Longsword: Stout (CCC-GHC-BK1-5)","+2 Longsword: Pride (FR-DC-BTW-3)","+2 Longsword: Blazherserblane (FR-DC-LIGA-2)","+2 Longsword: Westdeck Sword (SJ-DC-CGG-2)","+2 Longsword (SJ-DC-END-1-4)","+2 Maul: Manyoshu's Kanabo (FR-DC-ONI-1)","+2 Maul: Coral Great Hammer (SJ-DC-DEN-H5)","+2 Maul: Space Clown Hammer (SJ-DC-FXC-JEFF-1)","+2 Morningstar: Mourning Star (SJ-DC-ANGKA-5)","+2 Pike: Horizon Caller (SJ-DC-CONMAR-1)","+2 Quarterstaff: Herfren's Marshaling Wand (SJ-DC-BST-2)","+2 Rapier: The Sixth Sword (CCC-HAL-3)","+2 Rapier (FR-DC-AEG-9)","+2 Rapier (SJ-DC-DRAGON-3)","+2 Scimitar (SJ-DC-DRA-1)","+2 Scimitar (SJ-DC-IGC-ECP-5)","+2 Shortsword: Smoke (CCC-SFBAY1-1)","+2 Shortsword (DDAL0-13)","+2 Shortsword (RV-DC-POE-1)","+2 Spear (PS-DC-DRAGON24-2)","+2 Trident (CCC-CIC-12)","+2 Trident: Deep Sashelas (PS-DC-PKL-9)","+2 War Pick (CCC-MYR1-1)","+2 Warhammer (FR-DC-BMK-1)","+2 Weapon (PotA)","+2 Weapon (SJ-DC-MAD-2)","+2 Whip: Flogger's Bouquet (SJ-DC-ENIGMA)","+2 Whip (SJ-DC-TEL-1)","+2 Yklwa: Naga's Warning (SJ-DC-PAT-2)","+3 Battleaxe: Skeggöx (DDAL5-9)","+3 Battleaxe: Pickleaxe (PS-DC-PKL-20B)","+3 Dagger (CCC-TRI-29 TIDE1-1)","+3 Glaive: Empyrean's Unbreaking Glaive (WBW-DC-Sunlit-6)","+3 Greatsword: Wyrmguard (PS-DC-STRAT-DRAGON-5)","+3 Greatsword (WBW-DC-PLS-1)","+3 Hand Crossbow: Belmore (WBW-DC-PHP-LCL-2)","+3 Lance: Dream Whirl (CCC-BMG-39 HULB3-3)","+3 Longbow (BMG-DRWEP-OD-2)","+3 Piercing Weapon: Midnight Phaeton's Horn (CCC-ODFC2-3)","+3 Pike: Krahharuan Fork (DDAL7-10)","+3 Scimitar (DDEP6-2)","+3 Scimitar (FR-DC-F&ADDM-LES4)","+3 Shortsword: Harengon's Freedom (AL:SR-11A)","+3 Shortsword (PS-DC-NOS-4)","+3 Spear: Blood-Drinker's Backbone (RMH-5/RMH-6)"],
 		"+2 bow (ddex3-7)" : {
 			name : "+2 (DDEX3-7)",
 			source : [["AL","S3"]],
@@ -4684,8 +4810,11 @@ MagicItemsList["al weapons +2 or +3"] = {
 			type : "weapon",
 			itemName1stPage : ["prefix", "+2"],
 			prefixOrSuffix : "prefix",
-			descriptionChange : ["replace", "weapon"]
-			},
+			descriptionChange : ["replace", "weapon"],
+			excludeCheck : function (inObjKey, inObj) {
+				return (/bomb|dynamite|gun|grenade|rifle|pistol|musket|revolver|fire|water|net|oil|oversized|torch|vial/i).test(inObj.name);
+					},
+				},
 		},
 		"+2 weapon (sj-dc-mad-2)" : {
 			name : "+2 (SJ-DC-MAD-2)",
@@ -4693,12 +4822,15 @@ MagicItemsList["al weapons +2 or +3"] = {
 			rarity : "uncommon",
 			description : "This astral weapon was built by thri-kreen to fish the most savage brown scavvers. It can only be destroyed through special means. I have a +2 bonus to attack and damage rolls made with this magic weapon.",
 			descriptionFull : "This astral [net] was built by thri-kreen to fish the most savage brown scavvers.\n   " + toUni("Strange Material") + ". The item can't be broken. Special means must be used to destroy it.\n   You have a +2 bonus to attack and damage rolls made with this magic weapon. [Nets are no longer weapons in the 2024 rules. Per AL guidelines, changing this to any legal +2 weapon as the closest substitute.]",
-			chooseGear : {
-				type : "weapon",
-				prefixOrSuffix : "prefix",
-				itemName1stPage : ["prefix", "+2"],
-				descriptionChange : ["replace", "weapon"]
-			},
+		chooseGear : {
+			type : "weapon",
+			prefixOrSuffix : "prefix",
+			itemName1stPage : ["prefix", "+2"],
+			descriptionChange : ["replace", "weapon"],
+			excludeCheck : function (inObjKey, inObj) {
+				return (/bomb|dynamite|gun|grenade|rifle|pistol|musket|revolver|fire|water|net|oil|oversized|torch|vial/i).test(inObj.name);
+					},
+				},
 		},
 		"+2 whip: flogger's bouquet (sj-dc-enigma)" : {
 			name : "Flogger's Bouquet, +2 Whip (ENIGMA)",
@@ -4856,7 +4988,7 @@ MagicItemsList["al weapons +2 or +3"] = {
 				descriptionChange : ["replace", "weapon"],
 				itemName1stPage : ["suffix", "Midnight Phaeton's Horn, +3"],
 			excludeCheck : function (inObjKey, inObj) {
-				var testRegex = /bow|gun|dart|rifle|pistol|musket|revolver/i;
+				var testRegex = /bow|grenade|gun|dart|rifle|pistol|musket|revolver/i;
 				return ((testRegex).test(inObjKey) && (!inObj.baseWeapon || !(testRegex).test(inObj.baseWeapon))) || (inObj.baseWeapon && !inObj.damage ? WeaponsList[inObj.baseWeapon].damage : inObj.damage)[2] !== "piercing";
 					}
 				},
@@ -4889,9 +5021,9 @@ MagicItemsList["al weapons +2 or +3"] = {
 			descriptionFull : "Flavored as a khopesh, this has no mechanical change to the weapon.\n   " + toUni("Unbreakable") + ". The item can't be broken. Special means must be used to destroy it: The item breaks if the bearer attempts to attack one of the Gods of Mulhorand.\n   You have a +3 bonus to attack and damage rolls made with this magic weapon.",
 			weaponsAdd : { select : ["Scimitar +3"], options : ["Scimitar +3"] },
 			},
-		"+3 shortsword: harengon's freedom (al:sa-11a)" : {
+		"+3 shortsword: harengon's freedom (al:sr-11a)" : {
 		name : "Harengon's Freedom, +3 Shortsword",
-			source : [["AL:SA","11A"]],
+			source : [["AL:SR","11A"]],
 			rarity : "very rare",
 			allowDuplicates : true,
 			description : "The hilt of this +3 shortsword is decorated with images of frolicking harengon and the blade is made of a shimmering dark purple crystal. When wielded, I gain a +2 bonus to initiative if I'm not Incapacitated.",
@@ -4923,7 +5055,6 @@ MagicItemsList["al weapons +2 or +3"] = {
 }
 
 
-RunFunctionAtEnd(function () {//this code makes it so the AL variations of common items don't appear as an option for artificers to create
 //AL flavored Weapons
 MagicItemsList["al weapons (common)"] = {
 			name : "AL Weapons (Common)",
@@ -4931,7 +5062,7 @@ MagicItemsList["al weapons (common)"] = {
 			choicesNotInMenu : true,
 			rarity : "common",
 			magicItemTable : "?",
-		choices : ["Green-Flame Mace: Face of Umberlee's Fury (CCC-AWE-1-2)","Moon-Touched Greatsword (DDAL-DRW17)","Moon-Touched Longsword (BMG-DRW-OD-1)","Moon-Touched Longsword (CCC-GHC-BK1-1)","Moon-Touched Longsword (CCC-TAROT2-6)","Moon-Touched Longsword (DDAL0-11D)","Moon-Touched Longsword (PO-BMG-DRW-KS-4)","Moon-Touched Rapier (CCC-GAD2-1)","Moon-Touched Rapier (CCC-SAC-4)","Moon-Touched Rapier (CCC-UNITE-5)","Moon-Touched Rapier (FR-DC-Saerloon-3)","Moon-Touched Rapier: Pointy End (FR-DC-THAY-2)","Moon-Touched Scimitar (FR-DC-DUNG-1)","Moon-Touched Scimitar (FR-DC-GHG-4)","Moon-Touched Scimitar (FR-DC-PHP-PEST-1)","Moon-Touched Scimitar: Moonmaiden's Blade (FR-DC-STRAT-DRAGON-1)","Moon-Touched Shortsword (BMG-MOON-MD-6)","Moon-Touched Shortsword (DC-POA-CONMAR-9)","Moon-Touched Shortsword (DC-POA-DES-5B)","Moon-Touched Shortsword (DC-POA-GSP2-3H)","Moon-Touched Shortsword: Fang (DC-POA-GSP3-2)","Moon-Touched Shortsword (DC-POA-JCDC-1)","Moon-Touched Shortsword (DC-POA-MCWWS-2)","Moon-Touched Shortsword: Tsukuyomi (DC-POA-TDG1-3)","Moon-Touched Shortsword: Blade of the Black Tortoise (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: Green Dragon Gladius (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: Red Phoenix Falchion (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: White Tiger Tulwar (DC-POA-VAN-MT-1)","Moon-Touched Shortsword (FR-DC-DIGM-1-2)","Moon-Touched Shortsword: Platinum Fang (FR-DC-DMJA-1)","Moon-Touched Shortsword (FR-DC-UCON24)","Moon-Touched Sword (CCC-BMG-MOON6-2)","Moon-Touched Sword (CCC-BMG-MOON10-2)","Silvered Axe: Clearcut (FR-DC-CGB-3)","Silvered Light Crossbow: Jackal Slayer (FR-DC-SCROG-3)","Silvered Mace: Divaine's Microphone (FR-DC-DIVA)","Silvered Shortsword (FR-DC-NBDD-2)","Staff of Adornment (CCC-3MAGS-ONE)","Staff of Adornment (PS-DC-PKL-10)","Staff of Adornment: K's Ashenwood Staff (SJ-DC-AMO-KURI-3)","Staff of Adornment (SJ-DC-ARQ-2)","Staff of Adornment: Ocharine (SJ-DC-DD-7)","Staff of Adornment (SJ-DC-DEN-H5)","Staff of Adornment (SJ-DC-IGC-ECP-5)","Staff of Adornment (SJ-DC-MONSTER-1)","Staff of Adornment: Shakujo (SJ-DC-MWG-1)","Staff of Adornment (SJ-DC-ROTU-5)","Staff of Adornment (SJ-DC-TEL-12)","Staff of Adornment (WBW-DC-NJ-COU-2)","Staff of Birdcalls (FR-DC-TT-T201)","Staff of Birdcalls (WBW-DC-BIRE-1)","Staff of Birdcalls (WBW-DC-CONMAR-3)","Staff of Birdcalls (WBW-DC-Death)","Staff of Birdcalls (WBW-DC-FDC-3)","Staff of Birdcalls (WBW-DC-HBK-1)","Staff of Birdcalls (WBW-DC-ROBIN-1-2)","Staff of Birdcalls (WBW-DC-ROOK-1-4)","Staff of Birdcalls: Dark Crystal (WBW-DC-ZODIAC-10)","Staff of Flowers (CCC-KUMORI-3-1)","Sylvan Talon: Zigfreed's Spear (FR-DC-SCROG-1)","Sylvan Talon: Goblin's Attraction (FR-DC-UCON25-2)","Sylvan Talon: Dragon (PO-BK-5-5)","Sylvan Talon: Silver Beak Weega (SJ-DC-DWR-0-5)","Sylvan Talon: Grandpa Oak's Gift (WBW-DC-PUFF-1)"],
+		choices : ["Green-Flame Mace: Face of Umberlee's Fury (CCC-AWE-1-2)","Moon-Touched Greatsword (DDAL-DRW17)","Moon-Touched Longsword (BMG-DRW-OD-1)","Moon-Touched Longsword (CCC-GHC-BK1-1)","Moon-Touched Longsword (CCC-TAROT2-6)","Moon-Touched Longsword (DDAL0-11D)","Moon-Touched Longsword (PO-BMG-DRW-KS-4)","Moon-Touched Rapier (CCC-GAD2-1)","Moon-Touched Rapier (CCC-SAC-4)","Moon-Touched Rapier (CCC-UNITE-5)","Moon-Touched Rapier (FR-DC-Saerloon-3)","Moon-Touched Rapier: Pointy End (FR-DC-THAY-2)","Moon-Touched Scimitar (FR-DC-DUNG-1)","Moon-Touched Scimitar (FR-DC-GHG-4)","Moon-Touched Scimitar (FR-DC-PHP-PEST-1)","Moon-Touched Scimitar: Moonmaiden's Blade (FR-DC-STRAT-DRAGON-1)","Moon-Touched Shortsword (BMG-MOON-MD-6)","Moon-Touched Shortsword (DC-POA-CONMAR-9)","Moon-Touched Shortsword (DC-POA-DES-5B)","Moon-Touched Shortsword (DC-POA-GSP2-3H)","Moon-Touched Shortsword: Fang (DC-POA-GSP3-2)","Moon-Touched Shortsword (DC-POA-JCDC-1)","Moon-Touched Shortsword (DC-POA-MCWWS-2)","Moon-Touched Shortsword: Tsukuyomi (DC-POA-TDG1-3)","Moon-Touched Shortsword: Blade of the Black Tortoise (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: Green Dragon Gladius (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: Red Phoenix Falchion (DC-POA-VAN-MT-1)","Moon-Touched Shortsword: White Tiger Tulwar (DC-POA-VAN-MT-1)","Moon-Touched Shortsword (FR-DC-DIGM-1-2)","Moon-Touched Shortsword: Platinum Fang (FR-DC-DMJA-1)","Moon-Touched Shortsword (FR-DC-UCON24)","Moon-Touched Sword (CCC-BMG-MOON6-2)","Moon-Touched Sword (CCC-BMG-MOON10-2)","Silvered Axe: Clearcut (FR-DC-CGB-3)","Silvered Light Crossbow: Jackal Slayer (FR-DC-SCROG-3)","Silvered Longsword (FR-DC-BWR-1)","Silvered Mace: Divaine's Microphone (FR-DC-DIVA)","Silvered Shortsword (FR-DC-NBDD-2)","Staff of Adornment (CCC-3MAGS-ONE)","Staff of Adornment (PS-DC-PKL-10)","Staff of Adornment: K's Ashenwood Staff (SJ-DC-AMO-KURI-3)","Staff of Adornment (SJ-DC-ARQ-2)","Staff of Adornment: Ocharine (SJ-DC-DD-7)","Staff of Adornment (SJ-DC-DEN-H5)","Staff of Adornment (SJ-DC-IGC-ECP-5)","Staff of Adornment (SJ-DC-MONSTER-1)","Staff of Adornment: Shakujo (SJ-DC-MWG-1)","Staff of Adornment (SJ-DC-ROTU-5)","Staff of Adornment (SJ-DC-TEL-12)","Staff of Adornment (WBW-DC-NJ-COU-2)","Staff of Birdcalls (FR-DC-TT-T201)","Staff of Birdcalls (WBW-DC-BIRE-1)","Staff of Birdcalls (WBW-DC-CONMAR-3)","Staff of Birdcalls (WBW-DC-Death)","Staff of Birdcalls (WBW-DC-FDC-3)","Staff of Birdcalls (WBW-DC-HBK-1)","Staff of Birdcalls (WBW-DC-ROBIN-1-2)","Staff of Birdcalls (WBW-DC-ROOK-1-4)","Staff of Birdcalls: Dark Crystal (WBW-DC-ZODIAC-10)","Staff of Flowers (CCC-KUMORI-3-1)","Staff of Flowers (FR-DC-HEARTHOME-3)","Staff of Flowers (PS-DC-RF-1)","Sylvan Talon: Feather Dagger (FR-DC-BIRD-0)","Sylvan Talon: Zigfreed's Spear (FR-DC-SCROG-1)","Sylvan Talon: Goblin's Attraction (FR-DC-UCON25-2)","Sylvan Talon: Dragon Dagger (PO-BK-5-5)","Sylvan Talon: Silver Beak Weega (SJ-DC-DWR-0-5)","Sylvan Talon: Grandpa Oak's Gift (WBW-DC-PUFF-1)"],
 	"green-flame mace: face of umberlee's fury (ccc-awe-1-2)" : {
 		name : "Face of Umberlee's Fury (Green-Flame Mace)",
 		source : [["AL","CCC"]],
@@ -5301,6 +5432,15 @@ MagicItemsList["al weapons (common)"] = {
 		calcChanges: silverWeaponCalc.calcChanges,
 		weaponsAdd : { select : ["Jackal Slayer, Silvered Light Crossbow"], options : ["Jackal Slayer, Silvered Light Crossbow"] },
 	},
+	"silvered longsword (fr-dc-bwr-1)" : {
+		name: "Silvered Longsword (FR-DC-BWR-1)",
+		source : [["AL","FR-DC"]],
+		type: "Weapon (longsword)",
+		description: "In Loross, this sword is named Feignhunter. It belonged to a Netherese seer-knight tasked with seeking out spies and shapechangers who sought the secrets of the arcanist lords. When it scores a Critical Hit on a shape-shifted creature, I deal 1 extra die of damage. The sword glows in 120 ft of Doppelgangers.",
+		descriptionFull: "In Loross the sword is named Feignhunter, and was once the weapon of a Netherese seer-knight tasked with seeking out spies and shapechangers who sought the magical secrets of the arcanist lords.\n   " + toUni("Sentinel") + ". This item glows faintly when Doppelgangers are within 120 feet of it.\n   An alchemical process has bonded silver to this magic weapon. When you score a Critical Hit with it against a creature that is shape-shifted, the weapon deals one additional die of damage.",
+		calcChanges: silverWeaponCalc.calcChanges,
+		weaponsAdd : { select : ["Silvered Longsword"], options : ["Silvered Longsword"] },
+	},
 	"silvered mace: divaine's microphone (fr-dc-diva)" : {
 		name: "Divaine's Microphone (Silvered Mace, DIVA)",
 		source : [["AL","FR-DC"]],
@@ -5554,6 +5694,50 @@ MagicItemsList["al weapons (common)"] = {
 		additional : "regains 1d6+4",
 		action : [["action", ""]]
 	},
+	"staff of flowers (fr-dc-hearthome-3)" : {
+		name : "Staff of Flowers (FR-DC-HEARTHOME-3)",
+		source : [["AL","FR-DC"]],
+		type: "Weapon (staff)",
+		description : "This wooden staff has several leaves and flowers growing from it. The staff has 10 charges, 1d6+4 regained at dawn; 5% chance it turns to petals when last charge used. As a Magic action, I can use 1 charge to make chosen flower sprout from staff or soil in 5 ft. The flower is nonmagical and grows or withers normally.",
+		descriptionFull : "This wooden staff has several leaves and flowers growing off it.\n   This wooden staff has 10 charges. While holding it, you can take a Magic action to expend 1 charge from the staff and cause a flower to sprout from a patch of earth or soil within 5 feet of yourself, or from the staff itself. Unless you choose a specific kind of flower, the staff creates a mild-scented daisy. The flower is harmless and nonmagical, and it grows or withers as a normal flower would." + toUni("Regaining Charges") + "The staff regains 1d6 + 4 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff turns into flower petals and is lost forever.",
+		weight : 4,
+		limfeaname : "Staff of Flowers",
+		usages : 10,
+		recovery : "dawn",
+		additional : "regains 1d6+4",
+		action : [["action", ""]]
+	},
+	"staff of flowers (ps-dc-rf-1)" : {
+		name : "Staff of Flowers (PS-DC-RF-1)",
+		source : [["AL","PS-DC"]],
+		type: "Weapon (staff)",
+		description : "This staff is built to Halfling measure and doesn't increase in size for larger creatures. The staff has 10 charges, 1d6+4 regained at dawn; 5% chance turns to petals when last charge used. As a Magic action, I can use 1 charge to make chosen flower sprout from staff or soil in 5 ft. The flower is nonmagical and grows or withers normally. Its default flower is a fragrant purple sage blossom.",
+		descriptionFull : "This staff is built to Halfling measure and does not increase in size if wielded by a larger creature. Its default flower is a fragrant purple sage blossom.\n   This wooden staff has 10 charges. While holding it, you can take a Magic action to expend 1 charge from the staff and cause a flower to sprout from a patch of earth or soil within 5 feet of yourself, or from the staff itself. Unless you choose a specific kind of flower, the staff creates a mild-scented daisy. The flower is harmless and nonmagical, and it grows or withers as a normal flower would." + toUni("Regaining Charges") + "The staff regains 1d6 + 4 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff turns into flower petals and is lost forever.",
+		weight : 4,
+		limfeaname : "Staff of Flowers",
+		usages : 10,
+		recovery : "dawn",
+		additional : "regains 1d6+4",
+		action : [["action", ""]]
+	},
+	"sylvan talon: feather dagger (fr-dc-bird-0)" : {
+		name: "Feather Dagger (Sylvan Talon, BIRD-0)",
+		source : [["AL","FR-DC"]],
+		type: "weapon (dagger)",
+		rarity: "common",
+		attunement: true,
+		description: "Embossed feather designs are intricately arranged around this dagger's sharp blade. While on my person, I understand the nonwritten communication of all Fey, and they understand me. I can also cast Message as a Magic action once per day and the dagger warns me of danger, giving +2 initiative unless Incapacitated.",
+		descriptionFull: "Embossed feather designs intricately arranged around the sharp blade.\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition.\n   While this weapon is on your person, you understand the nonwritten communication of all Fey, and they understand yours.\n\n" +
+		toUni("Secret Message") + "\n\n  As a Magic action, you can use the weapon to cast Message. Once this property is used, it can't be used again until the next dawn.",
+		limfeaname : "Sylvan Talon",
+		usages: 1,
+		recovery: "dawn",
+		action: [["action", "Talon (Secret Msg)"]],
+		languageProfs: ["Fey - nonwritten"],
+		spellcastingBonus : sylvanTalonSpell.spellcastingBonus,
+		weaponsAdd : { select : ["Sylvan Talon Dagger"], options : ["Sylvan Talon Dagger"] },
+		addMod : genericGuardianWeapon.addMod,
+	},
 	"sylvan talon: zigfreed's spear (fr-dc-scrog-1)" : {
 		name: "Zigfreed's Spear (Sylvan Talon, SCROG-1)",
 		source : [["AL","FR-DC"]],
@@ -5588,7 +5772,7 @@ MagicItemsList["al weapons (common)"] = {
 		spellcastingBonus : sylvanTalonSpell.spellcastingBonus,
 		weaponsAdd : { select : ["Sylvan Talon Scimitar"], options : ["Sylvan Talon Scimitar"] },
 	},
-	"sylvan talon: dragon (po-bk-5-5)" : {
+	"sylvan talon: dragon dagger (po-bk-5-5)" : {
 		name: "Dragon Talon Dagger (Sylvan Talon, BK-5-5)",
 		source : [["AL","PO"]],
 		type: "weapon (dagger)",
@@ -5641,15 +5825,25 @@ MagicItemsList["al weapons (common)"] = {
 		spellcastingBonus : sylvanTalonSpell.spellcastingBonus,
 		weaponsAdd : { select : ["Sylvan Talon Dagger"], options : ["Sylvan Talon Dagger"] },
 	},
-	}
-})
+}
 
-MagicItemsList["al weapons (other)"] = {
-		name : "AL Weapons (Other)",
+MagicItemsList["al weapons (melee, other)"] = {
+		name : "AL Weapons (Melee, Other)",
 		allowDuplicates : true,
 		choicesNotInMenu : true,
 		magicItemTable : "?",
-	choices : ["Berserker Flail (CCC-UCON-1)","Hand Crossbow of Melodies: Leeley's (PS-DC-PKL-14)","Longbow of Melodies: Airalinde (FR-DC-IMP-2)","Longbow of Melodies: Lavender's Scent (FR-DC-PANDORA-JWEI-10)","Shortbow of Melodies (FR-DC-FALL-1)","Dagger of Blindsight: Panther's Claw (RMH-9)","Dagger of Venom: Fang of Sibyl (CCC-GARY-1)","Dagger of Venom (DDAL4-11)", "Dagger of Venom (DDAL5-17)","Devotee's Censer (BMG-DRW-OD-4)","Dragon Wing Bow: Radiant (BMG-DRWEP-OD-2)","Drow-made Dagger (WDotMM)","Dwarven Thrower: Skyfist (DDEP4)","Dwarven Thrower (FR-DC-PANDORA-JWEI-S2-7)","Dwarven Thrower: Foehammer (WBW-DC-MOM-2)","Elven Thrower (FR-DC-DEATH)","Elven Thrower: Araelathila (FR-DC-LIGA-1)","Elven Thrower: Naginata (FR-DC-PANDORA-JWEI-8)","Elven Thrower (FR-DC-RWIE-3)","Energy Shortbow: Tametomo's (FR-DC-ONI-4)","Executioner's Halberd: Shitenno's Naginata (FR-DC-ONI-5)","Executioner's Halberd (PS-DC-RDP-4)","Flame Tongue (CCC-YLRA-2)","Flame Tongue Whip (PS-DC-PUB-10)","Forcebreaker Sling (PO-BMG-DRW-KS-6)","Giant Slayer Flail (FR-DC-Saerloon-10)","Glimmering Moonbow: Starlight Shortbow (PO-BMG-DRWEP-KS-1)","Hammer of Thunderbolts: Storm King's (FR-DC-PANDORA-JWEI-S2-4) [bonus]","Hammer of Thunderbolts: Storm King's (FR-DC-PANDORA-JWEI-S2-4) [no bonus]","Holy Avenger: Glaive of the Night (FR-DC-PANDORA-JWEI-S2-6)","Javelin of Lightning (CCC-BFG1-3)","Javelin of Lightning (CCC-BMG-MOON6-3)","Javelin of Lightning (CCC-BMG-MOON16-1)","Javelin of Lightning (CCC-GAD2-2)","Javelin of Lightning (CCC-SAC-4)","Javelin of Lightning (CCC-SFBAY-4-1)","Javelin of Lightning (DDAL8-5)","Javelin of Lightning: Thunderbolt (FR-DC-NASKGV-1)","Javelin of Lightning (SJ-DC-AS-1)","Javelin of Lightning: Comet Spear (SJ-DC-CJK2-2)","Javelin of Lightning: Stormstrike (SJ-DC-DD-4)","Javelin of Lightning: Processional Baton (SJ-DC-DES5-1)","Javelin of Lightning: Rrakkma's Smite (SJ-DC-FLUMPH-1)","Javelin of Lightning: Jensen's Lure (SJ-DC-ISL-1)","Javelin of Lightning (SJ-DC-LIGA1)","Javelin of Lightning (SJ-DC-MB5-AH123)","Javelin of Lightning: Reigar's Rage (SJ-DC-MDW-1)","Javelin of Lightning (SJ-DC-TRIDEN-UPR)","Javelin of Lightning (SJ-DC-TTUC-1)","Lash of Immolation: Demonweb Punisher (FR-DC-PHP-PEST-2)","Lash of Immolation: Dragon's Tail (FR-DC-STRAT-DRAGON-2)","Lash of Immolation: Ebon Lash (FR-DC-THAY-1)","Lash of Immolation (PO-BMG-DRW-KS-3)","Lute of Thunderous Thumping: Beatdown Biwa (FR-DC-ONI-5)","Mace of Disruption (CCC-CIC-3)","Mace of Disruption: Death's Head (CCC-GHC-BK1-2)","Mace of Disruption: The Beligrost Disruptor (PO-BK-5-1)","Mace of Smiting (DDAL7-6)","Mace of Smiting (DDAL8-7)","Mace of Smiting (DDAL10-7)","Mace of Terror: Durgeddin's Fist (DDEP6-1)","Mace of Terror: Redrum (FR-DC-THAY-5)","Moon Sickle +1 (DDAL-DRW10)","Moon Sickle +2 (BMG-DRWEP-OD-1)","Moon Sickle +2: Selune's Guidance (WBW-DC-NJ-COU-2)","Moon Sickle +2: Tsukikama (WBW-DC-PHP-1)","Moon Sickle +3: Shard of Ibhar (FR-DC-PNKE-1)","Moon Sickle +3 (FR-DC-UCON24)","Oathbow: Syranna's Folly (CCC-OCC-1)","Oathbow (DDAL-DRW8)","Oathbow: Shadowsong (DDEX3-7)","Oathbow: Moon (FR-DC-PANDORA-JWEI-S2-6)","Oathbow: Selestria (WBW-DC-TMP-3)","Starshot Hand Crossbow (PO-BMG-DRW-KS-2)","Stone Greataxe (DDAL0-13)","Trident of Fish Command (CCC-BMG-MOON14-1)","Trident of Fish Command (CCC-TAROT2-8)","Trident of Fish Command (CCC-WWC-2)","Vicious Glaive: Ptahrek's Glaive (CCC-SVH1-2)","Vicious Heavy Crossbow (PS-DC-PUB-3)","Vicious Longbow: Wayfinder (FR-DC-MCG-CH2)","Vicious Mace (CCC-BMG-1 HULB1-1)","Vicious Maul: Prototype Weapon #31 (PS-DC-HRS-1)","Vicious Spear (DDAL0-13)","Vicious Trident: Pitchfork (FR-DC-SCROG-LGD-1)","Vorpal Glaive: Moon (PS-DC-PANDORA-JWEI-S2-3)","Wakened Crystal Dragon's Wrath Glaive (PO-BMG-DRW-KS-5)","Glaive of Warning: The Harbinger (CCC-EPI1-2)","Glaive of Warning: Losspatan's War-scythe (CCC-GGC-2-1)","Greatclub of Warning: U'u War Club (WBW-DC-DEN-H2)","Greatclub of Warning: Clobber (WBW-DC-MIKE-1)","Javelin of Warning: Jeny's Hairpin (CCC-VOTE-1-1)","Spear of Warning: Spirit (PO-BMG-DRWEP-KS-1)","Trident of Warning (CCC-TRI-34)","Trident of Warning (DDEX2-3)","Weapon of Warning (CCC-ELF-3-1)","Weapon of Warning (DDAL0-7)","Whip of Warning (CCC-GHC-BK2-10)","Whip of Warning (DDAL4-2)"],
+	choices : ["Adamantine Spear: Derro (RV-DC-HAZ-2)","Berserker Flail (CCC-UCON-1)","Dagger of Blindsight: Panther's Claw (RMH-9)","Dagger of Venom: Fang of Sibyl (CCC-GARY-1)","Dagger of Venom (DDAL4-11)", "Dagger of Venom (DDAL5-17)","Devotee's Censer (BMG-DRW-OD-4)","Drow-made Dagger (WDotMM)","Dwarven Thrower: Skyfist (DDEP4)","Dwarven Thrower (FR-DC-PANDORA-JWEI-S2-7)","Dwarven Thrower: Foehammer (WBW-DC-MOM-2)","Elven Thrower (FR-DC-DEATH)","Elven Thrower: Araelathila (FR-DC-LIGA-1)","Elven Thrower: Naginata (FR-DC-PANDORA-JWEI-8)","Elven Thrower (FR-DC-RWIE-3)","Executioner's Halberd: Shitenno's Naginata (FR-DC-ONI-5)","Executioner's Halberd (FR-DC-TB-1)","Executioner's Halberd (PS-DC-RDP-4)","Flame Tongue (CCC-YLRA-2)","Flame Tongue Whip (PS-DC-PUB-10)","Giant Slayer Flail (FR-DC-Saerloon-10)","Hammer of Thunderbolts: Storm King's (FR-DC-PANDORA-JWEI-S2-4) [bonus]","Hammer of Thunderbolts: Storm King's (FR-DC-PANDORA-JWEI-S2-4) [no bonus]","Hammer of Thunderbolts: Hurlfar (PS-DC-RDP-5) [bonus]","Hammer of Thunderbolts: Hurlfar (PS-DC-RDP-5) [no bonus]","Holy Avenger: Glaive of the Night (FR-DC-PANDORA-JWEI-S2-6)","Javelin of Lightning (CCC-BFG1-3)","Javelin of Lightning (CCC-BMG-MOON6-3)","Javelin of Lightning (CCC-BMG-MOON16-1)","Javelin of Lightning (CCC-GAD2-2)","Javelin of Lightning (CCC-SAC-4)","Javelin of Lightning (CCC-SFBAY-4-1)","Javelin of Lightning (DDAL8-5)","Javelin of Lightning: Thunderbolt (FR-DC-NASKGV-1)","Javelin of Lightning (SJ-DC-AS-1)","Javelin of Lightning: Comet Spear (SJ-DC-CJK2-2)","Javelin of Lightning: Stormstrike (SJ-DC-DD-4)","Javelin of Lightning: Processional Baton (SJ-DC-DES5-1)","Javelin of Lightning: Rrakkma's Smite (SJ-DC-FLUMPH-1)","Javelin of Lightning: Jensen's Lure (SJ-DC-ISL-1)","Javelin of Lightning (SJ-DC-LIGA1)","Javelin of Lightning (SJ-DC-MB5-AH123)","Javelin of Lightning: Reigar's Rage (SJ-DC-MDW-1)","Javelin of Lightning (SJ-DC-TRIDEN-UPR)","Javelin of Lightning (SJ-DC-TTUC-1)","Lash of Immolation: Demonweb Punisher (FR-DC-PHP-PEST-2)","Lash of Immolation: Dragon's Tail (FR-DC-STRAT-DRAGON-2)","Lash of Immolation: Ebon Lash (FR-DC-THAY-1)","Lash of Immolation (PO-BMG-DRW-KS-3)","Lute of Thunderous Thumping: Beatdown Biwa (FR-DC-ONI-5)","Lute of Thunderous Thumping: Eschantrii (PS-DC-MONSTER-5)","Mace of Disruption (CCC-CIC-3)","Mace of Disruption: Death's Head (CCC-GHC-BK1-2)","Mace of Disruption: The Beligrost Disruptor (PO-BK-5-1)","Mace of Smiting (DDAL7-6)","Mace of Smiting (DDAL8-7)","Mace of Smiting (DDAL10-7)","Mace of Terror: Durgeddin's Fist (DDEP6-1)","Mace of Terror: Redrum (FR-DC-THAY-5)","Moon Sickle +1 (DDAL-DRW10)","Moon Sickle +2 (BMG-DRWEP-OD-1)","Moon Sickle +2: Selune's Guidance (WBW-DC-NJ-COU-2)","Moon Sickle +2: Tsukikama (WBW-DC-PHP-1)","Moon Sickle +3: Shard of Ibhar (FR-DC-PNKE-1)","Moon Sickle +3 (FR-DC-UCON24)","Stone Greataxe (DDAL0-13)","Trident of Fish Command (CCC-BMG-MOON14-1)","Trident of Fish Command (CCC-TAROT2-8)","Trident of Fish Command (CCC-WWC-2)","Vicious Glaive: Ptahrek's Glaive (CCC-SVH1-2)","Vicious Mace (CCC-BMG-1 HULB1-1)","Vicious Maul: Prototype Weapon #31 (PS-DC-HRS-1)","Vicious Spear (DDAL0-13)","Vicious Trident: Pitchfork (FR-DC-SCROG-LGD-1)","Vorpal Glaive: Moon (PS-DC-PANDORA-JWEI-S2-3)","Wakened Crystal Dragon's Wrath Glaive (PO-BMG-DRW-KS-5)","Glaive of Warning: The Harbinger (CCC-EPI1-2)","Glaive of Warning: Losspatan's War-scythe (CCC-GGC-2-1)","Greatclub of Warning: U'u War Club (WBW-DC-DEN-H2)","Greatclub of Warning: Clobber (WBW-DC-MIKE-1)","Javelin of Warning: Jeny's Hairpin (CCC-VOTE-1-1)","Spear of Warning: Spirit (PO-BMG-DRWEP-KS-1)","Trident of Warning (CCC-TRI-34)","Trident of Warning (DDEX2-3)","Weapon of Warning (CCC-ELF-3-1)","Weapon of Warning (DDAL0-7)","Whip of Warning (CCC-GHC-BK2-10)","Whip of Warning (DDAL4-2)"],
+	"adamantine spear: derro (rv-dc-haz-2)" : {
+		name : "Derro Adamantine Spear (RV-DC-HAZ-2)",
+		source : [["AL:R", "DC"]],
+		type : "weapon (spear)",
+		rarity : "uncommon",
+		description : "Fashioned by derro hands, this spear bears a wicked adamantine tip. Staring eyes are carved along its length. With a bonus action command, the eyes spill pale light, 10-ft bright light & 10-ft more dim, or stop. Whenever the spear hits an object, it's a Critical Hit.",
+		descriptionFull : "Fashioned by derro hands, this spear bears a wicked adamantine tip. Staring eyes are carved along the weapon's length. At a command, those eyes spill pale light.\n   " + toUni("Beacon") + ". You can take a Bonus Action to cause the item to shed Bright Light in a 10-foot radius and Dim Light for an additional 10 feet, or to extinguish the light.\n   This weapon or piece of ammunition is made of adamantine, one of the hardest substances in existence. Whenever ammunition made or coated with adamantine hits an object, the hit is a Critical Hit.",
+		weaponsAdd : { select : ["Derro Adamantine Spear"], options : ["Derro Adamantine Spear"] },
+		calcChanges: adamantineWeaponGeneric.calcChanges,
+		action : [["bonus action", "Derro Spear (light/dim)"]],
+	},
 	"berserker flail (ccc-ucon-1)" : {
 		name : "Berserker Flail (CCC-UCON-1)",//Based on the Berserker axe 
 		source : [["AL","CCC"]],
@@ -5670,76 +5864,6 @@ MagicItemsList["al weapons (other)"] = {
 			calcChanges : {
 			hp : function (totalHD) { return [totalHD]; },
 		}
-	},
-	"hand crossbow of melodies: leeley's (ps-dc-pkl-14)" : {
-			name : "Leeley's Hand Crossbow of Melodies (PKL-14)",
-			source : [["AL","PS-DC"]],
-			type : "weapon (hand crossbow)",
-			rarity : "very rare",
-			attunement : true,
-			description : "This hand crossbow is shaped like a harp & whispers warning, giving +2 initiative if not Incapacitated. When I atk with it, I can play 1 melody on each atk. Precision: If proficient with Performance, add +1 (+2 if expertise) to atk roll. Reverberation: add Cha mod Thunder dmg to atk.",
-			descriptionLong : "This hand crossbow resembles a lyre with multiple strings. I can use the strings to play 1 melody on each attack. Melody of Precision: If I'm proficient with Performance, add +1 (+2 if expertise) to the attack roll. Melody of Reverberation: add Charisma modifier in Thunder damage to the attack. The crossbow also whispers warnings, giving me +2 initiative unless Incapacitated.",
-			descriptionFull : "This bow has multiple strings and resembles a lyre or small harp. By strumming the strings while setting an arrow to the bow, you imbue the arrow with magic."+
-			"\n   You can play one of the following melodies when you use the bow to make a ranged weapon attack. You must choose to do so before you make the attack roll, and you can play only one melody per attack."+
-			"\n   " + toUni("Melody of Precision") + ". If you're proficient in Performance, you gain a +1 bonus to the attack roll. If you have expertise in Performance, you gain a +2 bonus instead."+
-			"\n   " + toUni("Melody of Reverberation") + ". The melody you strum echoes loudly. On a hit, the target takes extra thunder damage equal to your Charisma modifier."+
-			"\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition.",
-			weaponsAdd : { select : ["Hand Crossbow of Melodies"], options : ["Hand Crossbow of Melodies"] },
-			addMod : genericGuardianWeapon.addMod,
-		calcChanges: bowOfMelodies.calcChanges,
-	},
-	"longbow of melodies: airalinde (fr-dc-imp-2)" : {
-			name : "Airalinde, Longbow of Melodies (IMP-2)",
-			source : [["AL","FR-DC"]],
-			type : "weapon (longbow)",
-			rarity : "very rare",
-			attunement : true,
-			description : "This elven longbow is shaped like a harp cleverly reinforced with mithral and moonstones. It enhances pangs of conscience if I consider or do malevolent acts. When I atk with the bow, I can play 1 melody on each atk. Precision: If proficient with Performance, add +1 (+2 if expertise) to atk roll. Reverberation: add Cha mod Thunder dmg to atk.",
-			descriptionLong : "Airalinde (Hymn) is a wonder of elven craftsmanship. The longbow resembles a lyre with multiple strings. It's cleverly reinforced with mithral and inlaid with moonstones. The bow enhances pangs of conscience around malevolent acts. I can use the strings to play 1 melody on each attack. Melody of Precision: If proficient with Performance, add +1 (+2 if expertise) to the attack roll. Melody of Reverberation: add Charisma modifier in Thunder damage to the attack.",
-			descriptionFull : "A wonder of elven craftsmanship, Airalindë (“Hymn”) is a wooden bow cleverly reinforced with mithral and inlaid with enchanted moonstones."+
-			"\n   " + toUni("Conscientious") + ". When the bearer of this item contemplates or undertakes a malevolent act, the item enhances pangs of conscience."+
-			"\n   This bow has multiple strings and resembles a lyre or small harp. By strumming the strings while setting an arrow to the bow, you imbue the arrow with magic."+
-			"\n   You can play one of the following melodies when you use the bow to make a ranged weapon attack. You must choose to do so before you make the attack roll, and you can play only one melody per attack."+
-			"\n   " + toUni("Melody of Precision") + ". If you're proficient in Performance, you gain a +1 bonus to the attack roll. If you have expertise in Performance, you gain a +2 bonus instead."+
-			"\n   " + toUni("Melody of Reverberation") + ". The melody you strum echoes loudly. On a hit, the target takes extra thunder damage equal to your Charisma modifier.",
-			weaponsAdd : { select : ["Airalinde, Longbow of Melodies"], options : ["Airalinde, Longbow of Melodies"] },
-		calcChanges: bowOfMelodies.calcChanges,
-	},
-	"longbow of melodies: lavender's scent (fr-dc-pandora-jwei-10)" : {
-			name : "Lavender's Scent, Bow of Melodies (PANDORA-JWEI-10)",
-			source : [["AL","FR-DC"]],
-			type : "weapon (longbow)",
-			rarity : "very rare",
-			attunement : true,
-			description : "This longbow is shaped like a harp. When strummed, it emits an aroma of lavender and any who fall asleep to its melodies have tranquil dreams. The bow warns me, giving +2 initiative if not Incapacitated. I can play 1 melody on each atk. Precision: If proficient with Performance, add +1 (+2 if expertise) to atk roll. Reverberation: add Cha mod Thunder dmg to atk.",
-			descriptionLong : "This longbow is shaped like a harp with multiple strings. When strummed, it emits an aroma of lavender and those who fall asleep while enchanted by its melodies are blessed with tranquil dreams. The bow also warns me, giving +2 initiative if not Incapacitated. I can use the strings to play 1 melody on each atk. Melody of Precision: If proficient with Performance, add +1 (+2 if expertise) to the attack roll. Melody of Reverberation: add Charisma modifier in Thunder dmg to attack.",
-			descriptionFull : "This longbow, fashioned in the likeness of a harp, emanates a soothing aroma of lavender when its strings are strummed. It is said that those who fall asleep while enchanted by its melodies are blessed with tranquil dreams, free from the burdens of the waking world."+
-			"\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition."+
-			"\n   This bow has multiple strings and resembles a lyre or small harp. By strumming the strings while setting an arrow to the bow, you imbue the arrow with magic."+
-			"\n   You can play one of the following melodies when you use the bow to make a ranged weapon attack. You must choose to do so before you make the attack roll, and you can play only one melody per attack."+
-			"\n   " + toUni("Melody of Precision") + ". If you're proficient in Performance, you gain a +1 bonus to the attack roll. If you have expertise in Performance, you gain a +2 bonus instead."+
-			"\n   " + toUni("Melody of Reverberation") + ". The melody you strum echoes loudly. On a hit, the target takes extra thunder damage equal to your Charisma modifier.",
-			addMod : genericGuardianWeapon.addMod,
-			weaponsAdd : { select : ["Lavender's Scent, Longbow of Melodies"], options : ["Lavender's Scent, Longbow of Melodies"] },
-		calcChanges: bowOfMelodies.calcChanges,
-	},
-	"shortbow of melodies (fr-dc-fall-1)" : {
-		name : "Shortbow of Melodies (FR-DC-FALL-1)",
-		source : [["AL","FR-DC"]],
-		type : "weapon (any bow)",
-		rarity : "very rare",
-		attunement : true,
-		description : "This shortbow is shaped like a harp with multiple strings. It's the color of Auril's rime and always cool to the touch. I suffer no harm in extreme temps past 0\u00B0F & 100\u00B0F. I can use the strings to play 1 melody per atk. Precision: If proficient with Performance, add +1 (+2 if expertise) to atk roll. Reverberation: add Charisma mod Thunder dmg.",
-		descriptionLong : "This shortbow is shaped like a harp with multiple strings. It's the color of Auril's rime and always cool to the touch. While on my person, I suffer no harm in extreme temperatures past 0\u00B0F and 100\u00B0F. I can use the strings to play 1 of 2 melodies on each attack. Melody of Precision: if I'm proficient with Performance, add +1 (+2 if expertise) to the attack roll. Melody of Reverberation: add my Charisma modifier in Thunder damage to the attack.",
-		descriptionFull : "This bow is the color of Auril's rime and is always cool to the touch."+
-		"\n   " + toUni("Temperate") + ". You are unharmed by temperatures of 0 degrees Fahrenheit or lower, and 100 degrees Fahrenheit or higher."+
-		"\n   This bow has multiple strings and resembles a lyre or small harp. By strumming the strings while setting an arrow to the bow, you imbue the arrow with magic."+
-		"\n   You can play one of the following melodies when you use the bow to make a ranged weapon attack. You must choose to do so before you make the attack roll, and you can play only one melody per attack."+
-		"\n   " + toUni("Melody of Precision") + ". If you're proficient in Performance, you gain a +1 bonus to the attack roll. If you have expertise in Performance, you gain a +2 bonus instead."+
-		"\n   " + toUni("Melody of Reverberation") + ". The melody you strum echoes loudly. On a hit, the target takes extra thunder damage equal to your Charisma modifier.",
-		savetxt : { immune : ["temps past 0\u00B0F/100\u00B0F"] },
-		weaponsAdd : { select : ["Shortbow of Melodies"], options : ["Shortbow of Melodies"] },
-		calcChanges: bowOfMelodies.calcChanges,
 	},
 	"dagger of blindsight: panther's claw (rmh-9)" : {
 		name : "Panther's Claw (Dagger of Blindsight)",
@@ -5844,39 +5968,6 @@ MagicItemsList["al weapons (other)"] = {
 		selectNow : true,
 		}]
 	},
-	"dragon wing bow: radiant (bmg-drwep-od-2)" : {
-		name : "Radiant Dragon Wing (BMG-DRWEP-OD-2)",
-		nameTest : "/wing.*(bmg-drwep-od-2)/i",
-		source : [["AL","DRW"]],
-		type : "weapon (any bow)",
-		rarity : "rare",
-		attunement : true,
-		description : "The wood of this magic bow glimmers, and when turned in the light, every color of the rainbow appears. The limb tips are shaped like dragon wings and it's infused with the essence of a crystal dragon's breath. Attacks made with it deal an extra 1d6 Radiant. When I pull back the string without ammo loaded in it, the weapon creates its own that lasts until it hits or misses a target.",
-		descriptionFull : "The wood of this bow glimmers, and when turned in the light, every color of the rainbow shows up.\n   The limb tips of this magic bow are shaped like a dragon's wings, and the weapon is infused with the essence of a chromatic, gem, or metallic dragon's breath. When you hit with an attack roll using this magic bow, the target takes an extra 1d6 damage of the same type as the breath infused in the bow\u2014acid, cold, fire, force, lightning, necrotic, poison, psychic, radiant, or thunder."+
-		"\n   If you load no ammunition in the weapon, it produces its own, automatically creating one piece of magic ammunition when you pull back the string. The ammunition created by the bow vanishes the instant after it hits or misses a target.",
-		chooseGear : {
-			type : "weapon",
-			prefixOrSuffix : ["between", "Radiant Dragon Wing", "(BMG-DRWEP-OD-2)"],
-			itemName1stPage : ["suffix", "Radiant DW"],
-			descriptionChange : ["replace", "bow"],
-			excludeCheck : function (inObjKey, inObj) {
-				var testRegex = /bow/i;
-				return !(testRegex).test(inObjKey) && (!inObj.baseWeapon || !(testRegex).test(inObj.baseWeapon));
-			}
-		},
-	calcChanges : {
-		atkAdd : [
-			function (fields, v) {
-				if (!v.theWea.isMagicWeapon && v.isRangedWeapon && (/^(?=.*radiant)(?=.*dw).*$/i).test(v.WeaponTextName)) {
-					v.theWea.isMagicWeapon = true;
-					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
-					fields.Description += (fields.Description ? '; ' : '') + '+1d6 Radiant dmg; Creates own ammo';
-				}
-			},
-			'If I include Radiant DW in a the name of a bow, it will be treated as the weapon Dragon Wing Bow for a Crystal Dragon.'
-			]
-			}
-		},
 	"drow-made dagger (wdotmm)" : {
 		name : "Drow-made Dagger",
 		source : [["WDotMM", 228]],
@@ -6073,26 +6164,6 @@ MagicItemsList["al weapons (other)"] = {
 			selectNow : true,
 		}
 	},
-	"energy shortbow: tametomo's (fr-dc-oni-4)" : {
-		name : "Tametomo's Energy Shortbow (ONI-4)",
-		source : [["AL", "FR-DC"]],
-		type : "weapon (longbow or shortbow)",
-		rarity : "very rare",
-		magicItemTable : "?",
-		description : "When I pull back my arm to fire this +1 magic shortbow, a golden arrow appears, emitting 20-ft Bright Light and 20-ft Dim. On a hit, target takes Force dmg or makes a DC 15 STR save vs Restrained for 1 min (DC 20 STR Athletics to escape). Magic actions: 1 visible willing creature (up to Med) or unattended obj (5ft cube) in 60ft teleported to visible space in 10ft; arrows create magical 60ft ladder for 1 min on wall in 60ft. I can attune in 1 min.",
-		descriptionLong : "This +1 shortbow has no string. When I pull back my arm, a golden arrow appears nocked and ready to fire, emitting a 20-ft radius of Bright Light and 20-ft Dim Light. It disappears on a hit or miss and deals Force damage. The bow also has additional properties. Arrow of Restraint: instead of damage, the target makes a DC 15 STR save or is Restrained for 1 minute (DC 20 STR Athletics to escape). Arrow of Transport: as a Magic action, 1 visible willing creature (up to Medium) or unattended object (up to 5-ft cube) in 60 ft is teleported to a visible space in 10 ft. Energy Ladder: as a Magic action, fire arrows at a wall within 60 ft. The arrows create a 60 ft magical ladder that lasts for 1 minute. I can attune to the bow in 1 minute.",
-		descriptionFull : "You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon, which has no string. Each time you pull your arm back in a firing motion, a magical arrow made of golden energy appears nocked and ready to fire. An arrow produced by this weapon deals Force damage instead of Piercing damage on a hit, and it disappears after it hits or misses its target. Until it disappears, the arrow emits Bright Light in a 20-foot radius and Dim Light for an additional 20 feet.\n   This weapon has the following additional properties.\n   Arrow of Restraint. Whenever you use this weapon to make a ranged attack against a creature, you can try to restrain the target instead of dealing damage to it. If the arrow hits, the target must succeed on a DC 15 Strength saving throw or have the Restrained condition for 1 minute. As an action, a creature Restrained by an arrow can make a DC 20 Strength (Athletics) check to try to break the restraint, ending the effect on itself on a successful check.\n   Arrow of Transport. As a Magic action, you can fire one energy arrow from this weapon at a target you can see within 60 feet of yourself. The target can be either a willing Medium or smaller creature or an object that isn't being worn or carried, provided the object is small enough to fit inside a 5-foot Cube. The arrow teleports the target to an unoccupied space you can see within 10 feet of you.\n   Energy Ladder. As a Magic action, you can loose a flurry of energy arrows from this weapon at a wall up to 60 feet away from yourself. The arrows become glowing rungs that stick out of the wall, forming a magical ladder up to 60 feet long on the wall. This ladder lasts for 1 minute before disappearing.\n   " + toUni("Harmonious") + ". Attuning to this item takes only 1 minute.",
-		attunement : true,
-		weaponOptions : {
-			baseWeapon : "shortbow",
-			regExpSearch : /^(?=.*tametomo)(?=.*shortbow).*$/i,
-			name : "Tametomo's Energy Shortbow",
-			description : "Ammunition; Two-Handed; Vex; Can restrain with DC 15 Str Save instead of dmg",
-			damage : [1, 6, "force"],
-			modifiers : [1, 1],
-			selectNow : true,
-		}
-	},
 	"executioner's halberd: shitenno's naginata (fr-dc-oni-5)" : {
 		name : "Shitenno's Naginata (Executioner's Halberd, ONI-5)",
 		nameTest : "Executioner's",
@@ -6101,9 +6172,22 @@ MagicItemsList["al weapons (other)"] = {
 		rarity : "very rare",
 		magicItemTable : "?",
 		description : "This +1 halberd has an extra long handle attached to a very sharp bladed head. When it strikes a target, the handle thrums as if channeling lightning. The weapon also glows faintly when Giants are in 120 ft. Any Humanoid I hit with it takes an extra 2d6 Slashing damage and I gain Temporary Hit Points equal to the extra damage dealt.",
-		descriptionFull : "This weapon has an extra long handle attached to a very sharp bladed head. When it strikes its target, the handle thrums as if it was channeling lightning.\n   " + toUni("Sentinel") + ". This item glows faintly when giants are within 120 feet of it.You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon.\n   Any Humanoid you hit with the weapon takes an extra 2d6 Slashing damage, and you gain Temporary Hit Points equal to the extra damage dealt.",
+		descriptionFull : "This weapon has an extra long handle attached to a very sharp bladed head. When it strikes its target, the handle thrums as if it was channeling lightning.\n   " + toUni("Sentinel") + ". This item glows faintly when giants are within 120 feet of it.\n   You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon.\n   Any Humanoid you hit with the weapon takes an extra 2d6 Slashing damage, and you gain Temporary Hit Points equal to the extra damage dealt.",
 		weaponsAdd : { select : ["Shitenno's Naginata, Executioner's Halberd"], options : ["Shitenno's Naginata, Executioner's Halberd"] },
 		calcChanges: executionerAxeWeapon.calcChanges,
+	},
+	"executioner's halberd (fr-dc-tb-1)" : {
+		name : "Executioner's Halberd (FR-DC-TB-1)",
+		nameTest : "Executioner's",
+		source : [["AL","FR-DC"]],
+		type : "weapon (battleaxe, greataxe, handaxe or halberd)",
+		rarity : "very rare",
+		magicItemTable : "?",
+		description : "This +1 halberd warns me of danger, giving me +2 to initiative unless I'm Incapacitated. Any Humanoid I hit with the weapon takes an extra 2d6 Slashing damage and I gain Temporary Hit Points equal to the extra damage dealt.",
+		descriptionFull : "You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon.\n   Any Humanoid you hit with the weapon takes an extra 2d6 Slashing damage, and you gain Temporary Hit Points equal to the extra damage dealt.\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition.",
+		weaponsAdd : { select : ["Executioner's Halberd"], options : ["Executioner's Halberd"] },
+		calcChanges: executionerAxeWeapon.calcChanges,
+		addMod : genericGuardianWeapon.addMod,
 	},
 	"executioner's halberd (ps-dc-rdp-4)" : {
 		name : "Executioner's Halberd (PS-DC-RDP-4)",
@@ -6151,24 +6235,6 @@ MagicItemsList["al weapons (other)"] = {
 		weaponsAdd : { select : ["Flame Tongue Whip"], options : ["Flame Tongue Whip"] },
 		calcChanges: flameTongueWeapon.calcChanges,
 	},
-	"forcebreaker sling (po-bmg-drw-ks-6)" : {
-		name : "Forcebreaker Sling (PO-BMG-DRW-KS-6)",
-		source : [["AL","DRW"]], // Chapter 9: Knight
-		type : "weapon (sling)",
-		rarity : "very rare",
-		description : "This silvery +2 sling glitters in the sunlight. Try not to stare at it for too long or your eyes might hurt from the sparkles. It was crafted to destroy structures made of magical force, such as a Wall of Force. With one strike, I can shatter a Large or smaller structure of magical force, or shatter a 20-ft cube portion of a Huge or larger structure.",
-		descriptionFull : "This silvery sling glitters in the sunlight. Try not to stare at it for too long or your eyes might hurt from the sparkles."+
-		"\n   You gain a +2 bonus to attack and damage rolls made with this magic weapon."+
-		"\n   This weapon was crafted to destroy structures made of force, such as 	those created by Forcecage or Wall of Force. Striking a Large or smaller structure of magical force with this weapon automatically shatters that structure. If the target is a Huge or larger structure of force, this weapon shatters a 20-foot-cube portion of it.",
-		weaponOptions : {
-			baseWeapon : "sling",
-			regExpSearch : /^(?=.*forcebreaker)(?=.*sling).*$/i,
-			name : "Forcebreaker Sling",
-			description : "Ammunition; Slow; Shatters magical force",
-			modifiers : [2, 2],
-			selectNow : true,
-		}
-	},
 	"giant slayer flail (fr-dc-saerloon-10)" : {
 		name : "Giant Slayer Flail (Saerloon-10)",
 		source : [["AL","FR-DC"]],
@@ -6179,26 +6245,6 @@ MagicItemsList["al weapons (other)"] = {
 		weaponsAdd : { select : ["Giant Slayer Flail"], options : ["Giant Slayer Flail"] },
 		calcChanges: giantSlayerWeapon.calcChanges,
 		},
-	"glimmering moonbow: starlight shortbow (po-bmg-drwep-ks-1)" : {
-			name : "Starlight Moonbow (Glimmering, PO-BMG-DRWEP-KS-1)",
-			source : [["AL","DRW"]],
-			type : "weapon (any bow)",
-			rarity : "rare",
-			attunement : true,
-			description : "The grip of this silver & black +1 shortbow is engraved with 3 stars for the major deities in Rashemen: Bhalla (Chauntea), Mielikki (Khelliara), & the Hidden One (Mystra). The bow creates own ammo if unloaded & deals +1d6 Radiant. As a bonus action once per dawn, I  can resist B/P/S until my next turn.",
-			descriptionLong : "The grip of this silver and black shortbow is engraved with 3 silver stars, representing the major deities in Rashemen known as “the Three”: Bhalla (Chauntea), Mielikki (Khelliara), and the Hidden One (Mystra). This bow creates own ammo if none loaded, has +1 to atk and dmg, and deals +1d6 Radiant dmg. As a bonus action once per dawn, I gain resistance to Bludgeoning, Piercing, and Slashing until my next turn starts.",
-			descriptionFull : "The grip of the bow is engraved with three silver stars, representing the major deities worshipped in Rashemen known as “the Three”—Bhalla (Chauntea), Mielikki (Khelliara), and the Hidden One (Mystra). When an arrow is loosed from this bow, it appears as a shooting star."+
-			"\n   This silver-and-black bow is engraved with the phases of the moon. You gain a +1 bonus to attack and damage rolls made with this magic weapon."+
-			"\n   When you hit with a ranged attack roll using this magic bow, the target takes an extra 1d6 radiant damage. If you load no ammunition in the weapon, it produces its own, automatically creating one piece of magic ammunition when you make a ranged attack with it. The ammunition created by the bow vanishes the instant after it hits or misses a target."+
-			"\n   While wielding this magic bow, you can use a bonus action to enter a semi-incorporeal state until the start of your next turn. While semi-incorporeal, you have resistance to bludgeoning, piercing, and slashing damage. Once this bonus action is used, it can't be used again until the next dawn.",
-			limfeaname : "Glimmering Moonbow",
-			usages : 1,
-			recovery : "dawn",
-			additional : "resistances",
-			action : [["bonus action", " (B/P/S resist)"]],
-			weaponsAdd : { select : ["Starlight Shortbow, Glimmering Moonbow"], options : ["Starlight Shortbow, Glimmering Moonbow"] },
-			calcChanges: glimmeringMoonbowCalcs.calcChanges,
-		},
 	"hammer of thunderbolts: storm king's (fr-dc-pandora-jwei-s2-4) [bonus]" : {
 		name : "Storm King's Hammer (Thunderbolts+, JWEI-S2-4)",
 		source : [["AL","FR-DC"]],
@@ -6206,7 +6252,7 @@ MagicItemsList["al weapons (other)"] = {
 		rarity : "legendary",
 		magicItemTable : "?",
 		description : "This +1 maul's head looks like King Hekaton. The wear and scars speak of brutal battles. If a giant is in range, the maul glows and gives electric sparks. The maul adds +4 to Strength (max 30). On a 20 to hit Giant, it dies on failed DC 17 Con save. 5 charges, 1d4+1 regained at dawn. Use 1 charge and make a ranged attack, as if maul had the Thrown property with a 20/60 ft range. On a hit, there's an audible thunderclap in a 300 ft radius. All but me in 30 ft of target make a DC 17 Con save or Stunned until my next turn ends.",
-		descriptionLong : "This +1 maul's head resembles the first storm giant ruler, King Hekaton. The edge wear and scars marking the weapon speak about brutal battles with other giants. When a giant is in range, the maul glows and lets out electric sparks. The maul also adds a +4 bonus to Strength (max 30). On a nat 20 to hit a giant, it dies on a failed DC 17 Con save. The maul has 5 charges, 1d4+1 regained at dawn. I can use 1 charge and make a ranged attack with it, as if the maul had the thrown property with a range of 20/60 ft. On a hit, it releases an audible thunderclap in a 300 ft radius and all others in 30 ft of target must make a DC 17 Con save or be Stunned until the end of my next turn. It then returns to my hand.",
+		descriptionLong : "This +1 maul's head resembles the first storm giant ruler, King Hekaton. The edge wear and scars marking the weapon speak about brutal battles with other giants. When a giant is in range, the maul glows and lets out electric sparks. The maul also adds a +4 bonus to Strength (max 30). On a nat 20 to hit a Giant, it dies on a failed DC 17 Con save. The maul has 5 charges, 1d4+1 regained at dawn. I can use 1 charge and make a ranged attack with it, as if the maul had the thrown property with a range of 20/60 ft. On a hit, it releases an audible thunderclap in a 300 ft radius and all but me in 30 ft of target must make a DC 17 Con save or be Stunned until the end of my next turn. It then returns to my hand.",
 		descriptionFull : "This maul's head is sculpted to resemble the first storm giant's ruler, King Hekaton. The edge wears and scars marking the weapon speaks about the brutal battle its previous owner has gone through with the other giants. Whenever a giant comes within range of its wielder, the maul glows and lets out sparks of electricity.\n   You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon.\n   The weapon has 5 charges. You can expend 1 charge and make a ranged attack with the weapon, hurling it as if it had the Thrown property with a normal range of 20 feet and a long range of 60 feet. If the attack hits, the weapon unleashes a thunderclap audible out to 300 feet. The target and every creature within 30 feet of it other than you must succeed on a DC 17 Constitution saving throw or have the Stunned condition until the end of your next turn. Immediately after hitting or missing, the weapon flies back to your hand. The weapon regains 1d4+1 expended charges daily at dawn.\n   While you are attuned to the weapon and wearing either a Belt of Giant Strength or Gauntlets of Ogre Power to which you are also attuned, you gain the following benefits:\n    " + toUni("Giant's Bane") + ". When you roll a 20 on the d20 for an attack roll made with this weapon against a Giant, the creature must succeed on a DC 17 Constitution saving throw or die.\n   " + toUni("Might of Giants") + ". The Strength score bestowed by your Belt of Giant Strength or Gauntlets of Ogre Power increases by 4, to a maximum of 30.",
 		limfeaname : "Hammer of Thunderbolts",
 		usages : 5,
@@ -6229,9 +6275,8 @@ MagicItemsList["al weapons (other)"] = {
 		type : "weapon (maul)",
 		rarity : "legendary",
 		magicItemTable : "?",
-		description : "This +1 maul's head resembles King Hekaton. The edge wear and scars speak of brutal battles. When a giant is in range, the maul glows and gives electric sparks. It has 5 charges, 1d4+1 regained at dawn. Use 1 charge and make a ranged attack with the maul as if it had the Thrown property with a 20/60 ft range. On a hit, audible thunderclap in a 300 ft radius and all others in 30 ft of target make a DC 17 Con save or Stunned until my next turn ends. It then returns to my hand.",
-		descriptionLong : "This +1 maul's head resembles the first storm giant ruler, King Hekaton. The edge wear and scars on the weapon speak about brutal battles with other giants. When a giant is in range, the maul glows and gives electric sparks. It has 5 charges, 1d4+1 regained at dawn. Use 1 charge and make a ranged attack with the maul as if it had the thrown property with a range of 20/60 ft. On a hit, it releases an audible thunderclap in a 300 ft radius and all others in 30 ft of target make a DC 17 Con save or Stunned until the end of my next turn. It then returns to my hand.",
-		descriptionFull : "This maul's head is sculpted to resemble the first storm giant's ruler, King Hekaton. The edge wears and scars marking the weapon speaks about the brutal battle its previous owner has gone through with the other giants. Whenever a giant comes within range of its wielder, the maul glows and lets out sparks of electricity.\n   You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon.\n   The weapon has 5 charges. You can expend 1 charge and make a ranged attack with the weapon, hurling it as if it had the Thrown property with a normal range of 20 feet and a long range of 60 feet. If the attack hits, the weapon unleashes a thunderclap audible out to 300 feet. The target and every creature within 30 feet of it other than you must succeed on a DC 17 Constitution saving throw or have the Stunned condition until the end of your next turn. Immediately after hitting or missing, the weapon flies back to your hand. The weapon regains 1d4 + 1 expended charges daily at dawn.",
+		description : "This +1 maul's head resembles King Hekaton. The edge wear and scars speak of brutal battles. When a giant is in range, the maul glows and gives electric sparks. It has 5 charges, 1d4+1 regained at dawn. Use 1 charge and make a ranged attack with the maul as if it had the thrown property with a range of 20/60 ft. On a hit, it releases an audible thunderclap in a 300 ft radius and all but me in 30 ft of target make a DC 17 Con save or Stunned until the end of my next turn. It then returns to my hand.",
+		descriptionFull : "You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon.\n   The weapon has 5 charges. You can expend 1 charge and make a ranged attack with the weapon, hurling it as if it had the Thrown property with a normal range of 20 feet and a long range of 60 feet. If the attack hits, the weapon unleashes a thunderclap audible out to 300 feet. The target and every creature within 30 feet of it other than you must succeed on a DC 17 Constitution saving throw or have the Stunned condition until the end of your next turn. Immediately after hitting or missing, the weapon flies back to your hand. The weapon regains 1d4 + 1 expended charges daily at dawn.\n   " + toUni("Harmonious") + ". Attuning to this item takes only 1 minute.",
 		weight : 10,
 		attunement : true,
 		limfeaname : "Hammer of Thunderbolts",
@@ -6240,6 +6285,48 @@ MagicItemsList["al weapons (other)"] = {
 		additional : "regains 1d4+1",
 		calcChanges: hammerThunderboltsNoBonus.calcChanges,
 		weaponsAdd : { select : ["Maul of Thunderbolts"], options : ["Maul of Thunderbolts"] },
+	},
+	"hammer of thunderbolts: hurlfar (ps-dc-rdp-5) [bonus]" : {
+		name : "Hurlfar, Hammer of Thunderbolts+ (RDP-5)",
+		source : [["AL","PS-DC"]],
+		type : "weapon (warmhammer)",
+		rarity : "legendary",
+		magicItemTable : "?",
+		description : "This +1 warhammer adds +4 to Strength (max 30). On a 20 to hit Giant, it dies on failed DC 17 Con save. 5 charges, 1d4+1 regained at dawn. Use 1 charge and make a ranged attack, as if it had Thrown property with a 20/60 ft range. On a hit, there's an audible thunderclap in a 300 ft radius. All but me in 30 ft of target make a DC 17 Con save or Stunned until my next turn ends. I can attune in 1 min.",
+		descriptionLong : "This +1 warhammer has 5 charges, 1d4+1 regained at dawn, and gives me a +4 bonus to Strength (max 30). I can attune to it in 1 minute. On a nat 20 to hit a Giant, the target dies on a failed DC 17 Con save. The warhammer has 5 charges, 1d4+1 regained at dawn. I can use 1 charge and make a ranged attack with the hammer, as if it had the thrown property with a range of 20/60 ft. On a hit, the hammer releases an audible thunderclap in a 300 ft radius and all but me within 30 ft of the target must make a DC 17 Con save or be Stunned until the end of my next turn. It then returns to my hand.",
+		descriptionFull : "You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon.\n   The weapon has 5 charges. You can expend 1 charge and make a ranged attack with the weapon, hurling it as if it had the Thrown property with a normal range of 20 feet and a long range of 60 feet. If the attack hits, the weapon unleashes a thunderclap audible out to 300 feet. The target and every creature within 30 feet of it other than you must succeed on a DC 17 Constitution saving throw or have the Stunned condition until the end of your next turn. Immediately after hitting or missing, the weapon flies back to your hand. The weapon regains 1d4+1 expended charges daily at dawn.\n   While you are attuned to the weapon and wearing either a Belt of Giant Strength or Gauntlets of Ogre Power to which you are also attuned, you gain the following benefits:\n    " + toUni("Giant's Bane") + ". When you roll a 20 on the d20 for an attack roll made with this weapon against a Giant, the creature must succeed on a DC 17 Constitution saving throw or die.\n   " + toUni("Might of Giants") + ". The Strength score bestowed by your Belt of Giant Strength or Gauntlets of Ogre Power increases by 4, to a maximum of 30.\n   " + toUni("Harmonious") + ". Attuning to this item takes only 1 minute.",
+		limfeaname : "Hammer of Thunderbolts",
+		usages : 5,
+		recovery : "dawn",
+		additional : "regains 1d4+1",
+		weight : 10,
+		attunement : true,
+		prerequisite : "Must be attuned to a Belt of Giant Strength or Gauntlets of Ogre Power",
+		prereqeval : function () {
+			return CurrentMagicItems.known.indexOf("belt of giant strength") !== -1 | CurrentMagicItems.known.indexOf("gauntlets of ogre power") !== -1;
+		},
+		scores : [4, 0, 0, 0, 0, 0],
+		scoresMaximum : [30, 0, 0, 0, 0, 0],
+		calcChanges: hammerThunderboltsBonus.calcChanges,
+		weaponsAdd : { select : ["Hurlfar, Warhammer of Thunderbolts"], options : ["Hurlfar, Warhammer of Thunderbolts"] },
+	},
+	"hammer of thunderbolts: hurlfar (ps-dc-rdp-5) [no bonus]" : {
+		name : "Hurlfar, Hammer of Thunderbolts (RDP-5)",
+		source : [["AL","PS-DC"]],
+		type : "weapon (warmhammer)",
+		rarity : "legendary",
+		magicItemTable : "?",
+		description : "This +1 warhammer has 5 charges, 1d4+1 regained at dawn. Use 1 charge and make a ranged attack as if it had the Thrown property with a 20/60 ft range. On a hit, audible thunderclap in a 300 ft radius and all others in 30 ft of target make a DC 17 Con save or Stunned until my next turn ends. It then returns to my hand. I can attune in 1 min.",
+		descriptionLong : "This +1 warhammer has 5 charges, 1d4+1 regained at dawn. Use 1 charge and make a ranged attack as if it had the thrown property with a range of 20/60 ft. On a hit, it releases an audible thunderclap in a 300 ft radius and all but me in 30 ft of target make a DC 17 Con save or Stunned until the end of my next turn. It then returns to my hand. I can attune in 1 min.",
+		descriptionFull : "You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon.\n   The weapon has 5 charges. You can expend 1 charge and make a ranged attack with the weapon, hurling it as if it had the Thrown property with a normal range of 20 feet and a long range of 60 feet. If the attack hits, the weapon unleashes a thunderclap audible out to 300 feet. The target and every creature within 30 feet of it other than you must succeed on a DC 17 Constitution saving throw or have the Stunned condition until the end of your next turn. Immediately after hitting or missing, the weapon flies back to your hand. The weapon regains 1d4 + 1 expended charges daily at dawn.",
+		weight : 10,
+		attunement : true,
+		limfeaname : "Hammer of Thunderbolts",
+		usages : 5,
+		recovery : "dawn",
+		additional : "regains 1d4+1",
+		calcChanges: hammerThunderboltsNoBonus.calcChanges,
+		weaponsAdd : { select : ["Hurlfar, Warhammer of Thunderbolts"], options : ["Hurlfar, Warhammer of Thunderbolts"] },
 	},
 	"holy avenger: glaive of the night (fr-dc-pandora-jwei-s2-6)" : {
 		name : "Glaive of the Night, Holy Avenger (JWEI-S2-6)",
@@ -6755,7 +6842,7 @@ MagicItemsList["al weapons (other)"] = {
 		type: "weapon (club)",
 		rarity: "very rare",
 		magicItemTable: "?",
-		description: "This reinforced biwa has an extra long handle, perfect for playing and fighting when the crowd is rowdy. It can be used as a magic club that deals +2d8 Thunder. Bards can use CHA instead of STR for its melee attack rolls, if they sing or hum during the attack. It also warns me, giving +2 initiative unless Incapacitated.",
+		description: "This reinforced biwa has an extra long handle, perfect for playing and fighting when the crowd is rowdy. It can be used as a magic club dealing +2d8 Thunder. Bards can use CHA instead of STR for its melee attack rolls, if they sing or hum when attacking. It also warns me, giving +2 initiative unless Incapacitated.",
 		descriptionLong: "This extra heavy biwa has been reinforced with an extra long handle, perfect for playing and fighting when music makes the crowd rowdy. It can be wielded as a magic club that deals an extra 2d8 Thunder dmg. If I'm a bard, I can use CHA instead of STR for melee attack rolls with the lute provided I sing or hum during the attack. It also warns me, giving +2 initiative unless Incapacitated.",
 		descriptionFull: "This extra heavy biwa has been reinforced with an extra long handle, perfect for both playing and fighting when the music makes the crowd a tad rowdy.\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition.\n   This reinforced lute can be wielded as a magic Club that deals an extra 2d8 Thunder damage on a hit.\n\n" + toUni("Sing and Swing") + "If you're a Bard, you can use your Charisma modifier instead of your Strength modifier when making a melee attack roll with the lute, provided you sing or hum while making the attack.",
 		weight: 1,
@@ -6769,6 +6856,27 @@ MagicItemsList["al weapons (other)"] = {
 			},
 		calcChanges: luteThumpingBardCalcs.calcChanges,
 		addMod : genericGuardianWeapon.addMod,
+	},
+	"lute of thunderous thumping: eschantrii (ps-dc-monster-5)" : {
+		name: "Eschantrii Lute of Thunderous Thumping (MONSTER-5)",
+		source : [["AL","PS-DC"]],
+		type: "weapon (club)",
+		rarity: "very rare",
+		magicItemTable: "?",
+		description: "Strings from the stomach lining of the Aether Tyrant and ivory from its teeth and claws were melded with primal Escantrii wood to make this lute. I can use it as a magic club dealing +2d8 Thunder. With a Magic action, my voice carries for up to 600 ft until my next turn ends. Bards can use CHA for the lute's melee attack rolls, if they sing or hum when attacking.",
+		descriptionLong: "Strings made from the stomach lining of the Aether Tyrant and ivory from its teeth and claw are fashioned and melded with primal Escantrii wood to make this lute. I can wield it as a magic club that deals an extra 2d8 Thunder dmg. I can also use a Magic action to make my voice carry clearly for up to 600 ft until my next turn ends. If I'm a bard, I can use CHA instead of STR for melee attack rolls with the lute provided I sing or hum during the attack. It also warns me, giving +2 initiative unless Incapacitated.",
+		descriptionFull: "Strings made from the stomach lining of the Aether Tyrant and ivory from its teeth and claw are fashioned and melded with primal Escantrii wood.\n   " + toUni("War Leader") + ". You can take a Magic action to cause your voice or signal to carry clearly for up to 600 feet until the end of your next turn.\n   This reinforced lute can be wielded as a magic Club that deals an extra 2d8 Thunder damage on a hit.\n\n" + toUni("Sing and Swing") + "If you're a Bard, you can use your Charisma modifier instead of your Strength modifier when making a melee attack roll with the lute, provided you sing or hum while making the attack.",
+		weight: 1,
+		weaponsAdd: "Beatdown Biwa, Lute of Thunderous Thumping",
+		weaponOptions: {
+			baseWeapon: "club",
+			regExpSearch: /^(?=.*lute)(?=.*thunderous)(?=.*thumping).*$/i,
+			name: "Lute of Thunderous Thumping",
+			source : [["AL","FR-DC"]],
+			description: "Light, Slow; +2d8 Thunder",
+			},
+		calcChanges: luteThumpingBardCalcs.calcChanges,
+		action : [["action", "Lute (600ft Voice)"]],
 	},
 	"mace of disruption (ccc-cic-3)" : {
 		name : "Mace of Disruption (CCC-CIC-3)",
@@ -7045,138 +7153,6 @@ MagicItemsList["al weapons (other)"] = {
 		},
 		weaponsAdd : { select : ["Moon Sickle +3"], options : ["Moon Sickle +3"] },
 	},
-	"oathbow: syranna's folly (ccc-occ-1)" : {
-		name : "Syranna's Folly, Oathbow (OCC-1)",
-		source : [["AL","CCC"]],
-		type : "weapon (longbow or shortbow)",
-		rarity : "very rare",
-		description : "This elven bow holds the soul of a Thayan rebel, her defiled sigil etched in the grip. I speak Thayan & won't be at peace until Szass Tam & his plots are erased from existence. If I atk with bow & say command, target is sworn enemy for 7 days or death (ability recharges next dawn). Bow atks vs it: adv, +3d6 dmg, ignore partial cover & no range disadv. While it lives, disadv. with other wpns.",
-		descriptionLong : "This elven bow contains the soul of a Thayan rebel, her defiled sigil etched into the grip. When attuned, I can speak Thayan & receive the bond: \"I will not be at peace until Szass Tam & his plots are erased from existence\". If I say \"Swift death to you who have wronged me.\" & use this bow to make a ranged attack, the target becomes my sworn enemy until it dies or dawn 7 days later. I can only have 1 sworn enemy. If it dies, I can choose a new one after the next dawn. Ranged attacks with this bow against my sworn enemy have adv., do +3d6 Piercing, ignore all cover but full, & don't suffer disadv. at long range. While my sworn enemy lives, I have disadv. on attack rolls with other weapons.",
-		descriptionFull : 'This elven bow has the soul of a Thayan rebel permanently and irreversibly entwined within it, her sigil defiled and etched into the grip. When attuned, the bearer can speak and understand Thayan, in addition to receiving the following Bond: “I will not be at peace until Szass Tam and his plots are erased from existence”.\n   When you nock an arrow on this bow, it whispers in Elvish, “Swift defeat to my enemies.” When you use this weapon to make a ranged attack, you can utter or sign the following command words: “Swift death to you who have wronged me.” The target of your attack becomes your sworn enemy until it dies or until dawn 7 days later. You can have only one such sworn enemy at a time. When your sworn enemy dies, you can choose a new one after the next dawn.\n   When you make a ranged attack roll with this weapon against your sworn enemy, you have Advantage on the roll. In addition, your target gains no benefit from Half Cover or Three-Quarters Cover, and you suffer no Disadvantage due to long range. If the attack hits, your sworn enemy takes an extra 3d6 Piercing damage.\n   While your sworn enemy lives, you have Disadvantage on attack rolls with all other weapons. [Added a choice of bow with 2024 rules]',
-		attunement : true,
-		languageProfs : ["Thayan"],
-		weight : 2,
-	chooseGear : {
-		type : "weapon",
-		prefixOrSuffix : "brackets",
-		itemName1stPage : ["brackets", "Syranna's Folly, Oathbow"],
-		descriptionChange : ["replace", "bow"],
-		excludeCheck : function (inObjKey, inObj) {
-			var testRegex = /shortbow|longbow/i;
-			return !(testRegex).test(inObjKey) && (!inObj.baseWeapon || !(testRegex).test(inObj.baseWeapon));
-		}
-	},
-		calcChanges: oathbowChanges.calcChanges,
-	},
-	"oathbow (ddal-drw8)" : {
-		name : "Oathbow (DDAL-DRW8)",
-		source : [["AL","DRW"]],
-		type : "weapon (longbow or shortbow)",
-		rarity : "very rare",
-		description : "This bow is made of blackened cooled lava, its string glowing as if red-hot. If I atk with it & say command, target is sworn enemy for 7 days or until death (ability recharges next dawn). Bow atks vs it get advantage, +3d6 dmg, ignore partial cover & no range disadv. While it lives, disadv. with other weapons.",
-		descriptionLong : "This bow is made of blackened cooled lava, its string glowing as if red-hot. When I say \"Swift death to you who have wronged me.\" & use the bow to make a ranged attack, the target becomes my sworn enemy until it dies or dawn 7 days later. I can only have 1 sworn enemy. If it dies, I can choose a new one after the next dawn. Ranged attacks with this bow against my sworn enemy have adv., do +3d6 Piercing, ignore all cover but full, & don't suffer disadv. at long range. While my sworn enemy lives, I have disadv. on attack rolls with other weapons.",
-		descriptionFull : 'This particular oathbow is made of blackened, cooled lava, its string glowing as if red-hot.\n   When you nock an arrow on this bow, it whispers in Elvish, “Swift defeat to my enemies.” When you use this weapon to make a ranged attack, you can utter or sign the following command words: “Swift death to you who have wronged me.” The target of your attack becomes your sworn enemy until it dies or until dawn 7 days later. You can have only one such sworn enemy at a time. When your sworn enemy dies, you can choose a new one after the next dawn.\n   When you make a ranged attack roll with this weapon against your sworn enemy, you have Advantage on the roll. In addition, your target gains no benefit from Half Cover or Three-Quarters Cover, and you suffer no Disadvantage due to long range. If the attack hits, your sworn enemy takes an extra 3d6 Piercing damage.\n   While your sworn enemy lives, you have Disadvantage on attack rolls with all other weapons. [Added a choice of bow with 2024 rules]',
-		attunement : true,
-		weight : 2,
-	chooseGear : {
-		type : "weapon",
-		prefixOrSuffix : "brackets",
-		itemName1stPage : ["brackets", "Lava Oathbow"],
-		descriptionChange : ["replace", "bow"],
-		excludeCheck : function (inObjKey, inObj) {
-			var testRegex = /shortbow|longbow/i;
-			return !(testRegex).test(inObjKey) && (!inObj.baseWeapon || !(testRegex).test(inObj.baseWeapon));
-		}
-	},
-		calcChanges: oathbowChanges.calcChanges,
-	},
-	"oathbow: shadowsong (ddex3-7)" : {
-		name : "Shadowsong, Oathbow (DDEX3-7)",
-		source : [["AL","S7"]],
-		type : "weapon (longbow or shortbow)",
-		rarity : "very rare",
-		description : "Shadowsong is hewn from yew & has green metal tendrils snaking down its length. It glows dimly in the presence of humans. If I atk with bow & say command, target is sworn enemy for 7 days or death (ability recharges next dawn). Bow atks vs it: adv, +3d6 dmg, ignore partial cover & no range disadv. While it lives, I have disadv. with other weapons.",
-		descriptionLong : "Each of the elven oathbows are possessed of mythical power. Shadowsong is hewn from yew and features curious green metal tendrils snaking through its length. It glows dimly in the presence of humans. When I use the bow to make a ranged attack & say \"Swift death to you who have wronged me.\", the target becomes my sworn enemy until it dies or until dawn 7 days later. I can have only 1 sworn enemy at a time. If it dies, I can choose a new one after the next dawn. Ranged attacks with this bow against my sworn enemy have adv., do +3d6 Piercing, ignore all cover but full, & don't suffer disadv. at long range. While my sworn enemy lives, I have disadv. on attack rolls with other weapons.",
-		descriptionFull : 'Each of the elven oathbows are possessed of mythical power and ancient legends. Shadowsong is hewn from a supple length of yew and features curious green metal tendrils snaking through its length. It glows dimly in the presence of humans.\n   When you nock an arrow on this bow, it whispers in Elvish, “Swift defeat to my enemies.” When you use this weapon to make a ranged attack, you can utter or sign the following command words: “Swift death to you who have wronged me.” The target of your attack becomes your sworn enemy until it dies or until dawn 7 days later. You can have only one such sworn enemy at a time. When your sworn enemy dies, you can choose a new one after the next dawn.\n   When you make a ranged attack roll with this weapon against your sworn enemy, you have Advantage on the roll. In addition, your target gains no benefit from Half Cover or Three-Quarters Cover, and you suffer no Disadvantage due to long range. If the attack hits, your sworn enemy takes an extra 3d6 Piercing damage.\n   While your sworn enemy lives, you have Disadvantage on attack rolls with all other weapons. [Added a choice of bow with 2024 rules]',
-		attunement : true,
-		prerequisite : "Requires attunement by a ranger.",
-		prereqeval : function(v) {
-			return classes.known.ranger || classes.known.rangerua ? true : false;
-		},
-		weight : 2,
-	chooseGear : {
-		type : "weapon",
-		prefixOrSuffix : "brackets",
-		itemName1stPage : ["brackets", "Shadowsong, Oathbow"],
-		descriptionChange : ["replace", "bow"],
-		excludeCheck : function (inObjKey, inObj) {
-			var testRegex = /shortbow|longbow/i;
-			return !(testRegex).test(inObjKey) && (!inObj.baseWeapon || !(testRegex).test(inObj.baseWeapon));
-		}
-	},
-		calcChanges: oathbowChanges.calcChanges,
-	},
-	"oathbow: moon (fr-dc-pandora-jwei-s2-6)" : {
-		name : "Moon Bow (Oathbow, PANDORA-JWEI-S2-6)",
-		source : [["AL","FR-DC"]],
-		type : "weapon (longbow)",
-		rarity : "very rare",
-		description : "Trunks & branches from the Yggdrasil tree created this bow. Infused with the moon's power, trails of moonlight are left in each arrow's trajectory. I can attune in 1 min. If I atk with bow & say command, target is sworn enemy for 7 days or death (ability recharges next dawn). Bow atks vs it: adv, +3d6 dmg, ignore partial cover & no range disadv. While it lives, I have disadv. with other weapons.",
-		descriptionLong : "Trunks and branches from the Yggdrasil tree are used to forge this bow. Infused with the power of the moon, anytime an arrow is shot, trails of moonlight are left in its trajectory. I can attune in 1 minute. When I make a ranged atk with bow and say \"Swift death to you who have wronged me.\", target becomes my sworn enemy until death or dawn 7 days later. I can only have 1 sworn enemy. If it dies, I can choose a new one after the next dawn. Ranged attacks with bow against my sworn enemy have adv., do +3d6 Piercing, ignore all cover but full, and don't suffer disadv. at long range. While sworn enemy lives, I have disadv. on attacks with other weapons.",
-		descriptionFull : 'Trunks and branches from the yggdrasil tree are used to forge this bow. Infused with the power of the moon, anytime an arrow is shot, trails of moonlight are left in its trajectory.\n   " + toUni("Harmonious") + ". Attuning to this item takes only 1 minute.\n   When you nock an arrow on this bow, it whispers in Elvish, “Swift defeat to my enemies.” When you use this weapon to make a ranged attack, you can utter or sign the following command words: “Swift death to you who have wronged me.” The target of your attack becomes your sworn enemy until it dies or until dawn 7 days later. You can have only one such sworn enemy at a time. When your sworn enemy dies, you can choose a new one after the next dawn.\n   When you make a ranged attack roll with this weapon against your sworn enemy, you have Advantage on the roll. In addition, your target gains no benefit from Half Cover or Three-Quarters Cover, and you suffer no Disadvantage due to long range. If the attack hits, your sworn enemy takes an extra 3d6 Piercing damage.\n   While your sworn enemy lives, you have Disadvantage on attack rolls with all other weapons. [Newer DCs do specify item type, so no choice]',
-		attunement : true,
-		weight : 2,
-		weaponsAdd : { select : ["Moon Bow, Oathbow (Longbow)"], options : ["Moon Bow, Oathbow (Longbow)"] },
-		calcChanges: oathbowChanges.calcChanges,
-	},
-	"oathbow: selestria (wbw-dc-tmp-3)" : {
-		name : "Selestria, Oathbow (DC-TMP-3)",
-		source : [["AL","WBW-DC"]],
-		type : "weapon (longbow or shortbow)",
-		rarity : "very rare",
-		description : "This bow is strung with unicorn hair & made from the heartwood of an elder treant dedicated to protecting the forest. It mutters Elvish prayers to Mielikki & grumbles in cities about being far from nature. If I listen carefully, I may learn something. If I atk with bow & say command, target is sworn enemy for 7 days or death (ability recharges next dawn). Bow atks vs it: adv, +3d6 dmg, ignore partial cover & no range disadv. While it lives, I have disadv. with other weapons.",
-		descriptionLong : "Selestria is strung with unicorn hair and made from the heartwood of an elder treant who wished to dedicate its afterlife to protecting the forest. The bow mutters Elvish prayers to Mielikki & grumbles about being far from nature in urban settings. If I listen, I may learn something. When I make a ranged atk with bow & say \"Swift death to you who have wronged me.\", target becomes my sworn enemy until death or dawn 7 days later. I can only have 1 sworn enemy. If it dies, I can choose a new one after the next dawn. Ranged atks with bow against my sworn enemy have adv., do +3d6 Piercing, ignore all cover but full, & don't suffer disadv. at long range. While sworn enemy lives, I have disadv. on atks with other weapons.",
-		descriptionFull : 'Selestria is made from the heartwood of an elder treant who served Mielikki and wished to dedicate their afterlife to protecting the forest. Selestria is strung with the hair of a unicorn.\n   " + toUni("Muttering") + ". Selestria mutters prayers to Mielikki in Elvish while wielded, and grumbles about being far from nature while in urban settings. A creature who listens carefully to the item might learn something useful. [GFP Item]\n   When you nock an arrow on this bow, it whispers in Elvish, “Swift defeat to my enemies.” When you use this weapon to make a ranged attack, you can utter or sign the following command words: “Swift death to you who have wronged me.” The target of your attack becomes your sworn enemy until it dies or until dawn 7 days later. You can have only one such sworn enemy at a time. When your sworn enemy dies, you can choose a new one after the next dawn.\n   When you make a ranged attack roll with this weapon against your sworn enemy, you have Advantage on the roll. In addition, your target gains no benefit from Half Cover or Three-Quarters Cover, and you suffer no Disadvantage due to long range. If the attack hits, your sworn enemy takes an extra 3d6 Piercing damage.\n   While your sworn enemy lives, you have Disadvantage on attack rolls with all other weapons. [Added a choice of bow with 2024 rules]',
-		attunement : true,
-		weight : 2,
-	chooseGear : {
-		type : "weapon",
-		prefixOrSuffix : "brackets",
-		itemName1stPage : ["brackets", "Selestria, Oathbow"],
-		descriptionChange : ["replace", "bow"],
-		excludeCheck : function (inObjKey, inObj) {
-			var testRegex = /shortbow|longbow/i;
-			return !(testRegex).test(inObjKey) && (!inObj.baseWeapon || !(testRegex).test(inObj.baseWeapon));
-		}
-	},
-		calcChanges: oathbowChanges.calcChanges,
-	},
-	"starshot hand crossbow (po-bmg-drw-ks-2)" : {
-		name : "Starshot Hand Crossbow (PO-BMG-DRW-KS-2)",
-		source : [["AL", "DRW"]], // Chapter 5: Gem
-		type : "weapon (any crossbow)",
-		rarity : "rare",
-		attunement : true,
-		description : "This blackened crossbow has pearl inlays depicting 3 constellations. Interlaced silver ferns, a popular Rashemi motif, adorn both sides of the foregrip. It ignores Loading, makes own ammo & has 3 charges, 1d3 regained at dawn. As bonus action, 1 charge causes effect until next turn ends. Balance: next xbow hit heals creature in 30 ft for 1d8+PB. Flames: it deals +2d8 Fire. Rogue: I turn Invisible.",
-		descriptionLong : "This crossbow of blackened wood has pearl inlays depicting 3 different constellations. Interlacing silver ferns—a popular Rashemi motif— adorn both sides of the foregrip. It ignores loading, produces its own ammo, and has 3 charges and regains 1d3 daily at dawn. As a bonus action, I can use 1 charge to invoke one constellation until my next turn ends. Balance: next hit with the crossbow heals creature in 30 ft for 1d8 + my Prof Bonus. Flames: the crossbow deals +2d8 Fire. Rogue: I become Invisible as well as anything I'm wearing or carrying.",
-		descriptionFull : "Interlacing silver ferns—a popular Rashemi motif— adorn both sides of the foregrip.\n   This crossbow is crafted from blackened wood, and its limbs bear pearl inlays depicting constellations. You ignore the loading property with this crossbow. If you load no ammunition in the weapon, it produces its own, automatically creating one piece of magic ammunition when you make a ranged attack with it. The ammunition created by the weapon vanishes the instant after it hits or misses a target. The crossbow has 3 charges and regains 1d3 expended charges daily at dawn."+
-		"\n   " + toUni("Constellations") + ". The crossbow is decorated with three constellations. As a bonus action, you can tap one of the constellations to invoke it, expending 1 charge and producing one of the following effects:"+
-		"\n   " + toUni("Balance") + ". The next time you hit a creature with a ranged attack roll using this crossbow before the end of your next turn, you or another creature of your choice within 30 feet of you can regain hit points equal to 1d8 plus your proficiency bonus."+
-		"\n   " + toUni("Flames") + ". Until the end of your next turn, when you hit a creature with a ranged attack roll using this crossbow, the attack deals an additional 2d8 fire damage."+
-		"\n   " + toUni("Rogue") + ". Until the end of your next turn, you have the invisible condition, and anything you are wearing or carrying is also invisible. [Premiere item, may change]",
-		action : [["bonus action", ""]],
-		limfeaname : "Starshot Crossbow",
-		usages : 3,
-		recovery : "dawn",
-		additional : "regains 1d3",
-		weaponOptions : {
-			baseWeapon : "hand crossbow",
-			regExpSearch : /^(?=.*starshot)(?=.*hand)(?=.*crossbow).*$/i,
-			name : "Starshot Hand Crossbow",
-			description : "Ammunition, light, vex",
-			selectNow : true,
-		}
-	},
 	"stone greataxe (ddal0-13)" : {
 		name : "Stone Greataxe (DDAL0-13)",
 		source : [["KOSC",48]],
@@ -7254,28 +7230,6 @@ MagicItemsList["al weapons (other)"] = {
 		descriptionFull : "The blade of this weapon is made into that of a stylized black raven feather. The wielder of the weapon has the sensation of flying whenever they close their eyes.\n   This magic weapon deals an extra 2d6 damage to any creature it hits. This extra damage is of the same type as the weapon's normal damage.",
 		weaponsAdd : { select : ["Ptahrek's Vicious Glaive"], options : ["Ptahrek's Vicious Glaive"] },
 		calcChanges: viciousWeaponCalc.calcChanges,
-	},
-	"vicious heavy crossbow (ps-dc-pub-3)" : {
-		name : "Vicious Heavy Crossbow (PS-DC-PUB-3)",
-		source : [["AL","FR-DC"]],
-		type : "weapon (heavy crossbow)",
-		rarity : "rare",
-		description : "This heavy crossbow was lovingly crafted and maintained. It has a rosewood stock, shining brass and steel mechanisms, and a spider silk string. Its previous owner called it ‘Bessie' and the weapon seems to like the name. Bessie creaks or twangs its string before an enemy attacks, giving me a crucial warning and +2 initiative unless I'm Incapacitated. It does +2d6 damage per shot.",
-		descriptionFull : "This heavy crossbow has been lovingly crafted and maintained. Its stock is rosewood, its mechanisms shining brass and steel, and its string is made of spun spider silk. Its previous owner called it ‘Bessie' and the weapon seems to like that name. Bessie sometimes creaks or its string twangs, just before an enemy attacks its wielder, giving them an often crucial moment's warning.\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition.\n  warns me, giving +2 initiative unless Incapacitated.\n   This magic weapon deals an extra 2d6 damage to any creature it hits. This extra damage is of the same type as the weapon's normal damage.",
-		weaponsAdd : { select : ["Vicious Heavy Crossbow"], options : ["Vicious Heavy Crossbow"] },
-		calcChanges: viciousWeaponCalc.calcChanges,
-		addMod : genericGuardianWeapon.addMod,
-	},
-	"vicious longbow: wayfinder (fr-dc-mcg-ch2)" : {
-		name : "Wayfinder, Vicious Longbow (MCG-CH2)",
-		source : [["AL","FR-DC"]],
-		type : "weapon (longbow)",
-		rarity : "rare",
-		description : "Wayfinder is made from yew and does +2d6 damage per shot. The bow seems to increase its tension as the string is released, magnifying the force of each shot. If an arrow is nocked and readied, the arrowhead glows slightly when the bow is pointed towards magnetic north, which can be done as a Magic action.",
-		descriptionFull : "Wayfinder is made from yew wood and seems to increase the tension of the bow as the string is released, magnifying the force of the shot. If an arrow is nocked and readied, the arrowhead glows slightly when the bow is pointed towards magnetic north (as per the Compass minor property).\n   " + toUni("Compass") + ". You can take a Magic action to learn which way is magnetic north. Nothing happens if this property is used in a location that has no magnetic north.\n   This magic weapon deals an extra 2d6 damage to any creature it hits. This extra damage is of the same type as the weapon's normal damage.",
-		weaponsAdd : { select : ["Wayfinder, Vicious Longbow"], options : ["Wayfinder, Vicious Longbow"] },
-		calcChanges: viciousWeaponCalc.calcChanges,
-		action : [["action", "Wayfinder (find north)"]],
 	},
 	"vicious mace (ccc-bmg-1 hulb1-1)" : {
 		name : "Vicious Mace (CCC-BMG-1 HULB1-1)",
@@ -7497,7 +7451,10 @@ MagicItemsList["al weapons (other)"] = {
 			type : "weapon",
 			prefixOrSuffix : "prefix",
 			descriptionChange : ["replace", "weapon"],
-			itemName1stPage : ["prefix", "of Warning"]
+			itemName1stPage : ["prefix", "of Warning"],
+			excludeCheck : function (inObjKey, inObj) {
+				return (/bomb|dynamite|gun|grenade|rifle|pistol|musket|revolver|fire|water|net|oil|oversized|torch|vial/i).test(inObj.name);
+					},
 				},
 			},
 	"weapon of warning (ddal0-7)" : {
@@ -7516,7 +7473,10 @@ MagicItemsList["al weapons (other)"] = {
 			type : "weapon",
 			prefixOrSuffix : "prefix",
 			descriptionChange : ["replace", "weapon"],
-			itemName1stPage : ["prefix", "of Warning"]
+			itemName1stPage : ["prefix", "of Warning"],
+			excludeCheck : function (inObjKey, inObj) {
+				return (/bomb|dynamite|gun|grenade|rifle|pistol|musket|revolver|fire|water|net|oil|oversized|torch|vial/i).test(inObj.name);
+					},
 				},
 			},
 	"whip of warning (ccc-ghc-bk2-10)" : {
@@ -7548,3 +7508,344 @@ MagicItemsList["al weapons (other)"] = {
 			weaponsAdd : { select : ["Whip of Warning"], options : ["Whip of Warning"] },
 			},
 }
+
+MagicItemsList["al weapons (ranged, other)"] = {
+		name : "AL Weapons (Ranged, Other)",
+		allowDuplicates : true,
+		choicesNotInMenu : true,
+		magicItemTable : "?",
+	choices : ["Hand Crossbow of Melodies: Leeley's (PS-DC-PKL-14)","Longbow of Melodies: Airalinde (FR-DC-IMP-2)","Longbow of Melodies: Lavender's Scent (FR-DC-PANDORA-JWEI-10)","Shortbow of Melodies (FR-DC-FALL-1)","Dragon Wing Bow: Radiant (BMG-DRWEP-OD-2)","Energy Bow: Eschantrii (PS-DC-MONSTER-5)","Energy Shortbow: Tametomo's (FR-DC-ONI-4)","Forcebreaker Sling (PO-BMG-DRW-KS-6)","Glimmering Moonbow: Starlight Shortbow (PO-BMG-DRWEP-KS-1)","Oathbow: Syranna's Folly (CCC-OCC-1)","Oathbow (DDAL-DRW8)","Oathbow: Shadowsong (DDEX3-7)","Oathbow: Moon (FR-DC-PANDORA-JWEI-S2-6)","Oathbow: Selestria (WBW-DC-TMP-3)","Starshot Hand Crossbow (PO-BMG-DRW-KS-2)","Vicious Heavy Crossbow (PS-DC-PUB-3)","Vicious Longbow: Wayfinder (FR-DC-MCG-CH2)"],
+	"hand crossbow of melodies: leeley's (ps-dc-pkl-14)" : {
+			name : "Leeley's Hand Crossbow of Melodies (PKL-14)",
+			source : [["AL","PS-DC"]],
+			type : "weapon (hand crossbow)",
+			rarity : "very rare",
+			attunement : true,
+			description : "This hand crossbow is shaped like a harp & whispers warning, giving +2 initiative if not Incapacitated. When I atk with it, I can play 1 melody on each atk. Precision: If proficient with Performance, add +1 (+2 if expertise) to atk roll. Reverberation: add Cha mod Thunder dmg to atk.",
+			descriptionLong : "This hand crossbow resembles a lyre with multiple strings. I can use the strings to play 1 melody on each attack. Melody of Precision: If I'm proficient with Performance, add +1 (+2 if expertise) to the attack roll. Melody of Reverberation: add Charisma modifier in Thunder damage to the attack. The crossbow also whispers warnings, giving me +2 initiative unless Incapacitated.",
+			descriptionFull : "This bow has multiple strings and resembles a lyre or small harp. By strumming the strings while setting an arrow to the bow, you imbue the arrow with magic."+
+			"\n   You can play one of the following melodies when you use the bow to make a ranged weapon attack. You must choose to do so before you make the attack roll, and you can play only one melody per attack."+
+			"\n   " + toUni("Melody of Precision") + ". If you're proficient in Performance, you gain a +1 bonus to the attack roll. If you have expertise in Performance, you gain a +2 bonus instead."+
+			"\n   " + toUni("Melody of Reverberation") + ". The melody you strum echoes loudly. On a hit, the target takes extra thunder damage equal to your Charisma modifier."+
+			"\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition.",
+			weaponsAdd : { select : ["Hand Crossbow of Melodies"], options : ["Hand Crossbow of Melodies"] },
+			addMod : genericGuardianWeapon.addMod,
+		calcChanges: bowOfMelodies.calcChanges,
+	},
+	"longbow of melodies: airalinde (fr-dc-imp-2)" : {
+			name : "Airalinde, Longbow of Melodies (IMP-2)",
+			source : [["AL","FR-DC"]],
+			type : "weapon (longbow)",
+			rarity : "very rare",
+			attunement : true,
+			description : "This elven longbow is shaped like a harp cleverly reinforced with mithral and moonstones. It enhances pangs of conscience if I consider or do malevolent acts. When I atk with the bow, I can play 1 melody on each atk. Precision: If proficient with Performance, add +1 (+2 if expertise) to atk roll. Reverberation: add Cha mod Thunder dmg to atk.",
+			descriptionLong : "Airalinde (Hymn) is a wonder of elven craftsmanship. The longbow resembles a lyre with multiple strings. It's cleverly reinforced with mithral and inlaid with moonstones. The bow enhances pangs of conscience around malevolent acts. I can use the strings to play 1 melody on each attack. Melody of Precision: If proficient with Performance, add +1 (+2 if expertise) to the attack roll. Melody of Reverberation: add Charisma modifier in Thunder damage to the attack.",
+			descriptionFull : "A wonder of elven craftsmanship, Airalindë (“Hymn”) is a wooden bow cleverly reinforced with mithral and inlaid with enchanted moonstones."+
+			"\n   " + toUni("Conscientious") + ". When the bearer of this item contemplates or undertakes a malevolent act, the item enhances pangs of conscience."+
+			"\n   This bow has multiple strings and resembles a lyre or small harp. By strumming the strings while setting an arrow to the bow, you imbue the arrow with magic."+
+			"\n   You can play one of the following melodies when you use the bow to make a ranged weapon attack. You must choose to do so before you make the attack roll, and you can play only one melody per attack."+
+			"\n   " + toUni("Melody of Precision") + ". If you're proficient in Performance, you gain a +1 bonus to the attack roll. If you have expertise in Performance, you gain a +2 bonus instead."+
+			"\n   " + toUni("Melody of Reverberation") + ". The melody you strum echoes loudly. On a hit, the target takes extra thunder damage equal to your Charisma modifier.",
+			weaponsAdd : { select : ["Airalinde, Longbow of Melodies"], options : ["Airalinde, Longbow of Melodies"] },
+		calcChanges: bowOfMelodies.calcChanges,
+	},
+	"longbow of melodies: lavender's scent (fr-dc-pandora-jwei-10)" : {
+			name : "Lavender's Scent, Bow of Melodies (PANDORA-JWEI-10)",
+			source : [["AL","FR-DC"]],
+			type : "weapon (longbow)",
+			rarity : "very rare",
+			attunement : true,
+			description : "This longbow is shaped like a harp. When strummed, it emits an aroma of lavender and any who fall asleep to its melodies have tranquil dreams. The bow warns me, giving +2 initiative if not Incapacitated. I can play 1 melody on each atk. Precision: If proficient with Performance, add +1 (+2 if expertise) to atk roll. Reverberation: add Cha mod Thunder dmg to atk.",
+			descriptionLong : "This longbow is shaped like a harp with multiple strings. When strummed, it emits an aroma of lavender and those who fall asleep while enchanted by its melodies are blessed with tranquil dreams. The bow also warns me, giving +2 initiative if not Incapacitated. I can use the strings to play 1 melody on each atk. Melody of Precision: If proficient with Performance, add +1 (+2 if expertise) to the attack roll. Melody of Reverberation: add Charisma modifier in Thunder dmg to attack.",
+			descriptionFull : "This longbow, fashioned in the likeness of a harp, emanates a soothing aroma of lavender when its strings are strummed. It is said that those who fall asleep while enchanted by its melodies are blessed with tranquil dreams, free from the burdens of the waking world."+
+			"\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition."+
+			"\n   This bow has multiple strings and resembles a lyre or small harp. By strumming the strings while setting an arrow to the bow, you imbue the arrow with magic."+
+			"\n   You can play one of the following melodies when you use the bow to make a ranged weapon attack. You must choose to do so before you make the attack roll, and you can play only one melody per attack."+
+			"\n   " + toUni("Melody of Precision") + ". If you're proficient in Performance, you gain a +1 bonus to the attack roll. If you have expertise in Performance, you gain a +2 bonus instead."+
+			"\n   " + toUni("Melody of Reverberation") + ". The melody you strum echoes loudly. On a hit, the target takes extra thunder damage equal to your Charisma modifier.",
+			addMod : genericGuardianWeapon.addMod,
+			weaponsAdd : { select : ["Lavender's Scent, Longbow of Melodies"], options : ["Lavender's Scent, Longbow of Melodies"] },
+		calcChanges: bowOfMelodies.calcChanges,
+	},
+	"shortbow of melodies (fr-dc-fall-1)" : {
+		name : "Shortbow of Melodies (FR-DC-FALL-1)",
+		source : [["AL","FR-DC"]],
+		type : "weapon (any bow)",
+		rarity : "very rare",
+		attunement : true,
+		description : "This shortbow is shaped like a harp with multiple strings. It's the color of Auril's rime and always cool to the touch. I suffer no harm in extreme temps past 0\u00B0F & 100\u00B0F. I can use the strings to play 1 melody per atk. Precision: If proficient with Performance, add +1 (+2 if expertise) to atk roll. Reverberation: add Charisma mod Thunder dmg.",
+		descriptionLong : "This shortbow is shaped like a harp with multiple strings. It's the color of Auril's rime and always cool to the touch. While on my person, I suffer no harm in extreme temperatures past 0\u00B0F and 100\u00B0F. I can use the strings to play 1 of 2 melodies on each attack. Melody of Precision: if I'm proficient with Performance, add +1 (+2 if expertise) to the attack roll. Melody of Reverberation: add my Charisma modifier in Thunder damage to the attack.",
+		descriptionFull : "This bow is the color of Auril's rime and is always cool to the touch."+
+		"\n   " + toUni("Temperate") + ". You are unharmed by temperatures of 0 degrees Fahrenheit or lower, and 100 degrees Fahrenheit or higher."+
+		"\n   This bow has multiple strings and resembles a lyre or small harp. By strumming the strings while setting an arrow to the bow, you imbue the arrow with magic."+
+		"\n   You can play one of the following melodies when you use the bow to make a ranged weapon attack. You must choose to do so before you make the attack roll, and you can play only one melody per attack."+
+		"\n   " + toUni("Melody of Precision") + ". If you're proficient in Performance, you gain a +1 bonus to the attack roll. If you have expertise in Performance, you gain a +2 bonus instead."+
+		"\n   " + toUni("Melody of Reverberation") + ". The melody you strum echoes loudly. On a hit, the target takes extra thunder damage equal to your Charisma modifier.",
+		savetxt : { immune : ["temps past 0\u00B0F/100\u00B0F"] },
+		weaponsAdd : { select : ["Shortbow of Melodies"], options : ["Shortbow of Melodies"] },
+		calcChanges: bowOfMelodies.calcChanges,
+	},
+	"dragon wing bow: radiant (bmg-drwep-od-2)" : {
+		name : "Radiant Dragon Wing (BMG-DRWEP-OD-2)",
+		nameTest : "/wing.*(bmg-drwep-od-2)/i",
+		source : [["AL","DRW"]],
+		type : "weapon (any bow)",
+		rarity : "rare",
+		attunement : true,
+		description : "The wood of this magic bow glimmers, and when turned in the light, every color of the rainbow appears. The limb tips are shaped like dragon wings and it's infused with the essence of a crystal dragon's breath. Attacks made with it deal an extra 1d6 Radiant. When I pull back the string without ammo loaded in it, the weapon creates its own that lasts until it hits or misses a target.",
+		descriptionFull : "The wood of this bow glimmers, and when turned in the light, every color of the rainbow shows up.\n   The limb tips of this magic bow are shaped like a dragon's wings, and the weapon is infused with the essence of a chromatic, gem, or metallic dragon's breath. When you hit with an attack roll using this magic bow, the target takes an extra 1d6 damage of the same type as the breath infused in the bow\u2014acid, cold, fire, force, lightning, necrotic, poison, psychic, radiant, or thunder."+
+		"\n   If you load no ammunition in the weapon, it produces its own, automatically creating one piece of magic ammunition when you pull back the string. The ammunition created by the bow vanishes the instant after it hits or misses a target.",
+		chooseGear : {
+			type : "weapon",
+			prefixOrSuffix : ["between", "Radiant Dragon Wing", "(BMG-DRWEP-OD-2)"],
+			itemName1stPage : ["suffix", "Radiant DW"],
+			descriptionChange : ["replace", "bow"],
+			excludeCheck : function (inObjKey, inObj) {
+				var testRegex = /bow/i;
+				return !(testRegex).test(inObjKey) && (!inObj.baseWeapon || !(testRegex).test(inObj.baseWeapon));
+			}
+		},
+	calcChanges : {
+		atkAdd : [
+			function (fields, v) {
+				if (!v.theWea.isMagicWeapon && v.isRangedWeapon && (/^(?=.*radiant)(?=.*dw).*$/i).test(v.WeaponTextName)) {
+					v.theWea.isMagicWeapon = true;
+					fields.Description = fields.Description.replace(/(, |; )?Counts as magical/i, '');
+					fields.Description += (fields.Description ? '; ' : '') + '+1d6 Radiant dmg; Creates own ammo';
+				}
+			},
+			'If I include Radiant DW in a the name of a bow, it will be treated as the weapon Dragon Wing Bow for a Crystal Dragon.'
+			]
+			}
+		},
+	"energy bow: eschantrii (ps-dc-monster-5)" : {
+		name : "Eschantrii Energy (MONSTER-5)",
+		nameTest : "/energy.*(monster-5)/i",
+		source : [["AL", "PS-DC"]],
+		type : "weapon (longbow or shortbow)",
+		rarity : "very rare",
+		magicItemTable : "?",
+		description : "Made of Eschantrii druidic wood with a string from the Aether Tyrant's gut, a blend of primal elemental & shadow energy fills this +1 bow. When I draw it, a golden arrow appears, emitting 20-ft Bright Light & 20-ft Dim. On a hit, Force dmg or DC 15 STR save vs Restrained for 1 min (DC 20 STR Athletics to escape). Magic actions: 1 visible willing creature (up to Med) or unattended obj (5ft cube) in 60 ft teleported to visible space in 10 ft of me; my arrows create magical 60 ft tall ladder for 1 min on wall in 60 ft. I can attune to the bow in 1 min.",
+		descriptionLong : "Made of druidic wood of the Eschantrii with a string from the Aether Tyrant's gut, a blend of primal elemental and shadow energy courses through the arrows from this +1 bow. When I pull back my arm, a golden arrow appears nocked and ready to fire, emitting a 20-ft radius of Bright Light and 20-ft Dim Light. It disappears on a hit or miss and deals Force dmg. The bow also has additional properties. Arrow of Restraint: instead of damage, the target makes a DC 15 STR save or is Restrained for 1 minute (DC 20 STR Athletics to escape). Arrow of Transport: as a Magic action, 1 visible willing creature (up to Medium) or unattended object (up to 5-ft cube) in 60 ft is teleported to a visible space in 10 ft of me. Energy Ladder: as a Magic action, fire arrows at a wall within 60 ft. The arrows create a 60 ft magical ladder that lasts for 1 minute. I can attune to the bow in 1 minute.",
+		descriptionFull : "Fashioned by the druidic wood of the Eschantrii, the string is taken from the Aether Tyrants gut essences, a blend of primal elemental and shadow energy courses through the energy arrows shot from this bow.\n   " + toUni("Harmonious") + ". Attuning to this item takes only 1 minute.\n   You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon, which has no string. Each time you pull your arm back in a firing motion, a magical arrow made of golden energy appears nocked and ready to fire. An arrow produced by this weapon deals Force damage instead of Piercing damage on a hit, and it disappears after it hits or misses its target. Until it disappears, the arrow emits Bright Light in a 20-foot radius and Dim Light for an additional 20 feet.\n   This weapon has the following additional properties.\n   Arrow of Restraint. Whenever you use this weapon to make a ranged attack against a creature, you can try to restrain the target instead of dealing damage to it. If the arrow hits, the target must succeed on a DC 15 Strength saving throw or have the Restrained condition for 1 minute. As an action, a creature Restrained by an arrow can make a DC 20 Strength (Athletics) check to try to break the restraint, ending the effect on itself on a successful check.\n   Arrow of Transport. As a Magic action, you can fire one energy arrow from this weapon at a target you can see within 60 feet of yourself. The target can be either a willing Medium or smaller creature or an object that isn't being worn or carried, provided the object is small enough to fit inside a 5-foot Cube. The arrow teleports the target to an unoccupied space you can see within 10 feet of you.\n   Energy Ladder. As a Magic action, you can loose a flurry of energy arrows from this weapon at a wall up to 60 feet away from yourself. The arrows become glowing rungs that stick out of the wall, forming a magical ladder up to 60 feet long on the wall. This ladder lasts for 1 minute before disappearing.",
+		attunement : true,
+		chooseGear : {
+			type : "weapon",
+			prefixOrSuffix : ["between", "Eschantrii Energy", "(MONSTER-5)"],
+			itemName1stPage : ["suffix", "Eschantrii Energy"],
+			descriptionChange : ["replace", "bow"],
+			excludeCheck: function (inObjKey, inObj) {
+				return inObjKey !== "longbow" && inObjKey !== "shortbow";
+			}
+		},
+		calcChanges: energyBowChange.calcChanges,
+	},
+	"energy shortbow: tametomo's (fr-dc-oni-4)" : {
+		name : "Tametomo's Energy Shortbow (ONI-4)",
+		source : [["AL", "FR-DC"]],
+		type : "weapon (longbow or shortbow)",
+		rarity : "very rare",
+		magicItemTable : "?",
+		description : "When I pull back my arm to fire this +1 magic shortbow, a golden arrow appears, emitting 20-ft of Bright Light and 20-ft Dim Light. On a hit, the target takes the Force dmg or makes a DC 15 STR save vs Restrained for 1 min (DC 20 STR Athletics to escape). Magic actions: 1 visible willing creature (up to Med) or unattended obj (5ft cube) in 60 ft is teleported to visible space in 10 ft of me; my arrows create magical 60 ft tall ladder for 1 min on wall in 60 ft. I can attune to the bow in 1 min.",
+		descriptionLong : "This +1 shortbow has no string. When I pull back my arm, a golden arrow appears nocked and ready to fire, emitting a 20-ft radius of Bright Light and 20-ft Dim Light. It disappears on a hit or miss and deals Force damage. The bow also has additional properties. Arrow of Restraint: instead of damage, the target makes a DC 15 STR save or is Restrained for 1 minute (DC 20 STR Athletics to escape). Arrow of Transport: as a Magic action, 1 visible willing creature (up to Medium) or unattended object (up to 5-ft cube) in 60 ft is teleported to a visible space in 10 ft of me. Energy Ladder: as a Magic action, fire arrows at a wall within 60 ft. The arrows create a 60 ft magical ladder that lasts for 1 minute. I can attune to the bow in 1 minute.",
+		descriptionFull : "You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon, which has no string. Each time you pull your arm back in a firing motion, a magical arrow made of golden energy appears nocked and ready to fire. An arrow produced by this weapon deals Force damage instead of Piercing damage on a hit, and it disappears after it hits or misses its target. Until it disappears, the arrow emits Bright Light in a 20-foot radius and Dim Light for an additional 20 feet.\n   This weapon has the following additional properties.\n   Arrow of Restraint. Whenever you use this weapon to make a ranged attack against a creature, you can try to restrain the target instead of dealing damage to it. If the arrow hits, the target must succeed on a DC 15 Strength saving throw or have the Restrained condition for 1 minute. As an action, a creature Restrained by an arrow can make a DC 20 Strength (Athletics) check to try to break the restraint, ending the effect on itself on a successful check.\n   Arrow of Transport. As a Magic action, you can fire one energy arrow from this weapon at a target you can see within 60 feet of yourself. The target can be either a willing Medium or smaller creature or an object that isn't being worn or carried, provided the object is small enough to fit inside a 5-foot Cube. The arrow teleports the target to an unoccupied space you can see within 10 feet of you.\n   Energy Ladder. As a Magic action, you can loose a flurry of energy arrows from this weapon at a wall up to 60 feet away from yourself. The arrows become glowing rungs that stick out of the wall, forming a magical ladder up to 60 feet long on the wall. This ladder lasts for 1 minute before disappearing.\n   " + toUni("Harmonious") + ". Attuning to this item takes only 1 minute.",
+		attunement : true,
+		weaponsAdd : { select : ["Tametomo's Energy Shortbow"], options : ["Tametomo's Energy Shortbow"] },
+		calcChanges: energyBowChange.calcChanges,
+	},
+	"forcebreaker sling (po-bmg-drw-ks-6)" : {
+		name : "Forcebreaker Sling (PO-BMG-DRW-KS-6)",
+		source : [["AL","DRW"]], // Chapter 9: Knight
+		type : "weapon (sling)",
+		rarity : "very rare",
+		description : "This silvery +2 sling glitters in the sunlight. Try not to stare at it for too long or your eyes might hurt from the sparkles. It was crafted to destroy structures made of magical force, such as a Wall of Force. With one strike, I can shatter a Large or smaller structure of magical force, or shatter a 20-ft cube portion of a Huge or larger structure.",
+		descriptionFull : "This silvery sling glitters in the sunlight. Try not to stare at it for too long or your eyes might hurt from the sparkles."+
+		"\n   You gain a +2 bonus to attack and damage rolls made with this magic weapon."+
+		"\n   This weapon was crafted to destroy structures made of force, such as 	those created by Forcecage or Wall of Force. Striking a Large or smaller structure of magical force with this weapon automatically shatters that structure. If the target is a Huge or larger structure of force, this weapon shatters a 20-foot-cube portion of it.",
+		weaponOptions : {
+			baseWeapon : "sling",
+			regExpSearch : /^(?=.*forcebreaker)(?=.*sling).*$/i,
+			name : "Forcebreaker Sling",
+			description : "Ammunition; Slow; Shatters magical force",
+			modifiers : [2, 2],
+			selectNow : true,
+		}
+	},
+	"glimmering moonbow: starlight shortbow (po-bmg-drwep-ks-1)" : {
+			name : "Starlight Moonbow (Glimmering, PO-BMG-DRWEP-KS-1)",
+			source : [["AL","DRW"]],
+			type : "weapon (any bow)",
+			rarity : "rare",
+			attunement : true,
+			description : "The grip of this silver & black +1 shortbow is engraved with 3 stars for the major deities in Rashemen: Bhalla (Chauntea), Mielikki (Khelliara), & the Hidden One (Mystra). The bow creates own ammo if unloaded & deals +1d6 Radiant. As a bonus action once per dawn, I  can resist B/P/S until my next turn.",
+			descriptionLong : "The grip of this silver and black shortbow is engraved with 3 silver stars, representing the major deities in Rashemen known as “the Three”: Bhalla (Chauntea), Mielikki (Khelliara), and the Hidden One (Mystra). This bow creates own ammo if none loaded, has +1 to atk and dmg, and deals +1d6 Radiant dmg. As a bonus action once per dawn, I gain resistance to Bludgeoning, Piercing, and Slashing until my next turn starts.",
+			descriptionFull : "The grip of the bow is engraved with three silver stars, representing the major deities worshipped in Rashemen known as “the Three”—Bhalla (Chauntea), Mielikki (Khelliara), and the Hidden One (Mystra). When an arrow is loosed from this bow, it appears as a shooting star."+
+			"\n   This silver-and-black bow is engraved with the phases of the moon. You gain a +1 bonus to attack and damage rolls made with this magic weapon."+
+			"\n   When you hit with a ranged attack roll using this magic bow, the target takes an extra 1d6 radiant damage. If you load no ammunition in the weapon, it produces its own, automatically creating one piece of magic ammunition when you make a ranged attack with it. The ammunition created by the bow vanishes the instant after it hits or misses a target."+
+			"\n   While wielding this magic bow, you can use a bonus action to enter a semi-incorporeal state until the start of your next turn. While semi-incorporeal, you have resistance to bludgeoning, piercing, and slashing damage. Once this bonus action is used, it can't be used again until the next dawn.",
+			limfeaname : "Glimmering Moonbow",
+			usages : 1,
+			recovery : "dawn",
+			additional : "resistances",
+			action : [["bonus action", " (B/P/S resist)"]],
+			weaponsAdd : { select : ["Starlight Shortbow, Glimmering Moonbow"], options : ["Starlight Shortbow, Glimmering Moonbow"] },
+			calcChanges: glimmeringMoonbowCalcs.calcChanges,
+		},
+	"oathbow: syranna's folly (ccc-occ-1)" : {
+		name : "Syranna's Folly, Oathbow (OCC-1)",
+		source : [["AL","CCC"]],
+		type : "weapon (longbow or shortbow)",
+		rarity : "very rare",
+		description : "This elven bow holds the soul of a Thayan rebel, her defiled sigil etched in the grip. I speak Thayan & won't be at peace until Szass Tam & his plots are erased from existence. If I atk with bow & say command, target is sworn enemy for 7 days or death (ability recharges next dawn). Bow atks vs it: adv, +3d6 dmg, ignore partial cover & no range disadv. While it lives, disadv. with other wpns.",
+		descriptionLong : "This elven bow contains the soul of a Thayan rebel, her defiled sigil etched into the grip. When attuned, I can speak Thayan & receive the bond: \"I will not be at peace until Szass Tam & his plots are erased from existence\". If I say \"Swift death to you who have wronged me.\" & use this bow to make a ranged attack, the target becomes my sworn enemy until it dies or dawn 7 days later. I can only have 1 sworn enemy. If it dies, I can choose a new one after the next dawn. Ranged attacks with this bow against my sworn enemy have adv., do +3d6 Piercing, ignore all cover but full, & don't suffer disadv. at long range. While my sworn enemy lives, I have disadv. on attack rolls with other weapons.",
+		descriptionFull : 'This elven bow has the soul of a Thayan rebel permanently and irreversibly entwined within it, her sigil defiled and etched into the grip. When attuned, the bearer can speak and understand Thayan, in addition to receiving the following Bond: “I will not be at peace until Szass Tam and his plots are erased from existence”.\n   When you nock an arrow on this bow, it whispers in Elvish, “Swift defeat to my enemies.” When you use this weapon to make a ranged attack, you can utter or sign the following command words: “Swift death to you who have wronged me.” The target of your attack becomes your sworn enemy until it dies or until dawn 7 days later. You can have only one such sworn enemy at a time. When your sworn enemy dies, you can choose a new one after the next dawn.\n   When you make a ranged attack roll with this weapon against your sworn enemy, you have Advantage on the roll. In addition, your target gains no benefit from Half Cover or Three-Quarters Cover, and you suffer no Disadvantage due to long range. If the attack hits, your sworn enemy takes an extra 3d6 Piercing damage.\n   While your sworn enemy lives, you have Disadvantage on attack rolls with all other weapons. [Added a choice of bow with 2024 rules]',
+		attunement : true,
+		languageProfs : ["Thayan"],
+		weight : 2,
+	chooseGear : {
+		type : "weapon",
+		prefixOrSuffix : "brackets",
+		itemName1stPage : ["brackets", "Syranna's Folly, Oathbow"],
+		descriptionChange : ["replace", "bow"],
+		excludeCheck : function (inObjKey, inObj) {
+			var testRegex = /shortbow|longbow/i;
+			return !(testRegex).test(inObjKey) && (!inObj.baseWeapon || !(testRegex).test(inObj.baseWeapon));
+		}
+	},
+		calcChanges: oathbowChanges.calcChanges,
+	},
+	"oathbow (ddal-drw8)" : {
+		name : "Oathbow (DDAL-DRW8)",
+		source : [["AL","DRW"]],
+		type : "weapon (longbow or shortbow)",
+		rarity : "very rare",
+		description : "This bow is made of blackened cooled lava, its string glowing as if red-hot. If I atk with it & say command, target is sworn enemy for 7 days or until death (ability recharges next dawn). Bow atks vs it get advantage, +3d6 dmg, ignore partial cover & no range disadv. While it lives, disadv. with other weapons.",
+		descriptionLong : "This bow is made of blackened cooled lava, its string glowing as if red-hot. When I say \"Swift death to you who have wronged me.\" & use the bow to make a ranged attack, the target becomes my sworn enemy until it dies or dawn 7 days later. I can only have 1 sworn enemy. If it dies, I can choose a new one after the next dawn. Ranged attacks with this bow against my sworn enemy have adv., do +3d6 Piercing, ignore all cover but full, & don't suffer disadv. at long range. While my sworn enemy lives, I have disadv. on attack rolls with other weapons.",
+		descriptionFull : 'This particular oathbow is made of blackened, cooled lava, its string glowing as if red-hot.\n   When you nock an arrow on this bow, it whispers in Elvish, “Swift defeat to my enemies.” When you use this weapon to make a ranged attack, you can utter or sign the following command words: “Swift death to you who have wronged me.” The target of your attack becomes your sworn enemy until it dies or until dawn 7 days later. You can have only one such sworn enemy at a time. When your sworn enemy dies, you can choose a new one after the next dawn.\n   When you make a ranged attack roll with this weapon against your sworn enemy, you have Advantage on the roll. In addition, your target gains no benefit from Half Cover or Three-Quarters Cover, and you suffer no Disadvantage due to long range. If the attack hits, your sworn enemy takes an extra 3d6 Piercing damage.\n   While your sworn enemy lives, you have Disadvantage on attack rolls with all other weapons. [Added a choice of bow with 2024 rules]',
+		attunement : true,
+		weight : 2,
+	chooseGear : {
+		type : "weapon",
+		prefixOrSuffix : "brackets",
+		itemName1stPage : ["brackets", "Lava Oathbow"],
+		descriptionChange : ["replace", "bow"],
+		excludeCheck : function (inObjKey, inObj) {
+			var testRegex = /shortbow|longbow/i;
+			return !(testRegex).test(inObjKey) && (!inObj.baseWeapon || !(testRegex).test(inObj.baseWeapon));
+		}
+	},
+		calcChanges: oathbowChanges.calcChanges,
+	},
+	"oathbow: shadowsong (ddex3-7)" : {
+		name : "Shadowsong, Oathbow (DDEX3-7)",
+		source : [["AL","S7"]],
+		type : "weapon (longbow or shortbow)",
+		rarity : "very rare",
+		description : "Shadowsong is hewn from yew & has green metal tendrils snaking down its length. It glows dimly in the presence of humans. If I atk with bow & say command, target is sworn enemy for 7 days or death (ability recharges next dawn). Bow atks vs it: adv, +3d6 dmg, ignore partial cover & no range disadv. While it lives, I have disadv. with other weapons.",
+		descriptionLong : "Each of the elven oathbows are possessed of mythical power. Shadowsong is hewn from yew and features curious green metal tendrils snaking through its length. It glows dimly in the presence of humans. When I use the bow to make a ranged attack & say \"Swift death to you who have wronged me.\", the target becomes my sworn enemy until it dies or until dawn 7 days later. I can have only 1 sworn enemy at a time. If it dies, I can choose a new one after the next dawn. Ranged attacks with this bow against my sworn enemy have adv., do +3d6 Piercing, ignore all cover but full, & don't suffer disadv. at long range. While my sworn enemy lives, I have disadv. on attack rolls with other weapons.",
+		descriptionFull : 'Each of the elven oathbows are possessed of mythical power and ancient legends. Shadowsong is hewn from a supple length of yew and features curious green metal tendrils snaking through its length. It glows dimly in the presence of humans.\n   When you nock an arrow on this bow, it whispers in Elvish, “Swift defeat to my enemies.” When you use this weapon to make a ranged attack, you can utter or sign the following command words: “Swift death to you who have wronged me.” The target of your attack becomes your sworn enemy until it dies or until dawn 7 days later. You can have only one such sworn enemy at a time. When your sworn enemy dies, you can choose a new one after the next dawn.\n   When you make a ranged attack roll with this weapon against your sworn enemy, you have Advantage on the roll. In addition, your target gains no benefit from Half Cover or Three-Quarters Cover, and you suffer no Disadvantage due to long range. If the attack hits, your sworn enemy takes an extra 3d6 Piercing damage.\n   While your sworn enemy lives, you have Disadvantage on attack rolls with all other weapons. [Added a choice of bow with 2024 rules]',
+		attunement : true,
+		prerequisite : "Requires attunement by a ranger.",
+		prereqeval : function(v) {
+			return classes.known.ranger || classes.known.rangerua ? true : false;
+		},
+		weight : 2,
+	chooseGear : {
+		type : "weapon",
+		prefixOrSuffix : "brackets",
+		itemName1stPage : ["brackets", "Shadowsong, Oathbow"],
+		descriptionChange : ["replace", "bow"],
+		excludeCheck : function (inObjKey, inObj) {
+			var testRegex = /shortbow|longbow/i;
+			return !(testRegex).test(inObjKey) && (!inObj.baseWeapon || !(testRegex).test(inObj.baseWeapon));
+		}
+	},
+		calcChanges: oathbowChanges.calcChanges,
+	},
+	"oathbow: moon (fr-dc-pandora-jwei-s2-6)" : {
+		name : "Moon Bow (Oathbow, PANDORA-JWEI-S2-6)",
+		source : [["AL","FR-DC"]],
+		type : "weapon (longbow)",
+		rarity : "very rare",
+		description : "Trunks & branches from the Yggdrasil tree created this bow. Infused with the moon's power, trails of moonlight are left in each arrow's trajectory. I can attune in 1 min. If I atk with bow & say command, target is sworn enemy for 7 days or death (ability recharges next dawn). Bow atks vs it: adv, +3d6 dmg, ignore partial cover & no range disadv. While it lives, I have disadv. with other weapons.",
+		descriptionLong : "Trunks and branches from the Yggdrasil tree are used to forge this bow. Infused with the power of the moon, anytime an arrow is shot, trails of moonlight are left in its trajectory. I can attune in 1 minute. When I make a ranged atk with bow and say \"Swift death to you who have wronged me.\", target becomes my sworn enemy until death or dawn 7 days later. I can only have 1 sworn enemy. If it dies, I can choose a new one after the next dawn. Ranged attacks with bow against my sworn enemy have adv., do +3d6 Piercing, ignore all cover but full, and don't suffer disadv. at long range. While sworn enemy lives, I have disadv. on attacks with other weapons.",
+		descriptionFull : 'Trunks and branches from the yggdrasil tree are used to forge this bow. Infused with the power of the moon, anytime an arrow is shot, trails of moonlight are left in its trajectory.\n   " + toUni("Harmonious") + ". Attuning to this item takes only 1 minute.\n   When you nock an arrow on this bow, it whispers in Elvish, “Swift defeat to my enemies.” When you use this weapon to make a ranged attack, you can utter or sign the following command words: “Swift death to you who have wronged me.” The target of your attack becomes your sworn enemy until it dies or until dawn 7 days later. You can have only one such sworn enemy at a time. When your sworn enemy dies, you can choose a new one after the next dawn.\n   When you make a ranged attack roll with this weapon against your sworn enemy, you have Advantage on the roll. In addition, your target gains no benefit from Half Cover or Three-Quarters Cover, and you suffer no Disadvantage due to long range. If the attack hits, your sworn enemy takes an extra 3d6 Piercing damage.\n   While your sworn enemy lives, you have Disadvantage on attack rolls with all other weapons. [Newer DCs do specify item type, so no choice]',
+		attunement : true,
+		weight : 2,
+		weaponsAdd : { select : ["Moon Bow, Oathbow (Longbow)"], options : ["Moon Bow, Oathbow (Longbow)"] },
+		calcChanges: oathbowChanges.calcChanges,
+	},
+	"oathbow: selestria (wbw-dc-tmp-3)" : {
+		name : "Selestria, Oathbow (DC-TMP-3)",
+		source : [["AL","WBW-DC"]],
+		type : "weapon (longbow or shortbow)",
+		rarity : "very rare",
+		description : "This bow is strung with unicorn hair & made from the heartwood of an elder treant dedicated to protecting the forest. It mutters Elvish prayers to Mielikki & grumbles in cities about being far from nature. If I listen carefully, I may learn something. If I atk with bow & say command, target is sworn enemy for 7 days or death (ability recharges next dawn). Bow atks vs it: adv, +3d6 dmg, ignore partial cover & no range disadv. While it lives, I have disadv. with other weapons.",
+		descriptionLong : "Selestria is strung with unicorn hair and made from the heartwood of an elder treant who wished to dedicate its afterlife to protecting the forest. The bow mutters Elvish prayers to Mielikki & grumbles about being far from nature in urban settings. If I listen, I may learn something. When I make a ranged atk with bow & say \"Swift death to you who have wronged me.\", target becomes my sworn enemy until death or dawn 7 days later. I can only have 1 sworn enemy. If it dies, I can choose a new one after the next dawn. Ranged atks with bow against my sworn enemy have adv., do +3d6 Piercing, ignore all cover but full, & don't suffer disadv. at long range. While sworn enemy lives, I have disadv. on atks with other weapons.",
+		descriptionFull : 'Selestria is made from the heartwood of an elder treant who served Mielikki and wished to dedicate their afterlife to protecting the forest. Selestria is strung with the hair of a unicorn.\n   " + toUni("Muttering") + ". Selestria mutters prayers to Mielikki in Elvish while wielded, and grumbles about being far from nature while in urban settings. A creature who listens carefully to the item might learn something useful. [GFP Item]\n   When you nock an arrow on this bow, it whispers in Elvish, “Swift defeat to my enemies.” When you use this weapon to make a ranged attack, you can utter or sign the following command words: “Swift death to you who have wronged me.” The target of your attack becomes your sworn enemy until it dies or until dawn 7 days later. You can have only one such sworn enemy at a time. When your sworn enemy dies, you can choose a new one after the next dawn.\n   When you make a ranged attack roll with this weapon against your sworn enemy, you have Advantage on the roll. In addition, your target gains no benefit from Half Cover or Three-Quarters Cover, and you suffer no Disadvantage due to long range. If the attack hits, your sworn enemy takes an extra 3d6 Piercing damage.\n   While your sworn enemy lives, you have Disadvantage on attack rolls with all other weapons. [Added a choice of bow with 2024 rules]',
+		attunement : true,
+		weight : 2,
+	chooseGear : {
+		type : "weapon",
+		prefixOrSuffix : "brackets",
+		itemName1stPage : ["brackets", "Selestria, Oathbow"],
+		descriptionChange : ["replace", "bow"],
+		excludeCheck : function (inObjKey, inObj) {
+			var testRegex = /shortbow|longbow/i;
+			return !(testRegex).test(inObjKey) && (!inObj.baseWeapon || !(testRegex).test(inObj.baseWeapon));
+		}
+	},
+		calcChanges: oathbowChanges.calcChanges,
+	},
+	"starshot hand crossbow (po-bmg-drw-ks-2)" : {
+		name : "Starshot Hand Crossbow (PO-BMG-DRW-KS-2)",
+		source : [["AL", "DRW"]], // Chapter 5: Gem
+		type : "weapon (any crossbow)",
+		rarity : "rare",
+		attunement : true,
+		description : "This blackened crossbow has pearl inlays depicting 3 constellations. Interlaced silver ferns, a popular Rashemi motif, adorn both sides of the foregrip. It ignores Loading, makes own ammo & has 3 charges, 1d3 regained at dawn. As bonus action, 1 charge causes effect until next turn ends. Balance: next xbow hit heals creature in 30 ft for 1d8+PB. Flames: it deals +2d8 Fire. Rogue: I turn Invisible.",
+		descriptionLong : "This crossbow of blackened wood has pearl inlays depicting 3 different constellations. Interlacing silver ferns—a popular Rashemi motif— adorn both sides of the foregrip. It ignores loading, produces its own ammo, and has 3 charges and regains 1d3 daily at dawn. As a bonus action, I can use 1 charge to invoke one constellation until my next turn ends. Balance: next hit with the crossbow heals creature in 30 ft for 1d8 + my Prof Bonus. Flames: the crossbow deals +2d8 Fire. Rogue: I become Invisible as well as anything I'm wearing or carrying.",
+		descriptionFull : "Interlacing silver ferns—a popular Rashemi motif— adorn both sides of the foregrip.\n   This crossbow is crafted from blackened wood, and its limbs bear pearl inlays depicting constellations. You ignore the loading property with this crossbow. If you load no ammunition in the weapon, it produces its own, automatically creating one piece of magic ammunition when you make a ranged attack with it. The ammunition created by the weapon vanishes the instant after it hits or misses a target. The crossbow has 3 charges and regains 1d3 expended charges daily at dawn."+
+		"\n   " + toUni("Constellations") + ". The crossbow is decorated with three constellations. As a bonus action, you can tap one of the constellations to invoke it, expending 1 charge and producing one of the following effects:"+
+		"\n   " + toUni("Balance") + ". The next time you hit a creature with a ranged attack roll using this crossbow before the end of your next turn, you or another creature of your choice within 30 feet of you can regain hit points equal to 1d8 plus your proficiency bonus."+
+		"\n   " + toUni("Flames") + ". Until the end of your next turn, when you hit a creature with a ranged attack roll using this crossbow, the attack deals an additional 2d8 fire damage."+
+		"\n   " + toUni("Rogue") + ". Until the end of your next turn, you have the invisible condition, and anything you are wearing or carrying is also invisible. [Premiere item, may change]",
+		action : [["bonus action", ""]],
+		limfeaname : "Starshot Crossbow",
+		usages : 3,
+		recovery : "dawn",
+		additional : "regains 1d3",
+		weaponOptions : {
+			baseWeapon : "hand crossbow",
+			regExpSearch : /^(?=.*starshot)(?=.*hand)(?=.*crossbow).*$/i,
+			name : "Starshot Hand Crossbow",
+			description : "Ammunition, light, vex",
+			selectNow : true,
+		}
+	},
+	"vicious heavy crossbow (ps-dc-pub-3)" : {
+		name : "Vicious Heavy Crossbow (PS-DC-PUB-3)",
+		source : [["AL","FR-DC"]],
+		type : "weapon (heavy crossbow)",
+		rarity : "rare",
+		description : "This heavy crossbow was lovingly crafted and maintained. It has a rosewood stock, shining brass and steel mechanisms, and a spider silk string. Its previous owner called it ‘Bessie' and the weapon seems to like the name. Bessie creaks or twangs its string before an enemy attacks, giving me a crucial warning and +2 initiative unless I'm Incapacitated. It does +2d6 damage per shot.",
+		descriptionFull : "This heavy crossbow has been lovingly crafted and maintained. Its stock is rosewood, its mechanisms shining brass and steel, and its string is made of spun spider silk. Its previous owner called it ‘Bessie' and the weapon seems to like that name. Bessie sometimes creaks or its string twangs, just before an enemy attacks its wielder, giving them an often crucial moment's warning.\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition.\n  warns me, giving +2 initiative unless Incapacitated.\n   This magic weapon deals an extra 2d6 damage to any creature it hits. This extra damage is of the same type as the weapon's normal damage.",
+		weaponsAdd : { select : ["Vicious Heavy Crossbow"], options : ["Vicious Heavy Crossbow"] },
+		calcChanges: viciousWeaponCalc.calcChanges,
+		addMod : genericGuardianWeapon.addMod,
+	},
+	"vicious longbow: wayfinder (fr-dc-mcg-ch2)" : {
+		name : "Wayfinder, Vicious Longbow (MCG-CH2)",
+		source : [["AL","FR-DC"]],
+		type : "weapon (longbow)",
+		rarity : "rare",
+		description : "Wayfinder is made from yew and does +2d6 damage per shot. The bow seems to increase its tension as the string is released, magnifying the force of each shot. If an arrow is nocked and readied, the arrowhead glows slightly when the bow is pointed towards magnetic north, which can be done as a Magic action.",
+		descriptionFull : "Wayfinder is made from yew wood and seems to increase the tension of the bow as the string is released, magnifying the force of the shot. If an arrow is nocked and readied, the arrowhead glows slightly when the bow is pointed towards magnetic north (as per the Compass minor property).\n   " + toUni("Compass") + ". You can take a Magic action to learn which way is magnetic north. Nothing happens if this property is used in a location that has no magnetic north.\n   This magic weapon deals an extra 2d6 damage to any creature it hits. This extra damage is of the same type as the weapon's normal damage.",
+		weaponsAdd : { select : ["Wayfinder, Vicious Longbow"], options : ["Wayfinder, Vicious Longbow"] },
+		calcChanges: viciousWeaponCalc.calcChanges,
+		action : [["action", "Wayfinder (find north)"]],
+	},
+}
+
+
+}) //other half of artificer code

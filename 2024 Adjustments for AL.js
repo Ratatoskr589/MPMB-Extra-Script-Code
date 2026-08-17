@@ -16,7 +16,7 @@ RequiredSheetVersion("13.2.0", 15);
 -Adds the Optional Class Features from Tasha's that still function with the new classes and weren't replaced/already built into 2024
 -Adds the Superior Technique fighting style from Tasha's
 -Adds the 2 nonreprinted Battlemaster maneuvers from Tasha's.
--Adds the SCAG racial options for half-elves, tieflings and halflings
+-Adds the SCAG racial options for tieflings and halflings 
 -Adds the SCAG totem options to Wild Heart barbarian
 -Adds the Season 9 Winged Aasimar option for new Aasimar
 -Includes some Bastion options as a class feature to help track their mechanics/cost in AL (only special facilities I might use are listed, but it would be easy enough to build on)*/
@@ -1319,7 +1319,7 @@ FeatsList["epic boon"] = {
 
     },
     "boon of luck": {
-        description: "I can add a dlO roll to any ability check, attack roll, or saving throw I make. Once I use this boon, I can't use it again until I finish a short rest.",
+        description: "I can add a d10 roll to any ability check, attack roll, or saving throw I make. Once I use this boon, I can't use it again until I finish a short rest.",
         usages : 1,
         recovery : "short rest"
     },
@@ -2225,4 +2225,3 @@ RunFunctionAtEnd(function() {
         if(!theClass.features["bastionworkaround"]) theClass.features["bastionworkaround"] = BastionWorkaround; // Add the feature if not present
     }
 })
-

@@ -28,7 +28,8 @@ SourceList["DDCE"] = { //All items in this category count as event awards
     name : "D&D Celebration",
     abbreviation : "DDCE",
     group : "Adventurers League",
-    date : "2020/09/19 - Yearly"
+    date : "2020/09/19 - Yearly",
+	defaultExcluded : true
 };
 
 SourceList["AL:LN"] = {  //Liar's Night and Wandering Monsters
@@ -81,11 +82,12 @@ SourceList["AL:GA"] = {  //DDHC-TOA-8 Return of the Lizard King (S7 Guild Adept)
 	defaultExcluded : true
 };
 
-SourceList["AL:SA"] = {  //AL Service Awards. Started in 2021 but have multiple sets each year.
-    name : "AL Service Awards",
-    abbreviation : "AL:SA",
+SourceList["AL:SR"] = {  //AL Service Rewards. Started in 2021 but have multiple sets each year.
+    name : "AL Service Rewards",
+    abbreviation : "AL:SR",
     group : "Adventurers League",
-    date : "2021/11/02"
+    date : "2021/11/02",
+	defaultExcluded : true
 };
 
 SourceList["QftIS"] = {   //This script adds the new items from the Infinite Staircase preview adventure on DDB to the script, since it's AL legal
@@ -103,7 +105,7 @@ FeatsList["al special awards"] = {
 		name : "AL Special Awards",
 		description : "Special AL rewards available from conventions, epics and adventure modules. This only includes a small slice of the total awards available, primarily flavored boons and blessings, and story awards with major mechanical effects. This selection also assumes that you have spent any Downtime or other cost required to receive the reward. It also includes charms because I didn't feel like splitting them off.",
 		allowDuplicates : true,
-	choices : ["Annabelle's Gratitude (CCC-PRIORY-3)","Angry Alley Cat (FC)","Black Pudding Cup: Cuddly (Trading Post)","Blessing of Magic Resistance: Annointed by the Darkwater (FR-DC-IMP-2)","Blessing of Magic Resistance: Aether's Blessing (FR-DC-MONSTER-4)","Blessing of Magic Resistance: Mystra's Kiss (FR-DC-STRAT-WYRM-5)","Blessing of Magic Resistance: Ilsensine Touched (PS-DC-PANDORA-JWEI-S2-1)","Blessing of Magic Resistance: Favor of Primus (PS-DC-PHP-CKA2)","Blessing of Magic Resistance: Flaw's Gift (SJ-DC-FLUMPH-4)","Blessing of Protection (AL WPM)","Blessing of Protection (DDEP6-3)","Blessing of Protection: Brandobaras (FR-DC-MCG-INN1)","Blessing of Protection: Selune's (FR-DC-PANDORA-JWEI-6)","Blessing of Protection: Flux's (SJ-DC-FLUMPH-3)","Blessing of Protection: Ilmater's (SJ-DC-TRIDEN-TFC)","Blessing of Valhalla: Illithids (FR-DC-DEATH)","Blessing of Valhalla: The Friends You Made Along the Way (SJ-DC-DD-11)","Blessing of Wound Closure (SJ-DC-MIST-1)","Boon of Fate: Crowd Favorite (PS-DC-STRAT-UNDEAD-3)","Boon of Quick Casting (PS-DC-CEG-2)","Boon of Recovery (PS-DC-STRAT-DRAGON-4)","Boon of Skill Proficiency: Star Power (PS-DC-RAVENGARD)","Boon of Speed: Dance of the Liberated (PS-DC-TYM-PHP-DIV-1)","Boon of the Unfettered (PS-DC-POP-1)","Chardalyn Poisoning (DDAL10-9)","Charm of Animal Conjuring (FR-DC-RDP-2)","Charm of the Comet: Enchanted Amulet (FR-DC-PANDORA-JWEI-7)","Charm of the Moon (FR-DC-STRAT-TALES-4)","Charm of the Sage: High Heralds (FR-DC-Saerloon-0)","Charm of the Sun: Gift of Shine (FR-DC-DIVA)","Dreamwalker (DDAL5-11)","Favor of Candlekeep - Language (DDAL0-3)","Flying Snake (DDEP7-1)","Gratitude of Brightstar Moonsilver (CCC-BMG-37 HULB3-1)","Gratitude of Hartkiller (DDAL5-17)","Hall of Honor (DDAL6-3)","Hall of Mirth (DDAL6-3)","Hall of Omens (DDAL6-3)(Diviner)","Hall of Omens (DDAL6-3)(Non-Diviner)","Lich Slayer (DDEP7-2)","Lord of the Gorge (DDAL0-11F)","Luna Lightbearers (WBW-DC-ZODIAC-0)","Nature of the Weave (CCC-ROZK-1-2) (Arcana Prof)","Nature of the Weave (CCC-ROZK-1-2) (Arcana Expert)","Plague Buster (DDEP7-2)","The Qualith Experience (DDIA-VOLO)","Quasit's Essence (DDAL5-8)","Student of Stone (DDAL5-11)","Szass Tam's Arcane Essence (DDEP0-1)","Szass Tam's Planar Essence (DDEP0-1)","Thanks of Ilmater - Immortality","Thanks of Ilmater - Planar Travel","Uku the Spider Boy (DDEP7-1)"],
+	choices : ["Annabelle's Gratitude (CCC-PRIORY-3)","Angry Alley Cat (FC)","Black Pudding Cup: Cuddly (Trading Post)","Blessing of Magic Resistance: Annointed by the Darkwater (FR-DC-IMP-2)","Blessing of Magic Resistance: Aether's Blessing (FR-DC-MONSTER-4)","Blessing of Magic Resistance: Mystra's Kiss (FR-DC-STRAT-WYRM-5)","Blessing of Magic Resistance: Ilsensine Touched (PS-DC-PANDORA-JWEI-S2-1)","Blessing of Magic Resistance: Favor of Primus (PS-DC-PHP-CKA2)","Blessing of Magic Resistance: Flaw's Gift (SJ-DC-FLUMPH-4)","Blessing of Protection (AL WPM)","Blessing of Protection (DDEP6-3)","Blessing of Protection: Brandobaras (FR-DC-MCG-INN1)","Blessing of Protection: Selune's (FR-DC-PANDORA-JWEI-6)","Blessing of Protection: Aether Guardian Tattoo (PS-DC-MONSTER-5)","Blessing of Protection: Flux's (SJ-DC-FLUMPH-3)","Blessing of Protection: Ilmater's (SJ-DC-TRIDEN-TFC)","Blessing of Valhalla: Illithids (FR-DC-DEATH)","Blessing of Valhalla: The Friends You Made Along the Way (SJ-DC-DD-11)","Blessing of Weapon Enhancement (FR-DC-MCG-INN2)","Blessing of Wound Closure (SJ-DC-MIST-1)","Boon of Fate: Crowd Favorite (PS-DC-STRAT-UNDEAD-3)","Boon of Quick Casting (PS-DC-CEG-2)","Boon of Recovery (PS-DC-STRAT-DRAGON-4)","Boon of Skill Proficiency: Star Power (PS-DC-RAVENGARD)","Boon of Speed: Dance of the Liberated (PS-DC-TYM-PHP-DIV-1)","Boon of the Unfettered (PS-DC-POP-1)","Chardalyn Poisoning (DDAL10-9)","Charm of Animal Conjuring (FR-DC-RDP-2)","Charm of the Comet: Enchanted Amulet (FR-DC-PANDORA-JWEI-7)","Charm of the Moon (FR-DC-STRAT-TALES-4)","Charm of the Sage: High Heralds (FR-DC-Saerloon-0)","Charm of the Sun: Gift of Shine (FR-DC-DIVA)","Dreamwalker (DDAL5-11)","Favor of Candlekeep - Language (DDAL0-3)","Flying Snake (DDEP7-1)","Gratitude of Brightstar Moonsilver (CCC-BMG-37 HULB3-1)","Gratitude of Hartkiller (DDAL5-17)","Hall of Honor (DDAL6-3)","Hall of Mirth (DDAL6-3)","Hall of Omens (DDAL6-3)(Diviner)","Hall of Omens (DDAL6-3)(Non-Diviner)","Lich Slayer (DDEP7-2)","Lord of the Gorge (DDAL0-11F)","Luna Lightbearers (WBW-DC-ZODIAC-0)","Nature of the Weave (CCC-ROZK-1-2) (Arcana Prof)","Nature of the Weave (CCC-ROZK-1-2) (Arcana Expert)","Plague Buster (DDEP7-2)","The Qualith Experience (DDIA-VOLO)","Quasit's Essence (DDAL5-8)","Student of Stone (DDAL5-11)","Szass Tam's Arcane Essence (DDEP0-1)","Szass Tam's Planar Essence (DDEP0-1)","Thanks of Ilmater - Immortality","Thanks of Ilmater - Planar Travel","Uku the Spider Boy (DDEP7-1)"],
 	"annabelle's gratitude (ccc-priory-3)" : {
 		name : "Annabelle's Gratitude (CCC-PRIORY-3)",
 		source : [["AL","2018"]],
@@ -211,6 +213,14 @@ FeatsList["al special awards"] = {
 		extraAC : [{name : "Blessing of Protection", mod : 1, magic : true, text : "I gain a +1 bonus to AC."}],
 		addMod : [{ type : "save", field : "all", mod : 1, text : "I gain a +1 bonus to all my saving throws." }]
 	},
+	"blessing of protection: aether guardian tattoo (ps-dc-monster-5)" : {	
+		name : "Aether Guardian Tattoo (Blessing of Protection)",
+		source : [["AL","PS-DC-MONSTER-5"]],
+		description : "An amorphous tattoo of a powerful predatory beast. This blessing gives me a +1 bonus to Armor Class and saving throws.",
+		descriptionFull : "An amorphous tattoo of a powerful predatory beast.\n   You gain a +1 bonus to AC and saving throws.",
+		extraAC : [{name : "Blessing of Protection", mod : 1, magic : true, text : "I gain a +1 bonus to AC."}],
+		addMod : [{ type : "save", field : "all", mod : 1, text : "I gain a +1 bonus to all my saving throws." }]
+	},
 	"blessing of protection: flux's (sj-dc-flumph-3)" : {	
 		name : "Flux's Blessing of Protection",
 		source : [["AL","SJ-DC-FLUMPH-3"]],
@@ -259,6 +269,12 @@ FeatsList["al special awards"] = {
 		recovery : "7 days",
 		action : [["action", " (2 Berserkers)"]],
 		creaturesAdd : [["Berserker"]],
+	},
+	"blessing of weapon enhancement (fr-dc-mcg-inn2)" : {
+		name : "Blessing of Weapon Enchancement (MCG-INN2)",
+		source : [["AL","FR-DC"]],
+		description : "One nonmagical weapon in my possession becomes a +1 Weapon when I wield it. This blessing was given by a noble genie for rescuing his grandson Abund the Abundant. The affected weapon appears to be coated in a thin layer of rock or adorned with metallic tracings along its length.",
+		descriptionFull : "This blessing is given by a noble genie for rescuing his grandson Abund the Abundant. When active, the affected weapon appears to be coated in a thin layer of rock or adorned with metallic tracings along its length.\n   One nonmagical weapon in your possession becomes a +1 Weapon while you wield it.",
 	},
 	"blessing of wound closure (sj-dc-mist-1)" : {
 		name : "Blessing of Wound Closure (MIST-1)",
@@ -742,7 +758,7 @@ FeatsList["al special awards"] = {
 }
 
 
-RunFunctionAtEnd(function () {
+RunFunctionAtEnd(function () {   //this code should make it so the AL items don't appear as an option for artificers to create
 //New Event Awards from Al events such as the D&D Celebration, Extra Life and the newer Liar's Night events. Only one may be on a character at a time.
 MagicItemsList["al event award items"] = {
 		name : "AL Event Award Items",
@@ -1023,13 +1039,13 @@ MagicItemsList["al event award items"] = {
 		},
 }
 
-//New AL Items from official modules, community modules, Fai Chen's, trading posts and past holiday events (that aren't event awards). These items range from useful to barely magical.
+//New AL Items from service rewards, official modules, community modules, Fai Chen's, trading posts and past holiday events (that aren't event awards). These items range from very useful to barely magical.
 MagicItemsList["al new items"] = {
 		name : "AL New Items",
 		type : "wondrous item",
 		allowDuplicates : true,
 		magicItemTable : "?",
-		choices : ["Achis Atracta (CCC-BMG-30 HILL2-3)","Bag of Tricks or Treats (LN)","Bone Compass (RMH-12)","Bookmark of Memory: Limited Edition (WBW-DC-JSH-LIB-04PT)","Bookmark of Memory (WBW-PR)","Cariboots (FM)","Dagger of the Hidden Lord (DDHC-DIA-2)","Darkling Necklace (DDHC-TOA-8)","Demon Skin (DitLCoT)","Discord (DDAL-DRW15)","Eye of Xxiphu (DDAL5-19)","Fey Hound Collar (FM)","Fold-Up Friend (WBW-PR)","Giant's Gloves (WBW-PR)","Ghost Sheet (LN)","Green Wizard's Hat (FC)","Green Wizard's Hat: Romantic (Trading Post)","Green Wizard's Hat: Water (Trading Post)","Hat of Witchery (LN)","Hellrider's Badge (DDEP9-2)","Iggwilv's Horn (DitLCoT)","Ioun Stone - Celebration (DDAL-DRW5)","Lemure Onesie (LN)","Mind-Poison Dagger (DDHC-MORD-05)","Mist Hunters Magnificent Cap (RMH Safety Tools)","Nettle (DDEP4)","Oathbinder (DDHC-TOA-15)","Order of the Guardians Ring (RMH Safety Tools)","Owlbear Snowshoes (FC)","Pearl of Elocution (WBW-PR)","Pocket Watch (WBW-PR)","Potion of Polychromy (DitLCoT)","Pumpkin Ring (LN)","Red Wizard Blade (AL:SA-12B)","Selûne's Owl-Eye Glasses (FM)","Shar's Veil (FM)","Spare (DDHC-TOA-13)","Tablet of Reawakening (AL:SA-12B)","Tarot Card Set (LN)","Tasha's Creeping Keelboat (DitLCoT)","Tyr's Blessing of Command (CCC-BMG-23 PHLAN2-2)","Tyr's Blessing of Luck (CCC-BMG-24 PHLAN2-3)","Tyr's Blessing of the Mind (CCC-BMG-22 PHLAN2-1)","Wand of Whimsy (WBW-PR)","Woe (DDAL-DRW16)","Wooden Gecko Earrings (DDHC-TOA-8)","Zephyros' Notebook (DDIA05)"],
+		choices : ["Achis Atracta (CCC-BMG-30 HILL2-3)","Bag of Tricks or Treats (LN)","Bone Compass (RMH-12)","Bookmark of Memory: Limited Edition (WBW-DC-JSH-LIB-04PT)","Bookmark of Memory (WBW-PR)","Cariboots (FM)","Dagger of the Hidden Lord (DDHC-DIA-2)","Darkling Necklace (DDHC-TOA-8)","Demon Skin (DitLCoT)","Discord (DDAL-DRW15)","Eye of Xxiphu (DDAL5-19)","Fey Hound Collar (FM)","Fold-Up Friend (WBW-PR)","Giant's Gloves (WBW-PR)","Ghost Sheet (LN)","Green Wizard's Hat (FC)","Green Wizard's Hat: Romantic (Trading Post)","Green Wizard's Hat: Water (Trading Post)","Hat of Witchery (LN)","Hellrider's Badge (DDEP9-2)","Iggwilv's Horn (DitLCoT)","Ioun Stone - Celebration (DDAL-DRW5)","Lemure Onesie (LN)","Magic Resistant Balm (AL:SR)","Mind-Poison Dagger (DDHC-MORD-05)","Mist Hunters Magnificent Cap (RMH Safety Tools)","Nettle (DDEP4)","Oathbinder (DDHC-TOA-15)","Order of the Guardians Ring (RMH Safety Tools)","Owlbear Snowshoes (FC)","Pearl of Elocution (WBW-PR)","Pocket Watch (WBW-PR)","Potion of Mithridatism (AL:SR)","Potion of Polychromy (DitLCoT)","Pumpkin Ring (LN)","Red Wizard Blade (AL:SR-12B)","Selûne's Owl-Eye Glasses (FM)","Shar's Veil (FM)","Shoe Wings (AL:SR)","Spare (DDHC-TOA-13)","Tablet of Reawakening (AL:SR-12B)","Tarot Card Set (LN)","Tasha's Creeping Keelboat (DitLCoT)","Tyr's Blessing of Command (CCC-BMG-23 PHLAN2-2)","Tyr's Blessing of Luck (CCC-BMG-24 PHLAN2-3)","Tyr's Blessing of the Mind (CCC-BMG-22 PHLAN2-1)","Wand of Whimsy (WBW-PR)","Witches' Stone (AL:SR)","Woe (DDAL-DRW16)","Wooden Gecko Earrings (DDHC-TOA-8)","Zephyros' Notebook (DDIA05)"],
 	"achis atracta (ccc-bmg-30 hill2-3)" : { // contributed by AelarTheElfRogue
 		name : "Achis Atracta (CCC-BMG-30 HILL2-3)",
 		source : [["AL","CCC"]],
@@ -1355,6 +1371,13 @@ changeeval : function () {
 		descriptionFull : "This comfortable, fleece onesie is complete with cozy, if amorphous, footies. When wearing this onesie, you make yourself—including belongings on your person—appear as a lemure. The appearance fails to hold up to physical inspection. To discern you are disguised, a creature can use its action to inspect your appearance and must succeed on an Intelligence (Investigation) check (DC 13). The fabric is inexpensive and quite flammable; while wearing this onesie, you have vulnerability to fire damage.",
 		savetxt : { text : ["Vulnerable to fire damage"] }
 		},
+	"magic resistant balm (al:sr)" : {
+		name : "Magic Resistant Balm",
+		source : [["AL:SR",2026.1]],
+		rarity : "unique rare",
+		description : "Once as a Utilize action, I can apply this dose of ointment to receive advantage on my next saving throw vs a spell or magic effect.",
+		descriptionFull : "As a Utilize action, apply this consumable dose of ointment and receive advantage on your next saving throw versus magic or spell effect.",
+	},
 	"mind-poison dagger (ddhc-mord-05)" : {
 		name : "Mind-Poison Dagger (DDHC-MORD-05)",
 		source : [["AL","MToF"]],
@@ -1467,6 +1490,13 @@ changeeval : function () {
 		description : "This lidded brass container holds a tiny sand timer suspended behind glass. No matter how it's positioned, the sand always falls from one side of the timer to the other, taking exactly 24 hrs to deplete. Once depleted, the timer spins around to reset itself.",
 		descriptionFull : "This lidded brass container holds a tiny sand timer suspended behind glass. No matter how the container is orientated, the sand always falls from one side of the timer to the other, taking exactly 24 hours to deplete. Once depleted, the sand timer spins around to reset itself."
 		},
+	"potion of mithridatism (al:sr)" : {
+		name : "Potion of Mithridatism",
+		source : [["AL:SR", 2026.1]],
+		rarity : "unique very rare",
+		description : "Whoever drinks this potion must pass a DC 13 Con save or be Poisoned and Paralyzed for 1 min. They may repeat the save at each turn end, ending the conditions on a pass. Once the conditions end for any reason, they're immune to being Poisoned for 8 hrs.",
+		descriptionFull : "When you drink this consumable potion, you must succeed on a DC 13 Constitution saving throw or have the Poisoned and Paralyzed conditions for 1 minute. You may repeat the save at the end of each of your turns, ending the conditions on a success. On a success or after the conditions end, you are immune to the Poisoned condition for 8 hours."
+		},
 	"potion of polychromy (ditlcot)" : {
 		name : "Potion of Polychromy",
 		source : [["QftIS", 0]],
@@ -1481,9 +1511,9 @@ changeeval : function () {
 		description : "This ring is made of polished silver, in the shape of my carved pumpkin. While wearing it, the glowing image of my carved pumpkin appears in front of my own face, like a mask.",
 		descriptionFull : "This ring is made of polished silver, in the shape of your carved pumpkin. While wearing this ring, the glowing image of your carved pumpkin appears in front of your own face, like a mask (the image is whatever you carved during the Liar's Night pumpkin carving contest)."
 		},
-	"red wizard blade (al:sa-12b)" : {
+	"red wizard blade (al:sr-12b)" : {
 		name : "Red Wizard Blade",
-		source : [["AL:SA","12B"]],
+		source : [["AL:SR","12B"]],
 		type : "weapon (dagger)",
 		rarity : "legendary",
 		description : "Forged by Red Wizards using a secret process, this grim steel dagger draws power from the Negative Plane. When it hits a creature with a melee attack, they take +3d12 Necrotic damage. If the dagger reduces a creature to 0 HP, they die and can only be raised by a deity or a Tablet of Reawakening.",
@@ -1519,6 +1549,16 @@ changeeval : function () {
 		usages : 1,
 		recovery : "long rest"
 		},
+	"shoe wings (al:sr)" : {
+		name : "Shoe Wings",
+		source : ["AL:SR", 2026.1],
+		rarity : "unique common",
+		magicItemTable : "",
+		description : "These wings are attached to my feet or footwear and help me react quickly to combat. Once per dawn when I roll for Initiative while wearing the wings, I can forgo my d20 roll result to get a 10 on the die instead.",
+		descriptionFull : "Attach these wings to your feet or footwear and they'll help you react quickly when entering a combat. When you roll for Initiative while wearing the wings, you can forgo your d20 roll result to get a 10 on the die instead. Once this property is used, it can't be used again until the next dawn.",
+		usages : 1,
+		recovery : "long rest"
+		},
 	"spare (ddhc-toa-13)" : {
 		name : "Spare (DDHC-TOA-13)",
 		source : [["AL","S7"]],
@@ -1549,9 +1589,9 @@ changeeval : function () {
 		selectNow : true
 				},
 	},
-	"tablet of reawakening (al:sa-12b)" : {
+	"tablet of reawakening (al:sr-12b)" : {
 		name : "Tablet of Reawakening",
-		source : ["AL:SA","12B"],
+		source : ["AL:SR","12B"],
 		rarity : "legendary",
 		description : "Witches of Rashemen created this tiny stone tablet to counter the necromancy of the Red Wizards. As an action, I can cast True Resurrection from the tablet. Once used, it turns to dust.",
 		descriptionFull : "Witches of Rashemen created this Tiny stone tablet to counter the necromancy of the Red Wizards. As an action, you can cast true resurrection from the tablet. Once used in this way, the tablet turns to dust and is destroyed. (This item was from the Honor Among Thieves movie, with the statblock taken from D&D Beyond promotional material)",
@@ -1615,6 +1655,15 @@ changeeval : function () {
 		rarity : "common",
 		description : "This wand has 8 charges, regaining 1d6+1 at dawn. While held, I can use 1 charge as an action to create an effect. I can change the hair color or style of a visible creature in 50 ft, cause a small cloud of butterflies to flutter from the tip of the wand, or conjure a brief tinkling melody. If last charge used, roll a d20. On a 1, the wand transforms into a cloud of butterflies that flutter away.",
 		descriptionFull : "This wand has 8 charges. While holding it, you can use an action to expend 1 of its charges and create one of the following effects:\n \u2022 Change the hair color or hair style of a creature you can see within 50 feet.\n \u2022 Cause a small cloud of butterflies to flutter from the tip of the wand.\n \u2022 Conjure a brief, tinkling melody from the wand.\n   The wand regains 1d6 + 1 expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand transforms into a cloud of butterflies, which flutter away."
+		},
+	"witches' stone (al:sr)" : {
+		name : "Witches' Stone",
+		source : ["AL:SR", 2026.1],
+		rarity : "unique rare",
+		description : "Once per dawn when seeking Spellcasting Services, I can show this stone to the spellcaster to open negotiations. If I make a DC 13 Charisma (Persuasion) Check, I receive half off 1 Spellcasting Service.",
+		descriptionFull : "When seeking Spellcasting Services, show this stone to the spellcaster and they'll be open to negotiations for a discount. You must succeed on a DC 13 Charisma (Persuasion) Check to receive half off of one Spellcasting Service. This property can't be used again until the next dawn.",
+		usages : 1,
+		recovery : "dawn",
 		},
 	"woe (ddal-drw16)" : {
 		name : "Woe (DDAL-DRW16)",
@@ -1957,7 +2006,6 @@ MagicItemsList["tree spirit weapon"] = {
 		rarity : "rare",
 		magicItemTable : "?",
 		attunement : true,
-		defaultExcluded : true,
 		description : "A tree spirit weapon is crafted from the wood of a sentient tree. The spirit of the tree remains in the wood so the weapon contains a sentience. The bonuses provided by a tree spirit weapon depend on the level of the attuned wielder. It gets more powerful — and more dangerous to wield — as you become more powerful as well.",
 		descriptionFull : "A tree spirit weapon is one crafted from the wood of a sentient tree. It must be made of wood and deal bludgeoning or piercing damage. The spirit of the tree remains in the wood, and therefore the weapon contains a sentience. The bonuses provided by a tree spirit weapon are dependent on the level of the person to whom it is attuned. In this way, the tree spirit weapon is progressive: it gets more powerful — and more dangerous to wield — as the attuned wielder becomes more powerful as well."+
 		"\n   Levels 1-4: +1 bonus to attack and damage rolls, wielder feels the desires of the tree spirit."+
@@ -1968,7 +2016,6 @@ MagicItemsList["tree spirit weapon"] = {
 	"tier 1" : {
 		name : "T1 Tree Spirit",
 		description : "A tree spirit club is crafted from the wood of a sentient tree. The weapon contains that sentience and I feel the desires of the tree spirit. I also gain a +1 bonus to attack and damage rolls made with this magic weapon.",
-		defaultExcluded : true,
 		chooseGear : {
 			type : "weapon",
 			prefixOrSuffix : "suffix",
@@ -1983,7 +2030,6 @@ MagicItemsList["tree spirit weapon"] = {
 	"tier 2" : {
 		name : "T2 Tree Spirit",
 		description : "A tree spirit weapon is crafted from the wood of a sentient tree. I feel the desires of the tree and gain the flaw \"constantly hears the voice of the tree spirit\". I also gain a +2 bonus to attack and damage rolls made with this magic weapon.",
-		defaultExcluded : true,
 		chooseGear : {
 			type : "weapon",
 			prefixOrSuffix : "suffix",
@@ -2000,7 +2046,6 @@ MagicItemsList["tree spirit weapon"] = {
 		description : "A tree spirit weapon is crafted from the wood of a sentient tree. I feel its desires and gain the flaw \"constantly hears the voice of the tree spirit\". I also have advantage on Constitution saves and my movement is reduced by 10 ft. I gain a +3 bonus to attack and damage rolls made with this magic weapon.",
 		savetxt : { text : ["Adv on Con saves"] },
 		speed : { allModes : "-10" },
-		defaultExcluded : true,
 		chooseGear : {
 			type : "weapon",
 			prefixOrSuffix : "suffix",
@@ -2018,7 +2063,6 @@ MagicItemsList["tree spirit weapon"] = {
 		dmgres : ["Bludgeoning"],
 		speed : { allModes : "-10" },
 		savetxt : { text : ["Adv on Con saves; Vulnerable to fire damage"] },
-		defaultExcluded : true,
 		chooseGear : {
 			type : "weapon",
 			prefixOrSuffix : "suffix",
@@ -2030,4 +2074,356 @@ MagicItemsList["tree spirit weapon"] = {
 					}
 				},
 	}
+}
+
+
+//Special Weapon from the AL Service Rewards 2026.1 that scales with tier
+MagicItemsList["advancing help weapon (al)"] = {
+		name : "Advancing Help Weapon (AL)",
+		source : [["AL:SR",2026.1]],
+		type : "weapon (any purchasable)",
+		rarity : "unique",
+		magicItemTable : "",
+		attunement : true,
+		limfeaname : "Help Weapon Spell",
+		usages : 1,
+		recovery : "dawn",
+		description : "This Weapon, +X increases its rarity by tier, following the ALPG Tier-Appropriate Rarities table up to a Weapon, +3. Once per day while attuned to the weapon, I can cast one of the following spells in my tier or lower: Feather Fall (T1), Beacon of Hope (T2), Circle of Power (T3), Heroes' Feast (T4).",
+		descriptionFull : "This is a Weapon, +X that increases its rarity by your tier, following the ALPG \"Tier-Appropriate Rarities\" table up to a Weapon, +3. While attuned to your weapon, you can cast one of the following spells in your tier or lower, from your weapon."+
+		"\n   Tier 1: Feather Fall"+
+		"\n   Tier 2: Beacon of Hope"+
+		"\n   Tier 3: Circle of Power"+
+		"\n   Tier 4: Heroes' Feast",
+	choices : ["Tier 1", "Tier 2", "Tier 3", "Tier 4"],
+	"tier 1" : {
+		name : "Advancing Help (T1)",
+		nameTest : "/help.*(t1)/i",
+		description : "This +1 weapon increases its rarity by tier. Once per day while attuned to the weapon, I can cast Feather Fall from the weapon.",
+		chooseGear : {
+			type : "weapon",
+			prefixOrSuffix : "suffix",
+			prefixOrSuffix : ["between", "Advancing Help", "(T1)"],
+			itemName1stPage : ["suffix", "+1 Advancing Help"],
+			excludeCheck : function (inObjKey, inObj) {
+			var testRegex = /gun|rifle|pistol|musket|revolver|net|oversized/i;
+				return ((testRegex).test(inObjKey) && (!inObj.baseWeapon || !(testRegex).test(inObj.baseWeapon)));
+			}
+		},
+		spellcastingBonus: [{
+		name: "spell option",
+		spells: ["feather fall"],
+		selection: ["feather fall"],
+		firstCol: 1
+		}],
+	},
+	"tier 2" : {
+		name : "Advancing Help (T2)",
+		nameTest : "/help.*(t2)/i",
+		description : "This +2 weapon increases its rarity by tier. Once per day while attuned to the weapon, I can cast Feather Fall or Beacon of Hope from the weapon.",
+		chooseGear : {
+			type : "weapon",
+			prefixOrSuffix : ["between", "Advancing Help", "(T2)"],
+			descriptionChange : ["replace", "weapon"],
+			itemName1stPage : ["suffix", "+2 Advancing Help"],
+			excludeCheck : function (inObjKey, inObj) {
+			var testRegex = /gun|rifle|pistol|musket|revolver|net|oversized/i;
+				return ((testRegex).test(inObjKey) && (!inObj.baseWeapon || !(testRegex).test(inObj.baseWeapon)));
+			}
+		},
+		spellcastingBonus: [{
+		name: "spell option",
+		spells: ["feather fall"],
+		selection: ["feather fall"],
+		firstCol: 1
+			}, {
+		name: "spell option",
+		spells: ["beacon of hope"],
+		selection: ["beacon of hope"],
+		firstCol: 1
+		}],
+	},
+	"tier 3" : {
+		name : "Advancing Help (T3)",
+		nameTest : "/help.*(t3)/i",
+		description : "This +3 weapon increases its rarity by tier. Once per day while attuned to the weapon, I can cast Feather Fall , Beacon of Hope, or Circle of Power from the weapon.",
+		chooseGear : {
+			type : "weapon",
+			prefixOrSuffix : ["between", "Advancing Help", "(T3)"],
+			descriptionChange : ["replace", "weapon"],
+			itemName1stPage : ["suffix", "+3 Advancing Help"],
+			excludeCheck : function (inObjKey, inObj) {
+			var testRegex = /gun|rifle|pistol|musket|revolver|net|oversized/i;
+				return ((testRegex).test(inObjKey) && (!inObj.baseWeapon || !(testRegex).test(inObj.baseWeapon)));
+			}
+		},
+		spellcastingBonus: [{
+		name: "spell option",
+		spells: ["feather fall"],
+		selection: ["feather fall"],
+		firstCol: 1
+			}, {
+		name: "spell option",
+		spells: ["beacon of hope"],
+		selection: ["beacon of hope"],
+		firstCol: 1
+			}, {
+		name: "spell option",
+		spells: ["circle of power"],
+		selection: ["circle of power"],
+		firstCol: 1
+		}],
+	},
+	"tier 4" : {
+		name : "Advancing Help (T4)",
+		nameTest : "/help.*(t4)/i",
+		description : "This +3 weapon was designed to help. Once per day while attuned to the weapon, I can cast Feather Fall , Beacon of Hope, Circle of Power or Heroes Feast from the weapon.",
+		chooseGear : {
+			type : "weapon",
+			prefixOrSuffix : ["between", "Advancing Help", "(T4)"],
+			descriptionChange : ["replace", "weapon"],
+			itemName1stPage : ["suffix", "+3 Advancing Help"],
+			excludeCheck : function (inObjKey, inObj) {
+			var testRegex = /gun|rifle|pistol|musket|revolver|net|oversized/i;
+				return ((testRegex).test(inObjKey) && (!inObj.baseWeapon || !(testRegex).test(inObj.baseWeapon)));
+			}
+		},
+		spellcastingBonus: [{
+		name: "spell option",
+		spells: ["feather fall"],
+		selection: ["feather fall"],
+		firstCol: 1
+			}, {
+		name: "spell option",
+		spells: ["beacon of hope"],
+		selection: ["beacon of hope"],
+		firstCol: 1
+			}, {
+		name: "spell option",
+		spells: ["circle of power"],
+		selection: ["circle of power"],
+		firstCol: 1
+			}, {
+		name: "spell option",
+		spells: ["heroes' feast"],
+		selection: ["heroes' feast"],
+		firstCol: 1
+		}],
+	}
+}
+
+//Special Armor from the AL Service Rewards 2026.1 with elemental choices
+MagicItemsList["elemental medium armor (al)"] = {
+		name : "Elemental Medium Armor (AL)",
+		source : [["AL:SR",2026.1]],
+		type : "armor (medium)",
+		rarity : "unique uncommon",
+		magicItemTable : "?",
+		description : "While wearing this armor, you may take an Action to duplicate one of Elementalism's “Beckon” or “Sculpt Element” spell effects, matching your elemental type. Once this property is used, it can't be used again until the next dawn.",
+		descriptionFull : "When claimed, choose your Unique armor's elemental type (Air, Earth, Fire, or Water); it may not change. While wearing this armor, you may take an Action to create one of Elementalism's “Beckon” or “Sculpt Element” spell effects, matching your elemental type. Once this property is used, it can't be used again until the next dawn.",
+	choices : ["Air", "Earth", "Fire", "Water"],
+	"air" : {
+		name : "Air Elemental",
+		description : "Once per dawn while wearing this armor, I may take an Action to duplicate one of Elementalism's “Beckon” or “Sculpt Element” effects related to Air.",
+		chooseGear : {
+			type : "armor",
+			prefixOrSuffix : "suffix",
+			descriptionChange : ["replace", "armor"],
+			itemName1stPage : ["suffix", "Elemental"],
+			excludeCheck : function (inObjKey, inObj) {
+				return !(/medium/i).test(inObj.type);
+			},
+		},
+		spellcastingBonus : [{
+			name: "spell effect",
+			spells: ["elementalism"],
+			selection: ["elementalism"],
+			firstCol : "oncelr",
+		}],
+		spellChanges : {
+			"elementalism" : {
+			description: "Create strong breeze within 5-ft cube or sculpt 1-ft air into crude shape.",
+			changes : "I can duplicate an effect of Elementalism relating to my armor's element."
+			}
+		},
+	},
+	"earth" : {
+		name : "Earth Elemental",
+		description : "Once per dawn while wearing this armor, I may take an Action to create one of Elementalism's “Beckon” or “Sculpt Element” effects related to Earth.",
+		chooseGear : {
+			type : "armor",
+			prefixOrSuffix : "suffix",
+			descriptionChange : ["replace", "armor"],
+			itemName1stPage : ["suffix", "Elemental"],
+			excludeCheck : function (inObjKey, inObj) {
+				return !(/medium/i).test(inObj.type);
+			},
+		},
+		spellcastingBonus : [{
+			name: "spell effect",
+			spells: ["elementalism"],
+			selection: ["elementalism"],
+			firstCol : "oncelr",
+		}],
+		spellChanges : {
+			"elementalism" : {
+			description: "Make dust/sand layer over 5-ft cube; make 1 word in dirt/sand patch; sculpt 1-ft dirt/sand.",
+			changes : "I can duplicate an effect of Elementalism relating to my armor's element."
+			}
+		},
+	},
+	"fire" : {
+		name : "Fire Elemental",
+		description : "Once per dawn while wearing this armor, I may take an Action to create one of Elementalism's “Beckon” or “Sculpt Element” effects related to Fire.",
+		chooseGear : {
+			type : "armor",
+			prefixOrSuffix : "suffix",
+			descriptionChange : ["replace", "armor"],
+			itemName1stPage : ["suffix", "Elemental"],
+			excludeCheck : function (inObjKey, inObj) {
+				return !(/medium/i).test(inObj.type);
+			},
+		},
+		spellcastingBonus : [{
+			name: "spell effect",
+			spells: ["elementalism"],
+			selection: ["elementalism"],
+			firstCol : "oncelr",
+		}],
+		spellChanges : {
+			"elementalism" : {
+			description: "Make embers/colored scented smoke in 5-ft cube or sculpt 1-ft fire/smoke into crude shape. See B.",
+			changes : "I can duplicate an effect of Elementalism relating to my armor's element."
+			}
+		},
+	},
+	"water" : {
+		name : "Water Elemental",
+		description : "Once per dawn while wearing this armor, I may take an Action to create one of Elementalism's “Beckon” or “Sculpt Element” effects related to Water.",
+		chooseGear : {
+			type : "armor",
+			prefixOrSuffix : "suffix",
+			descriptionChange : ["prefix", "armor"],
+			itemName1stPage : ["suffix", "Elemental"],
+			excludeCheck : function (inObjKey, inObj) {
+				return !(/medium/i).test(inObj.type);
+			},
+		},
+		spellcastingBonus : [{
+			name: "spell effect",
+			spells: ["elementalism"],
+			selection: ["elementalism"],
+			firstCol : "oncelr",
+		}],
+		spellChanges : {
+			"elementalism" : {
+			description: "Make cool mist in 5-ft cube or 1 cup water (1 min); sculpt 1-ft mist/water into crude shape.",
+			changes : "I can duplicate an effect of Elementalism relating to my armor's element."
+			}
+		},
+	},
+}
+
+//Special Book from the AL Service Rewards 2026.1 with type choices
+MagicItemsList["living book (al)"] = {
+		name : "Living Book (AL)",
+		source : [["AL:SR",2026.1]],
+		type : "armor (medium)",
+		rarity : "unique common",
+		description : "This Unique, flying, animated book may be claimed as an Enduring Spellbook or a nonfiction book covering the history of one setting in my campaign. They are my familiar, companion, or other “Friend” (ALPG) under my character's control. If claimed as an Enduring Spellbook, this creature doesn't count against my Magic Items limit. When claimed as a nonfiction book, choose a settlement and topic (from “Historical Events,” “People,” “Laws and Politics,” or “Cultures”); while this book is with me, I gain a +5 bonus to an Intelligence (History) Check related to my nonfiction book's topic. These choices may not change.",
+		descriptionFull : "This Unique, flying, animated book may be claimed as an Enduring Spellbook or a nonfiction book covering the history of one setting in your campaign. They are your familiar, companion, or other “Friend” (ALPG) under your character's control. They use the Raven stat block, but cause Bludgeoning instead of Piercing damage. On a Critical Hit of their attack, the target takes an additional 1 Slashing damage from a flurry of paper cuts. If claimed as an Enduring Spellbook, this creature doesn't count against your “Carried Magic Items by Tier” limit. When claimed as a nonfiction book, choose a settlement and topic (from “Historical Events,” “People,” “Laws and Politics,” or “Cultures”); while this book is with you, you gain a +5 bonus to an Intelligence (History) Check related to your nonfiction book's topic. These choices may not change.",
+	choices : ["Enduring Spellbook", "Nonfiction Book"],
+	"enduring spellbook" : {
+		name : "Living Enduring Spellbook",
+		description : "This Unique animated flying spellbook acts as my familiar, companion, or other Friend. The spellbook, and anything on its pages, can't be damaged by fire or water and doesn't deteriorate with age. It also doesn't count against my item limit. (See statblock)",
+		creaturesAdd : [["Living Enduring Spellbook"]],
+		creatureOptions : [{
+			name : "Living Enduring Spellbook",
+			source : [["AL:SR",2026.1]],
+			size: 5,
+			type: "Beast",
+			alignment: "Unaligned",
+			ac: 12,
+			hp: 2,
+			hd: [1, 4],
+			speed: "10 ft, Fly 50 ft",
+			scores: [2, 14, 10, 5, 13, 6],
+			saves: ["", "", "", "", "", ""],
+			skills: {
+				"perception": 3,
+			},
+			senses: "",
+			languages: "",
+			challengeRating: 0,
+			proficiencyBonus: 2,
+			attacksAction: 1,
+		attacks: [{
+			name: "Beak",
+			ability: 2,
+			damage: [1, "", "Bludgeoning"],
+			range: "Melee (5 ft)",
+			description : "On a Critical Hit, +1 Slashing dmg"
+			}],
+		features: [{
+			name: "Mimicry",
+			description: "The raven can mimic simple sounds it has heard, such as a whisper or chitter. A hearer can discern the sounds are imitations with a successful DC 10 Wisdom (Insight) check."
+			}, {
+			name : "Paper Cut",
+			description : "On a Critical Hit of their attack, the target takes an additional 1 Slashing damage from a flurry of paper cuts.",
+			}],
+		traits : [{
+			name : "Living Book",
+			description : "This Unique animated flying spellbook acts as my familiar, companion, or other Friend (ALPG). The spellbook, and anything on its pages, can't be damaged by fire or water and doesn't deteriorate with age. It also doesn't count against my magic item limit."
+			}, {
+			name : "Statblock Changes",
+			description : "They use the Raven statblock, but cause Bludgeoning instead of Piercing damage.",
+			}],
+		}],
+	},
+	"nonfiction book" : {
+		name : "nonfiction book",
+		description : "This Unique animated flying book acts as my familiar, companion, or other Friend. It covers 1 settlement and topic (from Historical Events, People, Laws and Politics, or Cultures). While with me, I gain +5 to an Int (History) Check related to its topic. The topic may not change.",
+		creaturesAdd : [["Living Nonfiction Book"]],
+		creatureOptions : [{
+			name : "Living Nonfiction Book",
+			source : [["AL:SR",2026.1]],
+			size: 5,
+			type: "Beast",
+			alignment: "Unaligned",
+			ac: 12,
+			hp: 2,
+			hd: [1, 4],
+			speed: "10 ft, Fly 50 ft",
+			scores: [2, 14, 10, 5, 13, 6],
+			saves: ["", "", "", "", "", ""],
+			skills: {
+				"perception": 3,
+			},
+			senses: "",
+			languages: "",
+			challengeRating: 0,
+			proficiencyBonus: 2,
+			attacksAction: 1,
+		attacks: [{
+        name: "Beak",
+			ability: 2,
+			damage: [1, "", "Bludgeoning"],
+			range: "Melee (5 ft)",
+			description : "On a Critical Hit, +1 Slashing dmg"
+			}],
+		features: [{
+			name: "Mimicry",
+			description: "The raven can mimic simple sounds it has heard, such as a whisper or chitter. A hearer can discern the sounds are imitations with a successful DC 10 Wisdom (Insight) check."
+			}, {
+			name : "Paper Cut",
+			description : "On a Critical Hit of their attack, the target takes an additional 1 Slashing damage from a flurry of paper cuts.",
+			}],
+		traits : [{
+			name : "Living Book",
+			description : "This Unique animated flying book acts as my familiar, companion, or other Friend. It covers 1 settlement and topic (from Historical Events, People, Laws and Politics, or Cultures). While with me, I gain +5 to an Int (History) Check related to its topic. The topic may not change."
+			}, {
+			name : "Statblock Changes",
+			description : "They use the Raven statblock, but cause Bludgeoning instead of Piercing damage.",
+			}],
+		}],
+	},
 }

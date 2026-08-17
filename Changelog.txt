@@ -1,10 +1,22 @@
+After 05/28/26
+-Corrected Language property typo on Wand of Fireballs (SJ-DC-TEL-5)
+-Fixed Full description minor property for Studded Leather (PS-DC-ELEMENT-DEATH-2)
+-Tweaked SCAG Investigator variant so it shouldn't get overridden by Ravenloft background.
+-Commented out the Dhampir in the ABoH script since it's the same as the new Ravenloft book. Edit the code before installing if you need that version for some reason.
+-Noted that the Mithral Scale Barding can be worn as normal armor, per the admittedly strange admin ruling on 7/3/26
+-Added additional items from new DC adventures
+-Changed Service Award source to Service Rewards to match new naming.
+-Updated the default exclusions on sources to better match what's commonly available
+-Added new Unique items and animals from the 2026 AL Service Rewards
+-Fixed other minor errors with the Crystal Ball of True Seeing, various typos, Sun Blade code, etc
+-Fixed choice weapon code to better exclude the new "weapons" added by 2024 coding, like alchemist's fire
+
 After 04/10/26
 -Fixed WeaponAdd name for Holy Avenger Longsword
 -Reorganized common Armor, AL weapons and AL swords to better group like items despite name differences (ie Armor of Gleaming is all together even though that isn't alphabetical by name)
 -Added more items from DC adventures
 -Split rings into two groups A-P/R-Z because there were more than 100 options and it was messing up the choices
 -Fixed issue with Mithral armor not removing stealth disadvantage
-
 
 After 12/5/25
 -Created variable code for Staff of the Magi. Also corrected leftover spells that were using old rules.

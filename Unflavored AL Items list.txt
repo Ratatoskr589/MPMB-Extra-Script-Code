@@ -40,6 +40,9 @@ CCC-HERO-BK3-2 The Fire Rekindled
 CCC-PIPYAPS Glasyas Little Helpers
 -Ylkwa of Warning
 
+CCC-RCC-01-05 The Lost City of Tharn
+-Pipe of Smoke Monsters
+
 CCC-SAC-1 A Light in the Dark
 -Efreeti Bottle (Banned, see ALPG)
 
@@ -241,6 +244,9 @@ FR-DC-FALL-1 Cathedral of Ice
 -Mystery Key
 -Blessing of Wound Closure
 
+FR-DC-F&ADDM-CRC1 An Old Road to Deadsnows
+-Bag of Holding
+
 FR-DC-F&ADDM-GW3 Leapin' Lizards
 -Ring of Waterwalking
 
@@ -259,6 +265,12 @@ FR-DC-GHG-1 Griffons of Longsaddle
 
 FR-DC-HAN-1-1 Harvest of the Winter Wilds
 -Staff of Birdcalls
+
+FR-DC-HEARTHOME-01 Fresh Start
+-Candle of the Deep
+
+FR-DC-HEARTHOME-04 Corruption in Cormanthor
+-Clockwork Amulet
 
 FR-DC-KKON-01 Kontraption-Kon
 -Rival Coin
@@ -383,6 +395,11 @@ FR-DC-SCROOGE-1 Funny Bunny Business
 -Tankard of Plenty (ToD)
 -Staff of Flowers
 
+FR-DC-SCROOGE-004 Fireworks Fiasco
+-Wand of Pyrotechnics
+-Tankard of Plenty (ToD)
+-Elemental Gem (Red)
+
 FR-DC-SSG-FAI-02 The Communion of Laughter
 -Flying Wonder
 -Cloak of Billowing
@@ -394,6 +411,23 @@ FR-DC-SSM-FAI-1 The Secret in Sanctuary
 FR-DC-STRAT-DRAGON-1 Dancing in the Moonlight
 -Potion of Psionic Fortitude
 -Potion of Psychic Resistance
+
+FR-DC-STRAT-DUNGEON-02 The Umbral Crypt
+-Cloak of Displacement
+-Amulet of the Devout +2
+-Shadowfell Shard
+
+FR-DC-STRAT-DUNGEON-04 The Lost Secrets of Shar
+-Lute of Thunderous Thumping
+-Wings of Flying
+-Devotee's Censer
+
+FR-DC-STRAT-DUNGEON-05 By Invitation Only
+-Arcane Grimoire +3
+
+FR-DC-STRAT-DUNGEON-07 Xanathar's Dream Team
+-Ioun Stone of Mastery
+-Charm of the Fates
 
 FR-DC-STRAT-FIEND-1 The Trouble With Quasits
 -Hat of Wizardry
@@ -434,6 +468,10 @@ FR-DC-STRAT-WYRM-01 Day of the Dragon
 
 FR-DC-STRAT-WYRM-02 The Wayward Wyrmling
 -Ring of Fire Resistance
+
+FR-DC-TDD-02 Clouded Visions
+-Decanter of Endless Water
+-Glowrune Pigment
 
 FR-DC-TGT-2 Those Who Plant
 -Gem of Brightness
@@ -647,6 +685,9 @@ PS-DC-HNL-3 Ardragon of Sigil
 PS-DC-IC Iron Cook
 -Charm of the Sun
 
+PS-DC-JUDGE Tower of Judgment
+-Charm of Balance
+
 PS-DC-MAR-1 Death and Taxes
 -Boon of Speed
 
@@ -720,6 +761,12 @@ PS-DC-PUB-10 Absent Without Leave
 PS-DC-RDP-03 The Upper Demonweb
 -Rod of Security
 -Charm of the Fates
+
+PS-DC-RDP-05 Demon Queen of Spiders
+-Manual of Iron Golems
+-Energy Longbow
+-Spirit Board
+-Necklace of Fireballs (4 beads)
 
 PS-DC-SS Soul and Shadow
 -Boon of Truesight
@@ -901,6 +948,10 @@ SJ-DC-HBI-2 The Hitchhiker
 SJ-DC-HBI-3 The Reckoning
 -Wand of Conducting
 -Gray Bag of Tricks
+
+SJ-DC-HIPS Hiding in Plain Sight
+-Gem of Seeing
+-Hat of Wizardry
 
 SJ-DC-HYS-2 Darkside of Selune
 -Pole of Collapsing
