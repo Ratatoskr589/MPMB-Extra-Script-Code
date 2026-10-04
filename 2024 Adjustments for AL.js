@@ -1980,7 +1980,7 @@ if (ClassSubList["barbarian-wild heart"]) {
 
 //Code for some measure of Bastion information so that I can remember the Special Facilities. This is not full information, more of a cheat sheet for AL with the facilities that I actually care about. Crafting options are not listed.
 //Due to issues with adding extra choices to other features and the fact that bastions are based on total level, not class level, this is being coded as a lvl 1 class feature for all classes. This means it will show up more than once for multiclasses.
-//There's no easy way to exclude this code by default (using a separate source doesn't work) so if you don't care about bastions at all, delete or mark it out before adding this file.
+//There's no easy way to exclude this code by default (using a separate source doesn't work properly) so if you don't care about bastions at all, delete or mark it out before adding this file.
 
 if (!SourceList.FRHoF) {
 	SourceList.FRHoF = {
@@ -1989,6 +1989,15 @@ if (!SourceList.FRHoF) {
 	abbreviationSpellsheet: "HF",
 	group : "Campaign Sourcebooks",
 	campaignSetting : "Forgotten Realms",
+	};
+}
+
+if (!SourceList.AU) {
+	SourceList.AU = {
+    name: "Arcana Unleashed",
+    abbreviation: "AU",
+    abbreviationSpellsheet: "AU",
+    group: "Primary Sources"
 	};
 }
 
@@ -2005,7 +2014,7 @@ var BastionWorkaround = {
 				}),*/
 				additional :  "CL 5: 2, 9: 4, 13: 5, 17: 6 special facilities", 
 				extraname : "Bastion Special Facilities",
-				extrachoices : ["Amethyst Dragon Den (prereq: PDK)","Arcane Study (prereq: can use Arcane Focus/Tool as Spell Focus)", "Demiplane (prereq: can use Arcane Focus/Tool as Spell Focus)", "Greenhouse", "Harper Hideout (prereq: Harper)","Meditation Chamber", "Observatory (prereq: can use Spell Focus)", "Pub", "Reliquary (prereq: can use Holy Symbol/Druidic Spell Focus)", "Sanctuary (prereq: can use Holy Symbol/Druidic Spell Focus)", "Sanctum (prereq: can use Holy Symbol/Druidic Spell Focus)", "Storehouse", "Teleportation Circle", "Training Area", "Workshop", "Zhentarim Travel Station (prereq: Zhent)"],
+				extrachoices : ["Amethyst Dragon Den (prereq: PDK)","Arcane Study (prereq: can use Arcane Focus/Tool as Spell Focus)", "Circus Tent (prereq: Phantasmic Circus)","Demiplane (prereq: can use Arcane Focus/Tool as Spell Focus)", "Geothermal Vent (prereq: Crucible Keepers)","Greenhouse", "Harper Hideout (prereq: Harper)","Lighthouse (prereq: Seers of Sea and Sky)","Meditation Chamber", "Observatory (prereq: can use Spell Focus)", "Pub", "Reliquary (prereq: can use Holy Symbol/Druidic Spell Focus)", "Sanctuary (prereq: can use Holy Symbol/Druidic Spell Focus)", "Sanctum (prereq: can use Holy Symbol/Druidic Spell Focus)", "Soup Kitchen (prereq: Sheltering Hands)","Storehouse", "Teleportation Circle", "Training Area", "Workshop", "Zhentarim Travel Station (prereq: Zhent)"],
 				extraTimes : levels.map(function (n) {
 					return n < 5 ? 0 : n < 9 ? 2 : n < 13 ? 4 : n < 17 ? 5 : 6;
 				}),
@@ -2031,7 +2040,20 @@ var BastionWorkaround = {
 						spells : ["identify"],
 						selection : ["identify"],
 						firstCol : 1
-					}]
+					}],
+					spellChanges : {
+						"identify" : {
+						components : "V,S",
+						changes : "The spell can be cast without any Material components."
+						}
+					},
+				},
+				"circus tent (prereq: phantasmic circus)" : {
+					name : "Circus Tent (Phantasmic Circus Only)",
+					description : desc("Circus Performance: Hirelings put on performance for 7 days. Earn 2d6 x 10 GP in proceeds."),
+					source : [["AU", 106]],
+					submenu : "[Level 9+]",
+					prereqeval: function (v) { return v.characterLevel >= 9; },
 				},
 				"demiplane (prereq: can use arcane focus/tool as spell focus)" : {
 					name : "Demiplane",
@@ -2039,6 +2061,13 @@ var BastionWorkaround = {
 					source : [["D24", 340]],
 					submenu : "[Level 17+]",
 					prereqeval : function(v) { return (v.characterLevel >= 17) && (classes.known.artificer || classes.known.bard || classes.known.sorcerer || classes.known.warlock || classes.known.wizard || (classes.known.rogue && (/arcane trickster/).test(classes.known.rogue.subclass)) || (classes.known.fighter && (/eldritch knight/).test(classes.known.fighter.subclass))); },
+				},
+				"geothermal vent (prereq: crucible keepers)" : {
+					name : "Geothermal Vent (Crucible Keepers Only)",
+					description : desc("Empower: Heat Tolerant - When take Fire dmg, Reaction to reduce by 1d4 + my level for 7 days. (8 hrs/day/turn)."),
+					source : [["AU", 95]],
+					submenu : "[Level 5+]",
+					prereqeval: function (v) { return v.characterLevel >= 5; },
 				},
 				"greenhouse" : {
 					name : "Greenhouse",
@@ -2058,7 +2087,13 @@ var BastionWorkaround = {
 						spells : ["lesser restoration"],
 						selection : ["lesser restoration"],
 						firstCol : 1
-					}]
+					}],
+					spellChanges : {
+						"lesser restoration" : {
+						components : "V,S,M\u2020",
+						changes : "The fruit must be eaten to gain the benefits of Lesser Restoration."
+						}
+					},
 				},
 				"harper hideout (prereq: harper)" : {
 					name : "Harper Hideout (Harpers Only)",
@@ -2066,6 +2101,26 @@ var BastionWorkaround = {
 					source : [["FRHoF", 161]],
 					submenu : "[Level 5+]",
 					prereqeval: function (v) { return v.characterLevel >= 5; },
+				},
+				"lighthouse (prereq: seers of sea and sky)" : {
+					name : "Lighthouse (Seers of Sea and Sky Only)",
+					description : desc(". "),
+					description : desc([
+						"Gain magical charm that lets me cast Darkvision without a spell slot. Disappears after 3 uses (LR)",
+						"Harvest: Spend 100 GP to hire salvagers who return with 1d4 x 100 GP (Turn)"
+					]),
+					source : [["AU", 110]],
+					submenu : "[Level 9+]",
+					prereqeval: function (v) { return v.characterLevel >= 9; },
+					limfeaname : "Lighthouse Charm",
+					usages : 3,
+					recovery : "B. turn",
+					spellcastingBonus : [{
+						name : "Lighthouse Charm",
+						spells : ["darkvision"],
+						selection : ["darkvision"],
+						firstCol : 1
+					}],
 				},
 				"meditation chamber" : {
 					name : "Meditation Chamber",
@@ -2122,7 +2177,13 @@ var BastionWorkaround = {
 						spells : ["greater restoration"],
 						selection : ["greater restoration"],
 						firstCol : 1
-					}]
+					}],
+					spellChanges : {
+						"greater restoration" : {
+						components : "V,S",
+						changes : "The spell can be cast without any Material components."
+						}
+					},
 				},
 				"sanctuary (prereq: can use holy symbol/druidic spell focus)" : {
 					name : "Sanctuary",
@@ -2167,6 +2228,23 @@ var BastionWorkaround = {
 						spells: ["word of recall"],
 						selection: ["word of recall"],
 						firstCol: "markedbox"
+					}],
+				},
+				"soup kitchen (prereq: sheltering hands)" : {
+					name : "Soup Kitchen (Sheltering Hands Only)",
+					description : desc("Gain magical charm that lets me cast Goodberry once without a spell slot. Lasts for 7 days or until used (LR)."),
+					source : [["AU", 113]],
+					submenu : "[Level 5+]",
+					prereqeval: function (v) { return v.characterLevel >= 5; },
+					limfeaname : "Soup Kitchen Charm",
+					additional : "7 days",
+					usages : 1,
+					recovery : "B. turn",
+					spellcastingBonus : [{
+						name : "Soup Kitchen Charm",
+						spells : ["goodberry"],
+						selection : ["goodberry"],
+						firstCol : 1
 					}],
 				},
 				"storehouse" : {

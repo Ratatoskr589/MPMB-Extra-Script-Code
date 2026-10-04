@@ -22,7 +22,7 @@ It is recommended to enter the code in a fresh sheet before adding any other inf
 	//In progress: SJ-DCs, POs, RV-DC, FR-DC, PS-DC, WBW-DC
 	
 var iFileName = "AL Flavored Magic Items.js";
-RequiredSheetVersion("13.1.14", 15);
+RequiredSheetVersion("13.1.14", 25);
 
 //I believe the only thing that won't function properly on older versions is the AL Ammunition section since MPMB added that specially for me as of 13.0.9. However, there may be other errors that I'm not currently aware of.
 
@@ -145,6 +145,10 @@ SourceList["AL:FM"] = {  //Feast of the Moon events
     date : "Various",
 	defaultExcluded : true
 };
+
+//Variable to switch between LR and 1/Day for item spells depending on sheet version
+var spellOnceDayMinVersion = semVersToNmbr(tDoc.use2024Rules ? "24.1.0" : "14.1.0");
+var spellOnceDay = (!tDoc.sheetVersion || tDoc.sheetVersion < spellOnceDayMinVersion) ? "oncelr" : "onceday";
 
 
 //Extra tattoo code from MPMB
@@ -407,7 +411,7 @@ var necklacePrayerBeads = {
 					if ((/necklace of prayer beads/i).test(spName)) {
 						var toReturn = spellObj.time !== "1 bns";
 						spellObj.time = "1 bns";
-						spellObj.firstCol = "oncelr";
+						spellObj.firstCol = spellOnceDay;
 						if (spellKey === "cure wounds") {
 							spellObj.name += " (2nd level)";
 							spellObj.description = "1 creature heals 4d8 + spellcasting ability modifier HP";
@@ -644,7 +648,7 @@ var anstruthHarpSpells = {
 			name : "Once per long rest",
 			spells : ["fly", "invisibility", "levitate", "protection from evil and good", "ice storm", "cure wounds", "wall of thorns"],
 			selection : ["fly", "invisibility", "levitate", "protection from evil and good", "ice storm", "cure wounds", "wall of thorns"],
-			firstCol : "oncelr",
+			firstCol: spellOnceDay,
 			times : 7,
 			spellcastingAbility : "class"
 		},
@@ -688,13 +692,27 @@ var bootsLevitation = {
 			}
 		}
  }
- 
+
+var cloakOfArachnidiaSpells = {
+		spellcastingBonus : {
+			name : "Once per dawn",
+			spells : ["web"],
+			selection : ["web"],
+			firstCol: spellOnceDay
+		},
+		spellChanges : {
+			"web": {
+				description : "2\xD7 20-ft cubes, anchored, all save or restrained; dif. ter.; lightly obscures; Str check vs. DC 13 to free"
+			}
+		}
+ }
+
 var cloakOfBat = {
 		spellcastingBonus : {
 			name : "Only self into bat",
 			spells : ["polymorph"],
 			selection : ["polymorph"],
-			firstCol : "oncelr"
+			firstCol: spellOnceDay
 		},
 		spellChanges : {
 			"polymorph" : {
@@ -707,15 +725,15 @@ var cloakOfBat = {
  
 var crystalBallTelepathy = {
 		spellcastingBonus : [{
-				name : "At will, DC 17",
+				name : "At will",
 				spells : ["scrying"],
 				selection : ["scrying"],
 				firstCol : "atwill"
 			}, {
-				name : "1\xD7 per long rest, DC 17",
+				name : "1\xD7 per dawn",
 				spells : ["suggestion"],
 				selection : ["suggestion"],
-				firstCol : "oncelr"
+				firstCol: spellOnceDay
 			}],
 		spellChanges : {
 			"suggestion" : {
@@ -731,7 +749,7 @@ var crystalBallTelepathy = {
  
 var crystalBallTrueSeeing = {
 		spellcastingBonus : {
-			name : "DC 17",
+			name : "Crystal Ball",
 			spells : ["scrying"],
 			selection : ["scrying"],
 			firstCol : "atwill"
@@ -801,7 +819,7 @@ var dossLuteSpells = {
 			name : "Once per long rest",
 			spells : ["fly", "invisibility", "levitate", "protection from evil and good", "animal friendship", "protection from energy", "protection from poison"],
 			selection : ["fly", "invisibility", "levitate", "protection from evil and good", "animal friendship", "protection from energy", "protection from poison"],
-			firstCol : "oncelr",
+			firstCol: spellOnceDay,
 			times : 7,
 			spellcastingAbility : "class"
 		},
@@ -888,7 +906,7 @@ var rodHellishFlames = {
 			name : "Once per dawn",
 			spells : ["hellish rebuke"],
 			selection : ["hellish rebuke"],
-			firstCol : "oncelr"
+			firstCol: spellOnceDay
 		}],
 		spellChanges : {
 			"hellish rebuke" : {
@@ -918,7 +936,7 @@ var sendingStoneSpell = {
 			name : "To other stone bearer only",
 			spells : ["sending"],
 			selection : ["sending"],
-			firstCol : "oncelr"
+			firstCol: spellOnceDay
 				},
 		spellChanges : {
 			"sending" : {
@@ -1019,7 +1037,7 @@ var watchfulHelm = {
 			name : "Once per dawn",
 			spells : ["see invisibility"],
 			selection : ["see invisibility"],
-			firstCol : "oncelr"
+			firstCol: spellOnceDay
 		},
 		spellChanges : {
 			"see invisibility" : {
@@ -1060,7 +1078,7 @@ var astromancyArchive = {
  
 var bellBranchSpell = {
 		spellcastingBonus : {
-			name : "Protection from Evil/Good",
+			name : "Bell Branch",
 			spells : ["protection from evil and good"],
 			selection : ["protection from evil and good"],
 			firstCol : 1
@@ -1069,10 +1087,10 @@ var bellBranchSpell = {
  
 var capeOfMountebank = {
 		spellcastingBonus : {
-			name: "Cape of the Mountebank",
+			name: "Once per dawn",
 			spells: ["dimension door"],
 			selection: ["dimension door"],
-			firstCol : "oncelr"
+			firstCol: spellOnceDay
 			},
  }
  
@@ -1081,19 +1099,47 @@ var circletOfBlasting = {
 			name : "Once per dawn",
 			spells : ["scorching ray"],
 			selection : ["scorching ray"],
-			firstCol : "oncelr"
+			firstCol: spellOnceDay
 		}
  }
  
 var cliLyreSpells = {
 		spellcastingBonus : {
-			name : "Once per long rest",
+			name : "Once per dawn",
 			spells : ["fly", "invisibility", "levitate", "protection from evil and good", "stone shape", "wall of fire", "wind wall"],
 			selection : ["fly", "invisibility", "levitate", "protection from evil and good", "stone shape", "wall of fire", "wind wall"],
-			firstCol : "oncelr",
+			firstCol: spellOnceDay,
 			times : 7,
 			spellcastingAbility : "class"
 		}
+ }
+ 
+var cubeForceSpells = {
+	spellcastingBonus : [{
+		name : "Cube of Force",
+		spells : ["mage armor", "shield"],
+		selection : ["mage armor", "shield"],
+		times : 2,
+		firstCol : 1,
+	}, {
+		name : "Cube of Force",
+		spells : ["leomund's tiny hut"],
+		selection : ["leomund's tiny hut"],
+		times : 1,
+		firstCol : 3,
+	}, {
+		name : "Cube of Force",
+		spells : ["mordenkainen's private sanctum", "otiluke's resilient sphere"],
+		selection : ["mordenkainen's private sanctum", "otiluke's resilient sphere"],
+		times : 2,
+		firstCol : 4,
+	}, {
+		name : "Cube of Force",
+		spells : ["wall of force"],
+		selection : ["wall of force"],
+		times : 1,
+		firstCol : 5,
+	}],
  }
  
 var fochlucanBandoreSpells = {
@@ -1101,7 +1147,7 @@ var fochlucanBandoreSpells = {
 			name : "Once per long rest",
 			spells : ["fly", "invisibility", "levitate", "protection from evil and good", "entangle", "faerie fire", "shillelagh", "speak with animals"],
 			selection : ["fly", "invisibility", "levitate", "protection from evil and good", "entangle", "faerie fire", "shillelagh", "speak with animals"],
-			firstCol : "oncelr",
+			firstCol: spellOnceDay,
 			times : 8,
 			spellcastingAbility : "class"
 		}
@@ -1109,7 +1155,7 @@ var fochlucanBandoreSpells = {
  
 var hatOfDisguise = {
 		spellcastingBonus : [{
-			name : "At will",
+			name : "Hat of Disguise",
 			spells : ["disguise self"],
 			selection : ["disguise self"],
 			firstCol : "atwill"
@@ -1130,12 +1176,12 @@ var helmOfTelepathy = {
 			name : "Once per dawn",
 			spells : ["detect thoughts"],
 			selection : ["detect thoughts"],
-			firstCol : "oncelr"
+			firstCol: spellOnceDay
 		}, {
 			name : "Once per dawn",
 			spells : ["suggestion"],
 			selection : ["suggestion"],
-			firstCol : "oncelr"
+			firstCol: spellOnceDay
 		}]
  }
  
@@ -1144,21 +1190,21 @@ var helmOfTeleportation = {
 			name : "Once per dawn",
 			spells : ["detect thoughts"],
 			selection : ["detect thoughts"],
-			firstCol : "oncelr"
+			firstCol: spellOnceDay
 		}, {
 			name : "Once per dawn",
 			spells : ["suggestion"],
 			selection : ["suggestion"],
-			firstCol : "oncelr"
+			firstCol: spellOnceDay
 		}]
  }
  
 var macfuirmidhCitternSpells = {
 		spellcastingBonus : {
-			name : "Once per long rest",
+			name : "Once per dawn",
 			spells : ["fly", "invisibility", "levitate", "protection from evil and good", "barkskin", "cure wounds", "fog cloud"],
 			selection : ["fly", "invisibility", "levitate", "protection from evil and good", "barkskin", "cure wounds", "fog cloud"],
-			firstCol : "oncelr",
+			firstCol: spellOnceDay,
 			times : 7,
 			spellcastingAbility : "class"
 		}
@@ -1166,10 +1212,10 @@ var macfuirmidhCitternSpells = {
  
 var masqueradeTattooSpell = {
 		spellcastingBonus : {
-			name : "Disguise Self",
+			name : "Once per dawn",
 			spells : ["disguise self"],
 			selection : ["disguise self"],
-			firstCol : "oncelr"
+			firstCol: spellOnceDay
 			}
  }
  
@@ -1187,7 +1233,40 @@ var mimirSpells = {
 			name : "once per dawn",
 			spells : ["legend lore"],
 			selection : ["legend lore"],
-			firstCol : "oncelr"
+			firstCol: spellOnceDay
+		},
+ }
+ 
+var airElementalRingSpells = {
+		spellcastingBonus: [{
+			name: "0 charges",
+			spells: ["feather fall"],
+			selection: ["feather fall"],
+			firstCol: 0,
+		}, {
+			name: "1 charge",
+			spells: ["wind wall"],
+			selection: ["wind wall"],
+			firstCol: 1,
+		}, {
+			name: "2 charges",
+			spells: ["gust of wind"],
+			selection: ["gust of wind"],
+			firstCol: 2,
+		}, {
+			name: "3 charges",
+			spells: ["chain lightning"],
+			selection: ["chain lightning"],
+			firstCol: 3,
+		}],
+ }
+ 
+var ringTelekinesisSpell = {
+		spellcastingBonus : {
+			name : "once per dawn",
+			spells : ["legend lore"],
+			selection : ["legend lore"],
+			firstCol: spellOnceDay
 		},
  }
  
@@ -1238,7 +1317,7 @@ var windFan = {
 			name : "Once per dawn",
 			spells : ["gust of wind"],
 			selection : ["gust of wind"],
-			firstCol : "oncelr"
+			firstCol: spellOnceDay
 		}
  }
 
@@ -2766,7 +2845,7 @@ MagicItemsList["al ammunition"] = {
 		choicesNotInMenu : true,
 		rarity : "uncommon",
 		magicItemTable : "?",
-	choices : ["Arrows +1 (CCC-UBCON1-1)","Arrows +1: Bone-Tipped (DC-POA-CONMAR-18)","Arrows +1: Bone-Tipped (DC-POA-DRAGON-2)","Arrows +1: Bone-Tipped (DC-POA-GaryXIII-2)","Arrows +1: Bone-Tipped (DC-POA-TDG1-8)","Arrows +1 (WBW-DC-LSN-2)","Arrows +2: Darkthorn Arrows (AL:SR-11A)","Arrows +3 (CCC-BMG-MOON12-2)","Arrows +3 (CCC-QCC2020-3)","Crossbow Bolts +1 (DDAL-DRW9)","Dried Leech (SJ-DC-TRIDEN-BZ)","Sling Bullets +1 (WBW-DC-JOQ-3)","Unbreakable Arrow (BMG-MOON-MD-11)","Unbreakable Arrow: Shadowneedle (CCC-BMG-MOON4-3/CCC-DRUID-1/CCC-KUMORI-2-4/CCC-TRI-26 ROSE1-1)","Unbreakable Arrow (CCC-DWB-ACM-1)","Unbreakable Arrow: Flying Fang Arrow (CCC-GHC-BK3-1)","Unbreakable Arrow: Valyntis' Arrow (CCC-NUKE-1-4)","Unbreakable Arrow (DDAL10-0)","Unbreakable Arrow (FR-DC-MCG-INN1)","Unbreakable Arrow (PO-BK-3-7)","Walloping Arrow (CCC-DRUIDS-3)","Walloping Arrow (DC-POA-DES-5D)","Walloping Arrow (DC-POA-GSP2-4H)","Walloping Arrow (DC-POA-VID-1)","Walloping Bullet: The Witchstone (CCC-CIC-15)","Walloping Bullet: Idris Chardalyn Bullet (DC-POA-TDG1-7)","Walloping Bullet: Chhurpi Cheese Bites (FR-DC-Saerloon-3)","Winged Crossbow Bolts (FR-DC-NUKE-2)"],
+	choices : ["Arrows +1 (CCC-UBCON1-1)","Arrows +1: Bone-Tipped (DC-POA-CONMAR-18)","Arrows +1: Bone-Tipped (DC-POA-DRAGON-2)","Arrows +1: Bone-Tipped (DC-POA-GaryXIII-2)","Arrows +1: Bone-Tipped (DC-POA-TDG1-8)","Arrows +1 (WBW-DC-LSN-2)","Arrows +2: Darkthorn Arrows (AL:SR-11A)","Arrows +3 (CCC-BMG-MOON12-2)","Arrows +3 (CCC-QCC2020-3)","Crossbow Bolts +1 (DDAL-DRW9)","Dried Leech (SJ-DC-TRIDEN-BZ)","Needles +2 (FR-DC-APAB-1)","Sling Bullets +1 (WBW-DC-JOQ-3)","Unbreakable Arrow (BMG-MOON-MD-11)","Unbreakable Arrow: Shadowneedle (CCC-BMG-MOON4-3/CCC-DRUID-1/CCC-KUMORI-2-4/CCC-TRI-26 ROSE1-1)","Unbreakable Arrow (CCC-DWB-ACM-1)","Unbreakable Arrow: Flying Fang Arrow (CCC-GHC-BK3-1)","Unbreakable Arrow: Valyntis' Arrow (CCC-NUKE-1-4)","Unbreakable Arrow (DDAL10-0)","Unbreakable Arrow (FR-DC-MCG-INN1)","Unbreakable Arrow (PO-BK-3-7)","Walloping Arrow (CCC-DRUIDS-3)","Walloping Arrow (DC-POA-DES-5D)","Walloping Arrow (DC-POA-GSP2-4H)","Walloping Arrow (DC-POA-VID-1)","Walloping Bullet: The Witchstone (CCC-CIC-15)","Walloping Bullet: Idris Chardalyn Bullet (DC-POA-TDG1-7)","Walloping Bullet: Chhurpi Cheese Bites (FR-DC-Saerloon-3)","Winged Crossbow Bolts (FR-DC-NUKE-2)"],
 	"arrows +1 (ccc-ubcon1-1)" : {
 		name : "Arrows +1 (CCC-UBCON1-1)",
 		source : [["AL","CCC"]],
@@ -2868,6 +2947,16 @@ MagicItemsList["al ammunition"] = {
 		allowDuplicates : true,
 		ammoAdd : [["Dried Leech (Bolt)", 1]],
 	},
+	"needles +2 (fr-dc-apab-1)" : {
+		name : "Needles +2 (FR-DC-APAB-1)",
+		source : [["AL","FR-DC"]],
+		type : "weapon (needle)",
+		rarity : "rare",
+		description : "These needles are inscribed with the letter ‘K, only visible with a magnifying glass. They constantly shift in multicoloured hues when held up to the light. I have a +2 bonus to atk and damage rolls made with them. Once a needle hits a target, it's no longer magical.",
+		descriptionFull : "If you held a magnifying glass up to the needles, you’d find that they’re inscribed with the letter ‘K’. They constantly shift in multicoloured hues when held up to the light.\n   You have a bonus to attack and damage rolls made with this piece of magic ammunition. The bonus is determined by the rarity of the ammunition: uncommon (+1), rare (+2), or very rare (+3). Once it hits a target, the ammunition is no longer magical.",
+		allowDuplicates : true,
+		ammoAdd : [["Needle +2", 2]],
+		},
 	"sling bullets +1 (wbw-dc-joq-3)" : {
 		name : "Sling Bullets +1 (WBW-DC-JOQ-3)",
 		source : [["AL","WBW-DC"]],
@@ -3046,7 +3135,7 @@ MagicItemsList["al amulets"] = {
 		allowDuplicates : true,
 		choicesNotInMenu : true,
 		magicItemTable : "?",
-	choices : ["Amulet of the Devout +3 (BMG-DRW-OD-6)","Amulet of the Devout +3 (FR-DC-F&ADDM-LES4)","Amulet of the Devout +3 (FR-DC-MCG-INN2)","Amulet of the Devout +3 (FR-DC-NBDD-2)","Amulet of the Devout +3 (FR-DC-STRAT-WYRM-5)","Amulet of Health (CCC-GSP-NTHR1-1)","Amulet of Health (CCC-SFBAY-2-2)","Amulet of Health (DDAL8-10)","Amulet of Health (DDAL-DRW9)","Amulet of Health (DDEP0-1)","Amulet of Health (DDEP1)","Amulet of Health (FR-DC-MCG-CH3)","Amulet of Health: Chadster (FR-DC-THAY-5)","Amulet of Health (RotF)","Amulet of Health: Sharael's (WBW-DC-PHP-2)","Amulet of Health: Sharael's (WBW-DC-PHP-2)","Amulet of Health: Emotional Well-Being (WBW-DC-Sunlit-4)","Amulet of the Planes: Naerth's Planar Compass (AL:SR-11A)","Amulet of the Planes (DDEP6-3)","Amulet of Proof Against Detection and Location (CCC-MMT2-1)","Amulet of Proof Against Detection and Location (CCC-TAROT2-6)","Amulet of Proof Against Detection and Location (CCC-TRI-32 DAGGR1-1)","Amulet of Proof Against Detection and Location (FR-DC-HEARTHOME-1)","Clockwork Amulet (BMG-DRW-OD-3)","Clockwork Amulet (BMG-MOON-MD-1)","Clockwork Amulet (BMG-MOONEP-MD-2)","Clockwork Amulet (CCC-CENTRIC1-3)","Clockwork Amulet: Chronostat of Precision (CCC-GAD1-3)","Clockwork Amulet: Modron Communication Device (CCC-MAYDAYS2-1)","Clockwork Amulet: Homing Impact Talisman - H.I.T. (CCC-TAROT2-10)","Clockwork Amulet: Yul's Holy Symbol of Gond (CCC-UCON-3)","Clockwork Amulet (DDAL10-8)","Clockwork Amulet (DDAL10-10)","Clockwork Amulet (FR-DC-CONMAR-0-2)","Clockwork Amulet (FR-DC-ONI-6)","Clockwork Amulet (FR-DC-STRAT-DUNGEON-1)","Clockwork Amulet: Seelie Goose Farm Pendant (FR-DC-WATERDEEP-GSZ+)","Clockwork Amulet (PO-BMG-DRW-KS-5)","Clockwork Amulet (PS-DC-BINGO-2)","Clockwork Amulet (PS-DC-DDD)","Clockwork Amulet (PS-DC-GG-1/HYS-3/MECH-1)","Clockwork Amulet (PS-DC-MAR-1)","Clockwork Amulet (PS-DC-NBDD-2)","Clockwork Amulet (PS-DC-NOS-1)","Clockwork Amulet: Commemorative (PS-DC-PHP-CKA2)","Clockwork Amulet (PS-DC-PKL-7)","Clockwork Amulet: Mike's (PS-DC-PKL-18A)","Clockwork Amulet: Jeff's (PS-DC-PKL-18B)","Clockwork Amulet: Skyblue Charge (PS-DC-RAVENGARD)","Clockwork Amulet (PS-DC-SS)","Clockwork Amulet: Sands of Time (PS-DC-STRAT-DRAGON-6)","Clockwork Amulet (PS-DC-TYM-PHP-DIV-1)","Clockwork Amulet: Chiave's Timepiece (PS-DC-UMY-2)","Clockwork Amulet: Blood Lock Amulet (SJ-DC-DEN-H7)","Clockwork Amulet: Automaton Stabilizing Crystal (SJ-DC-DWR-0-1)","Clockwork Amulet (SJ-DC-PND-1)","Dark Shard Amulet (CCC-DES-1-6)","Dark Shard Amulet (CCC-GEL-1)","Dark Shard Amulet: Booyahg Necklace (CCC-MAYDAYS2-1)","Dark Shard Amulet: Amarantha's Heart (CCC-TAROT1-7)","Dark Shard Amulet (DDAL10-7)","Dark Shard Amulet: Ring (FR-DC-TDD-3)","Dark Shard Amulet (PO-BMG-DRW-KS-2)","Dark Shard Amulet: Shard of Gehreleth (PS-DC-PKL-20A)","Dark Shard Amulet (PS-DC-STRAT-DRAGON-4)","Dark Shard Amulet (RV-DC-DBH-1)","Dark Shard Amulet: Ka Sliver (RV-DC-GC15-4)","Sanctum Amulet: Goth (Trading Post)","Sanctum Amulet: Savras (Trading Post)","Sanctum Amulet: Scarf (Trading Post)"],
+	choices : ["Amulet of the Devout +3 (BMG-DRW-OD-6)","Amulet of the Devout +3 (FR-DC-F&ADDM-LES4)","Amulet of the Devout +3 (FR-DC-MCG-INN2)","Amulet of the Devout +3 (FR-DC-NBDD-2)","Amulet of the Devout +3 (FR-DC-STRAT-WYRM-5)","Amulet of Health (CCC-GSP-NTHR1-1)","Amulet of Health (CCC-SFBAY-2-2)","Amulet of Health (DDAL8-10)","Amulet of Health (DDAL-DRW9)","Amulet of Health (DDEP0-1)","Amulet of Health (DDEP1)","Amulet of Health (FR-DC-MCG-CH3)","Amulet of Health: Chadster (FR-DC-THAY-5)","Amulet of Health (RotF)","Amulet of Health: Sharael's (WBW-DC-PHP-2)","Amulet of Health: Sharael's (WBW-DC-PHP-2)","Amulet of Health: Emotional Well-Being (WBW-DC-Sunlit-4)","Amulet of the Planes: Naerth's Planar Compass (AL:SR-11A)","Amulet of the Planes (DDEP6-3)","Amulet of Proof Against Detection and Location (CCC-MMT2-1)","Amulet of Proof Against Detection and Location (CCC-TAROT2-6)","Amulet of Proof Against Detection and Location (CCC-TRI-32 DAGGR1-1)","Amulet of Proof Against Detection and Location (FR-DC-HEARTHOME-1)","Clockwork Amulet (BMG-DRW-OD-3)","Clockwork Amulet (BMG-MOON-MD-1)","Clockwork Amulet (BMG-MOONEP-MD-2)","Clockwork Amulet (CCC-CENTRIC1-3)","Clockwork Amulet: Chronostat of Precision (CCC-GAD1-3)","Clockwork Amulet: Modron Communication Device (CCC-MAYDAYS2-1)","Clockwork Amulet: Homing Impact Talisman - H.I.T. (CCC-TAROT2-10)","Clockwork Amulet: Yul's Holy Symbol of Gond (CCC-UCON-3)","Clockwork Amulet (DDAL10-8)","Clockwork Amulet (DDAL10-10)","Clockwork Amulet (FR-DC-CONMAR-0-2)","Clockwork Amulet (FR-DC-ELEMENT-IGC-DEATH-5)","Clockwork Amulet (FR-DC-ONI-6)","Clockwork Amulet (FR-DC-STRAT-DUNGEON-1)","Clockwork Amulet: Seelie Goose Farm Pendant (FR-DC-WATERDEEP-GSZ+)","Clockwork Amulet (PO-BMG-DRW-KS-5)","Clockwork Amulet (PS-DC-BINGO-2)","Clockwork Amulet (PS-DC-DDD)","Clockwork Amulet (PS-DC-GG-1/HYS-3/MECH-1)","Clockwork Amulet (PS-DC-MAR-1)","Clockwork Amulet (PS-DC-NBDD-2)","Clockwork Amulet (PS-DC-NOS-1)","Clockwork Amulet: Commemorative (PS-DC-PHP-CKA2)","Clockwork Amulet (PS-DC-PKL-7)","Clockwork Amulet: Mike's (PS-DC-PKL-18A)","Clockwork Amulet: Jeff's (PS-DC-PKL-18B)","Clockwork Amulet: Skyblue Charge (PS-DC-RAVENGARD)","Clockwork Amulet (PS-DC-SS)","Clockwork Amulet: Sands of Time (PS-DC-STRAT-DRAGON-6)","Clockwork Amulet (PS-DC-TYM-PHP-DIV-1)","Clockwork Amulet: Chiave's Timepiece (PS-DC-UMY-2)","Clockwork Amulet: Blood Lock Amulet (SJ-DC-DEN-H7)","Clockwork Amulet: Automaton Stabilizing Crystal (SJ-DC-DWR-0-1)","Clockwork Amulet (SJ-DC-PND-1)","Dark Shard Amulet (CCC-DES-1-6)","Dark Shard Amulet (CCC-GEL-1)","Dark Shard Amulet: Booyahg Necklace (CCC-MAYDAYS2-1)","Dark Shard Amulet: Amarantha's Heart (CCC-TAROT1-7)","Dark Shard Amulet (DDAL10-7)","Dark Shard Amulet: Ring (FR-DC-TDD-3)","Dark Shard Amulet (PO-BMG-DRW-KS-2)","Dark Shard Amulet: Shard of Gehreleth (PS-DC-PKL-20A)","Dark Shard Amulet (PS-DC-STRAT-DRAGON-4)","Dark Shard Amulet (RV-DC-DBH-1)","Dark Shard Amulet: Ka Sliver (RV-DC-GC15-4)","Sanctum Amulet: Goth (Trading Post)","Sanctum Amulet: Savras (Trading Post)","Sanctum Amulet: Scarf (Trading Post)"],
 	"amulet of the devout +3 (bmg-drw-od-6)" : { // contains contributions by lizrdgizrd
 		name : "Amulet of the Devout +3 (BMG-DRW-OD-6)",
 		source : [["AL","DRW"]],
@@ -3446,6 +3535,17 @@ MagicItemsList["al amulets"] = {
 		usages : 1,
 		recovery : "dawn",
 		action : [["bonus action", "Clockwork Amulet (light/dim)"]],
+		},
+	"clockwork amulet (fr-dc-element-igc-death-5)" : {
+		name : "Clockwork Amulet (FR-DC-ELEMENT-IGC-DEATH-5)",
+		source : [["AL","FR-DC"]],
+		rarity : "common",
+		description : "Once per dawn when I make an attack while wearing this amulet, I can take a 10 instead of rolling. The amulet also warns me, giving +2 initiative unless I'm Incapacitated.",
+		descriptionFull : "The image of a happy goose has been hammered into this simple metal pendant, which dangles from a leather cord. The message inscribed across the back reads: \"Thanks for visiting Seelie Goose Farm!\"\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition.\n   This copper amulet contains tiny interlocking gears and is powered by magic from Mechanus, a plane of clockwork predictability. Faint ticking and whirring noises emanate from within.\n   When you make an attack roll while wearing the amulet, you can forgo rolling the d20 to get a 10 on the die. Once used, this property can't be used again until the next dawn.",
+		limfeaname : "Clockwork Amulet",
+		usages : 1,
+		recovery : "dawn",
+		addMod : genericGuardian.addMod,
 		},
 	"clockwork amulet (fr-dc-oni-6)" : {
 		name : "Clockwork Amulet (ONI-6)",
@@ -3924,7 +4024,7 @@ MagicItemsList["al bags"] = {
 		allowDuplicates : true,
 		choicesNotInMenu : true,
 		magicItemTable : "?",
-	choices : ["Bag of Beans (SJ-DC-BST-7)","Bag of Devouring (CCC-BMG-MOON19-1)","Bag of Devouring (CCC-FC3-1-3)","Bag of Devouring: The Dragon's Gullet (CCC-SEA-1-3)","Bag of Devouring (CCC-TRI-22 STORM1-1)","Bag of Holding (CCC-BMG-MOON1-3)","Bag of Holding: Mother Pqwirli's Pod Pouch (CCC-ELO-2)","Bag of Holding (CCC-GARY-5)","Bag of Holding (CCC-GLIP-1-2)","Bag of Holding: Devil King School Bag (CCC-GSP4-1)","Bag of Holding (CCC-WWC-3)","Bag of Holding (DDAL-DRW-INT-1)","Bag of Holding: Buzzing (FR-DC-EXT-HV)","Bag of Holding (FR-DC-SAC-7)","Bag of Holding: Bolding (FR-DC-WATERDEEP-GSZ)","Bag of Holding: Ragon's Bag of Dheez (SJ-DC-AMO-KURI-2)","Bag of Holding (SJ-DC-SYL-2)","Bag of Holding (WBW-DC-CONMAR-9)","Bag of Holding (WBW-DC-DCAF01B)","Bag of Holding (WBW-DC-FDC-4)","Bag of Holding (WBW-DC-KCB-1)","Bag of Holding: Potato Sack (WBW-DC-NUKE-1)","Bag of Holding: Bayong (WBW-DC-PHP-TCOM1)","Bag of Holding (WBW-DC-SO-1)","Bag of Holding (WBW-DC-TRI-2)","Bag of Holding: Luna Carnival Tote (WBW-DC-ZODIAC-0)","Bag of Tricks, Gray (CCC-GHC-BK1-9)","Bag of Tricks, Gray (DC-POA-ROBIN1-1)","Bag of Tricks, Gray (DC-POA-Z-T1S1)","Bag of Tricks, Rust (CCC-BMG-MOON15-3)","Bag of Tricks, Rust (CCC-SQC-3-3)","Bag of Tricks, Rust (DDEP8-1)","Bag of Tricks, Rust (FR-DC-STRAT-FIEND-1)","Bag of Tricks, Tan (CCC-MAG1-2)","Bag of Tricks, Tan (CCC-STORM-2)","Bag of Tricks, Tan: The Adventures of Cherise and Antonia (CCC-ZIEGE-4-2)","Bag of Tricks, Tan (JRC)","Heward's Handy Haversack (CCC-AN-3)","Heward's Handy Haversack (CCC-GOC1-2)","Heward's Handy Haversack (CCC-SKULL1-1)","Heward's Handy Haversack (DDAL9-9)","Heward's Handy Haversack (PS-DC-PKL-7)","Heward's Handy Haversack: The Bagman's Gambit (RMH-7/RMH-8)","Heward's Handy Spice Pouch: Underdark Cooking (CCC-ALMOG-20 DAGON1-4)","Heward's Handy Spice Pouch (CCC-HAL-5)","Heward's Handy Spice Pouch (CCC-KUMORI-2-1)","Heward's Handy Spice Pouch (CCC-ODFC3-2)","Heward's Handy Spice Pouch (CCC-SEA-1-2)","Heward's Handy Spice Pouch: Spice Must Glow (FR-DC-GLACIER-2)","Heward's Handy Spice Pouch (FR-DC-STRAT-WYRM-4)","Heward's Handy Spice Pouch: Miss Daelyr's Flavor Pouch (PO-BK-5-1)","Heward's Handy Spice Pouch: Ragon's Trailmix (SJ-DC-AMO-KURI-2)","Heward's Handy Spice Pouch: Silver Spices (SJ-DC-DWR-0-4)","Heward's Handy Spice Pouch (SJ-DC-MIST-2)","Heward's Handy Spice Pouch (SJ-DC-TEL-8)","Heward's Handy Spice Pouch: Grandma's Comfort Food Secret (SJ-DC-TTUC-4)"],
+	choices : ["Bag of Beans (SJ-DC-BST-7)","Bag of Devouring (CCC-BMG-MOON19-1)","Bag of Devouring (CCC-FC3-1-3)","Bag of Devouring: The Dragon's Gullet (CCC-SEA-1-3)","Bag of Devouring (CCC-TRI-22 STORM1-1)","Bag of Holding (CCC-BMG-MOON1-3)","Bag of Holding: Mother Pqwirli's Pod Pouch (CCC-ELO-2)","Bag of Holding (CCC-GARY-5)","Bag of Holding (CCC-GLIP-1-2)","Bag of Holding: Devil King School Bag (CCC-GSP4-1)","Bag of Holding (CCC-WWC-3)","Bag of Holding (DDAL-DRW-INT-1)","Bag of Holding: Buzzing (FR-DC-EXT-HV)","Bag of Holding (FR-DC-SAC-7)","Bag of Holding: Bolding (FR-DC-WATERDEEP-GSZ)","Bag of Holding: Ragon's Bag of Dheez (SJ-DC-AMO-KURI-2)","Bag of Holding (SJ-DC-SYL-2)","Bag of Holding (WBW-DC-CONMAR-9)","Bag of Holding (WBW-DC-DCAF01B)","Bag of Holding (WBW-DC-FDC-4)","Bag of Holding (WBW-DC-KCB-1)","Bag of Holding: Potato Sack (WBW-DC-NUKE-1)","Bag of Holding: Bayong (WBW-DC-PHP-TCOM1)","Bag of Holding (WBW-DC-SO-1)","Bag of Holding (WBW-DC-TRI-2)","Bag of Holding: Luna Carnival Tote (WBW-DC-ZODIAC-0)","Bag of Tricks, Gray (CCC-GHC-BK1-9)","Bag of Tricks, Gray (DC-POA-ROBIN1-1)","Bag of Tricks, Gray (DC-POA-Z-T1S1)","Bag of Tricks, Rust (CCC-BMG-MOON15-3)","Bag of Tricks, Rust (CCC-SQC-3-3)","Bag of Tricks, Rust (DDEP8-1)","Bag of Tricks, Rust (FR-DC-STRAT-FIEND-1)","Bag of Tricks, Tan (CCC-MAG1-2)","Bag of Tricks, Tan (CCC-STORM-2)","Bag of Tricks, Tan: The Adventures of Cherise and Antonia (CCC-ZIEGE-4-2)","Bag of Tricks, Tan (JRC)","Heward's Handy Haversack (CCC-AN-3)","Heward's Handy Haversack (CCC-GOC1-2)","Heward's Handy Haversack (CCC-SKULL1-1)","Heward's Handy Haversack (DDAL9-9)","Heward's Handy Haversack (PS-DC-PKL-7)","Heward's Handy Haversack: The Bagman's Gambit (RMH-7/RMH-8)","Heward's Handy Spice Pouch: Underdark Cooking (CCC-ALMOG-20 DAGON1-4)","Heward's Handy Spice Pouch (CCC-HAL-5)","Heward's Handy Spice Pouch (CCC-KUMORI-2-1)","Heward's Handy Spice Pouch (CCC-ODFC3-2)","Heward's Handy Spice Pouch (CCC-SEA-1-2)","Heward's Handy Spice Pouch: Monty's Handy Salt Pouch (FR-DC-APAB-1)","Heward's Handy Spice Pouch: Spice Must Glow (FR-DC-GLACIER-2)","Heward's Handy Spice Pouch (FR-DC-STRAT-WYRM-4)","Heward's Handy Spice Pouch: Miss Daelyr's Flavor Pouch (PO-BK-5-1)","Heward's Handy Spice Pouch: Ragon's Trailmix (SJ-DC-AMO-KURI-2)","Heward's Handy Spice Pouch: Silver Spices (SJ-DC-DWR-0-4)","Heward's Handy Spice Pouch (SJ-DC-MIST-2)","Heward's Handy Spice Pouch (SJ-DC-TEL-8)","Heward's Handy Spice Pouch: Grandma's Comfort Food Secret (SJ-DC-TTUC-4)"],
 	"bag of beans (sj-dc-bst-7)" : { // contributions by Larry Hoy
 		name : "Bag of Beans (SJ-DC-BST-7)",
 		source : [["AL","SJ-DC"]],
@@ -4449,6 +4549,20 @@ MagicItemsList["al bags"] = {
 		additional : "regains 1d6+4",
 		action : [["action", ""]],
 	},
+	"heward's handy spice pouch: monty's handy salt pouch (fr-dc-apab-1)" : {
+		name : "Monty's Handy Salt Pouch (Heward's Spice Pouch, APAB-1)",
+		source : [["AL", "FR-DC"]],
+		rarity : "common",
+		description : "The symbol of the forgotten god of balance, Neheod, is embroidered on this hemp bag as interlocking concentric circles. It has 10 charges, 1d6+4 regained at dawn. As Magic action, use 1 charge, name mundane seasoning, & remove a pinch from the pouch to flavor 1 meal. Meant for sanctification, all the spices taste of burned salt. The bag also floats on liquid, giving adv on Str (Athletics) checks to swim.",
+		descriptionFull : "The symbol of the forgotten god of balance, Neheod, is embroidered into this hemp bag in the form of multiple interlocking, concentric circles. Meant for sanctification, all the spices in this bag come off tasting of burned salt.\n   " + toUni("Waterborne") + ". This item floats on water and other liquids. You have advantage on Strength (Athletics) checks to swim.\n   This belt pouch appears empty and has 10 charges. While holding the pouch, you can take a Magic action to expend 1 charge, name any nonmagical food seasoning (such as salt, pepper, saffron, or cilantro), and remove a pinch of the desired seasoning from the pouch. A pinch is enough to season a single meal. The pouch regains 1d6 + 4 expended charges daily at dawn.",
+		weight : 1,
+		limfeaname : "Heward's Handy Spice Pouch",
+		usages : 10,
+		recovery : "dawn",
+		additional : "regains 1d6+4",
+		action : [["action", ""]],
+		savetxt : { text : ["Adv on Str (Athletic) chks to swim"] },
+	},
 	"heward's handy spice pouch: spice must glow (fr-dc-glacier-2)" : {
 		name : "The Spice Must Glow (Handy Spice Pouch, GLACIER-2)",
 		source : [["AL", "FR-DC"]],
@@ -4572,7 +4686,7 @@ MagicItemsList["al books"] = {
 		allowDuplicates : true,
 		choicesNotInMenu : true,
 		magicItemTable : "?",
-	choices : ["Alchemical Compendium (BMG-DRW-OD-3)","Alchemical Compendium: Treatise on Ethical Mutilations (RMH-5)","Arcane Grimoire +1 (DC-POA-CONMAR-19)","Arcane Grimoire +1 (DC-POA-GaryXIII-5)","Arcane Grimoire +1 (DC-POA-SH1)","Arcane Grimoire +1: The Archivist's Grimoire (DC-POA-TDG1-10)","Arcane Grimoire +1 (DC-POA-Z-T2S1)","Arcane Grimoire +3 (BMG-MOON-MD-8)","Arcane Grimoire +3 (FR-DC-F&ADDM-LES4)","Arcane Grimoire +3 (FR-DC-TB-1)","Arcane Grimoire +3: Ananeira's Research Journal (WBW-DC-AA-ASHALON-2)","Astromancy Archive (BMG-MOON-MD-1)","Astromancy Archive (SJ-DC-BLU)","Astromancy Archive (SJ-DC-BST-1)","Astromancy Archive: Zablet (SJ-DC-CONMAR-2)","Astromancy Archive (SJ-DC-DEN-H4)","Astromancy Archive (SJ-DC-DES5-2)","Astromancy Archive: Golden Apple (SJ-DC-ECHO-1)","Astromancy Archive (SJ-DC-EPOCH-4)","Astromancy Archive: Flux Capacitor (SJ-DC-FLUMPH-2)","Astromancy Archive (SJ-DC-KGV-1)","Astromancy Archive: Paup Quizzem's (SJ-DC-NBDD-1)","Astromancy Archive (SJ-DC-OGC-1)","Astromancy Archive (SJ-DC-ROTU-1)","Astromancy Archive: Modified Orb of Time Stop (SJ-DC-SINGULARITY)","Atlas of Endless Horizons: Blink Dog's Guide (AL:SR-11A)","Duplicitous Manuscript (PO-BK-1-2)","Enduring Spellbook (CCC-BMG-MOON6-1)","Enduring Spellbook (CCC-HAL-6)","Enduring Spellbook (CCC-PRIORY-3)","Enduring Spellbook (DC-POA-JGD-5)","Enduring Spellbook: Goodmunn's Book (DC-POA-MDV1)","Enduring Spellbook: Red Wizard Ledger (FR-DC-GLACIER-1)","Enduring Spellbook (FR-DC-TB-1)","Enduring Spellbook (PO-BK-2-3)","Enduring Spellbook (PO-BMG-DRW-KS-6)","Enduring Spellbook: Portent Tome (PS-DC-DD-1)","Enduring Spellbook (PS-DC-ELEMENT-DEATH-2)","Enduring Spellbook: Ortolanus' Laboratory Notebook (PS-DC-HRS-1)","Enduring Spellbook (PS-DC-PESCH)","Enduring Spellbook (PS-DC-Saerloon-11)","Enduring Spellbook (PS-DC-STRAT-DRAGON-3)","Enduring Spellbook: Power of Six Gratitude Journal (PS-DC-SV-A2)","Enduring Spellbook (RV-DC-KEN-1)","Fulminating Treatise (FR-DC-SCRC-1)","Fulminating Treatise (FR-DC-ULCASTER-1)","Libram of Souls and Flesh: Owner's Journal (FR-DC-MMM-1)","Manual of Bodily Health (CCC-QCC2017)","Manual of Bodily Health: Fool's Journal (WBW-DC-ZODIAC-12)","Manual of Gainful Exercise (CCC-TRI-24 STORM1-3)","Tome of Clear Thought (WBW-DC-Death)","Tome of Leadership and Influence (CCC-ROZK1-2)","Tome of Leadership and Influence (CCC-TRI-15 YUL1-4)","Tome of Leadership and Influence: Faithbringer (WBW-DC-MOM-2)","Tome of the Stilled Tongue (CCC-GHC-BK3-9)","Tome of the Stilled Tongue: Quaryl's Codex (DDAL0-2F)","Tome of the Stilled Tongue (FR-DC-BWR-1)","Tome of the Stilled Tongue: First Book of Mystryl (PS-DC-PANDORA-JWEI-S2-5)","Tome of Understanding (CCC-BMG-14 PHLAN1-2)","Tome of Understanding (DDAL5-19)","Tome of Understanding (WBW-DC-PHP-LCL-1)","Tome of Understanding (WBW-DC-PHP-LCL-1)"],
+	choices : ["Alchemical Compendium (BMG-DRW-OD-3)","Alchemical Compendium: Treatise on Ethical Mutilations (RMH-5)","Arcane Grimoire +1 (DC-POA-CONMAR-19)","Arcane Grimoire +1 (DC-POA-GaryXIII-5)","Arcane Grimoire +1 (DC-POA-SH1)","Arcane Grimoire +1: The Archivist's Grimoire (DC-POA-TDG1-10)","Arcane Grimoire +1 (DC-POA-Z-T2S1)","Arcane Grimoire +3 (BMG-MOON-MD-8)","Arcane Grimoire +3 (FR-DC-F&ADDM-LES4)","Arcane Grimoire +3 (FR-DC-FALL-2)","Arcane Grimoire +3 (FR-DC-TB-1)","Arcane Grimoire +3: Ananeira's Research Journal (WBW-DC-AA-ASHALON-2)","Astromancy Archive (BMG-MOON-MD-1)","Astromancy Archive (SJ-DC-BLU)","Astromancy Archive (SJ-DC-BST-1)","Astromancy Archive: Zablet (SJ-DC-CONMAR-2)","Astromancy Archive (SJ-DC-DEN-H4)","Astromancy Archive (SJ-DC-DES5-2)","Astromancy Archive: Golden Apple (SJ-DC-ECHO-1)","Astromancy Archive (SJ-DC-EPOCH-4)","Astromancy Archive: Flux Capacitor (SJ-DC-FLUMPH-2)","Astromancy Archive (SJ-DC-KGV-1)","Astromancy Archive: Paup Quizzem's (SJ-DC-NBDD-1)","Astromancy Archive (SJ-DC-OGC-1)","Astromancy Archive (SJ-DC-ROTU-1)","Astromancy Archive: Modified Orb of Time Stop (SJ-DC-SINGULARITY)","Atlas of Endless Horizons: Blink Dog's Guide (AL:SR-11A)","Atlas of Endless Horizons (FR-DC-BINGO-5)","Duplicitous Manuscript (PO-BK-1-2)","Enduring Spellbook (CCC-BMG-MOON6-1)","Enduring Spellbook (CCC-HAL-6)","Enduring Spellbook (CCC-PRIORY-3)","Enduring Spellbook (DC-POA-JGD-5)","Enduring Spellbook: Goodmunn's Book (DC-POA-MDV1)","Enduring Spellbook: Red Wizard Ledger (FR-DC-GLACIER-1)","Enduring Spellbook (FR-DC-TB-1)","Enduring Spellbook (PO-BK-2-3)","Enduring Spellbook (PO-BMG-DRW-KS-6)","Enduring Spellbook: Portent Tome (PS-DC-DD-1)","Enduring Spellbook (PS-DC-ELEMENT-DEATH-2)","Enduring Spellbook: Ortolanus' Laboratory Notebook (PS-DC-HRS-1)","Enduring Spellbook (PS-DC-PESCH)","Enduring Spellbook (PS-DC-Saerloon-11)","Enduring Spellbook (PS-DC-STRAT-DRAGON-3)","Enduring Spellbook: Power of Six Gratitude Journal (PS-DC-SV-A2)","Enduring Spellbook (RV-DC-KEN-1)","Fulminating Treatise (FR-DC-SCRC-1)","Fulminating Treatise (FR-DC-ULCASTER-1)","Libram of Souls and Flesh: Owner's Journal (FR-DC-MMM-1)","Manual of Bodily Health (CCC-QCC2017)","Manual of Bodily Health: Fool's Journal (WBW-DC-ZODIAC-12)","Manual of Gainful Exercise (CCC-TRI-24 STORM1-3)","Tome of Clear Thought (WBW-DC-Death)","Tome of Leadership and Influence (CCC-ROZK1-2)","Tome of Leadership and Influence (CCC-TRI-15 YUL1-4)","Tome of Leadership and Influence: Faithbringer (WBW-DC-MOM-2)","Tome of the Stilled Tongue (CCC-GHC-BK3-9)","Tome of the Stilled Tongue: Quaryl's Codex (DDAL0-2F)","Tome of the Stilled Tongue (FR-DC-BWR-1)","Tome of the Stilled Tongue: First Book of Mystryl (PS-DC-PANDORA-JWEI-S2-5)","Tome of Understanding (CCC-BMG-14 PHLAN1-2)","Tome of Understanding (DDAL5-19)","Tome of Understanding (WBW-DC-PHP-LCL-1)","Tome of Understanding (WBW-DC-PHP-LCL-1)"],
 	"alchemical compendium (bmg-drw-od-3)" : {
 		name : "Alchemical Compendium (BMG-DRW-OD-3)",
 		source : [["AL","DRW"]],
@@ -4722,6 +4836,21 @@ MagicItemsList["al books"] = {
 		weight : 3, // as spellbook
         description : "This ebony spellbook has shifting golden hieroglyphics that tell the story of the journey to the Sea of Reeds. While held, the book is a focus for my Wizard spells and I gain +3 to spell attack rolls and save DCs for those spells. When I use Arcane Recovery, add 1 to the spell slot levels regained (not automated). The book is only destroyed if I attack a God of Mulhorand.",
 		descriptionFull : "Flavored as an ebony book with shifting golden hieroglyphics telling the story of the journey to the Sea of Reeds.\n   " + toUni("Unbreakable") + ". The item can't be broken. Special means must be used to destroy it: The item breaks if the bearer attempts to attack one of the Gods of Mulhorand.\n   While you are holding this leather-bound book, you can use it as a spellcasting focus for your Wizard spells, and you gain a bonus to spell attack rolls and the saving throw DCs of your Wizard spells. The bonus is determined by the book's rarity.\n  You can use this book as a spellbook. In addition, when you use your Arcane Recovery feature, you can increase the number of spell slot levels you regain by 1.",
+		attunement : true,
+		prerequisite : "Requires attunement by a wizard",
+		prereqeval : function(v) {
+        return v.isSpellcaster && classes.known.wizard ? true : false;
+			},
+		calcChanges: arcaneGrimoire3.calcChanges,
+	},
+	"arcane grimoire +3 (fr-dc-fall-2)" : {
+		name : "Arcane Grimoire +3 (FR-DC-FALL-2)",
+		source : [["AL","FR-DC"]],
+        rarity : "uncommon",
+        magicItemTable : "?",
+		weight : 3, // as spellbook
+        description : "This arcane Netherese tome is covered in ancient runes and has never been used. While held, the book is a spellcasting focus for my Wizard spells and I gain +3 to spell attack rolls and save DCs for those spells. When I use Arcane Recovery, add 1 to the spell slot levels regained (not automated). I can attune to the book in 1 min.",
+		descriptionFull : "This grimoire is in the form of a Netherese arcane tome and covered in ancient runes. It has never been used.\n   " + toUni("Harmonious") + ". This item may be attuned to in one minute.\n   While you are holding this leather-bound book, you can use it as a spellcasting focus for your Wizard spells, and you gain a bonus to spell attack rolls and the saving throw DCs of your Wizard spells. The bonus is determined by the book's rarity.\n  You can use this book as a spellbook. In addition, when you use your Arcane Recovery feature, you can increase the number of spell slot levels you regain by 1.",
 		attunement : true,
 		prerequisite : "Requires attunement by a wizard",
 		prereqeval : function(v) {
@@ -5140,14 +5269,14 @@ MagicItemsList["al books"] = {
 		]
 	},
 	"atlas of endless horizons: blink dog's guide (al:sr-11a)" : {
-		name : "Blink Dog's Guide to the Feywild (Atlas of Endless Horizons)",
+		name : "Blink Dog's Guide to the Feywild (Endless Horizons)",
 		source : [["AL:SR","11A"]],
 		rarity : "rare",
 		attunement : true,
 		prerequisite : "Requires attunement by a wizard",
 		prereqeval : function(v) { return classes.known.wizard ? true : false; },
 		description : "The Blink Dog's Guide to Traversing the Feywild is a Wizard spellcasting focus & spellbook with 7 spells. The title is in Sylvan & the cover is inlaid with silver lines suggesting a map or chart. It has 3 charges, 1d3 regained at dawn. When used, I flicker briefly & the distant howl of dogs is heard. For 1 charge & 1 min, I can swap a prepared spell to a conjuration spell within. As a reaction when hit by an atk, use 1 charge to teleport to visible empty space in 10 ft. If now out of range, the atk misses.",
-		descriptionLong : "This small yellow book is inscribed in silver with \"The Blink Dog's Guide to Traversing the Feywild\" in Sylvan and lines suggesting a map or chart. When used, I briefly flicker and the howl of dogs is heard in the distance. I can use it as my spellbook and when held, a spellcasting focus for my Wizard spells. It contains 7 spells and has 3 charges, regaining 1d3 charges at dawn. I can study the book for 1 minute and use 1 charge to replace 1 of my prepared Wizard spells with a conjuration spell in the book. As a reaction when hit by an attack, I can use 1 charge to teleport up to 10 ft to an unoccupied space I can see. If the new position is out of range of the attack, it misses.",
+		descriptionLong : "This small yellow book is inscribed in silver with \"The Blink Dog's Guide to Traversing the Feywild\" in Sylvan and lines suggesting a map or chart. When used, I briefly flicker and the howl of dogs is heard in the distance. It's a spellbook for me and when held, a spellcasting focus for my Wizard spells. It starts with 7 spells and has 3 charges, 1d3 regained at dawn. I can study the book for 1 minute and use 1 charge to replace 1 of my prepared Wizard spells with a conjuration spell in the book. As a reaction when hit by an attack, I can use 1 charge to teleport up to 10 ft to an unoccupied space I can see. If the new position is out of range of the attack, it misses.",
 		descriptionFull : "This small, yellow book is inscribed in silver with the title in Sylvan. When used, you briefly flicker and the howl of dogs can be heard in the distance.\n   This thick book is bound in dark leather, crisscrossed with inlaid silver lines suggesting a map or chart. When found, the book contains the following spells, which are Wizard spells for you while you are attuned to the book: arcane gate, dimension door, gate, misty step, plane shift, teleportation circle, and word of recall. It functions as a spellbook for you."+
 		"\n   While you are holding the book, you can use it as a spellcasting focus for your Wizard spells."+
 		"\n   The book has 3 charges, and it regains 1d3 expended charges daily at dawn. You can use the charges in the following ways while holding it:"+
@@ -5168,6 +5297,36 @@ MagicItemsList["al books"] = {
 			addToKnown : ["arcane gate", "dimension door", "gate", "misty step", "plane shift", "teleportation circle"]
 		},
 		action : [["reaction", "Teleport 10ft (1 charge)"]]
+	},
+	"atlas of endless horizons (fr-dc-bingo-5)" : {
+		name : "Atlas of Endless Horizons (FR-DC-BINGO-5)",
+		source : [["AL","FR-DC"]],
+		rarity : "rare",
+		attunement : true,
+		prerequisite : "Requires attunement by a wizard",
+		prereqeval : function(v) { return classes.known.wizard ? true : false; },
+		description : "This spellbook has 7 spells and is a Wizard spell focus. The cover has silver lines suggesting a map or chart. It has 3 charges, 1d3 regained at dawn. For 1 charge & 1 min, I can swap a prepared spell to a conjuration spell within. As a reaction when hit by an atk, use 1 charge to teleport to visible empty space in 10 ft. If now out of range, the atk misses. Magic action to find Magnetic North if it exists.",
+		descriptionLong : "The leather cover of this book has silver lines suggesting a map or a chart. It's a spellbook and if held, a spell focus for my Wizard spells. The book starts with 7 spells and has 3 charges, 1d3 regained at dawn. For 1 charge and 1 min of study, I can replace a prepared Wizard spell with a conjuration spell in the book. As a reaction when hit by an attack, I can use 1 charge to teleport up to 10 ft to a visible unoccupied space. If the new position is out of range of the attack, it misses. I can use a Magic action to find Magnetic North, if it exists.",
+		descriptionFull : "This thick book is bound in dark leather, crisscrossed with inlaid silver lines suggesting a map or chart. When found, the book contains the following spells, which are Wizard spells for you while you are attuned to the book: arcane gate, dimension door, gate, misty step, plane shift, teleportation circle, and word of recall. It functions as a spellbook for you."+
+		"\n   While you are holding the book, you can use it as a spellcasting focus for your Wizard spells."+
+		"\n   The book has 3 charges, and it regains 1d3 expended charges daily at dawn. You can use the charges in the following ways while holding it:"+
+		"\n \u2022 If you spend 1 minute studying the book, you can expend 1 charge to replace one of your prepared Wizard spells with a different spell in the book. The new spell must be of the conjuration school."+
+		"\n \u2022 When you are hit by an attack, you can use your reaction to expend 1 charge to teleport up to 10 feet to an unoccupied space you can see. If your new position is out of range of the attack, it misses you.\n   " + toUni("Compass") + ". You can take a Magic action to learn which way is magnetic north. Nothing happens if this property is used in a location that has no magnetic north.",
+		weight : 3, // as spellbook
+		limfeaname : "Atlas of Endless Horizons",
+		usages : 3,
+		recovery : "dawn",
+		additional : "regains 1d3",
+		spellcastingBonusElsewhere : {
+			addTo : "wizard",
+			spellcastingBonus : {
+				name : "Atlas of Endless Horizons",
+				spells : ["word of recall"], // not a Wizard spell!
+				selection : ["word of recall"]
+			},
+			addToKnown : ["arcane gate", "dimension door", "gate", "misty step", "plane shift", "teleportation circle"]
+		},
+		action : [["reaction", "Teleport 10ft (1 charge)"], ["action", "Atlas (find north)"]]
 	},
 	"duplicitous manuscript (po-bk-1-2)" : {
 		name : "Duplicitous Manuscript (PO-BK-1-2)",
@@ -5728,17 +5887,8 @@ MagicItemsList["al cloaks"] = {
 		additional : "cast web",
 		fixedDC : 13,
 		speed : { climb : { spd : "walk", enc : "walk" } },
-		spellcastingBonus : {
-			name : "Once per dawn",
-			spells : ["web"],
-			selection : ["web"],
-			firstCol : "oncelr"
-		},
-		spellChanges : {
-			"web": {
-				description : "2\xD7 20-ft cubes, anchored, all save or restrained; dif. ter.; lightly obscures; Str check vs. DC 13 to free"
-			}
-		}
+		spellcastingBonus : cloakOfArachnidiaSpells.spellcastingBonus,
+		spellChanges : cloakOfArachnidiaSpells.spellChanges,
 	},
 	"cloak of arachnida (fr-dc-we-1a)" : {
 		name : "Cloak of Arachnida (FR-DC-WE-1A)",
@@ -5755,17 +5905,8 @@ MagicItemsList["al cloaks"] = {
 		additional : "cast web",
 		fixedDC : 13,
 		speed : { climb : { spd : "walk", enc : "walk" } },
-		spellcastingBonus : {
-			name : "Once per dawn",
-			spells : ["web"],
-			selection : ["web"],
-			firstCol : "oncelr"
-		},
-		spellChanges : {
-			"web": {
-				description : "2\xD7 20-ft cubes, anchored, all save or restrained; dif. ter.; lightly obscures; Str check vs. DC 13 to free"
-			}
-		}
+		spellcastingBonus : cloakOfArachnidiaSpells.spellcastingBonus,
+		spellChanges : cloakOfArachnidiaSpells.spellChanges,
 	},
 	"cloak of the bat (bmg-moon-md-2)" : {
 		name : "Cloak of the Bat (BMG-MOON-MD-2)",
@@ -5843,7 +5984,7 @@ MagicItemsList["al cloaks"] = {
 			name : "Only self into raven",
 			spells : ["polymorph"],
 			selection : ["polymorph"],
-			firstCol : "oncelr"
+			firstCol: spellOnceDay
 		},
 		spellChanges : {
 			"polymorph" : {
@@ -6722,7 +6863,7 @@ MagicItemsList["al cloaks (common)"] = {
 		name : "Firam's Shadow, Cloak of Many Fashions (MELB-1)",
 		source : [["AL","CCC"]],
 		rarity : "common",
-		description : "This cloak was crafted from the shadow of the Archfey Firam, plucked and woven before my eyes. As a bonus action while worn, I can change its style, color, and apparent quality, but not it's weight It can look like other magic cloaks but doesn't gain their properties.",
+		description : "This cloak was crafted from the shadow of the Archfey Firam, plucked and woven before my eyes. As a bonus action while worn, I can change its style, color, and apparent quality, but not it's weight. It can look like other magic cloaks but doesn't gain their properties.",
 		descriptionFull : "This cloak was crafted from the shadow of the Archfey Firam. It was plucked and woven before the eyes of the characters and is glamoured to change its appearance at will.\n   While wearing this cloak, you can take a Bonus Action to change the style, color, and apparent quality of the garment. The cloak's weight doesn't change. Regardless of its appearance, the cloak can't be anything but a cloak. Although it can duplicate the appearance of other magic cloaks, it doesn't gain their magical properties.",
 		action : [["bonus action", "Cloak of Many Fashions"]]
 	},
@@ -7004,7 +7145,7 @@ MagicItemsList["al clothing"] = {
 		choicesNotInMenu : true,
 		type : "wondrous item",
 		magicItemTable : "?",
-	choices : ["Butcher's Bib (BMG-DRWEP-OD-2)","Cape of the Mountebank (DDAL4-7)","Cape of the Mountebank (DDAL-DRW5)","Cape of the Mountebank (FR-DC-STRAT-WYRM-7)","Cape of the Mountebank (PO-BK-1-5)","Cape of the Mountebank (PS-DC-DRAGON24-3)","Clothes of Mending (BMG-DRW-OD-6)","Clothes of Mending: Devil King School Uniform (CCC-GSP4-1)","Clothes of Mending: Ugly Christmas Sweater (FR-DC-VMT-1)","Clothes of Mending (PS-DC-DRAGON24-3)","Clothes of Mending (PS-DC-HNL-1)","Clothes of Mending (PS-DC-IC)","Clothes of Mending (PS-DC-NOS-3)","Clothes of Mending (PS-DC-PKL-16)","Clothes of Mending (PS-DC-STRAT-DRAGON-7)","Clothes of Mending: Bob's Competition Shirt (PS-DC-STRAT-UNDEAD-3)","Clothes of Mending (RV-DC-HAZ-2)","Clothes of Mending: Luxury Servant's Wear (RV-DC-FREAK-1)","Clothes of Mending (SJ-DC-ANGKA-4)","Clothes of Mending: Space Suit (SJ-DC-COULEE23-1)","Clothes of Mending: Infiltration Suit (SJ-DC-DCS-1)","Clothes of Mending: Felicity's Lab Coat (SJ-DC-DD-8)","Clothes of Mending (SJ-DC-ETO-2)","Clothes of Mending: War Garment (SJ-DC-FLUMPH-3)","Clothes of Mending: Business Suit (SJ-DC-LEGIT-SB-3)","Clothes of Mending: Team K.O. Bold Racing Uniform (SJ-DC-NCH-2)","Clothes of Mending: Revered Vestments (SJ-DC-PHP-LRD-2)","Clothes of Mending: Fishing Waders (SJ-DC-PHP-OJW-1)","Clothes of Mending: White Military Uniform (SJ-DC-ROTU-7)","Clothes of Mending: AWIT Co. Uniform (SJ-DC-PHP-WUMBO)","Clothes of Mending: Dinosaur Racing Uniform (SJ-DC-STRATCON-1)","Clothes of Mending (SJ-DC-SYL-2)","Clothes of Mending (SJ-DC-TBS-1)","Clothes of Mending (SJ-DC-TEL-9)","Clothes of Mending: Enterpryze Suit (SJ-DC-TKM-3)","Clothes of Mending: Bomber Jacket and Pilot Jumpsuit (SJ-DC-TRIDEN-MW/MW2)","Fish Suit: D'Cannith (DDAL0-15)","Fish Suit: NOOT Suit (SJ-DC-DWR-2)","Fish Suit (SJ-DC-TEL-8)","Fish Suit (SJ-DC-TRIDEN-MYKE-1)","Mantle of Spell Resistance: Faerie Dragon's Favor (AL:SR-11A)","Mantle of Spell Resistance: Thayvian Mantle (CCC-ST2-1)","Mantle of Spell Resistance (DDAL-DRW11)","Mantle of Spell Resistance (DDEX1-13)","Mantle of Spell Resistance (DDEP9-1)","Mantle of Spell Resistance (FR-DC-TDD-3)","Mantle of Spell Resistance (FR-DC-WE-1)","Mantle of Spell Resistance (FR-DC-WE-1A)","Mantle of Spell Resistance (PS-DC-PUB-13)","Mantle of Spell Resistance (WBW-DC-ABC-1)","Mantle of Spell Resistance: Bahaghari (WBW-DC-ANDL-1)","Mantle of Spell Resistance (WBW-DC-CONMAR-11)","Mantle of Spell Resistance: Selendang Bomoh (WBW-DC-DMMC-1)","Mantle of Spell Resistance (WBW-DC-KCB-2)","Mantle of Spell Resistance: Fabric of Time (WBW-DC-MOM-1)","Mantle of Spell Resistance: Mana's (WBW-DC-NJ-HOPE-1)","Mantle of Spell Resistance: Lynn Slapsoil's Shawl (WBW-DC-PHP-LCL-2)","Mantle of Spell Resistance: Stefan's Promise (WBW-DC-PHP-PHAN-2)","Mantle of Spell Resistance: Seasons of Love (WBW-DC-PHP-SPRING-1)","Mantle of Spell Resistance (WBW-DC-PLS-1)","Mantle of Spell Resistance: Lord Trey's Leaves (WBW-DC-TREY-1)","Mantle of Spell Resistance: Temperate (WBW-DC-ZEP-T2S7)","Mantle of Spell Resistance: Zion Manta (WBW-DC-ZION-3)","Nature's Mantle (FR-DC-SCROG-GHH)","Nature's Mantle (WBW-DC-BIRE-4)","Nature's Mantle (WBW-DC-FDC-5)","Nature's Mantle (WBW-DC-JOQ-1)","Nature's Mantle: Burlap Cloak (WBW-DC-JSH-LIB-1)","Nature's Mantle (WBW-DC-LSN-3)","Nature's Mantle: Orion's Respite (WBW-DC-MEM-1)","Nature's Mantle (WBW-DC-THAL-2)","Nature's Mantle: Dyul's Cloak (WBW-DC-TMP-1)","Nature's Mantle: Herder's Mutela (WBW-DC-ZODIAC-2)","Robe of the Archmagi (DDAL0-3)","Robe of the Archmagi (PS-DC-STRAT-TALES-5)","Robe of Eyes (CCC-BMG-42 HULB4-3)","Robe of Eyes (DDEX1-14)","Robe of Eyes (FR-DC-ONI-6)","Robe of Eyes: Lo, Behold (FR-DC-THAY-6)","Robe of Scintillating Colors (CCC-TRI-1)","Robe of Scintillating Colors (FR-DC-BWR-1)","Robe of Scintillating Colors (FR-DC-LGBTQ-1)","Robe of Scintillating Colors (FR-DC-LIGA-6)","Robe of Stars (BMG-MOONEP-MD-2)","Robe of Stars: Cosmic Chasuble (CCC-TRI-28 ROSE1-3)","Robe of Stars (DDEX3-16)","Robe of Stars: Mystra's (FR-DC-LIGA-3)","Robe of Stars: Yellow (FR-DC-PANDORA-JWEI-7)","Robe of Stars: Newlyweds' (FR-DC-QLA-2)","Robe of Stars (FR-DC-Saerloon-0)","Robe of Stars (PS-DC-PKL-19B)","Robe of Useful Items (CCC-GSP-PHIL1-3)","Robe of Useful Items (CCC-JGD-2)","Robe of Useful Items (CCC-KUMORI-1-2)","Robe of Useful Items: Ordine Sage's Robes (CCC-TAROT1-1)","Robe of Useful Items (DDAL10-4)","Robe of Useful Items (FR-DC-DUNG-1)","Robe of Useful Items (FR-DC-STRAT-DUNGEON-3)","Robe of Useful Items (PS-DC-FOT-1)","Rogue's Mantle (PO-BMG-DRW-KS-1)","Wings of Flying (CCC-BMG-MOON12-3)","Wings of Flying (CCC-TRI-4 ROC1-2)","Wings of Flying (DDEP2)","Wings of Flying (JRC)","Wings of Flying (FR-DC-STRAT-WYRM-4)","Wings of Flying (PS-DC-PUB-4)","Wings of Flying: Sun Chaser (SJ-DC-PHP-FLN3-EOS)"],
+	choices : ["Butcher's Bib (BMG-DRWEP-OD-2)","Cape of the Mountebank (DDAL4-7)","Cape of the Mountebank (DDAL-DRW5)","Cape of the Mountebank (FR-DC-STRAT-WYRM-7)","Cape of the Mountebank (PO-BK-1-5)","Cape of the Mountebank (PS-DC-DRAGON24-3)","Clothes of Mending (BMG-DRW-OD-6)","Clothes of Mending: Devil King School Uniform (CCC-GSP4-1)","Clothes of Mending: Netherese (FR-DC-FALL-2)","Clothes of Mending: Ugly Christmas Sweater (FR-DC-VMT-1)","Clothes of Mending (PS-DC-DRAGON24-3)","Clothes of Mending (PS-DC-HNL-1)","Clothes of Mending (PS-DC-IC)","Clothes of Mending (PS-DC-NOS-3)","Clothes of Mending (PS-DC-PKL-16)","Clothes of Mending (PS-DC-STRAT-DRAGON-7)","Clothes of Mending: Bob's Competition Shirt (PS-DC-STRAT-UNDEAD-3)","Clothes of Mending (RV-DC-HAZ-2)","Clothes of Mending: Luxury Servant's Wear (RV-DC-FREAK-1)","Clothes of Mending (SJ-DC-ANGKA-4)","Clothes of Mending: Space Suit (SJ-DC-COULEE23-1)","Clothes of Mending: Infiltration Suit (SJ-DC-DCS-1)","Clothes of Mending: Felicity's Lab Coat (SJ-DC-DD-8)","Clothes of Mending (SJ-DC-ETO-2)","Clothes of Mending: War Garment (SJ-DC-FLUMPH-3)","Clothes of Mending: Business Suit (SJ-DC-LEGIT-SB-3)","Clothes of Mending: Team K.O. Bold Racing Uniform (SJ-DC-NCH-2)","Clothes of Mending: Revered Vestments (SJ-DC-PHP-LRD-2)","Clothes of Mending: Fishing Waders (SJ-DC-PHP-OJW-1)","Clothes of Mending: White Military Uniform (SJ-DC-ROTU-7)","Clothes of Mending: AWIT Co. Uniform (SJ-DC-PHP-WUMBO)","Clothes of Mending: Dinosaur Racing Uniform (SJ-DC-STRATCON-1)","Clothes of Mending (SJ-DC-SYL-2)","Clothes of Mending (SJ-DC-TBS-1)","Clothes of Mending (SJ-DC-TEL-9)","Clothes of Mending: Enterpryze Suit (SJ-DC-TKM-3)","Clothes of Mending: Bomber Jacket and Pilot Jumpsuit (SJ-DC-TRIDEN-MW/MW2)","Fish Suit: D'Cannith (DDAL0-15)","Fish Suit: NOOT Suit (SJ-DC-DWR-2)","Fish Suit (SJ-DC-TEL-8)","Fish Suit (SJ-DC-TRIDEN-MYKE-1)","Mantle of Spell Resistance: Faerie Dragon's Favor (AL:SR-11A)","Mantle of Spell Resistance: Thayvian Mantle (CCC-ST2-1)","Mantle of Spell Resistance (DDAL-DRW11)","Mantle of Spell Resistance (DDEX1-13)","Mantle of Spell Resistance (DDEP9-1)","Mantle of Spell Resistance (FR-DC-TDD-3)","Mantle of Spell Resistance (FR-DC-WE-1)","Mantle of Spell Resistance (FR-DC-WE-1A)","Mantle of Spell Resistance (PS-DC-PUB-13)","Mantle of Spell Resistance (WBW-DC-ABC-1)","Mantle of Spell Resistance: Bahaghari (WBW-DC-ANDL-1)","Mantle of Spell Resistance (WBW-DC-CONMAR-11)","Mantle of Spell Resistance: Selendang Bomoh (WBW-DC-DMMC-1)","Mantle of Spell Resistance (WBW-DC-KCB-2)","Mantle of Spell Resistance: Fabric of Time (WBW-DC-MOM-1)","Mantle of Spell Resistance: Mana's (WBW-DC-NJ-HOPE-1)","Mantle of Spell Resistance: Lynn Slapsoil's Shawl (WBW-DC-PHP-LCL-2)","Mantle of Spell Resistance: Stefan's Promise (WBW-DC-PHP-PHAN-2)","Mantle of Spell Resistance: Seasons of Love (WBW-DC-PHP-SPRING-1)","Mantle of Spell Resistance (WBW-DC-PLS-1)","Mantle of Spell Resistance: Lord Trey's Leaves (WBW-DC-TREY-1)","Mantle of Spell Resistance: Temperate (WBW-DC-ZEP-T2S7)","Mantle of Spell Resistance: Zion Manta (WBW-DC-ZION-3)","Nature's Mantle (FR-DC-SCROG-GHH)","Nature's Mantle (WBW-DC-BIRE-4)","Nature's Mantle (WBW-DC-FDC-5)","Nature's Mantle (WBW-DC-JOQ-1)","Nature's Mantle: Burlap Cloak (WBW-DC-JSH-LIB-1)","Nature's Mantle (WBW-DC-LSN-3)","Nature's Mantle: Orion's Respite (WBW-DC-MEM-1)","Nature's Mantle (WBW-DC-THAL-2)","Nature's Mantle: Dyul's Cloak (WBW-DC-TMP-1)","Nature's Mantle: Herder's Mutela (WBW-DC-ZODIAC-2)","Robe of the Archmagi (DDAL0-3)","Robe of the Archmagi (PS-DC-STRAT-TALES-5)","Robe of Eyes (CCC-BMG-42 HULB4-3)","Robe of Eyes (DDEX1-14)","Robe of Eyes (FR-DC-ONI-6)","Robe of Eyes: Lo, Behold (FR-DC-THAY-6)","Robe of Scintillating Colors (CCC-TRI-1)","Robe of Scintillating Colors (FR-DC-BWR-1)","Robe of Scintillating Colors (FR-DC-LGBTQ-1)","Robe of Scintillating Colors (FR-DC-LIGA-6)","Robe of Stars (BMG-MOONEP-MD-2)","Robe of Stars: Cosmic Chasuble (CCC-TRI-28 ROSE1-3)","Robe of Stars (DDEX3-16)","Robe of Stars: Mystra's (FR-DC-LIGA-3)","Robe of Stars: Yellow (FR-DC-PANDORA-JWEI-7)","Robe of Stars: Newlyweds' (FR-DC-QLA-2)","Robe of Stars (FR-DC-Saerloon-0)","Robe of Stars (PS-DC-PKL-19B)","Robe of Useful Items (CCC-GSP-PHIL1-3)","Robe of Useful Items (CCC-JGD-2)","Robe of Useful Items (CCC-KUMORI-1-2)","Robe of Useful Items: Ordine Sage's Robes (CCC-TAROT1-1)","Robe of Useful Items (DDAL10-4)","Robe of Useful Items (FR-DC-DUNG-1)","Robe of Useful Items (FR-DC-STRAT-DUNGEON-3)","Robe of Useful Items (PS-DC-FOT-1)","Rogue's Mantle (PO-BMG-DRW-KS-1)","Wings of Flying (CCC-BMG-MOON12-3)","Wings of Flying (CCC-TRI-4 ROC1-2)","Wings of Flying (DDEP2)","Wings of Flying (JRC)","Wings of Flying (FR-DC-STRAT-WYRM-4)","Wings of Flying (PS-DC-PUB-4)","Wings of Flying: Sun Chaser (SJ-DC-PHP-FLN3-EOS)"],
 	"butcher's bib (bmg-drwep-od-2)" : {  
 		name : "Butcher's Butcher's Bib (BMG-DRWEP-OD-2)",
 		source : [["AL","DRW"]],
@@ -7094,7 +7235,7 @@ MagicItemsList["al clothing"] = {
 		source : [["AL","DRW"]],
 		rarity : "common",
 		description : "This elegant outfit is tailored to fit me perfectly and properly fashionable for a Thayan noble. It magically mends itself to counteract daily wear and tear. Any destroyed pieces can't be repaired.",
-		descriptionFull : "This elegant outfit is tailored to fit you perfectly, is properly fashionable for a Thayan noble, and magically mends itself to counteract daily wear and tear.\n   This elegant outfit magically mends itself to counteract daily wear and tear. Pieces of the outfit that are destroyed can't be repaired in this way.",
+		descriptionFull : "This elegant outfit is tailored to fit you perfectly and is properly fashionable for a Thayan noble.\n   This elegant outfit magically mends itself to counteract daily wear and tear. Pieces of the outfit that are destroyed can't be repaired in this way.",
 		weight : 4
 	},
 	"clothes of mending: devil king school uniform (ccc-gsp4-1)" : {
@@ -7104,6 +7245,15 @@ MagicItemsList["al clothing"] = {
 		description : "This standard set of clothing for students consists of black trousers or a red skirt with a black top that has gold outlines and buttons. Its fabric is specially made to be easy and comfortable to wear under armor. The uniform mends itself to counteract daily wear and tear but destroyed pieces can't be repaired.",
 		descriptionFull : "This standard set of clothing for students is a combination of black trousers or a red skirt, together with a black top decorated with gold outlines and buttons. The fabric of the uniform is specially made to make it easy and comfortable to wear under armor.\n   This elegant outfit magically mends itself to counteract daily wear and tear. Pieces of the outfit that are destroyed can't be repaired in this way.",
 		weight : 4
+	},
+	"clothes of mending: netherese (fr-dc-fall-2)" : {
+		name : "Netherese Clothes of Mending (FR-DC-FALL-2)",
+		source : [["AL","FR-DC"]],
+		rarity : "common",
+		description : "These clothes once represented the height of High Netherese fashion. They look as new as the day they were made and were designed to stay comfortable in Icewind Dale. I suffer no harm in extreme temperatures past 0\u00B0F and 100\u00B0F, and the outfit magically mends to counteract daily wear and tear. Pieces that are destroyed can't be repaired this way.",
+		descriptionFull : "These clothes once represented the height of High Netherese fashion. They look as new as the day they were made and designed to keep the wearer comfortable in Icewind Dale.\n   " + toUni("Temperate") + ". You are unharmed by temperatures of 0 degrees Fahrenheit or lower, and 100 degrees Fahrenheit or higher.\n   This elegant outfit magically mends itself to counteract daily wear and tear. Pieces of the outfit that are destroyed can't be repaired in this way.",
+		weight : 4,
+		savetxt : { immune : ["temps past 0\u00B0F/100\u00B0F"] },
 	},
 	"clothes of mending: ugly christmas sweater (fr-dc-vmt-1)" : {
 		name : "Ugly Christmas Sweater (Clothes of Mending, VMT-1)",
@@ -8148,7 +8298,7 @@ MagicItemsList["al clothing"] = {
 		name : "Once per dawn",
 		spells : ["antagonize"],
 		selection : ["antagonize"],
-		firstCol : "oncelr"
+		firstCol: spellOnceDay
 		}]
 	},
 	"wings of flying (ccc-bmg-moon12-3)" : {
@@ -9154,7 +9304,7 @@ MagicItemsList["al equipment"] = {
 		allowDuplicates : true,
 		choicesNotInMenu : true,
 		magicItemTable : "?",
-	choices : ["All Purpose Tool +1 (DC-POA-CODEX-3)","All Purpose Tool +1: Omega #5 Power Rod (DC-POA-TDG1-6)","All Purpose Tool +1 (DC-POA-Z-T2S2)","All Purpose Tool +3: FIX-A-Ton 3000 (PS-DC-PHP-CKA2)","Ascendant Gem Dragon-Touched Focus (DDAL-DRW19)","Cube of Force (CCC-RPSG-3)","Cube of Summoning (FR-DC-GAMEJAM-1)","Cube of Summoning (PS-DC-PUB-1)","Daern's Instant Fortress (CCC-ALMOG-ESC-3-3)","Daern's Instant Fortress (CCC-BWM-7-3)","Daern's Instant Fortress: The Slug Lord's Tower (CCC-DES-4-3)","Daern's Instant Fortress (CCC-DWB-GNA-1)","Daern's Instant Fortress (CCC-SDREAM-1-3)","Daern's Instant Fortress: Yeenoghu's Slaughterhouse (FR-DC-Saerloon-10)","Deck of Illusions (CCC-BFG1-2)","Deck of Illusions: Wild Monster Capture Cards (CCC-KUMORI-2-4)","Deck of Illusions: Deck of Illusory Desires (CCC-UNITE-GD-1)","Deck of Illusions: Sil's (FR-DC-Saerloon-9)","Deck of Illusions (SJ-DC-RH-1)","Deck of Illusions (WBW-DC-JOQ-4)","Deck of Miscellany (FR-DC-VECNA-1)","Deck of Miscellany (PS-DC-HRS-0)","Dimensional Shackles (CCC-TRI-31)","Dimensional Shackles: Bonds of Fear (DDAL4-12)","Dust of Disappearance (CCC-KUMORI-3-2)","Dust of Disappearance (DC-POA-HARM-1-2)","Dust of Disappearance: Ko-Nip (DC-POA-TDG1-1)","Dust of Disappearance (FR-DC-MELB-0-3)","Dust of Disappearance (FR-DC-SV-A1)","Dust of Disappearance (SJ-DC-DD-9)","Dust of Dryness (CCC-UK-1)","Emerald Pen (FR-DC-WCAG2-2)","Hag Eye (FR-DC-FRI-13)","Hag Eye (WBW-DC-CHAOS-1)","Iron Bands of Bilarro: Asharam's Orb of Ensnaring (CCC-DRUID-1)","Iron Bands of Bilarro: Bands of the Black Unicorn (CCC-DES-3-1)","Iron Bands of Bilarro (PO-BK2-3)","Keoghtom's Ointment: The Aloe of Ch (CCC-ELO-1)","Keoghtom's Ointment (FR-DC-GHG-3)","Keoghtom's Ointment (FR-DC-GOBLIN-1)","Keoghtom's Ointment: Strange Herbs (FR-DC-PHP-INFRN1-1)","Keoghtom's Ointment (FR-DC-STRAT-WYRM-2)","Keoghtom's Ointment (FR-DC-TT-102)","Keoghtom's Ointment (FR-DC-VECNA-2)","Keoghtom's Ointment: Rotsalve (RMHEP-1)","Keoghtom's Ointment (PS-DC-DD-1)","Keoghtom's Ointment: Gallowberry Jam (SJ-DC-CONMAR-2)","Keoghtom's Ointment: Blue Healing Salve (SJ-DC-DD-7)","Keoghtom's Ointment (SJ-DC-DES5-1)","Keoghtom's Ointment: Sweet Honeyfish Mooncake (SJ-DC-DWR-1)","Keoghtom's Ointment: Medical Pack (SJ-DC-PHP-FLN1-2)","Keoghtom's Ointment: Turnip Treatment Tincture (SJ-DC-SQD)","Keoghtom's Ointment: Special Curry Sauce (SJ-DC-TKM-CH3)","Keoghtom's Ointment (SJ-DC-TST-1)","Keoghtom's Ointment (SJ-DC-TTUC-1)","Keoghtom's Ointment (SJ-DC-TTUC-3/4)","Keoghtom's Ointment: Quinta Wine (SJ-DC-WINE-1)","Keoghtom's Ointment: Luna Wine (SJ-DC-ZODIAC-14-1)","Keoghtom's Ointment: Sake (SJ-DC-ZODIAC-14-2)","Keoghtom's Ointment (WBW-DC-CONMAR-9)","Keoghtom's Ointment (WBW-DC-ZEP-T1S1)","Keoghtom's Ointment: Luna Honey Milk Tea (WBW-DC-ZODIAC-0)","Keoghtom's Ointment: Premium Honey Milk Salve (WBW-DC-ZODIAC-2)","Keoghtom's Ointment: Desert Elixir (WBW-DC-ZODIAC-3)","Keoghtom's Ointment: Healing Elixir (WBW-DC-ZODIAC-4)","Keoghtom's Ointment: Ryboslav's Rum (WBW-DC-ZODIAC-5)","Keoghtom's Ointment: Love's Ambrosia (WBW-DC-ZODIAC-6)","Keoghtom's Ointment: Samsara Cup (WBW-DC-ZODIAC-7)","Keoghtom's Ointment: Troll's Grog (WBW-DC-ZODIAC-8)","Keoghtom's Ointment: Peach Elixir (WBW-DC-ZODIAC-9)","Keoghtom's Ointment: Phoenix Tears (WBW-DC-ZODIAC-10)","Keoghtom's Ointment: Swineshine (WBW-DC-ZODIAC-12)","Keoghtom's Ointment: Luna Wine (WBW-DC-ZODIAC-13)","Kyrzin's Ooze (DDAL-DRW-20)","Mimir: Ex Libris (PS-DC-BINGO-1)","Mimir (PS-DC-MORD-1)","Mimir (PS-DC-PUB-6)","Mimir: Egoxopaedia (PS-DC-SV-A2)","Mirror of the Past (DC-POA-CONMAR-18)","Mirror of the Past (DC-POA-GaryXIII-2)","Mirror of the Past: Nether Mirror (DC-POA-TDG1-8)","Portal Compass: Portentiate Badge (PS-DC-DD-1)","Quaal's Feather Token: Tree (CCC-BMG-MOON9-1)","Quaal's Feather Token: Tree (WBW-DC-ZODIAC-10)","Rope of Climbing (CCC-BMG-MOON4-1)","Rope of Climbing (CCC-QCC2019-1)","Rope of Climbing (DDEP8-3)","Rope of Climbing (SJ-DC-ANGKA-4)","Rope of Climbing (SJ-DC-EBAL-SPKY-2)","Rope of Entanglement (CCC-BMG-MOON18-1)","Rope of Entanglement (CCC-ODFC1-2)","Rope of Entanglement (DDAL7-7)","Rope of Entanglement: Thread of Fate (PS-DC-BINGO-3)","Spirit Board (PS-DC-STRAT-WYRM-8)","Thermal Cube (FR-DC-STRAT-DUNGEON-7)","Thermal Cube: Rashemi Hot Stone (PO-BMG-DRWEP-KS-1)","Wind Fan (DDAL0-9)","Wind Fan (DDAL4-5)","Wind Fan (JRC)"],
+	choices : ["All Purpose Tool +1 (DC-POA-CODEX-3)","All Purpose Tool +1: Omega #5 Power Rod (DC-POA-TDG1-6)","All Purpose Tool +1 (DC-POA-Z-T2S2)","All Purpose Tool +3: FIX-A-Ton 3000 (PS-DC-PHP-CKA2)","Ascendant Gem Dragon-Touched Focus (DDAL-DRW19)","Cube of Force (CCC-RPSG-3)","Cube of Force: Phaerimm's Touch (FR-DC-GLACIER-3)","Cube of Summoning (FR-DC-GAMEJAM-1)","Cube of Summoning (PS-DC-PUB-1)","Daern's Instant Fortress (CCC-ALMOG-ESC-3-3)","Daern's Instant Fortress (CCC-BWM-7-3)","Daern's Instant Fortress: The Slug Lord's Tower (CCC-DES-4-3)","Daern's Instant Fortress (CCC-DWB-GNA-1)","Daern's Instant Fortress (CCC-SDREAM-1-3)","Daern's Instant Fortress: Yeenoghu's Slaughterhouse (FR-DC-Saerloon-10)","Deck of Illusions (CCC-BFG1-2)","Deck of Illusions: Wild Monster Capture Cards (CCC-KUMORI-2-4)","Deck of Illusions: Deck of Illusory Desires (CCC-UNITE-GD-1)","Deck of Illusions: Sil's (FR-DC-Saerloon-9)","Deck of Illusions (SJ-DC-RH-1)","Deck of Illusions (WBW-DC-JOQ-4)","Deck of Miscellany (FR-DC-VECNA-1)","Deck of Miscellany (PS-DC-HRS-0)","Dimensional Shackles (CCC-TRI-31)","Dimensional Shackles: Bonds of Fear (DDAL4-12)","Dust of Disappearance (CCC-KUMORI-3-2)","Dust of Disappearance (DC-POA-HARM-1-2)","Dust of Disappearance: Ko-Nip (DC-POA-TDG1-1)","Dust of Disappearance (FR-DC-MELB-0-3)","Dust of Disappearance (FR-DC-SV-A1)","Dust of Disappearance (SJ-DC-DD-9)","Dust of Dryness (CCC-UK-1)","Emerald Pen (FR-DC-WCAG2-2)","Hag Eye (FR-DC-FRI-13)","Hag Eye (WBW-DC-CHAOS-1)","Iron Bands of Bilarro: Asharam's Orb of Ensnaring (CCC-DRUID-1)","Iron Bands of Bilarro: Bands of the Black Unicorn (CCC-DES-3-1)","Iron Bands of Bilarro (PO-BK2-3)","Keoghtom's Ointment: The Aloe of Ch (CCC-ELO-1)","Keoghtom's Ointment (FR-DC-GHG-3)","Keoghtom's Ointment (FR-DC-GOBLIN-1)","Keoghtom's Ointment: Strange Herbs (FR-DC-PHP-INFRN1-1)","Keoghtom's Ointment (FR-DC-STRAT-WYRM-2)","Keoghtom's Ointment (FR-DC-TT-102)","Keoghtom's Ointment (FR-DC-VECNA-2)","Keoghtom's Ointment: Rotsalve (RMHEP-1)","Keoghtom's Ointment (PS-DC-DD-1)","Keoghtom's Ointment: Gallowberry Jam (SJ-DC-CONMAR-2)","Keoghtom's Ointment: Blue Healing Salve (SJ-DC-DD-7)","Keoghtom's Ointment (SJ-DC-DES5-1)","Keoghtom's Ointment: Sweet Honeyfish Mooncake (SJ-DC-DWR-1)","Keoghtom's Ointment: Medical Pack (SJ-DC-PHP-FLN1-2)","Keoghtom's Ointment: Turnip Treatment Tincture (SJ-DC-SQD)","Keoghtom's Ointment: Special Curry Sauce (SJ-DC-TKM-CH3)","Keoghtom's Ointment (SJ-DC-TST-1)","Keoghtom's Ointment (SJ-DC-TTUC-1)","Keoghtom's Ointment (SJ-DC-TTUC-3/4)","Keoghtom's Ointment: Quinta Wine (SJ-DC-WINE-1)","Keoghtom's Ointment: Luna Wine (SJ-DC-ZODIAC-14-1)","Keoghtom's Ointment: Sake (SJ-DC-ZODIAC-14-2)","Keoghtom's Ointment (WBW-DC-CONMAR-9)","Keoghtom's Ointment (WBW-DC-ZEP-T1S1)","Keoghtom's Ointment: Luna Honey Milk Tea (WBW-DC-ZODIAC-0)","Keoghtom's Ointment: Premium Honey Milk Salve (WBW-DC-ZODIAC-2)","Keoghtom's Ointment: Desert Elixir (WBW-DC-ZODIAC-3)","Keoghtom's Ointment: Healing Elixir (WBW-DC-ZODIAC-4)","Keoghtom's Ointment: Ryboslav's Rum (WBW-DC-ZODIAC-5)","Keoghtom's Ointment: Love's Ambrosia (WBW-DC-ZODIAC-6)","Keoghtom's Ointment: Samsara Cup (WBW-DC-ZODIAC-7)","Keoghtom's Ointment: Troll's Grog (WBW-DC-ZODIAC-8)","Keoghtom's Ointment: Peach Elixir (WBW-DC-ZODIAC-9)","Keoghtom's Ointment: Phoenix Tears (WBW-DC-ZODIAC-10)","Keoghtom's Ointment: Swineshine (WBW-DC-ZODIAC-12)","Keoghtom's Ointment: Luna Wine (WBW-DC-ZODIAC-13)","Kyrzin's Ooze (DDAL-DRW-20)","Mimir: Ex Libris (PS-DC-BINGO-1)","Mimir (PS-DC-MORD-1)","Mimir (PS-DC-PUB-6)","Mimir: Egoxopaedia (PS-DC-SV-A2)","Mirror of Life Trapping (FR-DC-ELEMENT-IGC-DEATH-5)","Mirror of the Past (DC-POA-CONMAR-18)","Mirror of the Past (DC-POA-GaryXIII-2)","Mirror of the Past: Nether Mirror (DC-POA-TDG1-8)","Portal Compass: Portentiate Badge (PS-DC-DD-1)","Quaal's Feather Token: Tree (CCC-BMG-MOON9-1)","Quaal's Feather Token: Tree (WBW-DC-ZODIAC-10)","Rope of Climbing (CCC-BMG-MOON4-1)","Rope of Climbing (CCC-QCC2019-1)","Rope of Climbing (DDEP8-3)","Rope of Climbing (SJ-DC-ANGKA-4)","Rope of Climbing (SJ-DC-EBAL-SPKY-2)","Rope of Entanglement (CCC-BMG-MOON18-1)","Rope of Entanglement (CCC-ODFC1-2)","Rope of Entanglement (DDAL7-7)","Rope of Entanglement: Thread of Fate (PS-DC-BINGO-3)","Spirit Board (PS-DC-STRAT-WYRM-8)","Thermal Cube (FR-DC-STRAT-DUNGEON-7)","Thermal Cube: Rashemi Hot Stone (PO-BMG-DRWEP-KS-1)","Wind Fan (DDAL0-9)","Wind Fan (DDAL4-5)","Wind Fan (JRC)"],
 	"all purpose tool +1 (dc-poa-codex-3)" : {
 	    name : "All Purpose Tool +1 (DC-POA-CODEX-3)",
 		source : [["AL", "DC-POA"]],
@@ -9270,49 +9420,40 @@ MagicItemsList["al equipment"] = {
 			name : "Once per dawn",
 			spells : ["rary's telepathic bond", "raulothim's psychic lance"],
 			selection : ["rary's telepathic bond", "raulothim's psychic lance"],
-			firstCol : "oncelr",
+			firstCol: spellOnceDay,
 			times : 2
 		},
 	},
-	"cube of force (ccc-rpsg-3)" : { // contains contributions by Larry Hoy
+	"cube of force (ccc-rpsg-3)" : { 
 		name : "Cube of Force (CCC-RPSG-3)",
 		source : [["AL","CCC"]],
 		rarity : "rare",
 		description : "This ornate 1-in puzzle cube is carved from polished duskwood. Fenaria's companions in Tymora's Smile are engraved on the sides & the top has the band's crest & their pledge: \"Always together, never apart.\" The bottom has the 2nd half: \"Though we are distant, we are connected in heart.\" The images whisper encouragement when activated. I learn its depth & the direction to the nearest upward path by speaking the pledge. The cube has 10 charges & regains 1d6 at dawn. Press 1 face & use charges to cast linked spell (DC 17).",
 		descriptionLong : "This ornate 1-inch puzzle cube is carved from duskwood & polished to a shine. The sides are engraved with the likenesses of Fenaria's companions in Tymora's Smile while the top bears the band's crest & their pledge: \"Always together, never apart.\" The bottom face has the 2nd half of the band's promise: \"Though we are distant, we are connected in heart.\" The likenesses whisper encouragement whenever the cube is activated. I can also discern its depth below the surface and the direction to the nearest upward path if I speak the words on the cube. It has 10 charges & regains 1d6 at dawn. I can press a face and spend charges to cast the associated spell (DC 17).",
-		descriptionFull : "This ornate puzzle cube is carved from duskwood and polished to a shine.\n   The lateral faces are engraved with the likenesses of Fenaria's companions in Tymora's Smile while the top bears the band's crest and their pledge to be \"Always together, never apart.\" The latter half of the band's promise - \"Though we are distant, we are connected in heart\" - adorns the bottom face.\n   The likenesses whisper words of encouragement to the bearer whenever a surface is pressed and the cube activated. \n   Additionally, the bearer can discern the item's depth below the surface and the direction to the nearest staircase, ramp or other path leading upward if the words on the cube are spoken. This cube is about an inch across. Each face has a distinct marking on it. You can press one of those faces, expend the number of charges required for it, and thereby cast the spell associated with it (save DC 17), as shown in the Cube of Force Faces table.\n   The cube starts with 10 charges, and it regains 1d6 expended charges daily at dawn." + toUni("Spell\tCharge Cost") + "\nMage Armor\t1\nShield\t1\nLeomund's Tiny Hut\t3\nMordenkainen's Private Sanctum\t4\nOtiluke's Resilient Sphere\t4\nWall of Force\t5",
+		descriptionFull : "This ornate puzzle cube is carved from duskwood and polished to a shine.\n   The lateral faces are engraved with the likenesses of Fenaria's companions in Tymora's Smile while the top bears the band's crest and their pledge to be \"Always together, never apart.\" The latter half of the band's promise - \"Though we are distant, we are connected in heart\" - adorns the bottom face.\n   The likenesses whisper words of encouragement to the bearer whenever a surface is pressed and the cube activated.\n   Additionally, the bearer can discern the item's depth below the surface and the direction to the nearest staircase, ramp or other path leading upward if the words on the cube are spoken.\n   This cube is about an inch across. Each face has a distinct marking on it. You can press one of those faces, expend the number of charges required for it, and thereby cast the spell associated with it (save DC 17), as shown in the Cube of Force Faces table.\n   The cube starts with 10 charges, and it regains 1d6 expended charges daily at dawn." + toUni("Spell\tCharge Cost") + "\nMage Armor\t1\nShield\t1\nLeomund's Tiny Hut\t3\nMordenkainen's Private Sanctum\t4\nOtiluke's Resilient Sphere\t4\nWall of Force\t5",
 		attunement : true,
 		limfeaname : "Cube of Force",
 		usages : 10,
 		recovery : "dawn",
 		additional : "regains 1d6",
-		action : [["action", ""]],
 		spellFirstColTitle : "Ch",
-	spellcastingBonus : [{
-		name : "Cube of Force",
-		spells : ["mage armor", "shield"],
-		selection : ["mage armor", "shield"],
-		times : 2,
-		firstCol : 1,
-	}, {
-		name : "Cube of Force",
-		spells : ["leomund's tiny hut"],
-		selection : ["leomund's tiny hut"],
-		times : 1,
-		firstCol : 3,
-	}, {
-		name : "Cube of Force",
-		spells : ["mordenkainen's private sanctum", "otiluke's resilient sphere"],
-		selection : ["mordenkainen's private sanctum", "otiluke's resilient sphere"],
-		times : 2,
-		firstCol : 4,
-	}, {
-		name : "Cube of Force",
-		spells : ["wall of force"],
-		selection : ["wall of force"],
-		times : 1,
-		firstCol : 5,
-	}],
+		spellcastingBonus : cubeForceSpells.spellcastingBonus,
+	},
+	"cube of force: phaerimm's touch (fr-dc-glacier-3)" : { 
+		name : "Pharimm's Touch (Cube of Force, GLACIER-3)",
+		source : [["AL","FR-DC"]],
+		rarity : "rare",
+		description : "This 1-in cube is part of the phaerimm artifact gifted to the Netherese traitor, Olostin. Winds whisper over its engraved surfaces in loving caress and warn me, giving +2 initiative unless Incapacitated. The cube has 10 charges, 1d6 regained at dawn. Press 1 face & use charges to cast linked spell (DC 17).",
+		descriptionLong : "This 1-in cube is a fragment of the phaerimm artifact gifted to the Netherese traitor, Olostin. Winds whisper over its engraved surfaces as if in loving caress. The cube has 10 charges, 1d6 regained at dawn. I can press a face and spend charges to cast the associated spell (DC 17). It also warns me, giving +2 Initiative if I'm not Incapacitated.",
+		descriptionFull : "A fragment of the phaerimm artifact gifted to the Netherese traitor, Olostin. Winds whisper over its engraved surfaces as if in loving caress.\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don’t have the Incapacitated condition.\n   This cube is about an inch across. Each face has a distinct marking on it. You can press one of those faces, expend the number of charges required for it, and thereby cast the spell associated with it (save DC 17), as shown in the Cube of Force Faces table.\n   The cube starts with 10 charges, and it regains 1d6 expended charges daily at dawn." + toUni("Spell\tCharge Cost") + "\nMage Armor\t1\nShield\t1\nLeomund's Tiny Hut\t3\nMordenkainen's Private Sanctum\t4\nOtiluke's Resilient Sphere\t4\nWall of Force\t5",
+		attunement : true,
+		limfeaname : "Cube of Force",
+		usages : 10,
+		recovery : "dawn",
+		additional : "regains 1d6",
+		spellFirstColTitle : "Ch",
+		spellcastingBonus : cubeForceSpells.spellcastingBonus,
+		addMod : genericGuardian.addMod,
 	},
 	"cube of summoning (fr-dc-gamejam-1)" : { 
 		name : "Cube of Summoning (FR-DC-GAMEJAM-1)",
@@ -10285,6 +10426,33 @@ MagicItemsList["al equipment"] = {
 		addMod : genericGuardian.addMod,
 		spellcastingBonus : mimirSpells.spellcastingBonus,
 	},
+	"mirror of life trapping (fr-dc-element-igc-death-5)" : {  
+		name : "Mirror of Life Trapping (ELEMENT-IGC-DEATH-5)",
+		source : [["AL","FR-DC"]],
+		rarity : "very rare",
+		magicItemTable : "?",
+		description : "As an action within 5 ft of this mirror, I can say \"Regrets\" thrice in Abyssal to activate/deactivate. Other non-constructs who look in the activated mirror make DC 15 CHA save or trapped in 1 of 12 extradimensional cells. Action to see/talk prisoner, or say \"No More\" thrice in Celestial to free. As bonus action, toggle glow: 10-ft bright light & 10-ft more dim. See Notes page.",
+		descriptionLong : "As an action in 5 ft of this hanging mirror, I can say \"Regrets\" 3 times in Abyssal to activate. Other non-construct creatures who look in the activated mirror make DC 15 CHA save or become trapped in 1 of 12 extradimensional cells, swapping with current prisoner if full. Adv. on save if know mirror's nature. Magic action to see & speak with captured creature or to say \"No More\" 3 times in Celestial to free. If placed in similar extradimensional item, destroyed and creates 1-way gate to Astral Plane. As bonus action, toggle glow: 10-ft bright light & 10-ft more dim.",
+		descriptionFull : "Command Words: TO ACTIVATE: SAY \"REGRETS\" THREE TIMES IN ABYSSAL. TO EMPTY: SAY \"NO MORE\" THREE TIMES IN CELESTIAL.\n   " + toUni("Beacon") + ". You can take a Bonus Action to cause the item to shed Bright Light in a 10-foot radius and Dim Light for an additional 10 feet, or to extinguish the light.\n   When this 4-foot-tall, 2 foot wide mirror is viewed indirectly, its surface shows faint images of creatures. The mirror weighs 50 pounds, and it has AC 11, 10 HP, Immunity to Poison and Psychic damage, and Vulnerability to Bludgeoning damage. It shatters and is destroyed when reduced to 0 Hit Points.\n   If the mirror is hanging on a vertical surface and you are within 5 feet of it, you can take a Magic action and use a command word to activate it. It remains activated until you take a Magic action and repeat the command word to deactivate it.\n   Any creature other than you that sees its reflection in the activated mirror while within 30 feet of it must succeed on a DC 15 Charisma saving throw or be trapped, along with anything it is wearing or carrying, in one of the mirror's twelve extradimensional cells. A creature that knows the mirror’s nature makes the save with Advantage, and Constructs succeed on the save automatically.\n   An extradimensional cell is an infinite expanse filled with thick fog that reduces visibility to 10 feet. Creatures trapped in the mirror's cells don't age, and they don't need to eat, drink, or sleep. A creature trapped within a cell can escape using magic that permits planar travel. Otherwise, the creature is confined to the cell until freed.\n   If the mirror traps a creature but its twelve extradimensional cells are already occupied, the mirror frees one trapped creature at random to accommodate the new prisoner. A freed creature appears in an unoccupied space within sight of the mirror but facing away from it. If the mirror is shattered, all creatures it contains are freed and appear in unoccupied spaces near it.\n   While within 5 feet of the mirror, you can take a Magic action to name one creature trapped in it or call out a particular cell by number. The creature named or contained in the named cell appears as an image on the mirror's surface. You and the creature can them communicate.\n In a similar way, you can take a Magic action and use a second command word and free one creature trapped in the mirror. The freed creature appears, along with its possessions, in the unoccupied space nearest to the mirror and facing away from it.\n Placing the mirror inside an extradimensional space created by a Bag of Holding, Portable Hole, or similar item instantly destroys both items and opens a gate to the Astral Plane. The gate originates where the one item was placed inside the other. Any creature within 10 feet of the gate and not behind Total Cover is sucked through it to a random location on the Astral Plane. The gate then closes. The gate is one-way only and can’t be reopened.",
+		weight : 50,
+		action : [
+			["action", "Mirror of Life Trapping (Activate/Use)"],
+			["bonus action", "Mirror of Life Trapping (light/dim)"]
+		],
+		toNotesPage : [{
+			name : "Workings of the Mirror",
+			note : [
+				"When this 4-foot-tall, 2-foot-wide mirror is viewed indirectly, its surface shows faint images of creatures. The mirror weighs 50 pounds, and it has AC 11, HP 10, Immunity to Poison and Psychic damage, and Vulnerability to Bludgeoning damage. It shatters and is destroyed when reduced to 0 Hit Points.",
+				"If the mirror is hanging on a vertical surface and you are within 5 feet of it, you can take a Magic action and use a command word to activate it. It remains activated until you take a Magic action and repeat the command word to deactivate it.",
+				"Any creature other than you that sees its reflection in the activated mirror while within 30 feet of the mirror must succeed on a DC 15 Charisma saving throw or be trapped, along with anything it is wearing or carrying, in one of the mirror’s twelve extradimensional cells. A creature that knows the mirror’s nature makes the save with Advantage, and Constructs succeed on the save automatically.",
+				"An extradimensional cell is an infinite expanse filled with thick fog that reduces visibility to 10 feet. Creatures trapped in the mirror’s cells don’t age, and they don’t need to eat, drink, or sleep. A creature trapped within a cell can escape using magic that permits planar travel. Otherwise, the creature is confined to the cell until freed.",
+				"If the mirror traps a creature but its twelve extradimensional cells are already occupied, the mirror frees one trapped creature at random to accommodate the new prisoner. A freed creature appears in an unoccupied space within sight of the mirror but facing away from it. If the mirror is shattered, all creatures it contains are freed and appear in unoccupied spaces near it.",
+				"While within 5 feet of the mirror, you can take a Magic action to name one creature trapped in it or call out a particular cell by number. The creature named or contained in the named cell appears as an image on the mirror’s surface. You and the creature can then communicate.",
+				"In a similar way, you can take a Magic action and use a second command word to free one creature trapped in the mirror. The freed creature appears, along with its possessions, in the unoccupied space nearest to the mirror and facing away from it.",
+				"Placing the mirror inside an extradimensional space created by a Bag of Holding, Portable Hole, or similar item instantly destroys both items and opens a gate to the Astral Plane. The gate originates where the one item was placed inside the other. Any creature within 10 feet of the gate and not behind Total Cover is sucked through it to a random location on the Astral Plane. The gate then closes. The gate is one-way only and can’t be reopened.",
+			]
+		}],
+	},
 	"mirror of the past (dc-poa-conmar-18)" : {  
 		name : "Mirror of the Past (DC-POA-CONMAR-18)",
 		source : [["AL","DC-POA"]],
@@ -10604,7 +10772,7 @@ MagicItemsList["al equipment (common)"] = {
 		choicesNotInMenu : true,
 		rarity : "common",
 		magicItemTable : "?",
-	choices : ["Charlatan's Die (CCC-AETHER2-3)","Charlatan's Die (CCC-DES-1-6)","Charlatan's Die: The Vampire's Die (CCC-GSP2-3)","Charlatan's Die (DC-POA-CONMAR-11)","Charlatan's Die (DC-POA-DCAF11)","Charlatan's Die: DaleVision Dice (DC-POA-TDG1-11)","Charlatan's Die (DC-POA-TLOH-1)","Charlatan's Die (DDEP10-1)","Charlatan's Die (WBW-DC-BIRE-3)","Ersatz Eye: Emerald Eye (CCC-VOTE-1-1)","Ersatz Eye (DDAL10-0)","Ersatz Eye (DDIA-XGE)","Lock of Trickery (FR-DC-Saerloon-6)","Lock of Trickery (FR-DC-SCROG-3)","Mystery Key (FR-DC-LIGA-7)","Mystery Key: Holy Symbol of Kuong (FR-DC-PNKE-1)","Mystery Key (FR-DC-Saerloon-4)","Mystery Key: Neverdeath Crypt (FR-DC-VECNA-2)","Mystery Key (PO-BK-5-3)","Mystery Key: The Silver Key (RV-DC-HAZ-1)","Pipe of Remembrance (FM)","Pipe of Remembrance (SJ-DC-ASI-2)","Pipe of Remembrance: Kuo-Toa Ceremonial Pipe (SJ-DC-COD)","Pipe of Remembrance: Guardian's (SJ-DC-FLUMPH-4)","Pipe of Remembrance: Memories of the Third Protocol (SJ-DC-GON-1)","Pipe of Remembrance (SJ-DC-IGC-ECP-3)","Pipe of Remembrance (SJ-DC-NOS-5)","Pipe of Remembrance (SJ-DC-TEL-2)","Pipe of Smoke Monsters (BMG-DRWEP-OD-2)","Pipe of Smoke Monsters (CCC-3MAGS-ONE)","Pipe of Smoke Monsters (CCC-GSP1-2)","Pipe of Smoke Monsters (CCC-SQC-3-1)","Pipe of Smoke Monsters: Eschantrii (PS-DC-MONSTER-5)","Pipe of Smoke Monsters (PS-DC-NOS-2)","Pipe of Smoke Monsters (PS-DC-STRAT-UNDEAD-4)","Pipe of Smoke Monsters: Izzthurask's Smoking Pipe (PS-DC-STRAT-UNDEAD-5)","Pipe of Smoke Monsters (PS-DC-UMY-1)","Pipe of Smoke Monsters (WBW-DC-AUG-1)","Pipe of Smoke Monsters (WBW-DC-CONMAR-7)","Pipe of Smoke Monsters: Collan's Flute (WBW-DC-HIP-1)","Pipe of Smoke Monsters (WBW-DC-Rook-3-1)","Pipe of Smoke Monsters: Tiger's Pipe (WBW-DC-ZODIAC-3)","Pipe of Smoke Monsters: Farmer's Pipe (WBW-DC-ZODIAC-12)","Pot of Awakening (BMG-MOON-MD-2)","Pot of Awakening (BMG-MOON-MD-5)","Pot of Awakening (BMG-MOON-MD-8)","Pot of Awakening (CCC-CONMAR1-2)","Pot of Awakening (DDIA-XGE)","Pot of Awakening: Olivia's Gift (FR-DC-UCON25-1)","Pot of Awakening: Myros' (RV-DC-HAZ-1)","Pot of Awakening: Paranoid (WBW-DC-ZEP-T1S1)","Pot of Awakening: Conscientious (WBW-DC-ZEP-T2S4)","Prosthetic Limb: Hand (BMG-MOON-MD-7)","Prosthetic Limb (DDAL10-6)","Prosthetic Limb (FR-DC-Saerloon-8)","Prosthetic Limb: Wooden (WBW-DC-ARCON-3)","Prosthetic Limb: Wooden (WBW-DC-MPOP-1)","Prosthetic Limb: Snakeroot Limb (WBW-DC-MV-1)","Rival Coin (FR-DC-MELB-2-1)","Rival Coin: Commemorative Silver Beak (SJ-DC-DWR-0-3)","Rope of Mending (FR-DC-DEATH-MASQUERADE)","Rope of Mending (FR-DC-FET-1)","Rope of Mending: Krach's (PS-DC-PKL-13)","Rope of Mending: Everlasting Vine (SJ-DC-DD-2)","Rope of Mending (SJ-DC-IGC-ECP-4)","Rope of Mending (SJ-DC-LIGA1)","Rope of Mending: Eschantrii Rope (SJ-DC-MONSTER-2)","Rope of Mending: Wolf's Leash (SJ-DC-PANDORA-JWEI-4)","Rope of Mending: Weave Experimentation Ropes (SJ-DC-PHP-ORNG)","Rope of Mending (SJ-DC-TBS-2)","Rope of Mending (SJ-DC-TEL-5)","Rope of Mending (SJ-DC-TTUC-1)","Rope of Mending (SJ-DC-UNITE-1)","Rope of Mending (WBW-DC-UCON-1)"],
+	choices : ["Charlatan's Die (CCC-AETHER2-3)","Charlatan's Die (CCC-DES-1-6)","Charlatan's Die: The Vampire's Die (CCC-GSP2-3)","Charlatan's Die (DC-POA-CONMAR-11)","Charlatan's Die (DC-POA-DCAF11)","Charlatan's Die: DaleVision Dice (DC-POA-TDG1-11)","Charlatan's Die (DC-POA-TLOH-1)","Charlatan's Die (DDEP10-1)","Charlatan's Die (WBW-DC-BIRE-3)","Ersatz Eye: Emerald Eye (CCC-VOTE-1-1)","Ersatz Eye (DDAL10-0)","Ersatz Eye (DDIA-XGE)","Ersatz Eye (FR-DC-LFGCON-1)","Lock of Trickery (FR-DC-Saerloon-6)","Lock of Trickery (FR-DC-SCROG-3)","Mystery Key (FR-DC-LIGA-7)","Mystery Key: Holy Symbol of Kuong (FR-DC-PNKE-1)","Mystery Key (FR-DC-Saerloon-4)","Mystery Key: Neverdeath Crypt (FR-DC-VECNA-2)","Mystery Key (PO-BK-5-3)","Mystery Key: The Silver Key (RV-DC-HAZ-1)","Pipe of Remembrance (FM)","Pipe of Remembrance (SJ-DC-ASI-2)","Pipe of Remembrance: Kuo-Toa Ceremonial Pipe (SJ-DC-COD)","Pipe of Remembrance: Guardian's (SJ-DC-FLUMPH-4)","Pipe of Remembrance: Memories of the Third Protocol (SJ-DC-GON-1)","Pipe of Remembrance (SJ-DC-IGC-ECP-3)","Pipe of Remembrance (SJ-DC-NOS-5)","Pipe of Remembrance (SJ-DC-TEL-2)","Pipe of Smoke Monsters (BMG-DRWEP-OD-2)","Pipe of Smoke Monsters (CCC-3MAGS-ONE)","Pipe of Smoke Monsters (CCC-GSP1-2)","Pipe of Smoke Monsters (CCC-SQC-3-1)","Pipe of Smoke Monsters: Eschantrii (PS-DC-MONSTER-5)","Pipe of Smoke Monsters (PS-DC-NOS-2)","Pipe of Smoke Monsters (PS-DC-STRAT-UNDEAD-4)","Pipe of Smoke Monsters: Izzthurask's Smoking Pipe (PS-DC-STRAT-UNDEAD-5)","Pipe of Smoke Monsters (PS-DC-UMY-1)","Pipe of Smoke Monsters (WBW-DC-AUG-1)","Pipe of Smoke Monsters (WBW-DC-CONMAR-7)","Pipe of Smoke Monsters: Collan's Flute (WBW-DC-HIP-1)","Pipe of Smoke Monsters (WBW-DC-Rook-3-1)","Pipe of Smoke Monsters: Tiger's Pipe (WBW-DC-ZODIAC-3)","Pipe of Smoke Monsters: Farmer's Pipe (WBW-DC-ZODIAC-12)","Pot of Awakening (BMG-MOON-MD-2)","Pot of Awakening (BMG-MOON-MD-5)","Pot of Awakening (BMG-MOON-MD-8)","Pot of Awakening (CCC-CONMAR1-2)","Pot of Awakening (DDIA-XGE)","Pot of Awakening: Olivia's Gift (FR-DC-UCON25-1)","Pot of Awakening: Myros' (RV-DC-HAZ-1)","Pot of Awakening: Paranoid (WBW-DC-ZEP-T1S1)","Pot of Awakening: Conscientious (WBW-DC-ZEP-T2S4)","Prosthetic Limb: Hand (BMG-MOON-MD-7)","Prosthetic Limb (DDAL10-6)","Prosthetic Limb (FR-DC-Saerloon-8)","Prosthetic Limb: Wooden (WBW-DC-ARCON-3)","Prosthetic Limb: Wooden (WBW-DC-MPOP-1)","Prosthetic Limb: Snakeroot Limb (WBW-DC-MV-1)","Rival Coin (FR-DC-MELB-2-1)","Rival Coin: Commemorative Silver Beak (SJ-DC-DWR-0-3)","Rope of Mending (FR-DC-DEATH-MASQUERADE)","Rope of Mending (FR-DC-FET-1)","Rope of Mending: Krach's (PS-DC-PKL-13)","Rope of Mending: Everlasting Vine (SJ-DC-DD-2)","Rope of Mending (SJ-DC-IGC-ECP-4)","Rope of Mending (SJ-DC-LIGA1)","Rope of Mending: Eschantrii Rope (SJ-DC-MONSTER-2)","Rope of Mending: Wolf's Leash (SJ-DC-PANDORA-JWEI-4)","Rope of Mending: Weave Experimentation Ropes (SJ-DC-PHP-ORNG)","Rope of Mending (SJ-DC-TBS-2)","Rope of Mending (SJ-DC-TEL-5)","Rope of Mending (SJ-DC-TTUC-1)","Rope of Mending (SJ-DC-UNITE-1)","Rope of Mending (WBW-DC-UCON-1)"],
 	"charlatan's die (ccc-aether2-3)" : {
 		name : "Charlatan's Die (CCC-AETHER2-3)",
 		source : [["AL","CCC"]],
@@ -10689,6 +10857,13 @@ MagicItemsList["al equipment (common)"] = {
 		source : [["AL","XGE"]],
 		description : "This magical eye replaces one that was lost or removed and can be inserted or removed as a Magic action. It works like a normal eye and when used, swirls with a pearlescent mist.",
 		descriptionFull : "When used, this orb swirls with a pearlescent mist within.\n   This magical eye replaces a real one that was lost or removed. While the Ersatz Eye is embedded in your eye socket, you can see through the tiny orb as though it were your natural eye. You can insert or remove the Ersatz Eye as a Magic action, and it can't be removed against your will while you are alive.",
+	},
+	"ersatz eye (fr-dc-lfgcon-1)" : {
+		name : "Ersatz Eye (FR-DC-LFGCON-1)",
+		source : [["AL","FR-DC"]],
+		description : "This magical eye replaces one that was lost or removed and can be inserted or removed as a Magic action. It works like a normal eye, but I can use a bonus action to make it shed 10-ft bright light & 10-ft more dim, or stop.",
+		descriptionFull : "This magical eye replaces a real one that was lost or removed. While the Ersatz Eye is embedded in your eye socket, you can see through the tiny orb as though it were your natural eye. You can insert or remove the Ersatz Eye as a Magic action, and it can't be removed against your will while you are alive.\n   " + toUni("Beacon") + ". You can take a Bonus Action to cause the item to shed Bright Light in a 10-foot radius and Dim Light for an additional 10 feet, or to extinguish the light.",
+		action : [["bonus action", "Ersatz Eye (light/dim)"]],
 	},
 	"lock of trickery (fr-dc-saerloon-6)" : {
 		name : "Lock of Trickery (FR-DC-Saerloon-6)",
@@ -16066,10 +16241,10 @@ MagicItemsList["al instruments"] = {
 		prerequisite : "Requires attunement by a bard",
 		prereqeval : function(v) { return classes.known.bard ? true : false; },
 		spellcastingBonus : {
-			name : "Once per long rest",
+			name : "Once per dawn",
 			spells : ["fly", "invisibility", "levitate", "protection from evil and good", "cure wounds", "dispel magic", "protection from energy"],
 			selection : ["fly", "invisibility", "levitate", "protection from evil and good", "cure wounds", "dispel magic", "protection from energy"],
-			firstCol : "oncelr",
+			firstCol: spellOnceDay,
 			times : 7,
 			spellcastingAbility : "class"
 		},
@@ -16660,16 +16835,16 @@ MagicItemsList["al instruments"] = {
 		attunement : true,
 		description : "After studying a true Ollamh harp, I scammed other adventurers into financing supplies, carving this fake harp and finding an appraiser. The fake is such a perfect replica that it functions as an Ollamh harp but I'm Deafened while attuned. If played unattuned, DC 15 Wis save or 2d4 Psychic dmg. Play to cast 1 of 7 spells (each once per dawn) using my spellcasting ability and save DC.",
 		descriptionLong : "I masterminded the creation of a counterfeit Ollamh harp. I studied a true Ollamh harp at the bardic college then scammed several adventurers into financing my scheme. Another carved the harp and used their Zhent contacts to find an appraiser who would sign off on the work. The harp is such a perfect replica that it works as a true Ollamh harp but is also cursed. While attuned, I'm permanently Deafened so I can't hear its music. If played without attuning, DC 15 Wis save or 2d4 Psychic. Play to cast 1 of its spells: Fly, Invisibility, Levitate, Protection from Evil and Good, Confusion, Control Weather, and Fire Storm. Each can be cast once per dawn using my spellcasting ability and save DC.",
-		descriptionFull : "This harp is a counterfeit artifact masterminded by the halfling bard, Trouble Trickfoot. He studied a true Ollamh harp at the bardic college before scamming several other adventurers into financing supplies and harvesting the wood. A third mark carved the harp and used their Zhent contacts to locate an appraiser who would sign off on the work. The harp is such a perfect replica that it functions as a true Ollamh harp. However, it curses the user to be Deafened while attuned so they can never hear the music that it plays. (This harp was created with the Counterfeit Artifact Creation downtime activity at Fai Chen's Emporium, Hexacon 2019)\n   An Instrument of the Bards is superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a bard college. The Instruments of the Bards table lists the spells common to all instruments, as well as the spells specific to each one and its rarity. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 Psychic damage.\n   You can play the instrument to cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Ollamh harp can be used to cast Confusion, Control Weather, and Fire Storm.",
+		descriptionFull : "This harp is a counterfeit artifact masterminded by the halfling bard, Trouble Trickfoot. He studied a true Ollamh harp at the bardic college before scamming several other adventurers into financing supplies and harvesting the wood. A third mark carved the harp and used their Zhent contacts to locate an appraiser who would sign off on the work. The harp is such a perfect replica that it functions as a true Ollamh harp. However, it curses the user to be Deafened while attuned so they can never hear the music that it plays. (This harp was created with the Counterfeit Artifact Creation downtime activity at Fai Chen's Emporium, Hexacon 2019 and is specific to that character.)\n   An Instrument of the Bards is superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a bard college. The Instruments of the Bards table lists the spells common to all instruments, as well as the spells specific to each one and its rarity. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 Psychic damage.\n   You can play the instrument to cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.\n   All instruments of the bards can be used to cast the following spells: Fly, Invisibility, Levitate, and Protection from Evil and Good.\n   In addition, the Ollamh harp can be used to cast Confusion, Control Weather, and Fire Storm.",
 		weight : 3, // Magic of Faerûn (2001) page 161
 		prerequisite : "Requires attunement by a bard",
 		prereqeval : function(v) { return classes.known.bard ? true : false; },
 		savetxt : { text : ["Deafened"] },
 		spellcastingBonus : [{
-			name : "Once per long rest",
+			name : "Once per dawn",
 			spells : ["fly", "invisibility", "levitate", "protection from evil and good", "confusion", "control weather", "fire storm"],
 			selection : ["fly", "invisibility", "levitate", "protection from evil and good", "confusion", "control weather", "fire storm"],
-			firstCol : "oncelr",
+			firstCol: spellOnceDay,
 			times : 7,
 			spellcastingAbility : "class"
 		}],
@@ -16771,10 +16946,10 @@ MagicItemsList["al instruments"] = {
 		additional : "Irresistible Dance",
 		spellcastingAbility : "class", // https://www.sageadvice.eu/2015/11/27/hat-of-disguise-dc/
 		spellcastingBonus : {
-			name : "Otto's Irresistible Dance",
+			name : "Once per dawn",
 			spells : ["otto's irresistible dance"],
 			selection : ["otto's irresistible dance"],
-			firstCol : "oncelr"
+			firstCol: spellOnceDay
 		},
 		calcChanges : {
 			spellCalc : [
@@ -17654,7 +17829,7 @@ MagicItemsList["al jewelry"] = {
 		spellFirstColTitle : "Us",
 		spellcastingBonus : {
 			name : "Bead Spell",
-			firstCol : "oncelr",
+			firstCol: spellOnceDay,
 			spells : ["bless", "cure wounds", "greater restoration"],
 			selection : ["bless", "cure wounds", "cure wounds","greater restoration"],
 			times : 4  
@@ -18702,7 +18877,7 @@ MagicItemsList["al light sources"] = {
 			name : "On globe",
 			spells : ["daylight"],
 			selection : ["daylight"],
-			firstCol : "oncelr"
+			firstCol: spellOnceDay
 		}],
 		spellChanges : {
 			"light" : {
@@ -19070,7 +19245,7 @@ MagicItemsList["al minerals"] = {
 		allowDuplicates : true,
 		choicesNotInMenu : true,
 		magicItemTable : "?",
-	choices : ["Crystal Ball (CCC-MIND1-1)","Crystal Ball of Telepathy: Ultra Deluxe Movie Stone (PS-DC-RAVENGARD)","Crystal Ball of Telepathy (PS-DC-STRAT-TALES-6)","Crystal Ball of True Seeing (FR-DC-STRAT-DUNGEON-6)","Crystal Ball of True Seeing (PS-DC-STRAT-WYRM-10)","Crystalline Chronicle: Librarian's (WBW-DC-JSH-LIB-4)","Elemental Gem - Blue (SJ-DC-DD-9)","Elemental Gem - Green: Emergency (FR-DC-RPSG-10)","Elemental Gem - Green (JRC)","Elemental Gem - Red (CCC-BMG-MOON7-2)","Elemental Gem - Red: The Heart of Baga (CCC-GSP2-1)","Elemental Gem - Red: On Defiance and Strength (WBW-DC-JSH-LIB-4)","Gem of Seeing (CCC-BMG-MOON19-3)","Gem of Seeing (CCC-SHINY-4)","Gem of Seeing (DDAL8-12)","Gem of Seeing (DDAL9-5)","Gem of Seeing: Crystallized Fire (RMH-6)","Gem of Seeing: Cauldron Shard (PS-DC-SB-BISH1)","Gem of Seeing (SJ-DC-ASI-2)","Gem of Seeing (SJ-DC-TEL-3)","Orb of Direction: Corsair's Star (CCC-COTN-1-1)","Orb of Direction: Navigator's Orb (CCC-GAD2-2)","Orb of Direction (CCC-HAL-4)","Orb of Direction (CCC-JGD-2)","Orb of Direction (FR-DC-DIGM-1-1)","Orb of Direction: Morfan's Inheritance (FR-DC-IMP-1)","Orb of Direction (FR-DC-LIGA-6)","Orb of Direction (FR-DC-LIGA-10)","Orb of Direction (FR-DC-MCG-CH1)","Orb of Direction (FR-DC-ONI-2)","Orb of Direction: Gar's Eye (FR-DC-Saerloon-0)","Orb of Direction (FR-DC-STRAT-TALES-4)","Orb of Direction: George's Worry Stone (WBW-DC-GGS-1)","Orb of Time (CCC-DES-2-2)","Orb of Time (DC-POA-OGG-2)","Orb of Time (DC-POA-SSM-1)","Orb of Time (FR-DC-ELEMENT-DEATH)","Orb of Time (FR-DC-YLRA1-5)","Pearl of Power (CCC-BMG-MOON13-2)","Pearl of Power (CCC-BMG-MOON14-2)","Pearl of Power (CCC-DDSC-1)","Pearl of Power: Aier (CCC-EPI1-1)","Pearl of Power (CCC-JGD-3)","Pearl of Power (CCC-THENT1-1)","Pearl of Power (DDAL7-5)","Pearl of Power (DDAL-DRW13)","Pearl of Power (FR-DC-HEARTHOME-4)","Pearl of Power (RV-DC-DBH-1)","Pearl of Power (SJ-DC-ANGKA-3)","Pearl of Power (SJ-DC-ARQ-1)","Pearl of Power (SJ-DC-CJK1-1)","Pearl of Power: Impearlial Standard (SJ-DC-NCH-1)","Pearl of Power: Pure Celestinite (SJ-DC-PHP-FLN2-1)","Pearl of Power (SJ-DC-SYL-1)","Pearl of Power (SJ-DC-VEN-1)","Pearl of Power: Goblin (WBW-DC-ARCON-1)","Pearl of Power: Scarlet-Tinted Dawn (WBW-DC-PHP-HOE-1)","Pearl of Power (WBW-DC-Rook-1-2)","Pearl of Power (WBW-DC-SQT-1)","Pearl of Power (WBW-DC-TBLCMB-3)","Psi Crystal (DC-POA-GSP1-2)","Psi Crystal (DC-POA-HARM-1-3)","Psi Crystal (DC-POA-X-T1S3)","Ruby of the War Mage: Selfaril's Soul Gem (CCC-GAD1-1)","Ruby of the War Mage (DDAL10-9)","Ruby of the War Mage: Emerald (DDHC-MORD-1)","Ruby of the War Mage: Bone Gem (FR-DC-CLASSIC-2)","Ruby of the War Mage: Elemental (FR-DC-UCON25-2)","Ruby of the War Mage (PO-BMG-DRW-KS-3)","Ruby of the War Mage (PS-DC-MIKE-1)","Ruby of the War Mage: Rary's (PS-DC-MORD-1)","Ruby of the War Mage: Tasha's (PS-DC-MORD-1)","Ruby of the War Mage: Vecna's (PS-DC-MORD-1)","Ruby of the War Mage (PS-DC-PKL-9)","Ruby of the War Mage: Cinderella's Wedding Ring (WBW-DC-CONMAR-15)"],
+	choices : ["Crystal Ball (CCC-MIND1-1)","Crystal Ball of Telepathy: Ultra Deluxe Movie Stone (PS-DC-RAVENGARD)","Crystal Ball of Telepathy (PS-DC-STRAT-TALES-6)","Crystal Ball of True Seeing (FR-DC-STRAT-DUNGEON-6)","Crystal Ball of True Seeing (PS-DC-STRAT-WYRM-10)","Crystalline Chronicle: Librarian's (WBW-DC-JSH-LIB-4)","Elemental Gem - Blue (SJ-DC-DD-9)","Elemental Gem - Green: Emergency (FR-DC-RPSG-10)","Elemental Gem - Green (JRC)","Elemental Gem - Red (CCC-BMG-MOON7-2)","Elemental Gem - Red: The Heart of Baga (CCC-GSP2-1)","Elemental Gem - Red: On Defiance and Strength (WBW-DC-JSH-LIB-4)","Gem of Seeing (CCC-BMG-MOON19-3)","Gem of Seeing (CCC-SHINY-4)","Gem of Seeing (DDAL8-12)","Gem of Seeing (DDAL9-5)","Gem of Seeing: Crystallized Fire (RMH-6)","Gem of Seeing: Cauldron Shard (PS-DC-SB-BISH1)","Gem of Seeing (SJ-DC-ASI-2)","Gem of Seeing (SJ-DC-TEL-3)","Orb of Direction: Corsair's Star (CCC-COTN-1-1)","Orb of Direction: Navigator's Orb (CCC-GAD2-2)","Orb of Direction (CCC-HAL-4)","Orb of Direction (CCC-JGD-2)","Orb of Direction (FR-DC-DIGM-1-1)","Orb of Direction: Morfan's Inheritance (FR-DC-IMP-1)","Orb of Direction (FR-DC-LIGA-6)","Orb of Direction (FR-DC-LIGA-10)","Orb of Direction (FR-DC-MCG-CH1)","Orb of Direction (FR-DC-ONI-2)","Orb of Direction: Gar's Eye (FR-DC-Saerloon-0)","Orb of Direction (FR-DC-STRAT-TALES-4)","Orb of Direction: George's Worry Stone (WBW-DC-GGS-1)","Orb of Time (CCC-DES-2-2)","Orb of Time (DC-POA-OGG-2)","Orb of Time (DC-POA-SSM-1)","Orb of Time (FR-DC-ELEMENT-DEATH)","Orb of Time: Memory Sphere (FR-DC-GLACIER-3)","Orb of Time (FR-DC-YLRA1-5)","Pearl of Power (CCC-BMG-MOON13-2)","Pearl of Power (CCC-BMG-MOON14-2)","Pearl of Power (CCC-DDSC-1)","Pearl of Power: Aier (CCC-EPI1-1)","Pearl of Power (CCC-JGD-3)","Pearl of Power (CCC-THENT1-1)","Pearl of Power (DDAL7-5)","Pearl of Power (DDAL-DRW13)","Pearl of Power (FR-DC-F&ADDM-CRC3)","Pearl of Power (FR-DC-HEARTHOME-4)","Pearl of Power (RV-DC-DBH-1)","Pearl of Power (SJ-DC-ANGKA-3)","Pearl of Power (SJ-DC-ARQ-1)","Pearl of Power (SJ-DC-CJK1-1)","Pearl of Power: Impearlial Standard (SJ-DC-NCH-1)","Pearl of Power: Pure Celestinite (SJ-DC-PHP-FLN2-1)","Pearl of Power (SJ-DC-SYL-1)","Pearl of Power (SJ-DC-VEN-1)","Pearl of Power: Goblin (WBW-DC-ARCON-1)","Pearl of Power: Scarlet-Tinted Dawn (WBW-DC-PHP-HOE-1)","Pearl of Power (WBW-DC-Rook-1-2)","Pearl of Power (WBW-DC-SQT-1)","Pearl of Power (WBW-DC-TBLCMB-3)","Psi Crystal (DC-POA-GSP1-2)","Psi Crystal (DC-POA-HARM-1-3)","Psi Crystal (DC-POA-X-T1S3)","Ruby of the War Mage: Selfaril's Soul Gem (CCC-GAD1-1)","Ruby of the War Mage (DDAL10-9)","Ruby of the War Mage: Emerald (DDHC-MORD-1)","Ruby of the War Mage: Bone Gem (FR-DC-CLASSIC-2)","Ruby of the War Mage: Elemental (FR-DC-UCON25-2)","Ruby of the War Mage (PO-BMG-DRW-KS-3)","Ruby of the War Mage (PS-DC-MIKE-1)","Ruby of the War Mage: Rary's (PS-DC-MORD-1)","Ruby of the War Mage: Tasha's (PS-DC-MORD-1)","Ruby of the War Mage: Vecna's (PS-DC-MORD-1)","Ruby of the War Mage (PS-DC-PKL-9)","Ruby of the War Mage: Cinderella's Wedding Ring (WBW-DC-CONMAR-15)"],
 	"crystal ball (ccc-mind1-1)" : {
 		name : "Crystal Ball (CCC-MIND1-1)",
 		source : [["AL","CCC"]],
@@ -19083,7 +19258,7 @@ MagicItemsList["al minerals"] = {
 		allowDuplicates : true,
 		fixedDC : 17,
 		spellcastingBonus : {
-			name : "DC 17",
+			name : "Crystal Ball",
 			spells : ["scrying"],
 			selection : ["scrying"],
 			firstCol : "atwill"
@@ -19486,6 +19661,15 @@ MagicItemsList["al minerals"] = {
 		action : [["action", "Orb of Time"]],
 		addMod : genericGuardian.addMod,
 		},
+	"orb of time: memory sphere (fr-dc-glacier-3)" : {
+		name : "Memory Sphere (Orb of Time, GLACIER 3)",
+		source : [["AL","FR-DC"]],
+		rarity : "common",
+		description : "An imperfect orb of phaerimm stone from the Memory Spire, it glows warmly each time you dwell on a cherished memory and acts as an Arcane Focus. While held on the Material Plane, I can use a Magic action to learn whether it's morning, afternoon, evening, or night. With a bonus action, it sheds 10-ft bright light & 10-ft more dim, or stops.",
+		descriptionFull : "An imperfect orb of phaerimm stone from the Memory Spire, it glows warmly each time you dwell on a cherished memory.\n   " + toUni("Beacon") + ". You can take a Bonus Action to cause the item to shed Bright Light in a 10-foot radius and Dim Light for an additional 10 feet, or to extinguish the light.\n   While holding the orb, you can take a Magic action to determine whether it is morning, afternoon, evening, or nighttime. This property functions only on the Material Plane.",
+		weight : 3,
+		action : [["action", "Orb of Time"], ["bonus action", "Orb of Time (light/dim)"]],
+		},
 	"orb of time (fr-dc-ylra1-5)" : {
 		name : "Orb of Time (FR-DC-YLRA1-5)",
 		source : [["AL","FR-DC"]],
@@ -19599,6 +19783,20 @@ MagicItemsList["al minerals"] = {
 		rarity : "uncommon",
 		description : "This large freshwater pearl is set into a golden button. Once per dawn while on my person, I can use a Magic action to regain 1 expended spell slot up to 3rd level.",
 		descriptionFull : "This large freshwater pearl is set into a golden button.\n   While this pearl is on your person, you can take a Magic action to regain one expended spell slot of level 3 or lower. Once you use the pearl, it can't be used again until the next dawn.",
+		attunement : true,
+		prerequisite: "Requires attunement by a spellcaster",
+		prereqeval: function (v) { return v.isSpellcaster; },
+		limfeaname : "Pearl of Power",
+		usages : 1,
+		recovery : "dawn",
+		action : [["action", " (regain slot)"]],
+	},
+	"pearl of power (fr-dc-f&addm-crc3)" : { 
+		name : "Pearl of Power (FR-DC-F&ADDM-CRC3)",
+		source : [["AL","FR-DC"]],
+		rarity : "uncommon",
+		description : "Once per dawn while this pearl my person, I can use a Magic action to regain 1 expended spell slot up to 3rd level. I can attune to the pearl in only 1 minute.",
+		descriptionFull : "While this pearl is on your person, you can take a Magic action to regain one expended spell slot of level 3 or lower. Once you use the pearl, it can't be used again until the next dawn.\n   " + toUni("Harmonious") + ". Attuning to this item takes only 1 minute.",
 		attunement : true,
 		prerequisite: "Requires attunement by a spellcaster",
 		prereqeval: function (v) { return v.isSpellcaster; },
@@ -20004,7 +20202,7 @@ MagicItemsList["al rings (a-q)"] = {
 		allowDuplicates : true,
 		choicesNotInMenu : true,
 		magicItemTable : "?",
-	choices : ["Ring of Animal Influence (DDAL4-13)","Ring of Elemental Command - Air (FR-DC-WE-5)","Ring of Elemental Command - Earth (DDAL-DRWEP2)","Ring of Evasion (CCC-RCC-1-5)","Ring of Evasion (DDAL-DRW16)","Ring of Evasion (DDEP7-2)","Ring of Evasion (DDEX1-3)","Ring of Feather Falling: Sprite's Rescue (AL:SR-11A)","Ring of Feather Falling: False Engagement Ring (SJ-DC-DSL-2)","Ring of Free Action (CCC-BMG-MOON13-1)","Ring of Free Action (CCC-BMG-MOON20)","Ring of Free Action (DDAL9-10)","Ring of Free Action (FR-DC-HAN-1-1)","Ring of Free Action: Authentication (FR-DC-SV-A1)","Ring of Free Action: Baelish (FR-DC-VIN-1)","Ring of Free Action (WBW-DC-AEG-1)","Ring of Free Action (WBW-DC-AMQ-4)","Ring of Free Action (WBW-DC-ANDL-2)","Ring of Free Action (WBW-DC-ARCON-2)","Ring of Free Action (WBW-DC-BERRY-0)","Ring of Free Action (WBW-DC-BIRE-6)","Ring of Free Action (WBW-DC-CONMAR-4)","Ring of Free Action: Artimus's (WBW-DC-DES-1-8)","Ring of Free Action: Exemption (WBW-DC-MOM-2)","Ring of Free Action (WBW-DC-ROBIN-1-2)","Ring of Free Action: Qilin's Ring (WBW-DC-ZODIAC-7)","Ring of Invisibility (DDEP8-3)","Ring of Invisibility (PS-DC-STRAT-TALES-6)","Ring of Jumping (CCC-DDSC-2)","Ring of Jumping (DC-POA-CODEX-2)","Ring of Jumping (DC-POA-CONMAR-8)","Ring of Jumping (DC-POA-LEGIT-SV-2)","Ring of Jumping (DC-POA-OGG-1)","Ring of Jumping: Cat's Ring (DC-POA-TDG1-4)","Ring of Jumping (DDAL5-10)","Ring of Jumping (DDEP7-2)","Ring of Mind Shielding (CCC-BMG-MOON5-3)","Ring of Mind Shielding (CCC-GARY-15)","Ring of Mind Shielding: The Mind Fortress (CCC-GHC-BK2-6)","Ring of Mind Shielding (CCC-MTL-2)","Ring of Mind Shielding (CCC-TRI-33 DAGGR1-2)","Ring of Mind Shielding (DDAL8-4)","Ring of Mind Shielding (DDEX2-6)","Ring of Mind Shielding (FR-DC-AEG-4)","Ring of Mind Shielding (FR-DC-MELB-0-1)","Ring of Mind Shielding (FR-DC-RFJK-1)","Ring of Mind Shielding (FR-DC-TGT-1)","Ring of the Orator: Goose King (FR-DC-WATERDEEP-GSZ+)","Ring of Protection: Netherese (BMG-MOON-POB-8)","Ring of Protection (DDEX3-15)","Ring of Protection: Slap Bracelet (PS-DC-DRAGON24-1)","Ring of Protection (PS-DC-PKL-8)","Ring of Protection (PS-DC-PUB-5)","Ring of Protection (RV-DC-GC15-2)","Ring of Puzzler's Wit (PO-BMG-INT-1)"],
+	choices : ["Ring of Animal Influence (DDAL4-13)","Ring of Elemental Command - Air (FR-DC-WE-5)","Ring of Elemental Command - Air (FR-DC-ELEMENT-IGC-DEATH-5)","Ring of Elemental Command - Earth (DDAL-DRWEP2)","Ring of Elemental Command - Water (FR-DC-ELEMENT-IGC-DEATH-5)","Ring of Evasion (CCC-RCC-1-5)","Ring of Evasion (DDAL-DRW16)","Ring of Evasion (DDEP7-2)","Ring of Evasion (DDEX1-3)","Ring of Feather Falling: Sprite's Rescue (AL:SR-11A)","Ring of Feather Falling: False Engagement Ring (SJ-DC-DSL-2)","Ring of Free Action (CCC-BMG-MOON13-1)","Ring of Free Action (CCC-BMG-MOON20)","Ring of Free Action (DDAL9-10)","Ring of Free Action (FR-DC-HAN-1-1)","Ring of Free Action: Authentication (FR-DC-SV-A1)","Ring of Free Action: Baelish (FR-DC-VIN-1)","Ring of Free Action (WBW-DC-AEG-1)","Ring of Free Action (WBW-DC-AMQ-4)","Ring of Free Action (WBW-DC-ANDL-2)","Ring of Free Action (WBW-DC-ARCON-2)","Ring of Free Action (WBW-DC-BERRY-0)","Ring of Free Action (WBW-DC-BIRE-6)","Ring of Free Action (WBW-DC-CONMAR-4)","Ring of Free Action: Artimus's (WBW-DC-DES-1-8)","Ring of Free Action: Exemption (WBW-DC-MOM-2)","Ring of Free Action (WBW-DC-ROBIN-1-2)","Ring of Free Action: Qilin's Ring (WBW-DC-ZODIAC-7)","Ring of Invisibility (DDEP8-3)","Ring of Invisibility (PS-DC-STRAT-TALES-6)","Ring of Jumping (CCC-DDSC-2)","Ring of Jumping (DC-POA-CODEX-2)","Ring of Jumping (DC-POA-CONMAR-8)","Ring of Jumping (DC-POA-LEGIT-SV-2)","Ring of Jumping (DC-POA-OGG-1)","Ring of Jumping: Cat's Ring (DC-POA-TDG1-4)","Ring of Jumping (DDAL5-10)","Ring of Jumping (DDEP7-2)","Ring of Mind Shielding (CCC-BMG-MOON5-3)","Ring of Mind Shielding (CCC-GARY-15)","Ring of Mind Shielding: The Mind Fortress (CCC-GHC-BK2-6)","Ring of Mind Shielding (CCC-MTL-2)","Ring of Mind Shielding (CCC-TRI-33 DAGGR1-2)","Ring of Mind Shielding (DDAL8-4)","Ring of Mind Shielding (DDEX2-6)","Ring of Mind Shielding (FR-DC-AEG-4)","Ring of Mind Shielding (FR-DC-MELB-0-1)","Ring of Mind Shielding (FR-DC-RFJK-1)","Ring of Mind Shielding (FR-DC-TGT-1)","Ring of the Orator: Goose King (FR-DC-WATERDEEP-GSZ+)","Ring of Protection: Netherese (BMG-MOON-POB-8)","Ring of Protection (DDEX3-15)","Ring of Protection: Slap Bracelet (PS-DC-DRAGON24-1)","Ring of Protection (PS-DC-PKL-8)","Ring of Protection (PS-DC-PUB-5)","Ring of Protection (RV-DC-GC15-2)","Ring of Puzzler's Wit (PO-BMG-INT-1)"],
 	"ring of animal influence (ddal4-13)" : {
 		name : "Ring of Animal Influence (DDAL4-13)",
 		source : [["AL","S4"]],
@@ -20037,7 +20235,7 @@ MagicItemsList["al rings (a-q)"] = {
 			rarity : "legendary",
 			attunement : true,
 			description : "While wearing this ring, I know Auran, resist Lightning dmg, have a Fly Speed equal to my Speed and can hover. I also have adv. to atk Elementals and they have disadv. vs me. Magic action to compel an Elemental in 60 ft: DC 18 Wis save or Charmed to my next turn and I decide its next turn. The ring has 5 charges for spells, 1d4+1 regained at dawn. The ring glows when hags are within 120 ft.",
-			descriptionFull : "Each Ring of Elemental Command is linked to one of the four Elemental Planes. The DM chooses or randomly determines the linked plane. Every Ring of Elemental Command has the following two properties:\n   " + toUni("Elemental Bane") + ". While wearing the ring, you have Advantage on attack rolls against Elementals and they have Disadvantage on attack rolls against you.\n   " + toUni("Elemental Compulsion") + ". While wearing the ring, you can take a Magic action to try to compel an Elemental you see within 60 feet of yourself. The Elemental makes a DC 18 Wisdom saving throw. On a failed save, the Elemental has the Charmed condition until the start your next turn, and you determine what it does with its move and action on its next turn.\n   " + toUni("Spellcasting") + ". The ring has 5 charges and regains 1d4 + 1 expended charges daily at dawn. While wearing the ring, you can cast a spell from it. Choose the spell from the list of available spells based on the Elemental Plane the ring is linked to, as shown in the following table. The table indicates how many charges you must expend to cast the spell, which has a save DC of 18. You can cast Feather Fall, Wind Wall (1 Charge), Gust of Wind (2 Charges), and Chain Lighting (3 Charges).\n   " + toUni("Elemental Focus") + ".  While wearing the ring, you benefit from additional properties corresponding to the ring's linked Elemental Plane:\n  While wearing the ring, you know Auran, are resistant to Lightning Damage, and you have a Fly Speed equal to your Speed and can hover.",
+			descriptionFull : "Each Ring of Elemental Command is linked to one of the four Elemental Planes. The DM chooses or randomly determines the linked plane. Every Ring of Elemental Command has the following two properties:\n   " + toUni("Elemental Bane") + ". While wearing the ring, you have Advantage on attack rolls against Elementals and they have Disadvantage on attack rolls against you.\n   " + toUni("Elemental Compulsion") + ". While wearing the ring, you can take a Magic action to try to compel an Elemental you see within 60 feet of yourself. The Elemental makes a DC 18 Wisdom saving throw. On a failed save, the Elemental has the Charmed condition until the start your next turn, and you determine what it does with its move and action on its next turn.\n   " + toUni("Spellcasting") + ". The ring has 5 charges and regains 1d4 + 1 expended charges daily at dawn. While wearing the ring, you can cast a spell from it. Choose the spell from the list of available spells based on the Elemental Plane the ring is linked to, as shown in the following table. The table indicates how many charges you must expend to cast the spell, which has a save DC of 18. You can cast Feather Fall, Wind Wall (1 Charge), Gust of Wind (2 Charges), and Chain Lighting (3 Charges).\n   " + toUni("Elemental Focus") + ".  While wearing the ring, you benefit from additional properties corresponding to the ring's linked Elemental Plane:\n  While wearing the ring, you know Auran, are resistant to Lightning Damage, and you have a Fly Speed equal to your Speed and can hover.\n   " + toUni("Sentinel") + ". This item glows faintly when Hags are within 120 feet of it.",
 			languageProfs : ["Auran"],
 			dmgres : ["lightning"],
 			speed: { fly: { spd: "walk", enc: "walk" }},
@@ -20048,27 +20246,26 @@ MagicItemsList["al rings (a-q)"] = {
 			recovery: "dawn",
 			additional: "regains 1d4+1",
 			spellFirstColTitle : "Ch",
-		spellcastingBonus: [{
-			name: "0 charges",
-			spells: ["feather fall"],
-			selection: ["feather fall"],
-			firstCol: 0,
-		}, {
-			name: "1 charge",
-			spells: ["wind wall"],
-			selection: ["wind wall"],
-			firstCol: 1,
-		}, {
-			name: "2 charges",
-			spells: ["gust of wind"],
-			selection: ["gust of wind"],
-			firstCol: 2,
-		}, {
-			name: "3 charges",
-			spells: ["chain lightning"],
-			selection: ["chain lightning"],
-			firstCol: 3,
-		}],
+			spellcastingBonus : airElementalRingSpells.spellcastingBonus,
+		},
+		"ring of elemental command - air (fr-dc-element-igc-death-5)" : {
+			name : "Ring of Air Elem. Command (IGC-DEATH-5)",
+			source : [["AL","FR-DC"]],
+			rarity : "legendary",
+			attunement : true,
+			description : "While wearing this ring, I know Auran, resist Lightning dmg, have a Fly Speed equal to my Speed and can hover. I also have adv. to atk Elementals and they have disadv. vs me. Magic action to compel an Elemental in 60 ft: DC 18 Wis save or Charmed to my next turn and I decide its next turn. The ring has 5 charges for spells, 1d4+1 regained at dawn. I can attune to this ring in 1 min.",
+			descriptionFull : "Each Ring of Elemental Command is linked to one of the four Elemental Planes. The DM chooses or randomly determines the linked plane. Every Ring of Elemental Command has the following two properties:\n   " + toUni("Elemental Bane") + ". While wearing the ring, you have Advantage on attack rolls against Elementals and they have Disadvantage on attack rolls against you.\n   " + toUni("Elemental Compulsion") + ". While wearing the ring, you can take a Magic action to try to compel an Elemental you see within 60 feet of yourself. The Elemental makes a DC 18 Wisdom saving throw. On a failed save, the Elemental has the Charmed condition until the start your next turn, and you determine what it does with its move and action on its next turn.\n   " + toUni("Spellcasting") + ". The ring has 5 charges and regains 1d4 + 1 expended charges daily at dawn. While wearing the ring, you can cast a spell from it. Choose the spell from the list of available spells based on the Elemental Plane the ring is linked to, as shown in the following table. The table indicates how many charges you must expend to cast the spell, which has a save DC of 18. You can cast Feather Fall, Wind Wall (1 Charge), Gust of Wind (2 Charges), and Chain Lighting (3 Charges).\n   " + toUni("Elemental Focus") + ".  While wearing the ring, you benefit from additional properties corresponding to the ring's linked Elemental Plane:\n  While wearing the ring, you know Auran, are resistant to Lightning Damage, and you have a Fly Speed equal to your Speed and can hover.\n   " + toUni("Harmonious") + ". Attuning to this item takes only 1 minute.",
+			languageProfs : ["Auran"],
+			dmgres : ["lightning"],
+			speed: { fly: { spd: "walk", enc: "walk" }},
+			fixedDC : 18,
+			action : [["action", "Ring (Compel Elemental)"]],
+			limfeaname : "Ring of Elemental Command",
+			usages: 5,
+			recovery: "dawn",
+			additional: "regains 1d4+1",
+			spellFirstColTitle : "Ch",
+			spellcastingBonus : airElementalRingSpells.spellcastingBonus,
 		},
 		"ring of elemental command - earth (ddal-drwep2)" : {
 			name : "Ring of Earth Elem. Command (DDAL-DRWEP2)",
@@ -20103,6 +20300,46 @@ MagicItemsList["al rings (a-q)"] = {
 			selection: ["earthquake"],
 			firstCol: 5,
 			}],
+		},
+		"ring of elemental command - water (fr-dc-element-igc-death-5)" : {
+			name : "Ring of Water Elem. Command (IGC-DEATH-5)",
+			source : [["AL","FR-DC"]],
+			rarity : "legendary",
+			attunement : true,
+			description : "While wearing this ring, I know Aquan, have a swim speed of 60 ft and can breathe underwater. I also have adv. to atk Elementals and they have disadv. vs me. Magic action to compel an Elemental in 60 ft: DC 18 Wis save or Charmed to my next turn and I decide its next turn. The ring has 5 charges for spells, 1d4+1 regained at dawn. I can attune to this ring in 1 min.",
+			descriptionFull : "Each Ring of Elemental Command is linked to one of the four Elemental Planes. The DM chooses or randomly determines the linked plane. Every Ring of Elemental Command has the following two properties:\n   " + toUni("Elemental Bane") + ". While wearing the ring, you have Advantage on attack rolls against Elementals and they have Disadvantage on attack rolls against you.\n   " + toUni("Elemental Compulsion") + ". While wearing the ring, you can take a Magic action to try to compel an Elemental you see within 60 feet of yourself. The Elemental makes a DC 18 Wisdom saving throw. On a failed save, the Elemental has the Charmed condition until the start your next turn, and you determine what it does with its move and action on its next turn.\n   " + toUni("Spellcasting") + ". The ring has 5 charges and regains 1d4 + 1 expended charges daily at dawn. While wearing the ring, you can cast a spell from it. Choose the spell from the list of available spells based on the Elemental Plane the ring is linked to, as shown in the following table. The table indicates how many charges you must expend to cast the spell, which has a save DC of 18. You can cast Create or Destroy Water (1 Charge), Ice Storm & Water Walk (2 Charges), Wall of Ice (3 Charges), and Tsunami (5 Charges).\n   " + toUni("Elemental Focus") + ".  While wearing the ring, you benefit from additional properties corresponding to the ring's linked Elemental Plane:\n  While wearing the ring, you gain a Swim Speed of 60 feet and can breathe underwater. You also know Aquan.\n   " + toUni("Harmonious") + ". Attuning to this item takes only 1 minute.",
+			languageProfs: ["Aquan"],
+			savetxt: { text: 'I can breathe underwater'},
+			speed: { swim: 60 },
+			fixedDC : 18,
+			action : [["action", "Ring (Compel Elemental)"]],
+			limfeaname : "Ring of Elemental Command",
+			usages: 5,
+			recovery: "dawn",
+			additional: "regains 1d4+1",
+			spellFirstColTitle : "Ch",
+        spellcastingBonus: [{
+            name: "1 charge",
+            spells: ["create or destroy water"],
+            selection: ["create or destroy water"],
+            firstCol: 1,
+        }, {
+            name: "2 charges",
+            spells: ["ice storm", "water walk"],
+            selection: ["ice storm", "water walk"],
+            times: 2,
+            firstCol: 2,
+        }, {
+            name: "3 charges",
+            spells: ["wall of ice"],
+            selection: ["wall of ice"],
+            firstCol: 3,
+        }, {
+            name: "5 charges",
+            spells: ["tsunami"],
+            selection: ["tsunami"],
+            firstCol: 5,
+        }],
 		},
 	"ring of evasion (ccc-rcc-1-5)" : {
 		name : "Ring of Evasion (CCC-RCC-1-5)",
@@ -20635,7 +20872,7 @@ MagicItemsList["al rings (r-z)"] = {
 		allowDuplicates : true,
 		choicesNotInMenu : true,
 		magicItemTable : "?",
-	choices : ["Ring of the Ram (CCC-GHC-7)","Ring of the Ram (CCC-TRI-8 NIGHT1-4)","Ring of Regeneration (CCC-MIND1-2)","Ring of Regeneration (DDAL-DRW15)","Ring of Regeneration (FR-DC-STRAT-TALES-4)","Ring of Regeneration: Lich's Cracked Phylactery (PS-DC-ELEMENT-DEATH-4)","Ring of Regeneration (SJ-DC-NOS-2)","Ring of Regeneration: Rinoa's Wedding Ring (SJ-DC-ROTU-6)","Ring of Regeneration (SJ-DC-TTUC-6)","Ring of Resistance: Cold (PS-DC-Saerloon-11)","Ring of Resistance: Fire (CCC-GHC-BK1-4)","Ring of Resistance: Fire (DDAL8-8)","Ring of Resistance: Fire (DDEX1-5)","Ring of Resistance: Fire (FR-DC-ONI-3)","Ring of Resistance: Force (FR-DC-MCG-CH1)","Ring of Resistance: Force - Hey You (FR-DC-THAY-6)","Ring of Resistance: Necrotic (FR-DC-F&ADDM-GW2)","Ring of Resistance: Necrotic (FR-DC-MCG-CH3)","Ring of Resistance: Poison (PS-DC-RF-1)","Ring of Resistance: Psychic (FR-DC-MCG-CH3)","Ring of Resistance: Radiant (FR-DC-F&ADDM-GW4)","Ring of Shooting Stars: Fairy Mushroom Ring (AL:SR-11A)","Ring of Shooting Stars (DDAL8-15)","Ring of Shooting Stars (DDEP5-2)","Ring of Shooting Stars (FR-DC-WE-1A)","Ring of Shooting Stars (PO-BK1-6)","Ring of Shooting Stars (SJ-DC-DD-12)","Ring of Shooting Stars (SJ-DC-TEL-10)","Ring of Spell Storing: Dark Mother's Ring (CCC-HAL-2)","Ring of Spell Storing (CCC-WYC-2-3)","Ring of Spell Storing (CCC-ZIEGE-3)","Ring of Spell Storing (DDAL4-8)", "Ring of Spell Storing (DDEP5-2)","Ring of Spell Storing (FR-DC-ONI-3)","Ring of Spell Storing (FR-DC-STRAT-WYRM-4)","Ring of Spell Storing (FR-DC-TDD-1)","Ring of Spell Storing (FR-DC-WE-1)","Ring of Spell Turning (PS-DC-AUG-2)","Ring of Spell Turning: Pandora's Gift (PS-DC-PANDORA-JWEI-S2-2)","Ring of Spell Turning (PS-DC-PKL-17B)","Ring of Spell Turning (PS-DC-POP-1)","Ring of Spell Turning (PS-DC-TYM-PHP-DIV-1)","Ring of Swimming (CCC-ALMOG-27 DAGON1-2)","Ring of Swimming (DDAL5-6)","Ring of Swimming (PO-BK-3-1)","Ring of Telekinesis (DDEP0-1)","Ring of Truth Telling (BMG-MOON-MD-10)","Ring of Truth Telling (DC-POA-CONMAR-15)","Ring of Warmth (CCC-CIC-16)","Ring of Warmth (CCC-ELF-1)","Ring of Warmth (CCC-WWC-5)","Ring of Warmth (FR-DC-F&ADDM-GW1)","Ring of Warmth (JRC)","Ring of Water Walking (BMG-MOONEP-MD-1)","Ring of Water Walking (BMG-MOONEP-MD-2)","Ring of Water Walking (DDEX2-7)","Ring of Water Walking: Zhentarim Signet Ring (DDIA05)","Ring of X-Ray Vision (DDAL-DRW10)","Ring of X-Ray Vision: Blink (FR-DC-THAY-6)"],
+	choices : ["Ring of the Ram (CCC-GHC-7)","Ring of the Ram (CCC-TRI-8 NIGHT1-4)","Ring of Regeneration (CCC-MIND1-2)","Ring of Regeneration (DDAL-DRW15)","Ring of Regeneration (FR-DC-STRAT-TALES-4)","Ring of Regeneration: Lich's Cracked Phylactery (PS-DC-ELEMENT-DEATH-4)","Ring of Regeneration (SJ-DC-NOS-2)","Ring of Regeneration: Rinoa's Wedding Ring (SJ-DC-ROTU-6)","Ring of Regeneration (SJ-DC-TTUC-6)","Ring of Resistance: Cold (PS-DC-Saerloon-11)","Ring of Resistance: Fire (CCC-GHC-BK1-4)","Ring of Resistance: Fire (DDAL8-8)","Ring of Resistance: Fire (DDEX1-5)","Ring of Resistance: Fire (FR-DC-ONI-3)","Ring of Resistance: Force (FR-DC-MCG-CH1)","Ring of Resistance: Force - Hey You (FR-DC-THAY-6)","Ring of Resistance: Necrotic (FR-DC-F&ADDM-GW2)","Ring of Resistance: Necrotic (FR-DC-MCG-CH3)","Ring of Resistance: Poison (PS-DC-RF-1)","Ring of Resistance: Psychic (FR-DC-MCG-CH3)","Ring of Resistance: Radiant (FR-DC-F&ADDM-GW4)","Ring of Shooting Stars: Fairy Mushroom Ring (AL:SR-11A)","Ring of Shooting Stars (DDAL8-15)","Ring of Shooting Stars (DDEP5-2)","Ring of Shooting Stars (FR-DC-WE-1A)","Ring of Shooting Stars (PO-BK1-6)","Ring of Shooting Stars (SJ-DC-DD-12)","Ring of Shooting Stars (SJ-DC-TEL-10)","Ring of Spell Storing: Dark Mother's Ring (CCC-HAL-2)","Ring of Spell Storing (CCC-WYC-2-3)","Ring of Spell Storing (CCC-ZIEGE-3)","Ring of Spell Storing (DDAL4-8)", "Ring of Spell Storing (DDEP5-2)","Ring of Spell Storing (FR-DC-ONI-3)","Ring of Spell Storing (FR-DC-STRAT-WYRM-4)","Ring of Spell Storing (FR-DC-TDD-1)","Ring of Spell Storing (FR-DC-WE-1)","Ring of Spell Turning (PS-DC-AUG-2)","Ring of Spell Turning: Pandora's Gift (PS-DC-PANDORA-JWEI-S2-2)","Ring of Spell Turning (PS-DC-PKL-17B)","Ring of Spell Turning (PS-DC-POP-1)","Ring of Spell Turning (PS-DC-TYM-PHP-DIV-1)","Ring of Swimming (CCC-ALMOG-27 DAGON1-2)","Ring of Swimming (DDAL5-6)","Ring of Swimming (PO-BK-3-1)","Ring of Telekinesis (DDEP0-1)","Ring of Telekinesis (FR-DC-ELEMENT-IGC-DEATH-5)","Ring of Truth Telling (BMG-MOON-MD-10)","Ring of Truth Telling (DC-POA-CONMAR-15)","Ring of Warmth (CCC-CIC-16)","Ring of Warmth (CCC-ELF-1)","Ring of Warmth (CCC-WWC-5)","Ring of Warmth (FR-DC-F&ADDM-GW1)","Ring of Warmth (JRC)","Ring of Water Walking (BMG-MOONEP-MD-1)","Ring of Water Walking (BMG-MOONEP-MD-2)","Ring of Water Walking (DDEX2-7)","Ring of Water Walking: Zhentarim Signet Ring (DDIA05)","Ring of X-Ray Vision (DDAL-DRW10)","Ring of X-Ray Vision: Blink (FR-DC-THAY-6)"],
 	"ring of the ram (ccc-ghc-7)" : {
 		name : "Ring of the Ram (CCC-GHC-7)",
 		source : [["AL","CCC"]],
@@ -21278,12 +21515,16 @@ MagicItemsList["al rings (r-z)"] = {
 		description : "This ring is crafted of electrum and free of adornment save faint Draconic runes etched on the inside of the band. When used, it emits a high pitched ringing, not unlike a tuning fork. While worn, I can cast the Telekinesis spell at will.",
 		descriptionFull : "This ring is crafted of electrum and free of adornement save faint draconic runes etched on the inside of the band. When used by an attuned owner the ring emits a high pitched rining, not unlike a tuning fork.\n   While wearing this ring, you can cast Telekinesis from it.",
 		attunement : true,
-		spellcastingBonus : {
-			name : "At will",
-			spells : ["telekinesis"],
-			selection : ["telekinesis"],
-			firstCol : "atwill"
-		},
+		spellcastingBonus : ringTelekinesisSpell.spellcastingBonus,
+	},
+	"ring of telekinesis (fr-dc-element-igc-death-5)" : {
+		name : "Ring of Telekinesis (ELEMENT-IGC-DEATH-5)",
+		source : [["AL","FR-DC"]],
+		rarity : "very rare",
+		description : "I can attune to this ring in 1 minute. While worn, I can cast the Telekinesis spell at will.",
+		descriptionFull : "While wearing this ring, you can cast Telekinesis from it.\n   " + toUni("Harmonious") + ". Attuning to this item takes only 1 minute.",
+		attunement : true,
+		spellcastingBonus : ringTelekinesisSpell.spellcastingBonus,
 	},
 	"ring of truth telling (bmg-moon-md-10)" : {
 		name : "Ring of Truth Telling (MOON-MD-10)",
@@ -23108,7 +23349,7 @@ MagicItemsList["al sticks"] = {
 		choicesNotInMenu : true,
 		rarity : "common",
 		magicItemTable : "?",
-	choices : ["Pole of Angling (CCC-CNE-1)","Pole of Angling (CCC-MWGF-1)","Pole of Angling (DC-POA-CODEX-1)","Pole of Angling (DC-POA-CONMAR-14)","Pole of Angling (DC-POA-GSP1-1)","Pole of Angling: Boatman's Walking Stick (DC-POA-LEGIT-SV-3)","Pole of Angling (DC-POA-PESCH-1)","Pole of Angling (DC-POA-PND-3)","Pole of Angling (DDEP10-1)","Pole of Angling: Carp Diem (FR-DC-THAY-5)","Pole of Collapsing (BMG-DRW-OD-7)","Pole of Collapsing (FR-DC-MCG-INN2)","Pole of Collapsing (FR-DC-WE-4)","Pole of Collapsing (PS-DC-DRAGON24-5)","Pole of Collapsing (PS-DC-ELEMENT-DEATH-3)","Pole of Collapsing (PS-DC-JUDGE)","Pole of Collapsing (PS-DC-PKL-15)","Pole of Collapsing (SJ-DC-AMOT-2)","Pole of Collapsing: Ryboslav's (SJ-DC-DD-3)","Pole of Collapsing: Shuffleboard Cue (SJ-DC-DEN-H8)","Pole of Collapsing (SJ-DC-DFA-2)","Pole of Collapsing: Pivot (SJ-DC-FAUX-2)","Pole of Collapsing (SJ-DC-IGC-ECP-1)","Pole of Collapsing: Ironwood Branch (SJ-DC_LP-01)","Pole of Collapsing: Lightning Rod (SJ-DC-MONSTER-4)","Pole of Collapsing: Oversized Metal Straw (SJ-DC-NCH-1)","Pole of Collapsing: Fetch (SJ-DC-PHP-BORK)","Pole of Collapsing: Pillar of the Sky (SJ-DC-PHP-TY-VAL-1)","Pole of Collapsing: Sun's Golden Pin (SJ-DC-SCN-2)","Pole of Collapsing (SJ-DC-TEL-4)","Pole of Collapsing (WBW-DC-BIRE-4)","Pole of Collapsing (WBW-DC-HAVN-1)","Pole of Collapsing: Knick-Knack Stick (WBW-DC-IDL-3)","Pole of Collapsing: Twig (WBW-DC-LEGIT-SV-4)","Pole of Collapsing (WBW-DC-MEM-2)","Pole of Collapsing: Stick of Directions (WBW-DC-PHP-ORNG-2)","Pole of Collapsing (WBW-DC-THAL-2)","Pole of Collapsing: Liriod (WBW-DC-ZION-2)","Pole of Collapsing: Rúyì Jīngū Bàng (WBW-DC-ZODIAC-9)","Veteran's Cane (CCC-DRUIDS-3)","Veteran's Cane (DC-WBW-GaryXIV-1)","Veteran's Cane: Goblin's Light (FR-DC-UCON25-3)","Veteran's Cane (WBW-DC-BIRE-3)","Veteran's Cane (WBW-DC-CONMAR-14)","Veteran's Cane (WBW-DC-JOQ-2)","Veteran's Cane (WBW-DC-LSN-2)","Veteran's Cane (WBW-DC-RKS-1)","Veteran's Cane (WBW-DC-Rook-1-1)","Veteran's Cane (WBW-DC-TEN-3)","Veteran's Cane (WBW-DC-THAL-1)","Veteran's Cane (WBW-DC-ZION-3)","Veteran's Cane: Ram's Head (WBW-DC-ZODIAC-8)"],
+	choices : ["Pole of Angling (CCC-CNE-1)","Pole of Angling (CCC-MWGF-1)","Pole of Angling (DC-POA-CODEX-1)","Pole of Angling (DC-POA-CONMAR-14)","Pole of Angling (DC-POA-GSP1-1)","Pole of Angling: Boatman's Walking Stick (DC-POA-LEGIT-SV-3)","Pole of Angling (DC-POA-PESCH-1)","Pole of Angling (DC-POA-PND-3)","Pole of Angling (DDEP10-1)","Pole of Angling: Carp Diem (FR-DC-THAY-5)","Pole of Angling (PS-DC-MH-1)","Pole of Collapsing (BMG-DRW-OD-7)","Pole of Collapsing (FR-DC-MCG-INN2)","Pole of Collapsing (FR-DC-WE-4)","Pole of Collapsing (PS-DC-DRAGON24-5)","Pole of Collapsing (PS-DC-ELEMENT-DEATH-3)","Pole of Collapsing (PS-DC-JUDGE)","Pole of Collapsing (PS-DC-PKL-15)","Pole of Collapsing (SJ-DC-AMOT-2)","Pole of Collapsing: Ryboslav's (SJ-DC-DD-3)","Pole of Collapsing: Shuffleboard Cue (SJ-DC-DEN-H8)","Pole of Collapsing (SJ-DC-DFA-2)","Pole of Collapsing: Pivot (SJ-DC-FAUX-2)","Pole of Collapsing (SJ-DC-IGC-ECP-1)","Pole of Collapsing: Ironwood Branch (SJ-DC_LP-01)","Pole of Collapsing: Lightning Rod (SJ-DC-MONSTER-4)","Pole of Collapsing: Oversized Metal Straw (SJ-DC-NCH-1)","Pole of Collapsing: Fetch (SJ-DC-PHP-BORK)","Pole of Collapsing: Pillar of the Sky (SJ-DC-PHP-TY-VAL-1)","Pole of Collapsing: Sun's Golden Pin (SJ-DC-SCN-2)","Pole of Collapsing (SJ-DC-TEL-4)","Pole of Collapsing (WBW-DC-BIRE-4)","Pole of Collapsing (WBW-DC-HAVN-1)","Pole of Collapsing: Knick-Knack Stick (WBW-DC-IDL-3)","Pole of Collapsing: Twig (WBW-DC-LEGIT-SV-4)","Pole of Collapsing (WBW-DC-MEM-2)","Pole of Collapsing: Stick of Directions (WBW-DC-PHP-ORNG-2)","Pole of Collapsing (WBW-DC-THAL-2)","Pole of Collapsing: Liriod (WBW-DC-ZION-2)","Pole of Collapsing: Rúyì Jīngū Bàng (WBW-DC-ZODIAC-9)","Veteran's Cane (CCC-DRUIDS-3)","Veteran's Cane (DC-WBW-GaryXIV-1)","Veteran's Cane: Goblin's Light (FR-DC-UCON25-3)","Veteran's Cane (WBW-DC-BIRE-3)","Veteran's Cane (WBW-DC-CONMAR-14)","Veteran's Cane (WBW-DC-JOQ-2)","Veteran's Cane (WBW-DC-LSN-2)","Veteran's Cane (WBW-DC-RKS-1)","Veteran's Cane (WBW-DC-Rook-1-1)","Veteran's Cane (WBW-DC-TEN-3)","Veteran's Cane (WBW-DC-THAL-1)","Veteran's Cane (WBW-DC-ZION-3)","Veteran's Cane: Ram's Head (WBW-DC-ZODIAC-8)"],
 	"pole of angling (ccc-cne-1)" : {
 		name : "Pole of Angling (CCC-CNE-1)",
 		source : [["AL","CCC"]],
@@ -23179,6 +23420,14 @@ MagicItemsList["al sticks"] = {
 		descriptionFull : "A dull metal rod extends from a wooden handle fashioned to look like a knucklehead trout.\n   " + toUni("Compass") + ". You can take a Magic action to learn which way is magnetic north. Nothing happens if this property is used in a location that has no magnetic north.\n   This item functions as a Pole. While holding it, you can take a Magic action to cause it to transform into a fishing pole with a hook, a line, and a reel, or have the fishing pole revert to a Pole.\n   A Pole is 10 feet long. You can use it to touch something up to 10 feet away. If you must make a Strength (Athletics) check as part of a High or Long Jump, you can use the Pole to vault, giving yourself Advantage on the check.",
 		weight : 7,
 		action : [["action", "Pole of Angling (find north)"]],
+	},
+	"pole of angling (ps-dc-mh-1)" : {
+		name : "Pole of Angling (PS-DC-MH-1)",
+		source : [["AL","PS-DC"]],
+		description : "While holding this 10-ft Pole, I can use a Magic action to turn it into a fishing rod with a hook, line and reel. Repeating the action reverts it to a normal Pole. The item floats on water and other liquids, giving me adv on Str (Athletics) checks to swim.",
+		descriptionFull : "This item functions as a Pole. While holding it, you can take a Magic action to cause it to transform into a fishing pole with a hook, a line, and a reel, or have the fishing pole revert to a Pole.\n   A Pole is 10 feet long. You can use it to touch something up to 10 feet away. If you must make a Strength (Athletics) check as part of a High or Long Jump, you can use the Pole to vault, giving yourself Advantage on the check.\n   " + toUni("Waterborne") + ". This item floats on water and other liquids. You have advantage on Strength (Athletics) checks to swim.",
+		weight : 7,
+		savetxt : { text : ["Adv on Str (Athletic) chks to swim"] },
 	},
 	"pole of collapsing (bmg-drw-od-7)" : {
 		name : "Pole of Collapsing (BMG-DRW-OD-7)",
@@ -23534,7 +23783,7 @@ MagicItemsList["al stones"] = {
 		allowDuplicates : true,
 		choicesNotInMenu : true,
 		magicItemTable : "?",
-	choices : ["Amethyst Lodestone (PS-DC-NBDD-1)","Amethyst Lodestone (PS-DC-NOS-3)","Amethyst Lodestone: Nuit's Compass (PS-DC-PKL-13)","Amethyst Lodestone: Dragon's Heartscale (WBW-DC-ZODIAC-5)","Ioun Stone - Absorption (PS-DC-STRAT-DRAGON-3)","Ioun Stone - Awareness (PS-DC-PUB-8)","Ioun Stone - Awareness (WBW-DC-CONMAR-10)","Ioun Stone - Awareness (WBW-DC-DCS-1)","Ioun Stone - Fortitude: Moonlight Densetsu (FR-DC-IMP-1)","Ioun Stone - Fortitude (FR-DC-AEG-10)","Ioun Stone - Fortitude (FR-DC-WE-5)","Ioun Stone - Fortitude: Heartstone of Kethesis (PS-DC-SB-BISH1)","Ioun Stone - Greater Absorption (DDAL0-10)","Ioun Stone - Insight (DDEP3)","Ioun Stone - Intellect (DDAL-DRW17)","Ioun Stone - Leadership (SJ-DC-TEL-11)","Ioun Stone - Mastery (DDAL0-11F)","Ioun Stone - Mastery (FR-DC-BWR-1)","Ioun Stone - Mastery (PS-DC-PANDORA-JWEI-S2-5)","Ioun Stone - Protection (CCC-HATMS1-3)","Ioun Stone - Protection (DDAL0-11D)","Ioun Stone - Protection (PS-DC-PUB-16)","Ioun Stone - Protection (WBW-DC-CONMAR-2)","Ioun Stone - Protection (WBW-DC-Death)","Ioun Stone - Protection: Stone of Sorrow (WBW-DC-DES-1-9)","Ioun Stone - Protection (WBW-DC-JSH-LIB-4)","Ioun Stone - Protection (WBW-DC-MEZZ)","Ioun Stone - Protection: Tiny Pebble Mimic (WBW-DC-MIMIC-1)","Ioun Stone - Protection (WBW-DC-NBDD-1)","Ioun Stone - Protection: Cottontail's Family Stone (WBW-DC-PHP-ORNG-1)","Ioun Stone - Protection: Shard of Snow Ice (WBW-DC-PHP-POLAR-1)","Ioun Stone - Protection: Samsara Protector's Badge (WBW-DC-ZODIAC-11)","Ioun Stone - Protection (WBW-DC-ZEP-T2S4)","Ioun Stone - Reserve (CCC-BMG-48 HILL3-3)","Ioun Stone - Reserve (CCC-YLRA1-1)","Ioun Stone - Sustenance: Urg's (FR-DC-Saerloon-8)","Sending Stones: Audience (CCC-BMG-12 HILL1-3)","Sending Stones (CCC-BMG-MOON10-3)","Sending Stones (CCC-CIC-4)","Sending Stones (DDAL0-8)","Sending Stones (DDAL10-2)","Sending Stones: Wyrmtongue Whispers (FR-DC-CONMAR-5)","Sending Stones (FR-DC-LIGA-10)","Sending Stones (FR-DC-TKM-RGT-1)","Sending Stones: Talk Rocks (FR-DC-WCAG-1)","Sending Stones (FR-DC-WCAG3-1)","Sensory Stone (PS-DC-UMY-1)","Stone of Controlling Earth Elementals (CCC-BLD1-3)","Stone of Controlling Earth Elementals: Traveler's Heart (CCC-SFBAY-4-2)","Stone of Controlling Earth Elementals (PO-BK-4-3)","Stone of Good Luck (CCC-BMG-MOON8-3)","Stone of Good Luck (CCC-DWB-TFG-1)","Stone of Good Luck (CCC-HATMS2-3)","Stone of Good Luck: Durgin's Dice (CCC-NUKE-1-1)","Stone of Good Luck (CCC-SCAR1-2)","Stone of Good Luck (DDAL0-2B)","Stone of Good Luck (DDAL0-11B)","Stone of Good Luck (DDEP4)","Stone of Good Luck (DDHC-MORD-4)","Stone of Good Luck: Guardian's (FR-DC-UCON25-3)","Stone of Good Luck (JRC)","Stone of Good Luck: Trophy Cup (RotF)","Stone of Good Luck (RV-DC-KEN-1)"],
+	choices : ["Amethyst Lodestone (PS-DC-NBDD-1)","Amethyst Lodestone (PS-DC-NOS-3)","Amethyst Lodestone: Nuit's Compass (PS-DC-PKL-13)","Amethyst Lodestone: Dragon's Heartscale (WBW-DC-ZODIAC-5)","Ioun Stone - Absorption (PS-DC-STRAT-DRAGON-3)","Ioun Stone - Awareness (PS-DC-PUB-8)","Ioun Stone - Awareness (WBW-DC-CONMAR-10)","Ioun Stone - Awareness (WBW-DC-DCS-1)","Ioun Stone - Fortitude: Moonlight Densetsu (FR-DC-IMP-1)","Ioun Stone - Fortitude (FR-DC-AEG-10)","Ioun Stone - Fortitude (FR-DC-WE-5)","Ioun Stone - Fortitude: Heartstone of Kethesis (PS-DC-SB-BISH1)","Ioun Stone - Greater Absorption (DDAL0-10)","Ioun Stone - Insight (DDEP3)","Ioun Stone - Intellect (DDAL-DRW17)","Ioun Stone - Leadership (SJ-DC-TEL-11)","Ioun Stone - Mastery (DDAL0-11F)","Ioun Stone - Mastery (FR-DC-BWR-1)","Ioun Stone - Mastery (PS-DC-PANDORA-JWEI-S2-5)","Ioun Stone - Protection (CCC-HATMS1-3)","Ioun Stone - Protection (DDAL0-11D)","Ioun Stone - Protection (PS-DC-PUB-16)","Ioun Stone - Protection (WBW-DC-CONMAR-2)","Ioun Stone - Protection (WBW-DC-Death)","Ioun Stone - Protection: Stone of Sorrow (WBW-DC-DES-1-9)","Ioun Stone - Protection (WBW-DC-JSH-LIB-4)","Ioun Stone - Protection (WBW-DC-MEZZ)","Ioun Stone - Protection: Tiny Pebble Mimic (WBW-DC-MIMIC-1)","Ioun Stone - Protection (WBW-DC-NBDD-1)","Ioun Stone - Protection: Cottontail's Family Stone (WBW-DC-PHP-ORNG-1)","Ioun Stone - Protection: Shard of Snow Ice (WBW-DC-PHP-POLAR-1)","Ioun Stone - Protection: Samsara Protector's Badge (WBW-DC-ZODIAC-11)","Ioun Stone - Protection (WBW-DC-ZEP-T2S4)","Ioun Stone - Reserve (CCC-BMG-48 HILL3-3)","Ioun Stone - Reserve (CCC-YLRA1-1)","Ioun Stone - Sustenance: Urg's (FR-DC-Saerloon-8)","Sending Stones: Audience (CCC-BMG-12 HILL1-3)","Sending Stones (CCC-BMG-MOON10-3)","Sending Stones (CCC-CIC-4)","Sending Stones (DDAL0-8)","Sending Stones (DDAL10-2)","Sending Stones: Wyrmtongue Whispers (FR-DC-CONMAR-5)","Sending Stones (FR-DC-LIGA-10)","Sending Stones (FR-DC-TKM-RGT-1)","Sending Stones: Talk Rocks (FR-DC-WCAG-1)","Sending Stones (FR-DC-WCAG3-1)","Sensory Stone (PS-DC-UMY-1)","Stone of Controlling Earth Elementals (CCC-BLD1-3)","Stone of Controlling Earth Elementals: Traveler's Heart (CCC-SFBAY-4-2)","Stone of Controlling Earth Elementals (PO-BK-4-3)","Stone of Good Luck (CCC-BMG-MOON8-3)","Stone of Good Luck (CCC-DWB-TFG-1)","Stone of Good Luck (CCC-HATMS2-3)","Stone of Good Luck: Durgin's Dice (CCC-NUKE-1-1)","Stone of Good Luck (CCC-SCAR1-2)","Stone of Good Luck (DDAL0-2B)","Stone of Good Luck (DDAL0-11B)","Stone of Good Luck (DDEP4)","Stone of Good Luck (DDHC-MORD-4)","Stone of Good Luck (FR-DC-LFGCON-1)","Stone of Good Luck: Guardian's (FR-DC-UCON25-3)","Stone of Good Luck (JRC)","Stone of Good Luck: Trophy Cup (RotF)","Stone of Good Luck (RV-DC-KEN-1)"],
 	"amethyst lodestone (ps-dc-nbdd-1)" : {
 		name : "Amethyst Lodestone (PS-DC-NBDD-1)",
 		rarity : "very rare",
@@ -24188,6 +24437,15 @@ MagicItemsList["al stones"] = {
 		attunement : true,
 		addMod : stoneGoodLuck.addMod,
 	},
+	"stone of good luck (fr-dc-lfgcon-1)" : {
+		name : "Stone of Good Luck (LFGCON-1)",
+		source : [["AL","FR-DC"]],
+		rarity : "uncommon",
+		description : "While this polished agate is on my person, I gain a +1 bonus to ability checks and saving throws. It also warns of danger, giving me +2 initiative unless I'm Incapacitated.",
+		descriptionFull : "While this polished agate is on your person, you gain a +1 bonus to ability checks and saving throws.\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition.",
+		attunement : true,
+		addMod : stoneGoodLuckGuardian.addMod,
+	},
 	"stone of good luck: guardian's (fr-dc-ucon25-3)" : {
 		name : "Guardian's Stone (Good Luck, UCON25-3)",
 		source : [["AL","FR-DC"]],
@@ -24195,11 +24453,7 @@ MagicItemsList["al stones"] = {
 		description : "The essence of a primordial guardian gleams from within the stone, giving me +2 initiative unless I'm Incapacitated. While on my person, I also gain a +1 bonus to ability checks and saving throws.",
 		descriptionFull : "The essence of a primordial guardian gleams from within the stone providing the Guardian property.\n   " + toUni("Guardian") + ". The item warns you, granting a +2 bonus to your Initiative rolls if you don't have the Incapacitated condition.\n   While this polished agate is on your person, you gain a +1 bonus to ability checks and saving throws.",
 		attunement : true,
-		addMod : [
-			{ type : "save", field : "all", mod : 1, text : "I gain a +1 bonus on all my saving throws." },
-			{ type : "skill", field : "all", mod : 1, text : "I gain a +1 bonus on all my ability checks." },
-			{ type : "skill", field : "Init", mod : 3, text : "I gain a +1 bonus on all my ability checks and +2 Initiative." }
-		]
+		addMod : stoneGoodLuckGuardian.addMod,
 	},
 	"stone of good luck (jrc)" : {
 		name : "Stone of Good Luck (Shell)",
@@ -25675,7 +25929,7 @@ MagicItemsList["al transport"] = {
 		allowDuplicates : true,	
 		choicesNotInMenu : true,
 		magicItemTable : "?",
-	choices : ["Broom of Flying: Jeny's Special Helper (CCC-DES-1-6)","Broom of Flying: Sovad's Staff of Flying (CCC-RPSG-1)","Broom of Flying: Auntie Sue's Broom (CCC-TAROT1-5)","Broom of Flying (CCC-TRI-13 OLMA1-3)","Broom of Flying (CCC-UK-2)","Broom of Flying (FR-DC-F&ADDM-NDF1)","Carpet of Flying (CCC-GOC1-3)","Carpet of Flying (FR-DC-MCG-INN2)","Carpet of Flying (FR-DC-NBDD-2)","Carpet of Flying: Dragon Soul Wing (FR-DC-QLA-1)","Carpet of Flying (FR-DC-STRAT-FIEND-7)","Carpet of Flying (FR-DC-STRAT-WYRM-5)","Carpet of Flying (FR-DC-WE-5)","Carpet of Flying: Tanned Beholder Hide (SJ-DC-AMOT-1)","Carpet of Flying: Hovercart (SJ-DC-ASLM-2)","Carpet of Flying: Hoverboard (SJ-DC-CEG-1)","Carpet of Flying (SJ-DC-DFA-1)","Carpet of Flying: Soves (SJ-DC-FAUX-3)","Carpet of Flying (SJ-DC-OLD-ONE)","Carpet of Flying: Cormyr's Royal Purple (SJ-DC-PANDORA-JWEI-2)","Carpet of Flying: Duck Mobile (SJ-DC-PHP-ORNG)","Carpet of Flying: Sera's Red Cape (SJ-DC-ROTU-7)","Carpet of Flying (SJ-DC-TRIDEN-MYKE-3)","Carpet of Flying: Idlip Comforter (WBW-DC-IDL-3)","Carpet of Flying: Somersault Cloud (WBW-DC-ZODIAC-9)","Cubic Gate (DDAL8-17)","Cubic Gate (PO-BK-2-10)","Folding Boat: Merrenoloth Skiff (ALDMs9)","Folding Boat (CCC-CNE-2)","Folding Boat (CCC-TAROT2-4)","Folding Boat (CCC-UCON2-2)","Folding Boat (DDEP8-1)","Horseshoes of a Zephyr: Wildmane's Shoes (AL:SR-11A)","Horseshoes of a Zephyr (FR-DC-MCG-INN2)","Horseshoes of a Zephyr (PS-DC-STRAT-TALES-5)","Horseshoes of Speed (CCC-PIPYAPS-DH1)","Horseshoes of Speed (CCC-TAROT2-7)","Horseshoes of Speed (FR-DC-STRAT-WYRM-4)","Quaal's Feather Token: Bird - Golden Feather (SJ-DC-PANDORA-JWEI-4)","Quaal's Feather Token: Bird (SJ-DC-TTUC-6)","Quaal's Feather Token: Swan Boat (CCC-BMG-MOON16-3)","Quaal's Feather Token: Swan Boat (PO-BK-4-1)","Quaal's Feather Token: Tree (PS-DC-RF-1)","Saddle of the Cavalier: Lathai's Saddle (AL:SR-11A)","Saddle of the Cavalier (CCC-CENTRIC1-2)","Saddle of the Cavalier: Dragonhide Saddle (CCC-GAD1-2)","Saddle of the Cavalier (CCC-HAL-4)","Saddle of the Cavalier: The Choralier's Companion (CCC-REAP-1)","Saddle of the Cavalier (FR-DC-NUKE-1)"],
+	choices : ["Broom of Flying: Jeny's Special Helper (CCC-DES-1-6)","Broom of Flying: Sovad's Staff of Flying (CCC-RPSG-1)","Broom of Flying: Auntie Sue's Broom (CCC-TAROT1-5)","Broom of Flying (CCC-TRI-13 OLMA1-3)","Broom of Flying (CCC-UK-2)","Broom of Flying (FR-DC-F&ADDM-NDF1)","Carpet of Flying (CCC-GOC1-3)","Carpet of Flying (FR-DC-ELEMENT-IGC-DEATH-5)","Carpet of Flying (FR-DC-MCG-INN2)","Carpet of Flying (FR-DC-NBDD-2)","Carpet of Flying: Dragon Soul Wing (FR-DC-QLA-1)","Carpet of Flying (FR-DC-STRAT-FIEND-7)","Carpet of Flying (FR-DC-STRAT-WYRM-5)","Carpet of Flying (FR-DC-WE-5)","Carpet of Flying: Tanned Beholder Hide (SJ-DC-AMOT-1)","Carpet of Flying: Hovercart (SJ-DC-ASLM-2)","Carpet of Flying: Hoverboard (SJ-DC-CEG-1)","Carpet of Flying (SJ-DC-DFA-1)","Carpet of Flying: Soves (SJ-DC-FAUX-3)","Carpet of Flying (SJ-DC-OLD-ONE)","Carpet of Flying: Cormyr's Royal Purple (SJ-DC-PANDORA-JWEI-2)","Carpet of Flying: Duck Mobile (SJ-DC-PHP-ORNG)","Carpet of Flying: Sera's Red Cape (SJ-DC-ROTU-7)","Carpet of Flying (SJ-DC-TRIDEN-MYKE-3)","Carpet of Flying: Idlip Comforter (WBW-DC-IDL-3)","Carpet of Flying: Somersault Cloud (WBW-DC-ZODIAC-9)","Cubic Gate (DDAL8-17)","Cubic Gate (PO-BK-2-10)","Folding Boat: Merrenoloth Skiff (ALDMs9)","Folding Boat (CCC-CNE-2)","Folding Boat (CCC-TAROT2-4)","Folding Boat (CCC-UCON2-2)","Folding Boat (DDEP8-1)","Horseshoes of a Zephyr: Wildmane's Shoes (AL:SR-11A)","Horseshoes of a Zephyr (FR-DC-MCG-INN2)","Horseshoes of a Zephyr (PS-DC-STRAT-TALES-5)","Horseshoes of Speed (CCC-PIPYAPS-DH1)","Horseshoes of Speed (CCC-TAROT2-7)","Horseshoes of Speed (FR-DC-STRAT-WYRM-4)","Quaal's Feather Token: Bird - Golden Feather (SJ-DC-PANDORA-JWEI-4)","Quaal's Feather Token: Bird (SJ-DC-TTUC-6)","Quaal's Feather Token: Swan Boat (CCC-BMG-MOON16-3)","Quaal's Feather Token: Swan Boat (PO-BK-4-1)","Quaal's Feather Token: Tree (PS-DC-RF-1)","Saddle of the Cavalier: Lathai's Saddle (AL:SR-11A)","Saddle of the Cavalier (CCC-CENTRIC1-2)","Saddle of the Cavalier: Dragonhide Saddle (CCC-GAD1-2)","Saddle of the Cavalier (CCC-HAL-4)","Saddle of the Cavalier: The Choralier's Companion (CCC-REAP-1)","Saddle of the Cavalier (FR-DC-NUKE-1)","Saddle of the Cavalier (FR-DC-VIRGIL-1)",],
 	"broom of flying: jeny's special helper (ccc-des-1-6)" : {
 		name : "Jeny's Special Helper, Broom of Flying (DES-1-6)",
 		source : [["AL","CCC"]],
@@ -25732,6 +25986,15 @@ MagicItemsList["al transport"] = {
 		description : "The natural fibers of this 5\xD77 ft rug have been dyed with patterns of overlapping blue and red feathers. I can speak the carpet's command word as a Magic action to make it hover and fly. The carpet moves according to my spoken directions if I'm in 30 ft. It has a Fly Speed of 40 ft and can carry up to 1200 lb. If carrying more than 600 lb, its Fly Speed is reduced to 20 ft.",
 		descriptionFull : "The natural fibers of this 5-foot by 7-foot rug have been dyed with patterns of overlapping blue and red feathers.\n   You can make this carpet hover and fly by taking a Magic action and using the carpet's command word. It moves according to your directions if you are within 30 feet of it.\n   Four sizes of Carpet of Flying exist. The DM chooses the size of a given carpet or determines it randomly by rolling on the following table. A carpet can carry up to twice the weight shown on the table, but its Fly Speed is halved if it carries more than its normal capacity.\n\n" + toUni("d100\tSize\tCapacity\tFlying Speed") + "\n01-20\t3 \xD7 5 ft.\t  200 lb.\t  80 feet\n21-55\t4 \xD7 6 ft.\t  400 lb.\t  60 feet\n56-80\t5 \xD7 7 ft.\t  600 lb.\t  40 feet\n81-100\t6 \xD7 9 ft.\t  800 lb.\t  30 feet\n\nA carpet can carry up to twice the weight shown on the table, but it flies at half Speed if it carries more than its normal capacity.",
 		action : [["action", "Carpet of Flying"]],
+	},
+	"carpet of flying (fr-dc-element-igc-death-5)" : {
+		name : "Carpet of Flying, 5 ft \xD7 7 ft (IGC-DEATH-5)",
+		source : [["AL","FR-DC"]],
+		allowDuplicates : true,
+		rarity : "very rare",
+		description : "I can speak a command word as a Magic action to make this carpet hover and fly. It moves according to my spoken directions if I'm in 30 ft, with a Fly Speed of 40 ft and capacity of 1200 lbs. If carrying more than 600 lbs, its Fly Speed is reduced to 20 ft. I can also use a Magic action to determine magnetic North, if it exists.",
+		descriptionFull : "You can make this carpet hover and fly by taking a Magic action and using the carpet's command word. It moves according to your directions if you are within 30 feet of it.\n   Four sizes of Carpet of Flying exist. The DM chooses the size of a given carpet or determines it randomly by rolling on the following table. A carpet can carry up to twice the weight shown on the table, but its Fly Speed is halved if it carries more than its normal capacity.\n\n" + toUni("d100\tSize\tCapacity\tFlying Speed") + "\n01-20\t3 \xD7 5 ft.\t  200 lb.\t  80 feet\n21-55\t4 \xD7 6 ft.\t  400 lb.\t  60 feet\n56-80\t5 \xD7 7 ft.\t  600 lb.\t  40 feet\n81-100\t6 \xD7 9 ft.\t  800 lb.\t  30 feet\n\nA carpet can carry up to twice the weight shown on the table, but it flies at half Speed if it carries more than its normal capacity.\n   " + toUni("Compass") + ". You can take a Magic action to learn which way is magnetic north. Nothing happens if this property is used in a location that has no magnetic north.",
+		action : [["action", "Carpet of Flying (Fly/Find north)"]],
 	},
 	"carpet of flying (fr-dc-mcg-inn2)" : {
 		name : "Carpet of Flying, 5 ft \xD7 7 ft (MCG-INN2)",
@@ -26167,6 +26430,14 @@ MagicItemsList["al transport"] = {
 		rarity : "uncommon",
 		description : "A gift from the Hundred Hooves tribe, this saddle is embossed with the history of the Tuigan village, including a symbolic account of the heroes and The Scarlet Stallion. While mounted on the saddle, I can't be dismounted against my will unless I'm Incapacitated and attacks against my mount have disadvantage.",
 		descriptionFull : "A gift from the Hundred Hooves tribe, the saddle is embossed with the history of the Tuigan village to include a symbolic account of the heroes and The Scarlet Stallion.\n   This saddle confers the following benefits while you are seated in it and astride a mount.\n" + toUni("Protected Mount") + ". Attack rolls against the mount have Disadvantage.\n" + toUni("Secure Rider") + ". You can't be dismounted against your will. This property is suppressed while you have the Incapacitated condition."
+	},
+	"saddle of the cavalier (fr-dc-virgil-1)" : {
+		name : "Saddle of the Cavalier (FR-DC-VIRGIL-1)",
+		source : [["AL","FR-DC"]],
+		rarity : "uncommon",
+		description : "This saddle is made of scrap leather, crafted into a fine piece of equipment. The leather is embossed in gold flourishes with my name on the jockey seat. While mounted on the saddle, I can't be dismounted against my will unless I'm Incapacitated & attacks against my mount have disadvantage. I'm also unharmed by extreme temps past 0\u00B0F & 100\u00B0F.",
+		descriptionFull : "This saddle is made of scrap leather, crafted into a fine piece of equipment. The leather is embossed in gold flourishes and each of the character’s name on the jockey seat.\n   " + toUni("Temperate") + ". You are unharmed by temperatures of 0 degrees Fahrenheit or lower, and 100 degrees Fahrenheit or higher.\n\n   This saddle confers the following benefits while you are seated in it and astride a mount." + toUni("Protected Mount") + ". Attack rolls against the mount have Disadvantage.\n" + toUni("Secure Rider") + ". You can't be dismounted against your will. This property is suppressed while you have the Incapacitated condition.",
+		savetxt : { immune : ["temps past 0\u00B0F/100\u00B0F"] },
 	},
 };
 

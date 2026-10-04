@@ -1,21 +1,14 @@
 Unflavored items in AL modules:
-(This list is incomplete as I only started noting unflavored items about halfway through this project and not consistently)
-
-BMG-MOON-MD-9 The Prince's Fairy Godmother
--Shield of Expression
--Potion of Supreme Healing
+(This list is incomplete as I only started noting items down about halfway through this project and not consistently)
 
 CCC-AWE-1-2 The Chi Directive
 -Lantern of Revealing
 
-CCC-BFG01-01 A House Divided
--Longsword of Warning
-
 CCC-BMG-37 HULB3-1 Weakness of Rock
--Dex Book (Manual of Quickness of Action)
+-Dex Book
 
 CCC-BMG-38 HULB3-2 Dead Canaries
--Int Book (Tome of Clear Thought)
+-Int Book
 
 CCC-BMG-MOON16-3 The Sacrificial Dance
 -Quaal Feather Token: Swan Boat
@@ -27,9 +20,6 @@ CCC-BMG-MOON17-1
 CCC-BMG-MOON17-2
 -Immovable Rod
 
-CCC-CNE-006 Burst!
--Wand of Web
-
 CCC-DES-1-3 A Question Never Asked
 -Wand of Magic Missiles
 
@@ -40,31 +30,11 @@ CCC-HERO-BK3-2 The Fire Rekindled
 CCC-PIPYAPS Glasyas Little Helpers
 -Ylkwa of Warning
 
-CCC-RCC-01-05 The Lost City of Tharn
--Pipe of Smoke Monsters
-
-CCC-SAC-1 A Light in the Dark
--Efreeti Bottle (Banned, see ALPG)
-
-CCC-SAC-02 Fun With Fey
--Cloak of Displacement
-
-CCC-SALT02-05 Darkness Never Forgets
--Cape of the Mountebank
-
-CCC-SCAR-2-1 Glister by Night
--Rope of Climbing
--Clockwork Amulet
-
 CCC-TRI-11 Contact
 -Dwarven Plate
 
 CCC-UCON-3
 -Decanter of Endless Water
-
-CCC-WWC-08 Pool of Annihilation 
--Gloves of Missile Snaring
--Mystery Key
 
 DC-HERO Endless Songs
 -Hat of Wizardry
@@ -85,20 +55,9 @@ DC-POA-DOBU-1-1 Beneath a Stony Stump
 -Masquerade Tattoo
 -Grey Bag of Tricks
 
-DC-POA-ROG-3 Last Refuge of Spring
--Arcane Grimoire +1
--Illuminator's Tattoo
-
 DC-POA-Sunlit-3 A Solstice Tradition
 -Shield of Expression
 -Ring of Truth Telling
-
-WBW-DC-SUNLIT-6 Township
--Manual of Quickness of Action (Pact)
--Wand of Pyrotechnics
-
-DC-POA-Z-T1S3
--Psi Crystal
 
 DC-WBW-GaryXIV-01 The First Forest
 -Feywild Shard
@@ -106,9 +65,6 @@ DC-WBW-GaryXIV-01 The First Forest
 DC-WBW-GaryXIV-03 Of Pumpkins and Promises
 -Wand of Pyrotechnics
 -Gem of Brightness
-
-DDAL00-05 Winters Splendor
--Boots of the Winterlands
 
 DDAL09-16 Honors Unforeseen
 -Fochlucan Bandore
@@ -125,12 +81,6 @@ DDAL09-18 Consequences of Choice
 DDAL09-19 Fang and Claw
 -Scarab of Protection
 -Shield +2
-
-DDAL10-01 The Frozen North
--Illuminator's Tattoo
-
-DDAL10-05 A Blight in the Darkness
--Wand of Pyrotechnics
 
 DDAL-DRWEP4:
 -Cloak of Arachnida
@@ -169,13 +119,6 @@ DDEX1-9 Outlaws of the Iron Route
 DDEX2-10 Cloaks and Shadows
 -Winged boots
 
-DDHC-MORD-03 To Wake Leviathan
--Ring of Cold Resistance
--Elemental Gem (Water)
--Circlet of Blasting or Sentinel Shield
--Boots of the Winterlands or Boots of Speed
--Dragon Scale Mail (Roll for type)
-
 FR-DC-AEG-1 The Ambush
 -Horn of Silent Alarm
 
@@ -191,101 +134,15 @@ FR-DC-AEG-5 The Hunting
 FR-DC-AEG-7 The Missing Adventurers
 -Candle of the Deep
 
-FR-DC-AEG-8 The Lost Artifact
--Orb of Direction
-
-FR-DC-AEG-9 What's in the box?
--Cloak of Billowing
-
-FR-DC-AMAK-1 You Better Watch Out
--Pipe of Smoke Monsters
--Wand of Wonder
-
-FR-DC-ARCON-01 Mines and Monsters
--Wand of Wonder
-
 FR-DC-BG The Flying Flame
 -Blessing of Magic Resistance (Bahamut's)
-
-FR-DC_BMK-1 Phandelver and the Blood Moon Curse
--Keoghtom's Ointment
-
-FR-DC-BMK-4 Phandelver and the Blood Moon Behemoth
--Candle of the Deep
-
-FR-DC-BTW-01 Father's Conscience
--Staff of the Python
-
-FR-DC-BTW-02 Father's Curse
--Orb of Direction
--Periapt of Wound Closure
-
-FR-DC-BTW-03 Father's Mistake
--Candle of the Deep
-
-FR-DC-BTW-04 Father's Decision
--Wand of Binding
-
-FR-DC-CGB-01 Brewhouse Hunters
--Masquerade Tattoo
--Alchemy Jug
-
-FR-DC-DILL-01 Labor Day
--Chest of Preserving, Blue Elemental Gem
-
-FR-DC-DRESS-1 Goblin in a Dress
--Stone of Good Luck
-
-FR-DC-DUNG Witch Please, It's a Carnival
--Deck of Miscellany
--Deck of Illusions (missing 1 card)
 
 FR-DC-FALL-1 Cathedral of Ice
 -Mystery Key
 -Blessing of Wound Closure
 
-FR-DC-F&ADDM-CRC1 An Old Road to Deadsnows
--Bag of Holding
-
-FR-DC-F&ADDM-CRC2 The Forge and the Fleece
--Gloves of Missile Snaring
-
-FR-DC-F&ADDM-GW3 Leapin' Lizards
--Ring of Waterwalking
-
-FR-DC-F&ADDM-GW5 A Terminal Ambition
--Ring of Protection
-
-FR-DC-F&ADDM-LES1 The Breath of Hapi
--Ioun Stone of Fortitude
-
-FR-DC-F&ADDM-LES3 The Hunger of Duamutef
--Bead of Nourishment
--Elemental Gem (Yellow Diamond)
-
 FR-DC-GHG-1 Griffons of Longsaddle
 -Staff of Birdcalls
-
-FR-DC-HAN-1-1 Harvest of the Winter Wilds
--Staff of Birdcalls
-
-FR-DC-HEARTHOME-01 Fresh Start
--Candle of the Deep
-
-FR-DC-HEARTHOME-04 Corruption in Cormanthor
--Clockwork Amulet
-
-FR-DC-KKON-01 Kontraption-Kon
--Rival Coin
-
-FR-DC-LAX-1-1 A Bone to Pick
--Staff of Birdcalls
-
-FR-DC-LAX-1-2 No Strings Attached
--Mystery Key
-
-FR-DC-LFGCON-2 Heroes for the Meek
--Hat of Wizardry
 
 FR-DC-LIGA-1 Wyrmwell Flame
 -Blessing of Protection
@@ -294,87 +151,14 @@ FR-DC-LIGA-2 House of Shadow
 -Deck of Illusions
 -Dread Helm
 
-FR-DC-LIGA-3 Doom Reborn
--Mind Crystal (Quickened)
--Mystra's Blessing of Magic Resistance
-
-FR-DC-LIGA-4 Many Spells Gambit
--Ioun Stone of Fortitude
-
-FR-DC-LIGA-5 Blue Wyrm Rhapsody
--Elemental Gem (Yellow Diamond)
--Mind Crystal (Careful)
-
-FR-DC-LIGA-6 Malaeragoth_and_the_Chaos_King
--Blessing of Magic Resistance
--Spellwrought Tattoo (Summon Draconic Spirit)
-
-FR-DC-LIGA-8 A Song of Closure
--Spellguard Shield
--Horn of Silent Alarm
--Potion of Invulnerability
--Scroll of Protection
-
-FR-DC-LIGA-9 A Chromatic Crescendo
--Wand of the War Mage +3
-
-FR-DC-LOOSE-001 Spells on the Loose
--Alchemy Jug
-
-FR-DC-MCG-CH3 The Final Touch
--Rope of Mending
-
 FR-DC-MELB-1-4 Monsters
 -Wand of Binding
-
-FR-DC-NBDD-1 Taggin's Temple of Terror
--Spirit Board
--Blessing of Protection
-
-FR-DC-NEW-TIER1-1 Damsel in Distress
--Adamantine Plate
-
-FR-DC-NEW-TIER2-1 The Bluebloods
--Mantle of Spell Resistance
-
-FR-DC-NSO-BALANCE A New Order Rises
--Mace +1
-
-FR-DC-NUKE-3 Sapphire Hoard
--Potion of Superior Healing
--Potion of Lightning Resistance
-
-FR-DC-OMR-EW1 The Northern Star
--Shortsword +2
 
 FR-DC-ONI-1 Oni of the Thousand Gates
 -Orb of Direction
 
-FR-DC-ONI-4 Oni of the Thousand Gates
--My Brother's Enemy
-
-FR-DC-PANDORA-JWEI-8 Minerva
--Blessing of Weapon Enhancement
-
 FR-DC-PANDORA-JWEI-10 Ares
 -Charm of the Fate
-
-FR-DC-PANDORA-JWEI-S2-04 Echoes of the End
--Vicious Weapon (unspecified)
--Amulet of the Planes
--Charm of the Sun 
-
-FR-DC-PANDORA-JWEI-S2-06 Hope
--Lute of Thunderous Thumping
--Amulet of the Planes
--Charm of the Donjon
-
-FR-DC-PANDORA-JWEI-S2-07 Moonshire
--Carpet of Flying 5x7
--Belt of Fire Giant Strength
-
-FR-DC-PNKE-01 Vie for the Eye
--Charm of the Void
 
 FR-DC-QLA-1 Mel's Pit
 -Chest of Preserving
@@ -382,165 +166,18 @@ FR-DC-QLA-1 Mel's Pit
 FR-DC-QLA-2 The Ceremony
 -Rope of Mending
 
-FR-DC-RFJK-1 Punny You Ask
--Paper Bird
-
-FR-DC-RWIE-3 Circus Berserkus
--Potion of Fire Giant Strength
--Blessing of Magic Resistance
-
-FR-DC-Saerloon-5 That's a Lot of Flambe
--Dust of Corrosion
-
-FR-DC-Saerloon-9 Dowager's by Lantern Light 
--Pot of Awakening
-
-FR-DC-SCROG-LGD-01 Legend of the Hellish Hay Bale
--Keoghtom's Ointment
-
-FR-DC-SCROOGE-1 Funny Bunny Business
--Cloak of Many Fashions
--Pipes of the Sewers
--Tankard of Plenty (ToD)
--Staff of Flowers
-
-FR-DC-SCROOGE-004 Fireworks Fiasco
--Wand of Pyrotechnics
--Tankard of Plenty (ToD)
--Elemental Gem (Red)
-
-FR-DC-SSG-FAI-02 The Communion of Laughter
--Flying Wonder
--Cloak of Billowing
-
-FR-DC-SSM-FAI-1 The Secret in Sanctuary
--Rust Bag of Tricks
--Cloak of Many Fashions
-
-FR-DC-STRAT-DRAGON-1 Dancing in the Moonlight
--Potion of Psionic Fortitude
--Potion of Psychic Resistance
-
-FR-DC-STRAT-DUNGEON-02 The Umbral Crypt
--Cloak of Displacement
--Amulet of the Devout +2
--Shadowfell Shard
-
-FR-DC-STRAT-DUNGEON-04 The Lost Secrets of Shar
--Lute of Thunderous Thumping
--Wings of Flying
--Devotee's Censer
-
-FR-DC-STRAT-DUNGEON-05 By Invitation Only
--Arcane Grimoire +3
-
-FR-DC-STRAT-DUNGEON-07 Xanathar's Dream Team
--Ioun Stone of Mastery
--Charm of the Fates
-
-FR-DC-STRAT-FIEND-1 The Trouble With Quasits
--Hat of Wizardry
-
-FR-DC-STRAT-FIEND-2 Beyond a Shadow of a Drought
--Eyes of the Eagle
--Dread Helm
-
-FR-DC-STRAT-FIEND-3 The Narrow Path
--Cloak of Billowing
-
-FR-DC-STRAT-FIEND-4 A Devil in the Streets
--Cloak of Billowing
-
-FR-DC-STRAT-FIEND-5 Those Who Walk Towards Goldenleaf
--Saddle of the Cavalier
--Horn of Silent Alarm
--Potion of Pugilism
-
-FR-DC-STRAT-FIEND-6 Cold Blooded Bandit
--Heward's Handy Haversack
--Orb of Direction
-
-FR-DC-STRAT-FIEND-7 Go There and Kill More Things
--Mystery Key
-
-FR-DC-STRAT-TALES-01 What Big Teeth
--Chest of Preserving (Unbreakable)
-
-FR-DC-STRAT-TALES-02 On Fey Tides
--Scimitar +2
-
-FR-DC-STRAT-TALES-03 The Beast Within
--Candle of the Deep
-
-FR-DC-STRAT-WYRM-01 Day of the Dragon
--Bag of Holding
-
-FR-DC-STRAT-WYRM-02 The Wayward Wyrmling
--Ring of Fire Resistance
-
-FR-DC-TDD-02 Clouded Visions
--Decanter of Endless Water
--Glowrune Pigment
-
 FR-DC-TGT-2 Those Who Plant
 -Gem of Brightness
-
-FR-DC-TGT-2 The Show Must Go on
--Boots of Elvenkind
-
-FR-DC-THAY-2 How to Seduce a Thayan in 10 Days
--Dust of Disappearance
--Dust of Sneezing and Choking
-
-FR-DC-THAY-4 What Thayans Want
--Elemental Gem (Blue, Red and Yellow)
 
 FR-DC-TRIDEN-MYKE-5 Shadow on the Sands
 -Orb of Direction
 -Dried Leech
 
-FR-DC-TT-101 Water has no shape
--Driftglobe
--Candle of the Deep
--Dust of Dryness
-
 FR-DC-VECNA-1 Three Body Problem
--Deck of Miscellany (“A dark purple deck with embossed golden borders.” - too annoying to code unless the flavor is more signifcant)
+-Deck of Miscellany (“A dark purple deck with embossed golden borders.” - too annoying to code unless needed)
 
 FR-DC-WATERDEEP-GSZ Sweet Dreams... Geese
 -Deck of Miscellany
-
-FR-DC-WE-01 Enter the Arena
--Deck of Miscellany
--Clockwork Amulet
-
-FR-DC-WE-01A Enter the Arena (T3)
--Clockwork Amulet
--Deck of Miscellany
-
-FR-DC-WE-2 Wyrmwood and Wavecrest
--Staff of Thunder and Lightning
--Wand of the War Mage +3
--Ioun Stone of Insight
--Cape of the Mountebank
-
-FR-DC-WE-3 Veins and Veils
--Candle of Invocation
--Staff of Striking
--Rod of Alertness
--Bronze Horn of Valhalla
--Charm of the Sun
-
-FR-DC-WE-4 Tempest and Tectonics
--Energy Bow
--Quarterstaff of the Acrobat
--Belt of the Fire Giant Strength
--Shield of the Cavalier
--Charm of the Star
-
-FR-DC-WE-05 The Bonebind Curse
--Blessing of Magic Resistance
--Rope of Mending (Key)
 
 PO-BK-1-02 Trust No One
 -Heward's Handy Spice Pouch
@@ -610,14 +247,6 @@ PO-BK-3-8 Weeding Out Trouble
 PO-BK-3-9 The Isle of Death
 -Amethyst Dragon Wing Longbow
 
-PO-BK-3-12 Rule or Ruin
--Blast Scepter
--Charlatan's Die
--Arrow of Fiend Slaying
-
-PO-BK-3-13 A Ship on Silent Seas
--Dagger of Blindsight
-
 PO-BK-4-1 (Premier)
 -Glowrune Pigment (rare)
 
@@ -628,97 +257,19 @@ PO-BK-4-2 Shadow Kingdom (Premier)
 PO-BK-4-3 One Bard's Trash (Premier)
 -Clockwork Amulet
 
-PO-BK-05-02 The Anchorite
--Wraps of Unarmed Power +2
--Cloak of Billowing
-
-PO-BK-05-05 Descent into Dragonmount
--Bronze Dragon Scale Mail
-
-PO-BK-05-06 Deaths Door
--Staff of Frost
-
 PO-BMG-DRW-KS-1 The Thief of Thay
 -Dust of Disappearance
 -Sekholah Worshipping Statue
 
-PO-BMG-DRW-KS-6 In the Palace of a Thousand Halls
--Mind Crystal (Quickened)
--Quaal's Feather Token (Bird)
-
-PS-DC-AUG-02 The Dark Sun
--Boon of Invincibility
-
-PS-DC-BLACKFLAME-01 Blackflame in the Broken Lands
--Breastplate +2
--Wand of the War Mage +3
--Ioun Stone of Insight
--Cauldron of Rebirth
--Sensory Stone
-
-PS-DC-CAR-01 13 Hours in Sigil
--Ring of Spell Turning
--Chest of Preserving
+RV-DC-OH1 In the Mist of Keening
+-Horn of Silent Alarm
+-Dagger +2
 
 PS-DC-CEG-2 Snakes on a Planescape
 -Ruby of the War Mage
 
-PS-DC-DRAGON24-01 At the Edge of No Tomorrows
--Dark Shard Amulet
--Deck of Illusions
--Dust of Dryness
-
-PS-DC-DRAGON24-02 The Merchant of Ruin
--Deck of Miscellany
--Pipe of Smoke Monsters
-
-PS-DC-DRAGON24-03 The Birdcage
--Dust of Disappearance
-
-PS-DC-DRAGON24-04 The Gallery of Souls
--Keoghtom's Ointment
-
-PS-DC-ELEMENT-DEATH And Then They Attacked
--Boon of the Fire Soul
-
-PS-DC-GMM-1 Elemental Demiplane of Cheest
--Chest of Preserving
-
-PS-DC-GMM-2 Pazuzu's Askew Kazoo
--Rope of Entanglement
--Clothes of Mending
-
-PS-DC-GMM-3 Frantic Frontier Fiasco
--Handaxe +2
--Charlatan's Die
-
 PS-DC-HNL-1 Nowhere Fast
 -Ring of the Orator
-
-PS-DC-HNL-3 Ardragon of Sigil
--Sensory Stone
-
-PS-DC-IC Iron Cook
--Charm of the Sun
-
-PS-DC-JUDGE Tower of Judgment
--Charm of Balance
-
-PS-DC-MAR-1 Death and Taxes
--Boon of Speed
-
-PS-DC-MAR-2 Planes, Trains, and Automatons
--Boon of Planar Travel
-
-PS-DC-MECH-1 Melting Mechanus
--Blessing of Magic Resistances
-
-PS-DC-MIKE-01 Clash of the Multiversal Championship
--Boon of High Magic
-
-PS-DC-NBDD-1 The Greatest Gameshow
--Chest of Preserving
--Blessing of Magic Resistance
 
 PS-DC-NOS-1 Githzerai Glitch
 -Boon of Luck
@@ -726,105 +277,8 @@ PS-DC-NOS-1 Githzerai Glitch
 PS-DC-NOS-2 Broken Yet Unbowed
 -Boon of Irresistible Offense
 
-PS-DC-NOS-3 It's Always Boring in Automata
--Boon of Spell Recall
-
-PS-DC-NOS-4 Goddess Interrupted
--Blessing of Magic Resistance
-
-PS-DC-MORD-1 Mordekainen's Memory Palace
--Deck of Illusion
-
-PS-DC-PANDORA-JWEI-S2-05 Fall the Eternal Night, Despair
--Hat of Many Spells
--Charm of the Fates
--Rod of the Pact Keeper +3
-
-PS-DC-PKL-05 Mass Hysteria
--Dark Shard Amulet
-
-PS-DC-PKL-06 It's a Toss Up
--Keoghtom's Ointment
--Chest of Preserving
-
-PS-DC-PKL-08 Darker Shade of Pale
--Enduring Spellbook (Detect Magic, Magic Missile)
-
-PS-DC-PKL-11 Short Metal Circuits
--Rod of Hellish Flames
--Charm of the Moon
-
-PS-DC-PKL-12 The Beating Drum
--Pipe of Smoke Monsters
-
-PS-DC-PKL-13 The Endless Story
--Sheela's Blessing of Protection
-
-PS-DC-PKL-14 The Split
--Charm of Euryale
-
-PS-DC-PKL-17B That Ends Hell
--Blessing of Wound Closure
--Keoghtom's Ointment
-
-PS-DC-PKL-18B The Glory
--Charm of the Gem
--Keoghtom's Ointment
-
-PS-DC-PUB-10 Absent Without Leave
--Dust of Sneezing and Choking
-
-PS-DC-RDP-03 The Upper Demonweb
--Rod of Security
--Charm of the Fates
-
-PS-DC-RDP-05 Demon Queen of Spiders
--Manual of Iron Golems
--Energy Longbow
--Spirit Board
--Necklace of Fireballs (4 beads)
-
 PS-DC-SS Soul and Shadow
 -Boon of Truesight
-
-PS-DC-STRAT-DRAGON-6 Our Shattered Ambitions
--Boon of Skill Proficiency
-
-PS-DC-STRAT-DRAGON-7 The War of Dragons
--Boon of Immortality
-
-PS-DC-STRAT-TALES-6 Dungeon and a Dragon
--Blessing of Protection
--Enduring Spellbook (generic key)
--Staff of Power
-
-PS-DC-STRAT-UNDEAD-5 Return of the Dragon
--Boon of Spell Recall
-
-PS-DC-TST-1 The Eye Behind the Mask
--Charm of Fates
-
-PS-DC-TT-202 May the cause be with you
--Dust of Sneezing and Choking
-
-RV-DC-HH-01 Inheritance
--Harkon's Bite
--Talking Doll
-
-RV-DC-OH1 In the Mist of Keening
--Horn of Silent Alarm
--Dagger +2
-
-RV-DC-OMR-ETN1 The Cross Road
--Cloak of Many Fashions
-
-RV-DC-SDG-01 A Cursed Key
--Driftglobe
-
-SJ-DC-AMAK Starlight's Lament
--Astromancy Archive
--Talking Doll
--Keoghtom's Ointment
 
 SJ-DC-ANGKA-7 Sleep Now in the Fire
 -Pipe of Remembrance
@@ -898,59 +352,31 @@ SJ-DC-CONMAR-4 Finally Saving Marcus
 SJ-DC-DAP Goldfish island
 -Ring of Feather Falling (Not actually a legal reward for that tier, but eh)
 
-SJ-DC-DCS-1 Rocks Fall, Everybody Dies
--Quaal's Feather Token Anchor
-
 SJ-DC-DES05-03 Galactic Gigglefit
 -Stone of Good Luck (also not actually a legal reward for SJ; has fancy name but no flavor)
 
-SJ-DC-DD-12 End of the Line
+SJ-DC-DD-12
 -Blessing of Magic Resistance
 
-SJ-DC-DRA-2 To Find a Friend
+SJ-DC-DRA-2
 -Masquerade Tattoo
 
-SJ-DC-DRA-3 What a Strange Blue World
--Boots of Leviation 
+SJ-DC-DRA-3
+-Boots of Leviation (to be updated)
 -Hat of Wizardry
 
-SJ-DC-DRA-4 The Frigid Cold of Despair
+SJ-DC-DRA-4
 -Tankard of Sobriety
 
-SJ-DC-DRA-5 The Hunger in the Marshes
+SJ-DC-DRA-5
 -Figurine of Wondrous Power (Ebony Fly)
 -Pole of Collapsing
-
-SJ-DC-DRAGON-1 The Rock of Bral Caper
--Dust of Dryness
--Giant Fly Figurine
--Masquerade Tattoo
-
-SJ-DC-DRAGON-2 Crossing the Void
--Deck of Illusions (15 Cards)
--Clothes of Mending
-
-SJ-DC-DRAGON-2 Crossing the Void
--Deck of Illusions
--Clothes of Mending
-
-SJ-DC-DRAGON-3 The Starfire Gambit
--Pole of Collapsing
--Dust of Disappearance
-
-SJ-DC-DRAGON-4 The Call from Space
--Boots of Levitation
--Hat of Wizardry
 
 SJ-DC-ECHO-2 Bug Hunt
 -Masquerade Tattoo
 
 SJ-DC-ENIGMA Bloom and Doom
 -Heward's Handy Spice Pouch
-
-SJ-DC-ETO-1 Enter the Octalith 1
--Heward's Handy Spice Pouch
--Frost Brand Longsword
 
 SJ-DC-FAT-1 Flight of the Chungus
 -Elemental Essence Shard - Air
@@ -967,10 +393,6 @@ SJ-DC-HBI-2 The Hitchhiker
 SJ-DC-HBI-3 The Reckoning
 -Wand of Conducting
 -Gray Bag of Tricks
-
-SJ-DC-HIPS Hiding in Plain Sight
--Gem of Seeing
--Hat of Wizardry
 
 SJ-DC-HYS-2 Darkside of Selune
 -Pole of Collapsing
@@ -1007,7 +429,7 @@ SJ-DC-LIGA4 Deep Expedition
 SJ-DC-LIGA6 A Strike to Hadars Tentacles
 -Charm of Undead Slayer
 
-SJ-DC-LP-01 Litter Patrol
+SJ-DC-LP-1 Litter Patrol
 -Astromancy Archive
 -Rope of Mending
 -Smokepowder
@@ -1039,10 +461,6 @@ SJ-DC-PHP-2 Securing Passage
 SJ-DC-PHP-ORNG Thousand Tiny Ducks
 -Blessing of Magic Resistance
 
-SJ-DC-PND-3 The Littlest Monster
--Bead of Nourishment
--Sling Bullets +1
-
 SJ-DC-ROCK-1 Turmoil in Bral
 -Cloak of Many Fashions
 
@@ -1056,9 +474,6 @@ SJ-DC-ROG-1 Rescue of Glyth
 SJ-DC-TBS-4 Brightshill
 -Tankard of Sobriety
 -Keoghtam's Ointment
-
-SJ-DC-TKM-CH03 A Sorrowful Farewell
--Orb of Time
 
 SJ-DC-TRIDEN-BZ Sweet Dreams are Made of Bees
 -Blessing of Magic Resistance
@@ -1288,9 +703,6 @@ WBW-DC-ZEP-T1S3 Zep Sightseeing
 
 WBW-DC-ZEP-T1S4 Mall of Zep
 -Bag of Holding
-
-WBW-DC-ZODIAC-03 Revenge of the Rakshasa
--Lantern of Tracking Fiends
 
 WBW-DC-ZODIAC-06 Nightmare of the Naga
 -Deck of Illusions

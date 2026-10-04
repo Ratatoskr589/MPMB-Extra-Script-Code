@@ -12,7 +12,7 @@ It is recommended to enter the code in a fresh sheet before adding any other inf
 	//In progress: SJ-DCs, POs, RV-DC, FR-DC, PS-DC, 
 	
 var iFileName = "AL Special Items.js";
-RequiredSheetVersion("13.2.3", 15);
+RequiredSheetVersion("13.2.3", 25);
 
 // Define the source
 
@@ -98,6 +98,10 @@ SourceList["QftIS"] = {   //This script adds the new items from the Infinite Sta
 	date : "2024/07/16"
 };  
 /*Preview URL is: https://www.dndbeyond.com/sources/dnd/dilct/descent-into-the-lost-caverns-of-tsojcanth#AppendixAMagicItems*/
+
+//Variable to switch between LR and 1/Day for item spells depending on sheet version
+var spellOnceDayMinVersion = semVersToNmbr(tDoc.use2024Rules ? "24.1.0" : "14.1.0");
+var spellOnceDay = (!tDoc.sheetVersion || tDoc.sheetVersion < spellOnceDayMinVersion) ? "oncelr" : "onceday";
 
 
 //AL Special Rewards & Story Awards (with major mechanical effects)(Adjusted to feats to better match Nod Hero's code)
@@ -854,10 +858,10 @@ MagicItemsList["al event award items"] = {
 			},
 		},
 		spellcastingBonus : [{
-			name : "Aura of Vitality",
+			name : "Once per dawn",
 			spells : ["aura of vitality"],
 			selection : ["aura of vitality"],
-			firstCol : 'oncelr'
+			firstCol: spellOnceDay,
 		}],
 		spellChanges : {
 			"aura of vitality" : {
@@ -947,7 +951,7 @@ MagicItemsList["al event award items"] = {
 			name : "Once per dawn",
 			spells : ["jump"],
 			selection : ["jump"],
-			firstCol : "oncelr"}],
+			firstCol: spellOnceDay}],
 		},
 	"inspired cocoa mug (ddce)" : {
 		name : "Inspired Cocoa Mug",
@@ -1133,10 +1137,10 @@ MagicItemsList["al new items"] = {
 		recovery : "dawn",
 		savetxt : { text : ["Adv on Stealth chks in dim light/darkness"] },
 		spellcastingBonus : {
-			name : "Darkness",
+			name : "Once per dawn",
 			spells : ["darkness"],
 			selection : ["darkness"],
-			firstCol : "oncelr"
+			firstCol: spellOnceDay
 			}
 		},
 	"demon skin (ditlcot)" : {
@@ -1345,11 +1349,11 @@ changeeval : function () {
 		description : "As an action, I can blow this horn to cast 1 of the following spells: Arms of Hadar, Fog Cloud, Gust of Wind, or Web (spell save DC 13). Each spell can be cast from it once per dawn.",
 		descriptionFull : "You can use an action to blow this horn to cast one of the following spells from it: Arms of Hadar, Fog Cloud, Gust of Wind, or Web. If the spell requires a saving throw, the spell save DC is 13.\n   Once the horn has been used to cast a spell, it can't be used to cast that spell again until the next dawn.",
 		spellcastingBonus : {
-			name : "Iggwilv's Horn",
+			name : "Once per dawn",
 			spells : ["arms of hadar", "fog cloud", "gust of wind", "web"],
 			selection : ["arms of hadar", "fog cloud", "gust of wind", "web"],
 			times : 4,
-			firstCol : "oncelr",
+			firstCol: spellOnceDay,
 		},
 		fixedDC : 13,
 		spellFirstColTitle : "Us"
@@ -1436,7 +1440,7 @@ changeeval : function () {
 			name : "Once per dawn",
 			spells : ["beacon of hope"],
 			selection : ["beacon of hope"],
-			firstCol : "oncelr"}],
+			firstCol: spellOnceDay}],
 		weaponOptions : {
 			baseWeapon : "warhammer",
 			regExpSearch : /^(?=.*oathbinder).*$/i,
@@ -1576,10 +1580,10 @@ changeeval : function () {
 		fixedDC : 14,
 		action : [["action", ""]],
 	spellcastingBonus : [{
-			name : "Once per long rest",
+			name : "Once per dawn",
 			spells : ["vicious mockery"],
 			selection : ["vicious mockery"],
-			firstCol : "oncelr"}],
+			firstCol: spellOnceDay}],
 	weaponOptions : {
 		baseWeapon : "longsword",
 		regExpSearch : /^(?=.*spare).*$/i,
@@ -1699,10 +1703,8 @@ changeeval : function () {
 		descriptionFull : "Zephyros, the perpetually-preoccupied cloud giant, has granted you a selection of his notes. The scribed words, rough sketches, and strange maps don't seem to make much sense at first glance, but if you spend one minute studying the pages, you gain advantage on your next Intelligence (History) or (Arcana) check. If you do not rest before using the notes again there is a 50% chance that you fall askeep for 1 minute instead."
 	},
 }
-})
 
-//Neat custom trinkets from AL modules. Most have no real mechanical effect, but are cool enough that people might want the full description anyway. 
-//I'm also addng in the trinkets from DDEP03 that are technically common items, but have similar level of effects.
+//Neat custom trinkets from AL modules. Most have no real mechanical effect, but are cool enough that people might want the full description anyway. I also included the trinkets from DDEP03 that are technically common items, but have similar level of effects.
 MagicItemsList["al trinkets"] = {
 		name : "AL Trinkets",
 		type : "Trinket",
@@ -2237,7 +2239,7 @@ MagicItemsList["elemental medium armor (al)"] = {
 			name: "spell effect",
 			spells: ["elementalism"],
 			selection: ["elementalism"],
-			firstCol : "oncelr",
+			firstCol: spellOnceDay,
 		}],
 		spellChanges : {
 			"elementalism" : {
@@ -2262,7 +2264,7 @@ MagicItemsList["elemental medium armor (al)"] = {
 			name: "spell effect",
 			spells: ["elementalism"],
 			selection: ["elementalism"],
-			firstCol : "oncelr",
+			firstCol: spellOnceDay,
 		}],
 		spellChanges : {
 			"elementalism" : {
@@ -2287,7 +2289,7 @@ MagicItemsList["elemental medium armor (al)"] = {
 			name: "spell effect",
 			spells: ["elementalism"],
 			selection: ["elementalism"],
-			firstCol : "oncelr",
+			firstCol: spellOnceDay,
 		}],
 		spellChanges : {
 			"elementalism" : {
@@ -2312,7 +2314,7 @@ MagicItemsList["elemental medium armor (al)"] = {
 			name: "spell effect",
 			spells: ["elementalism"],
 			selection: ["elementalism"],
-			firstCol : "oncelr",
+			firstCol: spellOnceDay,
 		}],
 		spellChanges : {
 			"elementalism" : {
@@ -2427,3 +2429,216 @@ MagicItemsList["living book (al)"] = {
 		}],
 	},
 }
+
+
+//Code for my personal choices in flavored season 9 items. Coded because I'm tired of retyping it, but excluded by default.
+if (!SourceList.ALPGs9) {
+	SourceList.ALPGs9 = { 
+	name : "AL Player's Guide v9.1: Inglorious Redemption",
+	abbreviation : "ALPGs9",
+	group : "Adventurers League",
+	url : "https://www.dropbox.com/s/8r1cwjrk6n2rzyo/AL-Players-Guide-v9.1-Forgotten-Realms.pdf?dl=1", // used to be https://www.dmsguild.com/product/208178
+	date : "2019/09/17",
+	defaultExcluded : true
+	};
+}
+
+MagicItemsList["al season 9 items"] = {
+		name : "AL Season 9 Items",
+		type : "wondrous item",
+		rarity : "common",
+		magicItemTable : "",
+		source : [["ALPGs9", 6]],
+		allowDuplicates : true,
+		defaultExcluded : true,
+		choices : ["Candle of the Deep (Wave)","Cloak of Many Fashions (Keleborn)","Clothes of Mending (Reginald)","Dread Helm (Ludwig)","Ear Horn of Hearing (Abbarrain)","Enduring Spellbook (Lucinda)","Horn of Silent Alarm (Tick Tick Boom)","Horn of Silent Alarm (Vynd)","Instrument of Illusions (Inferna)","Orb of Direction (Rouge)","Orb of Direction (Zapatra)","Orb of Time (Mari)","Pipe of Smoke Monsters (Red Harvest)","Pole of Angling (Dusk)","Pot of Awakening (Loraxa)","Rope of Mending (Fang)","Rope of Mending ('iimkania)","Staff of Adornment (Flash)","Staff of Flowers (Helga)","Tankard of Sobriety (Crow)","Tankard of Sobriety (Daar)","Wand of Conducting (Alex Mann)","Wand of Pyrotechnics (Boravik)","Wand of Smiles (Anipa)"],
+	"candle of the deep (wave)" : {
+		name : "Candle of the Deep (Wave)",
+		description : "The base of this candle is an expended soul coin. It burns even when immersed in water, giving off light and heat like a normal candle.",
+		descriptionFull : "An expended soul coin\n  The flame of this candle is not extinguished when immersed in water. It gives off light and heat like a normal candle."
+	},
+	"cloak of many fashions (keleborn)" : { 
+		name : "Cloak of Many Fashions (Keleborn)",
+		description : "The clasp of this cloak is pitted silver stamped with infernal runes. As a bonus action while worn, I can change its style, color, and apparent quality, but not it's weight. It can look like other magic cloaks but doesn't gain their properties.",
+		descriptionFull : "Pitted silver stamped with Infernal runes.\n   While wearing this cloak, you can take a Bonus Action to change the style, color, and apparent quality of the garment. The cloak's weight doesn't change. Regardless of its appearance, the cloak can't be anything but a cloak. Although it can duplicate the appearance of other magic cloaks, it doesn't gain their magical properties.",
+		action : [["bonus action", "Cloak of Many Fashions"]]
+	},
+	"clothes of mending (reginald)" : {
+		name : "Clothes of Mending (Reginald)",
+		source : [["AL","DRW"]],
+		rarity : "common",
+		description : "This elegant outfit magically mends itself to counteract daily wear and tear. Any destroyed pieces can't be repaired. While worn, whispered voices urge me to do evil.",
+		descriptionFull : "Whispered voices urging the wearer to do evil.\n   This elegant outfit magically mends itself to counteract daily wear and tear. Pieces of the outfit that are destroyed can't be repaired in this way.",
+		weight : 4
+	},
+	"dread helm (ludwig)" : {
+		name : "Dread Helm (Ludwig)",
+		description : "This fearsome steel helm has a blinking red cat's eye in the center of the forehead. While worn, my eyes glow red and my face is hidden in shadow.",
+		descriptionFull : "A blinking red eye\n   While you're wearing this fearsome steel helm, your eyes glow red and the rest of your face is hidden in shadow.",
+		},
+	"ear horn of hearing (abbarrain)" : {
+		name : "Ear Horn of Hearing (Abbarrain)",
+		description : "This ear horn is carved from the teeth of a large unknown creature and stamped with infernal runes. When held up to my ear, the horn suppresses the effects of the Deafened condition.",
+		descriptionFull : "Teeth from a large, unknown creature\n   While held up to your ear, this horn suppresses the effects of the Deafened condition on you.",
+		savetxt : { immune : ["deafened"] },
+		weight : 1
+	},
+	"enduring spellbook (lucinda)" : {
+		name : "Enduring Spellbook (Lucinda)",
+		description : "The cover of this spellbook is pitted silver stamped with infernal runes. The book and anything written on its pages can't be damaged by fire or water and doesn't deteriorate with age.",
+		descriptionFull : "Pitted silver stamped with Infernal runes.\n   This spellbook, along with anything written on its pages, can't be damaged by fire or water. In addition, the spellbook doesn't deteriorate with age.",
+		weight : 5
+	},
+	"horn of silent alarm (tick tick boom)" : {
+		name : "Horn of Silent Alarm (Tick Tick Boom)",
+		description : "This horn contains a tiny vial of demon ichor. It has 4 charges, 1d4 regained at dawn. As a Magic action, I can blow the horn and use 1 charge: 1 creature of my choice in 600 ft hears the sound unless Deafened.",
+		descriptionFull : "A tiny vial of demon ichor\n   This horn has 4 charges and regains 1d4 expended charges daily at dawn. As a Magic action, you can blow the horn while expending 1 charge. One creature of your choice hears the horn's blare, provided that creature is within 600 feet of the horn. No other creature hears the horn.",
+		weight : 2,
+		limfeaname : "Horn of Silent Alarm",
+		usages : 4,
+		recovery : "dawn",
+		additional : "regains 1d4",
+		action : [["action", ""]]
+		},
+	"horn of silent alarm (vynd)" : {
+		name : "Horn of Silent Alarm (Vynd)",
+		description : "This horn always smells faintly of sulphur. It has 4 charges, 1d4 regained at dawn. As a Magic action, I can blow the horn and use 1 charge: 1 creature of my choice in 600 ft hears the sound unless Deafened.",
+		descriptionFull : "The stench of sulfur\n   This horn has 4 charges and regains 1d4 expended charges daily at dawn. As a Magic action, you can blow the horn while expending 1 charge. One creature of your choice hears the horn's blare, provided that creature is within 600 feet of the horn. No other creature hears the horn.",
+		weight : 2,
+		limfeaname : "Horn of Silent Alarm",
+		usages : 4,
+		recovery : "dawn",
+		additional : "regains 1d4",
+		action : [["action", ""]]
+		},
+	"instrument of illusions (inferna)" : {   
+		name : "Instrument of Illusions (Inferna)",
+		description : "These bagpipes drip with barbed cold iron chains. When played, I can create harmless visual effects such as butterflies or falling snow in a 5-ft radius (15-ft for Bards). The magical effects have neither substance nor sound, and are obviously illusory. The effects end when I stop playing.",
+		descriptionFull : "Barbed, cold iron chains.\n   While you are playing this musical instrument, you can take a Magic action to create harmless, illusory visual effects within a 5-foot Emanation originating from the instrument. If you are a Bard, the size of the Emanation increases to 15 feet. Sample visual effects include luminous musical notes, a spectral dancer, Luna moths (instead of butterflies), and gently falling snow. The magical effects have neither substance nor sound, and they are obviously illusory. The effects end when you stop playing.",
+	},
+	"orb of direction (rouge)" : {
+		name : "Orb of Direction (Rouge)",
+		description : "This orb contains the terms of a now-void infernal contract and can be used as an Arcane Focus. As a Magic action while held, I can determine which way is magnetic north, if it exists.",
+		descriptionFull : "The terms of a now-void infernal contract.\n   This orb can be used as an Arcane Focus. As a Magic Action while holding this orb, I can determine which way is magnetic north. Nothing happens if the orb is used in a location that has no magnetic north.",
+		weight : 3,
+		action : [["action", "Orb of Direction"]]
+		},
+	"orb of direction (zapatra)" : {
+		name : "Orb of Direction (Zapatra)",
+		description : "This orb is ringed by teeth from a large unknown creature and can be used as an Arcane Focus. As a Magic action while held, I can determine which way is magnetic north, if it exists.",
+		descriptionFull : "Teeth from a large, unknown creature\n   This orb can be used as an Arcane Focus. As a Magic Action while holding this orb, I can determine which way is magnetic north. Nothing happens if the orb is used in a location that has no magnetic north.",
+		weight : 3,
+		action : [["action", "Orb of Direction"]]
+		},
+	"orb of time (dain)" : {
+		name : "Orb of Time (Dain)",
+		description : "This orb is surrounded by a nimbus of harmless flames and can be used as an Arcane Focus. When held on the Material Plane, I can determine whether it's morning, afternoon, evening, or night as a Magic action.",
+		descriptionFull : "A nimbus of harmless flames\n   This orb can be used as an Arcane Focus.\n   While holding the orb, you can take a Magic action to determine whether it is morning, afternoon, evening, or nighttime. This property functions only on the Material Plane.",
+		weight : 3,
+		action : [["action", "Orb of Time"]]
+		},
+	"orb of time (mari)" : {
+		name : "Orb of Time (Mari)",
+		description : "This blood-red crystal orb can be used as an Arcane Focus. When held on the Material Plane, I can determine whether it's morning, afternoon, evening, or night as a Magic action.",
+		descriptionFull : "Blood-red crystals\n   This orb can be used as an Arcane Focus.\n   While holding the orb, you can take a Magic action to determine whether it is morning, afternoon, evening, or nighttime. This property functions only on the Material Plane.",
+		weight : 3,
+		action : [["action", "Orb of Time"]]
+		},
+	"pipe of smoke monsters (red harvest)" : {
+		name : "Pipe of Smoke Monsters (Red Harvest)",
+		description : "This pipe is covered in flecks of blood that never wash off. While smoking it, Magic action to exhale a puff of smoke that takes the form of a creature, like a dragon or flumph. It must fit in a 1-ft cube & loses its shape after a few seconds, becoming an ordinary puff of smoke.",
+		descriptionFull : "Flecks of blood that never wash off\n   While smoking this pipe, you can take a Magic action to exhale a puff of smoke that takes the form of a creature, such as a dragon, a flumph, or a slaad. The form must be small enough to fit in a 1-foot cube and loses its shape after a few seconds, becoming an ordinary puff of smoke.",
+		action : [["action", "Pipe of Smoke Monsters"]]
+	},
+	"pole of angling (dusk)" : {
+		name : "Pole of Angling (Dusk)",
+		description : "This 10-ft Pole is wrapped in barbed cold iron chains. While held, I can use a Magic action to turn it into a fishing rod with a hook, line and reel. Repeating the action reverts it to a normal Pole.",
+		descriptionFull : "Barbed, cold iron chains.\n   This item functions as a Pole. While holding it, you can take a Magic action to cause it to transform into a fishing pole with a hook, a line, and a reel, or have the fishing pole revert to a Pole.\n   A Pole is 10 feet long. You can use it to touch something up to 10 feet away. If you must make a Strength (Athletics) check as part of a High or Long Jump, you can use the Pole to vault, giving yourself Advantage on the check.",
+		weight : 7
+	},	
+	"pot of awakening (loraxa)" : {
+		name : "Pot of Awakening (Loraxa)",
+		description : "If I plant a shrub in this clay pot and let it grow for 30 days, it breaks the pot and turns into a Friendly Awakened Shrub that obeys my commands. Without orders from me, it does nothing. This shrub is a bonsai tree covered in chitinous spikes.",
+		descriptionFull : "Chitinous spikes\n   If you plant an ordinary shrub in this 10-pound clay pot and let it grow for 30 days, the shrub magically transforms into an Awakened Shrub at the end of that time. When the shrub awakens, its roots break the pot, destroying it.\n   The awakened shrub is Friendly toward you and obeys your commands. Absent commands from you, it does nothing.",
+		weight : 10
+	},
+	"rope of mending (fang)" : {
+		name : "Rope of Mending (Fang)",
+		description : "Whispered voices from this 50-ft rope urge me to do evil. If the rope is cut into pieces, I can use a Magic action to knit them back together. The pieces must be in contact with each other and not in use. If a section is lost, the rope is forever shortened.",
+		descriptionFull : "Whispered voices urging the wearer to do evil.\n   This 50-foot coil of rope can repair itself when cut into any number of smaller pieces. As a Magic action, you can cause all pieces of the rope that are in contact with each other and not otherwise in use to knit back together. A Rope of Mending is forever shortened if a section of it is lost or destroyed.",
+		action : [["action", "Rope of Mending (repair)"]],
+		weight : 10,
+	},
+	"rope of mending ('iimkania)" : {
+		name : "Rope of Mending ('iimkania)",
+		description : "This 50-ft rope gives off wisps of harmless acidic steam. If it's cut into pieces, I can use a Magic action to knit them back together. The pieces must be in contact with each other and not in use. If a section is lost, the rope is forever shortened.",
+		descriptionFull : "Wisps of acidic (but harmless) steam\n   This 50-foot coil of rope can repair itself when cut into any number of smaller pieces. As a Magic action, you can cause all pieces of the rope that are in contact with each other and not otherwise in use to knit back together. A Rope of Mending is forever shortened if a section of it is lost or destroyed.",
+		action : [["action", "Rope of Mending (repair)"]],
+		weight : 10,
+	},
+	"staff of adornment (flash)" : {
+		name : "Staff of Adornment (Flash)",
+		type: "Weapon (staff)",
+		description : "Wisps of harmless acidic steam constantly rise from this wooden staff. If I put an object up to 1 pound above the tip, it floats 1 inch from the staff & remains there until removed or out of my possession. The staff can have 3 objects floating at a time. I can make 1 or more of them turn in place.",
+		descriptionFull : "Wisps of acidic (but harmless) steam.\n   If you place a Tiny object weighing no more than 1 pound (such as a shard of crystal, an egg, or a stone) above the tip of this staff while holding it, the object floats an inch from the staff's tip and remains there until it is removed or until the staff is no longer in your possession. The staff can have up to three such objects floating over its tip at any given time. While holding the staff, you can make one or more of the objects slowly spin or turn in place.",
+		weight : 4
+	},
+	"staff of flowers (helga)" : {
+		name : "Staff of Flowers (Helga)",
+		type: "Weapon (staff)",
+		description : "This staff is made from black wood that oozes red sap. It has 10 charges, 1d6+4 regained at dawn; 5% chance turns into petals if last charge used. As Magic action, 1 charge makes a flower sprout from staff or soil in 5 ft. It's nonmagical & grows or withers normally.",
+		descriptionFull : "Black wood that oozes red sap\n   This wooden staff has 10 charges. While holding it, you can take a Magic action to expend 1 charge from the staff and cause a flower to sprout from a patch of earth or soil within 5 feet of yourself, or from the staff itself. Unless you choose a specific kind of flower, the staff creates a mild-scented daisy. The flower is harmless and nonmagical, and it grows or withers as a normal flower would." + toUni("Regaining Charges") + "The staff regains 1d6 + 4 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff turns into flower petals and is lost forever.",
+		weight : 4,
+		limfeaname : "Staff of Flowers",
+		usages : 10,
+		recovery : "dawn",
+		additional : "regains 1d6+4",
+		action : [["action", ""]]
+	},
+	"tankard of sobriety (crow)" : {
+		name : "Tankard of Sobriety (Crow)",
+		description : "This tankard is made of geometric pieces of green steel with a stern face on one side. I can drink alcoholic beverages from it without getting drunk. The tankard has no effect on magical liquids or harmful substances like poison.",
+		descriptionFull : "Geometric pieces of green steel\n   This tankard has a stern face sculpted into one side. You can drink ale, wine, or any other nonmagical alcoholic beverage poured into it without becoming inebriated. The tankard has no effect on magical liquids or harmful substances such as poison.",
+		weight : 1
+	},
+	"tankard of sobriety (daar)" : {
+		name : "Tankard of Sobriety (Daar)",
+		description : "One side of this tankard bears a stern face and the bottom holds a mirror that occasionally reflects a devil's eye. I can drink alcoholic beverages from it without getting drunk. The tankard has no effect on magical liquids or harmful substances like poison.",
+		descriptionFull : "A mirror that occasionally reflects a devil’s eye\n   This tankard has a stern face sculpted into one side. You can drink ale, wine, or any other nonmagical alcoholic beverage poured into it without becoming inebriated. The tankard has no effect on magical liquids or harmful substances such as poison.",
+		weight : 1
+	},
+	"wand of conducting (alex mann)" : {
+		name : "Wand of Conducting (Alex Mann)",
+		description : "This wand is made of strange green glass. It has 3 charges, regained at dawn. As Magic action, I can wave the wand and use 1 charge to create orchestral music that's audible to 120 ft and ends when I stop. If I use the last charge, roll a d20. On a 1, a sad tuba sound plays as the wand crumbles to dust.",
+		descriptionFull : "Green glass.\n   This wand has 3 charges. While holding it, you can take a Magic action to expend 1 charge and create orchestral music by waving it around. The music can be heard out to a range of 120 feet and ends when you stop waving the wand.\n   " + toUni("Regaining Charges") + ". The wand regains all expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, a sad tuba sound plays as the wand crumbles to dust and is destroyed.",
+		weight : 1,
+		limfeaname : "Wand of Conducting",
+		action : [["action", ""]],
+		usages : 3,
+		recovery : "dawn"
+	},
+	"wand of pyrotechnics (boravik)" : {
+		name : "Wand of Pyrotechnics (Boravik)",
+		description : "This wand is made of strange green glass. It has 7 charges, regains 1d6+1 at dawn; 5% chance destroyed if last charge used. As a Magic action, use 1 charge to make a harmless burst of sound and light at a visible point up to 120 ft away, heard to 300 ft. The light is as bright as a torch and lasts 1 second.",
+		descriptionFull : "The item is made of strange green glass.\n   This wand has 7 charges. While holding it, you can take a Magic action to expend 1 charge and create a harmless burst of multicolored light at a point you can see up to 120 feet away. The burst of light is accompanied by a crackling noise that can be heard up to 300 feet away. The light is as bright as a torch flame but lasts only a second.\n   " + toUni("Regaining Charges") + ". The wand regains 1d6 + 1 expended charges daily at dawn. If you expend the wand's last charge, roll 1d20. On a 1, the wand erupts in a harmless pyrotechnic display and is destroyed.",
+		weight : 1,
+		limfeaname : "Wand of Pyrotechnics",
+		action : [["action", ""]],
+		usages : 7,
+		recovery : "dawn",
+		additional : "regains 1d6+1"
+	},
+	"wand of smiles (anipa)" : {
+		name : "Wand of Smiles (Anipa)",
+		description : "This wand is surrounded with a nimbus of harmless flames. It has 3 charges, regained at dawn. As an action, spend 1 charge and target a visible humanoid in 30 ft. The target must pass a DC 10 Charisma save or smile for 1 min. If I use the last charge, roll a d20. On a 1, it turns into a Wand of Scowls.",
+		descriptionFull : "A nimbus of harmless flames.\n  This wand has 3 charges. While holding it, you can use an action to expend 1 of its charges and target a humanoid you can see within 30 feet of you. The target must succeed on a DC 10 Charisma saving throw or be forced to smile for 1 minute.\n   The wand regains all expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand transforms into a wand of scowls.",
+		weight : 1,
+		limfeaname : "Wand of Smiles",
+		action : [["action", ""]],
+		usages : 3,
+		recovery : "dawn"
+	},
+};	
+		
+		
+})

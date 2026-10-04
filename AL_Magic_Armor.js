@@ -15,7 +15,12 @@ This is not a complete list since I do not have every published adventure, but i
 	//In progress: SJ-DCs, POs, RV-DC, FR-DC, PS-DC, WBW-DC
 
 var iFileName = "AL Flavored Magic Armor.js";
-RequiredSheetVersion("13.2.3", 15);
+RequiredSheetVersion("13.2.3", 25);
+
+//Variable to switch between LR and 1/Day for item spells depending on sheet version
+var spellOnceDayMinVersion = semVersToNmbr(tDoc.use2024Rules ? "24.1.0" : "14.1.0");
+var spellOnceDay = (!tDoc.sheetVersion || tDoc.sheetVersion < spellOnceDayMinVersion) ? "oncelr" : "onceday";
+
 
 // Define the source
 SourceList["AL"] = {
@@ -65,6 +70,7 @@ if (!SourceList.WDotMM) {
 var genericGuardianArmor = {
 		addMod : { type : "skill", field : "Init", mod : 2, text : "+2 bonus on initiative rolls." },
  }
+
 
 RunFunctionAtEnd(function () {   //this code should make it so the AL variations of items don't appear as an option for artificers to create
 
@@ -856,7 +862,7 @@ MagicItemsList["al armor (common)"] = {
 		choicesNotInMenu : true,
 		rarity : "common",
 		magicItemTable : "?",
-	choices : ["Breastplate of Gleaming (PS-DC-BINGO-3)","Breastplate of Gleaming: Heth's Dragon Scale Cuirass (PS-DC-HRS-0)","Breastplate of Gleaming: Froghemoth Hide (PS-DC-TT-202)","Spiked Armor of Gleaming: Axehead's Coat of Beaks (CCC-MTL-3)","Half Plate of Gleaming (PS-DC-ELEMENT-DEATH-1)","Half Plate of Gleaming: Plasma Armor (PS-DC-FOT-1)","Half Plate of Gleaming (PS-DC-NOS-4)","Half Plate of Gleaming: Misty's Jacket (PS-DC-PKL-14)","Half Plate of Gleaming (SJ-DC-TKM-WGS)","Plate of Gleaming (SJ-DC-DWR-0-2)","Cast-Off Studded Leather (FR-DC-Saerloon-5)","Cast-Off Breastplate (DC-POA-CONMAR-6)","Cast-Off Breastplate: Ooze (DC-POA-GaryXIII-4)","Cast-Off Breastplate (DC-POA-HAG-SF4)","Cast-Off Breastplate: Gilded Jeer (FR-DC-AKU-1)","Cast-Off Breastplate: Cast-Iron (FR-DC-SCROG-LGD-1)","Cast-Off Chain Mail: Scavenger's Shroud (CCC-DES-4-1)","Cast-Off Half Plate: Burlwood (FR-DC-UCON25-1)","Cast-Off Plate (BMG-DRW-OD-5)","Cast-Off Plate: Sorcerous Paladin of Love and Justice Costume (FR-DC-RPSG-10)","Cast-Off Plate (FR-DC-SCROG-GHH)","Cast-Off Plate: Bluesteel (FR-DC-THAY-4)","Cast-Off Plate: Hyperion's Shell (SJ-DC-PHP-FLN3-EOS)","Shield of Expression (DC-POA-CONMAR-15)","Shield of Expression (DC-POA-SNIPE-1)","Shield of Expression: Do'Urden (FR-DC-SCROG-2)","Shield of Expression (WBW-DC-CONMAR-10)","Shield of Expression (WBW-DC-DCS-1)","Smoldering Armor: Flurried Furs (DDAL0-4)","Smoldering Studded Leather (DC-POA-CODEX-2)","Smoldering Studded Leather (DC-POA-CONMAR-8)","Smoldering Studded Leather (DC-POA-GSP2-2H)","Smoldering Studded Leather: Smokin' Hot Leather (DC-POA-LEGIT-SV-02)","Smoldering Studded Leather (DC-POA-OGG-1)","Smoldering Studded Leather: Armor of the Dark Knight (DC-POA-TDG1-4)","Smoldering Studded Leather (DDAL10-0)","Smoldering Scale Mail: Stygian Armor (CCC-GSP2-2)","Smoldering Breastplate: Jökulsbrynja (DC-POA-CONMAR-3)","Smoldering Breastplate: Wintergreen Guard (DC-POA-LEGIT-SV-01)","Smoldering Plate (FR-DC-ULCASTER-1)"],
+	choices : ["Breastplate of Gleaming (PS-DC-BINGO-3)","Breastplate of Gleaming: Heth's Dragon Scale Cuirass (PS-DC-HRS-0)","Breastplate of Gleaming: Froghemoth Hide (PS-DC-TT-202)","Spiked Armor of Gleaming: Axehead's Coat of Beaks (CCC-MTL-3)","Half Plate of Gleaming (PS-DC-ELEMENT-DEATH-1)","Half Plate of Gleaming: Plasma Armor (PS-DC-FOT-1)","Half Plate of Gleaming (PS-DC-NOS-4)","Half Plate of Gleaming: Misty's Jacket (PS-DC-PKL-14)","Half Plate of Gleaming (SJ-DC-TKM-WGS)","Plate of Gleaming (FR-DC-TSOS-FC-1)","Plate of Gleaming (SJ-DC-DWR-0-2)","Cast-Off Studded Leather (FR-DC-Saerloon-5)","Cast-Off Breastplate (DC-POA-CONMAR-6)","Cast-Off Breastplate: Ooze (DC-POA-GaryXIII-4)","Cast-Off Breastplate (DC-POA-HAG-SF4)","Cast-Off Breastplate: Gilded Jeer (FR-DC-AKU-1)","Cast-Off Breastplate: Cast-Iron (FR-DC-SCROG-LGD-1)","Cast-Off Chain Mail: Scavenger's Shroud (CCC-DES-4-1)","Cast-Off Half Plate: Burlwood (FR-DC-UCON25-1)","Cast-Off Plate (BMG-DRW-OD-5)","Cast-Off Plate: Sorcerous Paladin of Love and Justice Costume (FR-DC-RPSG-10)","Cast-Off Plate (FR-DC-SCROG-GHH)","Cast-Off Plate: Bluesteel (FR-DC-THAY-4)","Cast-Off Plate: Hyperion's Shell (SJ-DC-PHP-FLN3-EOS)","Shield of Expression (DC-POA-CONMAR-15)","Shield of Expression (DC-POA-SNIPE-1)","Shield of Expression: Do'Urden (FR-DC-SCROG-2)","Shield of Expression (WBW-DC-CONMAR-10)","Shield of Expression (WBW-DC-DCS-1)","Smoldering Armor: Flurried Furs (DDAL0-4)","Smoldering Studded Leather (DC-POA-CODEX-2)","Smoldering Studded Leather (DC-POA-CONMAR-8)","Smoldering Studded Leather (DC-POA-GSP2-2H)","Smoldering Studded Leather: Smokin' Hot Leather (DC-POA-LEGIT-SV-02)","Smoldering Studded Leather (DC-POA-OGG-1)","Smoldering Studded Leather: Armor of the Dark Knight (DC-POA-TDG1-4)","Smoldering Studded Leather (DDAL10-0)","Smoldering Scale Mail: Stygian Armor (CCC-GSP2-2)","Smoldering Breastplate: Jökulsbrynja (DC-POA-CONMAR-3)","Smoldering Breastplate: Wintergreen Guard (DC-POA-LEGIT-SV-01)","Smoldering Plate (FR-DC-ULCASTER-1)"],
 	"breastplate of gleaming (ps-dc-bingo-3)" : {
 		name : "Breastplate of Gleaming (PS-DC-BINGO-3)",
 		source : [["AL", "PS-DC"]],
@@ -940,6 +946,15 @@ MagicItemsList["al armor (common)"] = {
 		description : "This half-plate armor is made of hard wood that appears to be coiling around itself like a Balete tree. The armor never gets dirty.",
 		descriptionFull : "This half-plate is made of hard wood and looks like the wood are coiling around one another like a Balete tree. (Strange Material)\n   This armor never gets dirty.",
 		armorAdd : { select : "Half Plate of Gleaming", options : ["Half Plate of Gleaming"] },
+	},
+	"plate of gleaming (fr-dc-tsos-fc-1)" : {
+		name : "Plate of Gleaming (TSOS-FC-1)",
+		source : [["AL", "FR-DC"]],
+		type : "armor (medium)",
+		description : "This plate armor never gets dirty and glows a bright golden hue akin to the rays of the sun. When worn in daylight, I appear as if I'm blessed with divinity. As a bonus action, it sheds bright light in a 10-ft radius & 10-ft more dim, or stops.",
+		descriptionFull : "The plate on this armor glows a bright golden hue akin to the rays of the sun. When worn in daylight, the wearer appears as if they are blessed with divinity.\n   " + toUni("Beacon") + ". You can take a Bonus Action to cause the item to shed Bright Light in a 10-foot radius and Dim Light for an additional 10 feet, or to extinguish the light.\n   This armor never gets dirty.",
+		armorAdd : { select : "Plate of Gleaming", options : ["Plate of Gleaming"] },
+		action : [["bonus action", "Plate of Gleaming (light/dim)"]],
 	},
 	"plate of gleaming (sj-dc-dwr-0-2)" : {
 		name : "Plate of Gleaming (SJ-DC-DWR-0-2)",
@@ -1249,7 +1264,7 @@ MagicItemsList["al armor (other)"] = {
 			name : "Once per dawn",
 			spells : ["antimagic field"],
 			selection : ["antimagic field"],
-			firstCol : "oncelr"
+			firstCol: spellOnceDay,
 		}],
 		extraLimitedFeatures : [{
 			name : "Adv. save vs. spell (Antimagic Armor)",
@@ -2208,10 +2223,10 @@ MagicItemsList["al armor (other)"] = {
 			}
 		},
 		spellcastingBonus : {
-			name : "once per dawn",
+			name : "Once per dawn",
 			spells : ["etherealness"],
 			selection : ["etherealness"],
-			firstCol : "oncelr"
+			firstCol: spellOnceDay,
 		},
 		spellChanges : {
 			"etherealness" : {

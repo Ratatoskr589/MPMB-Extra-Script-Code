@@ -14,36 +14,12 @@ Effect: This file adds new creatures that are specially made for AL into the she
 //WIP: Fai Chen's/Certs, CCCs, DC-POA, DRW
 
 var iFileName = "AL Creatures.js";
-RequiredSheetVersion("13.1.0", 25);
+RequiredSheetVersion("13.1.0");
 
 //As far as I'm aware, the only thing that doesn't currently function in older versions of the sheet is the companions that can be summoned by both Find Steed and Find Greater Steed. They won't appear under the Companion Option selections, though you can choose them and then adjust to a steed manually.
 
 
 // Define the source
-SourceList["GoS"] = {
-	name : "Ghosts of Saltmarsh [backgrounds, beasts, items]",
-	abbreviation : "GoS",
-	group : "Adventure Books",
-	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/ghosts-saltmarsh",
-	date : "2019/05/21"
-};
-
-SourceList["AL"] = {
-	name : "AL Modules",
-	abbreviation : "AL",
-	group : "Adventurers League",
-	url : "https://www.dmsguild.com/browse.php?filters=45470_0_0_0_0_0_0_0&src=fid45470",
-	date : "Various",
-};
-
-SourceList["DDCE"] = { //Only creatures from this category count as Event Awards under the new rules
-    name : "D&D Celebration",
-    abbreviation : "DDCE",
-    group : "Adventurers League",
-    date : "2020/09/19",
-	defaultExcluded : true
-};
-
 SourceList["AL:FC"] = {   //Fai Chen 
     name : "Fai Chen Certs",
     abbreviation : "AL:FC",
@@ -68,6 +44,29 @@ SourceList["AL:R"] = {  //Ravenloft Alternate Campaign
 	date : "Various",
 	defaultExcluded : true
 };
+ 
+SourceList["DDCE"] = { //Only creatures from this category count as Event Awards under the new rules
+    name : "D&D Celebration",
+    abbreviation : "DDCE",
+    group : "Adventurers League",
+    date : "2020/09/19"
+};
+
+SourceList["GoS"] = {
+	name : "Ghosts of Saltmarsh [backgrounds, beasts, items]",
+	abbreviation : "GoS",
+	group : "Adventure Books",
+	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/ghosts-saltmarsh",
+	date : "2019/05/21"
+};
+
+SourceList["AL"] = {
+	name : "AL Modules",
+	abbreviation : "AL",
+	group : "Adventurers League",
+	url : "https://www.dmsguild.com/browse.php?filters=45470_0_0_0_0_0_0_0&src=fid45470",
+	date : "Various",
+};
 
 SourceList["AL:LN"] = {  //Liar's Night and Wandering Monsters
     name : "AL Holiday Events - Liar's Night",
@@ -81,8 +80,7 @@ SourceList["AL:FM"] = {  //Feast of the Moon events
     name : "AL Holiday Events - Feast of the Moon",
     abbreviation : "AL:FM",
     group : "Adventurers League",
-    date : "Various",
-	defaultExcluded : true
+    date : "Various"
 };
 
 SourceList["ALDMs9"] = {  //Season 9 DM Rewards (Several of these are from BG:DiA, but cannot normally be used by players)
@@ -108,22 +106,6 @@ SourceList.FToD = {
 	group : "Primary Sources",
 	url : "https://dnd.wizards.com/products/treasury-dragons",
 	date : "2021/10/19"
-};
-
-SourceList["BoJR"] = {
-	name : "Beasts of Jungle Rot [dinosaurs]",
-	abbreviation : "BoJR",
-	group : "Adventure Books",
-	url : "https://www.dmsguild.com/product/220567/Beasts-of-the-Jungle-Rot",
-	date : "2017/09/01",
-};
-
-SourceList["AL:SR"] = {  //AL Service Rewards. Started in 2021 but have multiple sets each year.
-    name : "AL Service Rewards",
-    abbreviation : "AL:SR",
-    group : "Adventurers League",
-    date : "2021/11/02",
-	defaultExcluded : true
 };
 
 
@@ -171,12 +153,12 @@ CreatureList["sea lion"] = {
 	}, {
 		name : "Multiattack",
 		description : "The sea lion makes three attacks: one with its bite and two with its claws."
-	}],
+	}]
 }
 
 //Here because I'm tired of manually looking up the stats for my Horns of Valhalla
-CreatureList["berserker (valhalla)"] = {
-	name : "Berserker (Valhalla)",
+CreatureList["berserker"] = {
+	name : "Berserker",
 	header : "Summon",
 	source : [["SRD",392], ["M", 344], ["AL","Item"]],
 	size : 3, //medium
@@ -189,7 +171,6 @@ CreatureList["berserker (valhalla)"] = {
 	speed : "30 ft",
 	scores : [16, 12, 17, 9, 22, 9],
 	senses : "",
-	condition_immunities : "charmed, frightened",
 	passivePerception : 10,
 	languages : "Any one language (usually Common)",
 	challengeRating : "2",
@@ -204,14 +185,11 @@ CreatureList["berserker (valhalla)"] = {
 	}],
 	traits : [{
 		name : "Reckless",
-		description : "At the start of its turn, the Berserker can gain advantage on all melee weapon attack rolls during that turn, but attack rolls against it have advantage until the start of its next turn."
-		}],
+		description : "At the start of its turn, the berserker can gain advantage on all melee weapon attack rolls during that turn, but attack rolls against it have advantage until the start of its next turn."
+			}],
 	features : [{
 		name : "Summoned Spirits",
-		description : "These warrior spirits were summoned from Ysgard. They are Friendly to you and your allies and follow your commands. They return to Ysgard after 1 hour or when they drop to 0 Hit Points."
-		}, {
-		name : "Immunities",
-		description : "The spirits look like living breathing warriors, and they have Immunity to the Charmed and Frightened conditions."
+		description : "These warrior spirits were summoned from Ysgard. They are friendly to you and your companions and follow your commands. They return to Ysgard after 1 hour or when they drop to 0 hit points."
 		}],
 }
 
@@ -224,22 +202,21 @@ CreatureList["arctic stink squirrel"] = {
 	name : "Arctic Stink Squirrel (Event Award)",
 	source : ["DDCE"],
 	size : 5, //Tiny
-	type : "Fey",
+	type : "Beast",
 	subtype : "",
 	companion : "familiar",
 	alignment : "Unaligned",
 	ac : 13,
 	hp : 1,
 	hd : [1, 4],
-	speed : "30 ft, Climb 30 ft",
+	speed : "30 ft",
 	scores : [3, 16, 8, 2, 12, 3],
 	saves : ["", "", "", "", "", ""],
 	skills : {
 		"perception" : 3,
-		"stealth" : 5,
-		"acrobatics" : 5
+		"stealth" : 5
 		},
-	senses : "Darkvision 60 ft",
+	senses : "Adv. on Wis (Perception) checks using hearing/smell",
 	passivePerception : 13,
 	languages : "",
 	challengeRating : "0",
@@ -255,7 +232,7 @@ CreatureList["arctic stink squirrel"] = {
 		}],
 	traits : [{
 		name : "Description",
-		description : "This cuddly little brute makes a playful (if alarming) companion. It can be summoned using Find Familiar."
+		description : "This cuddly little brute makes a playful (if alarming) companion. It can be summoned using find familiar."
 		}, {
 		name : "Keen Hearing and Smell",
 		description : "The arctic stink squirrel has advantage on Wisdom (Perception) checks that rely on hearing or smell."
@@ -368,21 +345,21 @@ CreatureList["snowy owlbear cub"] = {
 	ac : 12,
 	hp : 2,
 	hd : [1, 4],
-	speed : "40 ft, climb 40 ft",
+	speed : "40 ft, climb 30 ft",
 	scores : [3, 15, 10, 3, 12, 7],
-	saves : ["", 4, "", "", "", ""],
+	saves : ["", "", "", "", "", ""],
 	skills : {
 		"perception" : 3,
 		"stealth" : 4
 		},
-	senses : "Darkvision 60 ft",
+	senses : "Adv. on Wis (Perception) checks using smell",
 	passivePerception : 13,
 	languages : "",
 	challengeRating : "0",
 	proficiencyBonus : 2,
 	attacksAction : 1,
 	attacks : [{
-		name : "Scratch",
+		name : "Claws",
 		ability : 2,
 		damage : [1, "", "slashing"],
 		range : "Melee (5 ft)",
@@ -392,11 +369,10 @@ CreatureList["snowy owlbear cub"] = {
 	traits : [{
 		name : "Description",
 		description : "The cub of this rare breed of tiny owlbear forms a loving bond with a single adventurer. You can summon the owlbear cub using find familiar."
-		}],
-	features : [{
-		name : "Jumper",
-		description : "The cub's jump distance is determined using its Dexterity rather than its Strength.",
-	}],
+		}, {
+		name : "Keen Smell",
+		description : "The snowy owlbear cub has advantage on Wisdom (Perception) checks that rely on smell."
+		}]
 };
 
 
@@ -443,7 +419,7 @@ CreatureList["yeti tyke"] = {
 
 
 //Creatures from Fai Chen Certs
-CreatureList["euphio the watch hound"] = {//Based on the Mastiff statblock
+CreatureList["euphio the watch hound"] = {
 		name : "Euphio the Watch Hound",
 		nameAlt : ["Watch Hound"],
 		source : ["AL:FC",2018],
@@ -454,19 +430,19 @@ removeeval : function(prefix) {
   Value(prefix + "Comp.Desc.Name", "");
 },
 		size : 3, //Medium
-		type : "Fey",
+		type : "Beast",
 		companion : "familiar",
 		alignment : "Unaligned",
-		ac : 12,
+		ac : 13,
 		hp : 5,
 		hd : [1, 8],
 		speed : "40 ft",
 		scores : [13, 14, 12, 3, 12, 7],
 		skills : {
-			"perception" : 5
+			"perception" : 3
 		},
-		senses : "Darkvision 60 ft",
-		passivePerception : 15,
+		senses : "Adv. on Wis (Perception) checks using hearing/smell",
+		passivePerception : 13,
 		challengeRating : "1/8",
 		proficiencyBonus : 2,
 		attacksAction : 1,
@@ -475,7 +451,11 @@ removeeval : function(prefix) {
 			ability : 1,
 			damage : [1, 6, "piercing"],
 			range : "Melee (5 ft)",
-			description : "Large or smaller target knocked Prone"
+			description : "Target must succeed on a DC 11 Strength saving throw or be knocked prone"
+		}],
+		features : [{
+			name : "Keen Hearing and Smell",
+			description : "The mastiff has advantage on Wisdom (Perception) checks that rely on hearing or smell."
 		}],
 		traits : [{
 			name : "Description",
@@ -549,14 +529,14 @@ CreatureList["mini arctic goat"] = {
 			ability : 1,
 			damage : [1, 4, "bludgeoning"],
 			range : "Melee (5 ft)",
-			description : "If used after moving 20 ft straight before a hit, see Charge trait"
+			description : "If used after moving 20 ft straight in the same round, see Charge trait"
 		}],
 		traits : [{
 			name : "Description",
 			description : "This rare breed of arctic goat roams the mountains near Icewind Dale and makes an adorable animal companion or familiar."
 		}, {
 			name : "Charge",
-			description : "If the goat hits with a ram attack after moving at least 20 ft straight toward a target on the same turn, the target takes an extra 2 (1d4) Bludgeoning damage."
+			description : "If the goat hits with a ram attack after moving at least 20 ft straight toward a target on the same turn, the target takes an extra 1d4 bludgeoning damage. If the target is a creature, it must succeed on a DC 10 Strength saving throw or be knocked prone."
 		}, {
 			name : "Sure-Footed",
 			description : "The goat has advantage on Strength and Dexterity saving throws made against effects that would knock it prone."
@@ -569,7 +549,7 @@ CreatureList["mini displacer beast"] = {
 		name : "Mini Displacer Beast",
 		source : ["AL:FC",2020],
 		size : 3, //Medium
-		type : "Monstrosity",
+		type : "Beast",
 		alignment : "Unaligned",
 		ac : 12,
 		hp : 13,
@@ -580,31 +560,33 @@ CreatureList["mini displacer beast"] = {
 			"perception" : 4,
 			"stealth" : 6
 		},
-		senses : "Darkvision 60 ft",
+		senses : "Adv. on Wis (Perception) checks using smell",
 		passivePerception : 14,
 		challengeRating : "1/4",
 		proficiencyBonus : 2,
 		attacksAction : 1,
 		attacks : [{
-			name : "Pounce",
+			name : "Claw",
 			ability : 1,
-			damage : [1, 4, "Slashing"],
-			range : "Melee (5 ft.)",
-			description : "Can make 1 Pounce attack and use Prowl. 7 (2d4 +2) Slashing damage if it had Advantage on the attack.",
-		}],
-		actions : [{
-			name : "Multiattack",
-			description : "The mini displacer beast makes one Pounce attack and uses Prowl.",
+			damage : [1, 4, "slashing"],
+			range : "Melee (5 ft)",
+			description : "If used after moving 20 ft straight in the same round, see Pounce trait"
 		}, {
-			name : "Prowl",
-			description : "The mini displacer beast moves up to half its Speed without provoking Opportunity Attacks. At the end of this movement, it can take the Hide action.",
+			name : "Bite",
+			ability : 1,
+			damage : [1, 6, "piercing"],
+			range : "Melee (5 ft)",
+			description : "Can be used in combination with claw while pouncing (see Pounce trait)"
 		}],
 		traits : [{
 			name : "Description",
 			description : "The result of magical experimentation, this cute critter makes a great animal companion."
 		}, {
+			name : "Keen Smell",
+			description : "The mini displacer beast has advantage on Wisdom (Perception) checks that rely on smell."
+		}, {
 			name : "Pounce",
-			description : "If the mini displacer beast has advantage on the attack roll, the target takes an extra 7 (2d4+2) Slashing damage."
+			description : "If the mini displacer beast moves at least 20 ft straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 12 Strength saving throw or be knocked prone. If the target is prone, the mini displacer beast can make one bite attack against it as a bonus action."
 		}, {
 			name : "Innate Spellcasting (1/day)",
 			description : "The mini displacer beast can cast Blur once per day."
@@ -641,21 +623,21 @@ CreatureList["black pudding cup"] = {
 			description : ""
 		}],
 		traits : [{
-			name : "Corrosive Form",
-			description : "The pudding can eat through ½ inch of wood in 1 round. A creature that touches the pudding cup or hits it with a melee attack while in 5 ft takes 1 (1d4-1) acid damage."
-			}, {
-			name : "Resummon",
-			description : "The creature can be returned via Find Familiar if killed. If its cup was also destroyed, a new cup needs to be purchased (1gp).",
-			}, {
-			name : "Description",
-			description : "This sturdy ceramic cup holds a tiny black jelly-like substance. While in the cup, it has AC 9. [Trading Post v13.1 2024]",
-			}],
-		features : [{
 			name : "Amorphous",
 			description : "The pudding can move through a space as narrow as 1 inch wide without squeezing."
 			}, {
 			name : "Spider Climb",
 			description : "The pudding can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check."
+			}, {
+			name : "Corrosive Form",
+			description : "The pudding can eat through ½ inch of wood in 1 round. A creature that touches the pudding cup or hits it with a melee attack while in 5 ft takes 1 (1d4-1) acid damage."
+			}],
+		features : [{
+			name : "Description",
+			description : "This sturdy ceramic cup holds a tiny black jelly-like substance. While in the cup, it has AC 9. [Trading Post v13.1 2024]",
+			}, {
+			name : "Resummon",
+			description : "The creature can be returned via Find Familiar if killed. If its cup was also destroyed, a new cup needs to be purchased (1gp).",
 			}],
 	},
 
@@ -792,45 +774,41 @@ CreatureList["celestial gold pseudodragon"] = {
 		companion : "familiar",
 		header : "Familiar",
 		alignment : "Lawful Good",
-		ac : 14,
-		hp : 10,
-		hd : [3, 4],
+		ac : 13,
+		hp : 7,
+		hd : [2, 4],
 		speed : "15 ft, fly 60 ft",
 		scores : [6, 15, 13, 10, 12, 10],
 		skills : {
-			"perception" : 5,
+			"perception" : 3,
 			"stealth" : 4
 		},
-		senses : "Blindsight 10 ft; Darkvision 60 ft",
-		passivePerception : 15,
+		senses : "Blindsight 10 ft; Darkvision 60 ft; Adv. on Wis (Perception) checks using hearing/sight/smell",
+		passivePerception : 13,
 		languages : "understands Common and Draconic but can't speak",
 		challengeRating : "1/4",
 		proficiencyBonus : 2,
-		attacksAction : 2,
+		attacksAction : 1,
 		attacks : [{
 			name : "Bite",
 			ability : 2,
 			damage : [1, 4, "piercing"],
 			range : "Melee (5 ft)",
-			description : "Two bites as an Attack action"
+			description : ""
 		}, {
 			name : "Sting",
 			ability : 2,
-			damage : [2, 4, "poison"],
+			damage : [1, 4, "piercing"],
 			range : "Melee (5 ft)",
-			dc : true,
-			description : "No effect on pass. Target also Poisoned. If fail by 5+, also Unconscious.",
+			description : "DC 11 Con save or poisoned 1 hour; fail by 5 or more: unconscious 1 hour, until damaged or awakened",
+			tooltip : "The target hit must succeed on a DC 11 Constitution saving throw or become poisoned for 1 hour. If the saving throw fails by 5 or more, the target falls unconscious for the same duration, or until it takes damage or another creature uses an action to shake it awake."
 		}],
-	actions : [{
-		name : "Multiattack",
-		description : "The pseudodragon makes two Bite attacks."
-	}, {
-		name : "Sting",
-		description : "DC 12 Con Saving Throw: one creature the pseudodragon can see within 5 feet. Failure: 2d4+2 Poison damage, and the target has the Poisoned condition for 1 hour. Failure by 5 or More: The Poisoned target also has the Unconscious Condition until it takes damage or another creature uses an action to shake it awake.",
-	}],
 		traits : [{
 			name : "Celestial Nature",
-			description : "This creature is Lawful Good and abandons the character if they ever willingly harm a celestial. Summoned as a Familiar from the Gift of Golden Wings Story Award."
+			description : "This creature is lawful good and abandons the character if they ever willingly harm a celestial. From the Gift of Golden Wings Story Award."
+		}, {
+			name : "Keen Senses",
+			description : "The pseudodragon has advantage on Wisdom (Perception) checks that rely on sight, hearing, or smell."
 		}, {
 			name : "Magic Resistance",
 			description : "The pseudodragon has advantage on saving throws against spells and other magical effects."
@@ -846,7 +824,7 @@ CreatureList["the crazy squirrel"] = {
 		source : [["AL","CCC"]],
 		defaultExcluded : true,
 		size : 5, //Tiny
-		type : "Fey",
+		type : "Beast",
 		subtype : "",
 		companion : "familiar",
 		header : "Familiar",
@@ -888,7 +866,7 @@ CreatureList["the crazy squirrel"] = {
 //Special cert from the House of Lament premier. Only usable in Mist Hunters adventures.
 CreatureList["gremishka (adjusted)"] = {
 		name : "Penumbra the Gremishka",
-		nameAlt : ["Gremishka (Adjusted)", "Gremishka (AL)"],
+		nameAlt : ["Gremishka (Adjusted)", "Gremishka (AL)", "AL Gremishka"],
 		source : [["AL:R","HoL"]],
 		size : 5, //Tiny
 		type : "Monstrosity",
@@ -944,16 +922,17 @@ CreatureList["imp courier"] = {
 		header : "Familiar",
 		alignment : "Lawful Evil",
 		ac : 13,
-		hp : 21,
-		hd : [6, 4],
+		hp : 10,
+		hd : [3, 4],
 		speed : "20 ft, fly 40 ft",
 		scores : [6, 17, 13, 11, 12, 14],
 		skills : {
 			"deception" : 4,
 			"insight" : 3,
+			"persuasion" : 4,
 			"stealth" : 5
 		},
-		damage_resistances : "cold",
+		damage_resistances : "cold; bludgeoning, piercing, and slashing from nonmagical attacks that aren't silver weapons",
 		damage_immunities : "fire, poison",
 		condition_immunities : "poisoned",
 		senses : "Darkvision 120 ft; Devil's Sight (Magical darkness doesn't impede the imp's Darkvision)",
@@ -965,9 +944,9 @@ CreatureList["imp courier"] = {
 		attacks : [{
 			name : "Sting (Bite in Beast Form)",
 			ability : 2,
-			damage : [1, 6, "piercing"],
+			damage : [1, 4, "piercing"],
 			range : "Melee (5 ft)",
-			description : "Target also takes 7 (2d6 poison damage"
+			description : "Target also takes 3d6 poison damage, half on a DC 11 Constitution saving throw"
 		}],
 		traits : [{
 			name : "Description",
@@ -977,14 +956,11 @@ CreatureList["imp courier"] = {
 			description : "Possesses a personal pocket dimension capable of holding up to 10 lbs of items. Only the courier can open the pocket dimension to retrieve and store items."
 		}, {
 			name : "Magic Resistance",
-			description : "The imp has Advantage on saving throws against spells and other magical effects."
+			description : "The imp has advantage on saving throws against spells and other magical effects."
 		}],
 		actions : [{
 			name : "Invisibility",
-			description : "The imp casts Invisibility on itself, requiring no spell components and using Charisma as the spellcasting ability."
-				}, {
-			name : "Shape-Shift",
-			description : "The imp shape-shifts to resemble a rat (Speed 20 ft), a raven (20 ft, Fly 60 ft), or a spider (20 ft, Climb 20 ft), or it returns to its true form. Its statistics are the same in each form, except for its Speed changes noted. Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies."	
+			description : "As an action, the imp magically turns invisible until it attacks, or until its concentration ends (as if concentrating on a spell). Any equipment the imp wears or carries is invisible with it."
 		}]
 }
 
@@ -998,16 +974,17 @@ CreatureList["imp toady"] = {
 		header : "Familiar",
 		alignment : "Lawful Evil",
 		ac : 13,
-		hp : 21,
-		hd : [6, 4],
+		hp : 10,
+		hd : [3, 4],
 		speed : "20 ft, fly 40 ft",
 		scores : [6, 17, 13, 11, 12, 14],
 		skills : {
 			"deception" : 4,
 			"insight" : 3,
+			"persuasion" : 4,
 			"stealth" : 5
 		},
-		damage_resistances : "cold",
+		damage_resistances : "cold; bludgeoning, piercing, and slashing from nonmagical attacks that aren't silver weapons",
 		damage_immunities : "fire, poison",
 		condition_immunities : "poisoned",
 		senses : "Darkvision 120 ft; Devil's Sight (Magical darkness doesn't impede the imp's Darkvision)",
@@ -1019,24 +996,21 @@ CreatureList["imp toady"] = {
 		attacks : [{
 			name : "Sting (Bite in Beast Form)",
 			ability : 2,
-			damage : [1, 6, "piercing"],
+			damage : [1, 4, "piercing"],
 			range : "Melee (5 ft)",
-			description : "Target also takes 7 (2d6 poison damage"
+			description : "Target also takes 3d6 poison damage, half on a DC 11 Constitution saving throw"
 		}],
 		traits : [{
 			name : "Description",
 			description : "Formerly a barbed devil in service to Bel during his term in office, this imp is great at licking boots."
 		}, {
 			name : "Magic Resistance",
-			description : "The imp has Advantage on saving throws against spells and other magical effects."
+			description : "The imp has advantage on saving throws against spells and other magical effects."
 		}],
 		actions : [{
 			name : "Invisibility",
-			description : "The imp casts Invisibility on itself, requiring no spell components and using Charisma as the spellcasting ability."
-				}, {
-			name : "Shape-Shift",
-			description : "The imp shape-shifts to resemble a rat (Speed 20 ft), a raven (20 ft, Fly 60 ft), or a spider (20 ft, Climb 20 ft), or it returns to its true form. Its statistics are the same in each form, except for its Speed changes noted. Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies."	
-				}, {
+			description : "As an action, the imp magically turns invisible until it attacks, or until its concentration ends (as if concentrating on a spell). Any equipment the imp wears or carries is invisible with it."
+		}, {
 			name : "Hype",
 			description : "The imp toady can inspire its master through stirring words and chanting, so long as it is within 30 feet. Its master is granted a d6 which it can roll and add to the result of a single ability check, attack roll, or saving throw. Once used, the imp toady can't grant this to its master again until its master has completed a long rest. This feature can't be used in conjunction with Bardic Inspiration. If both are used, add the higher of the two numbers to the roll."
 		}],
@@ -1050,48 +1024,44 @@ CreatureList["infernal pseudodragon"] = {
 		companion : "familiar",
 		header : "Familiar",
 		alignment : "Lawful Evil",
-		ac : 14,
-		hp : 10,
-		hd : [3, 4],
+		ac : 13,
+		hp : 7,
+		hd : [2, 4],
 		speed : "15 ft, fly 60 ft",
 		scores : [6, 15, 13, 10, 12, 10],
 		skills : {
-			"perception" : 5,
+			"perception" : 3,
 			"stealth" : 4
 		},
-		senses : "Blindsight 10 ft; Darkvision 60 ft",
-		passivePerception : 15,
+		senses : "Blindsight 10 ft; Darkvision 60 ft; Adv. on Wis (Perception) checks using hearing/sight/smell",
+		passivePerception : 13,
 		languages : "understands Common, Infernal, and Draconic but can't speak",
 		challengeRating : "1/4",
 		proficiencyBonus : 2,
-		attacksAction : 2,
+		attacksAction : 1,
 		attacks : [{
 			name : "Bite",
 			ability : 2,
 			damage : [1, 4, "piercing"],
 			range : "Melee (5 ft)",
-			description : "Two bites as an Attack action"
+			description : ""
 		}, {
 			name : "Sting",
 			ability : 2,
-			damage : [2, 4, "poison"],
+			damage : [1, 4, "piercing"],
 			range : "Melee (5 ft)",
-			dc : true,
-			description : "No effect on pass. Target also Poisoned. If fail by 5+, also Unconscious.",
+			description : "DC 11 Con save or poisoned 1 hour; fail by 5 or more: unconscious 1 hour, until damaged or awakened",
+			tooltip : "The target hit must succeed on a DC 11 Constitution saving throw or become poisoned for 1 hour. If the saving throw fails by 5 or more, the target falls unconscious for the same duration, or until it takes damage or another creature uses an action to shake it awake."
 		}],
-	actions : [{
-		name : "Multiattack",
-		description : "The pseudodragon makes two Bite attacks."
-	}, {
-		name : "Sting",
-		description : "DC 12 Con Saving Throw: one creature the pseudodragon can see within 5 feet. Failure: 2d4+2 Poison damage, and the target has the Poisoned condition for 1 hour. Failure by 5 or More: The Poisoned target also has the Unconscious Condition until it takes damage or another creature uses an action to shake it awake.",
-	}],
 		traits : [{
 			name : "Infernal Nature",
-			description : "An experiment gone wrong somewhere deep inside Arkhan's Tower, this creature resembles a tiny abishai (color chosen when summoned) and is lawful evil rather than neutral good."
+			description : "An experiment gone wrong somewhere deep inside Arkhan’s Tower, this creature resembles a tiny abishai (color chosen when summoned) and is lawful evil rather than neutral good."
+		}, {
+			name : "Keen Senses",
+			description : "The pseudodragon has advantage on Wisdom (Perception) checks that rely on sight, hearing, or smell."
 		}, {
 			name : "Magic Resistance",
-			description : "The pseudodragon has Advantage on saving throws against spells and other magical effects."
+			description : "The pseudodragon has advantage on saving throws against spells and other magical effects."
 		}, {
 			name : "Limited Telepathy",
 			description : "The pseudodragon can magically communicate simple ideas, emotions, and images telepathically with any creature within 100 ft of it that can understand a language."
@@ -1167,7 +1137,7 @@ CreatureList["hellwasp"] = {
 		}],
 		traits : [{
 			name : "Magic Weapons",
-			description : "The hellwasp's weapon attacks are magical."
+			description : "The hellwasp’s weapon attacks are magical."
 		}, {
 			name : "Multiattack",
 			description : "The hellwasp makes two attacks: one with its sting and one with its sword talons."
@@ -1175,7 +1145,7 @@ CreatureList["hellwasp"] = {
 }
 
 //Wandering Monster/Liar's Night rewards from past AL seasons
-CreatureList["candy corn calico cat"] = { //based on Cat statblock
+CreatureList["candy corn calico cat"] = {
 		name : "Candy Corn Calico Cat",
 		source : [["AL:LN",2020]],
 		size : 5, //Tiny
@@ -1185,40 +1155,40 @@ CreatureList["candy corn calico cat"] = { //based on Cat statblock
 		ac : 12,
 		hp : 2,
 		hd : [1, 4],
-		speed : "40 ft, climb 40 ft",
+		speed : "40 ft, climb 30 ft",
 		scores : [3, 15, 10, 3, 12, 7],
 		skills : {
 			"perception" : 3,
 			"stealth" : 4
 		},
-		senses : "Darkvision 60 ft",
+		senses : "Adv. on Wis (Perception) checks using smell",
 		passivePerception : 13,
 		challengeRating : "0",
 		proficiencyBonus : 2,
 		attacksAction : 1,
 		attacks : [{
-			name : "Scratch",
+			name : "Claws",
 			ability : 2,
 			damage : [1, "", "slashing"],
 			range : "Melee (5 ft)",
 			description : "",
-			modifiers : ["Str", "", false]
+			modifiers : ["Str", ""],
+			abilitytodamage : false
 		}],
 		traits : [{
+			name : "Keen Smell",
+			description : "The cat has advantage on Wisdom (Perception) checks that rely on smell."
+		}, {
 			name : "Candy Corn Nature",
 			description : "This construct is made entirely of partially chewed candy corns. They use cat stats (construct) and can be a familiar or animal companion."
-		}],
-		features : [{
-			name : "Jumper",
-			description : "The cub's jump distance is determined using its Dexterity rather than its Strength.",
-		}],
+		}]
 	}
 	
 CreatureList["foxwere"] = {
 		name : "Foxwere",
 		source : [["AL:FM",2020]],
 		size : 3, //Medium
-		type : "Lycanthrope",
+		type : "Beast",
 		companion : "familiar",
 		alignment : "Unaligned",
 		ac : 10,
@@ -1231,7 +1201,6 @@ CreatureList["foxwere"] = {
 			"stealth" : 4
 		},
 		passivePerception : 12,
-		senses : "",
 		challengeRating : "1/4",
 		proficiencyBonus : 2,
 		attacksAction : 1,
@@ -1291,7 +1260,7 @@ removeeval : function(prefix) {
 			ability : 2,
 			damage : [1, 8, "piercing"],
 			range : "Melee (5 ft)",
-			description : "For your own safety, Fritter's poison glands have been removed."
+			description : "For your own safety, Fritter’s poison glands have been removed."
 		}, {
 			name : "Web (Recharge 5-6)",
 			ability : 2,
@@ -1359,10 +1328,10 @@ removeeval : function(prefix) {
 		}],
 		traits : [{
 			name : "Description",
-			description : "This mount is all bloodstained bone speckled with sundried bits of flesh. The Kernel can neither confirm nor deny this horse is linked to the recent graverobbery of Lord Hultmark's beloved warhorse Marzipan. If killed, she can be summoned via find steed, find greater steed, or animate dead."
+			description : "This mount is all bloodstained bone speckled with sundried bits of flesh. The Kernel can neither confirm nor deny this horse is linked to the recent graverobbery of Lord Hultmark’s beloved warhorse Marzipan. If killed, she can be summoned via find steed, find greater steed, or animate dead."
 		}, {
 			name : "Trampling Charge",
-			description : "If the horse moves at least 20 ft straight toward a creature and then hits it with a hooves attack on the same turn, that target takes an extra 5 (2d4) Bludgeoning damage. If Huge or smaller, it's also knocked Prone."
+			description : "If the horse moves at least 20 ft straight toward a creature and then hits it with a hooves attack on the same turn, that target must succeed on a DC 14 Strength saving throw or be knocked prone. If the target is prone, the horse can make another attack with its hooves against it as a bonus action."
 		}]
 	}
 	
@@ -1379,7 +1348,6 @@ CreatureList["peppermint pangolin"] = {
 		speed : "40 ft",
 		scores : [18, 12, 13, 2, 12, 7],
 		passivePerception : 11,
-		senses : "",
 		challengeRating : "1/2",
 		proficiencyBonus : 2,
 		attacksAction : 1,
@@ -1607,7 +1575,7 @@ CreatureList["dragonnel"] = {
 	name : "Dragonnel",
 	source : [["FToD", 190]],
 	size : 2, //Large
-	type : "Dragon",
+	type : "Beast",
 	companion : ["mount", "steed"],
 	alignment : "Neutral",
 	ac : 13,
@@ -1641,499 +1609,4 @@ CreatureList["dragonnel"] = {
 	}]
 }
 
-
-//Adding the CR 6 or less dinosaur beast options from Beasts of Jungle Rot for wildshape
-CreatureList["archelon"] = {
-	name : "Archelon",
-	source : [["BoJR", 3]],
-	size : 2, //Large
-	type : "Beast",
-	alignment : "Unaligned",
-	ac : 14,
-	hp : 26,
-	hd : [4, 8],
-	speed : "10 ft, swim 40 ft",
-	scores : [16, 13, 14, 2, 12, 5],
-	skills : {
-		"perception" : 3
-	},
-	passivePerception : 13,
-	senses : "",
-	challengeRating : "1",
-	proficiencyBonus : 2,
-	attacksAction : 1,
-	attacks : [{
-		name : "Bite",
-		ability : 1,
-		damage : [2, 8, "piercing"],
-		range : "Melee (5 ft)",
-		description : ""
-	}],
-	traits : [{
-		name : "Hold Breath",
-		description : "The archelon can hold its breath for 6 hours."
-	}],
-}
-
-CreatureList["brachiosaurus"] = {
-	name : "Brachiosaurus",
-	source : [["BoJR", 3]],
-	size : 0, //Gargantuan
-	type : "Beast",
-	alignment : "Unaligned",
-	ac : 16,
-	hp : 145,
-	hd : [10, 20],
-	speed : "30 ft",
-	scores : [24, 8, 19, 2, 10, 7],
-	saves : ["", "", 7, "", "", ""],
-	passivePerception : 10,
-	senses : "",
-	challengeRating : "6",
-	proficiencyBonus : 3,
-	attacksAction : 1,
-	attacks : [{
-		name : "Stomp",
-		ability : 1,
-		damage : [5, 10, "bludgeoning"], //[#, die, type] "" for die is allowed
-		range : "Melee (20 ft)",
-		description : "Target must succeed on a DC 15 Strength saving throw or be knocked Prone"
-	}, {
-		name : "Tail",
-		ability : 1,
-		damage : [6, 10, "bludgeoning"], //[#, die, type] "" for die is allowed
-		range : "Melee (20 ft)",
-		description : ""
-	}]
-}
-
-CreatureList["dilophosaurus"] = {
-	name : "Dilophosaurus",
-	source : [["BoJR", 3]],
-	size : 3, //Medium
-	type : "Beast",
-	alignment : "Unaligned",
-	ac : 13,
-	hp : 26,
-	hd : [4, 8],
-	speed : "30 ft",
-	scores : [13, 15, 14, 2, 12, 5],
-	skills : {
-		"perception" : 3
-	},
-	passivePerception : 13,
-	senses : "",
-	challengeRating : "1",
-	proficiencyBonus : 2,
-	attacksAction : 1,
-	attacks : [{
-		name : "Bite",
-		ability : 2,
-		damage : [1, 8, "piercing"], 
-		range : "Melee (5 ft)",
-	}, {
-		name : "Venomous Spit",
-		ability : 2,
-		damage : ["Special", "", ""], //[#, die, type] "" for die is allowed
-		range : "10/20 ft",
-		description : "Unless immune to Poisoned, Con save or Blinded for 1 min. See actions.",
-		dc : true,
-		abilitytodamage : false
-	}],
-	actions : [{
-		name : "Venomous Spit",
-		description : "A Blinded creature repeats the save at the end of its next turn, becoming Paralyzed on a failure or ending the condition on a pass. A Blinded and Paralyzed creature continues to repeat save, ending both conditions on a success."
-	}],
-}
-
-CreatureList["nemicolopterus"] = {
-	name : "Nemicolopterus",
-	source : [["BoJR", 5]],
-	size : 5, //Tiny
-	type : "Beast",
-	alignment : "Unaligned",
-	ac : 12,
-	hp : 1,
-	hd : [1, 4],
-	speed : "5 ft, fly 50 ft",
-	scores : [2, 14, 8, 2, 13, 7],
-	skills : {
-		"perception" : 3,
-		"stealth" : 4
-	},
-	passivePerception : 13,
-	senses : "",
-	challengeRating : "0",
-	proficiencyBonus : 2,
-	attacksAction : 1,
-	attacks : [{
-		name : "Bite",
-		ability : 1,
-		damage : [1, "", "piercing"], //[#, die, type] "" for die is allowed
-		range : "Melee (5 ft)",
-		description : "",
-		abilitytodamage : false
-	}],
-	traits : [{
-		name : "Jungle Camouflage",
-		description : "The nemicolopterus has advantage on Dexterity (Stealth) checks made to hide in jungle and forest terrain."
-	}],
-}
-
-CreatureList["pachycephalosaurus"] = {
-	name : "Pachycephalosaurus",
-	source : [["BoJR", 6]],
-	size : 2, //Large
-	type : "Beast",
-	alignment : "Unaligned",
-	ac : 13,
-	hp : 68,
-	hd : [8, 10],
-	speed : "40 ft",
-	scores : [18, 14, 16, 2, 10, 3],
-	passivePerception : 10,
-	senses : "",
-	challengeRating : "2",
-	proficiencyBonus : 2,
-	attacksAction : 1,
-	attacks : [{
-		name : "Ram",
-		ability : 1,
-		damage : [1, 8, "bludgeoning"],
-		range : "Melee (5 ft)",
-		description : "See Charge trait.",
-	}],
-	traits : [{
-		name : "Charge",
-		description : "If moves at least 20 ft straight toward target before hit, deals an extra 5 (2d4) Bludgeoning damage. Creatures must also make DC 14 Str save or fall Prone."
-	}],
-}
-
-CreatureList["therizinosaurus"] = {
-	name : "Therizinosaurus",
-	source : [["BoJR", 7]],
-	size : 1, //Huge
-	type : "Beast",
-	alignment : "Unaligned",
-	ac : 14,
-	hp : 104,
-	hd : [11, 12],
-	speed : "30 ft",
-	scores : [19, 10, 17, 2, 11, 7],
-	passivePerception : 10,
-	senses : "",
-	challengeRating : "5",
-	proficiencyBonus : 3,
-	attacksAction : 1,
-	attacks : [{
-		name : "Claw",
-		ability : 1,
-		damage : [3, 8, "slashing"],
-		range : "Melee (5 ft)",
-		description : "",
-	}],
-	traits : [{
-		name : "Multiattack",
-		description : "The therizinosaurus makes two claw attacks."
-	}],
-}
-
-CreatureList["troodon"] = {
-	name : "Troodon",
-	source : [["BoJR", 8]],
-	size : 4, //Small
-	type : "Beast",
-	alignment : "Unaligned",
-	ac : 13,
-	hp : 22,
-	hd : [4, 6],
-	speed : "30 ft",
-	scores : [12, 15, 14, 4, 14, 10],
-	skills : {
-		"perception" : 4,
-		"stealth" : 4
-	},
-	passivePerception : 14,
-	senses : "",
-	challengeRating : "1",
-	proficiencyBonus : 2,
-	attacksAction : 1,
-	attacks : [{
-		name : "Bite",
-		ability : 2,
-		damage : [1, 10, "piercing"],
-		range : "Melee (5 ft)",
-		description : "Crits on a roll of 19 or 20",
-	}],
-	traits : [{
-		name : "Pack Tactics",
-		description : "The troodon has advantage on attacks against a creature if at least one ally is within 5 feet of the creature and not Incapacitated."
-	}],
-}
-
-CreatureList["zealoraptor"] = {
-	name : "Zealoraptor",
-	source : [["BoJR", 9]],
-	size : 2, //Large
-	type : "Beast",
-	alignment : "Unaligned",
-	ac : 15,
-	hp : 52,
-	hd : [7, 10],
-	speed : "50 ft",
-	scores : [16, 18, 15, 3, 12, 10],
-	skills : {
-		"perception" : 3,
-		"stealth" : 6
-	},
-	passivePerception : 13,
-	senses : "",
-	challengeRating : "2",
-	proficiencyBonus : 2,
-	attacksAction : 1,
-	attacks : [{
-		name : "Bite",
-		ability : 2,
-		damage : [1, 10, "piercing"],
-		range : "Melee (5 ft)",
-		description : "Makes 1 bite and 1 claw attack",
-			}, {
-		name : "Claw",
-		ability : 2,
-		damage : [1, 10, "slashing"],
-		range : "Melee (5 ft)",
-		description : "Makes 1 bite and 1 claw attack",
-	}],
-	traits : [{
-		name : "Pack Tactics",
-		description : "Advantage on attacks against a creature if at least one ally is within 5 feet of the creature and not Incapacitated.",
-		}, {
-		name : "Pounce",
-		description : "If moves at least 20 ft toward creature before hitting with claw attack, target makes DC 13 Str save or falls Prone. If Prone, zealoraptor can make Bite attack as bonus action.",
-	}],
-}
-
-//Also coding the highest CR beasts as companions for polymorph
-CreatureList["titanosaurus"] = {
-	name : "Titanosaurus",
-	source : [["BoJR", 8]],
-	size : 0, //Gargantuan
-	type : "Beast",
-	alignment : "Unaligned",
-	ac : 17,
-	hp : 201,
-	hd : [13, 20],
-	speed : "30 ft",
-	scores : [30, 7, 20, 2, 10, 7],
-	saves : ["", "", 8, "", "", ""],
-	passivePerception : 10,
-	senses : "",
-	challengeRating : "7",
-	proficiencyBonus : 3,
-	attacksAction : 1,
-	attacks : [{
-		name : "Stomp",
-		ability : 1,
-		damage : [6, 10, "bludgeoning"], 
-		range : "Melee (20 ft)",
-		description : "Target must succeed on a DC 16 Strength saving throw or be knocked Prone"
-	}, {
-		name : "Tail",
-		ability : 1,
-		damage : [7, 10, "bludgeoning"], 
-		range : "Melee (20 ft)",
-		description : ""
-	}],
-	actions : [{
-		name : "Legendary Actions",
-		description : "The titanosaurus can take 3 legendary actions, choosing from the options below. Only one option can be used at a time and only at the end of another creature's turn. The titanosaurus regains all legendary actions at the start of its turn."
-		}, {
-		name : "Momentum:",
-		description : "The titanosaurus moves half its speed without provoking opportunity attacks.\n\u25C6 Tough Defense (2 Actions): The titanosaurus is resistant to one of hte following damage types until the start of its next turn: Bludgeoning, Piercing, or Slashing.\n\u25C6 Tail Thunder (3 Actions): The titanosaurus makes a tail attack with disadvantage against each creature in a 20-foot cone."
-		}],
-}
-
-CreatureList["giganotosaurus"] = {
-	name : "Giganotosaurus",
-	source : [["BoJR", 4]],
-	size : 0, //Gargantuan
-	type : "Beast",
-	alignment : "Unaligned",
-	ac : 14,
-	hp : 217,
-	hd : [14, 20],
-	speed : "60 ft",
-	scores : [26, 8, 21, 2, 12, 10],
-	skills : {
-		"perception" : 5
-	},
-	passivePerception : 15,
-	senses : "",
-	challengeRating : "10",
-	proficiencyBonus : 4,
-	attacksAction : 1,
-	attacks : [{
-		name : "Bite",
-		ability : 1,
-		damage : [4, 12, "piercing"], 
-		range : "Melee (15 ft)",
-		description : "Large or smaller creature Grappled & Restrained (DC 18). Can't bite another target."
-	}, {
-		name : "Tail",
-		ability : 1,
-		damage : [4, 8, "bludgeoning"], 
-		range : "Melee (20 ft)",
-		description : ""
-	}],
-	actions : [{
-		name : "Multiattack",
-		description : "The giganotosaurus makes one bite and one tail attack. It can use Swallow instead of the bite.",
-	}, {
-		name : "Swallow",
-		description : "The giganotosaurus makes one bite attack against a Large or smaller creature it's grappling. If it hits, the target takes the bite's damage, is swallowed, and the grapple ends.\nWhile swallowed, the creature is Blinded and Restrained, has total cover against effects outside the dinosaur, and takes 21 (6d6) Acid at the start of the giganotosaurus' turns.\nIf the giganotosaurus takes 30+ damage in a turn from a swallowed creature, it must pass a DC 15 Con save at the end of that turn or regurgitate all swallowed creatures, which appear Prone within 10 feet. If the giganotosaurus dies, a swallowed creature is no longer Restrained and can escape with 30 ft of movement, exiting Prone.",
-	}],
-	features : [{
-		name : "Legendary Actions",
-		description : "The giganotosaurus can take 3 legendary actions, choosing from the options below. Only one option can be used at a time and only at the end of another creature's turn. It regains all legendary actions at the start of its turn."
-		}, {
-		name : "Momentum",
-		description : "The giganotosaurus moves half its speed without provoking opportunity attacks.\n\u25C6 Tail Sweep (2 Actions): The giganotosaurus sweeps its tail in a 20-ft cone. Each creature in the cone must pass a DC 17 Strength save or be knocked Prone.\n\u25C6 Roar (3 Actions): Creatures within 20 ft of the giganotosaurus that can hear it must pass a DC 17 Wisdom save or be Frightened of it until the end of its next turn."
-		}],
-}
-
-//Special Creature Options from the DDAL Service rewards
-CreatureList["giant fennec fox"] = {
-    name: "Giant Fennec Fox",
-    regExpSearch: /giant fennec fox/i,
-    source: [["AL:SR", 2026.1]],
-    size: 3,
-    type: "Beast",
-    alignment: "Unaligned",
-    ac: 12,
-    hp: 11,
-    hd: [2, 8],
-    speed: "40 ft",
-    scores: [14, 15, 12, 3, 12, 6],
-    saves: ["", "", "", "", "", ""],
-    skills: {
-        "perception": 5,
-        "stealth": 4,
-    },
-    senses: "Darkvision 60 ft",
-    languages: "",
-    challengeRating: "1/4",
-    proficiencyBonus: 2,
-    attacksAction: 1,
-    attacks: [{
-        name: "Bite",
-        ability: 1,
-        damage: [1, 6, "Piercing"],
-        range: "Melee (5 ft)",
-        description: "If the target is Medium or smaller, it has the Prone condition.",
-    }],
-    features: [{
-        name: "Pack Tactics",
-        description: "The fox has Advantage on attack rolls against a creature if at least one of the fox's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition."			
-		}, {
-		name : "Find Water",
-		description : "This desert fox is adept at staving off the hazard of dehydration. Once per dawn, it can gain Advantage on ability checks to find water within 30 ft. On a success, the fox finds 1d12 gallons of clean, fresh water.",
-	}],
-		traits : [{
-		name : "Fox Companion",
-		description : "This creature uses the Wolf stat block and may be your familiar, mount, companion, or other Friend (ALPG)."
-	}],
-};
-
-CreatureList["miniature mammoth"] = {
-    name: "Miniature Mammoth",
-    regExpSearch: /miniature mammoth/i,
-    source: [["AL:SR", 2026.1]],
-    size: 2,
-    type: "Beast",
-    alignment: "Unaligned",
-    ac: 10,
-    hp: 11,
-    hd: [2, 10],
-    speed: "50 ft",
-    scores: [16, 10, 11, 2, 10, 6],
-    saves: ["", "", "", "", "", ""],
-    skills: {
-        "perception": 2,
-    },
-    senses: "Darkvision 60 ft",
-    languages: "",
-    challengeRating: "1/4",
-    proficiencyBonus: 2,
-    attacksAction: 1,
-    attacks: [{
-        name: "Ram",
-        ability: 1,
-        damage: [1, 6, "Bludgeoning"],
-        range: "Melee (5 ft)",
-        description: "If moved 20 ft straight toward target before hit, +3 (1d6) Bludgeoning. If Huge or smaller, target falls Prone.",
-    }],
-    features: [{
-		name : "Long Fur",
-		description : "Their long fur obscures my tracks, but being in the back can be scary. When the mammoth is behind me, creatures have Disadvantage on Search Check for tracking me. On each of the trackers' Search rolls, I must succeed on a DC 13 Wisdom (Animal Handling) Check or the mammoth is too scared to remain behind me. This passes in 1 hour.",
-	}],
-		traits : [{
-		name : "Mammoth Companion",
-		description : "This Unique creature uses the Elk stat block and may be your familiar, mount, companion, or other Friend (ALPG)."
-	}],
-};
-
-CreatureList["glitter mephit"] = {
-		name : "Glitter Mephit",
-		source : [["AL:SR", 2026.1]],
-		size : 4, //Small
-		type : "Elemental",
-		alignment : "Neutral Evil",
-		ac : 11,
-		hp : 21,
-		hd : [6, 6],
-		speed : "30 ft, fly 30 ft",
-		scores : [7, 13, 10, 9, 11, 12],
-		skills : {
-			"perception" : 2,
-			"stealth" : 3
-		},
-		senses : "Darkvision 60 ft",
-		passivePerception : 12,
-		languages : "Primordial",
-		challengeRating : "1/2",
-		proficiencyBonus : 2,
-		attacksAction : 1,
-		damage_vulnerabilities : "fire",
-		damage_immunities : "cold, poison",
-		condition_immunities : "exhaustion, poisoned",
-		attacks : [{
-			name : "Claws",
-			ability : 5,
-			damage : [2, 4, "slashing"],
-			range : "Melee (5 ft)",
-			description : ""
-		}, {
-			name : "Glitter Breath (Recharge 6)",
-			ability : 3,
-			damage : [4, 10, "Slashing"],
-			range : "15-ft cone",
-			description : "Target also Blinded to next turn end; Save for half dmg, no Blinded.",
-			dc : true,
-			abilitytodamage : false,
-			tooltip : "The glitter mephit exhales a 15-ft cone. Each creature in that area must succeed on a DC 10 Constitution saving throw or take 7(3d4) Slashing damage and Blinded 1 turn. Half damage on a success."
-		}],
-		features : [{
-			name : "Fog Cloud (1/Day)",
-			description : "The mephit casts Fog Cloud, requiring no spell components and using Charisma as the spellcasting ability."
-		}, {
-			name : "Glitter Breath (Recharge 6)",
-			description : "The glitter mephit exhales a 15-ft cone. Each creature in that area must succeed on a DC 10 Constitution saving throw or take 7(3d4) Slashing damage and have the Blinded condition until the end of their next turn. Half damage only on a success."
-		}],
-		traits : [{
-			name : "Death Burst",
-			description : "The mephit explodes when it dies. Constitution Saving Throw: DC 10, each creature in a 5-foot Emanation originating from the mephit. Failure: 5 (2d4) Slashing damage. Success: Half damage."
-		}, {
-			name : "Glitter Companion",
-			description : "This Unique creature uses the Ice Mephit stat block with Slashing instead of Cold damage. They may be your familiar, companion, or other Friend (ALPG)."
-		}]
-	}
+ 
