@@ -2307,7 +2307,7 @@ MagicItemsList["al shields"] = {
 		source : [["AL", "FR-DC"]],
 		rarity : "rare",
 		description : "This shield is made from over-dried black locust wood. When struck, it cracks noticeably but the cracks seal within seconds. While held, I get an extra +2 to AC.",
-		descriptionFull : "This shield is made from over-dried black locust wood. When it is struck, it cracks noticeably. However, the cracks seem to seal within seconds.\n   " + toUni("Sentinel") + ". The item crumbles, frays, chips, or cracks slightly when wielded, worn, or activated. This quirk has no effect on its properties.\n   While holding this Shield, you have a bonus to Armor Class determined by the Shield's rarity, in addition to the Shield's normal bonus to AC. The bonus is determined by the rarity of the Shield: Uncommon (+1), Rare (+2), or Very Rare (+3).",
+		descriptionFull : "This shield is made from over-dried black locust wood. When it is struck, it cracks noticeably. However, the cracks seem to seal within seconds.\n   " + toUni("Frail") + ". The item crumbles, frays, chips, or cracks slightly when wielded, worn, or activated. This quirk has no effect on its properties.\n   While holding this Shield, you have a bonus to Armor Class determined by the Shield's rarity, in addition to the Shield's normal bonus to AC. The bonus is determined by the rarity of the Shield: Uncommon (+1), Rare (+2), or Very Rare (+3).",
 		allowDuplicates : true,
 		shieldAdd : "+2 Shield",
 	},
@@ -2350,7 +2350,7 @@ MagicItemsList["al shields"] = {
 		languageProfs : ["Old Iskirthos"],
 	},
 	"+3 shield (fr-dc-f&addm-les3)" : {
-		name : "Shield +3 (F&DDAM-LES3)",
+		name : "Shield +3 (F&ADDM-LES3)",
 		rarity : "very rare",
 		source : [["AL", "FR-DC"]],
 		description : "A hieroglyphic black jackal is emblazoned on the front of this shield. While held, I gain a +3 bonus to my AC in addition to the normal shield bonus. It also warns me, giving +2 initiative unless Incapacitated.",

@@ -1,7 +1,16 @@
+After 10/14/26
+-Created a new version of the AL adjustments file for the 2024 sheet with MPMB's legacy code. This largely consisted of removing the previous adjustments that MPMB added to his legacy code.
+-It still includes the Bastion code and some of the additions that MPMB did not code, including an alternate version of the Winged Tiefling since MPMB did it differently.
+-I also made some tweaks to sources to better bring them in line with the 2024 code, though some may still appear in multiple places.
+-Added Brace to the old AL adjustments file since I apparently forgot about it.
+-Fixed a couple other typos
+
+
+
 After 08/16/26
 
 Version Notes:
--As far as I'm aware, every file I have except for the AL Adjustments file should work fine on the 2024 sheets. I changed the minsheet version code so it stops giving an error message on that sheet version. If you do encounter any issues, let me know as I haven't tested this beyond the install process.
+-As far as I'm aware, every file I have except for the AL Adjustments should work fine on the 2024 sheets. I changed the minsheet version code so it stops giving an error message on that sheet version. If you do encounter any issues, let me know as I haven't tested this beyond the install process.
 -Even the AL Adjustments file may work fine except for the added fighting style.
 -There are now two versions of the AL Weapons file. There's a bugfix that only works in v14 that changed how I coded items which give 2 different weapon options. You can continue to use AL_Magic_Weapons_v13 file if you're not switching sheets, but I likely won't be updating that one anymore.
 -I reorganized the folders so all of the file versions for older sheets are in a single folder. This 'Older Sheet Versions' folder also contains the AL_Magic_Weapons_v13 file.

@@ -15,7 +15,9 @@ RequiredSheetVersion("13.2.0", 15);
 -Adds all nonreprinted invocations (from PHB and other sources) to the sheet with updated prereqs
 -Adds the Optional Class Features from Tasha's that still function with the new classes and weren't replaced/already built into 2024
 -Adds the Superior Technique fighting style from Tasha's
--Adds the 2 nonreprinted Battlemaster maneuvers from Tasha's.
+-Adds the 3 nonreprinted Battlemaster maneuvers from Tasha's.
+-Includes charms and blessings from sources outside the DMG
+-Included non-reprinted 2014 DMG boons
 -Adds the SCAG racial options for tieflings and halflings 
 -Adds the SCAG totem options to Wild Heart barbarian
 -Adds the Season 9 Winged Aasimar option for new Aasimar
@@ -651,12 +653,19 @@ if (ClassSubList["fighter-battle master"]) {
 			addToExisting : true
 		}]
 	});
+	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3"], true, "Brace", {
+		name: "Brace",
+		source: [["T", 42]],
+		description: desc("As a Reaction when a creature I can see moves within my melee reach, I can expend 1 SD and make one weapon attack. If that attack hits, I add the Superiority Die to its damage."),
+		additional: "add SD to damage",
+		action: [["reaction", ""]],
+	});
 	AddFeatureChoice(ClassSubList["fighter-battle master"].features["subclassfeature3"], true, "Grappling Strike", {
 		name : "Grappling Strike",
 		source : [["T", 42]],
 		description : desc([
 			"Immediately after hitting with a melee attack, I can use a bonus action to try to grapple",
-			"I add the superiority die to the Str (Athletics) check; I can only do this on my own turn"
+			"I add the superiority die to the DC; I can only do this on my own turn"//Adding to the DC is my best guess with the rules change
 		]),
 		action : [["bonus action", " (after melee hit)"]]
 	});
@@ -2268,11 +2277,11 @@ var BastionWorkaround = {
 					name : "Training Area",
 					description : desc([
 						"Empower: 5 training options. Pick 1. All last 7 days (8 hrs/day/turn).",
-						"Battle Expert: When take damage from Unarmed Strike/weapon attack, Reaction to reduce by 1d4",
-						"Skills Expert: Gain proficiency in Acrobatics, Athletics, Performance, Sleight of Hand or Stealth",
-						"Tools Expert: Gain proficiency with 1 tool of my choice",
-						"Unarmed Combat Expert: My Unarmed Strikes deal +1d4 Bludgeoning damage",
-						"Weapon Expert: Gain proficiency in 1 Simple or Martial weapon. If already proficient, gain Weapon Mastery"
+						"-Battle Expert: When take damage from Unarmed Strike/weapon attack, Reaction to reduce by 1d4",
+						"-Skills Expert: Gain proficiency in Acrobatics, Athletics, Performance, Sleight of Hand or Stealth",
+						"-Tools Expert: Gain proficiency with 1 tool of my choice",
+						"-Unarmed Combat Expert: My Unarmed Strikes deal +1d4 Bludgeoning damage",
+						"-Weapon Expert: Gain proficiency in 1 Simple or Martial weapon. If already proficient, gain Weapon Mastery"
 					]),
 					source : [["D24", 348]],
 					submenu : "[Level 9+]",

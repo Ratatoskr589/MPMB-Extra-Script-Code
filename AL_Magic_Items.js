@@ -1812,7 +1812,7 @@ WandofWonderDescriptionTxt = { // a public variable
 };
 
 
-RunFunctionAtEnd(function () {   //this code should make it so the AL variations of items don't appear as an option for artificers to create
+RunFunctionAtEnd(function () {   //this code should make it so the AL variations of items don't appear as an option for artificers to create. Not sure it's actually working properly.
 
 //AL flavored items
 MagicItemsList["al accessories"] = {

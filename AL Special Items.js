@@ -2451,7 +2451,7 @@ MagicItemsList["al season 9 items"] = {
 		source : [["ALPGs9", 6]],
 		allowDuplicates : true,
 		defaultExcluded : true,
-		choices : ["Candle of the Deep (Wave)","Cloak of Many Fashions (Keleborn)","Clothes of Mending (Reginald)","Dread Helm (Ludwig)","Ear Horn of Hearing (Abbarrain)","Enduring Spellbook (Lucinda)","Horn of Silent Alarm (Tick Tick Boom)","Horn of Silent Alarm (Vynd)","Instrument of Illusions (Inferna)","Orb of Direction (Rouge)","Orb of Direction (Zapatra)","Orb of Time (Mari)","Pipe of Smoke Monsters (Red Harvest)","Pole of Angling (Dusk)","Pot of Awakening (Loraxa)","Rope of Mending (Fang)","Rope of Mending ('iimkania)","Staff of Adornment (Flash)","Staff of Flowers (Helga)","Tankard of Sobriety (Crow)","Tankard of Sobriety (Daar)","Wand of Conducting (Alex Mann)","Wand of Pyrotechnics (Boravik)","Wand of Smiles (Anipa)"],
+		choices : ["Candle of the Deep (Wave)","Cloak of Many Fashions (Keleborn)","Clothes of Mending (Reginald)","Dread Helm (Ludwig)","Ear Horn of Hearing (Abbarrain)","Enduring Spellbook (Lucinda)","Horn of Silent Alarm (Tick Tick Boom)","Horn of Silent Alarm (Vynd)","Instrument of Illusions (Inferna)","Orb of Direction (Rouge)","Orb of Direction (Zapatra)","Orb of Time (Mari)","Orb of Time (Ratatharil)","Pipe of Smoke Monsters (Red Harvest)","Pole of Angling (Dusk)","Pot of Awakening (Loraxa)","Rope of Mending (Fang)","Rope of Mending ('iimkania)","Staff of Adornment (Flash)","Staff of Flowers (Helga)","Tankard of Sobriety (Crow)","Tankard of Sobriety (Daar)","Wand of Conducting (Alex Mann)","Wand of Pyrotechnics (Boravik)","Wand of Smiles (Anipa)"],
 	"candle of the deep (wave)" : {
 		name : "Candle of the Deep (Wave)",
 		description : "The base of this candle is an expended soul coin. It burns even when immersed in water, giving off light and heat like a normal candle.",
@@ -2541,6 +2541,13 @@ MagicItemsList["al season 9 items"] = {
 		name : "Orb of Time (Mari)",
 		description : "This blood-red crystal orb can be used as an Arcane Focus. When held on the Material Plane, I can determine whether it's morning, afternoon, evening, or night as a Magic action.",
 		descriptionFull : "Blood-red crystals\n   This orb can be used as an Arcane Focus.\n   While holding the orb, you can take a Magic action to determine whether it is morning, afternoon, evening, or nighttime. This property functions only on the Material Plane.",
+		weight : 3,
+		action : [["action", "Orb of Time"]]
+		},
+	"orb of time (ratatharil)" : {
+		name : "Orb of Time (Ratatharil)",
+		description : "This orb has a base of geometric green steel and can be used as an Arcane Focus. When held on the Material Plane, I can determine whether it's morning, afternoon, evening, or night as a Magic action.",
+		descriptionFull : "Geometric pieces of green steel\n   This orb can be used as an Arcane Focus.\n   While holding the orb, you can take a Magic action to determine whether it is morning, afternoon, evening, or nighttime. This property functions only on the Material Plane.",
 		weight : 3,
 		action : [["action", "Orb of Time"]]
 		},
